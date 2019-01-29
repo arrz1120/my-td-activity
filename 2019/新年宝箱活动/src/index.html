@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+    <title>Doc</title>
+    {{> './tpls/head.html'}}
+  </head>
+
+  <body>
+
+    <div class="home">
+      <div class="logo"></div>
+      <div class="content">
+          <div class="sec1">
+            <div class="decoration"></div>
+            <p class="ad-txt">[广告]市场有风险，出借需谨慎</p>
+            <div class="home-tit"></div>
+          </div>
+          <div class="sec2">
+            <div class="machine">
+              <p class="time" id="time"></p>
+              <div class="game">
+                <div class="hand">
+                    <div class="hand-center"></div>
+                    <div class="hand-left"></div>
+                    <div class="hand-right"></div>
+                </div>
+                <div class="pai pai1"></div>
+              </div>
+              <div class="home-btn">开始游戏</div>
+              <p class="game-tips"><i></i>每位用户仅有1次抽奖机会</p>
+              <p class="bot-tips">本次活动和奖品与苹果公司无关</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="mask" id="maskRegister" style="display: -none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con mask-register">
+          <div class="register-tit">注册领福利</div>
+          <div class="register-con">
+            <div class="input-container">
+                <div class="input-box">
+                  <div class="input">
+                    <div class="input-icon icon-phone"></div>
+                    <input id="telInput" type="text" placeholder="请输入手机号码" maxlength="11">
+                  </div>
+                </div>
+                <div class="input-box input-flex">
+                  <div class="input">
+                    <div class="input-icon icon-code"></div>
+                    <input id="codeInput" type="text" placeholder="验证码" maxlength="6">
+                  </div>
+                  <div class="get-code">获取验证码</div>
+                </div>
+            </div>
+            <div class="mask-btn register-btn">注册领取</div>
+            <p class="register-tips">注册即表示您已同意<span id="contact">《团贷网服务协议》</span></p>
+          </div>
+      </div>
+      <div class="mask-close"></div>
+    </div>
+
+    <div class="mask" id="maskIsGetPrize" style="display: none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con mask-hasPrize">
+         <div class="header"></div>
+         <p>您已经领取过奖品啦<br />每位用户仅有1次抽奖机会</p>
+         <div class="mask-btn hasPrize-btn">查看奖品</div>
+      </div>
+      <div class="mask-close"></div>
+    </div>
+
+    <div class="mask" id="maskNoLogin" style="display: none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con mask-hasPrize">
+         <div class="header"></div>
+         <p>团贷网会员才能参加活动抽奖哦<br />赶紧去登录/注册吧</p>
+         <div class="btn-wrapper">
+            <div class="btn-left toLogin">马上登录</div>
+            <div class="btn-right toResigter">马上注册</div>
+         </div>
+      </div>
+      <div class="mask-close"></div>
+    </div>
+
+    <div class="mask" id="maskEnd" style="display: none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con mask-hasPrize mask-end">
+         <div class="header"></div>
+         <p class="end-p">活动已结束</p>
+         <div class="btn-wrapper txt-wrapper">
+            <p>本次活动已结束<br />让我们期待下次更精彩吧</p>
+         </div>
+      </div>
+      <div class="mask-close"></div>
+    </div>
+
+    <div class="mask" id="maskNotStart" style="display: none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con mask-hasPrize mask-end">
+         <div class="header"></div>
+         <p class="end-p">活动未开始！</p>
+         <div class="btn-wrapper txt-wrapper">
+            <p>亲，您来早了<br />活动尚未开始，敬请期待</p>
+         </div>
+      </div>
+      <div class="mask-close"></div>
+    </div>
+
+    <!-- webpack js -->
+    {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script> {{/each}}
+    <!-- webpack js end-->
+  </body>
+
+</html>

@@ -1,0 +1,255 @@
+.result-container{
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: url('../images/home-bg.jpg') center top no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.logo{
+    @include bg('../images/logo.png');
+    @include wh(170,81);
+    position: absolute;
+    top: 0;
+    left: rem(17);
+}
+
+.ad-txt{
+    color: #fff;
+    font-size: rem(20);
+    text-align: right;
+    padding: rem(20);
+}
+
+.res-decoration{
+    @include bg('../images/res-decoration.png');
+    @include wh(458,228);
+    position: absolute;
+    left: rem(150);
+    top: rem(105);
+    z-index: 3;
+}
+
+.res-bg1{
+    @include wh(682,945);
+    @include bg('../images/result-bg1.png');
+    margin: rem(140) auto 0;
+    position: relative;
+    padding-top: rem(80);
+    .advantage{
+        margin-top: rem(90);
+    }
+    .advantage-flex{
+        margin-top: rem(54);
+    }
+}
+
+.res-bg2{
+    @include wh(682,1195);
+    @include bg('../images/res-bg2.png');
+    margin: rem(140) auto 0;
+    position: relative;
+    padding-top: rem(80);
+    .advantage{
+        margin-top: rem(80);
+    }
+    .advantage-flex{
+        margin-top: rem(34);
+    }
+    .mt60{
+        margin-top: rem(60);
+    }
+}
+
+.advantage-tit{
+    @include wh(241,60);
+    @include bg('../images/advantage-tit.png');
+    text-align: center;
+    color: #a11b0d;
+    font-size: rem(24);
+    font-weight: bold;
+    padding-top: rem(15);
+    margin: 0 auto;
+}   
+.advantage-flex{
+    display: flex;
+    .item{
+        flex: 1;
+        p{
+            text-align: center;
+            color: #463f46;
+            font-size: rem(24);
+            line-height: rem(34);
+            margin-top: rem(10);
+            span{
+                color: #ff9c00;
+            }
+        }
+    }
+    .icon{
+        @include wh(112,113);
+        margin: 0 auto;
+    }
+} 
+.advantage-flex2{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 rem(20);
+    margin-top: rem(56);
+    .arrow{
+        @include bg('../images/arrow.png');
+        @include wh(35,25);
+        margin-top: rem(47);
+    }
+    .item{
+        p{
+            text-align: center;
+            color: #463f46;
+            font-size: rem(24);
+            line-height: rem(34);
+            margin-top: rem(10);
+            span{
+                color: #ff9c00;
+            }
+        }
+    }
+    .icon{
+        @include wh(112,113);
+        margin: 0 auto;
+    }
+}
+
+.a1_1{
+    @include bg('../images/a1_1.png')
+}
+
+.a1_2{
+    @include bg('../images/a1_2.png')
+}
+
+.a1_3{
+    @include bg('../images/a1_3.png')
+}
+
+.a2_1{
+    @include bg('../images/a2_1.png')
+}
+
+.a2_2{
+    @include bg('../images/a2_2.png')
+}
+
+.a2_3{
+    @include bg('../images/a2_3.png')
+}
+
+.a3_1{
+    @include bg('../images/a3_1.png')
+}
+
+.a3_2{
+    @include bg('../images/a3_2.png')
+}
+
+.a3_3{
+    @include bg('../images/a3_3.png')
+}
+
+
+.res-tit{
+    @include wh(283,80);
+    @include bg('../images/res-tit.png');
+    position: absolute;
+    left: 50%;
+    margin-left: rem(-141);
+    top: rem(-50);
+}
+
+.res-p1{
+    color: #463f46;
+    font-size: rem(36);
+    font-weight: bold;
+    text-align: center;
+    span{
+        color: #e1492f;
+    }
+}
+
+.jxq{
+    @include wh(473,343);
+    @include bg('../images/jxq.png');
+    margin: rem(37) auto 0;
+    padding-top: rem(30);
+    .jxq-p1{
+        color: #fff;
+        font-size: rem(48);
+        font-weight: bold;
+        text-align: center;
+        span{
+            font-size: rem(100);
+            vertical-align: text-bottom;
+            margin-left: rem(15);
+        }
+    }
+    .jxq-p2{
+        color: #ba4743;
+        font-size: rem(20);
+        text-align: center;
+        margin-top: rem(75);
+    }
+    .jxq-p3{
+        color: #463f46;
+        font-size: rem(24);
+        margin-top: rem(40);
+        margin-left: rem(40);
+    }
+}
+
+.hb{
+    @include wh(339,317);
+    @include bg('../images/hb.png');
+    margin: rem(37) auto 0;
+    padding-top: rem(80);
+    .hb-p1{
+        color: #fff;
+        font-size: rem(30);
+        font-weight: bold;
+        text-align: center;
+        span{
+            font-size: rem(51);
+            // vertical-align: text-bottom;
+            margin-left: rem(15);
+        }
+    }
+    .hb-p2{
+        color: #b41c0d;
+        font-size: rem(24);
+        text-align: center;
+        margin-top: rem(5);
+    }
+}
+
+.btn-watchPrize{
+    @include wh(259,81);
+    @include bg('../images/btn-watchPrize.png');
+    margin: rem(-70) auto 0;
+}
+
+.leaf{
+    @include wh(750,232);
+    @include bg('../images/leaf.png');
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+
+}
+
+.bot-txt{
+    text-align: center;
+    color: #30425b;
+    font-size: rem(20);
+    margin-top: rem(29);
+    padding-bottom: rem(30);
+}

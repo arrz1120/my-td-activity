@@ -1,0 +1,164 @@
+
+@import './animation';
+@import './mask';
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url('../images/home-bg.jpg') center top no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.logo{
+    @include bg('../images/logo.png');
+    @include wh(170,81);
+    position: absolute;
+    top: 0;
+    left: rem(17);
+}
+
+.content{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sec1{
+    // height: rem(314);
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .decoration{
+        @include bg('../images/decoration.png');
+        @include wh(694,334);
+        position: absolute;
+        left: rem(60);
+        top: rem(70);
+    }
+}
+
+.sec2{
+    flex: 0 0 rem(890);
+    // height: rem(890);
+    .machine{
+        padding-top: rem(40);
+        @include bg('../images/machine.png');
+        @include wh(750,890);
+        text-align: center;
+        .time{
+            color: #ccd6e2;
+            font-size: 12px;
+            width: rem(366);
+            height: 25px;
+            line-height: 25px;
+            background: url('../images/time-bg.png') no-repeat;
+            background-size: 100% 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .game{
+            @include wh(576,346);
+            margin: rem(42) auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .hand{
+            position: absolute;
+            left: 50%;
+            margin-left: rem(-19);
+            top: rem(-118);
+            z-index: 3;
+            .hand-center{
+                @include wh(37,191);
+                @include bg('../images/hand.png');
+                position: relative;
+                z-index: 3;
+            }
+            .hand-left{
+                @include wh(32,63);
+                @include bg('../images/hand-left.png');
+                position: absolute;
+                left: rem(-20);
+                top: rem(173);
+                z-index: 2;
+            }
+            .hand-right{
+                @include wh(32,63);
+                @include bg('../images/hand-right.png');
+                position: absolute;
+                right: rem(-23);
+                top: rem(173);
+                z-index: 2;
+            }
+        }
+        .pai{
+            // transition: all 0.2s;
+        }
+        .pai1{
+            @include wh(149,174);
+            @include bg('../images/pai1.png');
+            position: absolute;
+            left: rem(215);
+            top: rem(178);
+            z-index: 1;
+            transition: all 0.3s; 
+            transform-origin: center rem(80);
+        }
+        .pai2{
+            @include wh(176,167);
+            @include bg('../images/pai2.png');
+            position: absolute;
+            left: rem(210);
+            top: rem(140);
+            z-index: 1;
+        }
+        .home-btn{
+            @include bg('../images/home-btn.png');
+            @include wh(471,133);
+            margin: rem(57) auto 0;
+            color: #9a5417;
+            font-size: rem(36);
+            padding-top: rem(8);
+            font-weight: bold;
+        }
+        .game-tips{
+            color: #fff;
+            font-size: rem(28);
+            margin-top: rem(84);
+            i{
+                display: inline-block;
+                @include bg('../images/icon-tips.png');
+                @include wh(32,32);
+                margin-right: rem(10);
+                vertical-align: middle;
+            }
+        }
+        .bot-tips{
+            color: #f8929a;
+            font-size: rem(20);
+            margin-top: rem(70);
+        }
+    }
+}
+
+.ad-txt{
+    color: #fff;
+    font-size: rem(20);
+    text-align: right;
+    padding: rem(20);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.home-tit{
+    @include bg('../images/home-tit.png');
+    @include wh(481,196);
+    margin: rem(60) auto 0;
+}

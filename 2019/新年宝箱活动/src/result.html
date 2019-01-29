@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>Doc</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+
+    <div class="result-container">
+        <div class="logo"></div>
+        <p class="ad-txt">[广告]市场有风险，出借需谨慎</p>
+        <div class="res-decoration"></div>
+        <div class="res-bg1" id="lezhongxinxi" style="display: none;">
+            <div class="res-tit"></div>
+            <p class="res-p1">乐中信息咨询金融产品</p>
+            <div class="jxq">
+                <p class="jxq-p1"><span id="rate">0.3</span>%</p>
+                <p class="jxq-p2" id="time"></p>
+                <p class="jxq-p3" id="prizer"></p>
+            </div>
+            <div class="advantage">
+                <div class="advantage-tit">轻松领奖励</div>
+                <div class="advantage-flex2">
+                        <div class="item">
+                            <div class="icon a1_1"></div>
+                            <p>截图保存该<br>页面</p>
+                        </div>
+                        <div class="arrow"></div>
+                        <div class="item">
+                            <div class="icon a1_2"></div>
+                            <p>联系理财经理<br>购买产品</p>
+                        </div>
+                        <div class="arrow"></div>
+                        <div class="item">
+                            <div class="icon a1_3"></div>
+                            <p>享受对应加息<br>优惠</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="res-bg1" id="tdContent" style="display: none;">
+            <div class="res-tit"></div>
+            <p class="res-p1">团贷网出借红包<span class="hb-count">30元！</span></p>
+            <div class="hb">
+                <p class="hb-p1"><span class="hb-number"></span>元</p>
+                <p class="hb-p2">出借红包</p>
+            </div>
+            <div class="btn-watchPrize"></div>
+            <div class="advantage">
+                <div class="advantage-tit">团贷网的优势</div>
+                <div class="advantage-flex">
+                        <div class="item">
+                            <div class="icon a2_1"></div>
+                            <p><span>AAA级</span><br>信用认证</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a2_2"></div>
+                            <p><span>智能风控</span><br>系统</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a2_3"></div>
+                            <p><span>银行存管</span><br>资金分账</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="res-bg2" id="tdNewUserContent" style="display: none;">
+            <div class="res-tit"></div>
+            <p class="res-p1">团贷网出借红包<span class="hb-count"></span></p>
+            <div class="hb">
+                <p class="hb-p1"><span class="hb-number"></span>元</p>
+                <p class="hb-p2">出借红包</p>
+            </div>
+            <div class="btn-watchPrize"></div>
+            <div class="advantage">
+                <div class="advantage-tit">我的新手福利</div>
+                <div class="advantage-flex">
+                        <div class="item">
+                            <div class="icon a3_1"></div>
+                            <p>518红包</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a3_2"></div>
+                            <p>2888体验金</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a3_3"></div>
+                            <p>新手专享标</p>
+                        </div>
+                </div>
+            </div>
+            <div class="advantage mt60">
+                <div class="advantage-tit">团贷网的优势</div>
+                <div class="advantage-flex">
+                        <div class="item">
+                            <div class="icon a2_1"></div>
+                            <p><span>AAA级</span><br>信用认证</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a2_2"></div>
+                            <p><span>智能风控</span><br>系统</p>
+                        </div>
+                        <div class="item">
+                            <div class="icon a2_3"></div>
+                            <p><span>银行存管</span><br>资金分账</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <p class="bot-txt">本次活动和奖品与苹果公司无关</p>
+        <div class="leaf"></div>
+    </div>
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+</body>
+</html>

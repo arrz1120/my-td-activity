@@ -1,0 +1,211 @@
+.mask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .mask-bg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .mask-con{
+        position: relative;
+        z-index: 2;
+    }
+    .mask-close{
+        @include wh(74,74);
+        margin: rem(60) auto 0;
+        @include bg('../images/mask-close.png');
+        z-index: 2;
+    }
+    .mask-btn{
+        width: rem(436);
+        padding: rem(22) 0;
+        background: #ffcf19;
+        color: #9a5417;
+        text-align: center;
+        border-radius: rem(40);
+        margin: 0 auto;
+    }
+}
+
+.mask-register{
+    width: rem(514);
+    background: #fff;
+    border-radius: rem(16);
+    .register-tit{
+        height: 45px;
+        line-height: 45px;
+        color: #463f46;
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+        background: #ebf1f8;
+        border-radius: rem(16) rem(16) 0 0;
+        &::before{
+            display: inline-block;
+            content: "";
+            width: rem(20);
+            height: 2px;
+            background: #463f46;
+            vertical-align: middle;
+            margin-right: rem(15);
+        }
+        &::after{
+            display: inline-block;
+            content: "";
+            width: rem(20);
+            height: 2px;
+            background: #463f46;
+            vertical-align: middle;
+            margin-left: rem(15);
+        }
+    }
+}
+
+.register-con{
+    padding: rem(50) 0;
+    .input-container{
+        .input-box{
+            padding-bottom: rem(40);
+            margin-left: rem(39);
+            input{
+                height: 100%;
+                width: 100%;
+            }
+            .input{
+                @include wh(436,74);
+                border: 1px solid #463f46;
+                border-radius: rem(8);
+                padding-left: rem(90);
+                position: relative;
+                overflow: hidden;
+            }
+            .input-icon{
+                position: absolute;
+                height: 100%;
+                width: rem(90);
+                top: 0;
+                left: 0;
+            }
+            .icon-phone{
+                background: url('../images/icon-phone.png') center no-repeat;
+                background-size: rem(31) rem(40);
+            }
+            .icon-code{
+                background: url('../images/icon-code.png') center no-repeat;
+                background-size: rem(31) rem(40);
+            }
+        }
+        .input-flex{
+            width: rem(436);
+            display: flex;
+            justify-content: space-between;
+            margin-left: rem(39);
+            .input{
+                width: rem(250);
+            }
+            .get-code{
+                @include wh(166,74);
+                background: #fa787d;
+                color: #fff;
+                font-size: rem(24);
+                font-weight: bold;
+                text-align: center;
+                border-radius: rem(8);
+                padding-top: rem(25);
+            }
+        }
+    }
+    .register-tips{
+        font-size: rem(24);
+        color: #463f46;
+        margin-top: rem(25);
+        text-align: center;
+        span{
+            color: #f5574b;
+        }
+    }
+}
+
+.mask-hasPrize{
+    width: rem(514);
+    height: rem(374);
+    padding-top: rem(110);
+    background: #fff;
+    border-radius: rem(10);
+    .header{
+        @include wh(180,180);
+        border-radius: 50%;
+        position: absolute;
+        top: rem(-90);
+        left: 50%;
+        margin-left: rem(-90);
+        background: #fff url('../images/header.png') center no-repeat;
+        background-size: rem(138) rem(138);
+    }
+    p{
+        color: #463f46;
+        font-size: rem(30);
+        line-height: rem(48);
+        text-align: center;
+    }
+    .hasPrize-btn{
+        margin: rem(48) auto 0;
+    }
+}
+
+.btn-wrapper{
+    width: 100%;
+    height: rem(120);
+    background: #ebf1f8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 0 rem(10) rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0 rem(20);
+    div{
+        padding: rem(20) 0;
+        width: rem(203);
+        font-size: rem(28);
+        border-radius: rem(30);
+        font-weight: bold;
+    }   
+    .btn-left{
+       border: 1px solid #463f46;
+       color: #463f46;
+       background: #fff;
+    }
+    .btn-right{
+       color: #9a5417;
+       background: #ffca0d;
+    }
+}
+
+.mask-end{
+    .end-p{
+        font-weight: bold;
+        color: #463f46;
+        font-size: rem(36);
+    }
+}
+
+.txt-wrapper{
+    height: rem(180);
+    
+}
+

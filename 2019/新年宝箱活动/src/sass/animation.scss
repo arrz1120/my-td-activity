@@ -1,0 +1,43 @@
+.hand-left-move{
+    animation: handLeftMove 1s linear;
+    transform-origin: rem(30) rem(10);
+}.hand-right-move{
+    animation: handRighttMove 1s linear;
+    transform-origin: rem(6) rem(10);
+}
+
+@keyframes handLeftMove{
+    0%{
+        transform: rotateZ(0)
+    }
+    25%{
+        transform: rotateZ(30deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotateZ(30deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes handRighttMove{
+    0%{
+        transform: rotateZ(0)
+    }
+    25%{
+        transform: rotateZ(-30deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotateZ(-30deg);
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+}
