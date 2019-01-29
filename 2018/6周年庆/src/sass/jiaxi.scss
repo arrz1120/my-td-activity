@@ -1,0 +1,169 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+@import './helper/_variables.scss';
+@import './helper/_swiper-3.4.2.scss';
+@import './float.scss';
+@import './alert.scss';
+
+body {
+  background: url(../images/index/body-bg.jpg);
+  background-size: rem(67) rem(58);
+  height: 100vh;
+}
+
+.main {
+  min-height: 100%;
+  @include bg('../images/jiaxi/bg.png');
+  padding-top: rem(50);
+  .swiper-container-main {
+    height: rem(900);
+    .swiper-pagination-bullet-active {
+      background: rgba(255, 255, 255, .6)
+    }
+    .swiper-pagination-bullet {
+      opacity: 1;
+      border: 1px solid rgba(255, 255, 255, .6);
+    }
+  }
+  .swiper-slide {
+    position: relative;
+    @include wh(552, 839);
+    .num {
+      margin: 0 auto rem(30);
+    }
+    .icon-wraper {
+      position: absolute;
+      opacity: 0;
+      .icon {
+        animation: iconAni 1.2s .8s ease-out infinite;
+      }
+    }
+    .tit {
+      text-align: center;
+      font-size: rem(40);
+      color: #fef75f;
+      margin-top: rem(-20);
+      font-weight: bold;
+    }
+    .con {
+      @include wh(544, 715);
+      margin: 0 auto rem(30);
+      @include bg('../images/jiaxi/con-bg.png');
+      padding-top: rem(1);
+      position: relative;
+
+    }
+
+
+    .con-finished:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(6);
+      @include wh(84, 84);
+      @include bg('../images/jiaxi/finish-icon.png');
+    }
+    .txt {
+      font-size: rem(26);
+      color: #fff;
+      width: rem(470);
+      margin: rem(430) auto rem(36);
+      line-height: rem(36);
+      .yellow {
+        color: #fff856;
+        font-weight: bold;
+      }
+    }
+    .btn {
+      display: block;
+      @include wh(460, 68);
+      line-height: rem(68);
+      font-size: rem(30);
+      color: #fff;
+      text-align: center;
+      border-radius: rem(10);
+      background: #ff2e64;
+      margin: 0 auto;
+    }
+
+
+    .btn-disable{
+      background: #928db0;
+    }
+  }
+  .swiper-slide-active {
+    .icon-wraper {
+      animation: fadeIn 1s ease-out both;
+    }
+  }
+  .swiper-slide-1 {
+    .num {
+      @include wh(96, 78);
+      @include bg('../images/jiaxi/01.png');
+    }
+    .icon-wraper {
+      @include wh(464, 328);
+      left: rem(30);
+      top: rem(90);
+      .icon {
+        height: 100%;
+        @include bg('../images/jiaxi/jx.png');
+      }
+    }
+  }
+  .swiper-slide-2 {
+    .num {
+      @include wh(107, 78);
+      @include bg('../images/jiaxi/02.png');
+    }
+    .icon-wraper {
+      @include wh(424, 374);
+      left: rem(60);
+      top: rem(90);
+      .icon {
+        height: 100%;
+        @include bg('../images/jiaxi/wk.png');
+      }
+    }
+    .txt {
+      margin: rem(450) auto rem(60);
+    }
+  }
+  .swiper-slide-3 {
+    .num {
+      @include wh(108, 78);
+      @include bg('../images/jiaxi/03.png');
+    }
+    .icon-wraper {
+      @include wh(325, 314);
+      left: rem(100);
+      top: rem(130);
+      .icon {
+        height: 100%;
+        @include bg('../images/jiaxi/tb.png');
+      }
+    }
+    .txt {
+      margin: rem(450) auto rem(60);
+    }
+  }
+}
+
+@keyframes iconAni {
+  0%,
+  100% {
+    transform: translate3d(0, rem(-10), 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

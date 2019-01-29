@@ -1,0 +1,93 @@
+@import './mask';
+
+body{
+    line-height: 1;
+}
+div,p{
+    font-size: rem(24);
+}
+div{
+    box-sizing: border-box;
+}
+
+.share-btn{
+    position: fixed;
+    right: rem(20);
+    bottom: rem(330);
+    z-index: 5;
+    @include wh(79,79);
+    @include bg('../images/index/share-btn.png');
+}
+
+.prize-btn{
+    position: fixed;
+    right: rem(10);
+    bottom: rem(150);
+    z-index: 5;
+    @include wh(210,167);
+    @include bg('../images/index/prize-btn.png');
+}
+
+.bottom-fixed{
+    position: fixed;
+    width: 100%;
+    height: rem(130);
+    left: 0;
+    bottom: 0;
+    background: rgba(50,0,8,0.3);
+    @include flexCenter;
+    z-index: 5;
+    .bottom-btn-c{
+        @include wh(494,103);
+        @include bg('../images/index/bottom-btn-c.png');
+    }
+    .item{
+        @include wh(352,117);
+        &.bottom-btn1{
+            @include bg('../images/index/btn-bottom-l.png')
+        }
+        &.bottom-btn2{
+            @include bg('../images/index/bottom-btn2.png')
+        }
+        &:nth-child(2){
+            @include bg('../images/index/btn-bottom-r.png')
+        }
+    }
+}
+
+.table{
+    width: rem(633);
+    margin: rem(30) auto 0;
+    .tbody{
+        border: 1px solid #e77760;
+        border-radius: 0 0 rem(10) rem(10);
+        overflow: hidden;
+    }
+    .th{
+        display: flex;
+        border-radius: rem(10) rem(10) 0 0;
+        background: linear-gradient(to bottom,#f55b1d,#ff1d00);
+        text-align: center;
+        padding: 0 rem(20);
+        .td{
+            @include flexCenter;
+            flex: 1;
+            color: #ffe6a3;
+            font-size: rem(26);
+            font-weight: bold;
+            height: rem(93);
+            line-height: rem(32);
+        }
+    }
+    .tr{
+        display: flex;
+        padding: 0 rem(20);
+        .td{
+            height: rem(62);
+            @include flexCenter;
+            flex: 1;
+            color: #b4283d;
+            font-size: rem(22);
+        }
+    }
+}

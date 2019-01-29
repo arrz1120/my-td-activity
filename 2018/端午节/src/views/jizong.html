@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  {{> './tpls/head.html'}}
+</head>
+
+<body>
+  <!-- main -->
+  <div class="main">
+
+    <!-- 头部 -->
+
+    <header>
+      <div class="user_msg">
+        <div class="tx_wraper">
+          <img src="./images/jizong/tx.png" alt="">
+        </div>
+        <p class="user_name">网贷老司机机机</p>
+      </div>
+      <div class="ani_wraper">
+        <h1 class="tit"></h1>
+        <div class="lc">
+        </div>
+      </div>
+      <div class="zj-detail">
+        <p class="txt">
+          <span class="small"> X</span>3</p>
+        <div class="detail" id="detail_link">粽子详情</div>
+      </div>
+
+    </header>
+
+    <!-- 头部 end-->
+
+
+    <!-- 兑换区 -->
+
+    <section class="dh-container">
+      <h2 class="tit">兑换区</h2>
+      <ul class="hb-list" id="hb-list">
+        <li>
+          <h4 class="tit_1">9个粽子兑换</h4>
+          <div class="hb">
+            <p class="txt">3<span class="small">元</span>
+            </p>
+            <p class="txt_1">投资红包</p>
+          </div>
+          <div class="hb-over">今天
+            <br> 已领完
+          </div>
+        </li>
+        <li>
+          <h4 class="tit_1">16个粽子兑换</h4>
+          <div class="hb">
+            <p class="txt">5<span class="small">元</span>
+            </p>
+            <p class="txt_1">投资红包</p>
+          </div>
+        </li>
+        <li>
+          <h4 class="tit_1">30个粽子兑换</h4>
+          <div class="hb">
+            <p class="txt">10<span class="small">元</span>
+            </p>
+            <p class="txt_1">投资红包</p>
+          </div>
+
+          <div class="hand"></div>
+        </li>
+      </ul>
+
+      <div class="prize-img">
+      </div>
+
+      <a href="#" class="btn">更多豪礼</a>
+    </section>
+
+    <!-- 兑换区 end-->
+
+
+
+    <!-- 完成任务收集粽子 -->
+    <section class="jz-container">
+      <h3 class="tit">完成任务收集粽子</h3>
+      <ul class="jz-list">
+        <li>
+          <h3 class="tit-1">每天登录
+            <span class="red">[+1]</span>
+          </h3>
+          <p class="txt">登录团贷网即可获得1个粽子
+            <br>每天可获得1个</p>
+          <span class="btn_task btn">登录</span>
+        </li>
+
+        <li>
+          <h3 class="tit-1">每天分享
+            <span class="red">[+1]</span>
+          </h3>
+          <p class="txt">分享活动到微信/朋友圈可获得
+            <br>1个粽子每天可获得1个</p>
+          <span class="btn_task btn" id="share_btn">分享</span>
+        </li>
+
+
+        <li>
+          <h3 class="tit-1">团币兑换
+            <span class="red">[+1]</span>
+          </h3>
+          <p class="txt">使用58团币兑换1个粽子
+            <br>每天最多可兑换10个</p>
+          <!-- <div class="btn_task btn dh_btn"  id="dh_btn">兑换</div> -->
+          <div class="btn_task btn dh_btn btn_finish dh_num" id="dh_btn">今天已兑换
+            <br>3次
+          </div>
+
+        </li>
+
+
+        <li>
+          <h3 class="tit-1">加入满1000元
+            <span class="red">[+1]</span>
+          </h3>
+          <p class="txt">累计加入满1000元即可获得
+            <br>1个粽子，最多可以获得50个</p>
+          <span class="btn_task btn btn_invite" id="btn_invite">立即加入</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 完成任务收集粽子 end-->
+
+
+
+
+  </div>
+
+  <!-- main end -->
+
+
+  <!-- 弹窗 -->
+
+  <div class="alert" id="dh-alert" style="display:none">
+    <div class="mask"></div>
+    <div class="con">
+      <h3 class="tit"></h3>
+      <div class="alert-type-img alert-type-zz"></div>
+      <div class="btn-wraper">
+        <div class="btn btn-left"></div>
+        <div class="btn btn-right"></div>
+        <div class="btn btn-center"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 end-->
+
+
+  <!-- 粽子详情  -->
+
+  <div class="alert alert_integral" id="alert_integral" style="display:none">
+    <div class="mask"></div>
+    <div class="con">
+      <p class="tit tit_2">粽子详情</p>
+
+
+      <div class="tab" id="tab">
+        <nav>
+          <div class="item item_on">总获得粽子：
+            <span class="orange">200</span>
+          </div>
+          <div class="item">已消耗粽子</div>
+        </nav>
+
+        <div class="tab_con">
+          <div class="tab_item tab_item_on">
+            <!-- 无数据 -->
+            <!-- <p class="no_data">暂无数据！</p> -->
+
+
+            <ul class="list">
+              <li class="invite-msg">
+                <p class="txt_3">活动期间投资金额：¥5000</p>
+
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">登录</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+              <li>
+                <p class="txt">分享</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">分享 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+              <li>
+                <p class="txt">团币兑换</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+100个</p>
+              </li>
+              <li>
+                <p class="txt">投资金额¥400 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">投资金额¥400 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+            </ul>
+          </div>
+          <div class="tab_item">
+            <!-- 无数据 -->
+            <!-- <p class="no_data">暂无数据</p> -->
+            <ul class="list">
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="tips">活动期间赠送的粽子为虚拟物品，仅限本次活动中兑换红包及加息
+        <br>券使用，活动结束后剩余的粽子数将清零。</p>
+      <div class="close_icon close_btn"></div>
+    </div>
+  </div>
+
+  <!-- 粽子详情 end-->
+
+
+
+
+
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}
+  <script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+</body>
+
+
+<script>
+
+  var doms = {
+    dh_btn: $('#dh_btn'),
+    btn_invite: $('#btn_invite'),
+    tab: $('#tab'),
+    detail_link: $('#detail_link'),
+    alert_integral: $('#alert_integral'),
+    share_btn: $('#share_btn'),
+    hb_list: $('#hb-list')
+  }
+
+
+  var methods = {
+    //调用兑换弹窗 或用于投资红包
+
+    // type : alert-type-zz 兑换
+    // type : alert-type-hb 投资红包
+
+
+    dhAlertShow: function () {
+      method.showAlert({
+        tit: '兑换成功！获得<span class="red">1个</span>粽子',
+        type: 'alert-type-zz',
+        lBtn: {
+          txt: 'hello',
+          cb: function () {
+            // console.log('左边按钮回调')
+            // 关闭当前弹窗
+            this.hide();
+          }
+        },
+        rBtn: {
+          txt: '继续兑换 <span class="small">（今天已兑换4次）</span>',
+          cb: function () {
+            // console.log('右边按钮回调')
+          }
+        },
+      })
+
+    },
+
+    hbAlertShow: function () {
+      method.showAlert({
+        tit: '兑换成功！获得<span class="red">1个</span>粽子',
+        type: 'alert-type-hb',
+        lBtn: {
+          txt: 'hello',
+          cb: function () {
+            // console.log('左边按钮回调')
+            // 关闭当前弹窗
+            this.hide();
+          }
+        },
+        rBtn: {
+          txt: '继续兑换',
+          cb: function () {
+            // console.log('右边按钮回调')
+          }
+        },
+      })
+
+    },
+    // 投资列表
+    invite: function () {
+      if (Jsbridge.isApp()) {
+        Jsbridge.toAppP2p()
+      } else {
+        window.location.href = '//www.tuandai.com/app/install.aspx?v=0214565656'
+      }
+    },
+    //tab  切换
+    tab_switch: function (dom) {
+      if (!$(dom).hasClass('item_on')) {
+        $(dom).addClass('item_on');
+        $(dom).siblings().removeClass('item_on');
+        doms.tab.find('.tab_item').removeClass('tab_item_on');
+        doms.tab.find('.tab_item').eq($(dom).index()).addClass('tab_item_on');
+      }
+    },
+    to: function (scrollTop) {
+      document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
+    },
+    getScrollTop: function () {
+      return document.body.scrollTop || document.documentElement.scrollTop;
+    },
+    openAlert: function () {
+      // 在弹出层显示之前，记录当前的滚动位置
+      scrollTop = methods.getScrollTop();
+      // 使body脱离文档流
+      document.body.classList.add('modal-open');
+
+      // 把脱离文档流的body拉上去！否则页面会回到顶部！
+      document.body.style.top = -scrollTop + 'px';
+    },
+    clsoeAlert: function () {
+
+      document.body.classList.remove('modal-open');
+
+      document.body.style.top = 0 + 'px';
+
+      methods.to(scrollTop);
+
+    },
+    detailShow: function () {
+      doms.alert_integral.show();
+      methods.openAlert();
+    },
+
+    detailHide: function () {
+      doms.alert_integral.hide();
+      methods.clsoeAlert();
+    },
+
+    share: function () {
+      appShare.set({
+        icon: window.location.origin + '',
+        title: '',
+        content: '',
+        shareUrl: '后端补充',
+        cover: {
+          src: './images/wxShare.png',
+          style: {
+            width: '100%'
+          }
+        }
+      });
+      appShare.show();
+    }
+
+
+
+
+
+  }
+
+
+
+  doms.dh_btn.on('click', methods.dhAlertShow);
+  doms.btn_invite.on('click', methods.invite);
+  doms.detail_link.on('click', methods.detailShow);
+  doms.alert_integral.on('click', '.close_btn', function () {
+    methods.detailHide()
+  })
+  doms.tab.on('click', '.item', function () {
+    methods.tab_switch(this)
+  })
+  doms.hb_list.on('click', '.hb', function () {
+    methods.hbAlertShow();
+  })
+
+  doms.share_btn.on('click', methods.share);
+
+</script>
+
+
+</html>

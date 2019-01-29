@@ -1,0 +1,77 @@
+@import './animation.scss';
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    background: url('../images//home-bg.jpg') center bottom no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.logo{
+    width: rem(175);
+    height: rem(61);
+    border-radius: 0 rem(30) rem(30) 0;
+    background: #fff url('../images/logo.png') center no-repeat;
+    background-size: rem(122) rem(45);
+    position: absolute;
+    top: rem(12);
+    left: 0;
+}
+
+.ad-txt{
+    padding: rem(21) rem(20) 0 0;
+    color: #fff;
+    font-size: rem(18);
+    text-align: right;
+}
+
+.home-tit{
+    @include wh(642,301);
+    @include bg('../images/home-tit.png');
+    margin: rem(50) auto 0;
+}
+
+.home-time{
+    width: rem(608);
+    padding: rem(15) 0;
+    border: 1px solid #ffbf1b;
+    border-radius: rem(40);
+    margin: rem(20) auto 0;
+    color: #2e177c;
+    font-size: rem(30);
+    text-align: center;
+    background: #fff;
+}
+
+.home-btn{
+    @include wh(553,180);
+    @include bg('../images/btn-home.png');
+    color: #8e5400;
+    font-size: rem(36);
+    position: absolute;
+    left: 50%;
+    margin-left: rem(-267);
+    bottom: rem(20);
+    text-align: center;
+    padding-top: rem(70);
+    font-weight: bold;
+}
+
+.rule-btn{
+    @include wh(125,138);
+    @include bg('../images/rule-btn.png');
+    position: absolute;
+    right: rem(10);
+    bottom: 41%;
+    z-index: 2;
+}
+
+.share-btn{
+    @include wh(129,138);
+    @include bg('../images/share-btn.png');
+    position: absolute;
+    right: rem(10);
+    bottom: 31%;
+    z-index: 2;
+}

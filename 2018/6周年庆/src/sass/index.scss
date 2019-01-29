@@ -1,0 +1,336 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+@import './helper/_variables.scss';
+@import './alert.scss';
+@import './helper/_swiper-3.4.2.scss';
+
+body{
+
+  background: url(../images/index/body-bg.jpg);
+  background-size: rem(67) rem(58);
+  height: 100vh;
+}
+
+
+
+.main{
+  height: rem(1205);
+  @include bg('../images/index/bg.png');
+  padding-top: rem(50);
+
+
+  .tips{
+    position: absolute;
+    right: rem(20);
+    top: rem(20);
+    font-size: rem(18);
+    color:rgba($color: #fff, $alpha: 0.5)
+  }
+
+  .logo{
+      @include wh(740,158);
+      @include bg('../images/index/logo.png');
+      margin: 0 auto;
+  }
+
+
+  .time{
+    text-align: center;
+    font-size: rem(22);
+    color: #fff;
+  }
+
+
+  .con{
+    position: relative;
+
+    .left-right{
+      position: absolute;
+      left: 0;
+      top: rem(40);
+      @include wh(750,571);
+      @include bg('../images/index/left-right.png');
+      opacity: 0;
+    }
+
+
+    .light-left{
+      position: absolute;
+      left: rem(180);
+      top: rem(420);
+      @include wh(118,142);
+      @include bg('../images/index/light-left.png');
+    }
+
+
+
+
+
+    .light{
+      position: absolute;
+      @include wh(748,926);
+      @include bg('../images/index/light.png');
+      left: rem(1);
+      top: rem(-240);
+    }
+
+
+    .line{
+      position: absolute;
+      @include wh(138,85);
+      @include bg('../images/index/line.png');
+      left: rem(500);
+      top: rem(460);
+    }
+
+    .light-bottom{
+      position: absolute;
+      @include wh(743,270);
+      @include bg('../images/index/light-bottom.png');
+      left: rem(2);
+      top: rem(390);
+      opacity: .3;
+    }
+
+
+    .light-bottom-1{
+      position: absolute;
+      @include wh(746,418);
+      @include bg('../images/index/light-bottom-1.png');
+      left: rem(2);
+      top: rem(534);
+      opacity: 0;
+
+    }
+
+  }
+
+
+  .bottom-nav{
+    margin: rem(630) auto 0;
+    position: relative;
+
+    a{
+      display: block;
+      margin: rem(20) auto;
+    }
+
+    .link-1{
+      @include wh(335,54);
+      @include bg('../images/index/link-1.png');
+      opacity: 0;
+    }
+
+
+
+    .link-2{
+      @include wh(456,56);
+      @include bg('../images/index/link-2.png');
+      opacity: 0;
+
+    }
+
+
+    .link-wraper{
+      @include wh(732,167);
+      @include bg('../images/index/link-3.png');
+      opacity: 0;
+    }
+
+    .link-3{
+      margin-top:rem(-10);
+      @include wh(555,100);
+    }
+
+  }
+
+
+  .rule-btn{
+
+    position: absolute;
+    @include wh(128,43);
+    @include bg('../images/index/rule-btn.png');
+    right:0;
+    top: rem(184);
+  }
+
+
+}
+
+
+
+
+.logo{animation: logoAni 0.4s 1.3s ease-out both;}
+.left-right{animation: LRAni 0.8s .5s ease-out both;}
+.light{animation: lightAni 0.8s 1.8s ease-out both;}
+.light-left{animation:LLAni 0.5s 2.6s ease-out both;}
+.light-bottom-1{animation:LBAni 0.4s 3s ease-out both;}
+.link-1{animation:linkAni 0.4s 3.4s ease-out both;}
+.link-2{animation:linkAni 0.4s 3.6s ease-out both;}
+.link-wraper{animation:linkAni 0.4s 3.8s ease-out both;}
+.light-bottom{animation:LBAni-1 0.3s 4s ease-out both;}
+
+
+
+@keyframes logoAni{
+  0%,25%{
+    @include bg('../images/index/logo.png');
+  }
+  26%,50%{
+    @include bg('../images/index/logo-1.png');
+  }
+  51%,75%{
+    @include bg('../images/index/logo.png');
+  }
+  76%,100%{
+    @include bg('../images/index/logo-1.png');
+  }
+}
+
+
+@keyframes LRAni{
+  0%,15%{
+    opacity: 1;
+    @include bg('../images/index/left-right.png');
+  }
+  16%,32%{
+    opacity: 1;
+    @include bg('../images/index/left-right-1.png');
+  }
+  33%,48%{
+    opacity: 1;
+    @include bg('../images/index/left-right.png');
+  }
+
+  49%,65%{
+    opacity: 1;
+    @include bg('../images/index/left-right-1.png');
+  }
+
+  66%,81%{
+    opacity: 1;
+    @include bg('../images/index/left-right.png');
+  }
+
+  82%,100%{
+    opacity: 1;
+    @include bg('../images/index/left-right-1.png');
+  }
+}
+
+
+
+@keyframes lightAni{
+  0%,15%{
+    opacity: 1;
+    @include bg('../images/index/light.png');
+  }
+  16%,32%{
+    opacity: 1;
+    @include bg('../images/index/light-1.png');
+  }
+  33%,48%{
+    opacity: 1;
+    @include bg('../images/index/light.png');
+  }
+
+  49%,65%{
+    opacity: 1;
+    @include bg('../images/index/light-1.png');
+  }
+
+  66%,81%{
+    opacity: 1;
+    @include bg('../images/index/light.png');
+  }
+
+  82%,100%{
+    opacity: 1;
+    @include bg('../images/index/light-1.png');
+  }
+}
+
+
+
+
+@keyframes LLAni{
+  0%,15%{
+    opacity: 1;
+    @include bg('../images/index/light-left.png');
+  }
+  16%,32%{
+    opacity: 1;
+    @include bg('../images/index/light-left-1.png');
+  }
+  33%,48%{
+    opacity: 1;
+    @include bg('../images/index/light-left.png');
+  }
+
+  49%,65%{
+    opacity: 1;
+    @include bg('../images/index/light-left-1.png');
+  }
+
+  66%,81%{
+    opacity: 1;
+    @include bg('../images/index/light-left.png');
+  }
+
+  82%,100%{
+    opacity: 1;
+    @include bg('../images/index/light-left-1.png');
+  }
+}
+
+
+@keyframes LBAni{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+@keyframes linkAni{
+  0%{
+    opacity:0;
+    transform: translate3d(0,rem(200),0);
+  }
+  100%{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+
+}
+
+@keyframes LBAni-1{
+  0%{
+    opacity:.3;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+.share-btn{
+  width: rem(83);
+  height: rem(84);
+  @include bg("../images/float/f2.png");
+  position: fixed;
+  left: rem(11);
+  z-index: 9;
+  bottom: rem(192);
+}
+
+.boss-onlive{
+  display: block;
+  position: fixed;
+  right: rem(27);
+  bottom: rem(220);
+  width: rem(158);
+  height: rem(165);
+  @include bg("../images/index/boss-onlive.png");
+}
+

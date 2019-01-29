@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>Doc</title>
+    {{> './tpls/head.html'}}
+</head>
+
+<body>
+
+
+    <!-- main -->
+    <div class="main">
+
+        <p class="top-txt">7月1日—7月18日，寻找3个隐藏的周年庆彩蛋，集齐后即可参与7月15日—7月18日的周年抽奖狂欢！</p>
+
+
+        <!-- 彩蛋1 -->
+        <section class="cd cd-1 cd-finish">
+            <h2 class="tit">彩蛋 1</h2>
+            <div class="cd-icon"></div>
+            <p class="txt">单笔投资We自动服务、We+自动服务（新手专享服务除外）满
+                <span class="yellow">3000元</span>，会有小惊喜！</p>
+            <a href="" class="btn btn-1">投资领取彩蛋</a>
+        </section>
+        <!-- 彩蛋1 end-->
+
+
+        <!-- 彩蛋2 -->
+        <section class="cd cd-2">
+            <h2 class="tit">彩蛋 2</h2>
+            <div class="cd-icon"></div>
+            <p class="txt">每日一签运势达到
+                <span class="yellow">6颗星</span>，会出现彩蛋哦！</p>
+            <a href="" class="btn">每日一签寻彩蛋</a>
+        </section>
+        <!-- 彩蛋2 end-->
+
+
+        <!-- 彩蛋3 -->
+        <section class="cd cd-3">
+            <h2 class="tit">彩蛋 2</h2>
+            <div class="cd-icon"></div>
+            <p class="txt">为团贷网送上
+                <span class="yellow">6周年祝福</span>，可获得彩蛋！</p>
+            <a href="javascript:void(0);" class="btn" id="showMsgAlert">我想对团贷网说</a>
+
+            <!-- 留言板 -->
+
+            <div class="msg-board">
+                <h2 class="tit">团粉留言（0）</h2>
+
+
+                <!-- 没有留言 -->
+                <!-- <div class="no-data"></div> -->
+
+                <!-- 有留言 -->
+                <div class="msg-box-wraper">
+                    <div class="msg-box" id="msgBox">
+                        <ul class="msg-list" id="msgList">
+
+                            <li>
+                                <div class="user">
+                                    <img src="./images/caidan/user.png" alt="" class="user-img">
+                                    <p class="name">屋檐**小雨</p>
+                                </div>
+                                <p class="time">2018-07-15投稿</p>
+                                <p class="word">祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好</p>
+                            </li>
+                            <li>
+                                <div class="user">
+                                    <img src="./images/caidan/user.png" alt="" class="user-img">
+                                    <p class="name">屋檐**小雨屋檐**小雨</p>
+                                </div>
+                                <p class="time">2018-07-15投稿</p>
+                                <p class="word">祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好</p>
+                            </li>
+
+                            <li>
+                                <div class="user">
+                                    <img src="./images/caidan/user.png" alt="" class="user-img">
+                                    <p class="name">屋檐**小雨</p>
+                                </div>
+                                <p class="time">2018-07-15投稿</p>
+                                <p class="word">祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好</p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- 有留言  end-->
+
+
+            </div>
+
+
+            <!-- 留言板 end-->
+
+        </section>
+        <!-- 彩蛋3 end-->
+
+
+    </div>
+    <!-- main end-->
+
+    <div class="float">
+        <div class="item"></div>
+        <div class="item share-btn"></div>
+        <div class="item" id="showJxAlert">
+            <p>
+                <span>1.08</span>%</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="#" class="item item1">加息专区</a>
+        <a href="#" class="item item2 active">集周年彩蛋</a>
+        <a href="#" class="item item3">7.15抽iPhone X</a>
+    </div>
+
+    <!-- 登录提示 -->
+    <div class="alert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con conLogin">
+            <div class="alert-tit">请先登录</div>
+            <p class="p1">亲，请先登录后再参与活动哦~</p>
+            <div class="btn">我知道了</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 我的留言 -->
+    <div class="alert" id="msgAlert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con511">
+            <div class="alert-tit">团贷网，我想对你说</div>
+            <div class="textarea">
+                <textarea maxlength="50" id="textarea"></textarea>
+                <p class="holder">请输入你先说的祝福</p>
+                <p class="ticker">
+                    <span>0</span>/50</p>
+            </div>
+            <div class="toast">123</div>
+            <div class="btn" id="btnSubmit">提交留言</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+
+
+    <!-- 我的加息特权 -->
+    <div class="alert" id="jxAlert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con431">
+            <div class="alert-tit">我的加息特权</div>
+            <div class="tequan">
+                <div class="tq-tit tq-flex">
+                    <div class="item">加息来源</div>
+                    <div class="item">获取时间</div>
+                    <div class="item">加息特权</div>
+                </div>
+                <div class="tq-con">
+                    <div class="row tq-flex">
+                        <div class="item">普惠加息</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                    <div class="row tq-flex">
+                        <div class="item">邀友挖矿</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                    <div class="row tq-flex">
+                        <div class="item">团币兑换</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+
+
+    <!-- 彩蛋  caidan-show-->
+    <div class="alert caidan-show" id="caidanAlert"  style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con caidan">
+            <p class="p1">恭喜您获得 彩蛋3</p>
+            <p class="p2">单笔投资We自动服务、We+自动服务（新手专享服务除外）满3000元！</p>
+            <div class="cd-img">
+                <div class="cd-light"></div>
+                <div class="cd-icon cd-icon-yellow"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 彩蛋 end-->
+
+
+    <!-- webpack js -->
+    {{#each htmlWebpackPlugin.files.js}}
+    <script src="{{this}}"></script>{{/each}}
+    <!-- webpack js end-->
+
+
+    <script>
+
+
+
+
+// function utf16toEntities(str) {
+//     var patt = /[\ud800-\udbff][\udc00-\udfff]/g; // 检测utf16字符正则
+//     str = str.replace(patt, function(char) {
+//         var H, L, code;
+//         if (char.length === 2) {
+//             H = char.charCodeAt(0);
+//             // 取出高位
+//             L = char.charCodeAt(1);
+//             // 取出低位
+//             code = (H - 0xD800) * 0x400 + 0x10000 + L - 0xDC00;
+//             //转换算法
+//             return "&#" + code + ";";
+//         } else {
+//             return char;
+//         }
+//     });
+//     return str;
+// }
+
+
+
+var param = "";
+var regRule = /\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g;
+
+
+        var dataMsg = [
+            {
+                imgUrl: './images/caidan/user.png',
+                name: '1屋檐**小雨',
+                time: '2018-07-15',
+                word: '祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好'
+            },
+            {
+                imgUrl: './images/caidan/user.png',
+                name: '3屋檐**小雨',
+                time: '2018-07-15',
+                word: '祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好~祝愿团贷网越办越好'
+            }
+        ];
+
+        var winScroller_1 = new WinScroller('#msgBox', {
+            onPushed: function (y) {
+                // 下来拖拽完成，数据请求回来，更新留言板
+
+                //!!!!!定时器，为了模拟网络请求延迟的效果的，请后期删掉定时器！！！！
+
+                setTimeout(function () {
+                    updateList(dataMsg);
+
+                }, 700)
+            },
+            onPush: function () {
+                // console.log(4)
+                // 下来拖拽过程
+            }
+        });
+
+        var doms = {
+            btnSubmit: $("#btnSubmit"),
+            textarea: $("#textarea")
+        }
+
+        var methods = {
+
+            //初始化调用方法定义
+            init: function () {
+                this.showAlert();
+                this.submitEvent();
+                // this.share();
+
+
+                doms.textarea.on('input',function(){
+                    // console.log(1);
+
+                    // if(!filteremoji($.trim($(this).val()))){
+                    //     console.log(1);
+                    //     alert(1)
+                    // }
+
+
+                    // var regStr = /[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/ig;
+                    //  var org_val = $(this).val();
+
+                    //  if(regStr.test(org_val)){
+                    // 　　$(this).val(org_val.replace(regStr,""));
+                    //  }
+
+
+                })
+
+            },
+
+            msgToast: function (dom, txt) {
+                dom = $(dom);
+                dom.html(txt).fadeIn();
+                var timer = setTimeout(function () {
+                    dom.fadeOut();
+                    clearTimeout(timer);
+                }, 2000);
+            },
+
+            //显示弹窗
+            showAlert: function () {
+                $("#showMsgAlert").on("click", function () {
+                    $("#msgAlert").show();
+                })
+                $("#showJxAlert").on("click", function () {
+                    $("#jxAlert").show();
+                })
+            },
+
+            //弹窗：提交祝福
+            submitEvent: function () {
+                doms.btnSubmit.on("click", function () {
+                    if (doms.textarea.val() == 0) {
+                        methods.msgToast("#msgAlert .toast", "输入的祝福不能为空");
+                    }else{
+                        $('#textarea').val('');
+                        $('.ticker').find('span').html('00');
+                    }
+                })
+            },
+
+            //分享配置
+            // share: function () {
+            //     appShare.set({
+            //         icon: '',
+            //         title: '团贷网6周年，多重惊喜等你来~',
+            //         content: '周年多重豪礼，加息叠加+寻彩蛋抽iPhone X！',
+            //         shareUrl: '后端补充',
+            //         cover: {
+            //             src: './images/wxShare.png',
+            //             style: {
+            //                 width: '100%'
+            //             }
+            //         }
+            //     })
+            //     $(".share-btn").on("click", function () {
+            //         appShare.show()
+            //     })
+            // }
+        }
+
+        //初始化调用
+        methods.init();
+    </script>
+
+
+</body>
+
+</html>

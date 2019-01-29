@@ -1,0 +1,127 @@
+.stage-index{
+  @include bg('../images/stageIndex/bg.jpg');
+  width: 16rem;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  padding-top: 2.25rem;
+  .logo{
+    @include wh(132,48);
+    @include bg('../images/logo.png');
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+  }
+  .warning{
+    color: #423e80;
+    font-size: rem(16);
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+  }
+  .toptic{
+    @include wh(654,263);
+    @include bg('../images/stageIndex/01.png');
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    animation: tada 1s .5s;
+  }
+  .act-date{
+    @include wh(485,66);
+    @include bg('../images/stageIndex/02.png');
+    margin: 0 auto;
+    margin-top: -0.5rem;
+    color: #ffffff;
+    font-size: rem(24);
+    text-align: center;
+    padding-top: .5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .castle{
+    @include wh(750,752);
+    @include bg('../images/stageIndex/03.png');
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .bat{
+    @include wh(186,254);
+    @include bg('../images/stageIndex/04.png');
+    position: absolute;
+    left: 0;
+    bottom: 8.5rem;
+    z-index: 0;
+  }
+  .game-btn{
+    font-size: rem(40);
+    color: #5f2d06;
+    font-weight: bold;
+    background: linear-gradient(to bottom,#f8e77b,#f7b533);
+    width: rem(450);
+    text-align: center;
+    padding: 0.35rem 0;
+    border-radius: 1rem;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: 3rem;
+  }
+  .bingo-records{
+    background: rgba(143, 92, 92, 0.4);
+    position: absolute;
+    z-index: 2;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-size: 11px;
+    color: #8d818b;
+    padding: 0.25rem 0;
+    border-radius: 1rem;
+    width: rem(580);
+    overflow: hidden;
+  }
+  .rule-btn{
+    @include wh(49,122);
+    @include bg('../images/stageIndex/05.png');
+    position: absolute;
+    z-index: 2;
+    top: 4.25rem;
+    right: 0;
+  }
+}
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}

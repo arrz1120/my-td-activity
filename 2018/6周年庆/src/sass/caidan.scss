@@ -1,0 +1,218 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+@import './helper/_variables.scss';
+@import './helper/_swiper-3.4.2.scss';
+@import './float.scss';
+@import './alert.scss';
+body {
+  background: url(../images/index/body-bg.jpg);
+  background-size: rem(67) rem(58);
+}
+
+.main {
+  // height: rem(1205);
+  @include bg('../images/caidan/bg.png');
+  padding: rem(38) rem(40) rem(110);
+
+
+  .top-txt{
+    color: #f2fbff;
+    font-size: rem(24);
+    line-height: rem(36);
+    margin-bottom: rem(30);
+  }
+
+
+  .cd{
+    @include wh(644,217);
+    @include bg('../images/caidan/cd-bg.png');
+    margin: 0 auto rem(50);
+    padding-top: rem(1);
+    position: relative;
+
+    &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(6);
+      @include wh(84,84);
+      @include bg('../images/caidan/unfinished.png');
+    }
+
+    .tit{
+      text-align: center;
+      color: #fef75f;
+      font-size: rem(32);
+      margin-top: rem(-15);
+    }
+
+    .cd-icon{
+      @include wh(156,168);
+      position: absolute;
+      left: rem(36);
+      top: rem(30);
+    }
+
+    .txt{
+        font-size: rem(26);
+        color: #fff;
+        width: rem(400);
+        float: right;
+        margin:rem(20) rem(26)  ;
+        .yellow{
+          color: #fef75f;
+        }
+    }
+
+
+    .btn{
+      float: right;
+      @include wh(200,46);
+      line-height: rem(46);
+      border-radius: rem(23);
+      text-align: center;
+      font-size: rem(24);
+      color: #fff;
+      background: #ff2e64;
+      margin: 0 rem(26);
+    }
+
+
+    .btn-1{
+      margin-top: rem(-10)
+    }
+
+  }
+
+  .cd-finish:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(6);
+      @include wh(84,84);
+      @include bg('../images/caidan/finished.png');
+  }
+
+  .cd-3{
+    @include wh(644,715);
+    @include bg('../images/caidan/cd-bg-1.png');
+  }
+
+  .cd-1{
+    .cd-icon{
+       @include bg('../images/caidan/cd-icon-1.png');
+    }
+  }
+
+
+  .cd-2{
+    .cd-icon{
+       @include bg('../images/caidan/cd-icon-2.png');
+    }
+  }
+
+
+
+  .cd-3{
+    .cd-icon{
+       @include bg('../images/caidan/cd-icon-3.png');
+    }
+
+    .msg-board{
+      clear: both;
+      @include wh(610,466);
+      margin: rem(240) auto 0;
+      .tit{
+         color: #c9e4ff;
+         font-size: rem(28);
+         text-align: center;
+         margin-bottom: rem(20);
+      }
+
+
+      .msg-box-wraper{
+        @include wh(610,400);
+        overflow: hidden;
+      }
+
+      .no-data{
+        @include wh(228,272);
+        @include bg('../images/caidan/no-data.png');
+        margin: rem(80) auto;
+      }
+
+      .msg-box{
+        @include wh(610,400);
+        margin: 0 auto;
+        overflow: auto;
+      }
+
+
+      .msg-list{
+        font-size: rem(20);
+        li{
+          overflow: hidden;
+          padding-bottom: rem(20);
+          border-bottom: dashed 1px #b4b4b4;
+          margin-bottom: rem(20);
+        }
+        .user{
+          float: left;
+          @include wh(165,40);
+          border-radius: rem(20);
+          background: #fff;
+          display: flex;
+
+          .user-img{
+            border-radius: rem(20);
+            width: rem(35);
+          }
+
+          .name{
+            width: rem(130);
+            color: #1d3aff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            line-height: rem(40);
+          }
+
+
+        }
+
+        .word{
+          clear: both;
+          color: #b4b4b4;
+          margin-top: rem(55);
+        }
+        .time{
+          float: right;
+          color: #fff;
+        }
+
+
+      }
+
+    }
+
+  }
+
+
+
+
+
+}
+
+
+
+
+// @keyframes iconAni {
+//   0%, 100% {
+//     transform: translate3d(0, rem(10), 0);
+//   }
+//   50% {
+//     transform: translate3d(0, 0, 0);
+//   }
+// }
+
+

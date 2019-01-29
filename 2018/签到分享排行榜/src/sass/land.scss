@@ -1,0 +1,290 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+@import './helper/_swiper-3.4.2.scss';
+
+
+body,html {
+    height: 100%;
+    div {
+        box-sizing: border-box;
+    }
+}
+.container {
+    @include bg('../images/land/bg.png');
+    background-size: 100% 100%; 
+    background-repeat:no-repeat;
+    padding-top: rem(19);
+    padding-bottom: rem(124);
+    position: relative;
+    .logo {
+        @include bg('../images/land/logo.png');
+        @include wh(169,56);
+        position: absolute;
+        top: rem(33);
+        left: rem(28);
+    }
+    .ad {
+        font-size: rem(18);
+        color: #4b9db0;
+        text-align: right;
+        padding-right: rem(23);
+    }
+}
+
+.banner {
+    position: relative;
+    height: rem(542);
+    width: 100%;
+    top: rem(80);
+    .dialog {
+        @include wh(443, 161);
+        @include bg('../images/land/dialog.png?v=2018071901');
+        position: absolute;
+        left: rem(230);
+    }
+    .pai {
+        @include wh(378, 232);
+        @include bg('../images/land/xiaopai.png?v=2018071901');
+        position: absolute;
+        left: rem(43);
+        top: rem(89);
+        z-index: 10;
+    }
+    .txt {
+        @include wh(645, 273);
+        @include bg('../images/land/txt_bg.png');
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 11;
+        display: flex;
+        align-items: center;
+        padding: 0 rem(47);
+        overflow: hidden;
+        p{
+            color: #502a01;
+            font-size: rem(24);
+            line-height: rem(50);
+        }
+    }
+}
+.pg_1 {
+    @include wh(645, 800);
+    @include bg('../images/land/pg_1_bg.png');
+    margin: 0 auto;
+    position: relative;
+    padding: rem(100) rem(90) 0;
+    margin-top: rem(220);
+    .title {
+        @include wh(483, 132);
+        @include bg('../images/land/pg_1_title.png');
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: rem(-44);
+    }
+    .prize_list {
+        overflow: hidden;
+        li {
+            @include wh(189,256);
+            @include bg('../images/land/prize_bg.png');
+            text-align: center;
+            margin-bottom: rem(40);
+            overflow: hidden;
+            position: relative;
+            .img {
+                width: rem(143);
+                margin-top: rem(58);
+                position: absolute;
+                bottom: rem(68);
+                transform:translateX(-50%);
+            }
+            .txt {
+                font-size: rem(24.02);
+                font-weight: bold;
+                color: #502a01;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-wrap: normal;
+                position: absolute;
+                bottom: rem(10);
+            }
+            &:nth-child(odd) {
+                float: left;
+            }
+            &:nth-child(even){
+                float: right;
+            }
+        }
+    }
+    .info {
+        text-align: center;
+        font-size: rem(20);
+        color: #aa935c;
+    }
+}
+.pg_2 {
+    @include wh(645, 630);
+    @include bg('../images/land/pg_2_bg.png');
+    margin: 0 auto;
+    position: relative;
+    margin-top: rem(153);
+    padding: rem(99) rem(62) rem(53);
+    .title {
+        @include wh(483, 132);
+        @include bg('../images/land/pg_2_title.png');
+    }
+    .reason_list {
+        li {
+            @include wh(503,103);
+            @include bg('../images/land/reason_1.png');
+            overflow: hidden;
+            margin-bottom: rem(14);
+            padding-left: rem(150);
+            display: flex;
+            align-items: center;
+            &.list2 {
+                @include bg('../images/land/reason_2.png');
+            }
+            &.list3 {
+                @include bg('../images/land/reason_3.png');
+            }
+            &.list4 {
+                @include bg('../images/land/reason_4.png');
+            }
+            & p{
+                color:#502a01;
+                font-size: rem(24);
+            }
+        }
+    }
+}
+
+.pg_3 {
+    @include wh(645, 582);
+    @include bg('../images/land/pg_3_bg.png');
+    margin: 0 auto;
+    position: relative;
+    margin-top: rem(153);
+    padding: rem(137) rem(30) rem(72);
+    .title {
+        @include wh(355, 129);
+        @include bg('../images/land/pg_3_title.png');
+    }
+    .swiper-container-main {
+        height: rem(369);
+        overflow: hidden;
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            .con {
+                @include wh(466, 319);
+                background: #fff;
+                border: rem(3) solid #ffbc06;
+                border-radius: rem(10);
+                margin: auto;
+                .tit {
+                    font-size: rem(28.4);
+                    font-weight: bold;
+                    text-align: center;
+                    color: #fff;
+                    background: #ffbc06;
+                    height: rem(82);
+                    line-height: rem(82);
+                }
+                .content {
+                    padding: rem(27) 0 rem(51);
+                    text-align: center;
+                    .info {
+                        color: #502a01;
+                        font-size: rem(24.04);
+                        margin-bottom: rem(32);
+                    }
+                    .txt {
+                        display: flex;
+                        .list {
+                            flex: 1;
+                            color: #502a01;
+                            text-align: center;
+                            .rate {
+                                font-weight: bolder;
+                                font-size: rem(64.67);
+                                line-height: rem(84.3);
+                            }
+                            .desc {
+                                display: block;
+                                font-size: rem(20);
+                                line-height: 1.5;
+                            }
+
+                            &:first-child {
+                                border-right: 1px solid #ffbc06;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: 0;
+    }
+    .swiper-pagination-bullet-active {
+        background: #f7e0a1 !important;
+    }
+    .swiper-pagination-bullet {
+        background: transparent;
+        border: 1px solid #f7e0a1;
+        opacity: 1;
+        height: rem(16);
+        width: rem(16);
+    }
+    .swiper-button-prev {
+        @include bg('../images/land/left.png');
+        @include wh(28,51);
+        left: 0;
+    }
+    .swiper-button-next {
+        @include bg('../images/land/right.png');
+        @include wh(28,51);
+        right: 0;
+    }
+        
+}
+
+footer{
+    height: rem(161);
+    padding-top: rem(50);
+    p{
+        text-align: center;
+        color: #4b9db0;
+        line-height: rem(30);
+        font-size: rem(18)
+    }
+}
+
+.register-btn {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: rem(124);
+    width: 100%;
+    background: rgba(0,0,0,.2);
+    padding: rem(16) rem(50);
+    z-index: 99;
+    button {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        @include bg('../images/land/btn.png');
+        background-size:100% 100%; 
+        font-size: rem(31.63);
+        line-height: rem(29.09);
+        color: #502a01;
+    }
+}

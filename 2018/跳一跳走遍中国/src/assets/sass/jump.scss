@@ -1,0 +1,135 @@
+.jump-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom,#bedcfe 0%,#e3f3f0 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+}
+.jump-count{
+    height: 15vh;
+    line-height: 15vh;
+    font-size: rem(72);
+    font-weight: bold;
+    color: #fff;
+    margin-left: rem(70);
+}
+.jump-wrapper{
+    height: 100vh;
+    overflow: hidden;
+}
+.city-wrapper{
+    position: relative;
+    transition: all 0.4s linear;
+}
+.city{
+    width: rem(375);
+    height: rem(375);
+    position: absolute;
+    @include boxCenter;
+    &:nth-child(odd){
+        right: 0;
+    }
+    &:nth-child(even){
+        left: 0;
+    }
+    .start{
+        top: rem(35);
+        left: rem(10);
+    }
+    .liaoning{
+        top: rem(-60);
+        left: rem(25);
+    }
+    .beijing{
+        top: rem(-20);
+        left: 0;
+    }
+    .tianjin{
+        top: rem(-25);
+        left: rem(45);
+    }
+    .hebei{
+        top: rem(-30);
+        left: 0;
+    }
+    .henan{
+        top: rem(-30);
+        left: rem(20);
+    }
+    .hubei{
+        top: rem(-35);
+        left: 0;
+    }
+    .zhejiang{
+        top: rem(-20);
+        left: rem(35);
+    }
+    .sichuan{
+        top: rem(-10);
+        left: rem(5);
+    }
+    .hunan{
+        top: rem(-30);
+        left: rem(45);
+    }
+    .fujian{
+        top: rem(-10);
+        left: 0;
+    }
+    .guangdong{
+        top: rem(-10);
+        left: rem(35);
+    }
+    .gangao{
+        top: rem(-25);
+        left: rem(5);
+    }
+    img{
+        width: 85%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+.pai{
+    @include wh(164,225);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+    transform-origin: center;
+}
+.pai-transtion{
+    transition: transform 0.4s linear;
+}
+.pai-left{
+    @include bg('../images/pai-left.png');
+}
+.pai-right{
+    @include bg('../images/pai-right.png');
+}
+
+.firstPlayTips{
+    width: rem(200);
+    position: absolute;
+    left: 50%;
+    margin-left: rem(-100);
+    bottom: rem(40);
+    z-index: 2;
+    .img{
+        @include wh(179,118);
+        @include bg('../images/firstPlayTips.png');
+    }
+    p{
+        font-size: rem(30);
+        font-weight: bold;
+        color: #2e177c;
+        text-align: center;
+        margin-top: rem(20);
+    }
+}

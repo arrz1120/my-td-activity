@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  {{> './tpls/head.html'}}
+</head>
+
+<body>
+  <section class="user-container fixed d-hide">
+    <img class="user-avatar" src="./images/zhuli/4.png">
+    <p class="user-name text-nowrap">老司机</p>
+    <p class="user-count">x
+      <span>0</span>
+    </p>
+    <p class="user-details">详情 ></p>
+  </section>
+  <section class="page-zhuli">
+    <section class="dragon-container">
+      <div class="dragon-tag"></div>
+      <div class="dragon-title"></div>
+      <div class="dragon-boat-container">
+        <div class="dragon-boat"></div>
+        <div class="dragon-boat-cap"></div>
+        <div class="dragon-boat-awards"></div>
+      </div>
+    </section>
+    <section class="step-container">
+      <div class="user-container">
+        <img class="user-avatar" src="./images/zhuli/4.png">
+        <p class="user-name text-nowrap">老司机</p>
+        <p class="user-count">x
+          <span>0</span>
+        </p>
+        <p class="user-details">详情 ></p>
+      </div>
+      <div class="step-progress-shade"></div>
+      <div class="step-progress"></div>
+    </section>
+    <section class="tabs-container">
+      <ul class="tabs-nav">
+        <li class="item on">粽享豪礼</li>
+        <li class="item">我的助力
+          <i class="tabs-nav-point"></i>
+        </li>
+      </ul>
+      <div class="tabs-wrapper">
+        <!-- 奖品列表 -->
+        <div class="award-list js-awardList">
+          <!-- 未发助力 -->
+          <div class="award-item js-awardItemBtn">
+            <span class="award-item-cost">2粽子</span>
+            <img src="./images/zhuli/awards/01-270.jpg" class="award-item-img">
+            <div class="award-item-details">
+              <p class="award-item-title">奥克斯榨汁机</p>
+              <div class="award-item-dl-container">
+                <dl class="award-item-dl">
+                  <dt class="dt n2">11人</dt>
+                  <dd class="dd">需助力人数</dd>
+                </dl>
+                <dl class="award-item-dl">
+                  <dt class="dt">1</dt>
+                  <dd class="dd">剩余库存</dd>
+                  <dd class="dd">抢完即止</dd>
+                </dl>
+              </div>
+              <div class="award-item-progress-container">
+                <p class="award-item-progress-label text-nowrap">竞争对手：幸福的鱼</p>
+                <div class="award-item-progress">
+                  <p class="award-item-progress-text js-progress" rate="8/11">7/11（人）</p>
+                  <i class="award-item-progress-cur"></i>
+                </div>
+              </div>
+              <p class="award-item-btn">消耗2个粽子发起助力</p>
+            </div>
+          </div>
+          <!-- 未发助力 end -->
+          <!-- 已发助力 -->
+          <div class="award-item js-awardItemInvite">
+            <span class="award-item-cost">2粽子</span>
+            <span class="award-item-status-cur"></span>
+            <img src="./images/zhuli/awards/01-270.jpg" class="award-item-img">
+            <p class="award-item-countdown">
+              进行中 剩余
+              <span class="js-countdown" countdown="25:05:05">0天 0时 0分 0秒</span>
+            </p>
+            <div class="award-item-details">
+              <p class="award-item-title">奥克斯榨汁机</p>
+              <div class="award-item-dl-container">
+                <dl class="award-item-dl">
+                  <dt class="dt n2">11人</dt>
+                  <dd class="dd">需助力人数</dd>
+                </dl>
+                <dl class="award-item-dl">
+                  <dt class="dt">1</dt>
+                  <dd class="dd">剩余库存</dd>
+                  <dd class="dd">抢完即止</dd>
+                </dl>
+              </div>
+              <div class="award-item-progress-container">
+                <p class="award-item-progress-label text-nowrap">竞争对手：幸福的鱼</p>
+                <div class="award-item-progress">
+                  <p class="award-item-progress-text js-progress" rate="11/11">11/11（人）</p>
+                  <i class="award-item-progress-cur"></i>
+                </div>
+              </div>
+              <div class="award-item-progress-container">
+                <p class="award-item-progress-label text-nowrap">我的助力</p>
+                <div class="award-item-progress">
+                  <p class="award-item-progress-text js-progress" rate="0/11">0/11（人）</p>
+                  <i class="award-item-progress-cur n2"></i>
+                </div>
+              </div>
+              <p class="award-item-btn">邀请好友助力（还差4人）</p>
+            </div>
+          </div>
+          <!-- 已发助力 end -->
+          <!-- 未开启 -->
+          <div class="award-item">
+            <span class="award-item-cost">2粽子</span>
+            <span class="award-item-status">6月13日
+              <br/>开启</span>
+            <img src="./images/zhuli/awards/01-270.jpg" class="award-item-img">
+            <div class="award-item-details">
+              <p class="award-item-title n2">奥克斯榨汁机</p>
+              <div class="award-item-dl-container n2">
+                <dl class="award-item-dl">
+                  <dt class="dt">11人</dt>
+                  <dd class="dd">需助力人数</dd>
+                </dl>
+                <dl class="award-item-dl">
+                  <dt class="dt">0</dt>
+                  <dd class="dd">库存</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <!-- 未开启 end -->
+          <!-- 已结束 -->
+          <div class="award-item">
+            <span class="award-item-status">已结束</span>
+            <img src="./images/zhuli/awards/01-270.jpg" class="award-item-img">
+            <div class="award-item-details">
+              <p class="award-item-title n2">奥克斯榨汁机</p>
+              <div class="award-item-dl-container n2">
+                <dl class="award-item-dl">
+                  <dt class="dt">11人</dt>
+                  <dd class="dd">需助力人数</dd>
+                </dl>
+                <dl class="award-item-dl">
+                  <dt class="dt">0</dt>
+                  <dd class="dd">库存</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <!-- 已结束 end -->
+        </div>
+        <!-- 奖品列表 end -->
+      </div>
+      <div class="tabs-wrapper n2 d-hide">
+        <!-- 助力列表 -->
+        <div class="assist-list">
+          <!-- 进行中 -->
+          <div class="assist-item">
+            <div class="assist-item-img-container">
+              <img src="./images/zhuli/awards/01-150.jpg" class="assist-item-img">
+              <p class="assist-item-img-status">进行中</p>
+            </div>
+            <div class="assist-item-details">
+              <dl class="assist-item-dl">
+                <dt class="assist-item-title text-nowrap">先科家庭音响套装先科家庭音响套装</dt>
+                <dd class="assist-item-desc text-nowrap">已邀请
+                  <span class="mark">7</span>/11人</dd>
+                <dd class="assist-item-desc text-nowrap">剩余
+                  <span class="js-countdown" countdown="26:00:01">0天 0时 0分 0秒</span>
+                </dd>
+              </dl>
+            </div>
+            <p class="assist-item-btn n1 js-assistCancel">终止</p>
+          </div>
+          <!-- 进行中 end -->
+          <!-- 已完成 -->
+          <div class="assist-item">
+            <div class="assist-item-img-container">
+              <img src="./images/zhuli/6.png" class="assist-item-img">
+              <p class="assist-item-img-status">已完成</p>
+            </div>
+            <div class="assist-item-details">
+              <dl class="assist-item-dl">
+                <dt class="assist-item-title text-nowrap">先科家庭音响套装先科家庭音响套装</dt>
+                <dd class="assist-item-desc text-nowrap">已邀请
+                  <span class="mark">11</span>/11人</dd>
+              </dl>
+            </div>
+            <p class="assist-item-btn n2 js-assistGet">领取</p>
+          </div>
+          <!-- 已完成 end -->
+          <!-- 已终止 -->
+          <div class="assist-item">
+            <div class="assist-item-img-container">
+              <img src="./images/zhuli/6.png" class="assist-item-img">
+              <p class="assist-item-img-status">失败</p>
+            </div>
+            <div class="assist-item-details">
+              <dl class="assist-item-dl">
+                <dt class="assist-item-title text-nowrap">先科家庭音响套装先科家庭音响套装</dt>
+                <dd class="assist-item-desc text-nowrap">剩余库存
+                  <span class="mark">3</span>
+                </dd>
+              </dl>
+            </div>
+            <div class="assist-item-status n1"></div>
+          </div>
+          <!-- 已终止 end -->
+          <!-- 已抢光 -->
+          <div class="assist-item">
+            <div class="assist-item-img-container">
+              <img src="./images/zhuli/6.png" class="assist-item-img">
+              <p class="assist-item-img-status">失败</p>
+            </div>
+            <div class="assist-item-details">
+              <dl class="assist-item-dl">
+                <dt class="assist-item-title text-nowrap">先科家庭音响套装先科家庭音响套装</dt>
+                <dd class="assist-item-desc text-nowrap">剩余库存
+                  <span class="mark">0</span>
+                </dd>
+              </dl>
+            </div>
+            <div class="assist-item-status n2"></div>
+          </div>
+          <!-- 已抢光 end -->
+          <!-- 已结束 -->
+          <div class="assist-item">
+            <div class="assist-item-img-container">
+              <img src="./images/zhuli/6.png" class="assist-item-img">
+              <p class="assist-item-img-status">失败</p>
+            </div>
+            <div class="assist-item-details">
+              <dl class="assist-item-dl">
+                <dt class="assist-item-title text-nowrap">先科家庭音响套装先科家庭音响套装</dt>
+                <dd class="assist-item-desc text-nowrap">剩余库存
+                  <span class="mark">0</span>
+                </dd>
+              </dl>
+            </div>
+            <div class="assist-item-status n3"></div>
+          </div>
+          <!-- 已结束 end -->
+        </div>
+        <!-- 助力列表 end -->
+        <!-- 暂无助力 -->
+        <div class="assist-nodata d-hide">
+          <div class="assist-nodata-img"></div>
+          <p class="assist-nodata-desc">暂无助力！</p>
+        </div>
+        <!-- 暂无助力 end -->
+      </div>
+    </section>
+    <section class="bottom-decorate"></section>
+  </section>
+  <!-- 粽子详情  -->
+  <div class="alert alert_integral js-zongziModal d-hide">
+    <div class="mask"></div>
+    <div class="con">
+      <p class="tit tit_2">粽子详情</p>
+      <div class="tab">
+        <nav class="js-zongziModalTab">
+          <div class="item item_on">总获得粽子：
+            <span class="orange">200</span>
+          </div>
+          <div class="item">已消耗粽子</div>
+        </nav>
+
+        <div class="tab_con">
+          <div class="tab_item tab_item_on js-zongziModalTabWrapper">
+            <!-- 无数据 -->
+            <!-- <p class="no_data">暂无数据！</p> -->
+            <ul class="list">
+              <li class="invite-msg">
+                <p class="txt_3">活动期间投资金额：¥5000</p>
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">登录</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+              <li>
+                <p class="txt">分享</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">分享 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+              <li>
+                <p class="txt">团币兑换</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+100个</p>
+              </li>
+              <li>
+                <p class="txt">投资金额¥400 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> +10个</p>
+              </li>
+              <li>
+                <p class="txt">投资金额¥400 </p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange">+10个</p>
+              </li>
+            </ul>
+          </div>
+          <div class="tab_item js-zongziModalTabWrapper">
+            <!-- 无数据 -->
+            <!-- <p class="no_data">暂无数据</p> -->
+            <ul class="list">
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+              <li>
+                <p class="txt">兑换3元投资红包</p>
+                <p class="txt_2">05-16 23：56</p>
+                <p class="txt_1 orange"> -10个</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="tips">活动期间赠送的粽子为虚拟物品，仅限本次活动中兑换红包及加息
+        <br>券使用，活动结束后剩余的粽子数将清零。</p>
+      <div class="close_icon close_btn js-zongziModalCloseBtn"></div>
+    </div>
+  </div>
+  <!-- 粽子详情 end-->
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}
+  <script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+  <script>
+    var state = {
+      tabNavIdx: 0,
+      isScrollEnd: false,
+      isAwardsLoading: false,
+      scrollToTabRaf: null
+    }
+
+    var doms = {
+      zongziDetails: Q('.user-details'),
+      userContainerFixed: Q('.user-container.fixed'),
+      tabContainer: Q('.tabs-container'),
+      tabItems: Q('.tabs-nav>.item'),
+      tabWrappers: Q('.tabs-wrapper'),
+      awardList: Q('.js-awardList'),
+      assistCancelBtn: Q('.js-assistCancel'),
+      assistGetBtn: Q('.js-assistGet'),
+      zongziModal: Q('.js-zongziModal'),
+      zongziModalTabItems: Q('.js-zongziModalTab>.item'),
+      zongziModalCloseBtn: Q('.js-zongziModalCloseBtn'),
+      zongzimodalTabWrappers: Q('.js-zongziModalTabWrapper')
+    }
+
+    var methods = {
+      pageInit: function () {
+        methods.setCountdown()
+        methods.setAwardProgress()
+        setTimeout(function(){
+          window.scrollTo(0,0)
+        },500)
+      },
+
+      // 设置倒计时
+      setCountdown: function () {
+        var doms = Q('.js-countdown')
+        if (doms.length === 0) return
+        doms.each(function (i, item) {
+          var $item = Q(item)
+          var time = $item.attr('countdown')
+          if (time.replace(/:/g, '') * 1 === 0) return
+          $item.removeClass('js-countdown')
+          var countdown = Timr(time, {
+            formatOutput: 'DD天 hh时 mm分 ss秒'
+          })
+          countdown.ticker(function (e) {
+            $item.removeClass('js-countdown')
+            $item.html(e.formattedTime)
+          })
+          countdown.start()
+          countdown.finish(function () {
+            // 倒计时结束
+            window.location.href = window.location.href
+          })
+        })
+      },
+
+      // 设置进度条
+      setAwardProgress: function () {
+        var doms = Q('.js-progress')
+        if (doms.length === 0) return
+        doms.each(function (i, item) {
+          var $item = Q(item)
+          var rate = (function () {
+            var val = $item.attr('rate').split('/')
+            return val[0] / val[1]
+          })()
+          var $CurProgress = $item.siblings('.award-item-progress-cur')
+          if (rate >= .5) {
+            $item.css({
+              'color': '#fff',
+              'transform': 'translateX(' + (rate - .675) * 100 + '%)'
+            })
+          }
+          $CurProgress.css({
+            'width': rate * 100 + '%'
+          })
+          $item.removeClass('js-progress')
+        })
+      },
+
+      // tab定位
+      scrollToTab: function () {
+        state.scrollToTabRaf && raf.cancel(state.scrollToTabRaf)
+        var scrollY = window.scrollY
+        var offsetY = doms.tabContainer[0].getBoundingClientRect().top - rem * 2.25
+        if (offsetY <= 1) return
+        var count = 0
+        var scrollFrame = offsetY / 8.5
+        state.scrollToTabRaf = raf(function tick() {
+          if (scrollFrame === 0) {
+            state.scrollToTabRaf = null
+            return
+          }
+          count += scrollFrame
+          if (count > offsetY) {
+            scrollFrame = 0
+            window.scrollTo(0, scrollY + offsetY)
+          } else {
+            window.scrollTo(0, scrollY + count)
+          }
+          raf(tick)
+        })
+      },
+
+      // 粽子详情 click 事件
+      onZongziDetails: function () {
+        methods.zongziModalToggle(true)
+      },
+
+      // 豪礼/助力切换 click 事件
+      onTabItem: function () {
+        var $this = Q(this)
+        var idx = $this.index()
+        state.tabNavIdx = idx
+        $this.addClass('on').siblings().removeClass('on')
+        doms.tabWrappers.addClass('d-hide').eq(idx).removeClass('d-hide')
+        methods.scrollToTab()
+      },
+
+      // 发起助力 click 事件
+      onAwardBtn: function (e) {
+        prc.msgbox.set({
+          msgs: ['你将消耗2个粽子发起', 'xxx助力'],
+          btns: [
+            {
+              text: '让我再想想', type: 1, callback: function () {
+                this.hide()
+              }
+            },
+            {
+              text: '确定发起', callback: function () {
+                // 粽子不足情况
+                this.shakeTips('粽子不足')
+              }
+            }
+          ]
+        })
+        prc.msgbox.show()
+      },
+
+      // 邀请好友助力 click 事件
+      onAwardInvite: function () {
+
+      },
+
+      // 终止助力 click 事件
+      onAssistCancel: function () {
+        prc.msgbox.set({
+          msgs: ['你将终止【先科家庭音响套装】助力'],
+          tips: '且邀请人数不叠加到下次助力中',
+          btns: [
+            {
+              text: '让我再想想', callback: function () {
+                this.hide()
+              }
+            },
+            {
+              text: '继续终止', type: 1, callback: function () {
+
+              }
+}
+          ]
+        })
+        prc.msgbox.show()
+      },
+
+      // 领取奖品 click 事件
+      onAssistGet: function () {
+        if (Jsbridge.isApp()) {
+          // app 环境
+          Jsbridge.toAppPresent()
+        } else {
+          // 非 app 环境
+          window.location.href = '//m.tuandai.com/Member/UserPrize/gift.aspx'
+        }
+      },
+
+      // 总粽子/消耗粽子切换 click 事件
+      onZongziModalTabItem: function () {
+        var $this = Q(this)
+        var idx = $this.index()
+        $this.addClass('item_on').siblings().removeClass('item_on')
+        doms.zongzimodalTabWrappers.removeClass('tab_item_on').eq(idx).addClass('tab_item_on')
+      },
+
+      zongziModalToggle: function (show) {
+        if (show) {
+          doms.zongziModal.removeClass('d-hide');
+          methods.openAlert();
+        } else {
+          doms.zongziModal.addClass('d-hide');
+          methods.clsoeAlert();
+        }
+      },
+      to: function (scrollTop) {
+        document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
+      },
+      getScrollTop: function () {
+        return document.body.scrollTop || document.documentElement.scrollTop;
+      },
+      openAlert: function () {
+        // 在弹出层显示之前，记录当前的滚动位置
+        scrollTop = methods.getScrollTop();
+        // 使body脱离文档流
+        document.body.classList.add('modal-open');
+
+        // 把脱离文档流的body拉上去！否则页面会回到顶部！
+        document.body.style.top = -scrollTop + 'px';
+      },
+      clsoeAlert: function () {
+
+        document.body.classList.remove('modal-open');
+
+        document.body.style.top = 0 + 'px';
+
+        methods.to(scrollTop);
+
+      },
+
+      // 滚动 scroll 事件
+      onWinScroll: function () {
+        var rectTarget = doms.tabContainer[0].getBoundingClientRect()
+        if (rectTarget.top >= rem * 2.5) {
+          doms.userContainerFixed.addClass('d-hide')
+        } else {
+          doms.userContainerFixed.removeClass('d-hide')
+        }
+        if (state.tabNavIdx !== 0) return
+        state.isScrollEnd = rectTarget.bottom - winH > 0 ? false : true
+        if (!state.isScrollEnd) return
+        if (state.isAwardsLoading) return
+        state.isAwardsLoading = true
+        prc.toast.show('加载中...', 8000)
+        // 滚动到底部, 请求奖品数据成功后,
+        // setTimeout 只是模拟请求耗时,去掉
+        setTimeout(function () {
+          doms.awardList.append(`
+            <div class="award-item js-awardItemInvite">
+              <span class="award-item-cost">2粽子</span>
+              <img src="./images/zhuli/awards/01-270.jpg" class="award-item-img">
+              <p class="award-item-countdown">
+                进行中 剩余<span class="js-countdown" countdown="25:05:05">0天 0时 0分 0秒</span>
+              </p>
+              <div class="award-item-details">
+                <p class="award-item-title">奥克斯榨汁机</p>
+                <div class="award-item-dl-container">
+                  <dl class="award-item-dl">
+                    <dt class="dt n2">11人</dt>
+                    <dd class="dd">需助力人数</dd>
+                  </dl>
+                  <dl class="award-item-dl">
+                    <dt class="dt">1</dt>
+                    <dd class="dd">剩余库存</dd>
+                    <dd class="dd">抢完即止</dd>
+                  </dl>
+                </div>
+                <div class="award-item-progress-container">
+                  <p class="award-item-progress-label text-nowrap">竞争对手：幸福的鱼</p>
+                  <div class="award-item-progress">
+                    <p class="award-item-progress-text js-progress" rate="11/11">11/11（人）</p>
+                    <i class="award-item-progress-cur"></i>
+                  </div>
+                </div>
+                <div class="award-item-progress-container">
+                  <p class="award-item-progress-label text-nowrap">我的助力</p>
+                  <div class="award-item-progress">
+                    <p class="award-item-progress-text js-progress" rate="0/11">0/11（人）</p>
+                    <i class="award-item-progress-cur n2"></i>
+                  </div>
+                </div>
+                <p class="award-item-btn">邀请好友助力（还差4人）</p>
+              </div>
+            </div>
+          `)
+          state.isAwardsLoading = false
+          prc.toast.hide()
+          methods.setCountdown()
+          methods.setAwardProgress()
+        }, 2000)
+      }
+
+
+
+
+    }
+
+    methods.pageInit()
+    doms.zongziDetails.on('click', methods.onZongziDetails)
+    doms.tabItems.on('click', methods.onTabItem)
+    doms.tabContainer.on('click', '.js-awardItemBtn', methods.onAwardBtn)
+    doms.tabContainer.on('click', '.js-awardItemInvite', methods.onAwardInvite)
+    doms.assistCancelBtn.on('click', methods.onAssistCancel)
+    doms.assistGetBtn.on('click', methods.onAssistGet)
+    doms.zongziModalTabItems.on('click', methods.onZongziModalTabItem)
+    doms.zongziModalCloseBtn.on('click', methods.zongziModalToggle.bind(this, false))
+    Q(window).on('scroll', methods.onWinScroll)
+  </script>
+</body>
+
+</html>

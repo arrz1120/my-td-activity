@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>落地页</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+  <div class="container">
+    <div class="logo"></div>
+    <div class="ad">【广告】市场有风险，投资需谨慎</div>
+    <section class="banner">
+      <div class="dialog"></div>
+      <div class="pai"></div>
+      <div class="txt"><p>嘿，朋友！听说这期签到活动狂撒上万福利金，上榜并保持排名就送红包，最高奖励500元耶，注册还送518元新手礼，也太爽了！话不多，一起来玩吧~</p></div>
+    </section>
+    <section class="pg_1">
+      <div class="title"></div>
+      <ul class="prize_list">
+        <li>
+          <a href="javascript:;">
+            <img class="img" src="../images/land/prize1.png" alt="体验金">
+            <p class="txt">2888体验金</p>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <img class="img" src="../images/land/prize2.png" alt="红包">
+            <p class="txt">518元红包</p>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <img class="img" src="../images/land/prize3.png" alt="回报率">
+            <p class="txt">11%参考年回报率</p>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <img class="img" src="../images/land/prize4.png" alt="超级会员">
+            <p class="txt">VIP超级会员</p>
+          </a>
+        </li>
+      </ul>
+      <p class="info">投资对应金额可提取518元红包，规则详看平台 “新手福利”说明。</p>
+    </section>
+    <section class="pg_1 pg_2">
+      <div class="title"></div>
+      <ul class="reason_list">
+        <li class="list1">
+          <p>
+            累计撮合融资额1193亿元
+          </p>
+        </li>
+        <li class="list2">
+          <p>
+            注册用户668万人
+          </p>
+        </li>
+        <li class="list3">
+          <p>
+            6年稳健运营<br/>合规披露运营数据
+          </p>
+        </li>
+        <li class="list4">
+          <p>
+            国家公安部<br/>信息安全三级认证
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="pg_1 pg_3">
+      <div class="title"></div>
+      <div class="swiper-container swiper-container-main" id="swiper-container-main">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="con">
+                    <h3 class="tit">新手专享We+自动服务</h3>
+                    <div class="content">
+                        <div class="info">新手专享  特权礼遇</div>
+                        <div class="txt">
+                          <div class="list">
+                            <p class="rate">9%</p>
+                            <span class="desc">参考年回报率</span>
+                          </div>
+                          <div class="list">
+                              <p class="rate">15天</p>
+                              <span class="desc">100元起投</span>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="con">
+                <h3 class="tit">新手专享We+自动服务</h3>
+                <div class="content">
+                    <div class="info">新手专享  特权礼遇</div>
+                    <div class="txt">
+                      <div class="list">
+                        <p class="rate">10%</p>
+                        <span class="desc">参考年回报率</span>
+                      </div>
+                      <div class="list">
+                          <p class="rate">1个月</p>
+                          <span class="desc">100元起投</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="con">
+                <h3 class="tit">新手专享We+自动服务</h3>
+                <div class="content">
+                    <div class="info">新手专享  特权礼遇</div>
+                    <div class="txt">
+                      <div class="list">
+                        <p class="rate">11%</p>
+                        <span class="desc">参考年回报率</span>
+                      </div>
+                      <div class="list">
+                          <p class="rate">3个月</p>
+                          <span class="desc">100元起投</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    </section>
+    <footer>
+        <p>在法律许可的合法范畴内，本活动最终解释权归团贷网所有。</p>
+        <p>*本次活动与苹果公司无关</p>
+    </footer>
+    <div class="register-btn">
+      <button class="btn">注册领红包</button>
+    </div>
+  </div>
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+</body>
+</html>

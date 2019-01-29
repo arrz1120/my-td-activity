@@ -1,0 +1,76 @@
+@charset "utf-8";
+.jxalert-container{
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  transform: translateZ(1px);
+    .alert-bg {
+    background: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    }
+
+    .alert-con{
+        position: relative;
+        width: rem(600);
+        background: linear-gradient(#ff5c9d, #ff5997);
+        border-radius: rem(10);
+        padding: rem(37) rem(22) rem(22);
+        &:before{
+          position: absolute;
+          left: 0;
+          top: rem(-220);
+          content: '';
+          @include bg('../images/jiaxi/alert-bg.png');
+          @include wh(600, 421);
+        }
+
+        .con-inner{
+          position: relative;
+          background: #fff;
+          border-radius: rem(10);
+          padding-top: rem(50);
+        }
+
+        .con-close{
+          @include bg('../images/jiaxi/alert-close.png');
+          @include wh(70, 70);
+          position: absolute;
+          left: 50%;
+          bottom: rem(-100);
+          transform: translateX(-50%);
+        }
+
+        .con-tit{
+          color: #f83770;
+          font-size: rem(40);
+          text-align: center;
+        }
+
+        .con-txt{
+          color: #5d5d5d;
+          .txt-red{
+            color: #f83770;
+          }
+        }
+
+
+
+
+    }
+
+
+
+
+}

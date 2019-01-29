@@ -1,0 +1,7 @@
+{
+  "clientPort":9527,
+  "serverPort":3000,
+  "autoConfig":true,
+  "entry":{},
+  "pages":[]
+}

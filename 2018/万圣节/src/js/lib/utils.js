@@ -1,0 +1,16 @@
+module.exports={
+  toLogin(url){
+    if(Jsbridge.isApp()){
+      Jsbridge.toAppLogin()
+      return
+    }
+    window.location.href=`//passport.tuandai.com/2login?ret=${encodeURIComponent(url)}`
+  },
+  toTBX(){
+    if(Jsbridge.isApp()){
+      Jsbridge.toAppTBX()
+    }else{
+      window.location.href='//m.tuandai.com/Member/UserPrize/Index.aspx'
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.alert{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .alert-bg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .alert-con{
+        width: rem(556);
+        position: relative;
+        z-index: 2;
+        padding-top: rem(76);
+        h3{
+            text-align: center;
+            color: #502a01;
+            font-size: rem(32);
+            font-weight: bold;
+        }
+        .alert-txt{
+            padding: 0 rem(68); 
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            p{
+                color: #502a01;
+                text-align: center;
+                width: 100%;
+                line-height: rem(38);
+            }
+        }
+        .iknow{
+            @include wh(287,72);
+            @include bg('../images/index/alert/iknow.png');
+            margin: 0 auto;
+            line-height: rem(72);
+            text-align: center;
+            color: #502a01;
+        }
+    }
+    .con361{
+        height: rem(361);
+        @include bg('../images/index/alert/h361.png');
+        .alert-txt{
+            height: rem(126);
+        }
+    }
+    .con438{
+        height: rem(438);
+        @include bg('../images/index/alert/h438.png');
+        .alert-txt{
+            height: rem(200);
+        }
+    }
+    .con662{
+        height: rem(662);
+        @include bg('../images/index/alert/h662.png');
+        .alert-txt{
+            height: rem(425);
+            p{
+                text-align: left;
+                padding: rem(5) 0
+            }
+        }
+    }
+    .con-gl{
+        @include wh(616,782);
+        @include bg('../images/index/alert/con-gl.png');
+        .gl-close{
+            @include wh(60,80);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        } 
+    }
+    .btn-two{
+        display: flex;
+        width: rem(460);
+        margin: 0 auto;
+        .alert-btn{
+            @include wh(230,72);
+            text-align: center;
+            color: #502a01;
+            padding-top: rem(20);
+        }
+        .alert-btn-l{
+            @include bg('../images/index/alert/alert-btn-l.png')
+        } 
+        .alert-btn-r{
+            @include bg('../images/index/alert/alert-btn-r.png')
+        } 
+    }
+}

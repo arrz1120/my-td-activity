@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>Doc</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+    <div class="container">
+        <section class="rule">
+            <div class="title"></div>
+            <div class="content">
+              <p>
+                （1）8月1日-8月31日期间，累计签到≥15天，按当月累计投资金额排名可获一下相应现金红包奖励：
+              </p>
+              <div class="table">
+                <img src="../images/rule/table.png?v=2018071901" alt="">
+              </div>
+              <p>
+                    （2）排名规则：
+                    活动期间，在满足累计签到天数≥15天区间内，按当月累计投资金额排名（当月累计投资金额＞0才可计入排名）；
+                    若当月累计投资金额相同，则根据签到天数排名，签到天数多的排名靠前；
+                    若当月累计投资金额与签到天数皆相同，则按用户最后一笔投资时间进行排名，投资较早的排名靠前。
+              </p>
+              <p>（3）8月1日00:00至8月31日23:59期间，用户完成投资（或成功匹配）的金额可计入累计投资金额，投资范围：we自动服务、we+自动服务、新手we+自动服务、智享转让服务（债权转让除外）；</p>
+              <p>（4）通过本活动分享邀请的好友，可同享邀请有礼4重礼奖励；</p>
+              <p>（5）以活动结束时用户的最终排名为准，奖励将于活动结束后7个工作日内统一发放至团宝箱，请于10天内领取，过期失效。</p>
+            </div>
+        </section>
+        <footer>
+            <p>在法律许可的合法范畴内，本活动最终解释权归团贷网所有。</p>
+            <p>*本次活动与苹果公司无关</p>
+        </footer>
+      </div>
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+</body>
+</html>

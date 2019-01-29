@@ -1,0 +1,162 @@
+.mask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    @include boxCenter;
+    flex-direction: column;
+    animation: translateZ 1s forwards;
+    .mask-bg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .mask-con{
+        position: relative;
+        z-index: 2;
+    }
+    .mask-close{
+        @include wh(69,139);
+        margin: rem(-40) auto 0;
+        @include bg('../images/mask-close.png');
+    }
+    .mask-btn{
+        @include wh(253,77);
+        @include bg('../images/mask-btn.png');
+        margin: rem(50) auto 0;
+        padding-top: rem(17);
+        color: #2e177c;
+        font-size: rem(32);
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.mask-rule{
+    @include wh(647,691);
+    @include bg('../images/rule-bg.png');
+    position: relative;
+    .rule-tit{
+        width: rem(245);
+        padding: rem(20) 0;
+        color: #2e177c;
+        font-size: rem(35);
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid #2e177c;
+        position: absolute;
+        top: rem(-26);
+        left: 50%;
+        margin-left: rem(-122);
+        background: #fff;
+        border-radius: rem(40);
+    }
+    .rule-con{
+        padding: rem(90) rem(32) 0 rem(32);
+        p{
+            line-height: rem(48);
+            color: #2e177c;
+            font-size: rem(24);
+            position: relative;
+            padding-left: rem(64);
+            padding-right: rem(60);
+            text-align: justify;
+            margin-top: rem(5);
+        }
+        i{
+            display: block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #2e177c;
+            position: absolute;
+            top: rem(13);
+            left: rem(42);
+        }
+    }
+}
+
+.mask-tips{
+    @include wh(646,378);
+    @include bg('../images/mask-bg.png');
+    @include boxCenter;
+    flex-direction: column;
+    text-align: center;
+    .mask-btn{
+        margin-top: rem(40);
+    }
+    .tips-p1{
+        color: #2e177c;
+        font-size: rem(36);
+        font-weight: bold;
+    }
+    .tips-p2{
+        color: #2e177c;
+        font-size: rem(24);
+        margin-top: rem(10);
+        span{
+            color: #ff0000;
+            font-size: rem(36);
+            font-weight: bold;
+            vertical-align: bottom;
+        }
+    }
+    .tips-p3{
+        color: #ff4949;
+        font-size: rem(16);
+        margin-top: rem(12);
+    }
+}
+
+.mask-prize{
+    @include wh(647,691);
+    @include bg('../images/prize-bg.png');
+    text-align: center;
+    .mask-btn{
+        margin: 0 auto;
+    }
+    .prize-p1{
+        color: #2e177c;
+        font-size: rem(48);
+        font-weight: bold;
+        padding-top: rem(60);
+    }
+    .prize-p2{
+        color: #2e177c;
+        font-size: rem(36);
+        font-weight: bold;
+        padding-top: rem(12);
+    }
+    .prize-img{
+        height: rem(352);
+        @include boxCenter;
+        .tb{
+            @include wh(227,222);
+            @include bg('../images/tb.png');
+            color: #fff9eb;
+            font-size: rem(103);
+            font-weight: bold;
+            padding-top: rem(40);
+        }
+        .hb{
+            @include wh(185,249);
+            @include bg('../images/hb.png');
+        }    
+    }
+}
+
+@keyframes translateZ{
+    0%{
+        transform: translateZ(2px) perspective(1000px);
+    }
+    100%{
+        transform: translateZ(2px) perspective(1000px);
+    }
+}
+

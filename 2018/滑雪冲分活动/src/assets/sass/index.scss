@@ -1,0 +1,106 @@
+.page-index{
+  width: 16rem;
+  min-height: 100vh;
+  @include bg('../images/index/bg.jpg');
+  background-size: cover;
+  position: relative;
+  padding-top: 3rem;
+  overflow: hidden;
+  .snowflake{
+    @include bg('../images/index/04.png');
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    animation: snowflake 20s linear infinite;
+  }
+  .logo{
+    @include wh(132,48);
+    @include bg('../images/index/01.png');
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+  }
+  .warning-tips{
+    color: #4b92ff;
+    font-size: rem(16);
+    position: absolute;
+    right: 0.5rem;
+    top: .75rem;
+  }
+  .rule-btn{
+    position: absolute;
+    right: 0;
+    top: 2.75rem;
+    @include wh(52,122);
+    @include bg('../images/index/05.png');
+  }
+  .banner-title{
+    @include wh(557,185);
+    @include bg('../images/index/03.png');
+    margin: 0 auto;
+    animation: zoomInDown 1s linear;
+  }
+  .banner-date{
+    @include wh(570,50);
+    @include bg('../images/index/02.png');
+    margin: 0 auto;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(25);
+    color: #012a88;
+  }
+  .btn-group{
+    position: absolute;
+    bottom: 3rem;
+    left: 1rem;
+    right: 1rem;
+    color: #ffffff;
+    text-align: center;
+  }
+  .game-btn{
+    font-size: rem(40);
+    background: linear-gradient(to bottom,#d63434,#8e0606);
+    padding: 0.5rem 0;
+    border-radius: .25rem;
+  }
+  .btn-row{
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(36);
+    >.item{
+      width: rem(315);
+      background: linear-gradient(to bottom,#ffb83d,#ff8f1e);
+      padding: 0.5rem 0;
+      border-radius: .25rem;
+    }
+  }
+  .bingo-container{
+    font-size: 12px;
+    color: #62728e;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+    right: 1rem;
+    width: 14rem;
+    overflow: hidden;
+    background: rgba(255,255,255,.55);
+    border-radius: 1rem;
+    padding: 0.15rem 0;
+  }
+  .ios-copyright{
+    font-size: rem(16);
+    color: #8daee6;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.5rem;
+  }
+}

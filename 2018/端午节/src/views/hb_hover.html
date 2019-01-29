@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+<!-- 头部开始 -->
+<header>
+  <div class="user_logo">
+    <img src="../images/hb/user_img.png">
+    <p>发起助力</p>
+  </div>
+  <span class="arrow_1"></span>
+  <div class="friend">
+    <div class="friend_list">
+      <ul>
+        <li class="friend_list_1">
+          <span></span>
+          <p>好友</p>
+        </li>
+        <i class="arrow_2"></i>
+        <li class="friend_list_2">
+          <span></span>
+          <p>开红包</p>
+        </li>
+        <i class="arrow_3"></i>
+        <li class="friend_list_3">
+          <span></span>
+          <p>加入</p>
+        </li>
+      </ul>
+    </div>
+    <p>好友完成助力任务</p>
+  </div>
+  <span class="arrow_4"></span>
+  <div class="complete">
+    <img src="../images/hb/complete.png">
+    <p>助力完成</p>
+  </div>
+</header>
+<!-- 头部结束-->
+
+<!-- 红包（拆开）-->
+<section class="lucky_money_hover fadeInUpBig" id="lucky_money_hover">
+  <div class="lucky_money_con">
+    <p>领取成功！</p>
+    <p><span>前往</span>团贷网APP<span>投资即完成助力</span></p>
+    <a class="breath" href=""></a>
+  </div>
+  <div class="lucky_money_list">
+    <div class="list_title">
+      <span class="left_line"></span>
+      <p>新手福利</p>
+      <span class="right_line"></span>
+    </div>
+    <div class="list_con1">
+      <h1>新手We+自助服务</h1>
+      <h2>10</h2>
+      <h3>%</h3>
+      <i></i>
+      <h4>1个月</h4>
+      <p>参考年回报率</p>
+      <a class="breath" href=""></a>
+      <span>新手专享限3次加入机会，累计限额限8万</span>
+    </div>
+    <div class="list_title list2">
+      <span class="left_line"></span>
+      <p>品牌优势</p>
+      <span class="right_line"></span>
+    </div>
+    <div class="list_con2">
+      <ul>
+        <li class="list_con2_1">
+          <div>
+            <img src="../images/hb/icon_list_con2_1.png">
+            <p>品牌实力</p>
+          </div>
+          <h1>A股上市公司战略合作<br>设利院互金排名前十</h1>
+        </li>
+        <li class="list_con2_2">
+          <div>
+            <img src="../images/hb/icon_list_con2_2.png">
+            <p>专业认证</p>
+          </div>
+          <h1>国家公安部信息安全三级认证<br>AAA级企业信用认证</h1>
+        </li>
+        <li class="list_con2_3">
+          <div>
+            <img src="../images/hb/icon_list_con2_3.png">
+            <p>合规运营</p>
+          </div>
+          <h1>五年稳健运营<br>合规披露运营数据</h1>
+        </li>
+        <li class="list_con2_4">
+          <div>
+            <img src="../images/hb/icon_list_con2_4.png">
+            <p>智能投资</p>
+          </div>
+          <h1>参考年回报率12.6%</h1>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <img class="spray" src="../images/hb/spray.png">
+</section>
+<!-- 红包（拆开）结束 -->
+
+<!--注册弹窗-->
+<div class="mask" style="display: none;">
+  <div class="mask-bg"></div>
+  <div class="mask-con land-con">
+    <div class="img"></div>
+    <h5>输入手机号码，领取好礼<br>并可以获得<span>518红包</span></h5>
+    <div class="input-box">
+      <div class="inp">
+        <input type="text" placeholder="输入手机号码抽奖" maxlength="11">
+      </div>
+      <div class="code-input">
+        <div class="inp-half">
+          <input type="text" placeholder="请填写验证码">
+        </div>
+        <div class="getcode off">获取</div>
+      </div>
+      <div class="error">请输入正确的手机号码</div>
+      <div class="btn">抢夺好礼</div>
+    </div>
+    <div class="close"></div>
+  </div>
+</div>
+
+<!-- webpack js -->
+{{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+<!-- webpack js end-->
+
+</body>
+</html>
+

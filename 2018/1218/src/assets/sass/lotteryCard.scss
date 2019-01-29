@@ -1,0 +1,471 @@
+.lotteryCard-container{
+  margin-top: 0.75rem;
+  height: rem(820);
+  position: relative;
+  .lotteryCard-grid{
+    height: rem(820);
+    position: relative;
+    z-index: 0;
+  }
+  .lotteryCard-item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include wh(186,256);
+    font-size: rem(18);
+    color: #ffffff;
+  }
+  .lotteryCard-item-behind{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    transition: .35s ;
+    &.n1{
+      @include bg('../images/lottery/07-01.png');
+    }
+    &.n2{
+      @include bg('../images/lottery/03-01.png');
+    }
+    &.scale-hide{
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    &.scale-show{
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  .lotteryCard-item-front{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 0.325rem;
+    transition: .35s ;
+    background-size: 100% 100%;
+    &.n1{
+      @include bg('../images/lottery/07-02.png');
+    }
+    &.n2{
+      @include bg('../images/lottery/03-02.png');
+    }
+    &.scale-hide{
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    &.scale-show{
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  .lotteryCard-item-img{
+    @include wh(160,200);
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0.25rem;
+  }
+  .lotteryCard-bingo-container{
+    text-align: center;
+    padding-top: 1.25rem;
+    @include wh(555,757);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,1px) scale(0);
+    opacity: 0;
+    transition: .35s;
+    &.n1{
+      @include bg('../images/lottery/07-02@2x.png');
+    }
+    &.n2{
+      @include bg('../images/lottery/03-02@2x.png');
+    }
+    &.show{
+      opacity: 1;
+      transform: translate3d(-50%,-50%,1px) scale(1);
+    }
+  }
+  .lotteryCard-bingo-img{
+    @include wh(425,545);
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1.5rem;
+  }
+  .lotteryCard-bingo-name{
+    color: #ffffff;
+    font-size: rem(40);
+  }
+  .lotteryCard-finger{
+    @include wh(153,175);
+    @include bg('../images/lottery/04.png');
+    position: absolute;
+    z-index: 2;
+    top: 3rem;
+    left: 2rem;
+    pointer-events: none;
+    opacity: 0;
+    animation: lotteryFinger 9s 2.25s linear infinite;
+  }
+}
+@keyframes lotterytBingoCard{
+  0%{
+    transform: translate3d(-50%,-50%,1px) scale(0.35);
+  }
+  80%{
+    transform: translate3d(-50%,-50%,1px) scale(1.05);
+  }
+  100%{
+    transform: translate3d(-50%,-50%,1px) scale(1);
+  }
+}
+@keyframes lotteryFinger{
+  0%{
+    transform: translate(0,0);
+    opacity: 0;
+  }
+  9%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  10%{
+    transform: translate(4.5rem,0);
+    opacity: 0;
+  }
+  19%{
+    transform: translate(4.5rem,0);
+    opacity: 1;
+  }
+  20%{
+    transform: translate(4.5*2rem,0);
+    opacity: 0;
+  }
+  29%{
+    transform: translate(4.5*2rem,0);
+    opacity: 1;
+  }
+  30%{
+    transform: translate(0,6rem);
+    opacity: 0;
+  }
+  39%{
+    transform: translate(0,6rem);
+    opacity: 1;
+  }
+  40%{
+    transform: translate(4.5rem,6rem);
+    opacity: 0;
+  }
+  49%{
+    transform: translate(4.5rem,6rem);
+    opacity: 1;
+  }
+  50%{
+    transform: translate(4.5*2rem,6rem);
+    opacity: 0;
+  }
+  59%{
+    transform: translate(4.5*2rem,6rem);
+    opacity: 1;
+  }
+  60%{
+    transform: translate(0rem,6*2rem);
+    opacity: 0;
+  }
+  69%{
+    transform: translate(0rem,6*2rem);
+    opacity: 1;
+  }
+  70%{
+    transform: translate(4.5rem,6*2rem);
+    opacity: 0;
+  }
+  79%{
+    transform: translate(4.5rem,6*2rem);
+    opacity: 1;
+  }
+  80%{
+    transform: translate(4.5*2rem,6*2rem);
+    opacity: 0;
+  }
+  89%{
+    transform: translate(4.5*2rem,6*2rem);
+    opacity: 1;
+  }
+  90%{
+    transform: translate(4.5*2rem,6*2rem);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(4.5*2rem,6*2rem);
+    opacity: 0;
+  }
+}
+@keyframes lotteryCardScaleHide{
+  0%{
+    opacity: 1;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes lotteryCardSelected1{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(235),rem(280));
+  }
+}
+@keyframes lotteryCardSelected2{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(0),rem(280));
+  }
+}
+@keyframes lotteryCardSelected3{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(-235),rem(280));
+  }
+}
+@keyframes lotteryCardSelected4{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(235),rem(0));
+  }
+}
+@keyframes lotteryCardSelected5{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(235),rem(280));
+  }
+}
+@keyframes lotteryCardSelected6{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(-235),rem(0));
+  }
+}
+@keyframes lotteryCardSelected7{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(235),rem(-280));
+  }
+}
+@keyframes lotteryCardSelected8{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(0),rem(-280));
+  }
+}
+@keyframes lotteryCardSelected9{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(rem(-235),rem(-280));
+  }
+}
+
+@keyframes shuffle1{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(235),rem(280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(235),rem(280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(235),rem(280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle2{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(0,rem(280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(0,rem(280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(0,rem(280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle3{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(-235),rem(280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(-235),rem(280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(-235),rem(280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle4{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(235),0) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(235),0) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(235),0) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle5{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
+@keyframes shuffle6{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(-235),0) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(-235),0) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(-235),0) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle7{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(235),rem(-280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(235),rem(-280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(235),rem(-280)) rotateX(50deg) rotateY(20deg) rotateZ(10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle8{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(0,rem(-280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(0,rem(-280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(0,rem(-280)) rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes shuffle9{
+  0%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  25%{
+    transform: translate(rem(-235),rem(-280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  50%{
+    transform: translate(rem(-235),rem(-280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  75%{
+    transform: translate(rem(-235),rem(-280)) rotateX(50deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}

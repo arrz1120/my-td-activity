@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>6月狂欢节</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+  <section class="page-index">
+    <div class="logo"></div>
+    <p class="rule-btn">活动规则</p>
+    <section class="lottery-container">
+      <div class="lottery-title"></div>
+      <div class="lottery-wrapper"></div>
+      <div class="canvas-container"></div>
+      <div class="lottery-shade"></div>
+      <div class="lottery-marquee">
+        <p class="lottery-marquee-item">158****1006用户 获得20元现金红包</p>
+        <p class="lottery-marquee-item">158****1006用户 获得20元现金红包</p>
+        <p class="lottery-marquee-item">158****1006用户 获得20元现金红包</p>
+        <p class="lottery-marquee-item">158****1006用户 获得20元现金红包</p>
+      </div>
+      <div class="lottery-circle"></div>
+    </section>
+    <section class="lottery-btn-contianer">
+      <p class="lottery-records-btn">查看中奖纪录</p>
+      <p class="lottery-btn">点我抽奖</p>
+    </section>
+    <section class="awards-container">
+      <p class="awards-title">奖品明细</p>
+      <div class="awards-bounds">
+        <div class="swiper-container swiper-awards">
+          <div class="swiper-wrapper">
+            <div class="awards-item swiper-slide"><img src="./images//11-1.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-2.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-3.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-4.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-5.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-6.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-7.png" class="awards-item-img"></div>
+            <div class="awards-item swiper-slide"><img src="./images//11-8.png" class="awards-item-img"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <p class="warning"></p>
+  </section>
+
+  <!-- 活动规则 -->
+  <section class="pub-modal js-ruleModal d-hide">
+    <div class="pub-modal-shade"></div>
+    <div class="pub-modal-container">
+      <p class="pub-modal-title">活动规则</p>
+      <div class="rule-scroller swiper-container">
+        <div class="swiper-wrapper">
+          <ul class="rule-scroller-ul swiper-slide">
+            <li class="item">1.活动时间为<br/><span class="mark">2018年6月1日10：00至6月3日24：00</span></li>
+            <li class="item">2.现金红包、投资红包、实物礼品请登录【APP-我-团宝箱】查看;<br/>团币请登录【app-我-我的会员-我的团币】查看相关明细。（或点击“我的中奖记录”查看所有奖品）；</li>
+            <li class="item">3.奖品图片仅供参考，最终以实物型号为标准；</li>
+            <li class="item">4.凡以不正当手段（包括不限于作弊、扰乱系统、实施网络攻击等）参与本次活动的用户，团贷网有权终止其参与，取消参与资格；</li>
+            <li class="item">5.活动结束后的3天内为用户申诉期，逾期将不再受理申诉；</li>
+            <li class="item">6.在法律许可的合法范畴内，本活动最终解释权归小派讲金融所有。</li>
+          </ul>
+        </div>
+        <div class="swiper-scrollbar rule-scroller-scrollbar"></div>
+      </div>
+    </div>
+    <div class="pub-modal-closeBtn"></div>
+  </section>
+  <!-- 活动规则 end -->
+
+  <!-- 中奖记录 -->
+  <section class="pub-modal js-recordsModal d-hide">
+    <div class="pub-modal-shade"></div>
+    <div class="pub-modal-container">
+      <p class="pub-modal-title">我的中奖记录</p>
+      <!-- 记录列表 -->
+      <div class="record-list">
+        <div class="item">
+          <div class="record-item-content">
+            <p class="record-item-desc text-nowrap">20元现金红包20元现金红包</p>
+            <p class="record-item-date">2018-2-8 15:56:55</p>
+          </div>
+          <div class="record-item-btn-container">
+            <p class="record-item-btn">前往查看</p>
+          </div>
+        </div>
+      </div>
+      <!-- 记录列表 end -->
+      <!-- 暂无记录 -->
+      <!-- <p class="record-nodata">暂无记录</p> -->
+      <!-- 暂无记录 end -->
+    </div>
+    <div class="pub-modal-closeBtn"></div>
+  </section>
+  <!-- 中奖纪录 end -->
+
+  <!-- 已抽奖 -->
+  <section class="pub-modal d-hide">
+    <div class="pub-modal-shade"></div>
+    <div class="pub-modal-container">
+      <p class="pub-modal-title">很抱歉</p>
+      <div class="warning-container">
+        <img src="./images//9.png" class="warning-img n1">
+        <ul class="warning-ul">
+          <li class="item">每个用户一期</li>
+          <li class="item">只能参与一次开红包</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pub-modal-closeBtn"></div>
+  </section>
+  <!-- 已抽奖 end -->
+
+  <!-- 已结束 -->
+  <section class="pub-modal d-hide">
+    <div class="pub-modal-shade"></div>
+    <div class="pub-modal-container">
+      <p class="pub-modal-title">本期活动已结束<br/>请下回再战</p>
+      <div class="warning-container">
+        <img src="./images//10.png" class="warning-img n2">
+        <ul class="warning-ul">
+          <li class="item">扫描二维码或长按识别二维码关注公众号</li>
+          <li class="item">再也不错过精彩活动</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pub-modal-closeBtn"></div>
+  </section>
+  <!-- 已结束 end -->
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+
+  <script>
+    var doms={
+      lotteryMarquee:Q('.lottery-marquee'),
+      pubModals:Q('.pub-modal'),
+      pubModalCloseBtns:Q('.pub-modal-closeBtn'),
+      ruleModal:Q('.js-ruleModal'),
+      ruleBtn:Q('.rule-btn'),
+      recordsBtn:Q('.lottery-records-btn'),
+      recordsModal:Q('.js-recordsModal'),
+      lotteryBtn:Q('.lottery-btn'),
+    }
+    var state={
+      ruleScroller:null,
+      switch:false,
+      awardsSwiper:null
+    }
+    var methods={
+      pageInit:function(){
+        methods.initMarquee()
+        methods.initAwardsSwiper()
+        doms.pubModals.on('touchmove',function(e){
+          e.preventDefault()
+        })
+        Q('.record-list').on('touchmove',function(e){
+          e.stopPropagation()
+        })
+      },
+      initMarquee:function(){
+        var marqueeItemLen=doms.lotteryMarquee.find('.lottery-marquee-item').length
+        if(marqueeItemLen.length===0) return
+        new Marquee(doms.lotteryMarquee[0],{
+          showSlides:1
+        })
+      },
+      initAwardsSwiper:function(){
+        state.awardsSwiper=new Swiper('.swiper-awards',{
+          slidesPerView: 4,
+          paginationClickable: true,
+          spaceBetween: 10,
+          autoplay:2000,
+          loop:true,
+          autoplayDisableOnInteraction:false
+        })
+      },
+      initRuleScroller:function(){
+        if(state.ruleScroller) return
+        state.ruleScroller=new Swiper('.rule-scroller',{
+          scrollbar: '.rule-scroller-scrollbar',
+          scrollbarHide:false,
+          direction: 'vertical',
+          slidesPerView: 'auto',
+          freeMode: true,
+        })
+      },
+      togglePubModal:function(show){
+        if(show){
+          doms.pubModals.removeClass('d-hide')
+          return
+        }
+        doms.pubModals.addClass('d-hide')
+      },
+      // 活动规则 click 事件
+      onRuleBtnClk:function(){
+        doms.ruleModal.removeClass('d-hide')
+        methods.initRuleScroller()
+      },
+      // 点我抽奖 click 事件
+      onLotteryBtnClk:function(){
+        if(state.switch) return
+        state.switch=true
+        xLottery.run(2000,function(){
+          Q('.lottery-circle').addClass('animate')
+        },function(){
+          // 小球停止
+          state.switch=false
+          prc.msgbox.set({
+            type:2, // 0:团币, 1:投资红包, 2:现金红包
+            val:'1888', // 红包显示的数值, 团币为空
+            msg:'1888元现金红包',
+            btn:{
+              text:'查看奖品',
+              callback:function(e){
+              }
+            }
+          })
+          prc.msgbox.show()
+          Q('.lottery-circle').removeClass('animate')
+        })
+      },
+      // 查看记录 click 事件
+      onRecordsBtnClk:function(){
+        doms.recordsModal.removeClass('d-hide')
+      },
+    }
+    methods.pageInit()
+    doms.pubModalCloseBtns.on('click',methods.togglePubModal.bind(this,false))
+    doms.ruleBtn.on('click',methods.onRuleBtnClk)
+    doms.recordsBtn.on('click',methods.onRecordsBtnClk)
+    doms.lotteryBtn.on('click',methods.onLotteryBtnClk)
+
+    window.addEventListener('orientationchange',function(e){
+      setTimeout(function(){
+        state.awardsSwiper.onResize()
+      },500)
+    })
+  </script>
+</body>
+</html>

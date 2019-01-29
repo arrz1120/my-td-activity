@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<title>Doc</title>
+	{{> './tpls/head.html'}}
+</head>
+
+<body>
+
+	<div class="lottery">
+		<div class="content">
+
+			<div class="tit tit-move"></div>
+			<p class="time time-move">活动时间:7月1日—7月15日</p>
+
+			<div class="platform">
+				<div class="bg"></div>
+				<div class="light-box">
+					<div class="light"></div>
+				</div>
+				<div class="egg-box">
+					<div class="egg egg-move" id="clickEgg">
+						<span>点击砸蛋</span>
+					</div>
+					<div class="chui"></div>
+				</div>
+				<div class="prize" style="display: none;">
+					<a href="javascript:void(0);" class="watch"></a>
+				</div>
+			</div>
+
+			<div class="state">
+				<div class="txt">
+					<p></p>
+					<!-- <p class="end">活动已结束，谢谢关注！</p> -->
+					<!-- <p>恭喜您获得iPhone X 256G</p> -->
+					<!-- <p>抽奖正在进行中</p> -->
+					<!-- <p>开放抽奖倒计时</p> -->
+					<!-- <p>开放抽奖倒计时</p> -->
+				</div>
+				<!--中奖用户滚动 -->
+				<div class="scroll" style="display: none;">
+					<div class="swiper-container user-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">150****6681抽中了iPhone X 258G</div>
+							<div class="swiper-slide">150****6682抽中了iPhone X 258G</div>
+							<div class="swiper-slide">150****6683抽中了iPhone X 258G</div>
+							<div class="swiper-slide">150****6684抽中了iPhone X 258G</div>
+							<div class="swiper-slide">150****6685抽中了iPhone X 258G</div>
+						</div>
+					</div>
+				</div>
+				<!-- 倒计时 -->
+				<div class="timeout" style="display: none;">
+					<p>
+						<span>00</span>天
+						<span>00</span>时
+						<span>00</span>分
+						<span>00</span>秒
+					</p>
+				</div>
+			</div>
+
+			<div class="prize-box">
+				<div class="swiper-container prize-swiper" id="prizeSwiper"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="float">
+		<div class="item"></div>
+		<div class="item share-btn"></div>
+		<div class="item" id="showJxAlert">
+			<p>
+				<span>1.08</span>%</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="#" class="item item1">加息专区</a>
+		<a href="#" class="item item2">集周年彩蛋</a>
+		<a href="#" class="item item3 active">7.15抽iPhone X</a>
+	</div>
+
+	<!-- 活动未开始 -->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con notstart">
+			<div class="alert-tit">活动未开始！</div>
+			<div class="cd">
+				<p class="p1">本次活动时间为2018年7月1日至2018年7月15日。活动尚未开始，敬请期待！</p>
+			</div>
+			<div class="btn">我知道了</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- 活动已结束 -->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con notstart">
+			<div class="alert-tit">活动已结束！</div>
+			<div class="cd">
+				<p class="p1">本次活动时间为2018年7月1日至2018年7月15日。活动已结束，非常感谢您的关注！</p>
+			</div>
+			<div class="btn">我知道了</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- 抽奖未开始 -->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con notstart">
+			<div class="alert-tit">抽奖时间未到！</div>
+			<div class="cd">
+				<p class="p1">抽奖活动将在7月15日00:00正式开放！7月1日—7月15日，集齐3个隐藏的周年庆彩蛋，即可参与！</p>
+			</div>
+			<div class="btn">我知道了</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- 登录提示 -->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con conLogin">
+			<div class="alert-tit">请先登录</div>
+			<p class="p1">亲，请先登录后再参与活动哦~</p>
+			<div class="btn">我知道了</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- 未集齐彩蛋 -->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con con391">
+			<div class="alert-tit">您还未集齐3个彩蛋哦~</div>
+			<div class="cd">
+				<p class="p1">7月1日—7月15日，集齐3个隐藏的周年庆彩蛋，即可参与抽奖！</p>
+			</div>
+			<div class="btn">前往寻找彩蛋</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- 我的加息特权 -->
+    <div class="alert" id="jxAlert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con con431">
+			<div class="alert-tit">我的加息特权</div>
+			<div class="tequan">
+				<div class="tq-tit tq-flex">
+					<div class="item">加息来源</div>
+					<div class="item">获取时间</div>
+					<div class="item">加息特权</div>
+				</div>
+				<div class="tq-con">
+					<div class="row tq-flex">
+						<div class="item">普惠加息</div>
+						<div class="item">07-01</div>
+						<div class="item">0.1%</div>
+					</div>
+					<div class="row tq-flex">
+						<div class="item">邀友挖矿</div>
+						<div class="item">07-01</div>
+						<div class="item">0.1%</div>
+					</div>
+					<div class="row tq-flex">
+						<div class="item">团币兑换</div>
+						<div class="item">07-01</div>
+						<div class="item">0.1%</div>
+					</div>
+				</div>
+			</div>
+			<div class="close"></div>
+		</div>
+	</div>
+
+	<!-- webpack js -->
+	{{#each htmlWebpackPlugin.files.js}}
+	<script src="{{this}}"></script>{{/each}}
+	<!-- webpack js end-->
+
+
+	<script>
+		var doms = {
+			btnSubmit: $("#btnSubmit"),
+			textarea: $("#textarea"),
+			egg: $("#clickEgg,.chui"),
+			txt: $(".state .txt p")
+		}
+		var state = {
+			timer: null,
+			txt: "" //存放奖品文字信息
+		}
+		var methods = {
+
+			//初始化调用方法定义
+			init: function () {
+				this.timr();
+				this.clickEgg();
+				this.share();
+                this.showAlert();
+                this.hideAlert();
+			},
+
+			//显示弹窗
+            showAlert: function () {
+                $("#showJxAlert").on("click",function(){
+                  $("#jxAlert").show();  
+                })
+            },
+
+			hideAlert: function () {
+				$(".alert-bg").on("touchmove", function (e) {
+					e.preventDefault();
+				}).on("click", function () {
+					$(this).parent().hide();
+				})
+				$(".close").on("click", function () {
+					$(this).parent().parent().hide();
+				})
+			},
+
+			//定义中奖用户滚动调用方法
+			showScroll: function () {
+				listScroll.start();
+			},
+
+			//倒计时方法
+			timr: function () {
+				var targetTime = "10";
+				var timer = Timr(targetTime, {
+					formatOutput: '<span>DD</span>天<span>hh</span>时<span>mm</span>分<span>ss</span>秒'
+				});
+				timer.ticker(function (e) {
+					if (targetTime == "00:00:00") return;
+					var tmpl = e.formattedTime
+					$('.timeout').html("<p>" + tmpl + "</p>");
+				});
+				timer.start();
+				timer.onStop(function(){
+					alert("到时结束");
+				});
+			},
+
+			//砸蛋
+			clickEgg: function () {
+				doms.egg.on("click", function () {
+					$(".chui").hide();
+					$("#clickEgg").removeClass("egg-move").addClass("move-egg-click");
+					methods.loadPrizeImg();
+				})
+			},
+
+			//获取奖品图片
+			loadPrizeImg: function () {
+				state.timer = setTimeout(function () {
+					//预加载中奖图片，加载成功后再显示
+					var tempImg = new Image();
+					tempImg.src = "../images/lottery/eggs/1.png";
+					tempImg.onload = function () {
+						methods.setTxt("恭喜您获得iPhone X 256G");
+						methods.eggOpen(tempImg);
+					}
+				}, 1000);
+			},
+			
+			//设置活动状态提示语
+			setTxt: function (t) {
+				state.txt = t;
+				doms.txt.html(state.txt);
+			},
+
+			//显示奖品
+			eggOpen: function (img) {
+				$(".egg-box").hide();
+				$(".prize").append($(img)).show();
+			},
+
+			//分享配置
+			share: function () {
+				appShare.set({
+					icon: '',
+					title: '团贷网6周年，多重惊喜等你来~',
+                    content: '周年多重豪礼，加息叠加+寻彩蛋抽iPhone X！',
+					shareUrl: '后端补充',
+					cover: {
+						src: './images/wxShare.png',
+						style: {
+							width: '100%'
+						}
+					}
+				})
+				$(".share-btn").on("click", function () {
+					appShare.show()
+				})
+			}
+		}
+
+		//初始化调用
+		methods.init();
+	</script>
+</body>
+
+</html>

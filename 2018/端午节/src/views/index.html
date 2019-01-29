@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+  <div class="index">
+    <div class="logo"></div>
+    <div class="content">
+      <div class="index-tit scale"></div>
+      <div class="zongzi zzmove"></div>
+      <div class="boat-box">
+        <div class="boat"></div>
+        <div class="img-zong"></div>
+        <a href="jiaxi.html" class="btn-join">立即参与</a>
+        <p class="bot-txt">【广告】市场有风险 投资需谨慎</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-share"></div>
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+
+  <script>
+    appShare.set({
+      icon:window.location.origin+'',
+      title:'',
+      content:'',
+      shareUrl:'后端补充',
+      cover:{
+        src:'./images/wxShare.png',
+        style:{
+          width:'100%'
+        }
+      }
+    })
+    $(".btn-share").on("click", function () {
+      appShare.show()
+    })
+  </script>
+</body>
+</html>

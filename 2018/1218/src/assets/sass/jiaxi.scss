@@ -1,0 +1,324 @@
+@charset "utf-8";
+.jiaxi-wraper {
+  // overflow: hidden;
+  @include bg('../images/jiaxi/bg.jpg');
+  padding-top: rem(86);
+  padding-bottom: rem(86);
+  header {
+    .tit {
+      @include bg('../images/jiaxi/tit.png');
+      @include wh(604, 239);
+      margin: 0 auto rem(28);
+      animation:bigger 1s  ease-in-out both;
+    }
+    .date {
+      @include wh(316, 52);
+      height: rem(52);
+      font-size: rem(30);
+      text-align: center;
+      line-height: rem(52);
+      margin: 0 auto;
+      background: #d93882;
+      border-radius: rem(26);
+      color: #fff;
+    }
+  }
+  .jiaxi-container {
+    margin: rem(36) auto;
+    @include bg('../images/jiaxi/bg-1.png');
+    @include wh(726, 578);
+    padding-top: rem(46);
+    .jiaxi-inner {
+      margin: 0 auto;
+      @include wh(690, 476);
+      background: #fff;
+      border-radius: rem(10);
+      padding-top: 1px;
+      .tit {
+        margin: rem(-6) auto rem(8);
+        @include bg('../images/jiaxi/tit-jx.png');
+        @include wh(355, 67);
+        text-align: center;
+        line-height: rem(65);
+        color: #fff;
+        font-size: rem(42);
+      }
+      .jxq {
+        @include bg('../images/jiaxi/jxq-bg.png');
+        @include wh(627, 275);
+        margin: rem(40) auto;
+        padding: rem(50) rem(150) 0 rem(60);
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        &:before {
+          content: "+";
+          position: absolute;
+          font-size: rem(78);
+          color: #fff;
+          left: rem(245);
+          top: rem(60)
+        }
+        .rate-num,
+        .rate-tit {
+          color: #fff;
+        }
+        .rate-num {
+          font-size: rem(90);
+          text-align: center;
+          span {
+            font-size: rem(51);
+          }
+        }
+        .rate-tit {
+          // @include wh(170, 48);
+          // line-height: rem(38);
+          width: rem(180);
+          padding: rem(5) 0;
+          border-radius: rem(25);
+          background: #fd2754;
+          text-align: center;
+          font-size: rem(30);
+        }
+      }
+
+      .btn-loan{
+      margin: 0 auto;
+      @include wh(616, 98);
+      line-height: rem(98);
+      color: #ff3455;
+      font-size: rem(46);
+      background: linear-gradient(#fff7c2, #fddc43);
+      border-radius: rem(50);
+      text-align: center;
+      box-shadow:0 rem(-8) 0 #fbb01b inset,0 rem(10) rem(20) rgba(183,44,103,0.5);
+      }
+    }
+  }
+
+
+  .list-container{
+    margin: rem(36) auto;
+    @include bg('../images/jiaxi/bg-2.png');
+    background-size: 100% 100%;
+    width: rem(726);
+    padding: rem(46) 0 0 rem(16);
+    z-index: 1;
+    position: relative;
+    .list{
+      width: rem(702);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap:wrap;
+
+      li{
+        @include bg('../images/jiaxi/rw-bg.png');
+        @include wh(345, 360);
+        margin-bottom: rem(12);
+        padding-top: rem(40);
+        position: relative;
+        .tit-1{
+        @include bg('../images/jiaxi/tit-bg.png');
+        @include wh(214, 42);
+        line-height: rem(42);
+        color: #fff;
+        font-size: rem(30);
+        text-align: center;
+        margin: rem(-30) auto 0;
+        }
+
+
+        .tit{
+          text-align: center;
+          color: #ff574a;
+          font-size: rem(34);
+          span{
+            &.num {
+              font-weight: bold;
+            }
+              // font-size: rem(42);
+          }
+        }
+
+        .tit-2{
+          color: #ff4aa7;
+          margin-top: rem(10);
+          font-size: rem(42);
+        }
+
+        .icon{
+            margin: rem(10) auto;
+        }
+
+        .icon-tb{
+          margin-top: 0;
+          @include bg('../images/jiaxi/tb.png');
+          @include wh(222, 144);
+        }
+
+        .icon-hb{
+          @include bg('../images/jiaxi/hb.png');
+          @include wh(216, 163);
+        }
+
+        .icon-jx{
+          @include bg('../images/jiaxi/jx.png');
+          @include wh(200, 145);
+          margin-top: 0.2333rem;
+          margin-bottom: 0;
+        }
+
+        .icon-jb{
+          margin-top: 0;
+          @include bg('../images/jiaxi/jb.png');
+          @include wh(200, 146);
+        }
+
+
+        .icon-gift{
+          margin-top: rem(30);
+          margin-bottom: rem(20);
+          @include bg('../images/jiaxi/icon-gift.png');
+          @include wh(212, 145);
+        }
+
+
+        .icon-cd{
+          margin-top:0;
+          margin-bottom: rem(20);
+
+          @include bg('../images/jiaxi/icon-cd.png');
+          @include wh(212, 145);
+          position: relative;
+          .day-num{
+            position: absolute;
+            font-size: rem(31);
+            color: #ff4e00;
+            left: rem(60);
+            top: rem(60);
+          }
+
+          .small{
+            font-size: rem(21);
+          }
+
+        }
+
+        .btn{
+          @include wh(280, 62);
+          line-height: rem(62);
+          background: linear-gradient(#ff5d7d, #ff3253);
+          color: #fff;
+          font-size: rem(34);
+          text-align: center;
+          border-radius: rem(5);
+          margin: 0 auto;
+        }
+
+        .btn-1{
+          background: linear-gradient(#fd67eb, #c976fe);
+        }
+
+        .btn-small{
+          font-size: rem(28);
+        }
+
+
+        .btn-finish{
+          background: linear-gradient(#bbbbbb , #919191);
+        }
+      }
+
+      .finish:before,
+      .finish-1:before{
+        content: '';
+        position: absolute;
+        right: rem(20);
+        top:rem(180);
+        @include bg('../images/jiaxi/finish-icon.png');
+        @include wh(92, 82);
+      }
+
+      .finish-1:before{
+        z-index: 2;
+        @include bg('../images/jiaxi/finish-icon-1.png');
+      }
+
+
+
+    }
+  }
+
+
+
+  .rule-container{
+        background: #d30a49;
+        margin-top: rem(-840);
+        padding: rem(840) rem(26) rem(57);
+
+        &:before{
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: rem(128);
+          @include bg('../images/jiaxi/bg-4.jpg');
+          @include wh(750, 128);
+        }
+
+        .tit{
+            color: #fff;
+            font-size: rem(46);
+            text-align: center;
+            margin-bottom: rem(30);
+        }
+
+        .list{
+
+            li{
+              position: relative;
+              padding-left: rem(70);
+              margin-bottom: rem(30);
+              font-size: rem(26);
+              color: #fff;
+              line-height: rem(36);
+            }
+            span{
+               border-radius: rem(20);
+               @include wh(40,40);
+               border:1px solid #ffe35a;
+               line-height: rem(40);
+               text-align: center;
+               font-size: rem(32);
+               color: #ffe35a;
+               position: absolute;
+               left: 0;
+               top: 0;
+            }
+        }
+
+  }
+
+
+
+  .btn-rule{
+      position: absolute;
+      right: 0;
+      top: rem(38);
+      padding: 0.5rem .35rem;
+      padding-left: 0.5rem;
+      border-radius: rem(46) 0  0 rem(46);
+      background: linear-gradient(#f46a8f, #f43d89);
+      border:1px solid #fff;
+      border-right: 0;
+      font-size: rem(30);
+      color: #fff;
+  }
+
+}
+
+
+@keyframes bigger {
+  0%{transform:scale(1.2);opacity:0;}
+  85%{transform:scale(0.9);}
+  100%{transform:scale(1);opacity:1;}
+}

@@ -1,0 +1,166 @@
+.wrap{
+  position: relative;
+  width: 16rem;
+  min-height: 100vh;
+  @include bg('../images/carveRedpacket/bg.jpg');
+  padding-top: rem(116);
+  background-size: cover;
+  overflow: hidden;
+  }
+
+.ad-tips{
+  position: absolute;
+  left: rem(40);
+  top:rem(32);
+  font-size: rem(22);
+  color: #fff;
+  }
+.icon-text{
+  display: block;
+  @include wh(682,215);
+  @include bg('../images/carveRedpacket/text.png');
+  margin: 0 auto;
+  animation:bigger 1s  ease-in-out both;
+  }
+
+.ren{
+  @include wh(564,471);
+  @include bg('../images/carveRedpacket/ren.png');
+  position: absolute;
+  z-index: 0;
+  left: rem(60);
+  bottom: 29vh;
+  }
+
+.time{
+  display: block;
+  @include wh(327,58);
+  @include bg('../images/carveRedpacket/time.png');
+  margin: rem(25) auto 0;
+  text-align: center;
+  line-height: rem(58);
+  font-size: rem(25);
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  }
+.icon-pf {
+  display: block;
+  @include wh(730,527);
+  @include bg('../images/carveRedpacket/icon-pf.png');
+  left: rem(15);
+  top: rem(25);
+  position: absolute;
+  }
+
+.icon-jb{
+  display: block;
+  @include wh(216,250);
+  @include bg('../images/carveRedpacket/icon-jb.png');
+  left: 0;
+  position: absolute;
+  bottom: 25vh;
+  }
+.icon-rp{
+  display: block;
+  @include wh(220,231);
+  @include bg('../images/carveRedpacket/icon-rp.png');
+  right: rem(-10);
+  bottom: 27vh;
+  position: absolute;
+  }
+.b-con{
+  @include wh(705,108);
+  position: absolute;
+  left: 50%;
+  margin-left: rem(-352);
+  bottom: rem(180) ;
+  text-align: center;
+  .btn-carve{
+    display: block;
+    @include wh(705,128);
+    line-height: rem(110);
+    @include bg('../images/carveRedpacket/btn.png');
+    margin: 0 auto;
+    font-size: rem(44);
+    color: #ff413d;
+    }
+  p{
+    font-size: rem(20);
+    color: #ffebf2;
+    padding-top: 0.2rem;
+    }
+  }
+
+
+.btn-rule{
+  position: absolute;
+    z-index: 1;
+    top: rem(38);
+    right: 0;
+    font-size: rem(30);
+    color: #ffffff;
+    background: linear-gradient(#f46a8f, #f43d89);
+    padding: 0.5rem .35rem;
+    padding-left: 0.5rem;
+    border-radius: 1rem 0 0 1rem;
+    border: 1px solid #fff;
+    border-right: 0;
+  }
+
+
+.breath {
+  animation: breath 1.4s linear infinite both
+  }
+
+
+@keyframes breath {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+    }
+
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
+    }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+    }
+  }
+
+.lotteryAlert-container{
+  .lotteryAlert-content{
+    padding: 1.25rem 0 1rem!important;
+    }
+  .lotteryAlert-title{
+    li{
+      padding-left: rem(20);
+      }
+    }
+  .lotteryAlert-msg{
+    text-align: justify;
+    padding: 0 1.25rem;
+    margin-top: 0.6rem!important;
+    }
+  }
+
+
+
+@keyframes bigger {
+  0%{transform:scale(1.2);opacity:0;}
+  85%{transform:scale(0.9);}
+  100%{transform:scale(1);opacity:1;}
+  }
+
+
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){
+  .wrap{
+    min-height: rem(1206);
+    .ren{
+      bottom: 31.5vh;
+      }
+    }
+  }
+

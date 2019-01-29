@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>Doc</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <div class="title">
+      <div class="title1"></div>
+      <div class="title2"></div>
+      <div class="title3">
+        <h1>活动时间：9月21日-26日<span class="rule-click eventTrack">活动规则</a></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section1">
+    <div class="light-bg"></div>
+    <div class="light-click"></div>
+    <div class="icon-click"></div>
+    <div class="icon1"></div>
+    <div class="icon2"></div>
+    <div class="icon3"></div>
+    <h1 id="dmCount">您总共猜对<span class="score-number"></span>个灯谜</h1>
+    <div class="info">
+      <div class="info-container swiper-container" id="section1-swiper">
+        <ul class="info-ul swiper-wrapper">
+          
+        </ul>
+      </div>
+    </div>
+    <h3>活动期间，用户首次成功竞猜灯谜，即可随机获得一<br>份奖励；本次所有灯谜均来源于团粉们提供。</h2>
+  </section>
+
+  <section class="section2">
+    <div class="section2-table">
+      <div class="section2-title">
+        <h1 class="section2-title-1">排名</h1>
+        <h1 class="section2-title-2">用户</h1>
+        <h1 class="section2-title-3">猜中灯谜数</h1>
+      </div>
+      <div class="findRankList" id="section2-swiper">
+        <!-- <div class="swiper-wrapper"> -->
+          <ul class="slide" id="findRankList">
+            <!-- <li>
+              <h2></h2>
+              <h3></h2>
+              <h4></h2>
+            </li> -->
+          </ul>
+        <!-- </div> -->
+        <!-- <div class="swiper-scrollbar">
+            <div class="swiper-scrollbar-drag"></div>
+        </div> -->
+      </div>
+      <!-- 无数据 -->
+      <div class="section2-nodata">
+        <div class="icon-cat"></div>
+        <h1>暂无数据</h1>
+      </div>
+      
+      
+    </div>
+
+    <p>活动结束后，根据用户竞猜灯谜的总数进行排名，<br>
+      前10名可获得奖励。</p>
+  </section>
+
+  <section class="section3">
+    <ul>
+      <li>
+        <h2>第 1 名</h2>
+        <h3>588元现金红包</h3>
+      </li>
+      <li>
+        <h2>第 2 名</h2>
+        <h3>308元现金红包</h3>
+      </li>
+      <li>
+        <h2>第 3 名</h2>
+        <h3>108元现金红包</h3>
+      </li>
+      <li>
+        <h2>第 4-6 名</h2>
+        <h3>58元投资红包</h3>
+      </li>
+      <li>
+        <h2>第 7-10 名</h2>
+        <h3>28元投资红包</h3>
+      </li>
+    </ul>
+  </section>
+
+  <div class="warn">[广告]市场有风险，投资需谨慎</div>
+
+  <!-- 活动规则 -->
+  <section class="rule alert touchmove" style="display: none;">
+    <div class="rule-container">
+      <h1>活动规则</h1>
+      <ul>
+        <li>
+          <i>1</i>
+          <h2>随机奖励，每位用户仅限获得一次；</h2>
+        </li>
+        <li>
+          <i>2</i>
+          <h2>竞猜成功即可继续竞猜，若竞猜失败可通过分享活动至好友或朋友圈获得复活卡；</h2>
+        </li>
+        <li>
+          <i>3</i>
+          <h2>本次部分灯谜来源于团粉提供；</h2>
+        </li>
+        <li>
+          <i>4</i>
+          <h2>榜单数据以截止于9月26日23:59:59的排名信息为准，若出现总数相同，则根据最后一次完成竞猜时间排名，较早完成的排名靠前；
+          </h2>
+        </li>
+        <li>
+          <i>5</i>
+          <h2>获得的奖品均发放至团宝箱，过期未领取，视为自动放弃，将不予补发；</h2>
+        </li>
+        <li>
+          <i>6</i>
+          <h2>本活动禁止一切刷奖行为，一经发现，所得奖品将不予承兑；</h2>
+        </li>
+        <li>
+          <i>7</i>
+          <h2>本活动最终解释权归团贷网所有。</h2>
+        </li>
+      </ul>
+      <button class="rule-button closeIcon">我知道了</button>
+    </div>
+  </section>
+
+  <!-- 登录弹框 -->
+  <section class="reg alert touchmove" style="display: none;" id="reg">
+    <div class="reg-container">
+      <div class="icon-close closeIcon"></div>
+      <h1>请先登录</h1>
+      <h2>您需要先登录才能继续参加<br>
+        猜灯谜活动喔~</h2>
+      <button class="reg-button toLogin">前往登录</button>
+    </div>
+  </section>
+
+  <!-- 活动已结束 -->
+  <section class="at-close alert touchmove" style="display: none;" id="at-close">
+    <div class="at-container">
+      <div class="at-close closeIcon"></div>
+      <h1>活动已结束</h1>
+      <h2>感谢您的关注~</h2>
+      <button class="at-button closeIcon">确定</button>
+    </div>
+  </section>
+
+  <!-- 猜对了 全部题目 -->
+  <section class="quzi alert touchmove" style="display: none;" id="quzi-all">
+    <div class="quzi-container">
+      <div class="quzi-close closeIcon"></div>
+      <div class="quzi-title">
+        <h1>恭喜您答完全部题目</h1>
+      </div>
+      <div class="quzi-info">
+        <h2>请关注排行榜，上榜有奖励喔</h2>
+      </div>
+      <div class="quzi-button closeIcon">确定</div>
+    </div>
+  </section>
+
+  <!-- 很遗憾您之前猜错了 -->
+  <section class="reward alert" style="display: none;" id="once-wrong">
+    <div class="reward-container">
+      <div class="reward-close closeIcon toIndex"></div>
+      <div class="reward-title">
+        <h1 class="wrong">很遗憾您之前猜错了</h1>
+      </div>
+      <div class="reward-info">
+        <h2 class="q1"></h2>
+        <h3 class="q2"></h3>
+        <h4 class="q3"></h4>
+      </div>
+      <div class="reward-button toShare">分享好友继续猜谜</div>
+      <p class="app-tips">*亲，通过App分享后，请返回App才可继续答题~</p>
+    </div>
+  </section>
+
+  <!-- 超时 -->
+  <section class="reward alert" style="display: none;" id="overtime">
+    <div class="reward-container">
+      <div class="reward-close closeIcon"></div>
+      <div class="reward-title">
+        <h1 class="wrong">很遗憾，你之前答题超时了~</h1>
+      </div>
+      <div class="reward-info">
+        <h2 class="q1"></h2>
+        <h3 class="q2"></h3>
+        <h4 class="q3"></h4>
+      </div>
+      <div class="reward-button toShare">分享好友继续猜谜</div>
+      <p class="app-tips">*亲，通过App分享后，请返回App才可继续答题~</p>
+    </div>
+  </section>
+
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script>
+    window.isInIndex = true
+  </script>
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script> {{/each}}
+  <!-- webpack js end-->
+  <script>
+    (function () {
+      var ta = document.createElement('script');
+      ta.type = 'text/javascript';
+      ta.async = true;
+      ta.src = ((("https:") == document.location.protocol) ? "https://" : "http://") +
+        'bilog.niiwoo.com/js/webaccess.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ta, s);
+    })()
+  </script>
+  <script>
+    var _mtac = {"performanceMonitor":1,"senseQuery":1};
+    (function() {
+     var mta = document.createElement("script");
+     mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+     mta.setAttribute("name", "MTAH5");
+     mta.setAttribute("sid", "500643942");
+     mta.setAttribute("cid", "500643945");
+     var s = document.getElementsByTagName("script")[0];
+     s.parentNode.insertBefore(mta, s);
+    })();
+ </script>
+  <script>
+    function AddMaiDian(name,target){
+     try {
+       sa.quick('trackHeatMap',target)
+     } catch (error) {
+     }
+     try {
+       MtaH5.clickStat(name)
+     } catch (error) {
+     }
+    }
+
+    $('.eventTrack').on('click',function(){
+      var matName = $(this).attr('matName')
+      AddMaiDian(matName,this)
+    })
+  </script>
+</body>
+</html>

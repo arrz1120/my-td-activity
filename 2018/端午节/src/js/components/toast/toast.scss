@@ -1,0 +1,24 @@
+@import '../../../sass/helper/_util.scss';
+.prc-toast{
+  padding: 0.5rem;
+  width: 9.75rem;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,1px);
+  animation: toast .25s forwards;
+  border-radius: .25rem;
+  background: rgba(0, 0, 0, .7);
+  text-align: center;
+  color: #fff;
+  font-size: rem(30);
+}
+@keyframes toast{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

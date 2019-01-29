@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>6月狂欢节</title>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+  <section class="page-regi">
+    <section class="banner"></section>
+    <section class="banner-title"></section>
+    <section class="form-container">
+      <p class="form-title">输入手机号码参与活动</p>
+      <div class="form">
+        <div class="form-item">
+          <input type="tel" maxlength="11" class="form-item-tel" placeholder="请输入手机号码">
+          <p class="form-item-tips"></p>
+        </div>
+        <div class="form-item js-msgItem d-hide">
+          <input type="text" maxlength="6" class="form-item-msg" placeholder="请输入短信验证码">
+          <p class="form-item-send">请获取短信验证码</p>
+          <p class="form-item-tips"></p>
+        </div>
+        <div class="form-submit-container">
+          <p class="form-submit">确认</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+  <script>
+    var doms={
+      telInput:Q('.form-item-tel'),
+      msgInput:Q('.form-item-msg'),
+      msgSendBtn:Q('.form-item-send'),
+      msgItem:Q('.js-msgItem'),
+      submitBtn:Q('.form-submit')
+    }
+    var state={
+      regx:{
+        tel:/^(13|14|15|16|17|18|19)[0-9]{9}$/
+      },
+      valid:{
+        tel:false,
+        msg:false
+      },
+      isSend:false,
+      sendDur:180
+    }
+    var methods={
+      setTips:function(val){
+        var $this=Q(this)
+        $this.parent('.form-item').find('.form-item-tips').html(val)
+      },
+      tick:function(){
+        state.sendDur--
+        doms.msgSendBtn.html('( '+state.sendDur+'s )')
+        setTimeout(function(){
+          if(state.sendDur>1){
+            methods.tick()
+          }else{
+            state.sendDur=180
+            doms.msgSendBtn.html('请获取短信验证码')
+            state.isSend=false
+          }
+        },1000)
+      },
+      onInputFocus:function(){
+        methods.setTips.call(this,'')
+      },
+      // 手机号 blur 事件
+      onTelInputBlur:function(){
+        var val=Q(this).val()
+        var valid=state.valid
+        var regx=state.regx.tel
+        if(!regx.test(val)){
+          // 验证失败
+          valid.tel=false
+          doms.msgItem.addClass('d-hide')
+          methods.setTips.call(this,'您输入的手机号码格式有误')
+          return
+        }
+        // 验证成功
+        valid.tel=true
+        methods.setTips.call(this,'')
+        // 显示验证码
+        doms.msgItem.removeClass('d-hide')
+      },
+      // 短信 blur 事件
+      onMsgInputBlur:function(){
+        var val=Q(this).val()
+        var valid=state.valid
+        if(val.length!==6){
+          // 验证失败
+          valid.msg=false
+          methods.setTips.call(this,'您输入的短信验证码有误')
+          return
+        }
+        // 验证成功
+        valid.msg=true
+        methods.setTips.call(this,'')
+      },
+      // 获取验证码 click 事件
+      onSendMsgClk:function(){
+        var valid=state.valid
+        if(!valid.tel) return
+        if(state.isSend) return
+        // 发送验证码成功后
+        state.isSend=true
+        methods.tick()
+      },
+      // 确认 click 事件
+      onSubmitBtnClk:function(){
+        var valid=state.valid
+        doms.telInput.blur()
+        doms.msgInput.blur()
+        if(!(valid.tel&&valid.msg)) return
+        // 验证成功
+        
+      }
+    }
+    doms.telInput.on('blur',methods.onTelInputBlur)
+    doms.telInput.on('focus',methods.onInputFocus)
+    doms.msgInput.on('blur',methods.onMsgInputBlur)
+    doms.msgInput.on('focus',methods.onInputFocus)
+    doms.msgSendBtn.on('click',methods.onSendMsgClk)
+    doms.submitBtn.on('click',methods.onSubmitBtnClk)
+  </script>
+</body>
+</html>

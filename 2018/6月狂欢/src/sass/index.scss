@@ -1,0 +1,527 @@
+@charset "utf-8";
+.d-hide{
+  display: none!important;
+}
+// 公用
+.pub-modal{
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(1px);
+  .pub-modal-shade{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 0;
+  }
+  .pub-modal-container{
+    position: relative;
+    padding: 1rem;
+    z-index: 1;
+    width: 13.5rem;
+    height: 16rem;
+    background: #ffc500;
+    border-radius: .75rem;
+    border: .1rem solid #7b6055;
+  }
+  .pub-modal-title{
+    font-size: rem(50);
+    color: #3f8f52;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .pub-modal-closeBtn{
+    @include wh(60,60);
+    @include bg('../images/5.png');
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+  }
+  .rule-scroller{
+    font-size: rem(26);
+    color: #000000;
+    height: 11.25rem;
+    padding-right: 1rem;
+  }
+  .rule-scroller-ul{
+    height: auto;
+    >.item{
+      &:not(:last-child){
+        margin-bottom: 0.75rem;
+      }
+    }
+    .mark{
+      color: #3f8f52;
+    }
+  }
+  .rule-scroller-scrollbar{
+    width: rem(18);
+    .swiper-scrollbar-drag{
+      border-radius: 0;
+      @include bg('../images/8.png');
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+  .record-list{
+    height: 11.25rem;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    >.item{
+      font-size: rem(21);
+      &:not(:last-child){
+        margin-bottom: .75rem;
+      }
+    }
+  }
+  .record-item-content{
+    display: flex;
+    padding: 0.25rem .15rem;
+    padding-left: 1rem;
+    background: #fff9df;
+  }
+  .record-item-desc{
+    flex: 1;
+    font-size: rem(25);
+  }
+  .record-item-date{
+    flex: 1;
+    text-align: right;
+  }
+  .record-item-btn-container{
+    margin-top: 0.15rem;
+    text-align: right;
+  }
+  .record-item-btn{
+    color: #000000;
+    display: inline-block;
+    text-decoration: underline;
+  }
+  .record-nodata{
+    background: #fff9df;
+    font-size: rem(25);
+    text-align: center;
+    padding: 0.25rem;
+  }
+  .warning-container{
+    height: 11.25rem;
+  }
+  .warning-img{
+    &.n1{
+      @include wh(474,325);
+      display: block;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+    &.n2{
+      @include wh(345,345);
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .warning-ul{
+    margin-top: .75rem;
+    color: #000000;
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+.prc-msgbox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  font-size: rem(34);
+  color: #7b6055;
+  transform: translateZ(1px);
+  .prc-msgbox-shade{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+  }
+  .prc-msgbox-container{
+    @include wh(551,664);
+    @include bg('../images/12.png');
+    position: relative;
+    z-index: 1;
+  }
+  .prc-msgbox-stars{
+    @include wh(493,179);
+    @include bg('../images/13.png');
+    position: absolute;
+    top: 3.5rem;
+    left: .75rem;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .prc-msgbox-img{
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    &.n1{
+      margin-top: 4.25rem;
+      @include wh(329,237);
+      @include bg('../images/14-1.png');
+    }
+    &.n2{
+      margin-top: 3.75rem;
+      @include wh(388,266);
+      @include bg('../images/14-2.png');
+      .prc-msgbox-val{
+        font-size: rem(86);
+        color: #fcf9d6;
+        font-weight: bold;
+        position: absolute;
+        top: 2rem;
+        left: 5.5rem;
+      }
+    }
+    &.n3{
+      margin-top: 3rem;
+      @include wh(335,302);
+      @include bg('../images/14-3.png');
+      .prc-msgbox-val{
+        font-size: rem(86);
+        color: #ffd7dd;
+        font-weight: bold;
+        position: absolute;
+        top: 2rem;
+        left: 1rem;
+        width: 5rem;
+        text-align: center;
+      }
+    }
+  }
+  .prc-msgbox-msg{
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .prc-msgbox-btn-container{
+    text-align: center;
+    margin-top: 0.15rem;
+  }
+  .prc-msgbox-btn{
+    display: inline-block;
+    background: #ffc501;
+    color: #ffffff;
+    border: .1rem solid #fbd8ae;
+    width: 5rem;
+    padding: 0.1rem 0;
+  }
+  .prc-msgbox-closeBtn{
+    @include wh(60,60);
+    @include bg('../images/5.png');
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+  }
+}
+// 主页
+.page-index{
+  min-height: 100vh;
+  background: linear-gradient(to bottom,#fffadf 50%,#ffe88f 100%);
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  position: relative;
+  .logo{
+    @include wh(171,56);
+    @include bg('../images/1.png');
+    margin-left: 1.25rem;
+  }
+  .rule-btn{
+    font-size: rem(30);
+    color: #ffffff;
+     background: #fecb18;
+     position: absolute;
+     right: 1.25rem;
+     top: 1.25rem;
+     padding: 0.2rem .5rem;
+     border-radius: .25rem;
+     z-index: 1;
+  }
+  .lottery-container{
+    @include wh(750,877);
+    @include bg('../images/2.png');
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    margin-top: -.75rem;
+  }
+  .lottery-circle{
+    @include wh(45,45);
+    @include bg('../images/7-1.png');
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    z-index: 0;
+    &.animate{
+      animation: lotteryCircle 1s linear forwards;
+    }
+  }
+  .lottery-title{
+    @include wh(454,170);
+    @include bg('../images/4-1.png');
+    position: absolute;
+    z-index: 0;
+    top: 1.35rem;
+    left: 3.25rem;
+    transform: scale(0,0);
+    animation: zoomBounceIn .5s .35s forwards;
+  }
+  .lottery-wrapper{
+    @include wh(602,623);
+    @include bg('../images/4-2.png');
+    margin: 0 auto;
+    margin-top: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .lottery-shade{
+    @include wh(508,508);
+    @include bg('../images/3.png');
+    position: absolute;
+    z-index: 2;
+    top: 4.9rem;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+  .canvas-container{
+    width: 10.5rem;
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 1;
+    canvas{
+      width: 10.5rem;
+    }
+  }
+  .lottery-marquee{
+    font-size: rem(25);
+    color: #ffffff;
+    text-align: center;
+    margin-top: .85rem;
+    height: rem(30);
+    overflow: hidden;
+  }
+  .lottery-btn-contianer{
+    text-align: center;
+    margin-top: 0.15rem;
+    position: relative;
+  }
+  .lottery-btn{
+    color: #ffffff;
+    font-size: rem(38);
+    display: inline-block;
+    vertical-align: middle;
+    background: #fec500;
+    border: .125rem solid #f0a517;
+    border-radius: .25rem;
+    padding: 0.2rem .5rem;
+  }
+  .lottery-records-btn{
+    font-size: rem(22);
+    color: #f06917;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 0;
+    right: 1.25rem;
+  }
+  .awards-container{
+    margin-top: 1rem;
+    margin-left: 1.25rem;
+    font-size: 0;
+  }
+  .awards-title{
+    color: #c89739;
+    font-size: rem(26);
+    width: 1em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .awards-bounds{
+    display: inline-block;
+    vertical-align: middle;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 13rem;
+    white-space: nowrap;
+    margin-left: 0.25rem;
+  }
+  .awards-item{
+    font-size: rem(26);
+    @include wh(135,135);
+    background: #fffadf;
+    border-radius: .25rem;
+    overflow: hidden;
+    display: inline-block;
+    animation: awardsItem .25s .5s linear 2 forwards;
+    &:not(:last-child){
+      margin-right: 0.45rem;
+    }
+  }
+  .awards-item-img{
+    @include wh(135,135);
+  }
+  .warning{
+    position: absolute;
+    left: .85rem;
+    top: 8.25rem;
+    z-index: 1;
+    @include wh(22,303);
+    @include bg('../images/17.png');
+  }
+}
+// 注册页
+.page-regi{
+  min-height: 100vh;
+  background: linear-gradient(to bottom,#fffadf 50%,#ffe88f 100%);
+  position: relative;
+  padding-top: rem(67);
+  .banner{
+    @include wh(750,188);
+    @include bg('../images/15.png');
+    transform: translate(0,-100%);
+    animation: banner 1s .25s forwards;
+  }
+  .banner-title{
+    @include wh(622,140);
+    @include bg('../images/16.png');
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    transform: scale(0);
+    animation: zoomBounceIn .75s .75s forwards;
+  }
+  .form-container{
+    margin-top: 1.2rem;
+  }
+  .form-title{
+    font-size: rem(38);
+    color: #7a6055;
+    text-align: center;
+    letter-spacing: .5rem;
+    margin-left: 0.5rem;
+    margin-bottom: .5rem;
+  }
+  .form{
+    width: 13rem;
+    margin: 0 auto;
+  }
+  .form-item{
+    position: relative;
+    margin-bottom: 0.15rem;
+  }
+  .form-item-tel{
+    background: #ffffff;
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0;
+    padding-left: .5rem;
+    border-radius: .25rem;
+    font-size: rem(30);
+  }
+  .form-item-tips{
+    color: #fe0000;
+    font-size: rem(21);
+    margin-top: 0.1rem;
+    margin-left: 0.5rem;
+    height: .448*1.5rem;
+  }
+  .form-item-msg{
+    font-size: rem(30);
+    border:1px solid #7a6055;
+    background: transparent;
+    height: 1.25rem;
+    padding-left: 0.5rem;
+    border-radius: .15rem;
+    width: 48%;
+  }
+  .form-item-send{
+    font-size: rem(30);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 52%;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    background: #fdd4a6;
+    color: #7a6055;
+    border-radius: .15rem;
+  }
+  .form-submit-container{
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .form-submit{
+    display: inline-block;
+    background: #f06917;
+    color: #ffffff;
+    text-align: center;
+    width: 6rem;
+    padding: 0.25rem 0;
+    font-size: rem(34);
+    border-radius: .15rem;
+  }
+}
+@keyframes zoomBounceIn{
+  0%{
+    transform: scale(0,0);
+  }
+  80%{
+    transform: scale(1.05,1.05);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+@keyframes banner{
+  0%{
+    transform: translate(0,-100%);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
+@keyframes awardsItem{
+  0%{
+    transform: scaleX(1)
+  }
+  50%{
+    transform: scaleX(0)
+  }
+  100%{
+    transform: scaleX(1)
+  }
+}
+@keyframes lotteryCircle{
+  0%{
+    transform: translate(0,0);
+  }
+  40%{
+    transform: translate(2.5rem,1.5rem);
+  }
+  100%{
+    transform: translate(6rem,1.5rem);
+  }
+}

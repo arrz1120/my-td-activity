@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <title>Doc</title>
+  {{> './tpls/head.html'}}
+</head>
+
+<body>
+
+  <div class="main">
+
+    <p class="tips">市场有风险，投资需谨慎</p>
+
+    <h2 class="logo"></h2>
+    <p class="time">活动时间:7月1日—7月15日</p>
+
+    <section class="con">
+      <div class="left-right"></div>
+      <div class="light"></div>
+      <div class="light-left"></div>
+      <div class="line"></div>
+      <div class="light-bottom"></div>
+      <div class="light-bottom-1"></div>
+    </section>
+    <nav class="bottom-nav">
+      <a href="" class="link-1"></a>
+      <a href="" class="link-2"></a>
+      <div class="link-wraper">
+        <a href="" class="link-3"></a>
+      </div>
+    </nav>
+
+    <div class="rule-btn"></div>
+
+  </div>
+
+  <div class="share-btn"></div>
+
+  <!--唐军直播-->
+  <a href="" class="boss-onlive">
+
+  </a>
+
+  <!-- 彩蛋 -->
+  <div class="alert caidan-show" id="caidanAlert"  style="display: none;" >
+    <div class="alert-bg"></div>
+    <div class="alert-con caidan">
+      <p class="p1 p3">恭喜您获得 彩蛋3</p>
+      <p class="p2">单笔投资We自动服务、We+自动服务满3000元！</p>
+      <div class="cd-img">
+        <div class="cd-light"></div>
+        <div class="cd-icon"></div>
+        <div class="hand"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 彩蛋 end-->
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}
+  <script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+
+  <script>
+    //分享配置
+    // appShare.set({
+    //   icon: '',
+    //   title: '团贷网6周年，多重惊喜等你来~',
+    //   content: '周年多重豪礼，加息叠加+寻彩蛋抽iPhone X！',
+    //   shareUrl: '后端补充',
+    //   cover: {
+    //     src: './images/wxShare.png',
+    //     style: {
+    //       width: '100%'
+    //     }
+    //   }
+    // })
+    // $(".share-btn").on("click", function () {
+    //   appShare.show()
+    // })
+    $(".rule-btn").on("click", function () {
+      prc.rule.show();
+    })
+  </script>
+</body>
+
+</html>

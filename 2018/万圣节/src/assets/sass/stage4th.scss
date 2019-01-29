@@ -1,0 +1,125 @@
+.stage-4th{
+  @include bg('../images/stage4th/bg.jpg');
+  height: 100vh;
+  width: 16rem;
+  background-size: cover;
+  position: relative;
+  padding-top: 3.5rem;
+  .trouble-ul{
+    color: #ffffff;
+    font-size: rem(26);
+    text-align: center;
+    >.item{
+      &:not(:last-child){
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+  .window-container{
+    @include wh(319,420);
+    margin: 0 auto;
+    margin-top: 1rem;
+    position: relative;
+  }
+  .window-border{
+    @include wh(319,420);
+    @include bg('../images/stage4th/04.png');
+    position: relative;
+    z-index: 0;
+  }
+  .window-smoke{
+    position: absolute;
+    z-index: 1;
+    top: -.5rem;
+    left: -1.5rem;
+    transform: translateZ(1px);
+    opacity: 0;
+    transition: .5s 1.25s;
+    &.animate{
+      opacity: 1;
+    }
+  }
+  .sufferer{
+    @include wh(143,443);
+    @include bg('../images/stage4th/03.png');
+    position: absolute;
+    z-index: 1;
+    bottom: 1.5rem;
+    left: 2rem;
+    pointer-events: none;
+  }
+  .witch-container{
+    position: absolute;
+    z-index: 2;
+    bottom: 1.5rem;
+    right: .25rem;
+    pointer-events: none;
+    transform: translateZ(1px);
+    &.animate{
+      .witch-arm{
+        animation: witchArm .75s linear forwards;
+      }
+      .wtich-star{
+        animation: witchStar .35s 1s linear forwards;
+      }
+    }
+  }
+  .witch-body{
+    @include wh(244,537);
+    @include bg('../images/stage4th/02-03.png');
+    position: relative;
+    z-index: 1;
+  }
+  .witch-arm{
+    @include wh(161,225);
+    @include bg('../images/stage4th/02-01.png');
+    position: absolute;
+    z-index: 0;
+    top: 1.5rem;
+    left: -2rem;
+    transform-origin: right bottom;
+  }
+  .wtich-star{
+    @include wh(54,83);
+    @include bg('../images/stage4th/02-02.png');
+    position: absolute;
+    z-index: 2;
+    top: 1rem;
+    left: -2.5rem;
+    opacity: 0;
+  }
+  .scene-text{
+    color: #ffffff;
+    position: absolute;
+    z-index: 2;
+    left: 6rem;
+    bottom: 5rem;
+    font-size: rem(22);
+    opacity: 0;
+    &.show{
+      opacity: 1;
+    }
+  }
+}
+@keyframes witchArm{
+  0%{
+    transform: rotate(0);
+  }
+  25%{
+    transform: rotate(15deg);
+  }
+  75%{
+    transform: rotate(-10deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
+@keyframes witchStar{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

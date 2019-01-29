@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  {{> './tpls/head.html'}}
+</head>
+<body>
+
+  <div class="jiaxi">
+      <div class="dragon-tag"></div>
+      <div class="boat scale"></div>
+      <div class="jxq"></div>
+      <div class="swiper-container invest-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slide-con">
+                <div class="invest-tit">We+自动服务</div>
+                <div class="invest-rate">
+                    <div class="item1">
+                        <p class="p1">11<span>%</span></p>
+                        <p class="p2">参考年化收益</p>
+                    </div>
+                    <div class="item2">+</div>
+                    <div class="item3">
+                        <p class="p1">0.8<span>%</span></p>
+                        <p class="p2">参考年化收益</p>
+                    </div>
+                </div>
+                <div class="join breath">立即加入</div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-con">
+                <div class="invest-tit">We自动服务</div>
+                <div class="invest-rate">
+                    <div class="item1">
+                        <p class="p1">11<span>%</span></p>
+                        <p class="p2">参考年化收益</p>
+                    </div>
+                    <div class="item2">+</div>
+                    <div class="item3">
+                        <p class="p1">0.8<span>%</span></p>
+                        <p class="p2">参考年化收益</p>
+                    </div>
+                </div>
+                <div class="join breath">立即加入</div>
+              </div>
+            </div>
+        </div>
+        <div class="prev"></div>
+        <div class="next"></div>
+        <div class="paging"></div>
+      </div>
+      <div class="jiaxi-rule">
+        <h5>活动说明</h5>
+        <p>活动期间，用户成功加入（且匹配成功）We自动服务、We+自动服务（新手类专属除外）的金额均可享受0.8%的加息奖励；若活动期间开放的We自动服务、We+自动服务未能在活动期内满额，则该加息可延续至其满额为止。</p>
+      </div>
+  </div>
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}<script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <title>Doc</title>
+  {{> './tpls/head.html'}}
+</head>
+
+<body>
+
+
+
+
+  <div class="share-btn">点击按钮</div>
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}
+  <script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+
+  <script>
+    //分享配置
+    appShare.set({
+      icon: '',
+      title: '团贷网6周年，多重惊喜等你来~',
+      content: '周年多重豪礼，加息叠加+寻彩蛋抽iPhone X！',
+      shareUrl: '后端补充',
+      cover: {
+        src: './images/wxShare.png',
+        style: {
+          width: '100%'
+        }
+      }
+    })
+    $(".share-btn").on("click", function () {
+      appShare.show()
+    })
+    $(".rule-btn").on("click", function () {
+      prc.rule.show();
+    })
+  </script>
+</body>
+
+</html>

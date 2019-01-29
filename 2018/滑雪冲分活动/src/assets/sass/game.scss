@@ -1,0 +1,130 @@
+.page-game{
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  @include bg('../images/game/bg.jpg');
+  background-size: cover;
+  .countdown-container{
+    position: absolute;
+    z-index: 1;
+    top: .5rem;
+    left: .25rem;
+    font-size: rem(34);
+    color: #fff68c;
+  }
+  .countdown-icon{
+    @include bg('../images/game/01.png');
+    @include wh(100,100);
+    display: inline-block;
+    vertical-align: middle;
+    &.animate{
+      animation: clockShake .25s ease infinite;
+    }
+  }
+  .countdown-progress{
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(190);
+    height: 1rem;
+    background: #9bc8fb;
+    border: 1px solid #384d81;
+    border-radius: 1rem;
+    transform: translateZ(1px);
+    position: relative;
+    margin-left: -0.25rem;
+    overflow: hidden;
+  }
+  .countdown-cur{
+    background: #fff68c;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform-origin: left center;
+  }
+  .countdown-text{
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+  }
+  .score-container{
+    position: absolute;
+    z-index: 1;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: rem(28);
+    color: #fff68c;
+  }
+  .score-icon{
+    @include wh(94,91);
+    @include bg('../images/game/02.png');
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .score-progress{
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(190);
+    height: 1rem;
+    background: #9bc8fb;
+    border: 1px solid #384d81;
+    border-radius: 1rem;
+    padding-top: 0.15rem;
+    margin-left: -0.25rem;
+  }
+  .score-text{
+    text-align: center;
+    font-weight: bold;
+  }
+  .sidebar-container{
+    @include wh(72,260);
+    position: absolute;
+    z-index: 1;
+    right: .75rem;
+    top: 3rem;
+    >.item{
+      @include wh(72,72);
+      &.music{
+        @include bg('../images/game/03.png');
+        &.animate{
+          animation: musicIcon 1s linear infinite;
+        }
+      }
+      &.share{
+        @include bg('../images/game/04.png');
+      }
+      &.ranking{
+        @include bg('../images/game/05.png');
+      }
+      &:not(:last-child){
+        margin-bottom: 0.35rem;
+      }
+    }
+  }
+  .play-btn{
+    @include bg('../images/game/07.png');
+    @include wh(536,143);
+    position: absolute;
+    z-index: 1;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-size: rem(40);
+    text-align: center;
+    padding-top: .75rem;
+    color: #ffffff;
+  }
+  .rdy-container{
+    font-size: rem(88);
+    font-weight: bold;
+    color: #cb2d2d;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translate(-50%,0);
+  }
+}
+

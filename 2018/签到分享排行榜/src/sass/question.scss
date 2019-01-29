@@ -1,0 +1,54 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+
+body,html {
+    height: 100%;
+    * {
+        box-sizing: border-box;
+    }
+}
+.container {
+    @include bg('../images/question/bg.png');
+    width: 100%;
+    padding: rem(99) rem(57);
+    background-size: 100% 100%;
+    .question {
+        width: rem(645);
+        height: auto;
+        @include bg('../images/question/bb.png');
+        margin: 0 auto;
+        position: relative;
+        padding: rem(100) rem(47) rem(84);
+        background-size: 100% 100%;
+        .title {
+            @include wh(333, 131);
+            @include bg('../images/question/title.png');
+            position: absolute;
+            top: rem(-51);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .content {
+            color: #502a01;
+            font-size: rem(22);
+            line-height: rem(50);
+            font-weight: normal;
+    
+            dt {
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+
+footer{
+    height: rem(130);
+    padding-top: rem(44);
+    p{
+        text-align: center;
+        color: #4b9db0;
+        line-height: rem(30);
+        font-size: rem(18)
+    }
+}

@@ -1,0 +1,127 @@
+.arrow-move{
+    animation: arrowMove 1s ease-out infinite;
+}
+.breath{
+    animation: breath 0.5s linear alternate infinite;
+}
+.snow-move{
+    animation: snow 10s linear infinite;
+}
+.platform-move{
+    animation: platformMove 0.6s ease-out both;
+}
+.light-move{
+    animation: fadeIn 0.2s 0.6s ease-out both;
+}
+.fadeIn{
+    animation: fadeIn 0.2s linear both;
+}
+
+@keyframes arrowMove{
+    0%{
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate3d(80%,0,0);
+    }
+}
+
+@keyframes breath{
+    0%{
+        transform: scale(1,1);
+    }
+    100%{
+        transform: scale(0.96,0.96);
+    }
+}
+
+@keyframes snow{
+    0%{
+        transform: translate3d(0,-100%,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes platformMove{
+    0%{
+        transform: scale(0,0);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes tada {
+    0% {
+        transform: scaleX(1)
+    }
+
+    10%,20% {
+        transform: scale3d(.9,.9,.9) rotate(-3deg)
+    }
+
+    30%,50%,70%,90% {
+        transform: scale3d(1,1,1) rotate(3deg)
+    }
+
+    40%,60%,80% {
+        transform: scale3d(1,1,1) rotate(-3deg)
+    }
+
+    to {
+        transform: scaleX(1)
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both
+}
+
+.tada {
+    animation-name: tada
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(0)
+    }
+    10%{
+        transform: rotate(10deg)
+    }
+    20%{
+        transform: rotate(-10deg)
+    }
+    30%{
+        transform: rotate(0)
+    }
+    40%{
+        transform: rotate(10deg)
+    }
+    50%{
+        transform: rotate(-10deg)
+    }
+    60%{
+        transform: rotate(0)
+    }
+    100%{
+        transform: rotate(0)
+    }
+}
+
+.shake{
+    animation: shake 1s linear infinite
+}

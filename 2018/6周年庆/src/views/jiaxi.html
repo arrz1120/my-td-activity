@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>Doc</title>
+    {{> './tpls/head.html'}}
+</head>
+
+<body>
+
+
+
+    <div class="main">
+
+
+        <!-- Swiper -->
+        <div class="swiper-container swiper-container-main" id="swiper-container-main">
+            <div class="swiper-wrapper">
+
+                <!-- 普惠加息 -->
+                <div class="swiper-slide swiper-slide-1">
+                    <h2 class="num"></h2>
+                    <section class="con">
+                        <h3 class="tit">普惠加息</h3>
+                        <div class="icon-wraper">
+                            <div class="icon"></div>
+                        </div>
+                        <p class="txt">活动期间，成功加入（且匹配成功）指定的We自动服务、We+自动服务（新手专享服务除外），可享
+                            <span class="yellow">1%</span>普惠加息。</p>
+                        <div class="btn btn1">马上加入</div>
+                    </section>
+                </div>
+                <!-- 普惠加息  end-->
+
+                <!-- 挖矿加息 -->
+                <div class="swiper-slide  swiper-slide-2">
+                    <h2 class="num"></h2>
+                    <section class="con">
+                        <h3 class="tit">挖矿加息</h3>
+                        <div class="icon-wraper">
+                            <div class="icon"></div>
+                        </div>
+                        <p class="txt">参加“邀友挖矿”活动，赢
+                            <span class="yellow">0.3%</span>加息特权。</p>
+                        <a href="javascript:void(0);" class="btn">马上参加</a>
+                    </section>
+                </div>
+                <!-- 挖矿加息 end-->
+
+
+                <!-- 团币加息 -->
+                <div class="swiper-slide  swiper-slide-3">
+                    <h2 class="num"></h2>
+                    <section class="con">
+                        <h3 class="tit">团币加息</h3>
+                        <div class="icon-wraper">
+                            <div class="icon"></div>
+                        </div>
+                        <p class="txt">最高可兑换
+                            <span class="yellow">0.2%</span>加息特权，每人限兑1次。</p>
+                        <a href="javascript:void(0);" class="btn btn3">马上兑换</a>
+                    </section>
+                </div>
+                <!-- 团币加息 end-->
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination" id="swiper-pagination-main"></div>
+        </div>
+
+        <!-- Swiper end-->
+
+    </div>
+
+    <div class="float">
+        <div class="item"></div>
+        <div class="item share-btn"></div>
+        <div class="item" id="showJxAlert">
+            <p>
+                <span>1.08</span>%</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="#" class="item item1 active">加息专区</a>
+        <a href="#" class="item item2">集周年彩蛋</a>
+        <a href="#" class="item item3">7.15抽iPhone X</a>
+    </div>
+
+    <!-- 活动未开始 -->
+    <div class="alert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con notstart">
+            <div class="alert-tit">活动未开始！</div>
+            <div class="cd">
+                <p class="p1">本次活动时间为2018年7月1日至2018年7月15日。活动尚未开始，敬请期待！</p>
+            </div>
+            <div class="btn">我知道了</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 活动已结束 -->
+    <div class="alert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con notstart">
+            <div class="alert-tit">活动已结束！</div>
+            <div class="cd">
+                <p class="p1">本次活动时间为2018年7月1日至2018年7月15日。活动已结束，非常感谢您的关注！</p>
+            </div>
+            <div class="btn">我知道了</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 登录提示 -->
+    <div class="alert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con conLogin">
+            <div class="alert-tit">请先登录</div>
+            <p class="p1">亲，请先登录后再参与活动哦~</p>
+            <div class="btn">我知道了</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 团币兑换加息特权 -->
+    <div class="alert" id="exAlert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con801">
+            <div class="alert-tit">团币兑换加息特权</div>
+            <div class="jx">
+                <p class="jx-tit">我的团币：
+                    <span>6,688</span>（每人限兑一次）</p>
+                <div class="jx-con">
+                    <div class="row">
+                        <div class="item1">加
+                            <br>息
+                            <br>特
+                            <br>权</div>
+                        <div class="item2">
+                            <p class="p1">0.%</p>
+                            <p class="p2">8000团币</p>
+                        </div>
+                        <div class="item3">马上兑换</div>
+                    </div>
+                    <div class="row">
+                        <div class="item1">加
+                            <br>息
+                            <br>特
+                            <br>权</div>
+                        <div class="item2">
+                            <p class="p1">0.%</p>
+                            <p class="p2">8000团币</p>
+                        </div>
+                        <div class="item3">马上兑换</div>
+                    </div>
+                    <div class="row">
+                        <div class="item1">加
+                            <br>息
+                            <br>特
+                            <br>权</div>
+                        <div class="item2">
+                            <p class="p1">0.%</p>
+                            <p class="p2">8000团币</p>
+                        </div>
+                        <div class="item3">马上兑换</div>
+                    </div>
+                    <div class="row">
+                        <div class="item1">加
+                            <br>息
+                            <br>特
+                            <br>权</div>
+                        <div class="item2">
+                            <p class="p1">0.%</p>
+                            <p class="p2">8000团币</p>
+                        </div>
+                        <div class="item3">马上兑换</div>
+                    </div>
+                    <div class="row">
+                        <div class="item1">加
+                            <br>息
+                            <br>特
+                            <br>权</div>
+                        <div class="item2">
+                            <p class="p1">0.%</p>
+                            <p class="p2">8000团币</p>
+                        </div>
+                        <div class="item3">马上兑换</div>
+                    </div>
+                </div>
+            </div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 团币不够 -->
+    <div class="alert" id="tbNotEnough" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con431">
+            <div class="alert-tit">我的团币</div>
+            <div class="tb">
+                <p class="p1">(你的团币不足)</p>
+                <p class="p2">您的当前的团币为
+                    <span>X,XXX</span>，暂时不足
+                    <br>以兑换该加息特权！</p>
+            </div>
+            <div class="btn">我知道了</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 团币足够 -->
+    <div class="alert" id="tbEnough" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con431">
+            <div class="alert-tit">我的团币</div>
+            <div class="tb">
+                <p class="p1">(我的团币：XXXXXXX)</p>
+                <p class="p2">兑换：
+                    <span>0.XX%</span>加息特权
+                    <br> 消耗：
+                    <span>XXXXXX</span>团币</p>
+            </div>
+            <div class="btn">确认兑换</div>
+            <div class="toast">每人限兑一次</div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- 我的加息特权 -->
+    <div class="alert" id="jxAlert" style="display: none;">
+        <div class="alert-bg"></div>
+        <div class="alert-con con431">
+            <div class="alert-tit">我的加息特权</div>
+            <div class="tequan">
+                <div class="tq-tit tq-flex">
+                    <div class="item">加息来源</div>
+                    <div class="item">获取时间</div>
+                    <div class="item">加息特权</div>
+                </div>
+                <div class="tq-con">
+                    <div class="row tq-flex">
+                        <div class="item">普惠加息</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                    <div class="row tq-flex">
+                        <div class="item">邀友挖矿</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                    <div class="row tq-flex">
+                        <div class="item">团币兑换</div>
+                        <div class="item">07-01</div>
+                        <div class="item">0.1%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="close"></div>
+        </div>
+    </div>
+
+    <!-- webpack js -->
+    {{#each htmlWebpackPlugin.files.js}}
+    <script src="{{this}}"></script>{{/each}}
+    <!-- webpack js end-->
+
+    <script>
+        var methods = {
+
+            //初始化调用方法定义
+            init: function () {
+                this.showAlert();
+                this.hideAlert();
+                this.share();
+                this.toTb();
+            },
+
+            //显示弹窗
+            showAlert: function () {
+                $(".btn1").on("click", function () {
+                    if (Jsbridge.isApp()) {
+                        Jsbridge.toAppP2p()
+                    } else {
+                        window.location.href = '//www.tuandai.com/app/install.aspx'
+                    }
+                })
+                $(".btn3").on("click", function () {
+                    $("#exAlert").show();
+                })
+                $(".jx-con .item3").on("click", function () {
+                    $("#exAlert").hide();
+                    $("#tbEnough").show();
+                })
+                $("#showJxAlert").on("click", function () {
+                    $("#jxAlert").show();
+                })
+            },
+
+            hideAlert: function () {
+                $(".alert-bg").on("touchmove", function (e) {
+                    e.preventDefault();
+                }).on("click", function () {
+                    $(this).parent().hide();
+                })
+                $(".close").on("click", function () {
+                    $(this).parent().parent().hide();
+                })
+            },
+
+
+            getQueryString: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                var q = window.location.pathname.substr(1).match(reg_rewrite);
+                if (r != null) {
+                    return unescape(r[2]);
+                } else if (q != null) {
+                    return unescape(q[2]);
+                } else {
+                    return null;
+                }
+            },
+
+
+            toTb:function(){
+                if(this.getQueryString('switch')=='totb'){
+                    pageSwiper.slideTo(2,0)
+                }
+            },
+
+            //分享配置
+            share: function () {
+                // appShare.set({
+                //     icon: '',
+                //     title: '团贷网6周年，多重惊喜等你来~',
+                //     content: '周年多重豪礼，加息叠加+寻彩蛋抽iPhone X！',
+                //     shareUrl: '后端补充',
+                //     cover: {
+                //         src: './images/wxShare.png',
+                //         style: {
+                //             width: '100%'
+                //         }
+                //     }
+                // })
+                // $(".share-btn").on("click", function () {
+                //     appShare.show()
+                // })
+            }
+        }
+
+        //初始化调用
+        methods.init();
+    </script>
+</body>
+
+</html>

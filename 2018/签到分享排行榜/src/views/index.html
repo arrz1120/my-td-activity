@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <title>首页</title>
+  {{> './tpls/head.html'}}
+</head>
+
+<body>
+  <div class="index">
+    <div class="bg-dec"></div>
+    <p class="ad-txt">【广告】市场有风险，投资需谨慎</p>
+    <div class="banner">
+      <div class="tit"></div>
+      <div class="b-btn b-btn-rule" onclick="methods.goToRule()">
+        <span>活</span>
+        <span>动</span>
+        <span>规</span>
+        <span>则</span>
+      </div>
+      <div class="b-btn b-btn-question" onclick="methods.goToQuestion()">
+        <span>常</span>
+        <span>见</span>
+        <span>问</span>
+        <span>题</span>
+      </div>
+      <div class="btn-guide" onclick="methods._showAlertGl()"></div>
+    </div>
+    <div class="rank">
+
+      <!--无排行榜 未登录-->
+      <div class="rank-container norank" id="norank">
+        <div class="rank-tit"></div>
+        <div class="rank-con">
+            <div class="rank-txt">
+              <p>暂时还没有排名数据哦，</p>
+              <p>快去签到投资赢500元现金红包吧~~</p>
+            </div>
+          <div class="img-state"></div>
+        </div>
+      </div>
+
+      <div class="rank-container" id="rankContainer">
+        <div class="rank-tit"></div>
+        <div class="rank-con">
+          
+          <!--未登录显示-->
+          <div class="rank-txt" id="nologin" style="display: none;">
+            <p>登录看看我的排名信息
+              <span onclick="methods.goToLogin">&nbsp;&nbsp;登录 ></span>
+            </p>
+          </div>
+
+          <!--已登录显示-->
+          <div class="info" id="info" style="display: none;">
+            <div class="row">
+              <div class="row-left">
+                <p>累计签到：</p>
+              </div>
+              <div class="row-right">
+                <div class="bar">
+                  <div class="percent" id="percent"></div>
+                  <div class="frame15">15天达标</div>
+                  <p>1/30天</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-left">
+                <p>累计投资：</p>
+              </div>
+              <div class="row-right">
+                <p class="row-right-txt">
+                    <span id="investData"></span>
+                    <i class="icon-doubt" onclick="methods._showInvestAlert()"></i>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-left">
+                <p>我的排名：</p>
+              </div>
+              <div class="row-right">
+                <p class="row-right-txt">
+                  <span id="myRank"></span>
+                  <i class="icon-doubt" onclick="methods._showRankAlert()"></i>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-left">
+                <p>我的奖品：
+                  <br>
+                  <label onclick="methods._showRule();">如何点亮？</label>
+                </p>
+              </div>
+              <div class="rank-hb">
+                <div class="item">
+                  <div class="hb" data-hb="100">
+                    <div class="hb-cover">
+                      <span>未</span>
+                      <span>点</span>
+                      <span>亮</span>
+                    </div>
+                    <p class="p1">100元</p>
+                    <p class="p2">现金红包</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="hb" data-hb="280">
+                    <div class="hb-cover">
+                      <span>未</span>
+                      <span>点</span>
+                      <span>亮</span>
+                    </div>
+                    <p class="p1">280元</p>
+                    <p class="p2">现金红包</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="hb" data-hb="500">
+                    <div class="hb-cover">
+                      <span>未</span>
+                      <span>点</span>
+                      <span>亮</span>
+                    </div>
+                    <p class="p1">500元</p>
+                    <p class="p2">现金红包</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--活动结束显示-->
+          <div class="end-prize" id="endPrize" style="display: none;">
+              <div class="prize-state prize-on" style="display: none;">
+                  <div class="pic"></div>
+                  <div class="txt">
+                      <p>恭喜您进入英壕榜，获得<b>XXX</b>元红包，红包奖励将于7个工作日内发放~</p>
+                  </div>
+              </div>
+              <div class="prize-state prize-off" style="display: none;">
+                  <div class="pic"></div>
+                  <div class="txt">
+                      <p>很遗憾您没有获奖，下期加油，还有更多活动大奖等你拿！</p>
+                      <p><span onclick="methods._showEndAlert()">为什么我没有获得红包大奖？</span></p>
+                  </div>
+              </div>
+          </div>
+
+          <!--有排行榜-->
+          <div class="rank-list-box" id="rankAndLogin" style="display: none;">
+            <div class="list-tit" id="rankTitle">进英壕榜拿大奖</div>
+            <p class="rank-rule" onclick="methods.goToRule()">排名规则></p>
+            <div class="rank-list">
+              <div class="rank-tab">
+                <div class="item item-l active">冲刺榜</div>
+                <div class="item item-r">英壕榜</div>
+              </div>
+              <div class="scroll-tit">
+                <p>名次</p>
+                <p>手机号</p>
+                <p>签到(天)</p>
+                <p>累计投资(元)</p>
+              </div>
+              <div class="slider-wrapper">
+                  <div class="slider slider1">
+                    <div>
+                      <div class="slider-group"></div>
+                      <div class="dropload-tips">加载中...</div>
+                    </div>
+                  </div>
+                  <div class="slider slider2" style="display: none;">
+                    <div>
+                      <div class="slider-group"></div>
+                      <div class="dropload-tips">加载中...</div>
+                    </div>
+                  </div>
+                <div class="slider slider-end" style="display: none;"></div>  
+                <div class="end-print" id="endPrine" style="display: none;"></div>
+              </div>
+              <div id="notEndTxt">
+                <p class="r-p1">签到满15天即有机会进入英壕榜，赢取现金红包</p>
+                <p class="r-p2">奖励以8月31日活动结束时的最终排名为准</p>
+              </div>
+              <div id="endTxt" style="display: none;">
+                <p class="r-p3">签到活动已圆满结束，获奖奖品将于次月首日起7个工作日内发放至团宝箱，请获奖的小伙伴耐心等候~</p>
+              </div>
+            </div>
+          </div>
+
+          <!--无排行榜-->
+          <div class="rank-list-box" id="norankAndLogin" style="display: none;">
+              <div class="rank-list">
+                  <div class="scroll-tit">
+                      <p>名次</p>
+                      <p>手机号</p>
+                      <p>签到(天)</p>
+                      <p>累计投资(元)</p>
+                    </div>
+              </div>
+              <div class="norank-txt">
+                  <p>暂时还没有排名数据哦，快去签到<br>投资赢500元现金红包吧~~</p>
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <footer>
+      <p>在法律许可的合法范畴内，本活动最终解释权归团贷网所有。</p>
+      <p>*本次活动与苹果公司无关</p>
+    </footer>
+  </div>
+  
+  <div class="share-btn animated tada"></div>
+
+  <div class="fotter-fixed">
+      <div class="f-btn btn-l" onclick="methods.goToSignIn()">签到冲榜<i></i></div>
+      <div class="f-btn btn-r" onclick="methods.goToInvest()">投资冲榜<i></i></div>
+  </div>
+
+  <!--攻略弹窗-->
+  <div class="alert" id="alertGL" style="display: none;">
+    <div class="alert-bg"></div>
+    <div class="alert-con con-gl">
+      <div class="gl-close"></div>
+    </div>
+  </div>
+
+  <!--红包点亮规则-->
+  <div class="alert" id="alertRule" style="display: none;">
+    <div class="alert-bg"></div>
+    <div class="alert-con con662">
+        <h3>温馨提示</h3>
+        <div class="alert-txt">
+          <p><b>500元现金红包：</b>累计签到≥15天，累计投资金额排名1~20名</p>
+          <p><b>280元现金红包：</b>累计签到≥15天，累计投资金额排名21~40名</p>
+          <p><b>100元现金红包：</b>累计签到≥15天，累计投资金额排名41~60名</p>
+          <p>排名刷新后，若之前上榜的用户被挤出前60名，红包将恢复成未点亮状态。</p>
+        </div>
+        <div class="iknow">知道了</div>
+    </div>
+  </div>
+
+  <!--查看排名-->
+  <div class="alert" id="alertWatchRank" style="display: none;">
+    <div class="alert-bg"></div>
+    <div class="alert-con con361">
+        <h3>温馨提示</h3>
+        <div class="alert-txt">
+          <p>要查看排名，需要先去签到和投资哦~</p>
+        </div>
+        <div class="iknow">知道了</div>
+    </div>
+  </div>
+
+  <!--去投资-->
+  <div class="alert" id="alertToInvest" style="display: none;">
+    <div class="alert-bg"></div>
+    <div class="alert-con con438">
+        <h3>温馨提示</h3>
+        <div class="alert-txt">
+            <p style="text-align: left;">累计投资：8月1日~8月31日期间成功投资的累计金额（债权转让除外）</p>
+        </div>
+        <div class="btn-two">
+            <div class="alert-btn alert-btn-l">知道了</div>
+            <div class="alert-btn alert-btn-r" onclick="methods.goToInvest();">去投资</div>
+        </div>
+    </div>
+  </div>
+
+  <!--获得红包条件-->
+  <div class="alert" id="endAlert" style="display: none;">
+    <div class="alert-bg"></div>
+    <div class="alert-con con361">
+        <h3>温馨提示</h3>
+        <div class="alert-txt">
+          <p>要查看排名，需要先去签到哦~！</p>
+        </div>
+        <div class="iknow">知道了</div>
+    </div>
+  </div>
+
+  <!-- webpack js -->
+  {{#each htmlWebpackPlugin.files.js}}
+  <script src="{{this}}"></script>{{/each}}
+  <!-- webpack js end-->
+
+  <!-- <script src="../js/lib/index.js"></script> -->
+</body>
+
+</html>

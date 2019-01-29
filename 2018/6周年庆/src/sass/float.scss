@@ -1,0 +1,88 @@
+@import './helper/_util.scss';
+.float{
+    position: fixed;
+    left: rem(11);
+    z-index: 9;
+    bottom: 30%;
+    .item{
+        width: rem(83);
+        height: rem(84);
+        margin-bottom: rem(12);
+    }
+    .item:nth-child(1){
+        @include bg("../images/float/f1.png");
+    }
+    .item:nth-child(2){
+        @include bg("../images/float/f2.png");
+    }
+    .item:nth-child(3){
+        @include bg("../images/float/f3.png");
+        p{
+            color: #d2f1ff;
+            font-size: rem(14);
+            text-align: center;
+            font-weight: bold;
+            padding-top: rem(23);
+            span{
+                font-size: rem(24);
+            }
+        }
+    }
+}
+
+.footer{
+    width: 100%;
+    height: rem(88);
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    .item{
+        display: block;
+        flex: 1;
+        background: #4534e2;
+        padding-top: rem(57);
+        text-align: center;
+        color: #fff;
+        font-size: rem(22);
+        position: relative;
+    }
+    .item::before{
+        content: "";
+        display: block;
+        position: absolute;
+        height: rem(57);
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .item.active{
+        background: #4e4eff;
+        color: #fff75a;
+    }
+    .item1::before{
+        background: url(../images/footer/i1.png) center no-repeat;
+        background-size: rem(42) rem(28);
+    }
+    .item2::before{
+        background: url(../images/footer/i2.png) center no-repeat;
+        background-size: rem(33) rem(44);
+    }
+    .item3::before{
+        background: url(../images/footer/i3.png) center no-repeat;
+        background-size: rem(32) rem(38);
+    }
+    .item1.active::before{
+        background: url(../images/footer/i11.png) center no-repeat;
+        background-size: rem(67) rem(28);
+    }
+    .item2.active::before{
+        background: url(../images/footer/i22.png) center no-repeat;
+        background-size: rem(62) rem(44);
+    }
+    .item3.active::before{
+        background: url(../images/footer/i33.png) center no-repeat;
+        background-size: rem(62) rem(38);
+    }
+}

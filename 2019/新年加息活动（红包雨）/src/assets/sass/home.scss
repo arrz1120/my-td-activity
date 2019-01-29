@@ -1,0 +1,135 @@
+@import './common.scss';
+@import './animation';
+
+.game-container{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: rem(100);
+    .ready-time{
+        .timeout{
+            color: #fa9e17;
+            text-align: center;
+            font-size: rem(88);
+        }
+        .ready-img{
+            width: rem(387);
+            height: rem(427);
+            @include bg('../images/ready-img.png');
+            margin-top: rem(40);
+        }
+    }
+    .counter{
+        width: 100vw;
+        height: rem(632);
+        @include bg('../images/counter-bg.png');
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        padding-top: rem(500);
+        pointer-events: none;
+        p{
+            font-size: rem(44);
+            color: #fff;
+        }
+        span{
+            color: #ffdf07;
+            font-size: rem(72);
+            margin: 0 rem(30);
+        }
+    }
+ }
+ 
+ .home{
+     width: 100vw;
+     height: 100vh;
+     background: url('../images/home-bg.jpg') center top no-repeat;
+     background-size: cover;
+     position: relative;
+     padding-top: rem(40);
+     .rule-btn{
+        @include wh(145,54);
+        @include bg('../images/rule-btn.png');
+        position: absolute;
+        top: rem(30);
+        right: 0;
+    }
+    .banner-tit{
+        @include wh(563,217);
+        @include bg('../images/index/banner-tit.png');
+        margin: rem(50) auto 0;
+    }
+    .banner-sub{
+        @include wh(384,59);
+        @include bg('../images/index/banner-sub.png');
+        margin: rem(-20) auto 0;
+        color: #fff;
+        @include flexCenter;
+    }
+    .prize-btn{
+        bottom: rem(400);
+    }
+    .share-btn{
+        bottom: rem(580);
+    }
+    .toIndex-btn{
+        @include bg('../images/icon-toIndex.png');
+        @include wh(81,81);
+        position: fixed;
+        right: rem(20);
+        bottom: rem(700);
+        z-index: 2;
+    }
+ }
+ .ad-txt{
+     color: #ffcbbc;
+     font-size: rem(18);
+     padding-left: rem(30);
+ }
+ .home-cover{
+     position: absolute;
+     bottom: rem(10);
+     left: 0;
+     z-index: 3;
+     width: 100vw;
+     height: rem(321);
+     @include bg('../images/home-cover.png');
+     text-align: center;
+ }
+ .home-btn{
+     width: rem(555);
+     height: rem(135);
+     @include bg('../images/home-btn.png');
+     margin: rem(-13) auto 0;
+     position: relative;
+     z-index: 2;
+ }
+ .cover-p1{
+     color: #fff;
+     font-size: rem(26);
+     margin-top: rem(-5);
+     margin-bottom: rem(20);
+     span{
+         color: #fff60d;
+         font-size: rem(26);
+         font-weight: bold;
+         margin: 0 rem(5);
+     }
+ }
+ .cover-p2{
+     color: #fff;
+     margin-top: rem(-5);
+     span{
+         color: #fff60d;
+         text-decoration: underline;
+     }
+ }

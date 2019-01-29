@@ -1,0 +1,596 @@
+@charset "utf-8";
+@import './helper/_util.scss';
+@import './helper/_variables.scss';
+html,
+body {
+  line-height: 1;
+}
+
+body {
+  background: #8fceff;
+}
+
+.main {
+  padding-bottom: rem(180);
+  background: url(../images/jizong/bg.png) center top no-repeat;
+  background-size: 100% auto;
+  header {
+    padding: rem(25) rem(30);
+    height: rem(640);
+    overflow: hidden;
+    position: relative;
+    .user_msg {
+      position: relative;
+      .tx_wraper {
+        position: absolute;
+        left: 0;
+        top: rem(-10);
+        @include wh(66, 66);
+        border-radius: rem(33);
+        border: 1px solid #fff;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: rem(30);
+        }
+      }
+      .user_name {
+        @include wh(220, 50);
+        border-radius: rem(25);
+        background: #94d0ff;
+        color: #fff;
+        line-height: rem(50);
+        padding-left: rem(70);
+        font-size: rem(20);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+      }
+    }
+    .tit {
+      @include bg('../images/jizong/tit.png');
+      @include wh(558, 148);
+      left: rem(100);
+      top: rem(100);
+      position: absolute;
+      // animation: scale 2.2s ease-out both;
+
+    }
+
+
+    .ani_wraper{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      animation: moveLeft 1.2s ease-out both;
+
+    }
+
+    .zj-detail {
+      opacity: 0;
+      z-index: 2;
+      animation: scale 2.2s 1.2s ease-out infinite;
+      @include wh(136, 136);
+      @include bg('../images/jizong/pao.png');
+      position: absolute;
+      left: rem(480);
+      top: rem(250);
+      padding-top: rem(20);
+      text-align: center;
+      color: #fff;
+      .txt {
+        font-size: rem(50);
+        .small {
+          font-size: rem(40);
+        }
+      }
+      .detail {
+        color: #fff;
+        text-decoration: underline;
+        font-size: rem(20);
+      }
+    }
+
+    .lc {
+      @include bg('../images/jizong/lc.png');
+      @include wh(710, 445);
+      position: absolute;
+      top: rem(260);
+      left: rem(30);
+
+
+    }
+  }
+  .dh-container {
+    border-radius: rem(20);
+    background: #fff;
+    width: rem(690);
+    padding: 1px rem(35) rem(30);
+    margin: 0 auto;
+    .tit {
+      @include wh(435, 64);
+      @include bg('../images/jizong/tit-bg-1.png');
+      line-height: rem(64);
+      margin: rem(-30) auto rem(40);
+      color: #fff;
+      font-size: rem(40);
+      font-weight: bold;
+      text-align: center;
+    }
+    .hb-list {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      color: #fff;
+      li {
+        @include wh(180, 230);
+        border-radius: rem(10);
+        border: 1px solid #c1efc2;
+        background: #f2fff5;
+        position: relative;
+      }
+      .tit_1 {
+        font-size: rem(18);
+        height: rem(42);
+        line-height: rem(42);
+        background: linear-gradient(-45deg, #45b05f, #89dc87);
+        border-radius: rem(10) rem(10) 0 0;
+      }
+      .hb {
+        @include wh(114, 147);
+        @include bg('../images/jizong/hb.png');
+        margin: rem(15) auto 0;
+        padding-top: rem(72);
+        .txt {
+          font-size: rem(35);
+          .small {
+            font-size: rem(29);
+          }
+        }
+
+        .txt_1{
+          font-size: rem(18);
+        }
+
+      }
+
+      .hb-over{
+          width: 100%;
+          height: rem(184);
+          background: rgba(0, 0, 0, .6);
+          position:absolute;
+          left: 0;
+          bottom: 0;
+          border-radius: 0 0 rem(10) rem(10);
+          color: #fff;
+          font-size: rem(28);
+          line-height: rem(36);
+          padding-top: rem(50);
+      }
+
+      .hand {
+        @include wh(75, 75);
+        @include bg('../images/jizong/hand.png');
+        position: absolute;
+        left: rem(50);
+        top: rem(80);
+        animation: fade 2.2s ease-out infinite;
+        pointer-events:none;
+      }
+    }
+    .prize-img {
+      @include wh(548, 263);
+      @include bg('../images/jizong/prize-img.png');
+      margin: rem(60) auto rem(30);
+    }
+    .btn {
+      @include wh(620, 80);
+      line-height: rem(80);
+      font-size: rem(42);
+      display: block;
+      animation: breath 1.2s ease-out infinite;
+
+    }
+  }
+
+}
+.btn {
+  border-radius: rem(5);
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(#ffb438, #ff6e14);
+}
+
+.jz-container{
+  .tit{
+    @include bg('../images/jizong/tit-bg-2.png');
+    @include wh(528, 72);
+    line-height: rem(72);
+    margin: rem(30) auto;
+    color: #fff;
+    font-size: rem(40);
+    font-weight: bold;
+    padding-left: rem(130);
+  }
+
+
+  .jz-list {
+    width: rem(680);
+    margin: rem(30) auto;
+    li {
+        height: rem(200);
+        background: #fff;
+        border-radius: rem(10);
+        padding: rem(40);
+        box-sizing: border-box;
+        margin-bottom: rem(12);
+
+    }
+
+    .tit-1,
+    .txt {
+        float: left;
+        width: rem(379);
+    }
+    .tit-1 {
+        font-size: rem(30);
+        color: #3b3b3b;
+        margin-bottom: rem(10);
+        font-weight: bold;
+        .red {
+            color: #ffa020;
+            font-size: rem(24);
+        }
+    }
+    .txt {
+        font-size: rem(24);
+        color: #3b3b3b;
+        line-height: rem(32);
+    }
+    .money {
+        float: right;
+    }
+    .money {
+        width: rem(214);
+        text-align: center;
+        margin-top: rem(5);
+        .red {
+            color: #ff4664;
+        }
+    }
+    .btn_task {
+        @include wh(214,
+        86);
+        background: linear-gradient(#ffb538, #ff6e14);
+        line-height: rem(86);
+        font-size: rem(30);
+        float: right;
+        margin-top: rem(-25);
+        position: relative;
+    }
+    .btn_finish {
+        &:before {
+            content: '';
+            @include wh(53,53);
+            @include bg('../images/jizong/finish_icon.png');
+            right: rem(-30);
+            top: rem(-20);
+            position: absolute;
+        }
+    }
+
+
+    .dh_btn.btn_finish,
+    .dh_num{
+        padding-top: rem(7);
+        line-height: rem(36);
+    }
+  }
+
+}
+
+
+.alert{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:  center;
+    justify-content:center;
+    z-index: 10;
+    transform: translateZ(1px);
+
+  .mask{
+    background: rgba(0, 0, 0, .6);
+  }
+
+
+  .con{
+      width: rem(600);
+      background: #fff;
+      border-radius: rem(10);
+      padding: rem(31) rem(10) rem(27) rem(10);
+      z-index: 100;
+      animation: repaint .1s forwards;
+     .tit{
+       text-align: center;
+       color: #3f3f3f;
+       font-size: rem(40);
+       line-height: rem(56);
+       .red{
+         color: #ff8922;
+       }
+     }
+
+     .alert-type-img{
+       margin: rem(20) auto;
+     }
+
+     .alert-type-zz{
+      @include wh(248,206);
+      @include bg('../images/jizong/alert-zz.png');
+     }
+     .alert-type-hb{
+      @include wh(286,226);
+      @include bg('../images/jizong/alert-hb.png');
+     }
+
+     .btn-wraper .btn{
+        height: rem(70);
+        line-height: rem(70);
+        font-size: rem(30);
+
+     }
+
+     .btn-wraper .btn-newline{
+       line-height: rem(30);
+       padding-top: rem(10);
+     }
+
+     .btn-left,
+     .btn-right{
+       width: rem(285);
+       float: left;
+
+       .small{
+         display: block;
+         font-size: rem(18);
+         line-height: rem(30);
+       }
+
+     }
+
+
+
+     .btn-left{
+       margin-right: rem(10);
+      background: linear-gradient(#c0c0c0, #949494);
+
+     }
+
+     .btn-center{
+      width: rem(480);
+      margin: 0 auto;
+      display: block;
+     }
+
+
+     .tips{
+       text-align: center;
+       color: #999;
+       font-size: rem(18);
+       margin-bottom: rem(15);
+     }
+
+
+    }
+
+}
+
+
+
+
+.alert_integral{
+
+
+  .con{
+      @include wh(620,650);
+      padding-top: rem(45);
+      animation: repaint .1s forwards;
+      .tit_2{
+          @include wh(435,64);
+          @include bg('../images/jizong/tit-bg-1.png');
+          font-size: rem(36);
+          margin: rem(-80) auto rem(30);
+          color: #fff;
+          font-weight: bold;
+          line-height: rem(64);
+      }
+
+
+      .close_icon{
+        @include wh(70,70);
+        @include bg("../images/jizong/close.png");
+        bottom: rem(-80);
+        margin: 0 auto;
+        margin-top: 1.5rem;
+    }
+
+      .tab{
+          width: rem(560);
+          margin: 0 auto;
+          color: #333;
+          font-size: rem(26);
+      }
+
+
+      .orange{
+        color: #ff8922;
+    }
+
+      nav{
+          display: flex;
+          .item{
+              width: 50%;
+              text-align: center;
+              height: rem(60);
+              line-height: rem(60);
+              border:1px solid #89dc88;
+          }
+
+          .item_on{
+              background: #f2fff5;
+              border:1px solid #f2fff5;
+
+          }
+
+
+      }
+
+
+      .tab_con{
+          height: rem(437);
+          position: relative;
+          background: #f2fff5;
+      }
+
+      .tab_item{
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+      }
+
+      .tab_item_on{
+          display: block;
+      }
+
+      .no_data{
+          text-align: center;
+          height: rem(80);
+          line-height: rem(80);
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          transform: translateY(-50%);
+      }
+
+  }
+
+
+
+  .list{
+
+      @include wh(520,370);
+      overflow: scroll;
+      margin: rem(25) auto;
+      padding-top: rem(5);
+
+
+      li{
+          display: flex;
+          margin-bottom: rem(30);
+      }
+
+
+      .invite-msg{
+         background: #cffeda;
+         padding: rem(18) 0;
+         margin-bottom: rem(20);
+      }
+
+      .txt{
+          width: rem(240);
+          color: #434343;
+      }
+
+      .txt_2{
+        width: rem(170);
+        color: #434343;
+    }
+
+      .txt_3{
+        width: rem(410);
+
+      }
+
+
+      .txt_1{
+          width: rem(100);
+          text-align: center;
+      }
+  }
+
+
+  .tips{
+      text-align: center;
+      margin-top: rem(30);
+      color: #474747;
+      font-size: rem(18)
+  }
+
+}
+
+
+body.modal-open {
+  position: fixed;
+  width: 100%;
+}
+
+
+
+@keyframes breath {
+  0%,
+  100% {
+    transform: scale(0.92, 0.92);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0, 0) translateZ(1px);
+    opacity: 1;
+
+  }
+  50%,
+  100% {
+    transform: scale(1, 1) translateZ(1px);
+    opacity: 1;
+
+  }
+}
+
+
+
+
+@keyframes moveLeft{
+  0%{
+    transform:  translate3d(100%,-10%,0) scale(0,0);
+}
+100%{
+    transform: translate3d(0,0,0) scale(1,1);
+}
+}
+
+
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
