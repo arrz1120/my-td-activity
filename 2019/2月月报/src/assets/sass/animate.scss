@@ -1,0 +1,48 @@
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.nav-enter-active, .nav-leave-active {
+    transition: all .4s;
+}
+.nav-enter, .nav-leave-to {
+    transform: translate3d(100%,0,0)
+}
+
+.code-enter-active, .code-leave-active {
+    transition: all .4s;
+}
+.code-enter, .code-leave-to {
+    transform: translate3d(0,100%,0)
+}
+
+.dropdown-move{
+    animation: dropdown 1s ease-out infinite;
+}
+
+@keyframes dropdown {
+    0%{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        opacity: 0;
+        transform: translate3d(0,80%,0);
+    }
+}
+
+.zoomIn{
+    animation: zoomIn 0.6s ease-out both;
+}
+
+@keyframes zoomIn {
+    0%{
+        transform: scale(0,0);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
