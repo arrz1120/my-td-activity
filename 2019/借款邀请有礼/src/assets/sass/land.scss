@@ -1,0 +1,259 @@
+// @import './nc.scss';
+
+div,p,input{
+    font-size: rem(24);
+}
+
+.land{
+    width: 100vw;
+    padding-bottom: rem(45);
+    @include bg('../images/land/bg.jpg');
+    padding-top: rem(100);
+    .land-p1{
+        color: #f6e2c9;
+        font-size: rem(58);
+        line-height: rem(92);
+        text-align: center;
+        span{
+            color: #f54e51;
+        }
+    }
+    .land-hb{
+        width: rem(680);
+        height: rem(304);
+        @include bg('../images/land/hb.png');
+        margin: rem(100) auto 0;
+
+    }
+}
+
+.input-container{
+    .icon-phone{
+        width: rem(83);
+        height: rem(92);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('../images/land/icon-phone.png') rem(36) center no-repeat;
+        background-size: rem(29) rem(45);
+    }
+    .icon-code{
+        width: rem(83);
+        height: rem(92);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('../images/land/icon-code.png') rem(36) center no-repeat;
+        background-size: rem(30) rem(37);
+    }
+    .icon-close{
+        width: rem(83);
+        height: rem(92);
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: url('../images/land/icon-close.png') rem(20) center no-repeat;
+        background-size: rem(27) rem(27);
+    }
+    .input-box{
+        width: rem(671);
+        margin: 0 auto;
+        height: rem(136);
+        position: relative;
+        input{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .phone-input{
+        width: rem(671);
+        height: rem(92);
+        background: #fff;
+        border-radius: rem(40);
+        position: relative;
+        padding-left: rem(83);
+        padding-right: rem(83);
+    }
+    .code-input{
+        width: rem(401);
+        height: rem(92);
+        background: #fff;
+        border-radius: rem(40);
+        position: relative;
+        padding-left: rem(83);
+        padding-right: rem(83);
+    }
+    .code-btn{
+        @include wh(248,92);
+        background: linear-gradient(to bottom,#dfb68d,#c27e5c);
+        @include flexCenter;
+        color: #ba0027;
+        font-size: rem(28);
+        border-radius: rem(40);
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .err-tips{
+        color: #cf083a;
+        margin-top: rem(10);
+        padding-left: rem(50);
+    }
+    .input-agree{
+        color: #bc7463;
+        font-size: rem(22);
+        margin-left: rem(75);
+        .checkbox{
+            @include wh(24,24);
+            border: 1px solid #bc7463;
+            position: relative;
+            display: inline-block;
+            margin-right: rem(12);
+            i{
+                display: block;
+                @include wh(27,26);
+                position: absolute;
+                left: 0;
+                top: rem(-8);
+                @include bg('../images/land/icon-check.png')
+            }
+        }
+        a{
+            color: #cf083a;
+        }
+    }
+}
+
+// .nc-wrapper{
+//     width: rem(671);
+//     margin: rem(10) auto rem(42);
+//     height: rem(112);
+// }
+
+// .nc-container{
+//     width: rem(671);
+//     height: rem(92);
+//     // margin: rem(10) auto rem(62);
+// }
+
+// ._nc .stage1{
+//     height: rem(92);
+//     padding: 0;
+//     width: 100%;
+// }
+
+// ._nc .stage1 .slider {
+//     width: 100%;
+//     left: 0;
+//     height: rem(92);
+//     border-radius: rem(40);
+//     background-color: #442219;
+// }
+// ._nc .stage1 .label{
+//     color: #aa6452;
+//     -webkit-text-fill-color: #aa6452;
+// }
+// /* 滑动条 */
+// ._nc .stage1 .track div, ._nc .stage1 .label {
+//     border-radius: 26px;
+//     color: #fff;
+//     height: rem(92);
+//     line-height: rem(92);
+// }
+// /* 滑动条背景色-正常 */
+// ._nc .stage1 .bg-green {
+//     background-color: #442219;
+//     color: #aa6452 !important;
+// }
+// /* 滑动条背景色-失败 */
+// ._nc .stage1 .bg-red {
+//     background-color: #ff5500;
+// }
+
+// ._nc .icon-ok{
+//     color: #aa6452;
+// }
+
+// ._nc .stage1 .button{
+//     width: rem(194);
+//     height: rem(92);
+//     line-height: rem(92);
+//     background: #68392c;
+//     border: 1px solid #aa6452;
+//     border-radius: rem(40);
+//     text-align: center;
+// }
+
+// ._nc .icon-slide-arrow,._nc .stage1 .icon{
+//     color: #aa6452;
+//     left: rem(70) !important;
+// }
+
+.register-btn{
+    @include wh(671,92);
+    @include flexCenter;
+    color: #e8c599;
+    font-size: rem(42);
+    @include bg('../images/land/register-btn.png');
+    margin: rem(20) auto 0;
+}
+
+.logo-box{
+    @include bg('../images/land/logo.png');
+    margin: rem(85) auto 0;
+    @include wh(228,54);
+}
+
+.frame{
+    @include bg('../images/land/frame.png');
+    margin: rem(35) auto 0;
+    @include wh(680,355);
+    padding: rem(30) 0;
+}
+
+.frame-flex{
+    height: 50%;
+    display: flex;
+    .item{
+        flex: 1;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        padding-left: rem(34);
+        .f-icon{
+            @include wh(69,69);
+            margin-right: rem(20);
+        }
+        .f-icon1{
+            @include bg('../images/land/f-icon1.png');
+        }
+        .f-icon2{
+            @include bg('../images/land/f-icon2.png');
+        }
+        .f-icon3{
+            @include bg('../images/land/f-icon3.png');
+        }
+        .f-icon4{
+            @include bg('../images/land/f-icon4.png');
+        }
+        .f-txt-p1{
+            color: #ba0027;
+            font-weight: bold;
+            font-size: rem(28);
+        }
+        .f-txt-p2{
+            color: #521f16;
+            margin-top: rem(11);
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    margin-top: rem(70);
+    p{
+        color: #613232;
+        font-size: rem(22);
+        line-height: rem(40);
+    }
+}

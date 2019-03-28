@@ -1,0 +1,36 @@
+.register-finish{
+    width: 100vw;
+    height: 100vh;
+    @include bg('../images/land/bg.jpg');
+    padding-bottom: rem(236);
+    @include flexCenter;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    .pic-success{
+        @include bg('../images/land/register-success.png');
+        @include wh(359,242);
+    }
+    .r-p1{
+        color: #ff1c4c;
+        font-size: rem(48);
+        font-weight: bold;
+        margin-top: rem(40);
+    }
+    .r-p2{
+        color: #f6e2c9;
+        font-size: rem(36);
+        line-height: rem(72);
+        margin-top: rem(62);
+    }
+    .download-btn{
+        @include bg('../images/land/register-btn.png');
+        @include wh(671,92);
+        @include flexCenter;
+        color: #e8c599;
+        font-size: rem(42);
+        position: absolute;
+        bottom: rem(142);
+        left: rem(41);
+    }
+}

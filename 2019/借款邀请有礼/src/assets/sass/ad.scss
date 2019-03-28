@@ -1,0 +1,75 @@
+
+div,p{
+    font-size: rem(24);
+}
+
+.ad{
+    width: 100vw;
+    height: 100vh;
+    @include bg('../images/index/bg.jpg');
+    position: relative;
+}
+
+.banner{
+    position: relative;
+    padding-top: rem(80);
+    .rule-btn{
+        @include wh(81,85);
+        background: #ba0f35;
+        @include flexCenter;
+        border-radius: 0 0 rem(30) rem(30);
+        color: #feefde;
+        line-height: rem(27);
+        position: absolute;
+        top: 0;
+        right: rem(31);
+    }
+    .banner-tit{
+        @include wh(670,250);
+        @include bg('../images/index/index-tit.png');
+        margin: 0 auto;
+    }
+    .banner-sub{
+        @include wh(573,57);
+        @include bg('../images/index/index-sub.png');
+        margin: rem(30) auto 0;
+        color: #cc073a;
+        font-size: rem(26);
+        @include flexCenter;
+    }
+}
+
+.index-award{
+    @include wh(688,300);
+    @include bg('../images/ad/ad-award.png');
+    margin: rem(83) auto 0;
+}
+
+.ad-btn{
+    @include flexCenter;
+    @include wh(671,92);
+    @include bg('../images/index/index-btn.png');
+    color: #e8c599;
+    font-size: rem(42);
+    margin: 0 auto;
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: rem(30);
+    p{
+        color: #613232;
+        font-size: rem(22);
+        line-height: rem(40);
+    }
+}
+
+@media (max-heigit: 520px){
+    .index-award{
+        margin: rem(50) auto 0;
+    }
+}

@@ -1,0 +1,109 @@
+.mask{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .mask-bg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .mask-con{
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.rule{
+    @include wh(640,860);
+    @include bg('../images/index/rule.png');
+    .rule-tab{
+        border: 1px dashed #521f16;
+        display: flex;
+        .item{
+            flex: 1;
+            p{
+                line-height: rem(90);
+                color: #984d40;
+                font-size: rem(28);
+                font-weight: bold;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+            &.active{
+                position: relative;
+                p{
+                    color: #300c0d;
+                }
+                &::before{
+                    content: "";
+                    display: block;
+                    @include wh(174,11);
+                    background: #ba0027;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: rem(-87);
+                    top: rem(55);
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .rule-scroll{
+        height: rem(622);
+        overflow: hidden;
+        position: relative;
+        .bscroll-vertical-scrollbar{
+            top: rem(29) !important;
+            right: rem(29) !important;
+            background: #cd936f !important;
+            border-radius: 3px;
+            width: rem(10) !important;
+            .bscroll-indicator{
+                background: #ad6647 !important;
+                border: 0 !important;
+            }
+        }
+    }
+}
+
+.rule-scroll-wrapper{
+    padding-top: rem(29);
+    padding-left: rem(59);
+    padding-right: rem(59);
+}
+
+.rule-content{
+    color: #300c0d;
+    font-size: rem(22);
+    .rule-p1{
+        font-weight: bold;
+        padding: rem(10) 0;
+    }
+    .rule-p2{
+        line-height: rem(46);
+    }
+    .c-gray{
+        color: #aa6452;
+    }
+}
+
+.mask-rule-btn{
+    @include wh(554,78);
+    @include bg('../images/index/rule-btn.png');
+    @include flexCenter;
+    color: #e8c599;
+    font-size: rem(32);
+    margin: rem(35) auto 0;
+}

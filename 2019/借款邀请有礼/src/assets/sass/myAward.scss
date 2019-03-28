@@ -1,0 +1,116 @@
+.bg{
+    width: 100vw;
+    height: rem(1206);
+    min-height: 100vh;
+    @include bg('../images/index/bg1.jpg');
+    background-size: cover;
+}
+
+.myAward{
+    padding-top: rem(52);
+    .frame1{
+        @include bg('../images/index/frame1.png');
+        @include wh(691,267);
+        margin-left: rem(35);
+        display: flex;
+        .item{
+            flex: 1;
+            @include flexCenter;
+            flex-direction: column;
+            .award-p1{
+                color: #ffd8b8;
+                font-size: rem(50);
+                font-weight: bold;
+            }
+            .award-p2{
+                color: #f2925d;
+                margin-top: rem(20);
+            }
+        }
+    }
+    .frame2{
+        @include bg('../images/index/frame2.png');
+        @include wh(680,671);
+        margin-left: rem(35);
+        margin-top: rem(24);
+        .f2-tit{
+            color: #ff0f4b;
+            font-weight: bold;
+            line-height: rem(92);
+            border-bottom: 1px dashed #ae8a78;
+            text-align: center;
+        }
+        .scroll-tab{
+            width: rem(566);
+            margin: rem(30) auto 0;
+            background: #49130f;
+            border-radius: rem(8);
+            display: flex;
+            text-align: center;
+            .item{
+                flex: 1;
+                color: #f2925d;
+                line-height: rem(72);
+            }
+        }
+    }
+    .scroll{
+        height: rem(425);
+        margin-top: rem(13);
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        .scroll-wrapper{
+            width: rem(566);
+            margin: 0 auto;
+        }
+        .scroll-item{
+            display: flex;
+            .item{
+                flex: 1;
+                line-height: rem(77);
+                color: #ffd8b8;
+            }
+        }
+        .bscroll-vertical-scrollbar{
+            right: rem(25) !important;
+            background: #40170f !important;
+            border-radius: 3px;
+            width: rem(10) !important;
+            .bscroll-indicator{
+                background: #852621 !important;
+                border: 0 !important;
+            }
+        }
+    }
+}
+
+
+
+.invite-btn{
+    @include flexCenter;
+    @include wh(671,92);
+    @include bg('../images/index/index-btn.png');
+    color: #e8c599;
+    font-size: rem(42);
+    margin: rem(38) auto 0;
+    position: fixed;
+    left: rem(40);
+    bottom: rem(40);
+    z-index: 5;
+}
+
+.no-data{
+    @include flexCenter;
+    flex-direction: column;
+    height: rem(500);
+    text-align: center;
+    img{
+        width: rem(349);
+    }
+    p{
+        color: #aa6452;
+        line-height: rem(42);
+        margin-top: rem(20);
+    }
+}

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>踏春加息活动</title>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta content="email=no" name="format-detection" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover">
+  <script>
+    !(function(){
+      var win=window
+      var doc=document
+      var UA=navigator.userAgent
+      var isAndroid=/android|adr/gi.test(UA)
+      var isIos=/iphone|ipod|ipad/gi.test(UA)&&!isAndroid
+      var isMobile=isAndroid||isIos
+      var config={
+        isAndroid:isAndroid,
+        isIos:isIos,
+        isMobile:isMobile,
+        isWeixin:/MicroMessenger/gi.test(UA),
+        dpr:isIos?win.devicePixelRatio:1,
+        rem:null,
+      }
+      var adapt=function(){
+        var docEl=doc.documentElement
+        var width=docEl.getBoundingClientRect().width>750?750:docEl.getBoundingClientRect().width
+        config.rem=width/16
+        docEl.style.fontSize=config.rem+'px'
+      }
+      var timer
+      win.addEventListener('resize',function(){
+        clearTimeout(timer)
+        timer=setTimeout(adapt,300)
+      })
+      win.addEventListener('pageshow',function(e){
+        if(e.persisted){
+          clearTimeout(timer)
+          timer=setTimeout(adapt,300)
+        }
+      })
+      adapt()
+      win.adapter=config
+    })()
+  </script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script>
+    window.webUrlPrefix = "/huodong"
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
+  

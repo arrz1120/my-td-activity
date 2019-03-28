@@ -1,0 +1,117 @@
+@import './swiper-3.4.2.scss';
+@import './mask';
+@import './animation';
+
+body{
+    line-height: 1;
+}
+div,p{
+    font-size: rem(24);
+}
+div{
+    box-sizing: border-box;
+}
+
+.share-btn{
+    position: fixed;
+    right: rem(10);
+    bottom: rem(330);
+    z-index: 5;
+    @include wh(94,94);
+    @include bg('../images/share-btn.png');
+}
+
+.prize-btn{
+    position: fixed;
+    right: rem(10);
+    bottom: rem(220);
+    z-index: 5;
+    @include wh(94,94);
+    @include bg('../images/prize-btn.png');
+}
+
+.bot-btn{
+    background: url('../images/bottom-shadow.png') no-repeat;
+    padding-top: rem(80);
+    background-size: 100% rem(81);
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 9;
+    width: 100vw;
+    display: flex;
+    .item{
+        flex: 1;
+        line-height: rem(102);
+        color: #317e70;
+        font-size: rem(40);
+        background: #fff;
+        @include flexCenter;
+        i{
+            display: block;
+            margin-right: rem(23);
+        }
+    }
+    .active{
+        background: #fddb6b;
+        color: #91480a;
+    }
+    .bot-icon-left1{
+        @include wh(39,41);
+        @include bg('../images/bot-icon-left1.png');
+    }
+    .bot-icon-left2{
+        @include wh(39,41);
+        @include bg('../images/bot-icon-left2.png');
+    }
+    .bot-icon-right1{
+        @include wh(44,42);
+        @include bg('../images/bot-icon-right1.png');
+    }
+    .bot-icon-right2{
+        @include wh(44,42);
+        @include bg('../images/bot-icon-right2.png');
+    }
+}
+
+.table{
+    width: rem(633);
+    margin: rem(30) auto 0;
+    .tbody{
+        border: 1px solid #3a9c92;
+        border-radius: 0 0 rem(10) rem(10);
+        overflow: hidden;
+    }
+    .th{
+        display: flex;
+        border-radius: rem(10) rem(10) 0 0;
+        background: linear-gradient(to right,#31bbae,#1c9da2);
+        text-align: center;
+        padding: 0 rem(15);
+        .td{
+            @include flexCenter;
+            flex: 1;
+            color: #fff;
+            font-size: rem(26);
+            font-weight: bold;
+            height: rem(93);
+            line-height: rem(32);
+        }
+    }
+    .tr{
+        display: flex;
+        padding: 0 rem(20);
+        .td{
+            height: rem(62);
+            @include flexCenter;
+            flex: 1;
+            color: #088487;
+            font-size: rem(22);
+            font-weight: bold;
+            &:nth-child(1){
+                color: #1e1e1e;
+                font-weight: normal;
+            }
+        }
+    }
+}
