@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>我的奖品</title>
+	<!-- build:css ../css/page.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/page.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div class="scroll scroll-active">
+	<div class="wraper">
+
+		<!--导航-->
+		<ul class="tab-nav nav1">
+			<li data-type="1">我的奖品</li>
+			<li data-type="2">π能记录</li>
+		</ul>
+
+		<div class="prize-list clearfix">
+			<div class="prize fl">
+				<img src="../images/prize/dianyuan.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/iphone-x.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/xiangji.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/note5A.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+
+			<div class="prize fl">
+				<img src="../images/prize/paineng.png" alt="">
+				<span class="name">定制移动电源<em>2017-12-1</em></span>
+			</div>
+
+
+
+			 
+		</div>
+
+		<!--无记录-->
+		<div class="log-none" style="display: none">
+			<span class="xiaopai2"></span>
+			<span class="txt">咦？您还没抽奖呢！中奖率100%哦~</span>
+		</div>
+	</div>
+	<div class="main-b">
+		在法律许可的合法范畴内，本活动最终解释权归团贷网所有。<br/>
+		本次活动与苹果公司无关
+	</div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+
+        $(".prize-list, .log-list").on('touchmove', function(e) {
+            e.stopPropagation();
+        });
+
+        $('.tab-nav').on('click', 'li', function(e) {
+            var $li = $(e.currentTarget);
+            var _type = $li.attr('data-type');
+            switch (_type) {
+                case '1':
+                    window.location.href = './myPrize.html';
+                    break;
+                case '2':
+                    window.location.href = './record.html';
+                    break;
+
+            }
+        });
+
+    });
+</script>
+</html>

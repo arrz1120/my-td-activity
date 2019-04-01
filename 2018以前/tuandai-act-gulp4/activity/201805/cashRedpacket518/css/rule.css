@@ -1,0 +1,285 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.wrap-rule {
+  display: block;
+  background: url("../images/rule-bg.jpg") no-repeat center;
+  width: 16rem;
+  height: 78.89067rem;
+  background-size: contain;
+  padding: 0.42667rem 0 0 0; }
+
+.rule-con {
+  width: 15.04rem;
+  margin: 3.94667rem auto 0;
+  background: #ffffff;
+  border-radius: 0 0 0.32rem 0.32rem;
+  -webkit-box-shadow: 0 0 0.21333rem 0 rgba(250, 235, 211, 0.75);
+  box-shadow: 0 0 0.21333rem 0 rgba(250, 235, 211, 0.75);
+  position: relative;
+  padding-bottom: 0.85333rem; }
+  .rule-con:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.21333rem 0 0 0.256rem;
+    border-color: transparent transparent transparent #bcb9b3;
+    position: absolute;
+    right: 0;
+    top: -0.21333rem; }
+  .rule-con:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 0.21333rem 0.27733rem;
+    border-color: transparent transparent #bcb9b3 transparent;
+    position: absolute;
+    left: 0;
+    top: -0.21333rem; }
+  .rule-con p {
+    padding: 0.512rem 0.85333rem 0 1.70667rem;
+    font-size: 0.55467rem;
+    color: #4c4c4c;
+    line-height: 1.00267rem;
+    text-align: justify;
+    position: relative; }
+    .rule-con p span {
+      color: #f23e2a; }
+    .rule-con p:before {
+      content: attr(data-content);
+      position: absolute;
+      left: 0.768rem;
+      top: 0.42667rem;
+      font-size: 0.64rem;
+      color: #f8614e; }
+    .rule-con p.red {
+      color: #fa4d2d; }
+  .rule-con .banquan {
+    text-align: center;
+    color: #999999;
+    font-size: 0.512rem; }
+  .rule-con .title {
+    padding: 0.68267rem 0 0 0;
+    width: 14.50667rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -7.25333rem;
+    top: -2.60267rem;
+    height: 2.64533rem;
+    background: #f23e2a;
+    text-align: center;
+    background-image: -webkit-linear-gradient(130deg, #fa2b1c 0%, #f63d71 79%);
+    border-radius: 0.21333rem; }
+    .rule-con .title span {
+      font-size: 0.768rem;
+      color: #ffffff;
+      margin: 0 auto;
+      line-height: 1.088rem; }
+  .rule-con .pic-con {
+    padding-top: 0.85333rem; }
+    .rule-con .pic-con .box-flex1 {
+      width: 33.333%; }
+      .rule-con .pic-con .box-flex1 .pic-box {
+        width: 3.52rem;
+        height: 3.52rem;
+        margin: 0 auto; }
+        .rule-con .pic-con .box-flex1 .pic-box img {
+          display: block;
+          margin: 0 auto;
+          width: 3.52rem;
+          height: 3.52rem; }
+      .rule-con .pic-con .box-flex1 span {
+        color: #4c4c4c;
+        font-size: 0.59733rem;
+        text-align: center;
+        display: block;
+        text-decoration: underline;
+        margin-top: 0.42667rem; }
+  .rule-con .pic-xs {
+    padding-top: 0.85333rem; }
+    .rule-con .pic-xs .box-flex1 {
+      width: 50%;
+      text-align: left;
+      height: 4.26667rem;
+      position: relative;
+      padding-left: 4.69333rem;
+      padding-top: 1.70667rem; }
+      .rule-con .pic-xs .box-flex1 .pic-box {
+        width: 3.52rem;
+        height: 3.52rem;
+        position: absolute;
+        left: 0.64rem;
+        top: 0.64rem; }
+        .rule-con .pic-xs .box-flex1 .pic-box img {
+          display: block;
+          margin: 0 auto;
+          width: 3.52rem;
+          height: 3.52rem; }
+      .rule-con .pic-xs .box-flex1 span {
+        color: #4c4c4c;
+        font-size: 0.55467rem;
+        text-align: left;
+        display: block;
+        line-height: 0.85333rem; }
+
+.rule-mask .pop-container {
+  width: 14.208rem;
+  min-height: 15.91467rem;
+  background: #fff;
+  padding-top: 2.13333rem;
+  position: relative; }
+  .rule-mask .pop-container .title {
+    position: absolute;
+    height: 2.13333rem;
+    width: 100%;
+    line-height: 2.13333rem;
+    font-size: 0.74667rem;
+    color: #ffffff;
+    text-align: center;
+    padding: 0;
+    left: 0;
+    top: 0;
+    background-image: -webkit-linear-gradient(130deg, #fa2b1c 0%, #f63d71 79%); }
+  .rule-mask .pop-container .popup-rule {
+    width: 14.208rem;
+    height: 13.76rem;
+    overflow: auto;
+    position: relative; }
+    .rule-mask .pop-container .popup-rule p {
+      font-size: 0.46933rem;
+      color: #595757;
+      text-align: justify;
+      line-height: 0.72533rem;
+      padding: 0.64rem 0.896rem 0 1.70667rem;
+      position: relative; }
+      .rule-mask .pop-container .popup-rule p:before {
+        content: attr(data-content);
+        position: absolute;
+        left: 0.896rem;
+        top: 0.59733rem;
+        font-size: 0.64rem;
+        color: #f8614e; }
+      .rule-mask .pop-container .popup-rule p.gongshi {
+        padding: 0.21333rem 0.896rem 0 1.49333rem;
+        color: #969696; }
+    .rule-mask .pop-container .popup-rule .table {
+      width: 11.09333rem;
+      margin: 0.64rem 0 0.64rem 1.92rem; }
+      .rule-mask .pop-container .popup-rule .table p {
+        padding: 0 5.54667rem 0 0;
+        position: relative;
+        border-left: 0.04267rem solid #d7d7d7;
+        border-right: 0.04267rem solid #d7d7d7;
+        border-bottom: 0.04267rem solid #ebebeb;
+        height: 1.06667rem;
+        line-height: 1.06667rem;
+        text-align: center; }
+        .rule-mask .pop-container .popup-rule .table p:first-child {
+          border: 0.04267rem solid #fff0f0;
+          background: #fff0f0;
+          border-radius: 0.21333rem;
+          color: #f23e2a; }
+          .rule-mask .pop-container .popup-rule .table p:first-child span {
+            color: #f23e2a; }
+        .rule-mask .pop-container .popup-rule .table p:last-child {
+          border-radius: 0 0 0.21333rem 0.21333rem; }
+        .rule-mask .pop-container .popup-rule .table p:before {
+          content: attr(data-content);
+          position: absolute;
+          left: 0.768rem;
+          top: 0.55467rem;
+          color: #f8614e; }
+        .rule-mask .pop-container .popup-rule .table p span {
+          width: 5.54667rem;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 1.06667rem;
+          text-align: center; }
+    .rule-mask .pop-container .popup-rule .eg {
+      font-size: 0.55467rem;
+      color: #f8614e;
+      text-align: justify;
+      line-height: 1.6;
+      background: #fff0f0;
+      border-radius: 0.10667rem;
+      margin: 0.64rem 0.896rem 0 1.49333rem;
+      padding: 0.32rem 0.53333rem; }
+    .rule-mask .pop-container .popup-rule .banquan {
+      padding: 0.32rem 0 0.64rem 0;
+      text-align: center;
+      font-size: 0.512rem;
+      color: #999999; }
+  .rule-mask .pop-container .clase {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 2.13333rem;
+    height: 2.13333rem; }
+    .rule-mask .pop-container .clase i {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAdCAMAAACOj/wDAAAANlBMVEUAAAD////////////////////////////////////////////////////////////////////xY8b8AAAAEXRSTlMA/LgHemGgooJVEdrDb1AcDieme2sAAABySURBVCjPddE7DoNAEATR9toeG/yBvf9lQUKigmInG72sOlkzuDmp2/PaHv2d6ofadry3Q22vBLWhNtQmlaEyKWbFrJh1t0oGikk/vX951cUlsWqoLO6MBbWhNtQmlaEyKWbFrL/TpFPaeKPK8h9tNM0bWosHqlQJJMIAAAAASUVORK5CYII=");
+      width: 0.59733rem;
+      height: 0.61867rem;
+      margin: 0.64rem; }
+
+/*# sourceMappingURL=maps/rule.css.map */

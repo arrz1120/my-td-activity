@@ -1,0 +1,328 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+
+
+
+.icon-yh1 {  -webkit-animation: zoomIn 0.5s 0.8s ease-out both;  }
+.icon-yh2 {  -webkit-animation: zoomIn 0.5s 1.4s ease-out both;  }
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3)
+  }
+  50% {
+    opacity: 1
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3)
+  }
+  50% {
+    opacity: 1
+  }
+}
+
+
+.light { -webkit-animation: reverseRotataZ 3.4s linear infinite }
+@-webkit-keyframes reverseRotataZ {
+  0% {
+    -webkit-transform:rotateZ(0deg)
+  }
+  100% {
+    -webkit-transform:rotateZ(-360deg)
+  }
+}
+@-webkit-keyframes rotataZ {
+  0% {
+    -webkit-transform:rotateZ(0deg)
+  }
+  100% {
+    -webkit-transform:rotateZ(360deg)
+  }
+}
+
+
+.cfs_fadeIn{
+  animation-name: cfs_fadeIn;
+  animation-duration: 1s;
+  -webkit-animation-name: cfs_fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.lipao_fadeIn{
+  animation-name: cfs_fadeIn;
+  animation-duration: 0.6s;
+  -webkit-animation-name: cfs_fadeIn;
+  -webkit-animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  }
+
+
+@-webkit-keyframes cfs_fadeIn{
+  0%{
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+  }
+  90%,100%{
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes cfs_fadeIn{
+  0%{
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  90%,100%{
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.txt-s{
+  animation: txt-s .8s cubic-bezier(.215,.61,.355,1) .6s;
+  animation-fill-mode:both;
+}
+
+@-webkit-keyframes txt-s {
+  0% {
+    opacity:0;
+    -webkit-transform:translate3d(0,30%,0);
+    transform:translate3d(0,30%,0)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:none;
+    transform:none
+  }
+}
+@keyframes  txt-s {
+   0% {
+     opacity:0;
+     -webkit-transform:translate3d(0,30%,0);
+     transform:translate3d(0,30%,0)
+   } 
+   to {
+     opacity:1;
+     -webkit-transform:none;
+     transform:none
+   }
+ }
+
+
+//.txt-ani{
+//  animation:txt-ani .8s cubic-bezier(.215,.61,.355,1) .6s;
+//  animation-fill-mode:both;
+//}
+@-webkit-keyframes txt-ani {
+  0% {
+    opacity:0;
+    -webkit-transform:translate3d(18%,0,0);
+    transform:translate3d(18%,0,0)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:none;
+    transform:none
+  }
+}
+@keyframes txt-ani {
+  0% {
+    opacity:0;
+    -webkit-transform:translate3d(18%,0,0);
+    transform:translate3d(18%,0,0)
+  }
+  to {
+    opacity:1;
+    -webkit-transform:none;
+    transform:none
+  }
+}
+
+
+.bouncein {
+  -webkit-animation: bouncein 1.3s ease-out backwards infinite;
+}
+@-webkit-keyframes bouncein {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+      transform: scale(0.9);
+    }
+  100% {
+       transform: scale(1);
+     }
+}
+
+
+.txt-b {
+  animation-name: cfs_curveIn;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes cfs_curveIn{
+  0%{
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 0, 0);
+  }
+  60%{
+    opacity: 1;
+    -webkit-transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, 0);
+  }
+  100%{
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cfs_curveIn{
+  0%{
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 0, 0);
+  }
+  60%{
+    opacity: 1;
+    transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, 0);
+  }
+  100%{
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+  }
+}
+
+
+.ani-redpacket{-webkit-animation: ani-up 0.8s 0.5s ease-out both;}
+@-webkit-keyframes ani-up{
+  from{-webkit-transform: translateY(200px);opacity: 1;}
+  to{-webkit-transform: translateY(0);opacity: 1;}
+}
+
+.ani-up{-webkit-animation: ani-up 0.8s 0.5s ease-out both;}
+@-webkit-keyframes ani-up{
+  from{-webkit-transform: translateY(200px);opacity: 1;}
+  to{-webkit-transform: translateY(0);opacity: 1;}
+}
+
+
+.ani-down{-webkit-animation: ani-down 0.6s 0.5s ease-out both;}
+@-webkit-keyframes ani-down{
+  from{-webkit-transform: translateY(-40px);opacity: 0;}
+  to{-webkit-transform: translateY(0);opacity: 1;}
+}
+
+
+.icon-xf{-webkit-animation: ani-xf 0.8s 0.5s ease-out both infinite;  }
+
+@-webkit-keyframes ani-xf{
+  from{
+    background-image: url(../images/xf1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  to{
+    background-image: url(../images/xf2.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+
+.aniFadeIn{-webkit-animation: aniFadeIn 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniFadeOut{-webkit-animation: fadeOut 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniShow{-webkit-animation: aniShow 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniHide{-webkit-animation: aniHide 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+
+@-webkit-keyframes aniFadeIn{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@-webkit-keyframes fadeOut{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+@-webkit-keyframes aniShow{
+  0%{-webkit-transform: translate3d(0,-200px,0);opacity: 0;}
+  100%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+}
+@-webkit-keyframes aniHide{
+  0%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+  100%{-webkit-transform: translate3d(0,-200px,0);opacity: 0;}
+}
+
+
+
+.breath {
+  -webkit-animation:breath ease-out 1s alternate infinite;
+  animation:breath ease-out 1s alternate infinite}
+
+
+
+@-webkit-keyframes breath {
+  0% {
+    -webkit-transform:scale(1)
+    }
+  to {
+    -webkit-transform:scale(.91)
+    }
+  }
+@keyframes breath {
+  0% {
+    -webkit-transform:scale(1);
+    transform:scale(1)
+    }
+  to {
+    -webkit-transform:scale(.91);
+    transform:scale(.91)
+    }
+  }
+
+
+.breath-border {
+  -webkit-animation:breath_border linear 1s alternate infinite;
+  animation:breath_border linear 2s infinite
+  }
+@-webkit-keyframes breath_border {
+  0% {
+    -webkit-transform:scale(1);
+    opacity:1
+    }
+  to {
+    -webkit-transform:scale(1.4);
+    opacity:0
+    }
+  }
+@keyframes breath_border {
+  0% {
+    -webkit-transform:scale(1);
+    opacity:1;
+    transform:scale(1)
+    }
+  to {
+    -webkit-transform:scale(1.4);
+    opacity:0;
+    transform:scale(1.4)
+    }
+  }
+
+
+
+
+

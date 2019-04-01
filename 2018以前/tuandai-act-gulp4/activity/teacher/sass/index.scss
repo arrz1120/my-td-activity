@@ -1,0 +1,222 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.scene{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.home_page{
+    background: url(../images/home_bg.png) no-repeat;
+    background-size: 100% auto;
+
+}
+
+nav{
+            background: url(../images/bottom_bg.png) no-repeat;
+            background-size: 100% auto;  
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: pxToRem(207px);
+            padding-top: pxToRem(10px);
+            
+            .btn_start{
+                display: block;
+                width:  pxToRem(392px);
+                height: pxToRem(142px);  
+                background: url(../images/btn_first.png) no-repeat;
+                background-size: 100% 100%;       
+                margin: 0 auto;                         
+            }      
+}
+
+
+
+.blessing{
+    width: 100%;
+    height: 100%;
+    background: url(../images/blessing.png) no-repeat;
+    background-size: 100% 100%;     
+
+    .con{
+        padding-top: pxToRem(120px);  
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.7);     
+        opacity: 0;
+        animation: fadeIn 1s .5s linear both;
+
+    }
+
+    .hb{
+                width:  pxToRem(623px);
+                height: pxToRem(453px);  
+                background: url(../images/hb.png) no-repeat;
+                background-size: 100% 100%;   
+                margin: 0 auto;      
+                position: relative; 
+                padding: pxToRem(50px) pxToRem(45px);  
+                margin-bottom: pxToRem(200px);  
+    }
+
+    .hb:before{
+        content: '';
+        width:  pxToRem(446px);
+        height: pxToRem(196px);  
+        background: url(../images/tips.png) no-repeat;
+        background-size: 100% 100%;       
+        position: absolute;
+        bottom: pxToRem(-170px);    
+        left: pxToRem(-20px);
+    }
+
+    .nickname{
+        font-size: pxToRem(35px);
+        color: #fff; 
+
+        .name{
+           width:  pxToRem(150px);
+           border:none;
+           border-bottom: pxToRem(2px) solid #fff;
+           background: none;
+           font-size: pxToRem(35px);
+           color: #fff;
+           border-radius: 0;
+        }
+    }
+
+
+    .word{
+        margin-top: pxToRem(44px);
+        height: pxToRem(170px);
+        position: relative;
+
+        p{
+            text-align: center;
+            line-height: pxToRem(50px);
+            color: #fff;
+            font-size:  pxToRem(36px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+     
+        .word_val{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            font-size:  pxToRem(36px);
+            line-height: pxToRem(50px);
+            color: #fff;
+        }
+
+    }
+
+
+    .tips_red{
+            color: #e42f1c;
+            font-size:  pxToRem(28px);
+            text-align: right;
+            margin-top: pxToRem(30px);
+    }
+
+    .share_btn,
+    .invite_btn{
+        display: block;
+        width:  pxToRem(392px);
+        height: pxToRem(142px);  
+     
+        margin:  pxToRem(55px) auto;               
+    }
+
+    .share_btn{
+        background: url(../images/btn_first_bg.png) no-repeat;
+        background-size: 100% 100%;     
+        color: #734221;
+        text-align: center;    
+        font-size:  pxToRem(33px);
+        font-weight: bold;
+        line-height:  pxToRem(100px);  
+    }
+
+    .invite_btn{
+        background: url(../images/btn_first_3.png) no-repeat;
+        background-size: 100% 100%;         
+    }
+
+
+}
+
+.fixed_1{
+    .blessing{
+            padding-top: pxToRem(20px) !important;  
+    }
+
+    .share_btn,
+    .invite_btn{
+        margin:  pxToRem(30px) auto !important;               
+    }
+
+
+}
+
+
+
+.blessing_share{
+
+    .con{
+    padding-top: pxToRem(250px);
+    }
+
+
+    .hb{
+        margin-bottom: pxToRem(100px);  
+
+    }
+     .hb:before{
+        display:none;
+    }
+
+    .back_btn{
+       display: block;
+        width:  pxToRem(392px);
+        height: pxToRem(142px);  
+        margin:  pxToRem(55px) auto;   
+         background: url(../images/btn_first_4.png) no-repeat;
+        background-size: 100% 100%; 
+    }
+}

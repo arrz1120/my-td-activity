@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+$s: 15px;
+@-webkit-keyframes swing {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate($s, -$s);
+  }
+  20% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes swing {
+ 0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate($s, -$s);
+  }
+  20% {
+    transform: translate(0, 0);
+  }
+}
+
+.swing {
+	@extend .animated;
+  // transform-origin: top center;
+  animation-name: swing;
+}

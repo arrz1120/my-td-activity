@@ -1,0 +1,315 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+// tab
+header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	border-bottom:1px solid #c2c2c2;
+	background-color: $defaultColor;
+	text-align: center;
+	z-index: 1;
+	.tab{
+		font-size: 0;
+		.tab-item{
+			position: relative;
+			height: pxToRem(88px);
+			padding: 0 pxToRem(25px);
+			line-height: pxToRem(88px);
+			font-size: pxToRem(30px);
+			color: #666;
+			&.act{
+				color:$mainColor;
+				&:after{
+					content: '';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: pxToRem(10px);
+					margin: 0 auto;
+					width: pxToRem(40px);
+					height: pxToRem(4px);
+					border-radius: pxToRem(2px);
+					background-color: $mainColor;
+				}
+			}
+		}
+	}
+}
+.content{
+	background-color: #f2f2f0;
+	padding-top: pxToRem(88px);
+	.welfare-con{ //tab内容公共样式
+		width: 100%;
+	    height: 100%;
+		overflow: auto;
+		overflow-x: hidden;
+	}
+}
+// 项目详情
+.welfare-detail-con{
+	.welfare-detail-scroll{
+		@extend .welfare-con;
+		padding-bottom: pxToRem(90px);
+		// 公益活动
+		.welfare-act-con{
+			background-color: $defaultColor;
+			margin-bottom: pxToRem(20px);
+			// 轮播图
+			.swiper-container{
+				position: relative;
+				margin-bottom: pxToRem(30px);
+				height: pxToRem(480px);
+				.swiper-wrapper{
+					.swiper-slide{
+						img{
+							width: 100%;
+						}
+					}
+				}
+				// 轮播图小点
+				.swiper-pagination {
+				    position: absolute;
+				    z-index: 999;
+				    width: auto;
+				    bottom: pxToRem(18px);
+				    left: 0;
+				    right: 0;
+				    margin: auto;
+				    .swiper-pagination-bullet {
+				        width: pxToRem(16px);
+				        height: pxToRem(16px);
+				        margin-right: pxToRem(12px);
+				        background-color: #e6e6e6;
+				        opacity: 1;
+				        &.swiper-pagination-bullet-active {
+				            background-color: #666;
+				        }
+				        &:last-child {
+				            margin-right: 0;
+				        }
+				    }
+				}
+			}
+			.pic{
+				margin-bottom: pxToRem(30px);
+			}
+			.goal{
+				margin-bottom: pxToRem(28px);
+			}
+			.start-date{
+				margin-bottom: pxToRem(26px);
+			}
+			.act-progress{
+				margin-bottom: pxToRem(50px);
+			}
+			.welfare-act-detail{
+				width: 100%;
+				font-size: 0;
+				margin-bottom: pxToRem(36px);
+				&.coin{
+					.detail-item{
+						width: 33.33%;
+					}
+				}
+				&.people{
+					.detail-item{
+						width: 50%;
+					}
+				}
+				.detail-item{
+					text-align: center;
+					border-right: 1px solid $borderColor;
+					&:last-child{
+						border-right: none;
+					}
+					.detail-item-txt{
+						margin-bottom: pxToRem(20px);
+						font-size: pxToRem(26px);
+						color: $textGreyColor;
+					}
+					.detail-item-num{
+						font-size: pxToRem(34px);
+						color: $textBlackColor;
+					}
+				}
+			}
+		}
+		// 公益活动介绍
+		.welfare-act-intro{
+			background-color: $defaultColor;
+			padding:pxToRem(41px) pxToRem(30px);
+			@at-root .welfare-act-title{
+				position: relative;
+				font-size: pxToRem(30px);
+				color: $textBlackColor;
+				margin-bottom: pxToRem(40px);
+				padding-left: pxToRem(14px);
+				.line{
+					position: absolute;
+					left: pxToRem(0px);
+					top: 0;
+					bottom: 0;
+					margin: auto;
+					width: pxToRem(4px);
+					height: pxToRem(24px);
+					margin-right: pxToRem(10px);
+					background-color: $mainColor;
+					vertical-align: middle;
+				}
+			}
+			.intro-con{
+				font-size: 0;
+				p{
+					text-align: justify;
+					font-size: pxToRem(26px);
+					line-height: pxToRem(48px);
+					color: $textBlackColor;
+				}
+				img{
+					width: 100%;
+					margin-top: pxToRem(20px);
+				}
+			}
+
+		}
+	}
+	// 底部按钮
+	.bottom-btn{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		box-shadow: 0px -1px 10px 0px rgba( 0, 0, 0, 0.1);
+		background-color: #fff;
+		// height: pxToRem(90px);
+		font-size: 0;
+		.small-btn-item{
+			position: relative;
+			width: 18.6%;
+			text-align: center;
+			padding-top: pxToRem(10px);
+			font-size: 0;
+			&:first-child{
+				i{
+					background-image: url(../images/detail-share.png);
+				}
+			}
+			&:nth-child(2){
+				&.on{
+					i{
+						background-image: url(../images/detail-like-act.png);
+					}
+				}
+				i{
+					background-image: url(../images/detail-like.png);
+				}
+			}
+			&:nth-child(3){
+				&:after{
+					display: none;
+				}
+				&.on{
+					i{
+						background-image: url(../images/detail-follow-act.png);
+					}
+				}
+				i{
+					background-image: url(../images/detail-follow.png);
+				}
+			}
+			&:after{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				height: pxToRem(50px);
+				border-left: 1px solid $borderColor;
+			}
+			i{
+				width: pxToRem(42px);
+				height: pxToRem(36px);
+				background-size: contain;
+				background-repeat: no-repeat;
+				margin-bottom: pxToRem(12px);
+				
+			}
+			p{
+				font-size: pxToRem(20px);
+				color:$textGreyColor;
+			}
+		}
+		.big-btn-item{
+			float:right;
+			width: 44%;
+			height: pxToRem(90px);
+			background-color: #91e667;
+			text-align: center;
+			line-height: pxToRem(90px);
+			font-size: pxToRem(34px);
+			color:$defaultColor;
+			&.start{
+				background-color: $mainColor;
+			}
+			&.finish{
+				background-color: $borderColor;
+				color: $textGreyColor;
+			}
+		}
+	}
+}
+
+// 最新进展
+.latest-dev-con{
+	@at-root .latest-dev-list{
+		background-color: $defaultColor;
+		font-size: 0;
+		padding: pxToRem(40px) 0 0 pxToRem(30px); 
+		.welfare-act-title{
+			margin-bottom: 0;
+		}
+		ul,li{
+			width: 100%;
+		}
+		.latest-dev-item{
+			padding: pxToRem(40px) pxToRem(30px) pxToRem(40px) 0;
+			border-bottom: 1px solid $borderColor;
+			&:last-child{
+				border-bottom: 0;
+			}
+			.dev-date{
+				font-size: pxToRem(26px);
+				color:$textGreyColor;
+				margin-bottom: pxToRem(20px);
+			}
+			.latest-dev-txt{
+				text-align: justify;
+				font-size: pxToRem(26px);
+				line-height: pxToRem(48px);
+				color: $textBlackColor;
+			}
+			img{
+				width: 100%;
+				margin-top: pxToRem(20px);
+			}
+		}
+	}
+}
+.share-con{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	.share-pic{
+		@include background('../images/share.png?v=2017080801', 441px, 209px);
+		position: absolute;
+		top: pxToRem(152px);
+		right: pxToRem(54px);
+		z-index: 30;
+	}
+}

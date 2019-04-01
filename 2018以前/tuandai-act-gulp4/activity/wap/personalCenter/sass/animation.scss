@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@import "../../../../sass/func";
+
+.breath{
+    -webkit-animation: breath 1s linear infinite alternate;
+}
+
+@-webkit-keyframes breath{
+    0%{
+        -webkit-transform: scale(1,1);
+    }
+    100%{
+        -webkit-transform: scale(0.94,0.94);
+    }
+}
+

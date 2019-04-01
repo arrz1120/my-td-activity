@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta content="email=no" name="format-detection" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <link rel="stylesheet" href="./css/sub.css">
+  <script>window.mobileUtils = function (e, t) { var i = navigator.userAgent, n = /android|adr/gi.test(i), a = /iphone|ipod|ipad/gi.test(i) && !n; return { isAndroid: n, isIos: a, isMobile: n || a, isWeixin: /MicroMessenger/gi.test(i), isQQ: /QQ\/\d/gi.test(i), dpr: a ? Math.min(e.devicePixelRatio, 3) : 1, rem: null, fixScreen: function () { var i = this, n = t.querySelector('meta[name="viewport"]'), r = n ? n.content : ""; if (r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) { var o, s = t.documentElement, d = s.dataset.mw || 750, m = a ? Math.min(e.devicePixelRatio, 3) : 1; t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function (e) { return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e }(1), s.firstElementChild.appendChild(n); var c = function () { var e = s.getBoundingClientRect().width; e = e > d ? d : e; var t = e / 16; i.rem = t, s.style.fontSize = t + "px" }; e.addEventListener("resize", function () { clearTimeout(o), o = setTimeout(c, 300) }, !1), e.addEventListener("pageshow", function (e) { e.persisted && (clearTimeout(o), o = setTimeout(c, 300)) }, !1), c() } } } }(window, document), mobileUtils.fixScreen();</script>
+</head>
+
+<body>
+
+
+  <!-- 头部 -->
+
+  <header>
+    <p class="txt">Hi，欢迎来到新手学堂题库！错过了答题学分赶不上怎么办？赶紧补答可追上落下的学分奖励哦~</p>
+  </header>
+
+  <!-- 头部 end -->
+
+
+  <!-- 题目列表 -->
+
+  <ul class="sub_list" id="sub_list">
+    <li>
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+    <li class="answered">
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+    <li>
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+    <li>
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+    <li>
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+    <li>
+      <h3 class="tit">题目08</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+    </li>
+  </ul>
+
+  <!-- 题目列表 end -->
+
+  <!-- 答题弹窗 -->
+
+  <div class="alert" style="display:none" id="sub_alert">
+    <div class="mark"></div>
+    <div class="con">
+      <h3 class="tit">题目06</h3>
+      <p class="txt">XXXX年XX月XX日 开放</p>
+      <div class="subject">
+        <p class="txt">为了缓解小微企业的资金压力，团贷网每年举办“网贷爱心日”的时间是____？</p>
+        <ul class="sub_list_1" id="sub_list_1">
+           <!--
+                selected：选中
+                error_ani:选择错误闪烁动画
+                right ： 选择正常
+                error ：选择错误
+              -->
+          <li class="selected">
+            <span class="yuan"></span>A. 12月17日</li>
+          <li class="right">
+            <span class="yuan"></span>B. 12月18日</li>
+          <li class="error">
+            <span class="yuan"></span>C. 12月19日</li>
+        </ul>
+      </div>
+      <p class="notice_tips">很遗憾答错了，再来一次~</p>
+      <div class="btn">就选它了</div>
+    <div class="close"></div>
+    </div>
+
+  </div>
+
+
+  <!-- 答题弹窗 end-->
+
+
+</body>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script src="./js/sub.js"></script>
+
+</html>

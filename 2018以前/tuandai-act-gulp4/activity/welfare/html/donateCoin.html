@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>我要捐币</title>
+    <!-- build:css ../css/common.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/join.css -->
+    <link rel="stylesheet" href="../css/join.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <div class="content">
+        <p class="desc">成功支持 1 个团币数，您的爱心值将 <span class="em">+20</span> <i class="icon-love"></i></p>
+        <!-- 匿名 -->
+        <div class="anon-con">
+            <p>支持团币数  <span class="em">现有团币：182849个</span></p>
+            <input class="coin-input" type="tel" name="coin" placeholder="请输入支持的团币数" />
+            <div class="anon coin">
+                <label class="checkbox" for="anon"><input id="anon" type="checkbox" name="anon"/><i></i><span class="checkbox-txt" for="anon">匿名</span></label>
+            </div>
+        </div>
+        <!-- 留言 -->
+        <div class="msg-con">
+            <p class="title">留言</p>
+            <textarea placeholder="请输入您对这个项目的留言"></textarea>
+            <div class="get-new-info">
+                <label class="checkbox" for="info"><input id="info" type="checkbox" name="info"/><i></i><span class="checkbox-txt">接收该项目最新进展更新的通知</span></label>
+            </div>
+        </div>
+        <!-- 底部按钮 -->
+        <div class="bottom-con">
+            <span class="bottom-txt">合计：<span id="coin_num" class="em">0</span> 团币</span>
+            <span class="bottom-btn">立即支持</span>
+        </div>
+        <!-- 电子感谢函 -->
+        <div class="letter-con" style="display: none;">
+            <div class="mask"></div>
+            <div class="letter-bg">
+                <p class="letter-name">亲爱的xxx:</p>
+                <p class="letter-txt">感谢您参与我的我的我的我的我的我我的我的项目</p>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/vendor/jsbridge-3.1.4.js -->
+<script src="../../../lib/vendor/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/donateCoin.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script type="text/javascript">
+    $(".dumpling-sec").html("屏幕宽:"+$(window).width()+','+"屏幕高:"+$(window).height()+','+"文档高度:"+$(document).height());
+</script> -->
+</html>

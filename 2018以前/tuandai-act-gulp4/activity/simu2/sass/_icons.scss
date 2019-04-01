@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.icon-block {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.icon-inline {
+	@extend .icon-block;
+	display: inline-block;
+}
+
+.icon-arrow {
+	background: url('data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAXCAMAAAAIul6NAAAARVBMVEUAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMx7eaEzAAAAF3RSTlMA/vXusNubOSQYCJDjwKODeW5jWU5FLXL8Ak0AAABUSURBVBjTZdBHDsAwCERRj1uK09v9j5qdPxLePVnAQKh5Dv2tMpqKcrDa0LioGiU19CXtaEg6jKJO9EZd6Im6UVNxP9TQzc8hAdlI7fdhU38De50fhv0CnInI1gcAAAAASUVORK5CYII=') no-repeat center;
+	background-size: contain;
+	width: pxToRem(12px);
+	height: pxToRem(24px);
+}

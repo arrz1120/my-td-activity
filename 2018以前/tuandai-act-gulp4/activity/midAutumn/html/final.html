@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>midAutumn</title>
+
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->	
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+</head>
+<body>
+
+    <!-- Swiper -->
+    <div class="swiper-container" id="swiper-container-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide sec sec-1">
+                <img src="../images/t_15.png" class="txt_img txt_img_1">
+                <img src="../images/t_16.png" class="txt_img txt_img_2">
+                <img src="../images/t_17.png" class="txt_img txt_img_3">
+                <img src="../images/t_20.png" class="txt_img txt_img_4">
+            	<div class="dl"></div>
+				<div class="arrow">	</div>
+                <span class="btn_share share"></span>
+                <a href="turn.html" class="back"></a>
+            </div>
+            <div class="swiper-slide  sec sec-2">
+                <img class="txt_img txt_img_1  swiper-lazy" data-src="../images/t_18.png">
+                <img data-src="../images/star_1.png" class="star_1 swiper-lazy">
+                    <div class="viewBox">
+                            <img data-src="../images/btn_play.png?v=20170728001" alt="" class="video_img swiper-lazy" id="v1" >
+                                <div id="video1"  style="width: 100%; height:100%;">
+                                </div>
+                    </div>
+
+
+                    <div class="viewBox">
+                            <img data-src="../images/btn_play.png?v=20170728001" alt="" class="video_img swiper-lazy" id="v2" >
+                                <div id="video2"  style="width: 100%; height:100%;">
+                                </div>
+                    </div>
+                <div class="dl"></div>
+                <div class="arrow"> </div>
+                <span class="btn_share share"></span>
+            </div>
+            <div class="swiper-slide sec sec-3">
+                <div class="dl"></div>
+                <img data-src="../images/t_19.png" class="txt_img txt_img_1 swiper-lazy">
+
+                <a href="https://at.tuandai.com/201709/NationalDay/weixin/index.aspx" class="click_dl"></a>
+                <div class="words_wraper">
+                    <div class="con comment-barrage"></div>
+                </div>
+                <span class="btn btn_1" id='leave_word'></span>
+                <a class="btn btn_2" href="index.html"></a>
+                <span class="btn_share share"></span>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<!-- 留言板 -->
+
+<div class="alert alert_msg" id="alert_msg">
+    <div class="con">  
+        <div class="con_inner">
+            <div class="msg" id="msg_box"> 
+                <img src="../images/tips.png" class="tips">
+                <textarea id="word_val" class="word_val" maxlength="30" ></textarea>
+            </div>
+            <span class="submit"></span>
+            <span class="close"></span>
+        </div>
+    </div>
+</div>
+
+
+
+<p class="toast" id="toast">你好你好</p>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+  <script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="//players.youku.com/jsapi" type="text/javascript"></script>
+<script src="../js/barrage.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/loadAudio.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/final.js" type="text/javascript" charset="utf-8"></script>
+</html>

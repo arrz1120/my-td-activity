@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>2017年终总结</title>
+		<!-- build:css ../css/index.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="index">
+			<div class="i-tit scale"></div>
+			<p class="i-p">活动时间：12月28日-1月5日</p>
+			<a href="select.html" class="i-btn breath">开始总结</a>
+		</div>
+		
+		<!--前往登录-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">请先登录才可以参与活动哦~</p>
+					<div class="m-btn2">前往登录</div>
+				</div>
+			</div>
+		</div>
+	</body>	
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/normal.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

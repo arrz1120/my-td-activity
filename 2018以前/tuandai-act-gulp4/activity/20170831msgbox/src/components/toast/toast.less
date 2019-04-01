@@ -1,0 +1,39 @@
+@charset "utf-8";
+.remW(@n){
+  width: @n*16/750rem;
+}
+.remH(@n){
+  height: @n*16/750rem;
+}
+.remWH(@w,@h){
+  width: @w*16/750rem;
+  height: @h*16/750rem;
+}
+.bgURI(@uri){
+  background: url(@uri) center top no-repeat;
+  background-size: 100%;
+}
+.prc-toast{
+  padding: 0.35rem;
+  min-width: 6rem;
+  max-width: 14rem;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  z-index: 100;
+  border-radius: .25rem;
+  top: 50%;
+  font-size: .4rem;
+  left: 50%;
+  transform: translate(-50%);
+  animation: toast .25s forwards;
+}
+@keyframes toast{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

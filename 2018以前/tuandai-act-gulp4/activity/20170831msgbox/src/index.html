@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link href="css/index.css" rel="stylesheet">
+    <!-- <script>window.mobileUtils=function(a,b){var c=navigator.userAgent,d=/android|adr/gi.test(c),e=/iphone|ipod|ipad/gi.test(c)&&!d,f=d||e;return{isAndroid:d,isIos:e,isMobile:f,isWeixin:/MicroMessenger/gi.test(c),isQQ:/QQ\/\d/gi.test(c),dpr:e?Math.min(a.devicePixelRatio,3):1,tapEvent:f?"tap":"click",rem:null,fixScreen:function(){function A(a){return"initial-scale="+a+",maximum-scale="+a+",minimum-scale="+a}var o,j,k,l,m,p,q,r,s,t,u,v,w,x,y,z,c=this,d=b.querySelector('meta[name="viewport"]'),g=d?d.content:"",h=g.match(/initial\-scale=([\d\.]+)/),i=g.match(/width=([^,\s]+)/);d?f&&!h&&i&&"device-width"!=i[1]&&(q=parseInt(i[1]),r=a.innerWidth||q,s=a.outerWidth||r,t=a.screen.width||r,u=a.screen.availWidth||r,v=a.innerHeight||q,w=a.outerHeight||v,x=a.screen.height||v,y=a.screen.availHeight||v,z=Math.min(r,s,t,u,v,w,x,y),m=z/q,1>m&&(d.content=g+","+A(m))):(j=b.documentElement,k=j.dataset.mw||750,l=e?Math.min(a.devicePixelRatio,3):1,m=1,b.getElementsByTagName("body")[0],j.removeAttribute("data-mw"),j.dataset.dpr=l,d=b.createElement("meta"),d.name="viewport",d.content=A(m),j.firstElementChild.appendChild(d),p=function(){var b,a=j.getBoundingClientRect().width;a/l>k&&(a=k*l),b=a/16,c.rem=b,j.style.fontSize=b+"px"},a.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(p,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(o),o=setTimeout(p,300))},!1),p())}}}(window,document),mobileUtils.fixScreen();</script>     -->
+    <script>
+      //动态算rem
+      (function(doc, win) {
+        var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+              recalc = function() {
+                  // if (docEl.style.fontSize) return;
+                  clientWidth = docEl.clientWidth;
+                  if (!clientWidth) return;
+                  docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+                  if (document.body) {
+                      document.body.style.fontSize = docEl.style.fontSize;
+                  }
+              };
+          recalc();
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener("DOMContentLoaded", recalc, false);
+      })(document, window);
+    </script>
+  </head>
+  <body>
+    <script src="js/msgbox.bundle.js"></script>
+    <script> 
+      /*
+        preact={
+          msgbox:弹窗组件
+          toast:toast组件
+        }
+
+        preact.msgbox.set():设置弹窗
+        preact.msgbox.show():创建
+        preact.msgbox.hide():销毁
+
+        preact.toast.show(msg,duration)
+        @param {String} msg:提示文字
+        @param {Int} duration:停留时间
+      */
+      preact.msgbox.set({
+        //奖品类型(0:团币,1:投资红包,2:提现券,3:超级会员,4:补签卡,-1:没中奖)
+        type:0,
+        //标题
+        title:'哇',
+        //内容
+        msg:'哇啥',
+        //底部文字
+        tips:'参加下<span style="color:#f60">1</span>一轮',
+        //按钮(预设前俩个按钮的样式,如果再增加一个,需自定义样式)
+        btns:[
+          {
+            //按钮名字
+            text:'拿',
+            //自定义样式,没需要可以不写
+            //style:{},
+            //按钮点击回调
+            callback:function(){
+              //this:指向 preact.msgbox
+              //this.show():创建
+              //this.hide():销毁
+            }
+          },
+          {
+            text:'不拿',
+            callback:function(){}
+          },
+        ]
+      }).show();
+    </script>
+  </body>
+</html>

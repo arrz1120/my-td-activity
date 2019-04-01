@@ -1,0 +1,448 @@
+@charset "UTF-8";
+@import "variables";
+@import "fn";
+@import "../../../../sass/reset";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #fd6816;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+textarea,
+span {
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ababab;
+    font-size: rem(36);
+}
+
+img {
+    display: block;
+}
+
+select {
+    border: none;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance: none;
+    -webkit-appearance: none;
+    /*将背景改为红色*/
+    background: none;
+    /*加padding防止文字覆盖*/
+    padding-right: 14px;
+}
+
+.page {
+    position: relative;
+}
+
+.ad-txt{
+    color: #ffd7f3;
+    font-size: rem(18);
+    position: absolute;
+    top: rem(40);
+    right: rem(31);
+}
+
+.logo {
+    @include wh(139, 45);
+    @include bg('../images/logo.png');
+    position: absolute;
+    top: rem(36);
+    left: rem(32);
+}
+
+.banner {
+    @include wh(750, 758);
+    @include bg('../images/page/bg-page.png');
+}
+
+.hb {
+    @include wh(750, 608);
+    @include bg('../images/page/hb.png');
+    .hb-p1 {
+        @include font(50, #dc2527);
+        text-align: center;
+        padding-top: rem(165);
+        -webkit-transition: all ease-out 1s;
+        transition: all ease-out 1s;
+    }
+    .hb-p2 {
+        @include font(44, #ffe767);
+        text-align: center;
+        padding-top: rem(120);
+    }
+    .hb-a {
+        @include wh(200, 54);
+        line-height: rem(54);
+        text-align: center;
+        @include font(24, #c60001);
+        display: block;
+        margin: rem(30) auto 0;
+        background: #ff696b;
+        border-radius: rem(24);
+    }
+}
+
+.sec {
+    position: relative;
+    .con {
+        width: rem(690);
+        margin: rem(51) auto 0;
+        background: #fff;
+        border-radius: rem(18);
+    }
+}
+
+.sec1 {
+    margin-top: rem(-152);
+    .con {
+        padding: rem(46) rem(47) 0 rem(49);
+    }
+    .bg-dec1 {
+        position: absolute;
+        top: rem(46);
+        left: 0;
+        @include wh(750, 1092);
+        @include bg('../images/page/bg-dec1.png');
+    }
+}
+
+.sec2 {
+    //  margin-top: rem(68);
+    margin-top: rem(-152);
+    .con {
+        padding: rem(16) rem(44) rem(17) rem(44);
+    }
+    .bg-dec2 {
+        position: absolute;
+        top: rem(859);
+        left: 0;
+        @include wh(750, 104);
+        @include bg('../images/page/bg-dec2.png');
+    }
+}
+
+.sec3 {
+    margin-top: rem(68);
+    .con {
+        padding: rem(37) 0 rem(43) 0;
+    }
+    .bg-dec3 {
+        position: absolute;
+        top: rem(530);
+        left: 0;
+        @include wh(750, 139);
+        @include bg('../images/page/bg-dec3.png');
+    }
+}
+
+.sec4 {
+    margin-top: rem(68);
+    padding-bottom: rem(106);
+    position: relative;
+    .con {
+        padding: rem(20) 0 rem(70) 0;
+    }
+    .bg-dec4 {
+        position: absolute;
+        //      top: rem(1253);
+        bottom: rem(-35);
+        left: 0;
+        @include wh(750, 127);
+        @include bg('../images/page/bg-dec4.png');
+    }
+}
+
+.tit {
+    @include font(36, #fffefe);
+    text-align: center;
+}
+
+.tit:before {
+    content: "";
+    display: inline-block;
+    @include wh(29, 36);
+    @include bg('../images/page/tit-l.png');
+    vertical-align: middle;
+    margin-right: rem(22);
+}
+
+.tit:after {
+    content: "";
+    display: inline-block;
+    @include wh(29, 36);
+    @include bg('../images/page/tit-r.png');
+    vertical-align: middle;
+    margin-left: rem(22);
+}
+
+.con1-p1 {
+    @include font(24, #333);
+    text-align: justify;
+    line-height: rem(36);
+}
+
+.rongzi {
+    @include wh(595, 621);
+    @include bg('../images/page/rongzi.png');
+    margin: rem(36) auto 0;
+}
+
+.fuli-item {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    height: rem(248);
+    .fl-img {
+        width: rem(175);
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.fl-txt {
+    margin-left: rem(49);
+    .fl-p1 {
+        @include font(48, #ad6100);
+        span {
+            @include font(48, #d71e1f);
+            margin-right: rem(10);
+        }
+    }
+    .fl-p2 {
+        @include font(30, #ad6100);
+        padding-top: rem(26);
+        text-align: center;
+    }
+}
+
+.fuli-border {
+    position: relative;
+}
+
+.fuli-border:after {
+    @include border(bottom, #fee6d6, dashed);
+}
+
+.reason {
+    display: -webkit-box;
+}
+
+.reason-item {
+    width: 50%;
+    padding-top: rem(44);
+    img {
+        width: rem(175);
+        margin: 0 auto;
+    }
+    p {
+        @include font(22, #ad6100);
+        text-align: center;
+        margin-top: rem(13);
+        line-height: rem(30);
+        span {
+            @include font(22, #d31b1b);
+            margin-left: rem(8);
+        }
+    }
+}
+
+.invest-tit {
+    @include wh(250, 72);
+    background: #fee6d6;
+    border-radius: rem(30);
+    text-align: center;
+    line-height: rem(72);
+    @include font(32, #d71e1f);
+    margin: 0 auto;
+    position: relative;
+}
+
+.invest-tit:before {
+    content: "";
+    display: block;
+    width: rem(140);
+    height: 1px;
+    background: #fee6d6;
+    -webkit-transform: scaleY(0.5);
+    vertical-align: middle;
+    position: absolute;
+    left: rem(-171);
+    top: 50%;
+}
+
+.invest-tit:after {
+    content: "";
+    display: block;
+    width: rem(140);
+    height: 1px;
+    background: #fee6d6;
+    -webkit-transform: scaleY(0.5);
+    vertical-align: middle;
+    position: absolute;
+    right: rem(-171);
+    top: 50%;
+}
+
+.invest-txt {
+    padding: 0 rem(42);
+    height: rem(194);
+    display: -webkit-box;
+    -webkit-box-align: center;
+    position: relative;
+    .txt-item {
+        width: 50%;
+    }
+    .t-p0 {
+        @include font(120, #d71e1f);
+        text-align: center;
+        font-weight: bold;
+        span {
+            @include font(68, #d71e1f);
+        }
+    }
+    .t-p1 {
+        @include font(30, #ad6100);
+        padding-left: rem(26);
+    }
+    .t-p2 {
+        @include font(30, #d71e1f);
+        padding-left: rem(26);
+        padding-top: rem(35);
+    }
+    .t-line {
+        width: 1px;
+        height: rem(88);
+        position: absolute;
+        left: 50%;
+        top: rem(54);
+    }
+    .t-line:before {
+        @include border(left, #fee6d6, dashed);
+    }
+}
+
+.invest-btn {
+    @include wh(512, 99);
+    @include bg('../images/page/invest-btn.png');
+    margin: 0 auto;
+    text-align: center;
+    @include font(34, #da2425);
+    line-height: rem(99);
+    font-weight: bold;
+}
+
+.paging {
+    height: rem(20);
+    text-align: center;
+    margin-top: rem(27);
+    span {
+        @include wh(20, 20);
+        border: 1px solid #ffb995;
+        background: #fff;
+        opacity: 1;
+        margin: 0 rem(10);
+        vertical-align: 100%;
+    }
+    .swiper-pagination-bullet-active {
+        border: 0;
+        background: linear-gradient(#ffc459, #ff901f);
+    }
+}
+
+.imgSlide {
+    padding: rem(90) rem(39) 0 rem(39);
+    .swiper-slide {
+        img {
+            @include wh(505, 336);
+            margin: 0 auto;
+        }
+    }
+}
+
+.bot_txt {
+    @include font(20, #ffce7c);
+    text-align: center;
+    padding: rem(69) 0 rem(79) 0;
+}
+
+footer {
+    background: #fff7ea;
+    padding-top: rem(24);
+    height: rem(122);
+    display: -webkit-box;
+    position: relative;
+}
+
+.footer-line{
+    height: rem(90);
+    width: 1px;
+    background: #bbbbbb;
+    -webkit-transform: scaleX(0.5);
+    position: absolute;
+    top: rem(15);
+    left: 50%;
+}
+
+.footer_item {
+    width: 50%;
+    position: relative;
+    .footer-ico {
+        @include wh(46, 43);
+        @include bg('../images/page/footer-ico.png');
+        position: absolute;
+        top: rem(9);
+        left: rem(60);
+    }
+    .f-p1 {
+        @include font(18, #7a7a7a);
+        line-height: rem(30);
+        text-align: center;
+    }
+    .f-p2 {
+        @include font(24, #7a7a7a);
+        line-height: rem(30);
+        padding-left: rem(138);
+    }
+    .f-p3 {
+        @include font(14, #7a7a7a);
+        line-height: rem(30);
+        padding-left: rem(126);
+    }
+}

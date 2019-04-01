@@ -1,0 +1,42 @@
+/*iscroll css*/
+#wrapper {position:absolute; z-index:1;top:5px; bottom:0; left:0;width:100%;background:#f1f3f5;overflow:auto;}
+#scroller {position:relative;-webkit-tap-highlight-color:rgba(0,0,0,0);float:left;width:100%;padding:0;}
+#scroller ul {position:relative;list-style:none;padding:0;margin:0;width:100%;text-align:left;}
+#scroller ul li{ margin-bottom: 15px;}
+#scroller li > a {display:block;}
+
+#wrapper #pullDown,#wrapper #pullUp {height:40px;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+#wrapper .pullDownIcon{display: block;width: 25px;height: 25px;background: url(/imgs/images/icon/pullDown.png) no-repeat;background-size: 100% 100%;-webkit-transition: all linear 0.2s;transition: all linear 0.2s;}
+#wrapper #pullDown .pullDownIcon{-webkit-transform: rotateZ(0);transform: rotateZ(0);}
+#wrapper #pullUp .pullDownIcon{-webkit-transform: rotateZ(-180deg);transform: rotateZ(-180deg);}
+
+#wrapper .pulling .pullLoading{display: none;}
+#wrapper .loading .pullDownIcon{display: none;}
+#wrapper .loading .pullLoading{display: block;width: 25px;height: 25px;position: relative;}
+#wrapper .loading .pullLoading .loading-circle{width: 25px;height: 25px;background: url(/imgs/images/icon/loading-circle.png) no-repeat;background-size: 100% 100%;}
+#wrapper .loading .pullLoading .loading-logo{width: 21px;height: 21px;background: url(/imgs/images/icon/loading-logo.png);background-size: 100% 100%;position: absolute;top: 2px;left: 2px;-webkit-animation: loading-logo 0.8s linear infinite;animation: loading-logo 0.8s linear infinite;}
+@-webkit-keyframes loading-logo{
+    0%{-webkit-transform: rotateY(0deg);}
+    100%{-webkit-transform: rotateY(360deg);}
+}
+@keyframes loading-logo{
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(360deg);}
+}
+
+ /*登录进度条样式*/
+.loadAlert{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9999;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.loadTips{position:relative;width: 80%;height: 80px;padding: 10px 0;background: rgba(0,0,0,0.5);-webkit-box-align:center;z-index: 9999;border-radius: 6px;}
+.loadTips .loadingCirle{width: 40px;height: 40px;background: url('/imgs/images/loadingPic.png') no-repeat;background-size: 40px 40px;float: left;margin: 10px 15px 0 15px;-webkit-animation: loading .5s linear infinite;}
+.loadTips .yan{position: absolute;left: 15px;top: 20px;width:40px;height: 40px;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.loadTips .yan img{height: 40%;display: block;-webkit-animation: loadingRotate 1s linear infinite;}
+.loadTips .loadTips_txt h3{color: #fff;font-size: 1.4rem;margin-top: 15px;}
+.loadTips .loadTips_txt p{font-size: 1rem;color: #dbdbdb;}
+@-webkit-keyframes loading {
+    from {-webkit-transform:rotate(0deg) translateZ(0); }
+    to {-webkit-transform:rotate(360deg) translateZ(0); }
+}
+@-webkit-keyframes loadingRotate {
+    from { -webkit-transform:rotateY(0deg) translateZ(0); }
+    to { -webkit-transform:rotateY(360deg) translateZ(0); }
+}

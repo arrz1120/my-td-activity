@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+/*  for small width screen  */
+
+@media screen and (max-width:374px) {}
+
+@media screen and (min-height: 575px) and (min-width:412px) {
+    .dujitang {
+        bottom: pxToRem(-60px);
+        background-size: 90% 90%;
+        background-position: center bottom;
+    }
+    .cloud {
+        bottom: pxToRem(305px);
+    }
+    .index-btn {
+        bottom: pxToRem(20px);
+    }
+    .cloud-bot {
+        bottom: pxToRem(-40px);
+    }
+    .bird {
+        bottom: pxToRem(133px);
+    }
+    .biaobai {
+        margin-top: pxToRem(69px);
+    }
+    .page3 {
+        padding-top: pxToRem(27px);
+    }
+    .zp-text {
+        bottom: pxToRem(158px);
+    }
+    .page7 {
+        padding-top: pxToRem(133px);
+    }
+    .bird1 {
+        top: 8%;
+    }
+    .page8 {
+        .dujitang2 {
+            bottom: pxToRem(83px);
+            .page-btn1 {
+                top: pxToRem(396px);
+            }
+            .page-btn2 {
+                top: pxToRem(502px);
+            }
+        }
+        .bird {
+            bottom: pxToRem(119px);
+        }
+    }
+}
+
+
+/* =========for short screen============== */
+
+@media screen and (max-height: 540px) and (min-width:321px) {
+    $ratio: 0.85;
+    .dujitang {
+        bottom: 0;
+    }
+    .cloud {
+        bottom: pxToRem(425px);
+    }
+    .index-btn {
+        bottom: pxToRem(80px);
+    }
+    .bird {
+        bottom: pxToRem(63px);
+    }
+    .zp-text {
+        bottom: pxToRem(88px);
+    }
+    .bird1 {
+        top: 6%;
+    }
+    .page3 {
+        padding-top: pxToRem(30px);
+    }
+    .page7 {
+        padding-top: pxToRem(133px);
+    }
+    .wxBg {
+        margin: pxToRem(10px) auto 0;
+    }
+    .page8 {
+        .dujitang2 {
+            bottom: pxToRem(83px);
+            .page-btn1 {
+                top: pxToRem(396px);
+            }
+            .page-btn2 {
+                top: pxToRem(502px);
+            }
+        }
+        .bird {
+            bottom: pxToRem(119px);
+        }
+    }
+}
+
+@media screen and (max-height: 568px) and (min-width:359px) {
+    .dujitang {
+        bottom: pxToRem(-60px);
+        background-size: 90% 90%;
+        background-position: center bottom;
+    }
+    .cloud {
+        bottom: pxToRem(305px);
+    }
+    .index-btn {
+        bottom: pxToRem(20px);
+    }
+    .cloud-bot {
+        bottom: pxToRem(-40px);
+    }
+    .zp-text {
+        bottom: pxToRem(158px);
+    }
+}
+
+//* -----------meizu  mx3----------------- */
+@media screen and (min-height: 589px) and (min-width:430px) {
+    $ratio: 0.9;
+}
+
+
+/* ------------------------iphone 5------------------------ */
+
+@media screen and (max-width:320px) and (max-height:508px) {
+    $ratio: 0.9;
+}
+
+
+/* -------------------------iphone4---------------------------- */
+
+@media screen and (max-width:320px) and (max-height:416px) {
+    $ratio: 0.85;
+}
+
+@media screen and (max-width: 320px) {}

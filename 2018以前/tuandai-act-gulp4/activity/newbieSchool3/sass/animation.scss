@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+
+
+@keyframes suspend {
+	0%,100% {
+
+		transform: translate3d(0,pxToRem(-10px),0);
+	}
+
+	50% {
+		transform: translate3d(0,0,0);
+	}
+}
+
+
+.banner_1,
+.banner_2{
+    animation: suspend 1.5s  linear infinite;
+}

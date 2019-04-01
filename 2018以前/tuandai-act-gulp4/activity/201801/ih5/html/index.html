@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title>Ih5二期</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/index.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			window.mobileUtils = function(e, t) {
+				var i = navigator.userAgent,
+					n = /android|adr/gi.test(i),
+					a = /iphone|ipod|ipad/gi.test(i) && !n;
+				return {
+					isAndroid: n,
+					isIos: a,
+					isMobile: n || a,
+					isWeixin: /MicroMessenger/gi.test(i),
+					isQQ: /QQ\/\d/gi.test(i),
+					dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+					rem: null,
+					fixScreen: function() {
+						var i = this,
+							n = t.querySelector('meta[name="viewport"]'),
+							r = n ? n.content : "";
+						if(r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+							var o, s = t.documentElement,
+								d = s.dataset.mw || 750,
+								m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+							t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function(e) {
+								return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+							}(1), s.firstElementChild.appendChild(n);
+							var c = function() {
+								var e = s.getBoundingClientRect().width;
+								e = e > d ? d : e;
+								var t = e / 16;
+								i.rem = t, s.style.fontSize = t + "px"
+							};
+							e.addEventListener("resize", function() {
+								clearTimeout(o), o = setTimeout(c, 300)
+							}, !1), e.addEventListener("pageshow", function(e) {
+								e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+							}, !1), c()
+						}
+					}
+				}
+			}(window, document), mobileUtils.fixScreen();
+		</script>
+
+	</head>
+
+	<body>
+		<div class="index">
+			<p class="ad-txt">[广告]市场有风险，投资需谨慎</p>
+			<div class="logo"></div>
+			<div class="decorate animated zoomIn"></div>
+			<div class="actTime animated fadeIn">活动时间：XX月XX日-XX月XX日</div>
+			<div class="hb1" id="hb1">
+				<div class="hb-dec"></div>
+				<div class="bg-txt">点击拆红包</div>
+				<div id="open" class="btn-open pulse"></div>
+				<div class="comment-list" id="name-list">
+					<div class="comment comment-list-item">
+						<p>135*****286获得11.88元红包<span>1分钟前</span></p>
+					</div>
+					<div class="comment comment-list-item">
+						<p>135*****286获得11.88元红包<span>2分钟前</span></p>
+					</div>
+					<div class="comment comment-list-item">
+						<p>135*****286获得11.88元红包<span>3分钟前</span></p>
+					</div>
+					<div class="comment comment-list-item">
+						<p>135*****286获得11.88元红包<span>4分钟前</span></p>
+					</div>
+					<div class="comment comment-list-item">
+						<p>135*****286获得11.88元红包<span>5分钟前</span></p>
+					</div>
+				</div>	
+				<div class="ruleBtn">活动规则</div>
+			</div>
+			<div class="hb1" style="display: none;" id="hb2">
+				<div class="hb-dec"></div>
+				<p class="award-p1">恭喜您获得奖励！</p>
+				<p class="award-p2">手气超赞！</p>
+				<div class="inputBox">
+					<div class="inp">
+						<input type="text" placeholder="请输入手机号领取奖励" maxlength="11" id="telInput" />
+					</div>
+					<div class="error">* 手机号码格式不正确</div>
+					<div id="inputTab" style="display: none;">
+						<div class="inp inpHalf">
+							<input type="text" placeholder="请输入验证码" maxlength="6" />
+							<div class="getCode">发送验证码</div>
+							<div class="getCode getCodeReady" style="display: none;">(180s)</div>
+						</div>
+						<div class="error">* 验证码不正确</div>
+						<!-- <div class="inp">
+							<input type="text" placeholder="请设置密码（6-16个字符、数字、字母）" maxlength="16" />
+						</div>
+						<div class="error">* 密码不正确</div> -->
+					</div>
+					<p class="agree">领取即表示您已同意<a href="https://m.tuandai.com/pages/agreement.aspx">《团贷网服务协议》</a></p>
+					<div class="btn-get">立即领取</div>
+				</div>
+			</div>
+			<p class="txt_bot">本活动最终解释权归团贷网所有</p>
+		</div>
+		
+		<!-- 登录领红包 -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-alert2">
+				<p class="alert_txt">您是团贷网老司机，请<br />登录领红包！<p>
+				<a href="javascript:void(0);" class="alert-btn">去登录</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 活动已结束 -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-alert2">
+				<p class="alert_txt">活动已结束，敬请期待<br />下一期活动~<p>
+				<a href="javascript:void(0);" class="alert-btn iKnow">朕知道了</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 活动未开始 -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-alert1">
+				<p class="alert_txt">活动未开始，敬请期待哦~<p>
+				<a href="javascript:void(0);" class="alert-btn iKnow">朕知道了</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 查看奖品 -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-gift">
+				<p class="alert_txt">您已经领取过奖励啦，<br />每人限领1次哦~<p>
+				<a href="javascript:void(0);" class="alert-btn">查看奖品</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 红包被抢完啦~ -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-gift">
+				<p class="alert_txt">来慢了一步，红包被<br />抢完啦~<p>
+				<a href="javascript:void(0);" class="alert-btn iKnow">朕知道了</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 很遗憾,没抢到 -->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-gift">
+				<p class="alert_txt">很遗憾，与奖励擦肩<br />而过了呢~<p>
+				<a href="javascript:void(0);" class="alert-btn iKnow">朕知道了</a>	
+				<div class="chacha"></div>
+			</div>
+		</div>
+		
+		<!-- 活动规则 -->
+		<div class="alert" id="ruleAlert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="alert_con bg-rule">
+				<div class="rule-tit">活动规则</div>
+				<div class="rule-txt">
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+					<p>① 活动期间内，每位用户最多只能领取1个红包；</p>
+				</div>
+				<div class="chacha"></div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/jsbridge3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

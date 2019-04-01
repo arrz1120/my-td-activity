@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>simu_cta</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="swiper-container" id="pageSwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide slideIndex">
+					<div class="img1-1 animated zoomIn"></div>
+					<div class="img1-2 animated bounceInLeft"></div>
+					<div class="dropdown"></div>
+					<div class="deng1"></div>
+				</div>
+				<div class="swiper-slide slideItem slide1">
+					<div class="con1">
+						<h2 class="fadeInUp fadeInUp1">何为CTA基金？</h2>
+						<p class="fadeInUp fadeInUp2">CTA(Commodity Trading Advisors)商品交易顾问，通常也被称作管理期货基金，是由专业资金管理人运用客户委托的资金，自主决定投资于全球期货、国债、期权、能源及利率衍生品市场，以追求盈利、并收取管理费的一种基金组织形式。</p>
+						<p class="fadeInUp fadeInUp3">CTA基金起源于1949年，随着期货交易品种的不断扩展，CTA基金在资产的风险管理与运作方面显得日趋重要，很多机构投资者诸如养老金、信托基金等都开始大量采用CTA作为他们投资组合中的重要组成部分，并在优化组合、分散风险等方面取得了良好的效果。</p>
+						<p class="fadeInUp fadeInUp4">现在，CTA基金行业已经成为了全球发展最快的投资领域之一，目前海外的CTA基金规模已超过3300亿。取得了良好的效果。</p>
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				<div class="swiper-slide slideItem slide2">
+					<div class="slide-tit">
+						何为CTA基金？
+					</div>
+					<div class="txt2">
+						<p>CTA策略可以参与全球150多个市场，范围之广远超传统投资策略，CTA策略独立于股市，和大多数资产可以形成互补。尤其是市场低迷、后市不确定的时候，配置CTA策略的产品是睿智之选。</p>
+					</div>
+					<div class="img3-1 fadeInUp fadeInUp1">
+						<img src="../images/3-1.png" />
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				<div class="swiper-slide slideItem slide3">
+					<div class="slide-tit">
+						CTA未来发展空间巨大
+					</div>
+					<div class="txt2">
+						<p>2010年以来，CTA基金逐步进入国内，并主要以私募基金形式存在，成为更多投资者资产组合配置的必要工具。截止2015年上半年，预计国内期货私募总规模800亿左右。与海外成熟市场相比，国内 CTA基金尚处于快速发展阶段。 由于国内市场尚不成熟，使得国内 CTA基金的趋势跟踪策略运用更为高效，收益率相较海外更高，历史回撤也更小。随着股指期货松绑可能性增加， CTA在国内的未来发展空间巨大。</p>
+					</div>
+					<div class="chart fadeInUp fadeInUp1">
+						<img class="swiper-lazy" data-src="../images/chart.png"/>
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				<div class="swiper-slide slideItem slide4">
+					<div class="slide-tit">
+						常见CTA市场分类
+					</div>
+					<div class="txt2">
+						<p>就投资方法而言，CTA基金有两大类，一类是主观CTA，即由基金管理人基于基本面、调研或操盘经验，主观来判断走势，决定买卖时点；第二大类是量化CTA，是通过分析建立数量化的交易策略模型，由模型产生的买卖信号进行投资决策；目前主流为量化CTA！</p>
+					</div>
+					<div class="txt-tab fadeInUp fadeInUp1">
+						<div class="tab-tit">
+							<div class="tab-item tab-item-cur">
+								<p>主观CTA交易</p>
+							</div>
+							<div class="tab-item">
+								<p>量化CTA交易</p>
+							</div>
+						</div>
+						<div class="swiper-container" id="txtSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="tab-con">
+										<p><span>研究方法</span>重视调研和分析基本面报告 </p>
+										<p><span>调研方向</span>重视信息（新闻、基本数据）的及时和准确</p>
+										<p><span>人员背景</span>金融、经济或行业相关背景</p>
+										<p><span>超额收益来源</span>人的经验和判断力 </p>
+										<p><span>决策方式</span>人的主观判断为主</p>
+										<p><span>交易方式</span>多数是交易员手动下单</p>
+										<p><span>风控方式</span>多数是专门人员负责风控</p>
+										<p><span>绩效</span>波动较大，高风险高收益</p>
+										<p><span>优点</span>策略灵活，踏准市场，市场配合时会有超额收益</p>
+										<p><span>缺点</span>容易受人主观判断影响，运作成本高，业绩不稳定</p>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="tab-con">
+										<p><span>研究方法</span>重视分析统计数据 </p>
+										<p><span>调研方向</span>重视团队合作，讨论和分享</p>
+										<p><span>人员背景</span>数学、物理、IT相关背景</p>
+										<p><span>超额收益来源</span>系统设计完备程度和性能 </p>
+										<p><span>决策方式</span>系统的自动判断</p>
+										<p><span>交易方式</span>多数是程序自动下单</p>
+										<p><span>风控方式</span>多数集成到系统中交易和风控一体化</p>
+										<p><span>绩效</span>波动较小，回撤可控，追求高收益</p>
+										<p><span>优点</span>研发运作成本低，风险可控，业绩稳定</p>
+										<p><span>缺点</span>模型有失效风险，需要不停的投入研发</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				<div class="swiper-slide slideItem slide5">
+					<div class="slide-tit">
+						量化CTA获利来源
+					</div>
+					<div class="txt2">
+						<p>化CTA中用的比较多的策略是趋势交易策略，趋势交易就是用大量各种策略模型寻找当前的市场趋势，判断多空；趋势策略可以说是无惧牛熊，只要有上涨或下跌的行情就能获利。这种策略特别在牛熊快速转换或者趋势明确时，优势非常大。总之，趋势在、收益就有。</p>
+					</div>
+					<div class="con4 fadeInUp fadeInUp1">
+						<img class="swiper-lazy" data-src="../images/5-1.png"/>
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				
+				<div class="swiper-slide slideItem slide6">
+					<div class="slide-tit">
+						如何挑选CTA基金
+					</div>
+					<div class="txt2">
+						<p>CTA基金的挑选，投资者需要从产品业绩、团队构成、风险控制、投资策略等方面来研究基金额度投资实力。</p>
+					</div>
+					<div class="swiper-container" id="roundSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								产品<br />业绩
+								<div class="shadow"></div>
+							</div>
+							<div class="swiper-slide">
+								团队<br />构成
+								<div class="shadow"></div>
+							</div>
+							<div class="swiper-slide">
+								风险<br />控制
+								<div class="shadow"></div>
+							</div>
+							<div class="swiper-slide">
+								投资<br />策略
+								<div class="shadow"></div>
+							</div>
+						</div>
+					</div>
+					<div class="txtFrame">
+						<p>投资者可以重点关注基金往年的收益、最大回撤等指标，观察产品的可持续性和稳定性，避免走势波动剧烈的产品！</p>
+						<span>1/4</span>
+					</div>
+					<div class="txtFrame" style="display: none;">
+						<p>研究团队构成，一个成功可持续的CTA基金必须依靠团队力量，多策略投资，团队的专业实力，稳定性等是极其重要的！</p>
+						<span>2/4</span>
+					</div>
+					<div class="txtFrame" style="display: none;">
+						<p>基金公司是否有严格的下行风控体系、强制平仓体系，历史最大回撤是否可在接受范围！</p>
+						<span>3/4</span>
+					</div>
+					<div class="txtFrame" style="display: none;">
+						<p>基金运行下，需多关注其投资策略的适用性，在不同的市场环境下，所采用的策略表现也会不同，好的CTA产品通常具有较强的策略逻辑以及备用策略，策略失效的风险是CTA产品面临的最大挑战，如果市场逻辑已经出现本质变化，而CTA产品的投资逻辑没有及时调整，或者产品对单一市场的依赖度过高，可能导致产品的表现面临瓶颈。</p>
+						<span>4/4</span>
+					</div>
+					<div class="dropdown"></div>
+				</div>
+				<div class="swiper-slide slideItem slide7">
+					<div class="slide-tit">
+						CTA风险控制
+					</div>
+					<div class="txt2">
+						<p>通常来说， CTA基金的风险类型包括市场风险、信用风险、操作风险等。针对各类风险， CTA基金的风险控制计划通常包括两个方面，即现金管理和风险管理。</p>
+					</div>
+					<div class="con7">
+						<div class="fengxian">
+							<div class="vs-tit">市场风险<i class="rotateZ90"></i></div>
+							<div class="vs-con">
+								<p>市场风险是期货市场在运行效率、市场流动性等方面的风险，会影响期货合约的交割便利程度。</p>
+							</div>
+							<div class="vs-tit">操作风险<i></i></div>
+							<div class="vs-con" style="display: none;">
+								<p>操作风险通常是由于交易员操作不当、内控系统的缺陷、电脑网络系统的突发性故障引发的风险，不过发生的概率不高。</p>
+							</div>
+							<div class="vs-tit">信用风险<i></i></div>
+							<div class="vs-con" style="display: none;">
+								<p>信用风险主要是在基金受托人和委托人信息不对称情况下可能出现的道德风险。</p>
+							</div>
+						</div>
+						<div class="fengkong">
+							<div class="vs-tit">现金管理<i class="rotateZ90"></i></div>
+							<div class="vs-con">
+								<p>现金管理是通过控制入市资金量进行交易杠杆管理。</p>
+							</div>
+							<div class="vs-tit">风险管理<i></i></div>
+							<div class="vs-con" style="display: none;">
+								<p>风险管理包括对系统性风险和非系统性风险的分别管理方案，系统性风险的管理可以通过指数交易来控制和回避 ， 非系统性风险通过投资组合的分散化和多策略来控制和回避。</p>
+							</div>
+						</div>
+					</div>
+					<div class="text-bot text-hide">
+						<div class="bot-arrow"><i></i></div>
+						<p>以上信息来自于网络信息资料，投资者应仔细阅读理财产品的法律文件，了解产品风险和收益特征（包括系统性风险和特定产品所特有的投资风险等）。投资者应根据自身资产状况、风险承受能力选择适合自己的理财产品。团贷网提供的资料仅供投资者参考，不构成团贷网的任何推荐或投资建议。投资者应审慎决策、独立承担风险。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<a href="http://www.sobot.com/chat/pc/index.html?sysNum=20ab7dce1e3346e8b90b649bd8baf591" class="bot-item">
+				<i class="icon-b1"></i> 在线咨询
+			</a>
+			<a href="tel:0769-26987956" class="bot-item">
+				<i class="icon-b2"></i> 客服热线
+			</a>
+			<a href="javascript:void(0);" class="bot-item">
+				<i class="icon-b3"></i> 马上预约
+			</a>
+		</div>
+		
+		<!--证书弹窗-->
+		<div class="alert" style="display: none;">
+			<div class="alert_con">
+				<img src="../images/zhengshu.png" />
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!--开始实名认证弹窗-->
+		<div class="mask-div mask-renzheng" style="display: none;">
+			<div class="pop-container">
+				<div class="renzheng-pop">
+					<P>合规才能放心投资，开始投资前，请您进行</P>
+					<p>『 合格投资者身份认证 』</p>
+					<p><i class="icon-dbx bg-size">1</i>实名认证</p>
+					<p><i class="icon-dbx bg-size">2</i>风险评测</p>
+					<a href="JavaScript:;" class="btn-hs toAuth">开始认证吧</a>
+				</div>
+				<a href="JavaScript:;" class="clase-mask-renzheng"><i class="bg-size"></i></a>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+
+		<!--在线预约咨询-->
+		<div class="mask-div mask-booking-success" style="display: none" id="yuyueMask">
+			<div class="pop-container">
+				<div class="yueyu-box">
+					<p class="title">在线预约咨询</p>
+					<div class="input-box">
+						<span>姓名</span>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="input-box">
+						<span>手机</span>
+						<input type="text" placeholder="请输入">
+					</div>
+					<p class="tips">预约后理财顾问将在20分钟内给您回电，为您提供一对一理财咨询服务。</p>
+					<div class="btn-box clearfix">
+						<a href="JavaScript:;" class="fl" id="quxiaoBtn">取消</a>
+						<a href="JavaScript:;" class="fl">提交</a>
+					</div>
+				</div>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+
+		<!--预约成功弹窗-->
+		<div class="mask-div mask-booking-success" style="display: none">
+			<div class="pop-container">
+				<div class="yueyu-box">
+					<p class="title">在线预约咨询</p>
+					<i class="icon-yes bg-size"></i>
+					<p class="s-txt">预约成功</p>
+					<p class="tel">我们将在20分钟内给您回电，来电号码为<span>0769-23602330</span></p>
+					<div class="btn-box clearfix">
+						<a href="JavaScript:;" class="btn-qd">确定</a>
+					</div>
+				</div>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

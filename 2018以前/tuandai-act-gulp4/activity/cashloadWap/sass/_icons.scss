@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+@import "sprite";
+
+.icon-block {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.icon-inline {
+	@extend .icon-block;
+	display: inline-block;
+}
+// header
+// .icon-back {
+// 	@include icon-background("data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAApBAMAAAAsdK9OAAAAGFBMVEUAAAAhISEhISEhISEhISEhISEhISEhISEBAIw5AAAAB3RSTlMAIOD2RsF7uDDeAwAAAC1JREFUKM9jgAPGQAYEECoSQEioFzsgJMpNhp0EQ3h5AgO6DELPCJAqEkBJBwDylB+rKEdYVwAAAABJRU5ErkJggg==", 24px, 41px);
+// }
+// // footer
+// .icon-money {
+// 	@include icon-background('../images/money.png', 29px, 36px);
+// }
+// .icon-invest {
+// 	@include icon-background('../images/invest.png', 38px, 36px);
+// }
+// .icon-account {
+// 	@include icon-background('../images/account.png', 38px, 36px);
+// }
+
+// .icon-arrow {
+//     @include icon-background('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWBAMAAAAGFmApAAAAHlBMVEUAAACzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7MvrfXMAAAACXRSTlMADOLDIrHZqSGIsxkQAAAAKElEQVQI12MoFWAAgUxDMOU0Gcxl0SSHOxVMNU2FCkKVEMlBOALqJABLnA5FGvBSoAAAAABJRU5ErkJggg==',
+//     12px,
+//     22px);
+// }
+
+.icon-tick {
+	@include icon-background('../images/tick.png', 20px, 14px);
+}
+
+// result
+// .icon-success {
+// 	@include icon-background('../images/result-success', 58px, 40px);
+// }
+// .icon-fail {
+// 	@include icon-background('../images/result-fail', 6px, 80px);
+// }

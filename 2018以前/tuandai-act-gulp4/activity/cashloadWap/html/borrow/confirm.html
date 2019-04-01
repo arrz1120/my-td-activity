@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>确认申请信息</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css  ../../css/borrow/index.css -->
+    <link rel="stylesheet" href="../../css/borrow/index.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>确认申请信息</h1>
+    </header>
+    <!-- /header -->
+    <div class="scroll scroll-active">
+        <div class="content confirm-content bg-grey no-footer">
+            <ul class="cb-info-container">
+                <li>
+                    <div>
+                        <span class="cb-info-txt">申请金额（元）</span>
+                        <span class="cb-info-num txt-orange">1000</span>
+                    </div>
+                    <div>
+                        <span class="cb-info-txt">借款期限（天）</span>
+                        <span class="cb-info-num txt-black">15</span>
+                    </div>
+                </li>
+                <li class="cb-info-txt">
+                    服务费用 <i class="txt-black">100元</i>
+                </li>
+            </ul>
+            <section class="cb-intro-container">
+                <p class="cb-info-txt">
+                    即审核通过后您可收到 <i class="txt-orange">900</i> 元
+                </p>
+                <p class="cb-info-txt">
+                    将于 2017年12月31日 15:00 从银行卡内扣除申请金额
+                </p>
+            </section>
+            <p class="tip">确认借款即为同意<a class="txt-yellow" href="#">《授权速来贷自动签约》</a></p>
+            <div class="btn btn-full" id="confirmBtn">确认借款</div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    Util.initHeader({
+        'header': 'header'
+    });
+
+    //确认借款
+    $('#confirmBtn').on('click', function() {
+        //todo
+    });
+})();
+</script>
+
+</html>

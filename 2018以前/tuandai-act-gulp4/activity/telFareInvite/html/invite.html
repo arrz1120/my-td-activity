@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>话费邀请</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/invite.css -->
+    <link rel="stylesheet" href="../css/invite.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+	<div class="content">
+		<div class="scroll">
+			<div class="logo"></div>
+			<div class="title">
+				<!-- 话费剩余 -->
+				<div class="fare-remain-wrapper">
+					<div class="fare-remain-con">
+						<span class="fare-remain-txt">话费<br/>剩余</span>
+						<span class="fare-remain-num-con">
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+						</span>
+						<span class="fare-remain-txt big-font">元</span>
+					</div>
+				</div>
+			</div>
+			<div class="rule-btn">活动规则></div>
+			<!-- 邀请任务 -->
+			<div class="box-wrapper invite-wrapper">
+				<!-- 抢话费成功 -->
+				<div class="box-container">
+					<div class="box-inner-title"><span class="box-title-txt">抢话费成功</span></div>
+					<div class="box-content">
+						<div class="box-inner-con">
+							<p class="red-font">恭喜你获得 <em class="fare"></em><span class="big-font">元</span> 话费礼包</p>
+							<p class="grey-font">（邀请3名好友，帮你开启话费礼包）</p>
+						</div>
+						<div class="invite-btn">立即邀请</div>
+					</div>
+				</div>
+				<!-- 我的好友 -->
+				<div class="box-outer-title"><span class="box-title-txt">我的好友</span></div>
+				<div class="box-container">
+					<div class="box-content">
+						<div class="box-inner-con my-friend-con">
+							<span class="my-friend-item friend-invite-btn">
+								<div class="my-friend-pic">
+									<div class="pic-bg-right">
+										待邀请
+									</div>
+									<div class="pic-bg-left">1</div>
+								</div>
+								<p class="grey-font"></p>
+							</span>
+							<span class="my-friend-item friend-invite-btn">
+								<div class="my-friend-pic">
+									<div class="pic-bg-right">
+										待邀请
+									</div>
+									<div class="pic-bg-left">2</div>
+								</div>
+								<p class="grey-font"></p>
+							</span>
+							<span class="my-friend-item friend-invite-btn">
+								<div class="my-friend-pic">
+									<div class="pic-bg-right">
+										待邀请
+									</div>
+									<div class="pic-bg-left">3</div>
+								</div>
+								<p class="grey-font"></p>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 老用户完成邀请任务获得话费 -->
+			<div class="box-wrapper get-fare-wrapper">
+				<ul class="voucher-list">
+					<!-- 话费券 -->
+					<li class="voucher-item">
+						<div class="voucher-line"></div>
+						<span class="voucher-left-con">
+							<p class="grey-font">恭喜你完成邀请任务，获得：</p>
+							<i class="visible"></i>
+						</span>
+						<span class="voucher-right-con">
+							<p class="red-font"><em class="fare"></em>元话费</p>
+							<i class="visible"></i>
+						</span>
+					</li>
+				</ul>
+				<a class="yellow-btn show-friend-btn">查看我的好友</a>
+			</div>
+			<!-- 新用户完成邀请任务还需完成投资任务才能获得话费 -->
+			<div class="box-wrapper invest-wrapper">
+				<div class="box-container bg-transparent">
+					<p class="white-font">恭喜你获得开启40元话费资格，参与投资即可获得：</p>
+					<!-- 投资任务 -->
+					<ul class="voucher-list">
+						<!-- 任务排序：
+						1、先按状态排序：未完成>已过期>已完成；
+						2、两个任务同为一种状态时，按10元任务>30元任务排序 -->
+						<li class="voucher-item invest">
+							<div class="voucher-line"></div>
+							<span class="voucher-left-con">
+								<p>
+									<span class="red-font mb"><em class="fare">10</em>元话费</span><br/>
+									单笔投资满100，投资期限≥1个月</p>
+								<i class="visible"></i>
+							</span>
+							<span class="voucher-right-con">
+								<span class="voucher-invest-btn">去投资</span>
+								<i class="visible"></i>
+							</span>
+						</li>
+						<li class="voucher-item invest overtime">
+							<div class="voucher-line"></div>
+							<span class="voucher-left-con">
+								<p>
+									<span class="red-font mb"><em class="fare">30</em>元话费</span><br/>
+									单笔投资满3000，投资期限≥1个月</p>
+								<i class="visible"></i>
+							</span>
+							<span class="voucher-right-con">
+								<span class="voucher-invest-btn">去投资</span>
+								<i class="visible"></i>
+							</span>
+						</li>
+					</ul>
+					<p class="yellow-font">以上话费券请于8月18日14:20前完成投资，逾期失效！</p>
+				</div>
+				<!-- 我的好友 -->
+				<div class="box-outer-title"><span class="box-title-txt">我的好友</span></div>
+				<div class="box-container">
+					<div class="box-content">
+						<div class="box-inner-con my-friend-con">
+							<!-- 按时间倒序展示3个好友 -->
+							<div class="invest-friend-item">
+								<span class="grey-font">好友1:</span>
+								<i class="invest-friend-pic">
+									<img src="../images/my-friend-pic.png">
+								</i>
+								<span class="grey-font">137****7769</span>
+								<span class="grey-font">2017/08/22 14:32</span>
+							</div>
+							<div class="invest-friend-item">
+								<span class="grey-font">好友2:</span>
+								<i class="invest-friend-pic">
+									<img src="../images/my-friend-pic.png">
+								</i>
+								<span class="grey-font">137****7769</span>
+								<span class="grey-font">2017/08/22 14:32</span>
+							</div>
+							<div class="invest-friend-item">
+								<span class="grey-font">好友3:</span>
+								<i class="invest-friend-pic">
+									<img src="../images/my-friend-pic.png">
+								</i>
+								<span class="grey-font">137****7769</span>
+								<span class="grey-font">2017/08/22 14:32</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="footer">* 本活动与苹果公司无关 *</p>
+		</div>
+	</div>
+	<div class="share-con">
+		<div class="mask"></div>
+		<div class="share-bg">
+			<div class="share-back-btn"></div>
+		</div>
+	</div>
+</div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/vendor/jsbridge-3.1.4.js -->
+<script src="../../../lib/vendor/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/invite.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

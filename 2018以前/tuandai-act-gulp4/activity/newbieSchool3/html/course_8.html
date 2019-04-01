@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>newbieSchool</title>
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/course.css -->
+	<link rel="stylesheet" href="../css/course.css">
+	<!-- endbuild -->
+
+
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+
+
+
+</head>
+
+<style type="text/css">
+
+
+body {
+    background:#fcbd40 url(../images/course/c7/hd.png) no-repeat;
+    background-size: 100% auto;
+
+}
+
+</style>
+
+
+<body>
+
+
+<div class="md1_c7">
+
+<img src="../images/course/c7/tit_1.png" class="tit_img" alt="">
+<img src="../images/course/c7/img_1.png" class="img_big" alt="">
+<a href="https://at.tuandai.com/201708/invite/weixin/index.aspx" class="link">了解详情>></a>
+
+<img src="../images/course/c7/tit_2.png" class="tit_img" alt="">
+<img src="../images/course/c7/img_2.png" class="img_big" alt="">
+
+<img src="../images/course/c7/tit_3.png" class="tit_img" alt="">
+
+	<ul class="list_1">
+			<li>
+				<p>前往APP-发现、微信订阅号、电脑官网邀请有礼页面，分享您的专属链接。<a href="https://at.tuandai.com/201708/invite/weixin/index.aspx">前往分享>></a></p>
+			</li>
+			<li>
+				<p>进入APP-发现，派现金红包给好友，好友领取红包后注册，您即成为TA的邀请人！</p>
+			</li>
+				<li>
+				<p>好友前往团贷网官网、APP进行注册，在<span>“推荐人手机号码”</span>处输入你的手机号即可成功完成邀请，是不是也很简单粗暴呢？火速去邀请吧！</p>
+			</li>
+
+
+	</ul>
+</div>
+
+
+<div class="nav_btn" id="nav_btn"></div>
+
+<div class="nav_box_main" id="nav_box_main">
+	<div class="mark"></div>
+	<nav>
+		<a href=""><span>01</span>关于团贷网你不得不知的一些事儿</a>
+		<a href=""><span>02</span>新手福利大公开</a>
+		<a href="" ><span>03</span>团贷网五心保障计划</a>
+		<a href=""><span>04</span>投资产品扫盲特训</a>
+		<a href=""><span>05</span>团贷网风控流程</a>
+		<a href="" ><span>06</span>新手有问题，这些地方能帮你</a>
+		<a href=""><span>07</span>投资小工具使用攻略</a>
+		<a href=""   class='active'><span>08</span>关于邀请好友的四个秘密</a>
+		<a href=""><span>09</span>团贷福利活动在哪里</a>
+		<a href=""><span>10</span>团贷网CEO的故事</a>
+		<a href=""><span>11</span>媒体报道、社会责任</a>
+		<a href=""><span>12</span>你该知道的团贷网会员特权</a>
+		<a href=""><span>13</span>团币小百科</a>
+		<a href=""><span>14</span>团粉故事</a>
+		<div class="arrow"></div>
+	</nav>
+</div>
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/course.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+</html>

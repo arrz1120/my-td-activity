@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+
+
+/*  for small width screen  */
+
+@media screen and (max-width:374px) {
+ 
+}
+
+@media screen and (min-height: 575px) and (min-width:412px) {
+  $ratio: 0.9;
+
+  //.wraper_wap{
+  //  padding: percent(520,1206) pxToRem(30px)  0 ;
+  //}
+
+}
+
+
+/* =========for short screen============== */
+
+@media screen and (max-height: 540px) and (min-width:321px) {
+    $ratio: 0.85;
+
+  //.wraper_wap{
+  //  padding: percent(540,1206) pxToRem(30px)  0 ;
+  //}
+}
+//* -----------meizu  mx3----------------- */
+@media screen and (min-height: 589px) and (min-width:430px) {
+    $ratio: 0.9;
+  //.wraper_wap{
+  //  padding: percent(500,1206) pxToRem(30px)  0 ;
+  //}
+}
+
+/* ------------------------iphone 5------------------------ */
+@media screen and (max-width:320px) and (max-height:508px) {
+    $ratio:0.9;
+  //.wraper_wap{
+  //  padding: percent(490,1206) pxToRem(30px)  0 ;
+  //}
+}
+
+/* -------------------------iphone4---------------------------- */
+
+@media screen and (max-width:320px) and (max-height:416px) {
+   $ratio: 0.85;
+
+}
+
+@media screen and (max-width: 320px) {
+
+}
+
+
+
+//* -----------一加手机----------------- */
+@media screen and (min-height: 604px) and (min-width:412px) {
+  $ratio: 0.9;
+  //.wraper_wap{
+  //  padding: percent(540,1206) pxToRem(30px)  0 ;
+  //}
+}
+
+
+@media screen and (min-height: 477px) and (min-width:360px) {
+  $ratio: 0.9;
+
+  //.wraper_wap{
+  //  background:#f1fed6 url(../images/bg_wap.png) no-repeat;
+  //  background-size: 100% 85%;
+  //  padding: percent(410,1206) pxToRem(30px)  0 ;
+  //}
+  //.btn_wraper {
+  //  margin-top: pxToRem(16px);
+  //}
+
+}
+
+@media screen and (min-height: 518px) and (min-width:384px) {
+  $ratio: 0.9;
+
+  //.wraper_wap{
+  //  background:#f1fed6 url(../images/bg_wap.png) no-repeat;
+  //  background-size: 100% 75%;
+  //  padding: percent(400,1206) pxToRem(30px)  0 ;
+  //}
+
+
+}

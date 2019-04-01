@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>newbieSchool</title>
+	
+
+	
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/topic.css -->
+	<link rel="stylesheet" href="../css/topic.css">
+	<!-- endbuild -->
+
+	
+
+
+	
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+
+
+
+</head>
+<body>
+
+
+
+<div class="liner">
+	
+</div>
+
+<div class="topic_wraper">
+
+    <h2 class="tit">找答案看这里：</h2>
+    <p class="txt">1《关于团贷网你不得不知的一些事儿》（题目01、02)</p>
+    <p class="txt txt_bottom">2《怎样找到团贷网》（题目03)</p>
+
+
+    <div class="topic">	
+		<h2 class="tit"><span class="num">1</span>团贷网贷网2017年的贷网2017年的贷网2017年的贷网2017年的2017年的资本市场冲击目标是____</h2>
+		<p class="radio radio_checked"><span class='icon'></span>A. A股贷网2017年的贷网2017年的贷网2017年的贷网2017年的贷网2017年的</p>
+		<p class="radio"><span class='icon'></span>B. 港股</p>
+		<p class="radio"><span class='icon'></span>C. 新三板</p>
+    </div>
+
+
+
+    <div class="topic">	
+		<h2 class="tit"><span class="num">2</span>团贷网2017年的资本市场冲击目标是____</h2>
+		<p class="radio radio_checked"><span class='icon'></span>A. A股</p>
+		<p class="radio"><span class='icon'></span>B. 港股</p>
+		<p class="radio"><span class='icon'></span>C. 新三板</p>
+    </div>
+
+
+
+
+    <div class="topic">	
+		<h2 class="tit"><span class="num">3</span>团贷网2017年的资本市场冲击目标是____</h2>
+		<p class="radio radio_checked"><span class='icon'></span>A. A股</p>
+		<p class="radio"><span class='icon'></span>B. 港股</p>
+		<p class="radio"><span class='icon'></span>C. 新三板</p>
+    </div>
+
+
+
+    <div class="topic topic_checkbox">	
+		<h2 class="tit"><span class="num">3</span>团贷网2017年的资本市场冲击目标是____(多选)</h2>
+		<p class="checkbox checkbox_checked"><span class='icon'></span>A. A股</p>
+		<p class="checkbox"><span class='icon'></span>B. 港股</p>
+		<p class="checkbox"><span class='icon'></span>C. 新三板</p>
+    </div>
+
+	
+
+
+	
+</div>
+
+
+
+<a href="#" class="btn_big submit">提交</a>
+
+
+<div class="alert" style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<div class="hd"></div>
+		<div class="con_val">
+			<p class="txt">恭喜您全部答对了！</p>
+			<p class="txt txt_red">奖励10学分！</p>
+			<p class="txt txt_bottom">获得一次抽奖机会~</p>
+
+
+		<!-- 答错题-->
+
+
+		<!-- 			
+			<p class="txt">很遗憾您没能全部答对！</p>
+			<p class="txt">再来一次！</p>
+			<p class="txt txt_bottom">再接再厉哟~</p>
+ 		-->
+
+			<a href="" class="btn_small play-again">再来一次</a>
+			<div class="close"></div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+
+<script src="../js/topic.js" type="text/javascript" charset="utf-8"></script>
+</html>

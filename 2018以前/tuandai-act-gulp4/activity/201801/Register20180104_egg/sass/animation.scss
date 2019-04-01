@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/*锤子动画*/
+@keyframes move_chui {
+    0%{ transform: rotate(0deg);transform-origin:70% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:70% 100%;}
+    50%{ transform: rotate(10deg);transform-origin:70% 100%;-webkit-transform: rotate(10deg);-webkit-transform-origin:70% 100%; }
+    100%{ transform: rotate(-10deg);transform-origin:70% 100%;-webkit-transform: rotate(-10deg);-webkit-transform-origin:70% 100%;}
+    
+}
+@-webkit-keyframes move_chui {
+   0%{ transform: rotate(0deg);transform-origin:70% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:70% 100%;}
+    50%{ transform: rotate(10deg);transform-origin:70% 100%;-webkit-transform: rotate(10deg);-webkit-transform-origin:70% 100%; }
+    100%{ transform: rotate(-10deg);transform-origin:70% 100%;-webkit-transform: rotate(-10deg);-webkit-transform-origin:70% 100%;}
+}
+/*金蛋动画*/
+@keyframes move_egg {
+    0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    33%{ transform: rotate(1deg);transform-origin:50% 100%;-webkit-transform: rotate(1deg);-webkit-transform-origin:50% 100%; }
+    66%{ transform: rotate(-1deg);transform-origin:50% 100%;-webkit-transform: rotate(-1deg);-webkit-transform-origin:50% 100%; }
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    
+}
+@-webkit-keyframes move_egg {
+   0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    33%{ transform: rotate(1deg);transform-origin:50% 100%;-webkit-transform: rotate(1deg);-webkit-transform-origin:50% 100%; }
+    66%{ transform: rotate(-1deg);transform-origin:50% 100%;-webkit-transform: rotate(-1deg);-webkit-transform-origin:50% 100%; }
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+}
+
+@keyframes move_egg_hover {
+    0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    33%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    66%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    
+}
+@-webkit-keyframes move_egg_hover {
+   0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    33%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    66%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+}
+
+@keyframes move_egg_click {
+    0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    10%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    20%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    30%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    40%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    50%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    60%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    70%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    80%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    90%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    
+}
+@-webkit-keyframes move_egg_click {
+   0%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    10%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    20%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    30%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    40%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    50%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    60%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    70%{ transform: rotate(3deg);transform-origin:50% 100%;-webkit-transform: rotate(3deg);-webkit-transform-origin:50% 100%; }
+    80%{ transform: rotate(-3deg);transform-origin:50% 100%;-webkit-transform: rotate(-3deg);-webkit-transform-origin:50% 100%; }
+    90%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+    100%{ transform: rotate(0deg);transform-origin:50% 100%;-webkit-transform: rotate(0deg);-webkit-transform-origin:50% 100%;}
+}
+
+.egg_move{-webkit-animation: move_egg 2s infinite both; animation:move_egg 2s infinite both;}
+.move_egg_click{-webkit-animation: move_egg_click .5s both; animation:move_egg_click .5s both;}
+.move_chui{-webkit-animation: move_chui 0.8s both; animation:move_chui 0.8s both;}
+
+.aniFadeIn{-webkit-animation: aniFadeIn 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniFadeOut{-webkit-animation: fadeOut 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniShow{-webkit-animation: aniShow 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniHide{-webkit-animation: aniHide 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+
+@-webkit-keyframes aniFadeIn{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@-webkit-keyframes fadeOut{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@-webkit-keyframes aniShow{
+    0%{-webkit-transform: translate3d(0,-400px,0);opacity: 0;}
+    100%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+}
+@-webkit-keyframes aniHide{
+    0%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+    100%{-webkit-transform: translate3d(0,100px,0);opacity: 0;}
+}

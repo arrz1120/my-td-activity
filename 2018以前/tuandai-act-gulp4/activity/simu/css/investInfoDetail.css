@@ -1,0 +1,97 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.invest-info-art {
+  padding: 1.152rem 0.64rem 0;
+  text-align: justify; }
+  .invest-info-art .art-title {
+    line-height: 1.28rem;
+    font-size: 1.024rem;
+    font-weight: 100;
+    color: #333;
+    margin-bottom: 0.512rem; }
+  .invest-info-art .art-date {
+    font-size: 0.55467rem;
+    color: #999;
+    margin-bottom: 1.152rem; }
+  .invest-info-art .art-txt {
+    font-size: 0.68267rem;
+    word-wrap: break-word;
+    text-align: justify; }
+    .invest-info-art .art-txt p {
+      line-height: 1.024rem !important;
+      margin: 0 !important; }
+      .invest-info-art .art-txt p span {
+        display: inline; }
+  .invest-info-art img {
+    width: 100%;
+    margin: 0.81067rem 0; }
+
+/*# sourceMappingURL=maps/investInfoDetail.css.map */

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>20170726dengshan</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+</head>
+<body>
+	<div class="index">
+		<div class="banner scale"></div>
+		<div class="bannerTxt fadeInTop">拆拆哪个是大红包？</div>
+		<div class="fudai"></div>
+		<div class="bottom">
+			<a href="page.html" class="link-btn" id="choujiang" style="display: none;">参与抽奖</a>
+		</div>
+		<div class="ruleBtn">活动规则</div>
+	</div>
+	
+	<!-- 弹窗 -->
+	
+	<!-- 活动规则 -->
+	<div class="alert ruleAlert" style="display: none;">
+		<div class="ruleCon">
+			<div class="ruleTit">活动规则</div>
+			<div class="ruleTxt">
+				<ul>
+					<li>
+						<span>1、</span>获奖后需成功分享微信好友/朋友圈，才会发放奖品<span>（分享后需点击“返回团贷网APP”按钮才算成功分享）</span><br />温馨提示：本次活动需将APP更新至5.1.2及以上版本才可参与；
+					</li>
+					<li>
+						<span>2、</span>因奖品数量有限，先分享先得，请获奖后尽快分享，每人最多可获得1次抽奖机会；
+					</li>
+					<li>
+						<span>3、</span>奖品在成功分享后24小时内发放，可登录【PC-我的账户-我的团宝箱】或 【APP-我-团宝箱】查看；需在10天内领取，逾期失效，请注意及时领取；
+					</li>
+					<li>
+						<span>4、</span>凡以不正当手段（包括不限于作弊、扰乱系统、实施网络攻击等）参与本次活动的用户，团贷网有权终止其参与，取消参与资格；
+					</li>
+					<li>
+						<span>5、</span>活动期间，如出现不可抗力或情势变更的情况（包括但不限于重大灾害事件、活动受政府机关指令需要停止举办获调整、活动遭受严重网络攻击或系统故障的），则团贷网可依相关法律法规的规定主张免责；
+					</li>
+					<li>
+						<span>6、</span>团贷网可根据活动举办的实际情况，在法律允许的范围内，对本活动规则进行变动或调整，相关变动或调整将公布在活动规则页面上，公布后依法生效；
+					</li>
+					<li>
+						<span>7、</span>在法律许可的合法范畴内，本活动最终解释权归团贷网所有；
+					</li>
+				</ul>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	<!-- 活动已结束 -->
+	<div class="alert txtAlert" style="display: none;">
+		<div class="txtCon">
+			<div class="txtBoxCenter">
+				<p>很抱歉！活动已结束</p>
+				<p>想获更多福利，继续关注团贷网APP哦！</p>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	<!-- 红包已经发完了 -->
+	<div class="alert txtAlert" style="display: none;">
+		<div class="txtCon">
+			<div class="txtBoxCenter">
+				<p>很抱歉！红包已经发完了！</p>
+				<p>想获更多福利，继续关注团贷网APP哦！</p>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	<!-- 未登录 -->
+	<div class="alert txtAlert" style="display: none;">
+		<div class="txtCon">
+			<div class="btnTxtBox">
+				<p>您未登录团贷网账号</p>
+				<p>登录后即可参与红包抽奖！</p>
+				<a href="">登录</a>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	<!-- 红包被抢光了 -->
+	<div class="alert txtAlert" style="display: none;">
+		<div class="txtCon">
+			<div class="txtBoxCenter">
+				<p>来迟一步，红包被抢光了！！</p>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	<!-- 红包不能重复领取 -->
+	<div class="alert txtAlert" style="display: none;">
+		<div class="txtCon">
+			<div class="btnTxtBox">
+				<p>啊哦！红包不能重复领取哦~~</p>
+				<p>想获更多福利，继续关注团贷网APP哦！</p>
+				<a href="">查看奖品</a>
+			</div>
+			<div class="alertClose"></div>
+		</div>
+	</div>
+	
+	
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

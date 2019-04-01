@@ -1,0 +1,126 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.content{
+	background-color: #f2f2f0;
+}
+// 我的公益排行信息
+.my-rank-con{
+	position: relative;
+	background-color: $defaultColor;
+	padding: pxToRem(30px) pxToRem(30px) pxToRem(47px);
+	font-size: 0;
+	.my-ranking-con{
+		height: pxToRem(280px);
+		margin-bottom: pxToRem(60px);
+		border-radius: pxToRem(20px);
+		box-shadow: 0px 4px 30px 0px rgb( 171, 232, 140);
+		background-color: $mainColor;
+		background: url(../images/my-ranking-bg.png),$mainColor;
+		background-size: contain;
+		.my-ranking-icon{
+			@include background('../images/my-ranking.png', 208px, 205px);
+			display: inline-block;
+			margin: pxToRem(-4px) pxToRem(14px) 0 pxToRem(22px);
+		}
+		.my-ranking-txt{
+			vertical-align: top;
+			color: $defaultColor;
+			margin-top: pxToRem(56px);
+			p{
+				font-size: pxToRem(30px);
+			}
+			.my-ranking-num{
+				margin-bottom: pxToRem(6px);
+				font-size: pxToRem(100px);
+				font-weight: bold;
+			}
+		}
+	}
+	.my-rank-info{
+		display: block;
+		position: relative;
+		padding-left: pxToRem(36px);
+		@at-root .user-head{
+			width: 7.2%;
+			margin-right: pxToRem(20px);
+			vertical-align: middle;
+		}
+		@at-root .user-name{
+			margin-bottom: pxToRem(0px);
+			display: inline-block;
+			vertical-align: middle;
+			font-size: pxToRem(30px);
+			color: $textBlackColor;
+		}
+		@at-root .love-info{
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(0, -50%); 
+			vertical-align: middle;
+			// padding-right: pxToRem(46px);
+			// line-height: pxToRem(38px);
+			color: $textPinkColor; 
+			font-size: 0;
+			span{
+				font-size: pxToRem(44px);
+				// line-height: pxToRem(36px);
+				vertical-align: middle;
+				margin-right: pxToRem(20px);
+			}
+			i{	
+				position: relative;
+				vertical-align: middle;
+			}
+		}
+	}
+	.welfare-diary-con{
+		position: absolute;
+		right: pxToRem(60px);
+		top: pxToRem(60px);
+		i{
+			@extend .icon-diary;
+			vertical-align: middle;
+			margin-right: pxToRem(10px);
+		}
+		span{
+			vertical-align: middle;
+			font-size: pxToRem(26px);
+			color: $defaultColor;
+		}
+	}
+}
+// 公益日记
+.join-con{
+	margin-top: pxToRem(20px);
+	.join-item{
+		position: relative;
+		padding-top: pxToRem(38px);
+		padding-bottom: pxToRem(38px);
+		// .join-txt{
+		// 	padding-top: 0;
+		// 	width: 69%;
+		// }
+		.ranking-num{
+			margin-right: pxToRem(30px);
+			font-size: pxToRem(30px);
+			vertical-align: middle;
+			color: $textBlackColor;
+			&.my{
+				color: $textPinkColor;
+			}
+		}
+		.love-info{
+			right: pxToRem(30px);
+		}
+	}
+}
+
+.icon-diary{
+	@include background('../images/diary.png', 22px, 24px);
+	display: inline-block;
+}

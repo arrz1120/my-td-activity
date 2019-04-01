@@ -1,0 +1,39 @@
+.remW(@n){
+  width: @n*16/750rem;
+}
+.remH(@n){
+  height: @n*16/750rem;
+}
+.remWH(@w,@h){
+  width: @w*16/750rem;
+  height: @h*16/750rem;
+}
+.bgURI(@uri){
+  background: url(@uri) center top no-repeat;
+  background-size: 100%;
+}
+.prc-share{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.85);
+  animation: prc-share-zoomIn .25s forwards;
+  .prc-share-img{
+    margin: 0 auto;
+    position: relative;
+    top: 1rem;
+  }
+}
+@keyframes prc-share-zoomIn{
+  0%{
+    opacity: 0;
+    transform: scale(.95) translateZ(1px);
+  }
+  100%{
+    opacity: 1;
+    transform:scale(1) translateZ(1px);
+  }
+}

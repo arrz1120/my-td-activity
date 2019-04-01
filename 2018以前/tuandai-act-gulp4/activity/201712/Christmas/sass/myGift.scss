@@ -1,0 +1,350 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../../sass/reset";
+@import "../../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    //  overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #0f4c3c;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input {
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+@mixin bg($width, $height, $url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+.myGift {
+    width: 100%;
+    min-height: 100%;
+    background: #e7ecf9 url(../images/myGift/bg.png) no-repeat;
+    background-size: 100% auto;
+    padding-top: pxToRem(72px);
+    padding-bottom: pxToRem(140px);
+}
+
+.fri-top {
+    width: pxToRem(658px);
+    text-align: center;
+    @include font(pxToRem(36px), #fff);
+    font-weight: bold;
+    position: relative;
+    margin: pxToRem(67px) auto 0;
+}
+
+.fri-top:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: pxToRem(4px);
+    @include bg(pxToRem(187px), pxToRem(23px), '../images/myGift/fri-l.png');
+}
+
+.fri-top:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: pxToRem(4px);
+    @include bg(pxToRem(187px), pxToRem(23px), '../images/myGift/fri-r.png');
+}
+
+.fri-tit {
+    @include size(pxToRem(662px), pxToRem(99px));
+    box-shadow: 0px pxToRem(2px) pxToRem(21px) 0px rgba(21, 25, 108, 0.24);
+    background: linear-gradient(#da4235, #c82925);
+    position: relative;
+    margin: pxToRem(21px) auto 0;
+    border-radius: pxToRem(9px);
+    display: -webkit-box;
+    .slow {
+        @include bg(pxToRem(581px), pxToRem(43px), '../images/myGift/slow.png');
+        position: absolute;
+        top: pxToRem(-15px);
+        left: pxToRem(-6px);
+    }
+    .fri-item {
+        width: 33.33%;
+        height: 100%;
+        text-align: center;
+        @include font(pxToRem(28px), #fadb2d);
+        line-height: pxToRem(99px);
+    }
+    .fri-mid {
+        border-left: 1px solid #f4573d;
+        border-right: 1px solid #f4573d;
+    }
+}
+
+.que-con {
+    @include size(pxToRem(662px), pxToRem(455px));
+    background: linear-gradient(#47917a, #1b6854);
+    padding: pxToRem(8px) pxToRem(20px) 0 pxToRem(27px);
+    border-radius: pxToRem(9px);
+    margin: 0 auto;
+    .swiper-container {
+        height: pxToRem(430px);
+    }
+    .swiper-slide {
+        //      padding-bottom: pxToRem(17px);
+        height: auto;
+    }
+    .que-slide {
+        position: relative;
+        width: pxToRem(580px);
+//      height: pxToRem(108px);
+        height: auto;
+        border-top: 1px solid #d5e2f0;
+        display: -webkit-box;
+    }
+    .swiper-slide:first-child {
+        .que-slide {
+            border-top: 0;
+        }
+    }
+    .swiper-container-vertical>.swiper-scrollbar {
+        height: pxToRem(554px);
+        height: 100%;
+        top: 0;
+        right: pxToRem(5px);
+        background: #1d5846;
+    }
+    .swiper-scrollbar-drag {
+        width: pxToRem(20px);
+        //      height: pxToRem(123px) !important;
+        border-radius: pxToRem(10px);
+        background: #37ba91;
+        left: pxToRem(-6px);
+    }
+    .que1 {
+        width: pxToRem(197px);
+        padding-left: pxToRem(75px);
+        text-align: center;
+        min-height: pxToRem(107px);
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-orient: vertical;
+        img {
+            @include size(pxToRem(76px), pxToRem(76px));
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: pxToRem(-38px);
+        }
+        .que-p1 {
+            @include font(pxToRem(18px), #fff);
+        }
+        .que-p2 {
+            @include font(pxToRem(22px), #fab62d);
+            margin-top: pxToRem(11px);
+        }
+    }
+    .que2 {
+        width: pxToRem(233px);
+        @include font(pxToRem(24px), #fff);
+        padding: pxToRem(15px) pxToRem(10px);
+        min-height: pxToRem(107px);
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-orient: vertical;
+    }
+    .que3 {
+        width: pxToRem(151px);
+        @include font(pxToRem(24px), #fdda17);
+        text-align: center;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-orient: vertical;
+        min-height: pxToRem(107px);
+    }
+}
+
+.que-none {
+    line-height: pxToRem(455px);
+    @include font(pxToRem(28px), #fff);
+    text-align: center;
+}
+
+.btn-fix {
+    z-index: 9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #e7ecf9;
+    padding-bottom: pxToRem(16px);
+    padding-top: pxToRem(16px);
+    width: 100%;
+    //  height: pxToRem(140px);
+    .btn {
+        @include bg(pxToRem(663px), pxToRem(93px), '../images/myGift/fix-btn.png');
+        margin: 0 auto;
+        height: pxToRem(93px);
+        line-height: pxToRem(93px);
+        text-align: center;
+        font-weight: bold;
+        font-size: pxToRem(36px);
+        color: #ec3527;
+        display: block;
+    }
+}
+
+.fri-btn {
+    width: pxToRem(662px);
+    margin: 0 auto;
+    display: -webkit-box;
+    .btn-l {
+        display: block;
+        width: 50%;
+        height: pxToRem(93px);
+        line-height: pxToRem(93px);
+        text-align: center;
+        font-weight: bold;
+        font-size: pxToRem(28px);
+        color: #37826c;
+    }
+    .btn-r {
+        display: block;
+        width: 50%;
+        height: pxToRem(93px);
+        line-height: pxToRem(93px);
+        @include font(pxToRem(36px), #ec3527);
+        text-align: center;
+        font-weight: bold;
+        background: linear-gradient(#ffd914, #ffa702);
+        border-radius: pxToRem(8px);
+    }
+}
+
+.btn-link {
+    background: #ccced3;
+    border-radius: pxToRem(8px);
+    margin-top: pxToRem(10px);
+    .btn-l {
+        font-size: pxToRem(36px);
+    }
+}
+
+.timu-box {
+    position: relative;
+    padding-left: pxToRem(330px);
+    padding-right: pxToRem(20px);
+    .daozhang {
+        @include font(pxToRem(20px), #eaecee);
+        text-align: center;
+        margin-top: pxToRem(11px);
+    }
+    .timu-img {
+        width: pxToRem(199px);
+        position: absolute;
+        top: pxToRem(16px);
+        left: pxToRem(78px);
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .timu-p1 {
+        @include font(pxToRem(32px), #ffd409);
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-top: pxToRem(20px);
+        margin-left: pxToRem(-12px);
+    }
+    .timu-p2 {
+        @include font(pxToRem(28px), #fff);
+        margin-top: pxToRem(25px);
+        //     padding-left: pxToRem(8px);
+        //     white-space:nowrap; overflow:hidden; text-overflow:ellipsis; 
+    }
+    ul {
+        margin-top: pxToRem(9px);
+    }
+    li {
+        width: pxToRem(390px);
+        //      padding-left: pxToRem(11px);
+        padding-right: pxToRem(100px);
+        @include font(pxToRem(24px), #fff);
+        line-height: pxToRem(37px);
+        border: 1px solid transparent;
+        position: relative;
+        span {
+            @include font(pxToRem(24px), #ffd409);
+            position: absolute;
+            right: pxToRem(15px);
+            top: 0;
+            display: none;
+        }
+    }
+    .selected {
+        border: 1px solid #ffd409;
+        border-radius: pxToRem(4px);
+        span {
+            display: block;
+        }
+    }
+}
+
+.correct {
+    @include bg(pxToRem(144px), pxToRem(126px), '../images/myGift/correct.png');
+    position: absolute;
+    top: pxToRem(186px);
+    right: pxToRem(38px);
+    z-index: 3;
+}
+
+.wrong {
+    @include bg(pxToRem(144px), pxToRem(126px), '../images/myGift/wrong.png');
+    position: absolute;
+    top: pxToRem(186px);
+    right: pxToRem(38px);
+    z-index: 3;
+}
+
+.bot_txt {
+    @include font(pxToRem(28px), #37826c);
+    text-align: center;
+    margin-bottom: pxToRem(10px);
+    font-weight: bold;
+}

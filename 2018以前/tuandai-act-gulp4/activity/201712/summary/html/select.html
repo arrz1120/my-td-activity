@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>2017年终总结</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/select.css -->
+		<link rel="stylesheet" href="../css/select.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="select">
+			<!--2017年总结-->
+			<div class="s-box box2017" id="page2017" style="display: none;">
+				<div class="print2017"></div>
+				<p class="s-p1">请选择一个标签<br />作为你的<span>2017年</span>年终总结吧~</p>
+				<div class="s-txt">
+					<div class="txt-row">
+						<div class="item">
+							<p>365天<br />都想着暴富 </p>
+						</div>
+						<div class="item">
+							<p>365天<br />都想着减肥 </p>
+						</div>
+						<div class="item">
+							<p>365天<br />都在修心养性 </p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>加不完的班 <br />熬不完的夜 </p>
+						</div>
+						<div class="item">
+							<p>本命年 </p>
+						</div>
+						<div class="item">
+							<p>我他妈怎么知道 <br />自己做了什么 </p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>等待好运降临</p>
+						</div>
+						<div class="item">
+							<p>甜酸苦辣 <br />一样不少</p>
+						</div>
+						<div class="item">
+							<p>努力做<br />富二代的爸妈 </p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>实现了<br />我的小目标</p>
+						</div>
+						<div class="item">
+							<p>赚钱存钱花钱</p>
+						</div>
+						<span class="add"></span>
+					</div>
+					<div class="s-btn breath" id="btn2017">选好啦</div>
+				</div>
+			</div>
+
+			<!--2018年总结-->
+			<div class="s-box box2018" style="display: none;" id="page2018">
+				<div class="print2018"></div>
+				<p class="s-p1"><span>2018年</span>你最想<br />做成的一件事是什么？</p>
+				<div class="s-txt">
+					<div class="txt-row">
+						<div class="item">
+							<p>轻松减肥 </p>
+						</div>
+						<div class="item">
+							<p>365天<br />都想着减肥 </p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>加不完的班 <br />熬不完的夜 </p>
+						</div>
+						<div class="item">
+							<p>本命年 </p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>等待好运降临</p>
+						</div>
+						<div class="item">
+							<p>甜酸苦辣 <br />一样不少</p>
+						</div>
+					</div>
+					<div class="txt-row">
+						<div class="item">
+							<p>什么都有，什么都不缺，世界和平</p>
+						</div>
+						<span class="add"></span>
+					</div>
+					<div class="s-btn breath" id="btn2018">选好啦</div>
+				</div>
+			</div>
+
+			<!--评价好友总结-->
+			<div class="s-box box2018 dp" style="display: none;" id="commentPage">
+				<p class="s-p1">请选择一个标签<br />点评好友2017年的年终总结~</p>
+				<div class="s-txt">
+					<div class="swiper-container" id="swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="slide-con">
+									<div class="txt-row">
+										<div class="item">
+											<p>准备好哦，我预测你<br />明年会开挂呢~</p>
+										</div>
+										<div class="item">
+											<p>愿你乘风破浪，<br />所向披靡 </p>
+										</div>
+									</div>
+									<div class="txt-row">
+										<div class="item">
+											<p>这是我今年看到<br />最棒的计划</p>
+										</div>
+										<div class="item">
+											<p>我会代表月亮<br />监督你的</p>
+										</div>
+									</div>
+									<div class="txt-row">
+										<div class="item">
+											<p>我向你飞，<br />风温柔地追</p>
+										</div>
+										<div class="item">
+											<p>你讲咩啊？ <br />呢度风大，我听唔到</p>
+										</div>
+									</div>
+									<div class="txt-row">
+										<div class="item">
+											<p>待你心愿达成，<br />请我吃饭可好？</p>
+										</div>
+										<div class="item">
+											<p>你这么厉害，<br />一定得偿所愿！</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="slide-con">
+									<div class="txt-row">
+										<div class="item">
+											<p>默默地在远方祝福你~</p>
+										</div>
+										<div class="item">
+											<p>加油，<br /> 一切都会变得刚刚好 </p>
+										</div>
+									</div>
+									<div class="txt-row">
+										<div class="item">
+											<p>哎呦，不错哦~ </p>
+										</div>
+										<div class="item">
+											<p>可以， <br />这很强势！！！ </p>
+										</div>
+									</div>
+									<div class="txt-row">
+										<span class="add"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="prev"></div>
+					<div class="next"></div>
+					<div class="paging"></div>
+				</div>
+				<div class="s-btn breath" id="btnComment">选好啦</div>
+			</div>
+
+			<!--分享落地页-->
+			<div id="sharePage" style="display: none;">
+
+				<div class="paper">
+					<div class="giftBox swing"></div>
+					<div class="user">
+						<span class="userImg">
+							<img src="../images/select/header.png"/>
+						</span>
+						<p>用户昵称</p>
+					</div>
+					<p class="paper-p1">2017年关键词</p>
+					<div class="txt2017">
+						<p id="txt2017"></p>
+					</div>
+					<p class="paper-p2">2018年新年愿望</p>
+					<div class="txt2018">
+						<p id="txt2018"></p>
+					</div>
+				</div>
+
+				<div class="swiper-container" id="cSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="cSlide">
+								<img src="../images/select/friendHeader.png" />
+								<p>你这么厉害，一定得偿所愿！这是我今年看到最棒的计划~</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cSlide">
+								<img src="../images/select/friendHeader.png" />
+								<p>你这么厉害，一定得偿所愿！这是我今年看到最棒的计划~</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cSlide">
+								<img src="../images/select/friendHeader.png" />
+								<p>你这么厉害，一定得偿所愿！这是我今年看到最棒的计划~</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cSlide">
+								<img src="../images/select/friendHeader.png" />
+								<p>你这么厉害，一定得偿所愿！这是我今年看到最棒的计划~</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="cSlide">
+								<img src="../images/select/friendHeader.png" />
+								<p>你这么厉害，一定得偿所愿！这是我今年看到最棒的计划~</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-wrap">
+					<div class="btn-l" id="reset">重新总结</div>
+					<div class="btn-r" id="shareBtn">分享</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!---------弹窗------->
+
+		<!--点评好友的年终总结-->
+		<div class="mask" id="commentMask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con1 taMask">
+				<div class="close"></div>
+				<div class="mask_tit">
+					点评好友的年终总结
+				</div>
+				<div class="con">
+					<textarea rows="0" cols="0" placeholder="请输入您的点评（不超过30个字）" maxlength="30"></textarea>
+					<p class="number"><span>0</span>/30</p>
+					<div class="m-btn">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!--2017年年终总结-->
+		<div class="mask" id="mask2017" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con1 taMask">
+				<div class="close"></div>
+				<div class="mask_tit">
+					2017年年终总结
+				</div>
+				<div class="con">
+					<textarea rows="0" cols="0" placeholder="请输入您的年终总结（不超过30个字）" maxlength="30" id="textarea2017"></textarea>
+					<p class="number"><span>0</span>/30</p>
+					<div class="m-btn">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!--2018年新年愿望-->
+		<div class="mask" id="mask2018" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con1 taMask">
+				<div class="close"></div>
+				<div class="mask_tit">
+					2018年新年愿望
+				</div>
+				<div class="con">
+					<textarea rows="0" cols="0" placeholder="请输入您的新年愿望（不超过30个字）" maxlength="30"></textarea>
+					<p class="number"><span>0</span>/30</p>
+					<div class="m-btn">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!--领取新年礼物-->
+		<div class="mask" id="giftMask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="giftImg"></div>
+				<div class="con giftCon">
+					<p class="m-p2">哇哦~<br />你有1个2018年的新年礼物诶~</p>
+					<p class="m-p3">活动时间：12月28日-1月5日</p>
+					<a href="javascript:void(0);" class="m-btn2">立即领取</a>
+				</div>
+			</div>
+		</div>
+
+		<!--发表评论成功-->
+		<div class="mask" id="sendSucMask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="sendImg"></div>
+				<div class="con sendCon">
+					<p class="m-p1">已点评好友2017年的年终总结！</p>
+					<a href="index.html" class="m-btn2">制作我的2017年总结</a>
+				</div>
+			</div>
+		</div>
+
+		<!--活动未开始-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">活动未开始，敬请期待哦~</p>
+					<div class="m-btn2">朕知道了</div>
+				</div>
+			</div>
+		</div>
+
+		<!--活动已结束-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">非常遗憾，活动已结束~</p>
+					<div class="m-btn2">朕知道了</div>
+				</div>
+			</div>
+		</div>
+
+		<!--团贷网App或打开-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">请在团贷网App或微信打开~</p>
+					<div class="m-btn2">朕知道了</div>
+				</div>
+			</div>
+		</div>
+
+		<!--前往登录-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">请先登录才可以参与活动哦~</p>
+					<div class="m-btn2">前往登录</div>
+				</div>
+			</div>
+		</div>
+
+		<!--提示-->
+		<div class="tipsBox" id="tipsBox" style="display: none;">
+			<div class="tips">输入内容不能为空</div>
+		</div>
+
+		<div class="mask" id="wxAlert" style="display: none;">
+			<div class="mask_bg"></div>
+			<img src="../images/select/wxShare.png" />
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/jsbridge3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/normal.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/select.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function isWeiXin() {
+	        var ua = navigator.userAgent.toLowerCase();
+	        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
+		$(function() {
+			var vtitle = '';
+			var viconUrl = '<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>';
+			var vcontent = '';
+			var vshareUrl = '<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>';
+			$("#shareBtn").on('click', function() {
+//				if(Jsbridge.isApp()) {
+//					Jsbridge.toAppWebViewShare({
+//						"shareTypeList": [{
+//							"ShareToolType": 1,
+//							"ShareToolName": "微信",
+//							"IconUrl": '',
+//							"Title": '必填',
+//							"ShareContent": '必填',
+//							"ShareUrl": '必填',
+//							"IsEnabled": true
+//						}, {
+//							"ShareToolType": 5,
+//							"ShareToolName": "朋友圈",
+//							"IconUrl": viconUrl,
+//							"Title": vtitle,
+//							"ShareContent": vtitle,
+//							"ShareUrl": vshareUrl + "?ShareToolType=5",
+//							"IsEnabled": true
+//						}]
+//
+//					})
+//				} else if(isWeiXin()) {
+//					$("#wxAlert").show();
+//				} else {
+//					alert('打开app即可分享');
+//				}
+				appShare.set({
+					icon:'',
+					title:'title',
+					content:'content',
+					shareUrl:'//www.baidu.com',
+					custom:[
+						{key:4,enabled:false},
+						{key:6,enabled:false},
+						{key:8,enabled:false},
+					]
+				})
+			})
+			//WeiXinShare(vshareUrl, vtitle, vcontent, viconUrl, function () { });
+		})
+		 $("#wxAlert").click(function() {
+		    $(this).hide();
+		})
+	</script>
+
+</html>

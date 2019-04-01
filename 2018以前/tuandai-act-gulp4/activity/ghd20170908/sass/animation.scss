@@ -1,0 +1,302 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+
+
+@keyframes flash {
+	0%,100%{
+		opacity: 1;
+	}
+
+
+
+	50%{
+		opacity: 0;
+	}
+}
+
+
+
+
+
+
+@keyframes scale {
+	0%{
+
+		transform: scale(.3);
+		opacity: 0;
+	}
+
+	100%{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+
+@keyframes fadeIn {
+	0%{
+		opacity: 0;
+	}
+
+
+
+	100%{
+		opacity: 1;
+	}
+}
+
+
+
+@keyframes fadeOut {
+	0%{
+		opacity: 1;
+	}
+
+
+
+	100%{
+		opacity: 0;
+	}
+}
+
+
+
+
+
+@keyframes breath {
+	0%,100%{
+		opacity: 0;
+	}
+
+
+
+	50%{
+		opacity: 1;
+	}
+}
+
+
+
+@keyframes doorscale {
+	0%{
+
+		transform: scale(1);
+		transform-origin:50%  pxToRem(800px);
+	}
+
+	100%{
+		transform: scale(4);
+		transform-origin:50%  pxToRem(800px);
+	}
+}
+
+@keyframes doormove_left {
+	0%{
+
+		transform: translate3d(0,0,0);
+
+	}
+
+	100%{
+		transform: translate3d(pxToRem(-180px),0,0);
+
+	}
+}
+
+@keyframes doormove_right {
+	0%{
+
+		transform: translate3d(0,0,0);
+
+	}
+
+	100%{
+		transform: translate3d(pxToRem(180px),0,0);
+
+	}
+}
+
+@keyframes rope_down {
+	0%{
+
+		height:pxToRem(60px);
+
+	}
+
+	100%{
+		height:pxToRem(310px);
+	}
+}
+
+
+@keyframes rope_up {
+	0%{
+
+		height:pxToRem(310px);
+
+	}
+
+	100%{
+		height:pxToRem(60px);
+	}
+}
+
+
+
+
+
+@keyframes g_l {
+	0%{
+
+		transform: rotate(0);
+		transform-origin:right top;
+
+
+	}
+
+	100%{
+		transform: rotate(-12deg);
+		transform-origin:right top;
+	}
+}
+
+
+@keyframes g_r {
+	0%{
+
+		transform: rotate(0);
+		transform-origin:left top;
+
+
+	}
+
+	100%{
+		transform: rotate(12deg);
+		transform-origin:left top;
+	}
+}
+
+
+@-webkit-keyframes movePuppet {
+    0% {
+    	-webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+    	-webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes movePuppet {
+    0% {
+    	-webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+    	-webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+
+
+
+
+.light{ 
+ animation: flash 2.5s  linear infinite;
+}
+
+.tit_wraper{
+	.tit{
+	 animation: scale .3s  linear both;
+		
+	}
+	.tit_light{
+	 animation: fadeIn  2s  .3s  linear infinite;
+	}
+}
+
+
+
+
+
+
+
+
+.page_2{
+
+	.body_bg_3{
+		 animation: doorscale 1.2s   1s  linear both;
+	}
+
+	.body_bg_4{
+		 animation: fadeIn .2s  2s linear both;
+	}
+    .talk{
+	 animation: fadeIn .2s  2.1s linear both;
+    }
+
+	
+    .opening{
+    	.door_l{
+	 animation: doormove_left .8s .2s  linear both;
+
+    	}
+
+    	.door_r{
+	 animation: doormove_right .8s .2s  linear both;
+
+    	}
+    }
+
+  
+}
+
+.page_3{
+
+	
+
+	.breath{
+		 animation: breath 2s   linear infinite;
+	}
+
+	
+	.rope_down{
+	 		animation: rope_down 1s   linear both;
+
+	}
+
+	.guo_catch{
+
+		.g_l{
+	 		animation: g_l .2s   linear both;
+
+		}
+		.g_r{
+	 		animation: g_r .2s   linear both;
+
+		}
+
+	}
+
+	.rope_up{
+	 		animation: rope_up 1s   linear both;
+	}
+
+	.list_move{
+		    animation: movePuppet 6s linear infinite forwards;
+	}
+
+
+	.fadeOut{
+	 		animation: fadeOut .3s   1.2s  linear both;
+
+	}
+
+}
+
+.lz_show{
+	 animation: fadeIn 1s   linear both;
+}

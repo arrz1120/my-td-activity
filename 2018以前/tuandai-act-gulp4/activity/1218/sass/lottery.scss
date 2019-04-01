@@ -1,0 +1,486 @@
+
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "./_reset.scss";
+@import "func";
+html,
+body {
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@mixin bg($width,$height,$url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin fontsize($color,$px){
+    font-size: $px;
+    color: $color;
+}
+
+@mixin box($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+body{
+    background:#e92a2a url(../images/lottery/bg.jpg) no-repeat;
+    background-size: 100%  100%;
+    padding: pxToRem(100px) 0 pxToRem(30px);
+    margin: 0 auto;
+}
+
+
+header{
+    .tit{
+        @include bg(100%,pxToRem(50px),'../images/lottery/tit.png');
+        margin-bottom:  pxToRem(18px);
+    }
+
+    .txt{
+        @include box(pxToRem(540px),pxToRem(46px));
+        @include fontsize(#fff,pxToRem(20px));
+        line-height: pxToRem(46px);
+        margin: 0 auto;
+        overflow: hidden;
+        .rule_btn{
+            float: right;
+            @include box(pxToRem(133px),pxToRem(40px));
+            @include fontsize(#ffe222,pxToRem(22px));
+            text-align: center;
+            line-height: pxToRem(40px);
+            border-radius: pxToRem(20px);
+            border: pxToRem(1px) solid #ffe222;
+        }
+    }
+}
+
+
+.swiper-container-1{
+    @include box(100%,pxToRem(623px));
+    margin-top: pxToRem(30px);
+    padding-top:  pxToRem(10px);
+
+    .swiper-slide {
+        @include box(pxToRem(534px),pxToRem(553px));
+        border-radius: pxToRem(20px);
+        background: #fff;
+        overflow: visible;
+    }
+
+    .slide_tit{
+        @include bg(pxToRem(323px),pxToRem(63px),'../images/lottery/prize_tit.png');
+        margin: pxToRem(-7px) auto 0;
+        text-align: center;
+        @include fontsize(#fff,pxToRem(30px));
+        line-height: pxToRem(63px);
+        font-weight: bold;
+        text-shadow:0 0 5px #ff562f, 0 0 10px #ff562f, 0 0 15px #ff562f, 0 0 15px #ff00de, 0 0 15px #ff00de;
+    }
+
+    .swiper-pagination-bullet{
+        opacity: 1;
+        border:1px solid #fff;
+        background: none;
+    }
+
+    .swiper-pagination-bullet-active{
+        background: #fff;
+    }
+
+
+    .txt,.txt_1{
+        @include fontsize(#868686,pxToRem(20px));
+        text-align: center;
+        margin:  pxToRem(10px) 0;
+    }
+
+
+    .txt_1{
+        @include fontsize(#f95552,pxToRem(24px));
+        margin: 0 0 pxToRem(12px);
+        line-height: pxToRem(30px);
+    }
+
+
+
+
+    .box{
+        @include box(pxToRem(360px),pxToRem(290px));
+        position: relative;
+        margin: 0 auto;
+        opacity: 0;
+        animation: scale .5s ease-in both;
+    }
+
+    .box_open{
+        display: none;
+        padding-top: pxToRem(20px);
+        img{
+            width: 100%;
+            opacity: 0;
+
+        }
+
+        .img_show{
+             animation: prize_show .2s ease-in both;
+        }
+    }
+
+    .ph_slide{
+        .box_close{
+            @include bg(100%,100%,'../images/lottery/ph_prize.png')
+        }
+
+        .box_open{
+            @include bg(100%,100%,'../images/lottery/ph_prize_open.png')
+        }
+    }
+
+
+    .sh_slide{
+        .box_close{
+            @include bg(100%,100%,'../images/lottery/sh_prize.png')
+        }
+
+        .box_open{
+            @include bg(100%,100%,'../images/lottery/sh_prize_open.png')
+        }
+    }
+
+
+
+
+
+    .hand_wraper{
+        position: absolute;
+        left: 0;
+        top: 0;
+        @include box(100%,100%);
+        background: url(../images/lottery/hand_bg.png) no-repeat center center;
+        background-size: pxToRem(76px) pxToRem(79px);
+        .hand{
+            @include bg(pxToRem(76px),pxToRem(79px),'../images/lottery/hand.png');
+            position: absolute;
+            left: 50%;
+            top: 46%;
+            animation: hand_move 1s ease-in infinite;
+
+        }
+    }
+
+
+
+    .btn,.btn_over{
+        display: block;
+        margin: 0 auto;
+        width:  pxToRem(460px);
+        height: pxToRem(70px);
+        line-height: pxToRem(70px);
+        background: #ffbb00;
+        border-radius:pxToRem(40px);
+        text-align: center;
+        font-size: pxToRem(30px);
+        color: #cd5c00;
+        box-shadow:0 5px 0 #ff9100;
+        /*background: linear-gradient(180deg, #ffd023, #ffbb00);*/
+        background: radial-gradient(at top center,#ffd023 20%, #ffbb00 80%);
+    }
+
+
+    .btn_over{
+        color: #fff;
+        box-shadow:0 5px 0 #7a7a7a;
+        /*background: linear-gradient(180deg, #ffd023, #ffbb00);*/
+        background: radial-gradient(at top center,#afafaf 20%, #a0a0a0 80%);
+
+        
+    }
+
+}
+
+
+.prize_wraper{
+    position: relative;
+    @include box(100%,pxToRem(337px));
+}
+
+.prize_wraper_list{
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    @include bg(100%,pxToRem(337px),'../images/lottery/prize_list_bg.png');
+   
+    .list_tit{
+        text-align: center;
+        @include fontsize(#fff,pxToRem(30px));
+        font-weight: bold;
+        text-shadow:0 0 5px #fa3629, 0 0 10px #fa3629, 0 0 15px #fa3629, 0 0 15px #fa3629, 0 0 15px #fa3629;
+    }
+
+    .swiper-prize{
+        @include box(100%,pxToRem(210px));
+        margin:  pxToRem(25px) 0;
+     }
+
+    .swiper-slide{
+        overflow: hidden;
+        padding: 0 pxToRem(42px);
+
+         .prize_box:nth-child(3){
+              margin-right:0;
+         }
+    }
+
+
+     .prize_box{
+        @include box(pxToRem(210px),pxToRem(210px));
+        float: left;
+        margin-right: pxToRem(15px);
+     }
+        
+
+     .img_wraper{
+        @include box(100%,pxToRem(170px));
+        background: #fff;
+        border-radius: pxToRem(10px) pxToRem(10px) 0 0;
+        overflow: hidden;
+        img{
+            width: 100%;
+            display: block;
+        }
+
+
+     }
+
+     .prize_name{
+        @include box(100%,pxToRem(36px));
+        line-height: pxToRem(36px);
+        text-align: center;
+        border-radius: 0 0 pxToRem(10px) pxToRem(10px);
+        background: #f34439;
+        @include fontsize(#fff,pxToRem(18px));
+     }
+     .swiper-button-next{
+            @include bg(pxToRem(36px),pxToRem(37px),'../images/lottery/next.png');
+            right: pxToRem(10px);
+     }
+     .swiper-button-prev{
+            @include bg(pxToRem(36px),pxToRem(37px),'../images/lottery/prev.png');
+            left: pxToRem(10px);
+     }
+
+     .more{
+        @include box(pxToRem(240px),pxToRem(56px));
+        background: #f34439;
+        border-radius: pxToRem(28px);
+        line-height: pxToRem(56px);
+        text-align: center;
+        @include fontsize(#fff,pxToRem(22px));
+        margin: pxToRem(30px)  auto;
+        border: pxToRem(1px) solid #ffe2b9;
+     }
+
+
+}
+
+.prize_wraper_list_show{
+    visibility: visible;
+}
+
+
+
+.win_list{
+    padding: 0 pxToRem(40px)  pxToRem(20px) ;
+    position: relative;
+    visibility: visible;
+    margin-top: pxToRem(50px);
+    .list_tit{
+        margin-bottom:  pxToRem(15px);
+    }
+    .nodata{
+        width: 100%;
+        height: pxToRem(267px);
+        border-radius:  pxToRem(20px);
+        background: #fff url(../images/lottery/nodata.jpg) no-repeat center center;
+        background-size:  pxToRem(390px) pxToRem(187px);
+    }
+        
+
+    .marquee{
+        @include box(pxToRem(620px),pxToRem(278px));
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+
+       
+    }
+
+
+     .msg_box{
+            overflow: hidden;
+            margin-bottom: pxToRem(30px);
+
+            .tx{
+                @include box(pxToRem(80px),pxToRem(80px));
+                float: left;
+                margin-right: pxToRem(20px);
+                border-radius: pxToRem(40px);
+            }
+
+            .txt_wraper{
+                float: left;
+                width: pxToRem(500px);
+                padding-top:  pxToRem(10px);
+                p{
+                    @include fontsize(#fff,pxToRem(22px));
+                    span{
+                        color: #ffdf06;
+                    }
+                }
+
+                .phone_num{
+                    margin-bottom:  pxToRem(10px);
+                }
+            }
+        }
+
+
+    
+
+}
+
+
+.all_prize{
+    
+    .comp-modal-content.msgbox{
+        padding: 1.75rem pxToRem(25px);
+    }
+
+    .prize_wraper{
+
+    margin: 0 auto;
+    .prize_tit{
+        text-align: center;
+        @include fontsize(#f34439,pxToRem(20px));
+        height: pxToRem(54px);
+        line-height: pxToRem(54px);
+        background: #fff0d3;
+    }
+
+    ul{
+        overflow: hidden;
+        li{
+            width: 50%;
+            @include box(50%,pxToRem(45px));
+            @include fontsize(#f34439,pxToRem(18px));
+            line-height: pxToRem(45px);
+            float: left;
+            text-align: center;
+            background: #fff;
+            border-top: #ffe3cf pxToRem(1px) solid; 
+        }
+
+        li:nth-child(odd){
+            border-right: #ffe3cf pxToRem(1px) solid; 
+        } 
+    }
+
+    }
+
+}
+
+
+
+/*翻转动画*/
+
+.prize_wraper_list_show{
+    
+    .swiper-slide-fir{
+            .prize_box{
+
+            animation: rotateY .8s ease-in both;
+
+            }
+    }
+
+
+}
+
+.comp-arrow{
+    bottom: pxToRem(-28px);
+}
+
+
+.msgbox{
+    .no_remind{
+            color: #fff;
+            font-size: pxToRem(28px);
+            width: pxToRem(165px);
+            padding:  pxToRem(8px) 0 0  pxToRem(40px);
+            line-height: pxToRem(32px);
+            width:  pxToRem(175px);
+            margin:  pxToRem(10px) auto;
+            position: relative;
+
+            .icon{
+                position: absolute;
+                left: 0;top: 0;
+                &:before{
+                    content:'';
+                    width: pxToRem(28px);
+                    height: pxToRem(28px);
+                    border: 1px solid #fff;
+                    position: absolute;
+                    left: 0;
+                    top: pxToRem(6px);
+
+                }
+            }
+
+
+
+    }
+
+
+    .checkde{
+            .icon{
+                &:after{
+                content:'';
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include bg(pxToRem(36px),pxToRem(37px),'../images/lottery/gou.png');
+                }
+            }
+    }
+}
+
+
+
+.comp-modal .comp-modal-content.msgbox{
+    padding: 1.75rem 1rem;
+}
+
+
+.s_msgBox_noStart .comp-modal-msg-1{
+    text-align: left;
+}
+
+.s_msgBox_noStart{
+    background: rgba(0,0,0,.7);
+}

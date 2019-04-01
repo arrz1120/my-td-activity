@@ -1,0 +1,49 @@
+.pageBottom {
+  width: 16rem;
+  height: 2.09067rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  background: #f7f7f7;
+  display: -webkit-box;
+  padding-top: 0.23467rem; }
+  .pageBottom .bottom-item {
+    padding-top: 1.28rem;
+    width: 50%;
+    display: block;
+    text-align: center;
+    font-size: 0.42667rem;
+    color: #626262;
+    background-repeat: no-repeat;
+    background-position: center top; }
+  .pageBottom .bottom-index {
+    background-size: 1.10933rem 1.10933rem;
+    background-image: url(../images/index/bico-index.png); }
+  .pageBottom .bottom-index-cur {
+    color: #ffbf00;
+    background-size: 1.10933rem 1.10933rem;
+    background-image: url(../images/index/bico-index-cur.png); }
+  .pageBottom .bottom-my {
+    background-size: 1.06667rem 1.06667rem;
+    background-image: url(../images/index/bico-my.png); }
+  .pageBottom .bottom-my-cur {
+    color: #ffbf00;
+    background-size: 1.06667rem 1.06667rem;
+    background-image: url(../images/index/bico-my-cur.png); }
+
+.pageBottom:before {
+  content: "";
+  position: absolute;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #d3d3d3;
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5); }
+
+/*# sourceMappingURL=maps/fn.css.map */

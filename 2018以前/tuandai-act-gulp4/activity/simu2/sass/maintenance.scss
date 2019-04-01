@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.scroll-active {
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.scroll {
+    max-width: 414px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    .content {
+        width: 100%;
+        min-height: 100%;
+        background-image: url('../images/bg.jpg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding: pxToRem(140px) pxToRem(40px) pxToRem(40px) pxToRem(40px);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.sn-container {
+    width: 100%;
+    padding: pxToRem(80px) pxToRem(60px);
+    font-size: 0;
+    box-shadow: 2.5px 4.33px 50px 0px rgba( 0, 0, 0, .35);
+    background-color: #fff;
+    opacity: .9;
+    background-image: url('../images/icon-border.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    &:before {
+        content: '';
+        @include background('../images/embellishment1.png', 126px, 77px);
+        position: absolute;
+        top: pxToRem(6px);
+        right: pxToRem(-36px);
+    }
+    &:after {
+        content: '';
+        @include background('../images/embllishment2.png', 119px, 49px);
+        position: absolute;
+        left: pxToRem(-40px);
+        bottom: pxToRem(20px);
+    }
+}
+.sn-title {
+    background-image: url('../images/title-border.png');
+    background-size: 100% 100%;
+    width: pxToRem(500px);
+    height: pxToRem(62px);
+    line-height: pxToRem(62px);
+    font-size: pxToRem(30px);
+    color: #b38f47;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+.sn-content {
+    width: 100%;
+    margin-top: pxToRem(60px);
+    p {
+        width: 100%;
+        font-size: pxToRem(26px);
+        line-height: pxToRem(48px);
+        color: #333333;
+        text-align: justify;
+        &.sn-name {
+            text-align: left;
+        }
+        &.sn-txt {
+            text-indent: 2em;
+        }
+        &.sn-sign {
+            text-align: right;
+            color: #999;
+        }
+    }
+    p:nth-of-type(2), p:nth-last-of-type(2) {
+        margin-top: pxToRem(30px);
+    }
+    
+}
+.txt-gold {
+    color: #b38f47;
+}

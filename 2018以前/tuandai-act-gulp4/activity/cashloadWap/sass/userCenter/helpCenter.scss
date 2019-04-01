@@ -1,0 +1,302 @@
+@charset "UTF-8";
+@import "../variables";
+@import "../../../../sass/func";
+@import "mhSprite";
+.mh-content {
+    height: 100%;
+    background-color: $bg-grey !important;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+.service-container {
+    width: pxToRem(690px);
+    height: pxToRem(210px);
+    border-radius: pxToRem(14px);
+    background-color: $bg-white;
+    box-shadow: 0px pxToRem(2px) pxToRem(18px) 0px rgba(0, 0, 0, 0.08);
+    display: block;
+    margin: pxToRem(30px) auto;
+    padding: pxToRem(30px);
+    font-size: 0;
+    span {
+        width: 100%;
+        font-size: pxToRem(24px);
+        line-height: pxToRem(24px);
+        color: $txt-black-light;
+    }
+    a {
+        font-size: pxToRem(56px);
+        line-height: pxToRem(56px);
+        color: $txt-yellow;
+        display: block;
+        margin: pxToRem(26px) 0;
+    }
+}
+
+
+.mh-qlist {
+    width: 100%;
+    background-color: $bg-white;
+    padding: 0 pxToRem(30px);
+    position: relative;
+    font-size: 0;
+
+    &>li:not(:first-child) {
+        width: 100%;
+        position: relative;
+        color: $txt-black;
+        font-size: pxToRem(30px);
+        min-height: pxToRem(90px);
+        line-height: pxToRem(36px);
+        padding: pxToRem(27px) pxToRem(20px) pxToRem(27px) 0;
+        text-align: justify;
+
+        &:after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+    }
+    &>li:first-child {
+        text-align: center;
+        font-size: pxToRem(26px);
+        color: $txt-grey-darker;
+        height: pxToRem(96px);
+        line-height: pxToRem(96px);
+    }
+    &>li:last-child {
+        position: relative;
+        &:before {
+            @include border('bottom', $border-color-grey);
+        }
+    }
+}
+
+.mh-icon-list {
+    width: 100%;
+    background-color: $bg-white;
+    padding: 0 pxToRem(30px);
+    font-size: 0;
+    text-align: center;
+    .mh-icon {
+        width: pxToRem(230px);
+        height: pxToRem(180px);
+        display: inline-block;
+        position: relative;
+        .item-icon {
+            width: 100%;
+            height: pxToRem(60px);
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: pxToRem(60px);
+            &:before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        span {
+            width: 100%;
+            font-size: pxToRem(24px);
+            height: pxToRem(24px);
+            color: $txt-black;
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: pxToRem(30px);
+        }
+    }
+    .icon-account-h {
+        &:before {
+            @extend .icon-mh-personal-account;
+        }
+    }
+    .icon-authentication-h {
+        &:before {
+            @extend .icon-mh-authentication;
+        }
+    }
+    .icon-face-h {
+        &:before {
+            @extend .icon-mh-brush-face;
+        }
+    }
+    .icon-opreator-h {
+        &:before {
+            @extend .icon-mh-opreator;
+        }
+    }
+    .icon-loan-h {
+        &:before {
+            @extend .icon-mh-loan-repayment;
+        }
+    }
+    .icon-custody-h {
+        &:before {
+            @extend .icon-mh-custody;
+        }
+    }
+}
+
+.aboutme-content {
+    padding: pxToRem(50px);
+    section {
+        padding-top: pxToRem(40px);
+        p {
+            margin-bottom: pxToRem(20px);
+            font-size: pxToRem(26px);
+            line-height: pxToRem(36px);
+            color: $txt-grey-darker;
+            text-align: justify;
+            text-indent: 2em;
+        }
+    }
+}
+
+// icons
+// .icon-logo {
+//     @include icon-background("../images/logo.png", 176px, 176px);
+//     margin: 0 auto;
+// }
+.scroll {
+    background-color: $bg-grey;
+    .qd-content {
+        // height: 100%;
+        background-color: $bg-white;
+        padding-bottom: 0;
+        .qd-container {
+            width: 100%;
+            padding-left: pxToRem(30px);
+            font-size: 0;
+        }
+    }
+}
+
+.qd-list {
+    width: 100%;
+    &>li:not(:last-child) {
+        position: relative;
+        &:before {
+            @include border('bottom', $border-color-grey);
+        }
+    }
+}
+
+.pack-up {
+    .qd-question {
+        &:after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+    .qd-answer {
+        display: none;
+    }
+}
+
+.qd-question {
+    width: 100%;
+    display: block;
+    min-height: pxToRem(116px);
+    font-size: pxToRem(34px);
+    color: $txt-black;
+    line-height: 1.2;
+    padding: pxToRem(38px) pxToRem(30px) pxToRem(38px) 0;
+    position: relative;
+    font-weight: bold;
+    &:before {
+        @include border('bottom', $border-color-grey);
+    }
+    &:after {
+        position: absolute;
+        top: 50%;
+        right: pxToRem(30px);
+        transform: translateY(-50%) rotate(-90deg);
+    }
+}
+
+.qd-answer {
+    width: 100%;
+    padding: pxToRem(46px) pxToRem(30px) pxToRem(46px) 0;
+    font-size: pxToRem(30px);
+    line-height: pxToRem(60px);
+    color: $txt-black;
+}
+
+
+
+.qd-recomment {
+    width: 100%;
+    text-align: center;
+    color: $txt-grey;
+    font-size: pxToRem(24px);
+    height: pxToRem(26px);
+    display: block;
+    margin-top: pxToRem(20px);
+}
+
+.services-container {
+    width: 100%;
+    height: pxToRem(200px);
+    white-space: nowrap;
+    font-size: 0;
+    padding: pxToRem(20px) pxToRem(30px);
+    .service-item {
+        width: pxToRem(336px);
+        height: pxToRem(160px);
+        border-radius: pxToRem(14px);
+        background-color: $bg-white;
+        box-shadow: 1px pxToRem(2px) pxToRem(18px) 0px rgba( 0, 0, 0, .06);
+        position: relative;
+        display: inline-block;
+        padding: pxToRem(44px) pxToRem(10px) pxToRem(44px) pxToRem(126px);
+        white-space: normal;
+        vertical-align: middle;
+        &:before {
+            content: '';
+            position: absolute;
+            left: pxToRem(34px);
+            top: 50%;
+            background-repeat: no-repeat;
+            width: pxToRem(82px);
+            height: pxToRem(80px);
+            background-size: contain;
+        }
+        span {
+            width: 100%;
+            display: block;
+        }
+        &>span:first-child {
+            color: $txt-black;
+            font-size: pxToRem(30px);
+            height: pxToRem(30px);
+            font-weight: bold;
+        }
+        &>span:last-child {
+            color: $txt-grey-darker;
+            font-size: pxToRem(24px);
+            height: pxToRem(24px);
+            margin-top: pxToRem(20px);
+        }
+    }
+    .service-online {
+        margin-right: pxToRem(20px);
+        &:before {
+            background-image: url(../../images/mh-online-service.png);
+            margin-top: pxToRem(-40px);
+        }
+    }
+    .service-tel {
+        &:before {
+            background-image: url(../../images/mh-telephoneservice.png);
+            margin-top: pxToRem(-41px);
+        }
+    }
+}

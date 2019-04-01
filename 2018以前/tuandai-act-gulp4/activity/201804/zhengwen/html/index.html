@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+	/>
+	<meta name="format-detection" content="telephone=no">
+	<title>测试测试测试测试测试测试</title>
+
+
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+	<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<script>
+		//动态算rem
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					// if (docEl.style.fontSize) return;
+					clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+					if (document.body) {
+						document.body.style.fontSize = docEl.style.fontSize;
+					}
+				};
+			recalc();
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener("DOMContentLoaded", recalc, false);
+		})(document, window);
+	</script>
+
+</head>
+
+<body>
+
+	<div class="index">
+
+
+		<header>
+			<p>【广告】市场有风险，投资需谨慎></p>
+			<img src="../images/banner.png" class="banner">
+			<div class="btn" id="rule_btn">我要投稿</div>
+			<div class="share_btn"></div>
+		</header>
+
+
+		<div class="md md1">
+			<div class="con">
+				<div class="con-top">
+					<img src="../images/tit_1.png" class="tit">
+				</div>
+				<div class="con-mid">
+					<h2 class="tit_1">
+						<span>01</span>征文主题：发现不一样的妈妈</h2>
+					<p class="txt">五月，因为这一天，唤起了多少人心底轻漾的情愫。在你的印象中，妈妈是什么样子呢？忙碌、包容、温暖、慈祥、唠叨、节俭······但其实，妈妈是小气的，不容许任何人说你的坏话；妈妈是爱撒娇的，就像个小孩子，对着老爸撒娇，对着你撒娇；妈妈也是口是心非的，每次买了新衣服，总是嫌弃浪费钱，却在你转身的下一秒，她已经悄悄试衣服去了。但不论是哪一面的妈妈，总是都与你有关，这就是妈妈。</p>
+					<p class="txt">所以，5月10日，去发现了不一样的妈妈吧，并来团贷网和我们分享出你的故事，让我们用文字的形式去记录，去留存那些曾经的美好···</p>
+					<h2 class="tit_1">
+						<span>02</span>征文时间：4月25日-5月25日</h2>
+				</div>
+				<div class="con-bot"></div>
+			</div>
+		</div>
+
+		<div class="md md2">
+			<div class="con">
+				<div class="con-top">
+					<img src="../images/tit_2.png" class="tit">
+				</div>
+				<div class="con-mid">
+					<div class="mid-padding">
+						<h2 class="tit_2">
+							<span>
+								<img src="../images/headTemp.png" alt="">
+							</span>哆啦A梦的口袋</h2>
+						<div class="txt" id="txt">世界上的一切光荣和骄傲都来自母亲，希望能在这样节日里对母亲说声：妈妈，你辛苦了，儿子在有生之年，会孝顺你老的，母亲节快乐!世界上的一切光荣和骄傲都来自母亲，希望能在这样节日里对母亲说声：妈妈，你辛苦了，儿子在有生之年，会孝顺你老的，母亲节快乐!</div>
+	
+						<div class="message-box">
+							<div class="m-tit">分享妈妈的小故事</div>
+							<div class="input-box">
+								<textarea id="textarea"></textarea>
+								<p class="textHolder">请输入150字以上</p>
+							</div>
+						</div>
+						<p class="ms-tips"></p>
+						<div class="ms-btn">我要投稿</div>
+					</div>
+					<!-- Swiper -->
+					<div class="swiper-container prize-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="prize">
+									<img src="../images/prize1.png">
+									<p class="p1">团粉之星（1位）</p>
+									<p class="p2">苏泊尔厨具三件套</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="prize">
+									<img src="../images/prize2.png">
+									<p class="p1">优秀奖（5位）</p>
+									<p class="p2">欧舒丹香氛沐浴皂</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="prize">
+									<img src="../images/prize3.png">
+									<p class="p1">幸运奖（无限量）</p>
+									<p class="p2">5元投资红包</p>
+								</div>
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="pagination" id="pagination"></div>
+						<!-- Add Arrows -->
+						<div class="swiper-button-next" id="swiper-button-next-1"></div>
+						<div class="swiper-button-prev" id="swiper-button-prev-1"></div>
+					</div>
+					<!-- Swiper  end-->
+				</div>
+				<div class="con-bot"></div>
+			</div>
+		</div>
+
+		<div class="md md3">
+			<div class="con">
+				<div class="con-top">
+					<img src="../images/tit_3.png" class="tit">
+				</div>
+				<div class="con-mid">
+					<!-- Swiper -->
+					<div class="swiper-container txt-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<h3 class="tit_2">来稿要求</h3>
+								<ul class="rule_list">
+									<li>
+										<span>1</span>文章字数150字或以上；需图文结合，至少一张关于母亲的照片（母亲生活照或是与母亲的合照）；</li>
+									<li>
+										<span>2</span>请注明自己的昵称以及成为团贷网用户的时间、职业、年龄、居住地；</li>
+									<li>
+										<span>3</span>来稿必须原创，抄袭、套改取消评选资格。</li>
+								</ul>
+							</div>
+							<div class="swiper-slide">
+								<h3 class="tit_2">参与方式</h3>
+								<ul class="rule_list">
+									<li>
+										<span>1</span>活动页投稿：在活动页底部入口直接发布一条以#母亲节征文#+内容的长文章进行投稿</li>
+									<li>
+										<span>2</span>邮箱投稿：将稿件发送至母亲节征文邮箱：zhengwen@tuandai.com，邮件标题：母亲节征文+姓名+地区+手机号</li>
+									<li>
+										<span>3</span>团粉圈投稿：登录团粉圈-热门活动，进入“团粉故事母亲节征文”跟帖回复</li>
+								</ul>
+							</div>
+							<div class="swiper-slide">
+								<h3 class="tit_2">评选规则</h3>
+								<ul class="rule_list">
+									<li>
+										<span>1</span>围绕“发现不一样的妈妈”为主题，讲述母亲的小脾气、爱臭美等小故事。文字表达真情实感、故事细腻且原创作品；</li>
+									<li>
+										<span>2</span>所有来稿符合征文要求的作品，均会在活动页进行展示，并可获得【幸运奖】，奖励5元投资红包</li>
+									<li>
+										<span>3</span>来稿一经选用并在团贷网微信订阅号进行推送，可获得【优秀奖】欧舒丹香氛沐浴皂+50元投资红包；</li>
+									<li>
+										<span>4</span>活动结束后，已推送并展示到微信订阅号的作品，将进行微信投票，投票数最多者获得【团粉之星奖】，苏泊尔厨具三件套+100元投资红包。</li>
+								</ul>
+							</div>
+							<div class="swiper-slide">
+								<h3 class="tit_2">关于奖品</h3>
+								<ul class="rule_list">
+									<li>
+										<span>1</span>本期征文活动结束后，三个工作日内公布获奖名单，公布名单后奖品将于五个工作日内发放（提醒：来稿时必须写清楚联系方式）；</li>
+									<li>
+										<span>2</span>奖品将发放至个人团宝箱；使用规则以团宝箱提示为准，过期视为放弃。</li>
+								</ul>
+							</div>
+							<div class="swiper-slide">
+								<h3 class="tit_2">关于奖品</h3>
+								<ul class="rule_list">
+									<li>
+										<span>1</span>团贷网对全部参赛作品具有收藏、发表、出版、宣传等处置权，包括网络发表权、出版权；</li>
+									<li>
+										<span>2</span>因参赛者抄袭带来的版权纠纷，由参赛者个人承担全部责任，参赛者享受自己作品的署名权；</li>
+									<li>
+										<span>3</span>凡参与活动的团粉视为了解并接受以上规则。</li>
+									<li>
+										<span>4</span>本活动最终解释权归团贷网</li>
+								</ul>
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="pagination" id="txtPaging"></div>
+					</div>
+					<!-- Swiper  end-->
+					<!-- Add Arrows -->
+					<div class="swiper-button-next" id="swiper-button-next-2"></div>
+					<div class="swiper-button-prev" id="swiper-button-prev-2"></div>
+				</div>
+				<div class="con-bot"></div>
+			</div>
+		</div>
+
+		<footer>
+			<p>本活动最终解释权归团贷网所有</p>
+		</footer>
+
+	</div>
+
+	<a href="" class="link">长期征文</a>
+
+
+
+	<div id="wx_tips">
+		<img src="../images/share.png" alt="">
+		<div class="close"></div>
+	</div>
+
+
+
+	<!-- 弹窗 -->
+
+	<div class="alert" style="display:none">
+		<div class="mark"></div>
+		<div class="alert-con alert-tips">
+			<p>很抱歉，您还未登录，</p>
+			<p>请登录后在投稿。</p>
+			<div class="alert-btn">立即登录</div>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+
+	<div class="alert" id="rule" style="display:none">
+		<div class="mask"></div>
+		<div class="alert-con rule-con">
+			<h5>1、来稿要求</h5>
+			<p><span>①</span>文章字数150字或以上；需图文结合，至少一张关于母亲的照片（母亲生活照或是与母亲的合照）；</p>
+			<p><span>②</span>请注明自己的昵称以及成为团贷网用户的时间、职业、年龄、居住地；</p>
+			<p><span>③</span>来稿必须原创，抄袭、套改取消评选资格。</p>
+			<h5>2、参与方式</h5>
+			<p><span>①</span>活动页投稿：在活动页底部入口直接发布一条以#母亲节征文#+内容的长文章进行投稿</p>
+			<p><span>②</span>邮箱投稿：将稿件发送至母亲节征文邮箱：zhengwen@tuandai.com</p>
+			<p>邮件标题：母亲节征文+姓名+地区+手机号</p>
+			<p><span>③</span>团粉圈投稿：登录团粉圈-热门活动，进入“团粉故事母亲节征文”跟帖回复</p>
+			<div class="alert-btn" id="btnConfirm">确 定</div>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+
+	<div class="toast" style="display: none;">
+		<p>通用提示框</p>
+	</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<!-- endbuild -->
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+	function toast(txt){
+		var toast = $(".toast");
+		toast.find('p').html(txt);
+		toast.show();
+		setTimeout(function(){
+			toast.fadeOut(100);
+		},2000);
+	}
+	toast("调用通用提示框");
+
+	var ActivityWebsiteUrl = 'https://at.tuandai.com';
+    var vtitle = "天秤大数据智能风控系统";
+    var vcontent = "专注于提供大数据风控解决方案";
+    var icoUrl = ActivityWebsiteUrl + "/weixin/20170315tiancheng/images/share.jpg?v=20180208";
+    var shareUrl = ActivityWebsiteUrl + "/weixin/20170315tiancheng/index.aspx";
+
+   // WeiXinShare(ActivityWebsiteUrl + "/weixin/20170315tiancheng/index.aspx?tdshare=wxshare",vtitle,vcontent, icoUrl, function () { });
+
+</script>
+
+
+</html>

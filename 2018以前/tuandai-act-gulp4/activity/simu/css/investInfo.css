@@ -1,0 +1,125 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.ellipsis-two-line, .invest-info-con .invest-info-item .invest-info-title, .invest-info-con .invest-info-item .invest-info-txt {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; }
+
+.tab-con {
+  white-space: nowrap;
+  overflow-x: auto;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 0; }
+  .tab-con .tab-item {
+    position: relative;
+    height: 1.92rem;
+    line-height: 1.92rem;
+    margin: 0 1.00267rem;
+    text-align: center;
+    font-size: 0.68267rem;
+    color: #333; }
+    .tab-con .tab-item:first-child {
+      margin-left: 0.64rem; }
+    .tab-con .tab-item:last-child {
+      margin-right: 0.64rem; }
+    .tab-con .tab-item.active {
+      color: #b29559;
+      border-bottom: 0.128rem solid #c8a66b; }
+    .tab-con .tab-item a {
+      display: block;
+      color: #333; }
+
+.invest-info-con {
+  display: block;
+  font-size: 0;
+  padding-left: 0.64rem; }
+  .invest-info-con .invest-info-item {
+    display: block;
+    padding: 0.93867rem 0.64rem 0.85333rem 0;
+    border-bottom: 1px solid #f2f2f2; }
+    .invest-info-con .invest-info-item:last-child {
+      border-bottom: none; }
+    .invest-info-con .invest-info-item .invest-info-title {
+      margin-bottom: 0.55467rem;
+      line-height: 0.85333rem;
+      font-size: 0.68267rem;
+      color: #333; }
+    .invest-info-con .invest-info-item .invest-info-date, .invest-info-con .invest-info-item .invest-info-txt {
+      font-size: 0.55467rem;
+      color: #999; }
+    .invest-info-con .invest-info-item .invest-info-txt {
+      margin-bottom: 0.59733rem;
+      line-height: 0.64rem; }
+
+/*# sourceMappingURL=maps/investInfo.css.map */

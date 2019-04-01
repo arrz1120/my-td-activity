@@ -1,0 +1,266 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+.page-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../images/bg.png) no-repeat center 80%, $bg-color;
+    background-size: 105% auto;
+    // 页面滑动
+    .page-swiper-container{
+        width: 100%;
+        height: 100%;
+        .swiper-slide{
+            text-align: center;
+            padding-bottom: pxToRem(104px);
+            .swiper-slide-wrapper{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
+            img{
+                // transform: translateY(pxToRem(30px));
+                // transition: transform 0.8s;
+                width: pxToRem(750px);
+            }
+            .swiper-slide-tit{
+                margin-bottom: pxToRem(78px);
+            }
+            .swiper-slide-txt{
+                margin-top: pxToRem(30px);
+                padding: 0 pxToRem(60px);
+                text-align: left;
+                color: $default-color;
+                font-size: pxToRem(26px);
+                line-height: pxToRem(44px);
+                text-indent: pxToRem(54px);
+
+                overflow : hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+            .more-btn{
+                margin-top: pxToRem(20px);
+                padding: pxToRem(10px) 0;
+                .more-txt{
+                    margin-right: pxToRem(10px);
+                    vertical-align: middle;
+                    font-size: pxToRem(22px);
+                    color: #06c6dd;
+                }
+            }
+        }
+        // .swiper-slide-active{
+        //     img{transform: translateY(0);}
+        // }
+    }
+    // 页面内轮播图
+    .page-inner-swiper-container{
+        position: relative;
+        width: pxToRem(698px);
+        margin: 0 auto pxToRem(86px);
+        overflow: hidden;
+        height: pxToRem(554px);
+        .swiper-container{
+            // width: pxToRem(338px);
+            // height: pxToRem(427px);
+            width: pxToRem(374px);
+            height: pxToRem(473px);
+            overflow: visible;
+            .swiper-slide{
+                // height: pxToRem(473px);
+                padding-bottom: 0;
+                opacity: 0.4;
+                transform: scale(0.9);
+                transition: opacity 0.5s, transform 0.5s;
+                // transform-origin: center left;
+                img{
+                    width: 100%;
+                }
+            }
+            .swiper-slide-active{
+                opacity: 1;
+                transform: scale(1);
+                // transform-origin: top center;
+            }
+        }
+        .swiper-pagination{
+            position: absolute;
+            bottom: pxToRem(5px);
+            display: block;
+            width: 100%;
+            .swiper-pagination-bullet{
+                width: pxToRem(14px);
+                height: pxToRem(14px);
+                margin-right: pxToRem(16px);
+                background: rgba(0,0,0,0);
+                border: 1px solid #a2e8f0;
+                &:last-child{
+                    margin-right: 0;
+                }
+                &.swiper-pagination-bullet-active{
+                    background: $default-color;
+                    border: 0;
+                }
+            }
+        }
+    }
+    // 页面4点击切换
+    .page4-switch-con{
+        position: relative;
+        width: pxToRem(750px);
+        margin: auto;
+        .page4-switch-bg{
+            width: 100% !important;
+        }
+        .page4-switch-txt{
+            width: pxToRem(469px) !important;
+            margin-top: pxToRem(-80px);
+        }
+        .page4-switch-icon{
+            position: absolute;
+            width: pxToRem(121px);
+            height: pxToRem(147px);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            z-index: 1;
+            &:nth-child(1){
+                top: pxToRem(496px);
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: pxToRem(72px);
+                overflow: hidden;
+            }
+            &:nth-child(2){
+                top: pxToRem(214px);
+                left: pxToRem(30px);
+            }
+            &:nth-child(3){
+                top: pxToRem(214px);
+                right: pxToRem(30px);
+            }
+            &.icon1{
+                background-image: url(../images/page4-switch-icon1.png);
+            }
+            &.icon2{
+                background-image: url(../images/page4-switch-icon2.png);
+            }
+            &.icon3{
+                background-image: url(../images/page4-switch-icon3.png);
+            }
+        }
+    }
+    .icon-page-arrow{
+        position: absolute;
+        bottom: pxToRem(30px);
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    // 马上预约按钮
+    .order-btn{
+        width: pxToRem(670px);
+        height: pxToRem(78px);
+        margin: auto;
+        background: linear-gradient( 0deg, rgb(0,136,244) 0%, rgb(1,180,223) 100%);
+        border-radius: pxToRem(4px);
+        line-height: pxToRem(78px);
+        color: $default-color;
+        font-size: pxToRem(36px);
+        font-weight: bold;
+        box-shadow: 0px pxToRem(4px) 0px rgba(0, 115, 200, 1), 0px 0px 0px rgba(0, 0, 0,0);
+    }
+    // 说明文字
+    .info-desc{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #304153;
+        padding-bottom: pxToRem(16px);
+        i{
+            width: pxToRem(40px);
+            height: pxToRem(40px);
+            background: url(../images/arrow-up.png) no-repeat center;
+            background-size: pxToRem(16px);
+            transform: rotate(0deg) ;
+            transition: transform 0.5s;
+            &.down{
+                transform: rotate(180deg) ;
+            }
+        }
+        p{  
+            margin-top: pxToRem(5px);
+            padding: 0 pxToRem(70px);
+            line-height: pxToRem(30px);
+            text-align: left;
+            font-size: pxToRem(18px);
+            color: #617993;
+            overflow : hidden;
+            text-overflow: clip;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+// 底部按钮
+.bottom-nav{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient( 0deg, rgb(0,136,244) 0%, rgb(0,158,235) 62%, rgb(0,180,225) 100%);
+    .bottom-nav-item{
+        width: 33.33%;
+        height: pxToRem(88px);
+        border-right: 1px solid rgba(255,255,255,0.5);
+        text-align: center;
+        color: $default-color;
+        &:last-child{
+            border-right: 0;
+        }
+        i{
+            width: pxToRem(30px);
+            height: pxToRem(30px);
+            margin-right: pxToRem(12px);
+            background-size: contain;
+            vertical-align: middle;
+        }
+        span{
+            line-height: pxToRem(88px);
+            font-size: pxToRem(24px);
+            vertical-align: middle;
+        }
+    }
+}
+
+.icon-more-arrow{
+    @include background('../images/more-arrow.png', 20px, 10px);
+    display: inline-block;
+    vertical-align: middle;
+}
+.icon-online{
+    background: url(../images/online.png);
+}
+.icon-hotline{
+    background: url(../images/hotline.png);
+    
+}
+.icon-order{
+    background: url(../images/order.png);
+    
+}
+.icon-page-arrow{
+    @include background('../images/page-arrow.png', 48px, 44px);
+}
+.icon-order-success{
+    @include background('../images/order-success.png', 120px, 120px);
+    margin: 0 auto pxToRem(24px);
+
+}

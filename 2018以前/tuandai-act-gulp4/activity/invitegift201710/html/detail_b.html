@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Register20170830_18yi</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index_b.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="pageContainer">
+			<div class="banner">
+				<div class="hb2888 animated tada"></div>
+				<div class="hb518 animated tada"></div>
+				<div class="inputBox">
+					<div class="inp">
+						<div class="inp-icon icon-phone"><i></i></div>
+						<input type="text" placeholder="输入手机号领红包" maxlength="11" id="telInput" />
+						<div class="error">请输入正确的手机号</div>
+					</div>
+
+				</div>
+
+				<a href="success.html" class="inp-btn">立即领取</a>
+			</div>
+			<section class="sec sec1">
+				<div class="dz1"></div>
+				<div class="tit">为什么我选择团贷网</div>
+				<div class="sec-con">
+					<div class="table">
+						<img src="../images/b/table.png" />
+					</div>
+					<div class="reason">
+						<div class="item">
+							<div class="icon-r icon-r1"></div>
+							<p class="r-p1">累计交易总额</p>
+							<p class="r-p2"><span>1042亿元</span></p>
+						</div>
+						<div class="item">
+							<div class="icon-r icon-r2"></div>
+							<p class="r-p1">注册用户</p>
+							<p class="r-p2"><span>638万人</span></p>
+						</div>
+						<div class="item">
+							<div class="icon-r icon-r3"></div>
+							<p class="r-p1">第三方担保专款</p>
+							<p class="r-p2"><span>12318万+</span></p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="item">
+							<div class="icon-r icon-r4"></div>
+							<p class="r-p1">银行级别风控</p>
+							<p class="r-p2">用户资金至今<span>0损失</span></p>
+						</div>
+						<div class="item">
+							<div class="icon-r icon-r5"></div>
+							<p class="r-p1">资金实力雄厚</p>
+							<p class="r-p2">注册资本<span>10亿</span></p>
+						</div>
+						<div class="item">
+							<div class="icon-r icon-r6"></div>
+							<p class="r-p1">国家公安部信息</p>
+							<p class="r-p2">安全<span>三级认证</span></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="sec sec2">
+				<div class="dz1"></div>
+				<div class="tit">热门理财产品</div>
+				<div class="sec-con">
+					<div class="swiper-container" id="investSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="slide-tit">新手专享标</div>
+								<p class="s-p">到期本息 新手专享高收益</p>
+								<div class="s-con">
+									<div class="s-line"></div>
+									<div class="s-con-txt">
+										<p class="s-txt1">11<span>%</span></p>
+										<p class="s-txt2">预期年化利率</p>
+									</div>
+									<div class="s-con-txt">
+										<p class="s-txt1 s-txt3">1<span>个月</span></p>
+										<p class="s-txt2">100元起投</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="slide-tit">We计划 6</div>
+								<p class="s-p">每月付息 转让灵活，多期限可选</p>
+								<div class="s-con">
+									<div class="s-line"></div>
+									<div class="s-con-txt">
+										<p class="s-txt1">9.5<span>%</span></p>
+										<p class="s-txt2">预期年化利率</p>
+									</div>
+									<div class="s-con-txt">
+										<p class="s-txt1 s-txt3">6<span>个月</span></p>
+										<p class="s-txt2">200元起投</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="slide-tit">复投宝 36</div>
+								<p class="s-p">到期本息 转让灵活，收益月增</p>
+								<div class="s-con">
+									<div class="s-line"></div>
+									<div class="s-con-txt">
+										<p class="s-txt1">12.6<span>%</span></p>
+										<p class="s-txt2">预期年化利率</p>
+									</div>
+									<div class="s-con-txt">
+										<p class="s-txt1 s-txt3">36<span>个月</span></p>
+										<p class="s-txt2">100元起投</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="slide-left"></div>
+						<div class="slide-right"></div>
+						<div class="slide-nav"></div>
+					</div>
+
+				</div>
+			</section>
+
+			<section class="sec sec3">
+				<div class="dz1"></div>
+				<div class="tit">送上新手礼，福利团团赚</div>
+				<div class="sec-con3">
+					<div class="gift-box">
+						<div class="gift gift1">
+							<p><span>2888元</span>体验金</p>
+						</div>
+						<div class="gift gift2">
+							<p><span>518元</span>新手红包</p>
+						</div>
+					</div>
+					<div class="gift-box">
+						<div class="gift gift3">
+							<p><span>12%</span>新手专享高息标</p>
+						</div>
+						<div class="gift gift4">
+							<p><span>VIP超级会员</span>身份</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="hb"></div>
+
+			<div class="footer">
+				<a href="javascript:void(0);" class="f-logo"></a>
+				<div id="f-btn" class="f-btn">立即注册</a>
+				</div>
+
+				<!-- build:js ../js/lib/fastclick-jquery.js -->
+				<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+				<!-- endbuild -->
+				<!-- build:js ../js/lib/swiper-3.4.2.js -->
+				<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+				<!-- endbuild -->
+				<!--<script src="../js/reg.js" type="text/javascript" charset="utf-8"></script>-->
+				<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+				<script>
+					var _mtac = {
+						"performanceMonitor": 1,
+						"senseQuery": 1
+					};
+					(function() {
+						var mta = document.createElement("script");
+						mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+						mta.setAttribute("name", "MTAH5");
+						mta.setAttribute("sid", "500529333");
+						mta.setAttribute("cid", "500529335");
+						var s = document.getElementsByTagName("script")[0];
+						s.parentNode.insertBefore(mta, s);
+					})();
+				</script>
+
+				<script type="text/javascript">
+					var investSwiper = new Swiper("#investSwiper", {
+						autoplay: 5000,
+						autoplayDisableOnInteraction: false,
+						loop: true,
+						pagination: '.slide-nav',
+						prevButton: '.slide-left',
+						nextButton: '.slide-right'
+					})
+
+					$("#investSwiper").find('.swiper-slide').each(function(i, item) {
+						$(item).click(function() {
+							var index = investSwiper.realIndex;
+							switch(index) {
+								case 0:
+									//新手专享标
+									//nwbi_api.nwbi_logWebEvent('填入用户名','填入点击时间','活动ID','点击区域','新手专享标',1,'','','TDW_WX');
+									location.href = 'https://m.tuandai.com/pages/invest/We/WeFtb_detail.aspx?id=9ed6628a-9c10-412f-9890-44e7cb5a9000&typeId=16&IsPreSell=0';
+									break;
+								case 1:
+									//We计划6
+									//nwbi_api.nwbi_logWebEvent('填入用户名','填入点击时间','活动ID','点击区域','We计划6',1,'','','TDW_WX');
+									location.href = 'https://m.tuandai.com/pages/invest/WE/WE_detail.aspx?id=99006dc4-f2a7-4157-8a69-e3c10373a0e8&typeId=2&IsPreSell=0';
+									break;
+								case 2:
+									//复投宝36
+									//nwbi_api.nwbi_logWebEvent('填入用户名','填入点击时间','活动ID','点击区域','复投宝36',1,'','','TDW_WX')''
+									location.href = 'https://m.tuandai.com/pages/invest/WE/WeFtb_detail.aspx?id=1e5421ce-1a9b-4df7-bcea-a11e14b8c590&typeId=18&IsPreSell=0';
+									break;
+								default:
+									break;
+							}
+						})
+					})
+
+					//立即注册
+					$("#f-btn").click(function() {
+						//nwbi_api.nwbi_logWebEvent('填入用户名','填入点击时间','活动ID','点击按钮','立即注册',1,'','','TDW_WX');
+						location.href = '';
+					})
+				</script>
+
+	</body>
+
+</html>

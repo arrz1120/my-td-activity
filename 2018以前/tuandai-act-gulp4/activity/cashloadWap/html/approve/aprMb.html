@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>手机运营商</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css  ../../css/approve/index.css -->
+    <link rel="stylesheet" href="../../css/approve/index.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+    <script>
+    // 用户的认证状态 0 -- 不支持虚拟运营商 1--支持虚拟运营商 2 -- 认证中 3 --已认证
+    var approveStatus = '1';
+    // codeType: 首页验证码类型 '0' -- 没有验证码 ‘1' —— 短信验证码， '2' —— 图形验证码， '3' —— 短信验证码 + 图形验证码
+    var codeType = '3';
+    // 认证结果 0 -- 认证失败 1 -- 认证成功
+    var approveResult = '1';
+    // 图形验证码 url
+    var codePicUrl  = '../../images/code-pic.png';
+    </script>
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>手机运营商</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content am-content no-footer">
+            <div class="bg-approve hidden">
+                <p><span>您的手机号：</span>157 9238 9503</p>
+                <p><span>所属运营商：</span>阿里</p>
+            </div>
+            <!-- ******* 不支持虚拟运营商  ******* -->
+            <section class="step no-suport hidden">
+                <div class="info">
+                    <i class="icon-inline icon-fail"></i> 暂时不支持阿里、京东、苏宁等虚拟运营商
+                </div>
+                <a class="btn btn-full" id="btn_step0">确定</a>
+            </section>
+            <!-- **************************** 支持虚拟运营商  ****************************-->
+            <!-- **************************** 验证手机运营商第一步 登录运营商  ****************************-->
+            <section class="step step0 hidden">
+                <form class="form">
+                    <div class="input-wrapper">
+                        <span>服务密码</span>
+                        <input type="password" name="" value="" placeholder="请输入运营商服务密码" id="spsw" class="input-spsw">
+                    </div>
+                    <!-- 以下根据请款显示一种验证码 -->
+                    <!-- 短信验证啊吗 -->
+                    <div class="input-wrapper with-code">
+                        <span>验证码</span>
+                        <input type="text" name="" value="" placeholder="请输入短信验证码" id="code_sms" class="input-sms"><a class="code-sms" data-type="0">获取验证码</a>
+                    </div>
+                    <!-- 图形验证码 -->
+                    <div class="input-wrapper with-code">
+                        <span>验证码</span>
+                        <input type="text" name="" value="" placeholder="请输入验证码" id="code_pic" class="input-pic"><a class="code-pic" id="get_code_pic"><img src="../../images/code-pic.png" alt=""></a>
+                    </div>
+                </form>
+                <a class="btn btn-full" id="btn_step0_next">下一步</a>
+                <a href="#" class="link">忘记服务密码</a>
+            </section>
+            <!-- **************************** 验证手机运营商第二步 再次输入验证码  **************************** -->
+            <section class="step step1 hidden">
+                <p class="tip">
+                    提交成功，输入验证码后开始认证
+                </p>
+                <form class="form">
+                </form>
+                <a class="btn btn-full" id="btn_step1_approve">开始认证</a>
+            </section>
+            <!-- **************************** 验证手机运营商第三步 验证结果页面  **************************** -->
+            <section class="step step2 hidden">
+                <div class="apr-result">
+                    <div class="result-info">
+                        <!-- 认证成功  -->
+                        <!-- <i class="icon-inline-block icon-success"></i> 您已完成手机运营商认证！ -->
+                        <!-- 认证失败 -->
+                        <!-- <i class="icon-inline-block icon-fail"></i> 认证失败，请重试！ -->
+                    </div>
+                    <p>
+                       您的手机号： <span>157 9238 9503</span>
+                    </p>
+                    <p>
+                        所属运营商：<span>中国移动</span>
+                    </p>
+                </div>
+                <div class="btns">
+                </div>
+                <!-- 认证成功 -->
+                <!-- <div class="btn btn-full" id="btn_apr_ok">确定</div> -->
+                <!-- 如果认证成功才出现 重新认证 -->
+                <!-- <a href="#" class="link-yellow btn-restart">重新认证</a> -->
+                <!-- 认证失败 -->
+                <!-- <div class="btn btn-full btn-restart">马上重试</div> -->
+            </section>
+        </div>
+    </div>
+    <!-- **************************** 认证中状态  **************************** -->
+    <!-- 如果是在认证中的状态，去掉样式hidden -->
+    <!-- <div class="popup popup-loading hidden">
+        <section class="wrapper-approving">
+            <div class="wrapper-loading">
+                <i class="icon-inline icon-loading"></i><span>正在认证中</span>
+            </div>
+            <p>认证可能需要1～2分钟时间，请耐心等候</p>
+        </section>
+    </div> -->
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/approve/aprMb.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

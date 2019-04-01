@@ -1,0 +1,480 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%; // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.content {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    z-index: 9;
+    background-color: #fcc804;
+    padding-bottom: pxToRem(150px);
+    .logo-wrapper {
+        position: relative;
+        z-index: 999;
+        background-color: #fff;
+        width: 100%;
+        height: pxToRem(88px);
+        .logo {
+            position: absolute;
+            left: pxToRem(30px);
+            top: 50%;
+            transform: translateY(-50%);
+            @include background("../images/icon_logo.png", 409px, 54px);
+        }
+    }
+    .banner {
+        position: relative;
+        z-index: 9;
+        @include background("../images/icon_banner01.png", 750px, 578px);
+        background-size: cover;
+        margin: auto;
+    }
+    @at-root .registe-wrapper {
+        position: relative;
+        z-index: 99;
+        width: pxToRem(650px);
+        margin: auto;
+        margin-top: pxToRem(-140px);
+        .hidden {
+            display: none;
+        }
+        .input-area {
+            position: relative;
+            width: 100%;
+            height: pxToRem(80px);
+            margin-bottom: pxToRem(48px);
+            .icon {
+                position: absolute;
+                top: 50%;
+                left: pxToRem(40px);
+                transform: translateY(-50%);
+                width: pxToRem(32px);
+                height: pxToRem(42px);
+                background-size: contain;
+                background-position: 100% 50%;
+                background-repeat: no-repeat;
+                z-index: 99;
+                &.icon-phone {
+                    background-image: url("../images/icon_phone.png");
+                }
+                &.icon-pwd {
+                    background-image: url("../images/icon_pwd.png");
+                }
+                &.icon-imgcode {
+                    background-image: url("../images/icon_imgcode.png");
+                }
+                &.icon-msgcode {
+                    background-image: url("../images/icon_msgcode.png");
+                }
+            }
+            input {
+                width: 100%;
+                height: pxToRem(80px);
+                padding: pxToRem(20px) 0;
+                line-height: pxToRem(30px);
+                border-radius: pxToRem(40px);
+                border: none;
+                outline: none;
+                font-size: pxToRem(30px);
+                color: #333;
+                padding-left: pxToRem(88px);
+            }
+            input::-webkit-input-placeholder {
+                color: #c4c4c4
+            }
+            .tips-error {
+                line-height: pxToRem(48px);
+                font-size: pxToRem(24px);
+                color: #c67102;
+                position: relative;
+                padding-left: pxToRem(34px);
+                display: none;
+                &:before {
+                    content: "";
+                    @include background("../images/icon_info01.png",
+                    28px,
+                    28px);
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+            }
+            .img-code-img {
+                position: absolute;
+                right: pxToRem(50px);
+                top: 50%;
+                transform: translateY(-50%);
+                width: pxToRem(144px);
+                height: pxToRem(50px);
+                border: none;
+                z-index: 99;
+            }
+            .get-msg-code {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: pxToRem(208px);
+                height: pxToRem(80px);
+                line-height: pxToRem(80px);
+                background-color: #6e90f9;
+                font-size: pxToRem(30px);
+                text-align: center;
+                color: #fff;
+                border-top-right-radius: pxToRem(40px);
+                border-bottom-right-radius: pxToRem(40px);
+                border: none;
+                z-index: 99;
+            }
+        }
+        .agreement {
+            font-size: 0;
+            margin-top: pxToRem(12px);
+            margin-bottom: pxToRem(30px);
+            .icon-checkbox {
+                width: pxToRem(40px);
+                height: pxToRem(40px);
+                border: 1px solid #dcdcdc;
+                background-color: #fff;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                &.checked {
+                    .icon-tick {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        @include inline-background("../images/icon_tick_g.png",
+                        18px,
+                        15px);
+                    }
+                }
+            }
+            .agreement-label {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: pxToRem(30px);
+                color: #fff;
+                margin-left: pxToRem(12px);
+            }
+            a {
+                color: #c67102;
+            }
+        }
+        .btn-registe {
+            position: relative;
+            font-size: pxToRem(50px);
+            width: 100%;
+            height: pxToRem(100px);
+            line-height: pxToRem(100px);
+            color: #fff;
+            background-color: #ff5139;
+            text-align: center;
+            box-shadow: 0px pxToRem(10px) 0px 0px rgb(224, 26, 7);
+            border-radius: pxToRem(50px);
+            margin-bottom: pxToRem(20px);
+        }
+        @at-root .tip {
+            position: relative;
+            font-size: pxToRem(24px);
+            color: #c67102;
+            text-align: center;
+        }
+    }
+    @at-root .md {
+        position: relative;
+        width: pxToRem(690px);
+        margin: auto;
+        background-color: #fff;
+        border-radius: pxToRem(20px);
+        .red {
+            color: #ff5139;
+        }
+        .md-title {
+            position: relative;
+            margin: auto;
+            top: pxToRem(-13px);
+            z-index: 99;
+            @include background("../images/icon_md_title.png",
+            612px,
+            77px);
+            text-align: center;
+            margin-bottom: pxToRem(15px);
+            label {
+                font-size: pxToRem(40px);
+                text-shadow: 0px pxToRem(4px) 0px rgb(48, 83, 190);
+                font-weight: bold;
+                font-family: "MicrosoftYaHei";
+                color: #fff;
+                line-height: pxToRem(77px);
+                &.yellow {
+                    color: #fde602;
+                    margin-right: pxToRem(28px);
+                }
+            }
+        }
+        .md-content {
+            position: relative;
+            overflow: hidden;
+        }
+        @at-root &.md1 {
+            padding: 0 pxToRem(20px);
+            padding-bottom: pxToRem(32px);
+            margin-top: pxToRem(42px);
+            margin-bottom: pxToRem(82px);
+            .item {
+                position: relative;
+                width: pxToRem(159px);
+                text-align: center;
+                .icon {
+                    display: block;
+                    width: pxToRem(159px);
+                    height: pxToRem(168px);
+                    background-size: contain;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    margin-bottom: pxToRem(12px);
+                }
+                div {
+                    font-size: pxToRem(26px);
+                    color: #666462;
+                }
+                &.item01 {
+                    float: left;
+                    .icon {
+                        background-image: url("../images/icon_ct_step01.png");
+                    }
+                }
+                &.item02 {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    .icon {
+                        background-image: url("../images/icon_ct_step02.png");
+                    }
+                }
+                &.item03 {
+                    float: right;
+                    .icon {
+                        background-image: url("../images/icon_ct_step03.png");
+                    }
+                }
+            }
+            .icon-arrow {
+                @include background("../images/icon_arrow01.png",
+                30px,
+                24px);
+                position: absolute;
+                top: pxToRem(74px);
+                &.left {
+                    left: pxToRem(186px);
+                }
+                &.right {
+                    right: pxToRem(186px);
+                }
+            }
+        }
+        @at-root &.md2 {
+            padding: 0 pxToRem(28px); // padding-left: pxToRem(28px);
+            padding-bottom: pxToRem(10px);
+            margin-bottom: pxToRem(82px);
+            .md-title {
+                margin-bottom: pxToRem(25px);
+            }
+            .item {
+                position: relative;
+                margin-bottom: pxToRem(30px);
+                width: 100%;
+                padding: pxToRem(12px) 0 pxToRem(20px) pxToRem(16px);
+                background-color: #e7f3ff;
+                border-radius: pxToRem(10px);
+                font-size: 0;
+                white-space: nowrap;
+                .left {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: pxToRem(330px);
+                }
+                .icon {
+                    width: pxToRem(274px);
+                    height: pxToRem(151px);
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                }
+                .label01 {
+                    font-size: 0;
+                    margin-bottom: pxToRem(12px);
+                    span {
+                        color: #557fff;
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: pxToRem(32px);
+                        font-weight: bold;
+                    }
+                    .num {
+                        @include inline-background("../images/icon_ct_numbg.png",
+                        47px,
+                        48px);
+                        font-size: pxToRem(32px);
+                        line-height: pxToRem(48px);
+                        color: #fff;
+                        margin-right: pxToRem(12px);
+                        text-align: center;
+                    }
+                }
+                .label02 {
+                    font-size: pxToRem(26px);
+                    line-height: pxToRem(36px);
+                    color: #666462;
+                    white-space: normal;
+                    .small {
+                        font-size: pxToRem(18px);
+                    }
+                }
+                &.item01 {
+                    .icon {
+                        background-image: url("../images/icon_ct_coupon01.png")
+                    }
+                }
+                &.item02 {
+                    .icon {
+                        background-image: url("../images/icon_ct_coupon01.png")
+                    }
+                }
+                &.item03 {
+                    .icon {
+                        background-image: url("../images/icon_ct_coupon02.png")
+                    }
+                }
+                &.item04 {
+                    .icon {
+                        background-image: url("../images/icon_ct_coupon03.png")
+                    }
+                }
+            }
+        }
+        @at-root &.md3 {
+            margin-bottom: pxToRem(28px);
+            .md-title {
+                margin-bottom: pxToRem(18px);
+            }
+            .md-content {
+                font-size: 0;
+            }
+            .item {
+                width: 50%;
+                display: inline-block;
+                vertical-align: middle;
+                .icon {
+                    width: pxToRem(260px);
+                    height: pxToRem(272px);
+                    position: relative;
+                    display: block;
+                    margin: auto;
+                    background-size: contain;
+                    background-position: 50% 100%;
+                    background-repeat: no-repeat;
+                    margin-bottom: pxToRem(26px);
+                }
+                .label01 {
+                    font-size: pxToRem(32px);
+                    font-weight: bold;
+                    color: #557fff;
+                    text-align: center;
+                    margin-bottom: pxToRem(14px);
+                }
+                .label02 {
+                    font-size: pxToRem(26px);
+                    line-height: pxToRem(36px);
+                    margin-bottom: pxToRem(40px);
+                    color: #666462;
+                    text-align: center;
+                }
+                &.item01 {
+                    .icon {
+                        background-image: url("../images/icon_ct_ad01.png")
+                    }
+                }
+                &.item02 {
+                    .icon {
+                        background-image: url("../images/icon_ct_ad02.png")
+                    }
+                }
+                &.item03 {
+                    .icon {
+                        background-image: url("../images/icon_ct_ad03.png")
+                    }
+                }
+                &.item04 {
+                    .icon {
+                        background-image: url("../images/icon_ct_ad04.png")
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        font-size: pxToRem(22px);
+        line-height: pxToRem(32px);
+        color: #7a7a7a;
+        background-color: #d5d5d5;
+        text-align: center;
+        padding: pxToRem(38px) 0;
+        margin-top: pxToRem(32px);
+    }
+}
+
+.sticky-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    display: none;
+    width: 100%;
+    height: pxToRem(150px);
+    background-color: #6e90f9;
+    .btn-scroll {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: pxToRem(50px);
+        width: pxToRem(650px);
+        height: pxToRem(100px);
+        line-height: pxToRem(100px);
+        color: #fff;
+        background-color: #ff5139;
+        text-align: center;
+        box-shadow: 0px pxToRem(10px) 0px 0px rgb(224, 26, 7);
+        border-radius: pxToRem(50px);
+    }
+}

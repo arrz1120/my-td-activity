@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>小派带你摸金寻宝</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+    <section class="music_btn" id="music_btn">
+        <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+	
+	<div class="page_2">
+		<img src="../images/bg_3.png" class="body_bg body_bg_3">
+		<!-- 放大门 -->
+		<img src="../images/door.png" class="body_bg body_bg_4">
+
+		<!-- 人物说话 -->
+		<div class="talk">
+			<img src="../images/tx.png" class="tx">
+			<div class="txt_box">
+				<div class="txt"></div>
+				<div class="txt_val">
+						“项羽自乌江自刎后，张良为免霸王怨灵转世，修建起霸王冢，再以奇门遁甲之术囚禁霸王魂魄，并永锁墓门。相传，只有得到上古的明月石方可开启墓门。我看少侠骨骼惊奇，眉宇之间透着一股霸王之气。特赠予明月石，助你寻得珍宝。”
+				</div>
+				<div class="skip"></div>
+			</div>
+		</div>
+
+		<!-- 明月石 -->
+		<div class="mys hand">
+				<img src="../images/mys.png" alt="" class="mys_img">
+				<p class="tips">点击领取明月石<br>开启霸王冢</p>
+		</div>
+
+
+		<!-- 开门 -->
+
+		<div class="open_door">
+				<img src="../images/bx_bg.png" class="body_bg">
+				<img src="../images/door_l.png" class="body_bg door_l">
+				<img src="../images/door_r.png" class="body_bg door_r">
+		</div>
+
+
+		<img src="../images/logo.png" alt="" class="logo">	
+	</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/typewriting.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="../js/music.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="../js/page_2.js" type="text/javascript" charset="utf-8"></script>
+</html>

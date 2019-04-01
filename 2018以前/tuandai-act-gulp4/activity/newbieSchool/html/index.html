@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>newbieSchool</title>
+	
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/index.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<!-- endbuild -->
+
+
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+
+
+
+</head>
+<body>
+
+
+<header>
+	<div class="prizes">
+		<div class="banner_1"></div>
+		<div class="banner_2"></div>
+		<a href="#" class="btn_lottery btn_big">答题抽奖</a>
+		<a href="#" class="look_for" id="look_for"></a>
+	</div>
+
+	<a href="#" class="btn_rule" id="btn_rule"></a>
+</header>
+
+
+<section class="md1 md">
+	<img src="../images/index/tit_1.png" alt="" class="tit">
+
+	<div class="swiper-container" id="swiper-course">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+				<a class="book" href="#" data-num='01'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='02'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>				
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='03'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='04'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='05'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='06'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='07'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='08'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='09'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='10'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='11'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='12'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='13'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='14'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+            <div class="swiper-slide">
+            	<a class="book" href="#" data-num='15'>
+					<p class="name">《新手福利大公开》</p>
+				</a>
+				<a class="book" href="#" data-num='16'>
+					<p class="name">《关于团贷网你不得不知道的一些事儿》</p>
+				</a>	
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next" id="swiper-course-next"></div>
+        <div class="swiper-button-prev"  id="swiper-course-prev"></div>
+    </div>
+</section>
+
+
+<section class="md2 md">
+	<img src="../images/index/tit_2.png" alt="" class="tit">
+
+	<div class="ways_list">	
+		<a href="#" class="ways" id="bet_on">
+			<img src="../images/index/icon_1.png" alt="" class="icon">
+			<img src="../images/index/yuan.png" alt="" class="yuan">
+		</a>
+		<a href="#" class="ways">
+			<img src="../images/index/icon_2.png" alt="" class="icon">
+		</a>
+		<a href="#" class="ways">
+			<img src="../images/index/icon_3.png" alt="" class="icon">
+		</a>
+		<a href="#" class="ways">
+			<img src="../images/index/icon_4.png" alt="" class="icon">
+		</a>
+	</div>
+</section>
+
+
+<section class="md3 md">
+	<img src="../images/index/tit_3.png" alt="" class="tit">
+	
+	<div class="tab" id="tab">
+			<a href="" class="nav nav_1" data-num='1'></a>
+			<a href="" class="nav nav_2"  data-num='2'></a>			
+
+		<div class="con_1 con">
+			<div class="swiper-container" id="swiper-rank">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            		<div class="prize_msg gold">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg silver">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg copper">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			        </div>
+		    </div>
+
+		    <div class="user_msg">
+				<img src="../images/index/tx.png" alt="" class="tx">
+				<div class="msg">
+					<h5>学分：<span>132</span></h5>
+					<p class="txt">您暂未上榜</p>
+				</div>		
+				<a href="#" class="btn_strategy btn_small" id="btn_strategy">提分攻略</a>    	
+		    </div>
+
+		</div>
+
+
+
+		<div class="con_2 con con_visible">
+			<div class="swiper-container" id="swiper-rank-1">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            		<div class="prize_msg gold">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg silver">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg copper">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg ">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            		<div class="prize_msg">
+			            			<p class="num">001</p>
+			            			<p class="phone">1582363****</p>
+			            			<p class="score">3220学分</p>
+			            			<p class="prize_val">500元现金<br>+扫地机器人</p>
+			            		</div>
+			            </div>
+			        </div>
+		    </div>
+
+		    <div class="user_msg">
+				<img src="../images/index/tx.png" alt="" class="tx">
+				<div class="msg">
+					<h5>投资：<span>132</span></h5>
+					<p class="txt">您的排名：55名</p>
+				</div>		
+				<a href="#" class="btn_invite btn_small">前往投资</a>    	
+		    </div>
+		</div>
+
+	</div>
+</section>
+
+
+<section class="md md4">
+    <!-- Swiper -->
+    <div class="swiper-container" id="swiper-prize">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/2.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/3.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/4.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/5.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/6.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/7.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/8.png" alt="">
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/index/prize/9.png" alt="">
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next" id="swiper-prize-next"></div>
+        <div class="swiper-button-prev" id="swiper-prize-prev"></div>
+    </div>
+</section>
+
+<footer>
+	<div class="bg"></div>
+
+	<!-- 我要报名 -->
+	<a href="" class="btn_big btn_sign_up">我要报名</a>
+
+	<!-- 我的学生卡 -->
+	<!-- <a href="" class="btn_big btn_blue card">我的学生卡</a> -->
+</footer>
+
+
+
+
+
+<!-- 弹窗 -->
+
+
+<!-- 规则弹窗 style="display:none"-->
+
+<div class="alert"  id="rule" style="display:none">
+	<div class="mask" id="tab_mask"></div>
+	<div class="tab_con" id="tab_con">
+		<ul class="tab_nav">
+			<li class="active">参与方法</li>
+			<li>提分攻略</li>
+			<li>奖品须知</li>
+		</ul>
+		<div class="rule_msg">
+			<div class="hd">	</div>
+			<div class="rule_box rule_0" id="rule_0" >
+				<ul>
+					<li>
+						<span class='num'>1</span>
+						<h2>活动时间：2017年9月1日-9月30日</h2>
+					</li>
+					<li>
+						<span class='num'>2</span>
+						<h2>加入活动条件：</h2>
+						<p>1. 自注册至今仍未有过投资记录的用户</p> 
+						<p>满足以上其中一条即可</p>
+					</li>
+					<li>
+						<span class='num'>3</span>
+						<h2>活动期间，每日在首页点击“答题抽奖”，答对所有题目，可获得1次抽奖机会，并奖励相应学分：</h2>
+						<p>1. 每日答对题目可获10学分</p>
+						<p>2. 连续2天答对题目可获15学分</p>
+						<p>3. 连续3天及以上答对题目可获20学分</p>
+					</li>
+					<li>
+						<span class='num'>4</span>
+						<h2>活动期间，根据用户获得的学分进行“新手学分榜”排名；根据加入活动期间内用户投资金额进行“新手投资榜”排名。活动结束时，进入任意1个榜单前100名的用户可获得相应奖励。（榜单每日凌晨4点更新，最终排名以10月1日中午12点为准；投资金额不包括债权转让及自动投标的金额；同1用户可同时进入2个榜单）</h2>
+					</li>
+				</ul>
+
+			</div>
+			<div class="rule_box rule_1" id="rule_1">
+
+				<ul>
+					<li class="tit_1">
+				    <h1>其他提高学分的方式：</h1>
+						
+					</li>
+					<li>
+
+						<span class="num">1</span>
+						<h2>学分押注：</h2>
+						<p>每天可进行一次学分押注，押注学分将暂时扣除，第二天需点击首页学分押注按钮领取双倍的押注学分，若第二天没有领取，被扣除的学分将不予返还</p>
+					</li>
+					<li>
+						<span class="num">2</span>
+						<h2>分享活动：</h2>
+						<p>每分享一次活动链接可获5学分，每天奖励上限为20分（分享后需点击返回团贷网APP才可获得奖励）</p>
+					</li>
+					<li>
+						<span class="num">3</span>
+						<h2>邀请好友：</h2>
+						<p>1.加入活动期间，每邀请1位好友成功注册可获50学分，奖励上限为250分</p>
+						<p>2.活动期间所邀请好友累计投资达一定金额，可获得学分奖励：</p>
+						<img src="../images/index/rule.jpg" class="rule_img" alt="">
+						<p>（注：同一位好友带来的投资奖励不叠加。如有1位好友首次投资5000元，奖励100学分；若该好友再次投资5000元，累计达10000元后，再奖励100学分，总计200分，以此类推。）</p>
+					</li>
+					<li>
+						<span class="num">4</span>
+						<h2>补答题库：</h2>
+						<p>进入补答题库可回答历史日期题目，每答对1套题目可获得10学分。</p>
+					</li>
+				</ul>
+
+			</div>
+			<div class="rule_box rule_2" id="rule_2">
+				<ul>
+					<li>
+						<span class='num'>1</span>
+						<p>每日抽奖获得的红包、团币、补签卡、超级会员立即发放，优酷/土豆1个月黄金会员、500M流量需登录<span class='mark'>【APP-我-我的会员-会员商城-我的商品】</span>查看；iPhone7、iPad、Kindle需登录<span class='mark'>【APP-我-团宝箱-精美礼品】</span>查看并填写收货地址，领取期限截止到2017年10月30日23:59:59，团贷网将于活动结束后15个工作日内发货。</p>
+					</li>
+					<li>
+						<span class='num'>2</span>
+						<p>排行榜奖品将于活动结束后15个工作日内发货，实物奖品需登录<span class='mark'>【APP-我-团宝箱-精美礼品】</span>查看并填写收货地址；体验金需登录<span class='mark'>【APP-我-团宝箱-体验金】</span>使用，使用后可获得现金红包。</p>
+					</li>
+					<li>
+						<span class='num'>3</span>
+						<p>活动奖品非质量问题，概不支持退换货，不可兑换奖金，不可挑选款式，均不提供发票；在法律许可的合法范畴内，本活动最终解释权归团贷网所有。</p>
+					</li>
+				</ul>				
+			</div>
+		</div>
+
+		<span class="close"></span>
+	</div>
+</div>
+
+
+
+
+
+<!-- 提分攻略 -->
+<div class="alert alert_strategy"  id="alert_strategy" style="display:none">	
+	<div class="mask" id="tab_mask"></div>
+		
+
+		<div class="con">
+			<div class="hd"></div>
+			<div class="rule_box rule_1">
+				<ul>
+					<li class="tit_1">
+				    <h1>其他提高学分的方式：</h1>
+					</li>
+					<li>
+
+						<span class="num">1</span>
+						<h2>学分押注：</h2>
+						<p>每天可进行一次学分押注，押注学分将暂时扣除，第二天需点击首页学分押注按钮领取双倍的押注学分，若第二天没有领取，被扣除的学分将不予返还</p>
+					</li>
+					<li>
+						<span class="num">2</span>
+						<h2>分享活动：</h2>
+						<p>每分享一次活动链接可获5学分，每天奖励上限为20分（分享后需点击返回团贷网APP才可获得奖励）</p>
+					</li>
+					<li>
+						<span class="num">3</span>
+						<h2>邀请好友：</h2>
+						<p>1.加入活动期间，每邀请1位好友成功注册可获50学分，奖励上限为250分</p>
+						<p>2.活动期间所邀请好友累计投资达一定金额，可获得学分奖励：</p>
+						<img src="../images/index/rule.jpg" class="rule_img" alt="">
+						<p>（注：同一位好友带来的投资奖励不叠加。如有1位好友首次投资5000元，奖励100学分；若该好友再次投资5000元，累计达10000元后，再奖励100学分，总计200分，以此类推。）</p>
+					</li>
+					<li>
+						<span class="num">4</span>
+						<h2>补答题库：</h2>
+						<p>进入补答题库可回答历史日期题目，每答对1套题目可获得10学分。</p>
+					</li>
+				</ul>
+			</div>
+
+		<a href="" class="close"></a>
+			
+		</div>
+</div>
+
+
+
+
+<!-- 全部奖品弹窗 -->
+
+<div class="alert  alert_prize"  style="display:none" id="alert_prize">
+	<div class="mask"></div>
+	<div class="con">
+		<div class="hd "></div>
+		<div class="prize">
+			<img src="../images/index/prize_img.png" class="prize_img" alt="">
+			<div class="txt_wraper">
+				<h2>抽奖Tips：</h2>
+				<p>1. 中奖率高达100%；</p>
+				<p>2. 连续答题第5天，抽奖必中5元投资红包；</p>
+				<p>3. 连续答题第10天，抽奖必中10元投资红包；</p>
+				<p>4. 连续答题第15天，抽奖必中15元投资红包；</p>
+				<p>5. 连续答题第20天，抽奖必中20元投资红包；</p>
+			</div>
+			<div class="close">	</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- 提示弹窗 -->
+
+<div class="alert alert_notouchmove alert_tips"   style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<div class="hd hd_old_hand">
+			
+		</div>
+
+		<div class="tips">
+			<h2>请先点击页面底部“我要报名”按钮进行报名：</h2>
+			<div class="txt">
+				<h2>参加条件：</h2>
+				<ul>
+					<li>
+						<span class='num'>1</span>自注册至今仍未有过投资记录的用户；
+					</li>
+					<li>
+						<span class='num'>2</span>2017年XX月X日-XX月XX日期间新注册用户；<br>满足以上任一条件即可
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="close">	</div>
+	</div>
+</div>
+
+
+<!-- 押注学分 -->
+
+
+<div class="alert alert_notouchmove alert_tips alert_score" id="alert_score"  style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<div class="hd">
+			<p class="txt_1">已获得昨日押注的10学分</p>
+		</div>
+
+		<div class="tips">
+			<div class="input_box">
+				<h1>今日押注学分：</h1>
+				<input type="text" class="score_input">
+			</div>
+
+			<p class="txt_1">今日最高可押注150学分</p>
+
+			<p class="txt_2">押注的学分暂时扣除，明日可双倍领回</p>
+		<a href="" class="btn_small">提分攻略</a>
+			
+		</div>
+		<div class="close">	</div>
+
+	</div>
+</div>
+
+
+
+<div class="alert alert_notouchmove  toast" id="toast"  style="display:none">
+	<p>提示文案</p>
+</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+  <script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

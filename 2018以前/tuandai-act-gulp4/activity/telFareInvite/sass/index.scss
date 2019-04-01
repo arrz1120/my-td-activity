@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+// 表单样式
+input{
+    width: 100%;
+    height: pxToRem(77px);
+    line-height: normal;
+    border-radius: pxToRem(16px);
+    margin-bottom: pxToRem(10px);
+    padding: pxToRem(25px);
+    color: $txt-grey-color;
+    font-size: pxToRem(24px);
+    &::-webkit-input-placeholder{
+        color: $txt-grey-color;
+    }
+}
+// 验证码模块
+.verify-code-con{
+    &.hide{
+        display: none;
+    }
+    input[name="verify-code"]{
+        width: 71%;
+    }
+    // 发送验证码
+    .send-msg-btn{
+        width: 27.7%;
+        height: pxToRem(77px);
+        line-height: pxToRem(77px);
+        background-color: #ff8076;
+        border-radius: pxToRem(16px);
+        text-align: center;
+        font-size: pxToRem(24px);
+        color: $default-color;
+        float: right;
+        //重新发送验证码
+        &.retry{
+            background-color: #cfcfcf;
+            color: $txt-grey-color;
+        }
+    }
+}
+// 错误提示
+.input-msg{
+    position: relative;
+    margin-bottom: pxToRem(10px);
+    font-size: pxToRem(20px);
+    color: $default-color;
+    padding-left: pxToRem(42px);
+    &:before{
+        @extend .icon-input-error;
+        content: '';
+        position: absolute;
+        left: pxToRem(6px);
+        top: 0;
+        bottom: 0;
+        margin:auto;    
+    }
+    &.hide{
+        opacity: 0;
+    }
+}
+// 话费开抢
+.start-btn{
+    margin-bottom: pxToRem(30px);
+}
+// 底部提示
+.bottom-tip{
+    text-align: center;
+    font-size: pxToRem(20px);
+    color: $default-color;
+}
+
+// 图标
+.icon-input-error{
+    @include inline-background('../images/input-error.png', 28px, 28px);
+    vertical-align: middle;
+}

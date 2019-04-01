@@ -1,0 +1,40 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    opacity: 0; }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; } }
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    opacity: 0; }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.banner {
+  -webkit-animation: scale .3s  linear both;
+  animation: scale .3s  linear both; }
+
+/*# sourceMappingURL=maps/animation.css.map */

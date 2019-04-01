@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/index.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/alert.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			window.mobileUtils = function(e, t) {
+				var i = navigator.userAgent,
+					n = /android|adr/gi.test(i),
+					a = /iphone|ipod|ipad/gi.test(i) && !n;
+				return {
+					isAndroid: n,
+					isIos: a,
+					isMobile: n || a,
+					isWeixin: /MicroMessenger/gi.test(i),
+					isQQ: /QQ\/\d/gi.test(i),
+					dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+					rem: null,
+					fixScreen: function() {
+						var i = this,
+							n = t.querySelector('meta[name="viewport"]'),
+							r = n ? n.content : "";
+						if(r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+							var o, s = t.documentElement,
+								d = s.dataset.mw || 750,
+								m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+							t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function(e) {
+								return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+							}(1), s.firstElementChild.appendChild(n);
+							var c = function() {
+								var e = s.getBoundingClientRect().width;
+								e = e > d ? d : e;
+								var t = e / 16;
+								i.rem = t, s.style.fontSize = t + "px"
+							};
+							e.addEventListener("resize", function() {
+								clearTimeout(o), o = setTimeout(c, 300)
+							}, !1), e.addEventListener("pageshow", function(e) {
+								e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+							}, !1), c()
+						}
+					}
+				}
+			}(window, document), mobileUtils.fixScreen();
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="index">
+			<div class="ruleBtn">活动规则</div>
+			<div class="index-tit animated fadeInUp"></div>
+			<div class="lottery-box">
+				<div class="fingerBox" style="display: none;">
+					<div class="finger">
+					</div>
+					<div class="round"></div>
+					<div class="fingerBtn">开红包拼手气</div>
+				</div>
+				<div class="train"></div>
+				<div class="lottery">
+					<div class="card-box">
+						<div class="cardRow" id="hbCard">
+							<div class="item item-hb" data-index="0"></div>
+							<div class="item item-hb" data-index="1"></div>
+							<div class="item item-hb" data-index="2"></div>
+						</div>
+						<div class="cardRow">
+							<div class="item item-hb" data-index="3"></div>
+							<div class="item item-hb" data-index="4"></div>
+							<div class="item item-hb" data-index="5"></div>
+						</div>
+						<div class="cardRow">
+							<div class="item item-hb" data-index="6"></div>
+							<div class="item item-hb" data-index="7"></div>
+							<div class="item item-hb" data-index="8"></div>
+						</div>
+					</div>
+					<div class="card-box" id="giftCard">
+						<div class="cardRow">
+							<div class="item item-gift">
+								<img src="../images/1.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/2.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/3.png" />
+							</div>
+						</div>
+						<div class="cardRow">
+							<div class="item item-gift">
+								<img src="../images/4.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/5.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/6.png" />
+							</div>
+						</div>
+						<div class="cardRow">
+							<div class="item item-gift">
+								<img src="../images/7.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/8.png" />
+							</div>
+							<div class="item item-gift">
+								<img src="../images/9.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="comment-list" id="name-list">
+				<div class="comment comment-list-item">
+					<p>135*****281<span>用户&nbsp;获得</span>123元现金春节购票补贴</p>
+				</div>
+				<div class="comment comment-list-item">
+					<p>135*****282<span>用户&nbsp;获得</span>123元现金春节购票补贴</p>
+				</div>
+				<div class="comment comment-list-item">
+					<p>135*****283<span>用户&nbsp;获得</span>123元现金春节购票补贴</p>
+				</div>
+				<div class="comment comment-list-item">
+					<p>135*****284<span>用户&nbsp;获得</span>123元现金春节购票补贴</p>
+				</div>
+			</div>
+
+			<div class="lotteryBtn">开始抽红包</div>
+
+			<div class="userBox" style="display: none;">
+				<div class="ub-l">
+					<img src="../images/headerTemp.png" />
+					<p>15820841006</p>
+				</div>
+
+				<div class="ub-r">
+					<p>查看中奖纪录 </p>
+				</div>
+			</div>
+		</div>
+
+		<!------------------------- 弹窗------------------------->
+
+		<!-- 加载中 -->
+		<div class="alert box-alert" style="display: -none;" id="loading">
+			<!--<div class="loading">抽奖中...</div>-->
+			<div class="loading">系统繁忙，请稍后刷新重试</div>
+		</div>
+
+		<!-- 活动规则 -->
+		<div class="alert box-alert" style="display: none;" id="ruleAlert">
+			<div class="alert-bg"></div>
+			<div class="alert-con rule-con">
+				<div class="alert-tit">活&nbsp;动&nbsp;规&nbsp;则</div>
+				<div class="swiper-container" id="ruleSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<p>1.活动时间为<br /><span>2018年2月8日10：00至24：00；</span></p>
+							<p>2.红包礼品有效期为7天，请您尽快登录团宝箱领取或使用。</p>
+							<p>京东卡可登录【app-我-我的会员-会员商城-我的商品】查看</p>
+							<p>团币可登录【app-我-我的会员-我的团币】查看先关明细。（或点击“我的中奖记录”查看所有奖品）；</p>
+							<p>3.凡以不正当手段（包括不限于作弊、扰乱系统、实施网络攻击等）参与本次活动的用户，团贷网有权终止其参与，取消参与资格；</p>
+							<p>4.活动结束后的3天内为用户申诉期，逾期将不再受理申诉；</p>
+							<p>5.在法律许可的合法范畴内，本活动最终解释权归小派讲金融所有。</p>
+						</div>
+
+					</div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 我的中奖记录 -->
+		<div class="alert box-alert" style="display: none;" id="recordAlert">
+			<div class="alert-bg"></div>
+			<div class="alert-con rule-con">
+				<div class="alert-tit">我&nbsp;的&nbsp;中&nbsp;奖&nbsp;记录</div>
+
+				<!-- 奖品列表 -->
+				<div class="record-list">
+					<div class="record-item">
+						<div class="r-txt">
+							<div class="txt-left">166元现金春节购票补贴</div>
+							<div class="txt-right">2018-2-8 15:56:55</div>
+						</div>
+						<div class="record-link">
+							<a href="javascript:void(0);" class="r-link">前往查看 </a>
+						</div>
+					</div>
+					<div class="record-item">
+						<div class="r-txt">
+							<div class="txt-left">8元投资红包</div>
+							<div class="txt-right">2018-2-8 15:56:55</div>
+						</div>
+						<div class="record-link">
+							<a href="javascript:void(0);" class="r-link">前往查看 </a>
+						</div>
+					</div>
+					<div class="record-item">
+						<div class="r-txt">
+							<div class="txt-left">60团币</div>
+							<div class="txt-right">2018-2-8 15:56:55</div>
+						</div>
+						<div class="record-link">
+							<a href="javascript:void(0);" class="r-link">前往查看 </a>
+						</div>
+					</div>
+					<div class="record-item">
+						<div class="r-txt">
+							<div class="txt-left">100元京东年货购物卡</div>
+							<div class="txt-right">2018-2-8 15:56:55</div>
+						</div>
+						<div class="record-link">
+							<a href="javascript:void(0);" class="r-link">前往查看 </a>
+						</div>
+					</div>
+					<div class="record-item">
+						<div class="r-txt">
+							<div class="txt-left">补签卡</div>
+							<div class="txt-right">2018-2-8 15:56:55</div>
+						</div>
+						<div class="record-link">
+							<a href="javascript:void(0);" class="r-link">前往查看 </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 暂无记录 -->
+				<div class="record-none" style="display: none;">暂无记录</div>
+
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 已抽奖 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="alert-con rule-con">
+				<div class="alert-tit">很&nbsp;抱&nbsp;歉</div>
+				<div class="img-none"></div>
+				<p class="txt-none">每个用户一期只能参与一次开红包</p>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 活动已结束 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="alert-con end-con">
+				<div class="end-tit">本期活动已结束<br />请下回再战</div>
+				<div class="code">
+					<img src="../images/code.png" />
+				</div>
+				<p class="code-txt">扫描二维码或长按识别二维码关注公众号<br />再也不错过精彩活动</p>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 补签卡 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/bqCard.png" class="bqCard" />
+				</div>
+				<p class="gift-txt">补签卡 </p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 5元投资红包 -->
+		<div class="alert box-alert" style="display: none;" id="hb5">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/hb5.png" class="hb" />
+				</div>
+				<p class="gift-txt">5元投资红包</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 8元投资红包 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/hb8.png" class="hb" />
+				</div>
+				<p class="gift-txt">8元投资红包</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 20元投资红包 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/hb20.png" class="hb" />
+				</div>
+				<p class="gift-txt">20元投资红包</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 80团币 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/tb.png" class="tb" />
+				</div>
+				<p class="gift-txt">80团币</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 120团币 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/tb.png" class="tb" />
+				</div>
+				<p class="gift-txt">120团币</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 166现金 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/166yuan.png" class="yuan" />
+				</div>
+				<p class="gift-txt">166元现金春节购票补贴 </p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 666现金 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/666yuan.png" class="yuan" />
+				</div>
+				<p class="gift-txt">666元现金春节购票补贴 </p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!-- 100京东卡 -->
+		<div class="alert box-alert" style="display: none;">
+			<div class="alert-bg"></div>
+			<div class="light"></div>
+			<div class="alert-con gift-con">
+				<div class="gift-img">
+					<img src="../images/jdCard.png" class="jdCard" />
+				</div>
+				<p class="gift-txt">100元京东年货购物卡</p>
+				<a href="javascript:void(0);" class="gift-btn">查看奖品</a>
+				<div class="close"></div>
+			</div>
+		</div>
+
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

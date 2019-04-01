@@ -1,0 +1,216 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important; }
+
+a {
+  text-decoration: none; }
+
+div,
+textarea,
+span {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none; }
+
+textarea {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  resize: none; }
+
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0; }
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #f8aa32;
+  text-align: center; }
+
+img {
+  display: block; }
+
+.pass {
+  width: 100%;
+  height: 100%;
+  padding-top: 11.30667rem;
+  background: url(../images/bg-pass.png) no-repeat;
+  background-size: 100% auto;
+  position: relative; }
+  .pass .img-pass {
+    width: 16rem;
+    height: 28.45867rem;
+    background: url("../images/img-pass.png") center top no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1; }
+
+.pass-con {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 5.29067rem;
+  z-index: 2; }
+  .pass-con .box {
+    width: 5.03467rem;
+    height: 4.75733rem;
+    background: url("../images/box.png") center top no-repeat;
+    background-size: 100%;
+    margin: 3.54133rem auto 0;
+    position: relative; }
+    .pass-con .box .wenhao {
+      width: 0.93867rem;
+      height: 1.792rem;
+      background: url("../images/wh.png") center top no-repeat;
+      background-size: 100%;
+      position: absolute;
+      left: 1.94133rem;
+      top: -1.088rem; }
+
+.input-txt {
+  width: 11.62667rem;
+  height: 0.81067rem;
+  background: url("../images/input-txt.png") center top no-repeat;
+  background-size: 100%;
+  margin: 0 auto; }
+
+.pass-txt {
+  width: 9.25867rem;
+  height: 0.81067rem;
+  background: url("../images/pass-txt.png") center top no-repeat;
+  background-size: 100%;
+  margin: 0 auto; }
+
+.input-box {
+  width: 11.86133rem;
+  margin: 0 auto; }
+  .input-box .inp {
+    width: 11.86133rem;
+    height: 1.38667rem;
+    padding: 0 1.024rem;
+    background: #fff;
+    border-radius: 0.21333rem;
+    margin: 0.704rem auto 0; }
+  .input-box input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #a1a1a1;
+    font-size: 0.61867rem;
+    background: none;
+    text-align: center; }
+  .input-box input::-webkit-input-placeholder {
+    color: #a1a1a1; }
+  .input-box .code-box {
+    width: 11.86133rem;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    margin-top: 0.34133rem; }
+  .input-box .inpHalf {
+    width: 5.78133rem;
+    height: 1.38667rem;
+    border-radius: 0.21333rem;
+    border: 0.08533rem solid #fff;
+    padding: 0 0.32rem; }
+    .input-box .inpHalf input {
+      color: #fff;
+      font-size: 0.61867rem; }
+    .input-box .inpHalf input::-webkit-input-placeholder {
+      color: #fff; }
+  .input-box .getCode {
+    width: 5.78133rem;
+    height: 1.38667rem;
+    line-height: 1.38667rem;
+    color: #444d85;
+    font-size: 0.61867rem;
+    text-align: center;
+    background: #ffa101;
+    border-radius: 0.21333rem; }
+
+.confirm {
+  background: #ede8df;
+  border-radius: 0.21333rem;
+  font-size: 0.704rem;
+  text-align: center;
+  color: #ffa101;
+  width: 4.65067rem;
+  height: 1.216rem;
+  line-height: 1.216rem;
+  margin: 0.59733rem auto 0; }
+
+.error {
+  color: #fe0000;
+  font-size: 0.42667rem;
+  padding-left: 0.36267rem;
+  padding-top: 0.32rem;
+  font-weight: bold; }
+
+/*# sourceMappingURL=maps/pass.css.map */

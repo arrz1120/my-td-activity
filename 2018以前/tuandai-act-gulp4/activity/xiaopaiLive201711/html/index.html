@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>高管访谈</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <div class="content">
+    	<!-- 悬浮按钮 -->
+    	<div class="fixed-btn">
+	    	<div class="fixed-app-btn"></div>
+	    	<div class="fixed-wx-btn"></div>
+    		
+    	</div>
+        <!-- 分享 -->
+        <div class="share-btn"></div>
+        <!-- 标题 -->
+        <section class="header">
+            <i class="title1"></i>
+            <div class="title2 rollIn"><i class="icon-live"></i><span>11月30日 15:00直播</span></div>
+            <p class="title3">红包持续派送中...</p>
+        </section>
+        <!-- 看直播领红包 -->
+        <section class="red-pack-wrapper">
+	        <p class="title"></p>
+	        <!-- 本期嘉宾 -->
+	        <div class="red-pack-box">
+		        <div class="red-pack-tab">本期嘉宾<i></i></div>
+	        	<div class="guest-wrapper red-pack-con">
+	        		<img class="guest-pic" src="../images/guest-pic.png" />
+	        	</div>
+	        </div>
+	        <!-- 直播互动领红包 -->
+	        <div class="red-pack-box">
+		        <div class="red-pack-tab act">直播互动领红包<i></i></div>
+	        	<div class="live-wrapper red-pack-con">
+	        		<div class="live-txt">
+		        		<p class="live-time-txt">直播时间：<span class="em">11月30日15:00</span></p>
+		        		<p class="live-time-txt">20分钟高管访谈+10分钟互动提问</p>
+		        		<p>积极参与互动评论、分享、提问就有机会获得</p>
+		        		<p>投资红包（杠杆1:100）</p>
+	        		</div>
+	        		<ul class="live-interact-list">
+	        			
+		        		<li class="live-interact-item app">
+		        			<span class="live-interact-icon">
+		        				<i></i>
+		        			</span>
+		        			<span class="live-interact-txt">
+		        				<p>下载映客直播App</p>
+		        				<p>关注直播号<span class="em">165102644</span></p>
+		        				<p>于11月30日15:00观看直播</p>
+		        				<span class="tip-txt">此方式可直接参与互动</span>
+		        			</span>
+		        		</li>
+		        		<li class="live-interact-item wx">
+		        			<span class="live-interact-txt">
+								<p>点击二维码</p>
+								<p>关注“团贷网”订阅号</p>
+								<p>于11月30日15:00回复<span class="em">“小派直播”</span></p>
+								<p>获取链接观看直播</p>
+		        				<span class="tip-txt"></span>
+		        			</span>
+		        			<span class="live-interact-icon live-interact-wx">
+		        				<img src="../images/td-wx.png">
+		        			</span>
+		        		</li>
+	        		</ul>
+	        	</div>
+	        </div>
+	        <!-- 参与答题领红包 -->
+	        <div class="red-pack-box">
+		        <div class="red-pack-tab">参与答题领红包<i></i></div>
+		        <!-- 答题 -->
+		        <div class="ques-wrapper red-pack-con">
+		            <div class="rule-btn">领取规则</div>
+		            <div class="ques-con">
+		                <ul class="ques-scroll">
+		                    <li class="ques-item">
+		                        <div class="ques-box">
+		                            <span class="ques-num">Q1</span>本期主要介绍团贷网新布局了哪个领域的资产端？
+		                        </div>
+		                        <div class="option-box">
+		                            <div class="option-item">
+		                                <input id="radio_1_1" class="option-radio" type="radio" name="radio1">
+		                                <label class="icon-radio" for="radio_1_1"></label>
+		                                <label class="option-txt" for="radio_1_1">A：电商供应链金融</label>
+		                            </div>
+		                            <div class="option-item">
+		                                <input id="radio_1_2" class="option-radio" type="radio" name="radio1">
+		                                <label class="icon-radio" for="radio_1_2"></label>
+		                                <label class="option-txt" for="radio_1_2">B：三农供应链金融</label>
+		                            </div>
+		                            <div class="option-item">
+		                                <input id="radio_1_3" class="option-radio" type="radio" name="radio1">
+		                                <label class="icon-radio" for="radio_1_3"></label>
+		                                <label class="option-txt" for="radio_1_3">C：汽车供应链金融</label>
+		                            </div>
+		                        </div>
+		                    </li>
+		                    <li class="ques-item">
+		                        <div class="ques-box">
+		                            <span class="ques-num">Q2</span>车全公司主要提供哪一环节的汽车供应链金融服务？
+		                            <p class="ques-txt"></p>
+		                        </div>
+		                        <div class="option-box">
+		                            <div class="option-item">
+		                                <input id="radio_2_1" class="option-radio" type="radio" name="radio2">
+		                                <label class="icon-radio" for="radio_2_1"></label>
+		                                <label class="option-txt" for="radio_2_1">A：生产环节</label>
+		                            </div>
+		                            <div class="option-item">
+		                                <input id="radio_2_2" class="option-radio" type="radio" name="radio2">
+		                                <label class="icon-radio" for="radio_2_2"></label>
+		                                <label class="option-txt" for="radio_2_2">B：销售环节</label>
+		                            </div>
+		                        </div>
+		                    </li>
+		                    <li class="ques-item">
+		                        <div class="ques-box">
+		                            <span class="ques-num">Q3</span>车全针对的客户群体是？
+		                            <p class="ques-txt"></p>
+		                        </div>
+		                        <div class="option-box">
+		                            <div class="option-item">
+		                                <input id="radio_3_1" class="option-radio" type="radio" name="radio3">
+		                                <label class="icon-radio" for="radio_3_1"></label>
+		                                <label class="option-txt" for="radio_3_1">A：单一购车个人</label>
+		                            </div>
+		                            <div class="option-item">
+		                                <input id="radio_3_2" class="option-radio" type="radio" name="radio3">
+		                                <label class="icon-radio" for="radio_3_2"></label>
+		                                <label class="option-txt" for="radio_3_2">B：合作汽车门店</label>
+		                            </div>
+		                        </div>
+		                    </li>
+		                </ul>
+		                <div class="submit-btn">提交</div>
+		                <!-- <div class="submit-btn end">已结束</div> -->
+		            </div>
+		        </div>
+	        </div>
+        </section>
+		<!-- 本期看点 -->
+        <section class="focus-wrapper">
+	        <p class="title"></p>
+        	<div class="focus-con">
+        		<div class="focus-item">
+        			<i class="focus-icon"></i>
+        			<p class="focus-txt">投资标的车全的<br/>
+					风控如何把握？</p>
+        		</div>
+        		<div class="focus-item">
+        			<i class="focus-icon"></i>
+        			<p class="focus-txt">汽车供应链金融<br/>
+					有何优势？</p>
+        		</div>
+        		<div class="focus-item">
+        			<i class="focus-icon"></i>
+        			<p class="focus-txt">车全公司经营业务<br/>
+					是否稳定？</p>
+        		</div>
+        		<div class="focus-item">
+        			<i class="focus-icon"></i>
+        			<p class="focus-txt">未来车全公司业务及<br/>
+					风控的布局规划是什么？</p>
+        		</div>
+        	</div>
+        </section>
+        <!-- 评论 -->
+        <section class="comment-wrapper">
+        	<div class="title"></div>
+            <div class="comment-con">
+            	<div class="comment-box">
+	                <ul class="comment-list">
+	                    <li class="comment-item">
+	                        <span class="user-head">
+		            			<img class="user-pic" src="../images/user-head.png">
+		            		</span>
+	                        <span class="comment-item-right">
+		            			<div class="comment-item-rt">
+				            		<span class="user-name">Moon</span>
+			                        <span class="comment-like">
+		            					<i data-index='1'></i>
+		            					<span>159+</span>
+			                        </span>
+					            </div>
+					            <span class="comment-txt">县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？</span>
+				            </span>
+			            </li>
+			            <li class="comment-item">
+			                <span class="user-head">
+				    			<img class="user-pic" src="../images/user-head.png">
+				    		</span>
+			                <span class="comment-item-right">
+			        			<div class="comment-item-rt">
+				            		<span class="user-name">百变小樱百变小樱百变小樱百变小樱百变小樱</span>
+					                <span class="comment-like">
+										<i data-index='2'></i>
+										<span>159+</span>
+					                </span>
+							    </div>
+							    <span class="comment-txt">县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？</span>
+						    </span>
+					    </li>
+					    <li class="comment-item">
+					        <span class="user-head">
+		            			<img class="user-pic" src="../images/user-head.png">
+		            		</span>
+		            		<span class="comment-item-right">
+		            			<div class="comment-item-rt">
+				            		<span class="user-name">Moon</span>
+							        <span class="comment-like">
+		            					<i data-index='3'></i>
+		            					<span>159+</span>
+							        </span>
+						        </div>
+						        <span class="comment-txt">县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？</span>
+					        </span>
+					    </li>
+					    <li class="comment-item">
+			                <span class="user-head">
+				    			<img class="user-pic" src="../images/user-head.png">
+				    		</span>
+			                <span class="comment-item-right">
+			        			<div class="comment-item-rt">
+				            		<span class="user-name">百变小樱百变小樱百变小樱百变小樱百变小樱</span>
+					                <span class="comment-like">
+										<i data-index='4'></i>
+										<span>159+</span>
+					                </span>
+							    </div>
+							    <span class="comment-txt">县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？</span>
+						    </span>
+					    </li>
+					    <li class="comment-item">
+					        <span class="user-head">
+		            			<img class="user-pic" src="../images/user-head.png">
+		            		</span>
+		            		<span class="comment-item-right">
+		            			<div class="comment-item-rt">
+				            		<span class="user-name">Moon</span>
+							        <span class="comment-like">
+		            					<i data-index='5'></i>
+		            					<span>159+</span>
+							        </span>
+						        </div>
+						        <span class="comment-txt">县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？县域经济是什么？</span>
+					        </span>
+					    </li>
+				    </ul>
+            	</div>
+			    <!-- 输入评论 -->
+			    <textarea class="comment-input" placeholder="请输入你的问题……"></textarea>
+			    <span class="comment-input-txt">可输入<span id="comment_left_num">40</span>个字</span>
+			    <div style="clear: both; height: 0; font-size: 1px;"></div>
+			    <!-- 提交问题 -->
+			    <div class="submit-btn">提交问题</div>
+		    </div>
+	    </section>
+        
+    </div>
+    <!-- 规则弹窗 -->
+    <div id="rule_alert" class="alert-wrapper rule-alert">
+    	<div class="mask"></div>
+    	<div class="alert-con rule">
+			<!-- 活动规则 -->
+			<p class="alert-title">领取规则</p>
+			<div class="rule-con">
+
+				<span class="rule-num">1</span><p class="rule-item">于11月30日观看直播后，回答下文中的3个问题，并<span class="em">点击选择您的答案进行提交。</span></p>
+				<span class="rule-num">2</span><p class="rule-item"><span class="em">共3道题全部答对</span>就有机会领取投资红包。前5名回答正确的团粉可获得<font class="em">10元投资红包，第18、28、38、（n+1）8、……148、158名</font>回答正确的团粉可获得<span class="em">5元投资红包。</span>（获奖名次以后台显示时间为准，<span class="em">投资杠杆1:100</span>）</p>
+				<span class="rule-num">3</span><p class="rule-item">互动答题的<span class="em">正确答案</span>及回答正确的<span class="em">团粉获奖名单</span>会于高管访谈<span class="em">结束后3个工作日内</span>在<span class="em">社区发帖公示</span>，并<span class="em">在7个工作日内</span>将红包发送至获奖团粉的<span class="em">团宝箱中</span>，请积极参与的团粉及时关注。</p>
+				<p class="left">互动答题开始时间：11月30日15:30<br/>互动答题截止时间：12月01日12:00</p>
+				<p class="grey">（本活动最终解释权归团贷网所有）</p>
+			</div>
+    	</div>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/vendor/jsbridge-3.1.4.js -->
+<script src="../../../lib/vendor/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

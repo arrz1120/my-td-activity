@@ -1,0 +1,295 @@
+@charset "UTF-8";
+@import "fn";
+@import "../../../../sass/reset";
+@import "../../../../sass/func";
+html,
+body {
+    position: relative;
+    // height: 100%;
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #f2f2f2;
+}
+a {text-decoration: none; }
+div,span { box-sizing: border-box;}
+img { display: block; }
+.webkit-box { display: -webkit-box; }
+.box-flex1 { -webkit-box-flex: 1;box-flex: 1; }
+.wrapper { width: 100%;  padding-bottom:pxToRem(120px);}
+.clearfix { zoom: 1; }
+.clearfix:after {
+    content: '.';
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+}
+
+.top-bar{
+    position: relative;
+    padding:pxToRem(30px) 0 pxToRem(10px) pxToRem(120px);
+    .avatar{
+        position: absolute;
+        width: pxToRem(70px);
+        height: pxToRem(70px);
+        left: pxToRem(30px);
+        top:pxToRem(30px);
+        border-radius: 50%;
+        img{
+            width: pxToRem(70px);
+            height: pxToRem(70px);
+            display: block;
+            }
+        }
+    .name{
+        display: block;
+        font-size:pxToRem(30px);
+        color: #333;
+        .grade{
+            display: inline-block!important;
+            vertical-align: pxToRem(-1px);
+            &.v1{
+                @include background('../images/personalCenter/v1.png',40px,28px);
+                }
+            &.v2{
+                @include background('../images/personalCenter/v2.png',40px,28px);
+                }
+            &.v3{
+                @include background('../images/personalCenter/v3.png',40px,28px);
+                }
+            &.v4{
+                @include background('../images/personalCenter/v4.png',40px,28px);
+                }
+            &.v5{
+                @include background('../images/personalCenter/v5.png',40px,28px);
+                }
+            &.v6{
+                @include background('../images/personalCenter/v6.png',40px,28px);
+                }
+            &.v7{
+                @include background('../images/personalCenter/v7.png',40px,28px);
+                }
+            &.v8{
+                @include background('../images/personalCenter/v8.png',40px,28px);
+                }
+
+            }
+        }
+    .to-cg{
+        font-size: pxToRem(24px);
+        color: #999;
+        i{
+            vertical-align: middle;
+            margin-left:pxToRem(18px);
+            @include background('../images/personalCenter/ar-2.png',10px,17px);
+            display: inline-block;
+            }
+        }
+    .to-hd{
+        width: pxToRem(84px);
+        height: pxToRem(84px);
+        position: absolute;
+        right: pxToRem(100px);
+        top:pxToRem(25px);
+        img{
+            display: block;
+            width: pxToRem(84px);
+            height: pxToRem(84px);
+            }
+        }
+    .to-setting{
+        display: block;
+        position: absolute;
+        right: pxToRem(48px);
+        top:pxToRem(45px);
+        @include background('../images/personalCenter/icon-setitng.png', 38px, 36px);
+        }
+    }
+.bg-fff{
+    background: #fff;
+    }
+.my-zc{
+    @include background('../images/personalCenter/zc-bg.png',698px,335px);
+    margin: 0 auto;
+    text-align: center;
+    padding-top:pxToRem(70px);
+    .txt-zc{
+        display: block;
+        font-size:pxToRem(30px);
+        color: #ffffff;
+        .eye{
+            display: inline-block!important;
+            vertical-align: middle;
+            margin-left:pxToRem(15px);
+            &.ico_see{
+                @include background('../images/personalCenter/ico_see.png',30px,25px);
+                }
+            &.ico_unsee{
+                @include background('../images/personalCenter/ico_unsee.png',30px,25px);
+                }
+            }
+        }
+    .money{
+        padding-top:pxToRem(25px);
+        display: block;
+        font-size:pxToRem(76px);
+        color: #ffffff;
+        em{
+            font-size:pxToRem(42px);
+            color: #ffffff;
+            font-style: normal;
+            }
+        }
+    a{
+        margin-top:pxToRem(25px);
+        display: block;
+        font-size:pxToRem(24px);
+        color: #fff;
+        i{
+            @include background('../images/personalCenter/ar-1.png',10px,17px);
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: pxToRem(15px);
+            }
+        }
+    }
+.balance{
+    padding-left:pxToRem(60px);
+    position: relative;
+    height: pxToRem(100px);
+    .yue{
+        display: block;
+        font-size:pxToRem(24px);
+        color: #999;
+        }
+    .yue-nb{
+        padding-top:pxToRem(15px);
+        display: block;
+        font-size:pxToRem(34px);
+        color: #333;
+        }
+    a{
+        display: block;
+        position: absolute;
+        width: pxToRem(130px);
+        height: pxToRem(60px);
+        line-height:pxToRem(60px);
+        text-align: center;
+        font-size:pxToRem(30px);
+        top:pxToRem(20px);
+        border-radius: pxToRem(30px);
+        }
+    .to-tx{
+        background: #fff;
+        border: pxToRem(2px) solid #ffb700;
+        line-height:pxToRem(58px);
+        color: #ffb700;
+        right: pxToRem(220px);
+        }
+
+    .to-cz{
+        background: #ffb700;
+        color: #ffffff;
+        right: pxToRem(60px);
+        box-shadow: 0 pxToRem(5px) pxToRem(16px) 0 rgba(255, 183, 0, 0.56);
+        }
+    }
+
+.link-con{
+    padding: pxToRem(40px) 0;
+    a{
+        text-align: center;
+        height: pxToRem(40px);
+        line-height: pxToRem(40px);
+        display: block;
+        font-size:pxToRem(30px);
+        color: #333333;
+        position: relative;
+        &:first-child{
+            &:after{
+                @include border(right, #e6e6e6);
+                }
+            }
+        i{
+            display: inline-block!important;
+            vertical-align: middle;
+            margin-right:pxToRem(10px);
+            &.icon-hk{
+                @include background('../images/personalCenter/icon-hk.png',50px,50px);
+                }
+            &.icon-jl{
+                @include background('../images/personalCenter/icon-jl.png',50px,50px);
+                }
+            }
+        }
+    }
+
+.j-con{
+    background: #fff;
+    margin-top:pxToRem(20px);
+    padding-left:pxToRem(50px);
+        a{
+            position: relative;
+            display: block;
+            height: pxToRem(120px);
+            line-height:pxToRem(120px);
+            font-size:pxToRem(30px);
+            padding-left:pxToRem(40px);
+            color: #333333;
+            i{
+                display: block;
+                position: absolute;
+                left: 0;
+                top:50%;
+                margin-top:pxToRem(-8px);
+                box-shadow: 0 pxToRem(4px) pxToRem(8px) 0 rgba(255, 108, 60, 0.4);
+                width: pxToRem(17px);
+                height: pxToRem(17px);
+                border-radius: 50%;
+                &.c1{
+                    background: #ff6c3c;
+                    }
+                &.c2{
+                    background: #ff983c;
+                    }
+                &.c3{
+                    background: #ffb700;
+                    }
+                &.c4{
+                    background: #ffd200;
+                    }
+                &.c5{
+                    background: #cef227;
+                    }
+                &.c6{
+                    background: #8ee4f6;
+                    }
+                }
+            &:before {
+                content: '';
+                top:50%;
+                position: absolute;
+                margin-top:pxToRem(-8px);
+                right: pxToRem(50px);
+                @include background('../images/personalCenter/ar-2.png',10px,17px);
+                }
+            &:after {
+                @include border(bottom, #e6e6e6);
+                }
+
+            &:last-child{
+                &:after {
+                    @include border(bottom, #fff);
+                    }
+                }
+
+            }
+
+
+        }
+
+

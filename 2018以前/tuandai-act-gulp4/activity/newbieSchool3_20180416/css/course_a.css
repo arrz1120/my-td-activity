@@ -1,0 +1,133 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+/*c1*/
+.md1_c1 .con {
+  padding-top: 4.26667rem; }
+
+.md1_c1 .tit_2 {
+  font-size: 0.768rem; }
+
+.md1_c1 tr td {
+  font-size: 0.59733rem; }
+
+.md1_c1 tr td:nth-child(1) {
+  width: 48%; }
+
+.md1_c1 tr td:nth-child(2) {
+  width: 52%; }
+
+/*c2*/
+.md1_c2 .con_wraper .con .txt_3 {
+  font-weight: 900;
+  margin: -0.42667rem 0 0.21333rem; }
+
+.md1_c2 .fx {
+  width: 11.05067rem;
+  display: block;
+  margin: 0 auto; }
+
+.list_1 li {
+  height: 7.68rem; }
+
+.md1_c4 {
+  padding: 0 0.78933rem; }
+  .md1_c4 .txt {
+    font-size: 0.512rem;
+    color: #3c2d28; }
+  .md1_c4 .tit_7 {
+    margin: 0 auto 0.512rem;
+    width: 6.976rem;
+    height: 1.62133rem;
+    line-height: 1.6rem;
+    text-align: center;
+    border: 1px solid #f08624;
+    font-size: 0.64rem;
+    color: #3c2d28; }
+  .md1_c4 .img_big_1 {
+    margin-bottom: 1.28rem; }
+  .md1_c4 .tit_7_1 {
+    margin-top: 0.85333rem; }
+  .md1_c4 .list {
+    margin-bottom: 1.06667rem; }
+    .md1_c4 .list li {
+      overflow: hidden;
+      border-bottom: #cb5100 dashed 1px;
+      padding: 1.06667rem 0; }
+      .md1_c4 .list li img {
+        width: 3.60533rem; }
+      .md1_c4 .list li .txt {
+        margin-bottom: 0;
+        color: #361409;
+        font-size: 0.46933rem;
+        float: left;
+        width: 9.6rem; }
+    .md1_c4 .list li:nth-child(odd) img {
+      float: left;
+      margin-right: 0.85333rem; }
+    .md1_c4 .list li:nth-child(3) img {
+      margin-top: 1.06667rem; }
+    .md1_c4 .list li:nth-child(4) img {
+      margin-top: 2.13333rem; }
+    .md1_c4 .list li:nth-child(even) img {
+      float: right;
+      margin-left: 0.85333rem; }
+  .md1_c4 .list_2 li {
+    margin: 3.2rem 0;
+    border-radius: 0.42667rem;
+    background: #fff;
+    padding: 2.34667rem 0.85333rem 0.10667rem;
+    position: relative; }
+  .md1_c4 .list_2 .tit {
+    text-align: center;
+    margin-bottom: 0.42667rem; }
+  .md1_c4 .list_2 img {
+    position: absolute;
+    left: 50%;
+    width: 3.56267rem;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: -1.70667rem; }
+  .md1_c4 .list_2 .tit, .md1_c4 .list_2 .txt {
+    font-size: 0.46933rem;
+    color: #3c2d28; }
+
+.xp_talk {
+  width: 14.93333rem;
+  height: 5.888rem;
+  margin: 1.70667rem auto;
+  background: url(../images/course/c4/xp.png) no-repeat left center;
+  background-size: 4.39467rem auto;
+  padding-left: 4.69333rem; }
+  .xp_talk .word {
+    width: 10.304rem;
+    height: 5.22667rem;
+    padding: 0.21333rem 0.64rem;
+    background: #ffe0a2;
+    position: relative; }
+    .xp_talk .word:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 0.32rem solid transparent;
+      border-right: 0.32rem solid #ffe0a2;
+      border-left: 0.32rem solid transparent;
+      border-bottom: 0.32rem solid transparent;
+      left: -0.64rem;
+      top: 3.2rem; }
+  .xp_talk .txt, .xp_talk .tit {
+    color: #361409;
+    font-size: 0.46933rem; }
+
+.md1_c6 .swiper-container_3 {
+  height: 11.52rem; }
+  .md1_c6 .swiper-container_3 img {
+    width: 14.50667rem; }
+
+.md1_c6 .icon_tit_3 {
+  width: 7.46667rem; }
+
+/*# sourceMappingURL=maps/course_a.css.map */

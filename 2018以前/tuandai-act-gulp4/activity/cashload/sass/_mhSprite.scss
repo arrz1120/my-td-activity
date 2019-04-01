@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+.icon-mh {
+    display: block;
+    background-image: url(../images/mh.png);
+    background-size: pxToRem(274px) pxToRem(172px);
+    background-repeat: no-repeat;
+}
+
+.icon-mh-authentication {
+    @extend .icon-mh;
+    background-position: pxToRem(-217px) pxToRem(0px);
+    width: pxToRem(57px);
+    height: pxToRem(43px);
+}
+
+.icon-mh-brush-face {
+    @extend .icon-mh;
+    background-position: pxToRem(-92px) pxToRem(0px);
+    width: pxToRem(52px);
+    height: pxToRem(52px);
+}
+
+.icon-mh-custody {
+    @extend .icon-mh;
+    background-position: pxToRem(-154px) pxToRem(0px);
+    width: pxToRem(53px);
+    height: pxToRem(49px);
+}
+
+.icon-mh-loan-repayment {
+    @extend .icon-mh;
+    background-position: pxToRem(-217px) pxToRem(-53px);
+    width: pxToRem(57px);
+    height: pxToRem(43px);
+}
+
+.icon-mh-online-service {
+    @extend .icon-mh;
+    background-position: pxToRem(0px) pxToRem(0px);
+    width: pxToRem(82px);
+    height: pxToRem(80px);
+}
+
+.icon-mh-opreator {
+    @extend .icon-mh;
+    background-position: pxToRem(-217px) pxToRem(-106px);
+    width: pxToRem(44px);
+    height: pxToRem(53px);
+}
+
+.icon-mh-personal-account {
+    @extend .icon-mh;
+    background-position: pxToRem(-154px) pxToRem(-59px);
+    width: pxToRem(48px);
+    height: pxToRem(54px);
+}
+
+.icon-mh-telephone-service {
+    @extend .icon-mh;
+    background-position: pxToRem(0px) pxToRem(-90px);
+    width: pxToRem(80px);
+    height: pxToRem(82px);
+}

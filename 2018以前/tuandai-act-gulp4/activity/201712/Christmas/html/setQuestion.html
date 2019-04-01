@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Christmas</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/setQuestion.css -->
+		<link rel="stylesheet" href="../css/setQuestion.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="setQue">
+			<p class="set-p1">这个礼物只给懂你的人</p>
+			<div class="act-time">活动时间：12月24日-12月26日</div>
+			<p class="que-rule">给好友出一道题，好友答对即可领礼物（礼物由团贷网提供）。领取礼物的好友数达3人时，您可以获得1次拆礼包机会。</p>
+			<div class="que-box">
+				<div class="que-guide">
+					<div class="guide-bg"></div>
+					<div class="que-step step-cur">
+						<span>1</span>选择题目<i></i>
+					</div>
+					<div class="que-step">
+						<span>2</span>设置答案<i></i>
+					</div>
+					<div class="que-step">
+						<span>3</span>分享好友
+					</div>
+				</div>
+
+				<!--1、选择题目-->
+				<div class="que-con">
+					<div class="swiper-container" id="queSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="que-slide">1、我开车技术咋样？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">2、我会靠什么发家致富？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">3、我比较喜欢那种旅行方式？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">4、我是哪类人？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">5、每逢周末和节假日，我更喜欢？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">6、对于吃，我的态度是？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">7、我喜欢哪种运动方式？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">8、我喜欢的穿衣风格是？</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">9、我理想中的住所是？</div>
+							</div>
+						</div>
+
+						<!-- 如果需要滚动条 -->
+						<div class="swiper-scrollbar"></div>
+					</div>
+				</div>
+
+				<!--2、设置答案-->
+				<div class="que-con" style="display: none;">
+					<div class="ans-tit">
+						<p>我比较喜欢那种旅行方式?</p>
+						<span>重选题目</span>
+					</div>
+					<div class="ans-list">
+						<div class="ans-item">
+							<p>路在脚下，徒步</p>
+							<span class="ans-select"></span>
+							<span class="ans-set">正确答案</span>
+						</div>
+						<div class="ans-item">
+							<p>路在脚下，徒步</p>
+							<span class="ans-select"></span>
+							<span class="ans-set">正确答案</span>
+						</div>
+						<div class="ans-item">
+							<p>路在脚下，徒步</p>
+							<span class="ans-select"></span>
+							<span class="ans-set">正确答案</span>
+						</div>
+						<div class="ans-item">
+							<p>路在脚下，徒步</p>
+							<span class="ans-select"></span>
+							<span class="ans-set">正确答案</span>
+						</div>
+					</div>
+					<div class="ans-btn btn-gray" id="set_off">确定</div>
+					<div class="ans-btn" id="set_confirm" style="display: none;">确定</div>
+				</div>
+
+				<!--3、分享好友-->
+				<div class="que-con" style="display: none;">
+					<div class="share-con">
+						<p class="share-p1">设置成功，分享给好友猜猜猜吧</p>
+						<div class="share-pic"></div>
+						<p class="share-p2">（点击分享后的链接可查看好友猜题情况） </p>
+						<div class="ans-btn shareBtn">分享好友</div>
+						<a href="javascript:void(0);" class="return">返回活动页面 </a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/setQuestion.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		var vtitle = '';
+		var viconUrl = '<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>';
+		var vcontent = '';
+		var vshareUrl = '<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>';
+		document.querySelector('.shareBtn').addEventListener('click', function() {
+			appShare.set({
+				icon: viconUrl,
+				title: vtitle,
+				content: vcontent,
+				shareUrl: vshareUrl,
+				cover: {
+					src: '../images/wxAlert.png',
+					style: {
+						width: '100%',
+					}
+				},
+				custom: [],
+				callback: function() {}
+			})
+		});
+		$(function() {
+			//            WeiXinShare("<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201711/wanhe/weixin/index.aspx", "派生集团与万和集团达成全面战略合作", "万和集团与派生集团深度合作 促“实业+科技+金融”均衡发展", "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201711/wanhe/weixin/images/sharepic.jpg", function () { });
+		});
+	</script>
+
+</html>

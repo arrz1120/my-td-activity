@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>cashloadWap</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/others/result.css -->
+    <link rel="stylesheet" href="../../css/others/result.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>银行卡认证</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content pai-bg">
+            <div class="pop-result">
+                <div class="result fail"></div>
+                <p class="r-txt"><span>抱歉！您的手机号或身份证</span><span>已在其它渠道注册过，无法进行银行卡</span><span>认证，请联系客服处理</span></p>
+                <span class="margin-txt">客服热线：<a class="txt-yellow" href="tel:400-169-0188">400-169-0188</a></span>
+                <span class="r-txt-small">服务时间 9:00-22:00；周末 9：00-18:00</span>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+
+    Util.initHeader({
+        header: 'header',
+        leftFun: function() {
+            //标题栏返回按钮
+            history.back();
+        }
+    });
+    // $("#header").hide();
+    // $(".content").addClass("no-header");
+
+
+})();
+</script>
+
+</html>

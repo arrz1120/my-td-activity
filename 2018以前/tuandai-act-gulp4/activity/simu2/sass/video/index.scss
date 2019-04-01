@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import "../variables";
+@import './icons';
+@import './listvideo';
+@import "../../../../sass/func";
+
+// index
+.school-tabs {
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	// right: 0;
+	// z-index: 99;
+    a {
+        width: 25%;
+    }
+}
+
+// .v-content {
+// 	padding-top: pxToRem(90px);
+// }
+
+
+// detail
+.video-container {
+    width: 100%;
+    height: pxToRem(422px);
+}
+
+
+.item-container {
+    padding-left: pxToRem(30px);
+    background-color: #fff;
+    .font-brown {
+        padding-right: pxToRem(10px);
+    }
+    .item {
+        @include ellipsis();
+    }
+}
+
+.bottom-info {
+    text-align: center;
+    padding: pxToRem(66px) 0 pxToRem(46px);
+}
+
+// font color
+.font-brown {
+    color: #b17e47;
+}

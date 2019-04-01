@@ -1,0 +1,273 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "./_reset.scss";
+@import "func";
+html,
+body {
+    position: relative;
+    //  height: 100%;
+    width: 100%;
+    //  overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div ,p{
+    box-sizing: border-box;
+}
+
+@mixin bg($width, $height, $url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+.prizeWrapper {
+    @include bg(100%, pxToRem(1716px), '../images/prize/bg.png');
+    .userInfo {
+        padding-top: pxToRem(59px);
+        height: pxToRem(308px);
+        position: relative;
+    }
+}
+
+.tdHeader {
+    @include size(pxToRem(170px), pxToRem(170px));
+    margin: 0 auto;
+    border-radius: 50%;
+    img{
+        @include size(100%, 100%);
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.username {
+    text-align: center;
+    padding-top: pxToRem(18px);
+    @include font(pxToRem(30px), #fff);
+    width: pxToRem(243px);
+    margin: 0 auto 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toInvest {
+    @include bg(pxToRem(245px), pxToRem(73px), '../images/prize/toInvest.png');
+    position: absolute;
+    top: pxToRem(127px);
+    right: 0;
+    padding-left: pxToRem(37px);
+    padding-top: pxToRem(17px);
+    @include font(pxToRem(24px), #eeeeee);
+}
+
+.userPrize {
+    position: absolute;
+    top: 0;
+    left: pxToRem(36px);
+    text-align: center;
+    padding-top: pxToRem(49px);
+    @include bg(pxToRem(177px), pxToRem(196px), '../images/prize/userPrize.png');
+    .up-p1 {
+        @include font(pxToRem(24px), #ffece4);
+        margin-bottom: pxToRem(17px);
+    }
+    .up-p2 {
+        @include font(pxToRem(48px), #ffe866);
+        font-weight: bold;
+    }
+}
+
+.prizeItem {
+    @include bg(pxToRem(726px), pxToRem(173px), '../images/prize/bg-prize.png');
+    margin: 0 auto pxToRem(16px);
+    display: -webkit-box;
+    .price-icon {
+        width: pxToRem(246px);
+        height: 100%;
+    }
+    .quan-icon {
+        padding: pxToRem(39px) 0 0 pxToRem(24px);
+        img {
+            width: pxToRem(189px);
+            height: pxToRem(94px);
+            display: block;
+        }
+    }
+    .prize-txt {
+        height: 100%;
+        width: pxToRem(300px);
+    }
+    .prize-txt1 {
+        padding-top: pxToRem(43px);
+        .pt-p2 {
+            margin-top: pxToRem(14px);
+        }
+    }
+    .prize-txt2 {
+        padding-top: pxToRem(27px);
+        .pt-p2 {
+            margin-top: pxToRem(11px);
+        }
+    }
+    .pt-p1 {
+        @include font(pxToRem(30px), #fc794f);
+        font-weight: bold;
+        line-height: pxToRem(42px);
+    }
+    .pt-p2 {
+        @include font(pxToRem(18px), #fc794f);
+    }
+    .prize-state {
+        height: 100%;
+        width: pxToRem(181px);
+    }
+    .prize-loading{
+        height: 100%;
+        width: pxToRem(181px);
+    }
+    .btn-yellow {
+        @include bg(pxToRem(161px), pxToRem(68px), '../images/prize/btn-yellow.png');
+        text-align: center;
+        padding-top: pxToRem(16px);
+        font-weight: bold;
+        @include font(pxToRem(26px), #711b15);
+        text-shadow: 0 pxToRem(1px) 0 rgba(255, 244, 214, 0.34);
+//      margin-top: pxToRem(49px);
+        position: relative;
+        top: pxToRem(49px);
+    }
+    .jiaxi-finish {
+        padding-top: pxToRem(23px);
+        p {
+            @include font(pxToRem(30px), #fd574b);
+            padding-left: pxToRem(50px);
+            font-weight: bold;
+        }
+        .icon-finish {
+            @include bg(pxToRem(98px), pxToRem(88px), '../images/prize/icon_finish.png');
+            margin: pxToRem(11px) 0 0 pxToRem(50px);
+        }
+    }
+    .not-sign {
+        padding-top: pxToRem(33px);
+        p {
+            @include font(pxToRem(30px), #fd574b);
+            padding-left: pxToRem(45px);
+            font-weight: bold;
+            margin-bottom: pxToRem(20px);
+        }
+        .btn-yellow {
+            margin-top: pxToRem(16px);
+            top: 0;
+        }
+    }
+    .is-sign {
+        .btn-yellow {
+            margin-top: pxToRem(16px);
+            top: 0;
+        }
+    }
+    .btn-gray {
+        @include bg(pxToRem(161px), pxToRem(68px), '../images/prize/btn-gray.png');
+        text-align: center;
+        padding-top: pxToRem(14px);
+        font-weight: bold;
+        @include font(pxToRem(26px), #eee);
+    }
+    .linqu-finish {
+        margin-top: pxToRem(39px);
+    }
+    .icon-linqu {
+        @include bg(pxToRem(107px), pxToRem(86px), '../images/prize/icon-linqu.png');
+        margin-left: pxToRem(37px);
+    }
+    .icon-get {
+        @include bg(pxToRem(107px), pxToRem(86px), '../images/prize/icon-get.png');
+        margin-left: pxToRem(37px);
+    }
+    .jiaxi-finish {
+        .icon-linqu {
+//          margin: pxToRem(10px) 0 0 pxToRem(50px);
+        }
+    }
+    .gift-icon1 {
+        padding: pxToRem(26px) 0 0 pxToRem(38px);
+        img {
+            display: block;
+            width: pxToRem(159px);
+            height: pxToRem(130px);
+        }
+    }
+    .gift-icon2 {
+        padding: pxToRem(23px) 0 0 pxToRem(33px);
+        img {
+            display: block;
+            width: pxToRem(162px);
+            height: pxToRem(134px);
+        }
+    }
+    .gift-icon3 {
+        padding: pxToRem(22px) 0 0 pxToRem(44px);
+        img {
+            display: block;
+            width: pxToRem(137px);
+            height: pxToRem(118px);
+        }
+    }
+    .gift-state-off {
+        padding-top: pxToRem(49px);
+        .btn-yellow {
+            top: 0;
+        }
+    }
+    .gift-state-on {
+        padding-top: pxToRem(34px);
+        .gift-txt {
+            padding-top: pxToRem(4px);
+            width: pxToRem(178px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include font(pxToRem(18px), #fd574b);
+            margin-left: pxToRem(-10px);
+            text-align: center;
+        }
+        .gift-txt1{
+            font-size: pxToRem(24px);
+        }
+        .btn-yellow {
+            margin-top: pxToRem(12px);
+            top: 0;
+        }
+    }
+}
+
+
+.back{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:  pxToRem(96px);
+    line-height:  pxToRem(96px);
+    background: linear-gradient( #ffd100, #ff9f00);
+    @include font(pxToRem(40px), #711b15);
+    text-align: center;
+}

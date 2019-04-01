@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+
+}
+
+
+body{
+        background: rgba(0,0,0,.7);
+    padding-top: pxToRem(300px);
+}
+
+.app_tips{
+    display: block;
+    margin: 0 auto;
+    width: pxToRem(482px);
+}
+
+.start_btn{
+    width: pxToRem(430px);
+    height: pxToRem(86px);
+    line-height: pxToRem(86px);
+    border-radius: pxToRem(43px);
+    background: #ffe50b;
+    color: #ff500b;
+    font-size: pxToRem(36px);    
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin:  pxToRem(100px) auto;
+}

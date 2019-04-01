@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import "../variables";
+@import '../video/listvideo';
+@import "../../../../sass/func";
+
+.school-tabs {
+    padding: 0 pxToRem(30px);
+    &>a {
+        text-align: left;
+    }
+    &>a:not(:first-child) {
+        margin-left: pxToRem(50px);
+    }
+}
+
+.s-question-list {
+    width: 100%; // padding-left: pxToRem(30px);
+    font-size: 0;
+    .sq-row {
+        width: 100%;
+        min-height: pxToRem(110px);
+        padding: pxToRem(40px) pxToRem(90px) pxToRem(40px) pxToRem(30px);
+        position: relative;
+        font-size: pxToRem(30px);
+        line-height: pxToRem(48px);
+        color: #333333;
+        text-align: justify;
+        &:before {
+            @include border('bottom', $border-color-grey);
+            left: pxToRem(30px); // content: '';
+            // position: absolute;
+            // height: 0;
+            // left: pxToRem(30px);
+            // right: 0;
+            // bottom: 0;
+            // border: 1px solid $border-color-grey;
+            // transform: scaleY(.5);
+        }
+    }
+    .sq-det {
+        .sq-row {
+            &:after {
+                transform: translate(0, -50%) rotate(90deg);
+            }
+        }
+        .sq-subrow {
+            display: none;
+        }
+        &.show {
+            .sq-row {
+                &:after {
+                    transform: translate(0, -50%) rotate(-90deg);
+                }
+            }
+            .sq-subrow {
+                display: block;
+            }
+        }
+    }
+    .sq-subrow {
+        width: 100%;
+        background-color: #f9f9f9;
+        padding: pxToRem(40px) pxToRem(30px) 0 pxToRem(30px);
+        font-size: pxToRem(30px);
+        line-height: pxToRem(60px);
+    }
+}
+
+.list-video {
+    padding-top: 0;
+}
+
+
+.bg-grey {
+    height: 100%;
+}
+
+.cl-wrapper {
+    background-color: #fff;
+    overflow-y: scroll;
+}
+
+.sub-tabs {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    height: pxToRem(60px);
+    line-height: pxToRem(60px);
+    position: relative;
+    margin-bottom: pxToRem(20px);
+    background-color: #fafafa;
+    &:before {
+        @include border('top', $border-color-grey);
+    }
+    &:after {
+        @include border('bottom', $border-color-grey);
+    }
+    a {
+        width: 20%;
+        height: 100%;
+        font-size: pxToRem(24px);
+        color: #666666;
+        display: inline-block;
+        text-align: center;
+        &.active {
+            color: #b17e47;
+        }
+    }
+}
+
+//帮助中心
+.hc-title {
+    width: 100%;
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    padding: 0 pxToRem(30px);
+    font-size: pxToRem(30px);
+    color: #b17e47;
+    font-weight: bold;
+    background-color: #fafafa;
+    display: inline-block;
+    position: relative;
+    &:before {
+        @include border('bottom', $border-color-grey);
+    }
+}
+
+//漫画内容
+.icon-cartoon {
+    width: 100%;
+}

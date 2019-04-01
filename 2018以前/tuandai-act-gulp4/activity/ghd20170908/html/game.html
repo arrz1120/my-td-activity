@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>小派带你摸金寻宝</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+
+    <!-- build:js ../js/lib/fastclick-jquery.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+
+<body>
+    <section class="music_btn" id="music_btn">
+        <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+	
+	<div class="page_3">
+		<img src="../images/bg_4.png" class="body_bg body_bg_3">
+		
+		<!-- 旁白 -->
+
+		<div class="txt_wraper">
+			  <div class="txt_box">
+			  	   <div class="txt_print txt"></div>
+			  	   <div class="txt_val">“人点烛，鬼吹灯”是摸金派的不传之秘，意为进入霸王冢内先在东南角点燃一支蜡烛，如果蜡烛熄灭，须速速退出，不可取一物。</div>
+				   <div class="skip"></div>
+			  </div>
+		</div>
+		
+        <!-- 蜡烛 -->
+
+		<div class="lz">
+				<img src="../images/lz.png" class="lz" >
+				<img src="../images/lzg.png" class="lzg" >
+				<img src="../images/lzg_1.png" class="lzg_1" >
+		</div>
+		
+		<!-- 规则 -->
+
+		<div class="rule hand">
+			<div class="rule_box">
+				<img src="../images/rule_tit.png" class="rule_tit" >
+				<div class="txt">在规定时间内，通过点击按钮“放爪”操纵小派手里的飞虎爪，在合适的时间点放下抓手抓取埋藏在地下的移动宝箱。</div>
+			</div>
+			<div class="close_rule">
+				
+			</div>
+		</div>
+
+
+		<!-- 游戏 -->
+
+
+		<div class="game" id="game">
+
+
+			<p class="time"><span id='second'>180</span>秒</p>
+
+			<div class="start_btn"></div>
+
+			<!-- 宝箱滚动 -->
+
+
+			<div class="bx_list">
+				<ul class="list list_1">
+					<li  data-num='1' class="bx_1"></li>
+					<li  data-num='2' class="bx_2"></li>
+					<li  data-num='3' class="bx_3"></li>
+					<li  data-num='4' class="bx_1"></li>
+					<li  data-num='5' class="bx_2"></li>
+					<li  data-num='6' class="bx_3"></li>
+					<!-- 
+					<li  data-num='7' class="bx_1"></li>
+					<li  data-num='8' class="bx_2"></li>
+					<li  data-num='9' class="bx_3"></li>
+					<li  data-num='10' class="bx_1"></li>
+					<li  data-num='11' class="bx_2"></li>
+					<li  data-num='12' class="bx_3"></li> 
+					-->	
+				</ul>
+				<ul class="list list_1">
+					<li  data-num='1' class="bx_1"></li>
+					<li  data-num='2' class="bx_2"></li>
+					<li  data-num='3' class="bx_3"></li>
+					<li  data-num='4' class="bx_1"></li>
+					<li  data-num='5' class="bx_2"></li>
+					<li  data-num='6' class="bx_3"></li>
+					<!-- 
+					<li  data-num='7' class="bx_1"></li>
+					<li  data-num='8' class="bx_2"></li>
+					<li  data-num='9' class="bx_3"></li>
+					<li  data-num='10' class="bx_1"></li>
+					<li  data-num='11' class="bx_2"></li>
+					<li  data-num='12' class="bx_3"></li>	
+					 -->
+				</ul>
+			</div>
+			
+
+
+
+
+			<!-- 小派放绳子 -->
+
+			<div class="xp">
+				<div class="rope">
+					<div class="guo">
+						<div class="g_l"></div>	
+						<div class="g_r"></div>	
+						<div class="g_center"></div>	
+					</div>
+				</div>
+			</div>
+
+
+			<p class="tips">不同颜色宝箱<br>代表不同宝物，谨慎选择哦~
+			</p>
+
+
+
+		</div>
+
+
+		<img src="../images/logo.png" alt="" class="logo">	
+
+
+		
+		<!-- 摸金结束，显示宝箱 -->
+
+		<div class="bx_big alert"  style="display:none" id="bx_big">
+			 <div class="con">
+
+			 	<div class="bx_wraper">
+			 		<img src="../images/bx_tit.png" alt="" class="bx_tit">
+
+			 		<div class="bx  hand" id="bx" data-style=''></div>			 		
+			 	</div>
+
+				<div class="prize_wraper" id="prize_wraper">
+					<h2 class="prize_tit">恭喜您获得<span>5元</span>投资红包</h2>
+					<p class="prize_tips">该体验金将于5个工作日内发送至您的团宝箱</p>
+					<div class="bx_open"  id="bx_open">
+						<img src="../images/prize_hb.png" class="prize_val">
+					</div>
+					<div class="txt_box">
+						霸王冢不现于史，亦不现于世。隐世两千多年后，今日终于遇到有缘人开启。
+					</div>		
+			 	    <div class="share_btn hand"></div>
+
+				</div>
+
+
+
+			 </div>
+		</div>
+
+
+
+		<!-- 游戏结束时间到  -->
+
+		<div class="gameover alert"  id="gameover" style="display:none">
+			 <div class="con">
+			 	<p class="txt_1">很遗憾时间已到！<br>您没有抓到宝箱！</p>
+			 	<p class="txt_2">分享好友可再来一次，<br>再接再厉哟~</p>
+			 	<div class="share_btn"></div>
+				<div class="close">	</div>
+			 </div>
+		</div>
+
+
+	</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/typewriting.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/music.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/game.js" type="text/javascript" charset="utf-8"></script>
+</html>

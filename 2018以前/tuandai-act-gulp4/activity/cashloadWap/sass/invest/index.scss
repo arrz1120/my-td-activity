@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@import "../variables";
+@import "../../../../sass/func";
+
+.invest-list {
+    width: 100%;
+    padding-left: pxToRem(30px);
+    font-size: 0;
+    .invest-tr {
+        width: 100%;
+        position: relative;
+        padding: pxToRem(108px) pxToRem(30px) pxToRem(48px) 0;
+        .invest-title {
+            font-size: pxToRem(24px);
+            height: pxToRem(24px);
+            color: $txt-black-light;
+            position: absolute;
+            left: 0;
+            top: pxToRem(45px);
+        }
+
+        &:after {
+            @include border('bottom', $border-color-grey);
+        }
+    }
+    .item-row {
+        width: 100%;
+        white-space: nowrap;
+        &>span:nth-child(1) {
+            width: 40%;
+            display: inline-block;
+        }
+        &>span:nth-child(n+2) {
+            width: 30%;
+            display: inline-block;
+        }
+    }
+    .invest-txt {
+        span {
+            font-size: pxToRem(24px);
+            color: $txt-grey-darker;
+        } // &>span:nth-child(2) {
+        // 	text-align: center;
+        // }
+        &>span:nth-child(3) {
+            text-align: right;
+        }
+    }
+    .invest-num {
+        height: pxToRem(60px);
+        margin-top: pxToRem(40px);
+        &>span {
+            vertical-align: text-bottom;
+        }
+
+        &>span:nth-child(1) {
+            font-size: pxToRem(60px);
+            height: pxToRem(60px);
+            color: #ff6c3c;
+            position: relative;
+            &:after {
+                content: attr(data-content);
+                color: #ff6c3c;
+                font-size: pxToRem(30px);
+                height: pxToRem(30px);
+            }
+        }
+        &>span:nth-child(2) {
+            font-size: pxToRem(36px);
+            height: pxToRem(36px);
+            color: $txt-black-light;
+        }
+    }
+    .invest-btn {
+        width: pxToRem(180px);
+        height: pxToRem(60px);
+        line-height: pxToRem(60px);
+        text-align: center;
+        font-size: pxToRem(30px);
+        color: $txt-grey-darker;
+        background-color: #f2f2f2;
+        position: absolute;
+        right: pxToRem(30px);
+        bottom: pxToRem(40px);
+        border-radius: pxToRem(60px);
+    }
+}
+
+.txt-black {
+    color: $txt-black-light !important;
+}

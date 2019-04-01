@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="./css/index.css">
+    <script>window.mobileUtils=function(e,t){var i=navigator.userAgent,n=/android|adr/gi.test(i),a=/iphone|ipod|ipad/gi.test(i)&&!n;return{isAndroid:n,isIos:a,isMobile:n||a,isWeixin:/MicroMessenger/gi.test(i),isQQ:/QQ\/\d/gi.test(i),dpr:a?Math.min(e.devicePixelRatio,3):1,rem:null,fixScreen:function(){var i=this,n=t.querySelector('meta[name="viewport"]'),r=n?n.content:"";if(r.match(/initial\-scale=([\d\.]+)/),r.match(/width=([^,\s]+)/),!n){var o,s=t.documentElement,d=s.dataset.mw||750,m=a?Math.min(e.devicePixelRatio,3):1;t.getElementsByTagName("body")[0],s.removeAttribute("data-mw"),s.dataset.dpr=m,n=t.createElement("meta"),n.name="viewport",n.content=function(e){return"initial-scale="+e+",maximum-scale="+e+",minimum-scale="+e}(1),s.firstElementChild.appendChild(n);var c=function(){var e=s.getBoundingClientRect().width;e=e>d?d:e;var t=e/16;i.rem=t,s.style.fontSize=t+"px"};e.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(c,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(o),o=setTimeout(c,300))},!1),c()}}}}(window,document),mobileUtils.fixScreen();</script>
+  </head>
+  <body>
+    <div class="index">
+      <div class="logo"></div>
+      <div class="index-tit">
+          <img class="page_tit_l moveFromLeft" src="./images/page_tit_l.png" alt="">
+          <img class="page_tit_r scaleX" src="./images/page_tit_r.png" alt="">
+      </div>
+      <div class="dec"></div>
+      <div class="hb-box">
+        <div class="gold"></div>
+        <div class="hb-onopen">
+          <div class="bg_opentips">点击拆红包</div>
+          <div class="open">
+              <div class="open-border breath-border"></div>
+              <div class="open-img breath"></div>
+          </div>
+          <div class="newuser">新手专属</div>
+        </div>
+        <div class="hb-isopen" style="display:none;">
+            <p class="hb-p1"><span>￥</span>10.00</p>
+            <p class="hb-p2">恭喜您获得红包，手气超级赞！</p>
+            <div class="input-box">
+                <div class="inp">
+                  <input type="text" placeholder="输入手机号领取红包" maxlength="11" id="telInput">
+                  <div class="error" id="telError" style="display:none;"></div>
+                </div>
+                <div id="inpSpread" style="display:none;">
+                  <div class="inp">
+                    <input type="text" placeholder="输入短信验证码" maxlength="6" id="codeInput">
+                    <div class="getCode" id="getCode">获取验证码</div>
+                    <div class="error" id="codeError" style="display:none;"></div>
+                  </div>
+                  <div class="agree">
+                    <span class="checked"><i></i></span>领取即表示您已同意<a href="#">《团贷网服务协议》</a>
+                  </div>
+                </div>
+                <div class="btn" id="submit">立即领取</div>
+            </div>
+        </div>
+        <div class="txt-bot">【广告】市场有风险，投资需谨慎</div>
+      </div>
+    </div>
+    
+    <!--老司机奖励-->
+    <div class="mask" style="display:none;">
+      <div class="mask-bg"></div>
+      <div class="mask-con">
+        <div class="con-bg">
+            <p>您是团贷网老司机</p>
+            <p>请放开新手的红包~</p>
+        </div>
+        <a href="javascript:void(0);" class="old-user-btn">老司机的奖励在这里</a>
+        <div class="close"></div>
+      </div>
+    </div>
+    
+    <!--团币兑换成功-->
+    <div class="mask" style="display: none;" id="successMask">
+      <div class="mask-bg"></div>
+      <div class="mask-con">
+        <div class="con-bg">
+            <p>领取成功！</p>
+        </div>
+        <div class="mask-btn-box">
+            <div class="mask-btn-l">查看奖品</div>
+            <div class="mask-btn-r">更多奖励</div>
+        </div>
+        <div class="close"></div>
+      </div>
+    </div>
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
+

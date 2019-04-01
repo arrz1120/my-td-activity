@@ -1,0 +1,118 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    // height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #1073d3;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.step1 {
+    width: pxToRem(650px);
+    margin: 0 auto;
+}
+
+.step2 {
+    width: pxToRem(650px);
+    margin: pxToRem(99px) auto 0;
+    background: #fff;
+    border-radius: pxToRem(28px);
+    .con {
+        padding: pxToRem(36px) pxToRem(30px) pxToRem(27px) pxToRem(30px);
+    }
+    .tit {
+        width: pxToRem(650px);
+        height: pxToRem(102px);
+        background: url(../images/tit.png) no-repeat;
+        background-size: 100% 100%;
+    }
+    .p1 {
+        line-height: pxToRem(36px);
+        color: #666;
+        font-size: pxToRem(24px);
+        padding-left: pxToRem(87px);
+        position: relative;
+    }
+    .p1:before {
+        display: block;
+        content: '';
+        width: pxToRem(62px);
+        height: pxToRem(43px);
+        background: url(../images/1.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: pxToRem(15px);
+        left: 0;
+    }
+    .img_s1 {
+        margin-top: pxToRem(32px);
+        margin-bottom: pxToRem(72px);
+    }
+    .p2 {
+        line-height: pxToRem(36px);
+        color: #666;
+        font-size: pxToRem(24px);
+        padding-left: pxToRem(87px);
+        position: relative;
+        -webkit-user-select: text;
+    }
+    .p2:before {
+        display: block;
+        content: '';
+        width: pxToRem(62px);
+        height: pxToRem(43px);
+        background: url(../images/2.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: pxToRem(-2px);
+        left: 0;
+    }
+    .p3 {
+        margin-top: pxToRem(72px);
+    }
+    .p3:before {
+        background: url(../images/3.png) no-repeat;
+        background-size: 100% 100%;
+    }
+    .img_s2 {
+        margin-top: pxToRem(35px);
+    }
+}
+
+.bottom {
+    position: relative;
+    width: 100%;
+    height: pxToRem(646px);
+    background: url(../images/bottom.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: pxToRem(75px);
+    img{
+        width: pxToRem(266px);
+        position: absolute;
+        top: pxToRem(246px);
+        left: pxToRem(242px);
+    }
+}

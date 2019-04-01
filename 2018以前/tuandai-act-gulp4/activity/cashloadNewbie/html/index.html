@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>新手福利</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <script>
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                // if (docEl.style.fontSize) return;
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener("DOMContentLoaded", recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="btn-share" id="btn_share">分享</div>
+    <div class="scroll scroll-active">
+        <div class="content">
+        <div class="top">
+        	<i class="icon-cir1"></i>
+        	<i class="icon-cir2"></i>
+        	<i class="icon-cir3"></i>
+        </div>
+            <ul class="list-coupon">
+                <li class="coupon10 got">注册即赠</li>
+                <li class="coupon30">首次借款即赠</li>
+            </ul>
+            <!-- 看情况展示哪个按钮 -->
+            <div class="btn-common" id="btn_signup">
+                立即注册领取
+            </div>
+            <div class="btn-common" id="btn_check_coupon">
+                查看抵扣券
+            </div>
+            <div class="btn-rule" id="btn_rule">
+                活动规则
+            </div>
+        </div>
+    </div>
+    <!-- 规则弹窗 -->
+    <div class="popup component-dialog" id="pop_rule">
+    	<div class="masker"></div>
+    	<div class="dialog-wrapper">
+    		<div class="dialog-content">
+    			<h2 class="title">活动规则</h2>
+    			<p data-no="1">活动期间，新用户完成注册后，即可获得10元抵扣券1张，首笔借款成功后即可获得30元抵扣券1张，可在【个人中心】-【优惠券】查看；</p>
+    			<p data-no="2">每次借款只能使用1张抵扣券，可直接抵扣服务费，需在借款页面手动选择使用；</p>
+    			<p data-no="3">抵扣券均设有使用期限，逾期将失效；</p>
+    			<p data-no="4">在法律许可的合法范畴内，本活动最终解释权归速来贷所有。</p>
+    		</div>
+    		<i class="icon-close"></i>
+    	</div>
+    </div>
+    <!-- 触屏版分享弹窗 -->
+    <div class="popup component-dialog" id="share_wap">
+        <div class="masker"></div>
+        <div class="dialog-wrapper">
+            <div class="dialog-content">
+                请下载App进行分享
+            </div>
+            <div class="btns">
+                <div class="btn btn-nav">取消</div>
+                <div class="btn btn-pos">前往下载</div>
+            </div>
+        </div>
+    </div>
+    <!-- 微信分享弹窗 -->
+    <div class="popup" id="share_wx">
+        <div class="masker"></div>
+        <div class="share-wx">
+            <div class="btn-close"></div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/jsbridge-wk-base.js -->
+<script src="../../../lib/jsbridge/jsbridge-wk-base.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

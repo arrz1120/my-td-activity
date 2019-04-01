@@ -1,0 +1,86 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.sec {
+  padding: pxToRem(48px) pxToRem(56px) pxToRem(84px);
+
+  font-size: pxToRem(28px);
+  .title {
+    margin-bottom: pxToRem(56px);
+    padding: pxToRem(36px) 0;
+
+    font-size: pxToRem(36px);
+  }
+  p {
+    line-height: pxToRem(40px);
+    text-indent: 2em;
+  }
+}
+
+.sec-abstract {
+  @extend .sec;
+}
+.sec-contact {
+  @extend .sec;
+  @at-root .list-contact {
+    line-height: pxToRem(48px);
+    li {
+      position: relative;
+
+      padding-left: pxToRem(32px);
+      &:before {
+        position: absolute;
+        top: pxToRem(20px);
+        left: 0 ;
+
+        width: 3px;
+        height: 3px;
+        border-radius: 3px;
+
+        background-color: #2b79ec;
+
+        // transform: translate(0, -50%);
+
+        content: "";
+      }
+    }
+    .tip {
+      font-size: pxToRem(24px);
+
+      color: #979797;
+    }
+  }
+}
+.sec-qrcode {
+  position: relative;
+
+  box-sizing: border-box;
+  padding: pxToRem(84px) pxToRem(56px) pxToRem(74px);
+  height: pxToRem(433px);
+
+  font-size: pxToRem(28px);
+
+  color: #545454;
+  .qrcode {
+    position: absolute;
+    top: pxToRem(84px);
+    right: pxToRem(56px);
+  }
+   > p:first-child {
+    padding: pxToRem(60px) 0 pxToRem(36px);
+
+    font-size: pxToRem(36px);
+  }
+}
+.sec-bottom-info {
+  padding: pxToRem(50px) 0 pxToRem(40px);
+
+  font-size: pxToRem(22px);
+  line-height: pxToRem(36px);
+  text-align: center;
+
+  color: #979797;
+}

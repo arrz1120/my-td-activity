@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>lottery20171011</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+
+<a href="#" class="rule_btn"></a>
+
+<div class="lhj">
+	<p class="txt">活动时间：XX月XX日-XX月XX日</p>
+	<div class="img_box">
+		<div class="priez_wraper">
+			<ul class="prize_list">
+				<li class="hb"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb"></li>
+
+			</ul>
+
+			<ul class="prize_list">
+				<li class="j"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>				
+				<li class="hb"></li>
+			</ul>
+
+
+			<ul class="prize_list last_list">
+				<li class="lw"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="j_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="lw_mh"></li>
+				<li class="hb_mh"></li>
+				<li class="j_mh"></li>
+				<li class="hb"></li>
+			</ul>
+		</div>
+	</div>
+	<p class="txt_1">每人仅有一次领取奖品的机会哟~</p>
+	<a href="#" class="star" id="star"></a>
+</div>
+<div class="notice-container"></div>
+<footer>本活动最终解释权归团贷网所有</footer>
+
+
+<!-- 弹窗 -->
+<div class="alert rule_alert" id="rule_alert" style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<h2 class="tit">活动规则</h2>
+		<ul class="list">
+			<li>① 活动期间内，每位用户仅有一次领奖机会，同一微信ID、同一团贷网账户均视为同一位用户；
+</li>
+			<li>② 抽中并成功领取的奖品将在1个工作日内发放到账；
+</li>
+			<li>③ 抽中现金红包的用户在填写完获奖信息后，需在5天内登录团贷网，并在【团宝箱】中手动领取，逾期视为自动放弃奖品；
+</li>
+			<li>④ 本活动禁止一切刷奖行为，一经发现，所得奖品将不予承兑；
+</li>
+			<li>⑤ 本活动最终解释权归团贷网所有。</li>
+		</ul>
+
+
+		<span class="close">朕知道了</span>
+	</div>
+</div>
+
+<!-- 只有一次机会状态 or 本期活动已结束状态 -->
+<div class="alert gameover_alert" id="gameover_alert" style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<p class="txt">每人<span>只有一次</span> <br>领取奖品的机会哟~
+		</p>
+		<span class="close">朕知道了</span>
+	</div>
+</div>
+
+
+
+<!-- 只有一次机会状态 or 本期活动已结束状态 -->
+<div class="alert win_alert" id="win_alert"  style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<p class="txt">恭喜您抽中</p>
+		<span class="close">立即领取</span>
+	</div>
+</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/marquee.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var marquee=new Marquee('.notice-container',{
+		items:[
+			{key:0,val:'哇塞交流但是0<b>452</b>'},
+			{key:0,val:'哇塞交流但是1'},
+			{key:0,val:'哇塞交流但是2'},
+			{key:0,val:'哇塞交流但是4'},
+			{key:0,val:'哇塞交流但是7'},
+		]
+	})
+</script>
+</html>

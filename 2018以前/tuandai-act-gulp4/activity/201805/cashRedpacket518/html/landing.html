@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no,viewport-fit=cover" />
+	<meta name="format-detection" content="telephone=no">
+	<title>瓜分现金红包</title>
+	<!-- build:css ../css/common.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/landing.css -->
+	<link rel="stylesheet" href="../css/landing.css">
+	<link rel="stylesheet" href="../css/popup.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div class="scroll scroll-active wrap">
+	<i class="logo pos-a"></i>
+	<div class="content pos-r">
+		<i class="icon-cd1 pos-a"></i>
+		<i class="icon-cd2 pos-a"></i>
+		<i class="icon-jb1 pos-a"></i>
+		<i class="icon-jb2 pos-a"></i>
+		<i class="icon-jb3 pos-a"></i>
+		<!--发起邀请-->
+		<div class="red-packet-invite" style="display: none">
+			<p class="yq-txt ani-down"><span>赵小明</span><br>邀您一起瓜分红包！</p>
+			<div class="red-packet">
+				<div class="red-packet-top bg-size">
+				</div>
+				<a href="javascript:;" class="btn-open bg-size">
+					<span class="btn-open-bg bg-size bouncein breath-border"></span>
+					<span class="kai bg-size breath"></span>
+				</a>
+				<span class="tips">点击瓜分红包</span>
+				<div class="get-txt">
+					他已瓜分到12.58元，点开</br>看看你的手气～
+				</div>
+				<a href="rule.html" class="btn-rule">活动规则<i></i></a>
+			</div>
+		</div>
+
+
+		<!--开红包-->
+		<div class="red-packet-open bg-size" style="display: -none ">
+			<div class="red-packet-top ani-up">
+				<p class="money">￥10.68</p>
+				<p class="gx-txt">恭喜您瓜分到红包！人品超级赞！</p>
+				<!--红包分完				-->
+
+				<!--<p class="sorry-txt">抱歉，来迟一步</p>-->
+				<!--<p class="gx-txt">红包所剩不多！</br>成为发起者速来瓜分哦！</p>-->
+			</div>
+
+			<div class="red-packet-bottom bg-size">
+				<div class="input-wrap">
+					<div class="input-box">
+						<input type="text" class="phone" id="phone" maxlength="11" placeholder="输入手机号码一起瓜分红包">
+						<div class="error" id="phoneError"> </div>
+					</div>
+					<div class="input-box" style="display: none" id="codeInput">
+						<input type="text" class="code" id="messCode" maxlength="6" placeholder="输入短信验证码">
+						<input type="button" class="send send-gray" value="发送">
+						<div class="error" id="codeError"></div>
+					</div>
+					<a href="javascript:;" class="btn-get bg-size">注册查看</a>
+					<p class="reg-tips hide">注册即表示您已同意<a href="https://contract.tuandai.com/P2P/web/contractTypeService.aspx">《团贷网服务协议》</a></p>
+					<p class="txt">赵小明已领取12.58元</p>
+				</div>
+
+				<a href="rule.html" class="btn-rule">活动规则<i></i></a>
+			
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!--红包领取失败-->
+<div class="mask dabiao-mask hide" id="zhengzaiMask">
+	<div class="pop-container">
+		<div class="pop-dabiao">
+			<p>来晚一步，红包已被人领取了~</p>
+			<p>好友米雪儿发起的本轮瓜分已被他人捷足
+				先登，您可以成为瓜分红包的发起者获得很多红
+				包！快来试试~</p>
+			<a href="javascript:;" class="maskBtn">立即查看</a>
+		</div>
+		<a href="" class="close bg-size"></a>
+	</div>
+</div>
+
+<!--老用户弹窗-->
+<div class="mask login-mask hide" id="olduserMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<p class="old-user">您已经是团贷网老司机了<br/>
+				请重新发起红包活动哦~</p>
+			<a href="javascript:;" class="maskBtn">红包在这里</a>
+			<a href="JavaScript:;" class="close bg-size" id="clsoe_olduser"></a>
+		</div>
+	</div>
+</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/landing.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    (function() {
+        FastClick.attach(document.body);
+
+        var _body  = $('body');
+
+
+        _body.on('click', '#clsoe_olduser', function () {
+            aniHide("#olduserMask")
+        })
+
+
+    })();
+</script>
+</html>

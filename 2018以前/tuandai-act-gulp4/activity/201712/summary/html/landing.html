@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>2017年终总结-落地页</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/landing.css -->
+		<link rel="stylesheet" href="../css/landing.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!--注册-->
+			<div class="reg-wrap ">
+				<div class="banner">
+					<i class="logo"></i>
+					<i class="icon-xh1"></i>
+					<i class="icon-xh2"></i>
+					<i class="icon-qiqiu"></i>
+					<p class="p1">每个用户只能领取一次新年礼物哦~</br>
+						请填写以下信息，用于奖励发放</p>
+					<i class="text-top"></i>
+					<i class="text-bottom"></i>
+					<i class="icon-rp"></i>
+					<i class="icon-gift"></i>
+					<i class="banner-jb"></i>
+					<i class="banner-b"></i>
+				</div>
+
+				<!--表单  start-->
+				<div class="input-wrap">
+					<div class="input-box">
+						<i class="icon-phone"></i>
+						<input type="tel" name="phone" maxlength="11" id="phone" placeholder="请输入您的手机号码">
+						<span class="err phone-err hide"></span>
+					</div>
+					<div class="input-con-hide">
+						<div class="input-box">
+							<i class="icon-code"></i>
+							<input type="tel" name="verify-code" maxlength="6" class="code" id="code" placeholder="手机验证码">
+							<span class="send-code" id="sendCode">发送验证码</span>
+							<span class="err code-err hide"></span>
+						</div>
+						<div class="input-box">
+							<i class="icon-lk"></i>
+							<input type="password" class="password" id="password" placeholder="密码由6-16个字符（字母+数字组成）">
+							<span class="err password-err hide"></span>
+						</div>
+						<div class="input-box">
+							<i class="icon-yqr"></i>
+							<input type="tel"  maxlength="11" class="inviter" id="inviter" placeholder="输入邀请人号码（选填）">
+							<span class="err inviter-err hide"></span>
+						</div>
+					</div>
+
+					<div class="input-tips">领取即表示您已同意<a href="">《团贷网服务协议》</a></div>
+					<a href="javascript:;" class="get-btn breath" id="get_btn">立即领取</a>
+					<div class="to-login">已有账号，<a href="">请登录</a></div>
+				</div>
+				<!--表单  end-->
+			</div>
+
+			<!--成功领取-->
+			<div class="get-result hide">
+				<span class="xiaopai"></span>
+				<div class="banner">
+					<i class="logo"></i>
+					<i class="icon-xh1"></i>
+					<i class="icon-xh2"></i>
+					<i class="icon-qiqiu"></i>
+					<p class="p2">恭喜您成功领取~</p>
+					<p class="p3">XXXXX</p>
+					<i class="banner-b"></i>
+				</div>
+				<div class="to-link">
+					<p>请前往【团贷网App-我-团宝箱】查看奖品</p>
+					<a href="">下载App</a>
+				</div>
+			</div>
+
+			<div class="main">
+				<div class="title">关于团贷网</div>
+				<div class="about">
+					<p class="txt-des">2017年6月1日，派生集团（系团贷网集团工商登记主体）正式宣布，已获得新一轮融资<span>18亿元人民币</span>。本轮融资由民生资本投资管理有限公司领投<span>7亿</span>，北京盈生创新科技有限责任公司跟投6.5亿、北海宏泰投资有限公司跟投<span>1.5亿</span>。</p>
+					<div class="about-con">
+						<div class="item">
+							<div class="l-con">
+								2013年<span>11月</span>
+							</div>
+							<div class="r-con">
+								A轮股份改制
+								<span>获<em>1亿元</em>融资</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="l-con">
+								2015年<span>06月</span>
+							</div>
+							<div class="r-con">
+								B轮模式创新
+								<span>获<em>2亿元</em>融资</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="l-con">
+								2016年<span>10月</span>
+							</div>
+							<div class="r-con">
+								C轮战略升级
+								<span>获<em>3.75亿元</em>融资</span>
+							</div>
+						</div>
+						<div class="item">
+							<div class="l-con">
+								2017年<span>06月</span>
+							</div>
+							<div class="r-con">
+								新一轮融资
+								<span>获<em>18亿元</em>融资</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="fuli-wrap">
+					<div class="title">融资专享福利</div>
+					<div class="fuli">
+						<div class="item">
+							<div class="l-con">
+								518元<span>投资红包</span>
+							</div>
+							<div class="r-con">
+								已赠送到账
+							</div>
+						</div>
+						<div class="item">
+							<div class="l-con">
+								2888元<span>体验金</span>
+							</div>
+							<div class="r-con">
+								已赠送到账
+							</div>
+						</div>
+						<div class="item">
+							<div class="l-con">
+								500元<span>邀请红包</span>
+							</div>
+							<div class="r-con">
+								另享<span>0.5%</span>年化佣金
+							</div>
+						</div>
+					</div>
+					<div class="title">丰富的理财产品</div>
+					<!--标轮播 start-->
+					<div class="swiper-wrap">
+						<div class="swiper-container" id="swiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="s-con">
+										<p class="s-t">新手专享标</p>
+										<div class="webkit-box">
+											<div class="box-flex1">
+												<p class="nhl">10<span>%</span></p>
+											</div>
+											<div class="box-flex1">
+												<p class="p-txt1">预期年化收益</p>
+												<p class="p-txt2">15天/到期本息</p>
+											</div>
+										</div>
+										<a href="">马上投资</a>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="s-con">
+										<p class="s-t">专享标的</p>
+										<div class="webkit-box">
+											<div class="box-flex1">
+												<p class="nhl">11<span>%</span></p>
+											</div>
+											<div class="box-flex1">
+												<p class="p-txt1">预期年化收益</p>
+												<p class="p-txt2">1个月/到期本息</p>
+											</div>
+										</div>
+										<a href="">马上投资</a>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="s-con">
+										<p class="s-t">专享标的</p>
+										<div class="webkit-box">
+											<div class="box-flex1">
+												<p class="nhl">12<span>%</span></p>
+											</div>
+											<div class="box-flex1">
+												<p class="p-txt1">预期年化收益</p>
+												<p class="p-txt2">3个月/到期本息</p>
+											</div>
+										</div>
+										<a href="">马上投资</a>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="s-con">
+										<p class="s-t">复投宝36</p>
+										<div class="webkit-box">
+											<div class="box-flex1">
+												<p class="nhl">12.6<span>%</span></p>
+											</div>
+											<div class="box-flex1">
+												<p class="p-txt1">预期年化收益</p>
+												<p class="p-txt2">36个月/到期本息</p>
+											</div>
+										</div>
+										<a href="">马上投资</a>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="swiper-pagination" id="swiper_pagination"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+
+
+				<div class="bg-f6645e">
+					<div class="title title-w">选择团贷网的理由</div>
+					<div class="liyou clearfix">
+						<div class="item">
+							<img src="../images/landing/liyou1.png" alt="">
+							<span>新一轮融资<em>18亿元</em><br/>4轮融资<em>24.75亿元</em></span>
+						</div>
+						<div class="item">
+							<img src="../images/landing/liyou2.png" alt="">
+							<span>智能风控系统<br/>实力保驾护航</span>
+						</div>
+						<div class="item">
+							<img src="../images/landing/liyou3.png" alt="">
+							<span>银行资金存管<br/>自有资金与用户资金隔离更安心</span>
+						</div>
+						<div class="item">
+							<img src="../images/landing/liyou4.png" alt="">
+							<span>理财收益更灵活<br/>预期年化收益<em>12.6%</em></span>
+						</div>
+					</div>
+
+					<div class="swiper-container images-swiper" id="images_swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="top-pic">
+									<img src="../images/landing/slide1.png" alt="">
+									<p>国家级互金平台11月综合排名第四位</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="top-pic">
+									<img src="../images/landing/slide4.png" alt="">
+									<p>2015年6月——团贷网完成B轮融资</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="top-pic">
+									<img src="../images/landing/slide3.png" alt="">
+									<p>国务院参事在东莞市领导陪同下考察</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="top-pic">
+									<img src="../images/landing/slide2.png" alt="">
+									<p>2016年10月C轮融资完成</p>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination" id="images_swiper_pagination"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				投资有风险，入市需谨慎，最终收益以实际为准！
+			</div>
+		</div>
+
+		<!--loading-->
+		<div class="mask loasing-mask" style="display: none;" id="loadingMask">
+			<div class="loading-box">
+				<div class="loading-img"></div>
+				<div class="loading-txt"></div>
+				<p>领取中......</p>
+			</div>
+		</div>
+
+
+		<!--前往登录-->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">请先登录才可以参与活动哦~</p>
+					<div class="m-btn2">前往登录</div>
+				</div>
+			</div>
+		</div>
+
+		<!---->
+		<div class="mask" style="display: none;">
+			<div class="mask_bg"></div>
+			<div class="mask_con2">
+				<div class="close"></div>
+				<div class="mask_tit"></div>
+				<div class="con txtCon">
+					<p class="m-p4">请先登录才可以参与活动哦~</p>
+					<div class="m-btn2">前往登录</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/landing.js" type="text/javascript" charset="utf-8"></script>
+</html>

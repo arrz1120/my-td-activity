@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.icon-cir1 {
+	@include background("../images/cir1.png", 151px, 143px);
+}
+.icon-cir2 {
+	@include background("../images/cir2.png", 281px, 253px);
+}
+.icon-cir3 {
+	@include background("../images/cir3.png", 246px, 261px);
+}
+.icon-circle {
+	@include background("../images/circle.png", 55px, 34px);
+}
+.icon-close {
+	@include background("../images/close.png", 48px, 48px);
+}

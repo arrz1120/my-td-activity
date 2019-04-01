@@ -1,0 +1,108 @@
+@charset "utf-8";
+@import (inline) './reset.css';
+.remW(@n){
+  width: @n*16/750rem;
+}
+.remH(@n){
+  height: @n*16/750rem;
+}
+.remWH(@w,@h){
+  width: @w*16/750rem;
+  height: @h*16/750rem;
+}
+.bgURI(@uri){
+  background: url(@uri) center top no-repeat;
+  background-size: 100%;
+}
+.initURI(){
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.d-hide{
+  display: none!important;
+}
+.layout-main{
+  .remWH(750,1290);
+  .bgURI('../images/index/1.jpg');
+  overflow: hidden;
+  position: relative;
+}
+.layout-main-circles{
+  .remWH(741,413);
+  .bgURI('../images/index/4.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.logo{
+  .remWH(133,43);
+  .bgURI('../images/index/logo.png');
+ margin-left: 0.5rem; 
+ margin-top: 0.75rem;
+}
+.rules-btn{
+  .remWH(74,88);
+  .bgURI('../images/index/1.png');
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+}
+.theme-container{
+  position: relative;
+  width: 15rem;
+  margin: 0 auto;
+  margin-top: -.75rem;
+  .theme-title{
+    .remWH(586,317);
+    .bgURI('../images/index/2.png');
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .theme-star{
+    .remWH(168,112);
+    position: absolute;
+    top: 2.25rem;
+    z-index: 1;
+    &.n1{
+      .bgURI('../images/index/3-1.png');
+      left: 0;
+    }
+    &.n2{
+      .bgURI('../images/index/3-2.png');
+      right: 0;
+    }
+  }
+}
+.lottery-container{
+  margin-top: -1rem;
+  .lottery-outerCircle{
+    .remWH(682,718);
+    .bgURI('../images/index/5-4.png');
+    margin: 0 auto;
+    position: relative;
+  }
+  .lottery-lights{
+    .remWH(637,637);
+    position: absolute;
+    .bgURI('../images/index/5-3.png');
+    top: .475rem;
+    left: .5rem;
+  }
+  .lottery-innerCircle{
+    .remWH(573,573);
+    .bgURI('../images/index/5-2.png');
+    position: absolute;
+    top: 1.175rem;
+    left: 1.15rem;
+  }
+  .lottery-indicator{
+    .remWH(200,221);
+    .bgURI('../images/index/5-1.png');
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}

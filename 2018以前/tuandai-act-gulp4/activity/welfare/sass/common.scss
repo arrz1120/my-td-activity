@@ -1,0 +1,284 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: none
+    } 
+}
+
+i,
+span,
+ul,
+li {
+    display: inline-block;
+}
+
+.abs{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+    overflow: auto;
+    overflow-x: hidden;
+    // max-width: 414px;
+    // width: pxToRem(750px);
+}
+
+.mask {
+    @extend .abs;
+    z-index: 30;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.masker{
+    @extend .mask;
+    background: rgba(0,0,0,0);
+    // z-index: 100;
+}
+
+::-webkit-scrollbar {
+    //滚动条不可见
+    display: none;
+}
+
+// 返回键
+.back-btn{
+    position: absolute;
+    left:pxToRem(0px);
+    top: pxToRem(0px);
+    width: pxToRem(78px);
+    height: pxToRem(88px);
+    // @include background('../images/back-btn.png', 17px, 31px);
+    background: url(../images/back-btn.png) no-repeat center;
+    background-size: pxToRem(17px);
+}
+// toast
+.toast{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: pxToRem(28px);
+    width: pxToRem(380px);
+    z-index: 9;
+    // height: pxToRem(80px);
+    background-color: rgba(0,0,0,0.8);
+    border-radius: pxToRem(40px);
+    line-height: pxToRem(36px);
+    text-align: center;
+    font-size: pxToRem(26px);
+    color: $defaultColor;
+    word-wrap: break-word;
+}
+// 公益活动
+.welfare-act-con{
+    font-size: 0;
+    .pic{
+        width: 100%;
+    }
+    .welfare-act-txt{
+        padding: 0 pxToRem(30px);
+        .title{
+            font-size: pxToRem(30px);
+            // color: #000;
+            margin-bottom: pxToRem(30px);
+        }
+        .goal{
+            font-size: pxToRem(30px);
+            color: $textBlackColor;
+            .goal-num{
+                margin-right: pxToRem(18px);
+                font-size: pxToRem(44px);
+                color: $mainColor; 
+            }
+        }
+        .start-date{
+            font-size: pxToRem(26px);
+            color: $textGreyColor;
+        }
+        // 进度条
+        .act-progress{
+            width: 100%;
+            height: pxToRem(8px);
+            border-radius: pxToRem(4px);
+            background-color: $borderColor;
+            .act-progress-per{
+                position: relative;
+                height: pxToRem(8px);
+                border-radius: pxToRem(4px);
+                background-color: #a5e839;
+                .act-progress-icon{
+                    position: absolute;
+                    top: pxToRem(-10px);
+                    width: pxToRem(96px);
+                    height: pxToRem(30px);
+                    border-radius: pxToRem(15px);
+                    background: linear-gradient( 120deg, rgb(164,220,61) 0%, rgb(74,165,66) 100%);
+                    line-height: pxToRem(30px);
+                    text-align: center;
+                    font-size: pxToRem(20px);
+                    color: $defaultColor;
+                    &.right{ //适用于大于14%的样式
+                        right:0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 参与情况 && 公益日记
+.join-con{
+    background-color: $defaultColor;
+    font-size: 0;
+    ul{
+        width: 100%;
+        padding-left: pxToRem(30px);
+    }
+    .join-item{
+        width: 100%;
+        padding: pxToRem(30px) pxToRem(30px) pxToRem(20px) 0; 
+        border-bottom:1px solid $borderColor;
+        &:last-child{
+            border-bottom: none;
+        }
+        @at-root .user-head{
+            // width: pxToRem(80px);
+            // height: pxToRem(80px);
+            width: 11.5%;
+            margin-right: pxToRem(30px);
+            border:1px solid #ccc;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+        .act-pic{
+            // width: pxToRem(180px);  
+            // height: pxToRem(180px);
+            display: inline-block;
+            width: 26%;
+            border-radius: pxToRem(10px);
+            vertical-align: top;
+            margin-right: pxToRem(30px);
+            img{
+                width: 100%;
+            }
+        }
+        @at-root .join-txt{
+            // width: pxToRem(580px);
+            float: right;
+            width: 83.5%;
+            vertical-align: top;
+            // padding-top: pxToRem(6px);
+            font-size: 0;
+            .user-name{
+                margin-bottom: pxToRem(20px);
+                font-size: pxToRem(30px);
+                line-height: pxToRem(46px);
+                color:$textBlackColor;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .act-name{
+                @extend .user-name;
+                color: #000;
+                display: block;
+            }
+            .donate-coin{
+                @extend .user-name;
+                margin-bottom: pxToRem(20px);
+            }
+            .user-love{
+                float: right;
+                color: $textPinkColor;
+                font-size: pxToRem(30px);
+                i{
+                    margin-right: pxToRem(8px);
+                }
+            }
+            .donate-date{
+                font-size: pxToRem(26px);
+                color:$textGreyColor;
+                margin-bottom: pxToRem(30px);
+            }
+            .user-msg{
+                @extend .donate-date;
+                margin-bottom: 0;
+                line-height: pxToRem(48px);
+                text-align: justify;
+            }
+        }
+    }
+}
+// 没有更多
+.no-more{
+    width: 100%;
+    height: pxToRem(100px);
+    line-height: pxToRem(100px);
+    background-color: #f2f2f0;
+    text-align: center;
+    color: $textGreyColor;
+    font-size: pxToRem(26px);
+}
+// 错误页面
+.error-con{
+    width: 100%;
+    height: 100%;
+    background-color: $defaultColor;
+    padding-top: pxToRem(154px);
+    text-align: center;
+    .no-data-pic{
+        @include background('../images/no-data.png', 224px, 220px)
+        display: inline-block;
+        margin-bottom: pxToRem(70px);
+    }
+    .error-pic{
+        @include background('../images/erro.png', 212px, 220px)
+        display: inline-block;
+        margin-bottom: pxToRem(70px);
+    }
+    .error-info{
+        font-size: pxToRem(30px);
+        color: $textBlackColor;
+        margin-bottom: pxToRem(28px);
+    }
+    .error-desc{
+        font-size: pxToRem(26px);
+        color: $textGreyColor;
+    }
+}
+
+// 图标
+.icon-love{
+    @include background('../images/love.png', 26px, 22px);
+    display: inline-block;
+    vertical-align: middle;
+}

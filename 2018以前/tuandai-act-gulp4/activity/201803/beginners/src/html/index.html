@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" href="./css/index.css">
+    <script>window.mobileUtils=function(e,t){var i=navigator.userAgent,n=/android|adr/gi.test(i),a=/iphone|ipod|ipad/gi.test(i)&&!n;return{isAndroid:n,isIos:a,isMobile:n||a,isWeixin:/MicroMessenger/gi.test(i),isQQ:/QQ\/\d/gi.test(i),dpr:a?Math.min(e.devicePixelRatio,3):1,rem:null,fixScreen:function(){var i=this,n=t.querySelector('meta[name="viewport"]'),r=n?n.content:"";if(r.match(/initial\-scale=([\d\.]+)/),r.match(/width=([^,\s]+)/),!n){var o,s=t.documentElement,d=s.dataset.mw||750,m=a?Math.min(e.devicePixelRatio,3):1;t.getElementsByTagName("body")[0],s.removeAttribute("data-mw"),s.dataset.dpr=m,n=t.createElement("meta"),n.name="viewport",n.content=function(e){return"initial-scale="+e+",maximum-scale="+e+",minimum-scale="+e}(1),s.firstElementChild.appendChild(n);var c=function(){var e=s.getBoundingClientRect().width;e=e>d?d:e;var t=e/16;i.rem=t,s.style.fontSize=t+"px"};e.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(c,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(o),o=setTimeout(c,300))},!1),c()}}}}(window,document),mobileUtils.fixScreen();</script>
+  </head>
+  <body>
+    <section class="banner">
+      <div class="img-b1"></div>
+      <p class="p-b1">每天1分钟了解团贷网 答题即抽iPhone X </p>
+      <div class="bg-time">第X期：XX月XX日—XX月XX日</div>
+      <a href="rule.html" class="btn-b btn-rule">活动规则</a>
+      <a href="card.html" class="btn-b btn-card">学生卡</a>
+    </section>
+
+    <section class="sec1">
+      <div class="con1" id="content">
+        <div class="aq-box">
+            <p class="p1-1">为了缓解小微企业的资金压力，团贷网每年举办“网贷爱心日”的时间是____？</p>
+            <div class="txt1-1">已连续答题<span>0</span>天</div>
+            <div class="question">
+              <ul>
+                  <li>
+                    <span class="checkbox"><i></i></span>A. 12月17日
+                  </li>
+                  <li>
+                    <span class="checkbox"><i></i></span>B. 12月18日
+                  </li>
+                  <li>
+                    <span class="checkbox"><i></i></span>C. 12月19日
+                  </li>
+              </ul>
+              <div class="txt-result" id="errorTips" style="display:none;">不是这个答案呢，再试一次吧~</div>
+            </div>
+            <div class="bg-btn1" id="submit">提交抽奖</div>
+            <div class="bg-btn1" id="lottery" style="display:none;">马上抽奖</div>
+        </div>
+
+        <div class="share-box" style="display:none;">
+            <div class="txt1-1">已连续答题<span>0</span>天</div>
+            <div class="gift" id="resultGift"></div>
+            <p class="sgift-p1"></p>
+            <p class="sgift-p2"></p>
+            <div class="bg-btn1 shareBtn">分享喜悦 <span>+5</span> 分</div>
+        </div>
+
+        <div class="award-scroll">
+            <a href="javascript:void(0);" id="showBigPrize">大奖得主></a>
+            <div class="comment-container award-list">
+                <p class="comment-item">137****7271 抽中50投资红包</p>
+                <p class="comment-item">137****7271 iPad</p>
+                <p class="comment-item">137****7271 iPhone X</p>
+                <p class="comment-item">137****7271 苹果手表</p>
+            </div>
+          </div>
+
+          <div class="gift-box">
+            <div class="gift-row">
+                <div class="gift-item">
+                  <div class="gift-img">
+                    <img class="img-iphonex" src="./images/index/giftSmall/iphonex.png" alt="">
+                  </div>
+                  <p class="gift-p1">iPhone X</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-ipad" src="./images/index/giftSmall/ipad.png" alt="">
+                    </div>
+                    <p class="gift-p1">iPad</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-iwatch" src="./images/index/giftSmall/iwatch.png" alt="">
+                    </div>
+                    <p class="gift-p1">苹果手表</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-hb" src="./images/index/giftSmall/hb.png" alt="">
+                    </div>
+                    <p class="gift-p1">现金/投资红包</p>
+                    <p class="gift-p2">连续答题必中</p>
+                </div>
+            </div>
+            <div class="gift-row" id="giftHide" style="display:none;">
+                <div class="gift-item">
+                  <div class="gift-img">
+                    <img class="img-youku" src="./images/index/giftSmall/youku.png" alt="">
+                  </div>
+                  <p class="gift-p1">优酷会员1个月</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-supermember" src="./images/index/giftSmall/supermember.png" alt="">
+                    </div>
+                    <p class="gift-p1">超级会员5天</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-signcard" src="./images/index/giftSmall/signcard.png" alt="">
+                    </div>
+                    <p class="gift-p1">补签卡</p>
+                </div>
+                <div class="gift-item">
+                    <div class="gift-img">
+                      <img class="img-tb" src="./images/index/giftSmall/tb.png" alt="">
+                    </div>
+                    <p class="gift-p1">5~50团币</p>
+                </div>
+            </div>
+            <div class="gift-tab">
+              <p>查看全部奖品</p>
+              <i></i>
+            </div>
+          </div>
+
+        </div>
+    </section>
+
+    <section class="sec2">
+      <div class="con">
+        <div class="rankinglist">
+          <div class="list-tab">
+              <div class="tab-item tab-left tab-cur">学分排行榜</div>
+              <div class="tab-item tab-right">投资排行榜</div>
+          </div>
+          <div class="list">
+              <div class="list-item comment-container rank-scroll-l">
+                    <div class="comment-item">
+                        <span class="item1">001</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">002</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">003</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">004</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">005</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">006</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+              </div>
+              <div class="list-item comment-container rank-scroll-r d-hide">
+                    <div class="comment-item">
+                        <span class="item1">007</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">008</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">009</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">010</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">011</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+                    <div class="comment-item">
+                        <span class="item1">012</span>
+                        <span class="item2">158*****363</span>
+                        <span class="item3">1805学分</span>
+                        <span class="item4">500元现金+<br>扫地机器人</span>
+                    </div>
+              </div>
+          </div>
+        </div>
+        <div class="credit">
+            <div class="userhead">
+              <img src="./images/index/header.png" alt="">
+            </div>
+            <p class="c-p1">XXXX 学分</p>
+            <p class="c-p2">您暂未上榜</p>
+            <div class="invest-btn">马上投资></div>
+        </div>
+        <div class="link-box">
+            <div class="link-row">
+                <div class="link-item">
+                  <img class="icon-link1" src="./images/index/icon_link1.png" alt="">
+                  <p class="link-p1">浏览课程></p>
+                  <p class="link-p2">+5学分/次</p>
+                </div>
+                <div class="link-item">
+                  <img class="icon-link2" src="./images/index/icon_link2.png" alt="">
+                  <p class="link-p1">分享活动></p>
+                  <p class="link-p2">+5学分/次</p>
+                </div>
+            </div>
+            <div class="link-row">
+                <div class="link-item">
+                  <img class="icon-link1" src="./images/index/icon_link3.png" alt="">
+                  <p class="link-p1">邀请好友></p>
+                  <p class="link-p2">+10学分/人</p>
+                </div>
+                <div class="link-item">
+                  <img class="icon-link2" src="./images/index/icon_link4.png" alt="">
+                  <p class="link-p1">补答题库></p>
+                  <p class="link-p2">+10学分/人</p>
+                </div>
+            </div>
+        </div>
+        <div class="prize-swiper swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                      <img class="prize1 swiper-lazy" data-src="./images/index/prize1.png" alt="">
+                      <img class="prize-money money1" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第 1 名</p>
+                        <p class="prize-p2">扫地机器人+500元现金红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize2 swiper-lazy" data-src="./images/index/prize2.png" alt="">
+                        <img class="prize-money money1" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第 2 名</p>
+                        <p class="prize-p2">九阳豆浆机+288元现金红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize3 swiper-lazy" data-src="./images/index/prize3.png" alt="">
+                        <img class="prize-money money1" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第 3 名</p>
+                        <p class="prize-p2">飞利浦加湿器+188元现金红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize4 swiper-lazy" data-src="./images/index/prize4.png" alt="">
+                        <img class="prize-money money1" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第 4 名</p>
+                        <p class="prize-p2">飞利浦加湿器+188元现金红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize5-10 swiper-lazy" data-src="./images/index/prize5-10.png" alt="">
+                        <img class="prize-money money1" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第5~10名</p>
+                        <p class="prize-p2">小π充电宝+150000元体验金</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize-hb swiper-lazy" data-src="./images/index/prize-hb.png" alt="">
+                        <img class="prize-money money2" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第11~30名</p>
+                        <p class="prize-p2">78000元体验金+10元投资红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize-hb swiper-lazy" data-src="./images/index/prize-hb.png" alt="">
+                        <img class="prize-money money2" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第31~50名</p>
+                        <p class="prize-p2">58000元体验金+8元投资红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize-hb swiper-lazy" data-src="./images/index/prize-hb.png" alt="">
+                        <img class="prize-money money2" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第51~70名</p>
+                        <p class="prize-p2">38000元体验金+5元投资红包</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="prize-box">
+                    <div class="prize-img">
+                        <img class="prize-hb swiper-lazy" data-src="./images/index/prize-hb.png" alt="">
+                        <img class="prize-money money2" src="./images/index/prize-money.png" alt="">
+                    </div>
+                    <div class="prize-txt">
+                        <p class="prize-p1">第71~100名</p>
+                        <p class="prize-p2">18000元体验金+5元投资红包</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="prize-pagination"></div>
+
+            <div class="prize-prev"></div>
+            <div class="prize-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec3">
+      <div class="con">
+        <div class="lesson-swiper swiper-contaner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="lesson">
+                      <p class="lesson-p1">课程1></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                  <div class="lesson">
+                      <p class="lesson-p1">课程2></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                  <div class="lesson">
+                      <p class="lesson-p1">课程3></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="lesson">
+                      <p class="lesson-p1">课程4></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                  <div class="lesson">
+                      <p class="lesson-p1">课程5></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                  <div class="lesson">
+                      <p class="lesson-p1">课程6></p>
+                      <p class="lesson-p2">关于团贷网你不得不知的一些事儿</p>
+                  </div>
+                </div>
+            </div>
+            <div class="lesson-pagination"></div>
+        </div>
+      </div>
+      <p class="ad-bottom"><span>广告</span>市场有风险，投资需谨慎</p>
+    </section>
+
+    <footer>
+        <div class="item" id="baoming">
+            <p class="p1">我要报名</p>
+            <p class="p2">报名后开始答题</p>
+        </div>
+        <div class="item">
+            <p class="p1">浏览课程</p>
+            <p class="p2">找答案</p>
+        </div>
+    </footer>
+
+    <!--我要报名-->
+    <div class="mask" style="display:none;">
+        <div class="mask-bg"></div>
+        <div class="mask-con">
+            <div class="mask-text1">
+                <p>快快点击页面底部的“<span>我要报名</span>”<br>加入活动吧~</p>
+                <div class="close"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--这是新手专区-->
+    <div class="mask" style="display:none;">
+        <div class="mask-bg"></div>
+        <div class="mask-con">
+            <div class="mask-text2">
+                <p class="p1">理财老司机，您上错车啦~</p>
+                <p class="p2">这里是新手学习专区哦！</p>
+                <p class="p3">入学条件：</p>
+                <div class="p4">
+                    <p class="p4"><span>①</span>注册日距今≤30天 或 注册至今未有过投资记录的用户，</p>
+                    <p class="p4"><span>②</span>未参加过往期新手学堂活动。</p>
+                </div>
+                <div class="close"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--报名成功！-->
+    <div class="mask" id="maskBmSuccess" style="display:none;">
+        <div class="mask-bg"></div>
+        <div class="mask-con">
+            <div class="mask-text3">
+                <p class="p1">理财老司机，您上错车啦~</p>
+                <p class="p2">从现在起，您的学分及投资金额将参与本期排<br>行榜竞争，上榜可拿现金大奖哦~</p>
+                <p class="p3">现在马上前往答题吧~</p>
+                <div class="btn" id="bmConfirm">确 定</div>
+                <div class="close"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--大奖得主-->
+    <div class="mask" style="display:none;" id="bigPrizeMask">
+        <div class="mask-bg"></div>
+        <div class="mask-con">
+            <div class="bigPirze">
+                <p class="p1">大奖得主</p>
+                <div class="list">
+                    <div class="item">
+                        <div class="bp-img bp-img1">
+                            <img src="./images/index/giftSmall/iphonex.png" alt="">
+                        </div>
+                        <div class="bp-user">
+                            <div class="userhead"><img src="./images/index/head-none.png" alt=""></div>
+                            虚位以待
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bp-img bp-img2">
+                            <img src="./images/index/giftSmall/ipad.png" alt="">
+                        </div>
+                        <div class="bp-user">
+                            <div class="userhead"><img src="./images/index/head-none.png" alt=""></div>
+                            虚位以待
+                        </div>
+                        <div class="bp-user">
+                            <div class="userhead"><img src="./images/index/head-none.png" alt=""></div>
+                            虚位以待
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bp-img bp-img3">
+                            <img src="./images/index/giftSmall/iwatch.png" alt="">
+                        </div>
+                        <div class="bp-user">
+                            <div class="userhead"><img src="./images/index/img-temp.png" alt=""></div>
+                            189*****786
+                        </div>
+                    </div>
+                </div>
+                <div class="close"></div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+
+
+<!-- build:js ./js/lib/jq-swiper-jsbridge.js -->
+  <script src="./js/jquery-1.8.3.min.js"></script>
+  <script src="./lib/vendors/swiper-3.4.2.min.js"></script>
+  <script src="./js/jsbridge-3.1.5.js"></script>
+  <script src="./js/appShare.bundle.js"></script>
+  <script src="./js/comment.bundle.js"></script>
+
+  <!-- endbuild -->
+
+
+
+
+
+  <script src="./js/index.js"></script>
+</html>

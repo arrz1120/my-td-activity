@@ -1,0 +1,305 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+.clr {
+    clear: both;
+}
+
+// 弹窗
+.alert-wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    .highest-education-select {
+        // 最高学历选项
+        display: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #ececec;
+        .alert-title {
+            color: $txt-grey-color;
+        }
+        p {
+            background: $default-color;
+            border-bottom: 1px solid #d7d7d7;
+            color: $txt-black-color;
+            font-size: pxToRem(30px);
+            text-align: center;
+            height: pxToRem(88px);
+            line-height: pxToRem(88px);
+        }
+        .cancel-btn {
+            margin-top: pxToRem(20px);
+        }
+    } // 岗位选择
+    .job-select {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 99;
+        p {
+            height: pxToRem(80px);
+            line-height: pxToRem(80px);
+            padding-left: pxToRem(66px);
+            color: #383838;
+            font-size: pxToRem(26px);
+            white-space: nowrap;
+            overflow: hidden;
+            &.selected {
+                background: #cccbcb;
+            }
+        }
+        .job-select-left {
+            display: inline-block;
+            width: pxToRem(260px);
+            height: 100%;
+            padding-top: pxToRem(34px);
+            background: #ececec;
+            vertical-align: top;
+            p {
+                &.selected {
+                    background: #dbd9d9;
+                }
+            }
+        }
+        .job-select-right {
+            display: inline-block;
+            top: 0;
+            width: pxToRem(380px);
+            height: 100%;
+            padding-top: pxToRem(34px);
+            background: #dbd9d9;
+            overflow: auto;
+        }
+    } // 提交成功or失败
+    .result-content {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: pxToRem(570px);
+        border-radius: pxToRem(4px);
+        background: $default-color;
+        margin-top: pxToRem(-50px);
+        padding: pxToRem(80px) 0;
+        text-align: center;
+        .result-tip {
+            margin-bottom: pxToRem(50px);
+            i {
+                margin-right: pxToRem(16px);
+                vertical-align: middle;
+            }
+            span {
+                font-size: pxToRem(40px);
+                color: #444;
+                vertical-align: middle;
+            }
+        }
+        p {
+            font-size: pxToRem(26px);
+            color: #666;
+            line-height: pxToRem(40px);
+        }
+        .cls-btn {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: pxToRem(-100px);
+            margin: auto;
+            @extend .icon-cls-btn;
+        }
+    }
+}
+
+.content {
+    padding: 0 0 pxToRem(100px);
+    background-color: #ececec;
+    form {
+        overflow: auto;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    span,
+    p {
+        font-size: pxToRem(26px);
+        color: #2d2d2d;
+        &.grey-txt {
+            color: $txt-grey-color;
+            font-size: pxToRem(22px);
+        }
+        &.red-txt {
+            color: #F33232;
+            font-size: pxToRem(22px);
+        }
+    }
+    .scroll-content {
+        height: 100%;
+        overflow: auto;
+        .input-con {
+            // height: pxToRem(80px);
+            padding: pxToRem(25px) pxToRem(30px);
+            margin-bottom: pxToRem(20px);
+            background-color: $default-color;
+            color: #2d2d2d;
+            overflow: hidden;
+            font-size: 0;
+            white-space: nowrap;
+            span {
+                line-height: normal;
+                height: pxToRem(32px);
+                margin-right: pxToRem(40px);
+                vertical-align: middle;
+                &.selected-txt {
+                    max-width: pxToRem(350px);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                &.grey-txt,
+                &.select-txt {
+                    line-height: pxToRem(32px);
+                }
+            }
+            input {
+                line-height: normal;
+                height: pxToRem(32px);
+                width: 70%;
+                font-size: pxToRem(26px);
+                color: #444;
+                margin: 0;
+                vertical-align: middle;
+                &::input-placeholder {
+                    color: $txt-grey-color;
+                }
+            } // 选择按钮
+            .select-btn {
+                margin-right: 0;
+                float: right;
+                .select-txt {
+                    margin-right: pxToRem(12px);
+                }
+            }
+        } // 工作经历或项目经验
+        .experience {
+            width: 100%;
+            padding: pxToRem(30px) pxToRem(30px) 0;
+            margin-bottom: pxToRem(20px);
+            background-color: $default-color;
+            .experience-title {
+                margin-bottom: pxToRem(24px);
+            }
+            textarea {
+                width: 100%;
+                height: pxToRem(100px);
+                margin-bottom: pxToRem(25px);
+                resize: none;
+                font-size: pxToRem(26px);
+                color: #444;
+                line-height: pxToRem(32px);
+                &::input-placeholder {
+                    color: #2d2d2d;
+                }
+            }
+            .grey-txt {
+                float: right;
+                margin-bottom: pxToRem(18px);
+            }
+        } // 个人照片
+        .photo {
+            padding: pxToRem(30px);
+            background-color: $default-color;
+            .photo-title {
+                margin-bottom: pxToRem(34px);
+            }
+            .upload-photo-btn {
+                position: relative;
+                width: pxToRem(180px);
+                height: pxToRem(180px);
+                margin-right: pxToRem(40px);
+                background: url(../images/upload.png) no-repeat center;
+                background-size: pxToRem(58px);
+                border: 1px dashed #CFCCCF;
+                border-radius: pxToRem(6px);
+                vertical-align: middle;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                input {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .msg {
+                position: relative;
+                height: pxToRem(180px);
+                vertical-align: middle;
+                line-height: pxToRem(180px);
+                .red-txt {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    line-height: 1.2;
+                }
+                .grey-txt {
+                    line-height: pxToRem(32px);
+                    vertical-align: middle;
+                }
+            }
+        }
+    } // 提交简历
+    .submit-btn {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: pxToRem(100px);
+        line-height: pxToRem(100px);
+        background: #FFB400;
+        color: $default-color;
+        font-size: pxToRem(34px);
+        text-align: center;
+    }
+}
+
+// 图标
+.icon-arrow-down {
+    @include background('../images/arrow-down.png', 18px, 11px);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-surccess {
+    width: pxToRem(68px);
+    height: pxToRem(68px);
+    background: url(../images/surccess.png) no-repeat;
+    background-size: contain;
+}
+
+.icon-fail {
+    width: pxToRem(68px);
+    height: pxToRem(68px);
+    background: url(../images/fail.png) no-repeat;
+    background-size: contain;
+}
+
+.icon-cls-btn {
+    width: pxToRem(70px);
+    height: pxToRem(70px);
+    background: url(../images/cls-btn.png) no-repeat;
+    background-size: contain;
+}

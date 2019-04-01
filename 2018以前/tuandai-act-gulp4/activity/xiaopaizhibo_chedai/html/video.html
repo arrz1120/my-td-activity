@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+		<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+	</head>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		html,body,.video,.video{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<body>
+		<div class="video">
+			<div class="video" id="video_a">
+				
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript" src="https://players.youku.com/jsapi"></script>
+    <script>
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return "";
+        }
+    </script>
+	<script type="text/javascript">
+		var player = new YKU.Player('video_a', {
+			styleid: '0',
+			client_id: '52b3fa57e9fe17cf',
+			vid: GetQueryString('vid'),
+			show_related: false
+		});
+	</script>
+
+</html>

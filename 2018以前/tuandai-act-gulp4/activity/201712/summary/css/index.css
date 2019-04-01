@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important; }
+
+a {
+  text-decoration: none; }
+
+div,
+textarea,
+span {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none; }
+
+textarea {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  resize: none; }
+
+.text-center {
+  text-align: center !important; }
+
+.index {
+  width: 100%;
+  width: "100%";
+  height: 25.74933rem;
+  background-image: url(../images/index/bg_index.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  background-color: #db77a1;
+  padding-top: 1.68533rem; }
+
+.i-tit {
+  width: 14.74133rem;
+  height: 6.656rem;
+  background: url("../images/index/i_tit.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto; }
+
+.i-p {
+  font-size: 0.512rem;
+  color: #9a1320;
+  text-align: center;
+  margin-top: 12.48rem; }
+
+.i-btn {
+  width: 10.66667rem;
+  height: 2.176rem;
+  background: url("../images/index/i_btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 0.85333rem;
+  color: #fff;
+  margin: 1.42933rem auto 0;
+  line-height: 2.176rem;
+  text-align: center;
+  display: block; }
+
+.scale {
+  -webkit-animation: scale 2s 1s ease-in both; }
+
+@-webkit-keyframes scale {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  z-index: 99; }
+  .mask .mask_bg {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+  .mask .mask_bg1 {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+
+.mask_con1 {
+  width: 14.72rem;
+  position: relative;
+  z-index: 2; }
+  .mask_con1 .close {
+    width: 1.024rem;
+    height: 1.024rem;
+    background: url("../images/select/close.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0.49067rem;
+    right: 0.49067rem;
+    z-index: 3; }
+  .mask_con1 .mask_tit {
+    width: 14.72rem;
+    height: 2.00533rem;
+    background: url("../images/select/mask_tit1.png") no-repeat;
+    background-size: 100% 100%;
+    font-size: 0.768rem;
+    color: #fffffe;
+    line-height: 2.00533rem;
+    text-align: center; }
+  .mask_con1 .con {
+    background: #fff;
+    padding: 0.61867rem 0.96rem 1.28rem 0.96rem;
+    border-radius: 0 0 0.42667rem 0.42667rem; }
+    .mask_con1 .con textarea {
+      display: block;
+      width: 100%;
+      height: 4.90667rem;
+      border: 1px solid #ddd;
+      border-radius: 0;
+      font-size: 0.55467rem;
+      color: #999;
+      padding-top: 0.81067rem;
+      padding-left: 0.72533rem; }
+    .mask_con1 .con .number {
+      font-size: 0.512rem;
+      color: #999;
+      text-align: right;
+      padding-top: 0.40533rem; }
+    .mask_con1 .con .m-btn {
+      width: 12.8rem;
+      height: 1.792rem;
+      background: url("../images/select/m-btn.png") no-repeat;
+      background-size: 100% 100%;
+      margin-top: 0.72533rem;
+      text-align: center;
+      font-size: 0.72533rem;
+      color: #711b15;
+      line-height: 1.792rem; }
+
+.mask_con2 {
+  width: 12.8rem;
+  position: relative;
+  z-index: 2; }
+  .mask_con2 .close {
+    width: 1.024rem;
+    height: 1.024rem;
+    background: url("../images/select/close.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: -1.23733rem;
+    right: -0.10667rem;
+    z-index: 3; }
+  .mask_con2 .mask_tit {
+    width: 12.8rem;
+    height: 1.55733rem;
+    background: url("../images/select/mask_tit2.png") no-repeat;
+    background-size: 100% 100%; }
+  .mask_con2 .con {
+    background: #fff;
+    border-radius: 0 0 0.42667rem 0.42667rem;
+    padding-bottom: 0.85333rem; }
+  .mask_con2 .m-btn2 {
+    width: 10.66667rem;
+    height: 1.68533rem;
+    background: url("../images/select/m-btn2.png") no-repeat;
+    background-size: 100% 100%;
+    margin: 1.536rem auto 0;
+    text-align: center;
+    font-size: 0.64rem;
+    color: #711b15;
+    line-height: 1.68533rem;
+    display: block; }
+  .mask_con2 .txtCon {
+    padding-top: 2.00533rem; }
+
+.m-p4 {
+  font-size: 0.768rem;
+  color: #434343;
+  text-align: center;
+  font-weight: bold; }
+
+.tipsBox {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100; }
+  .tipsBox .tips {
+    padding: 0.42667rem 0.85333rem;
+    font-size: 0.64rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0.17067rem; }
+
+#wxAlert img {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2; }
+
+/*# sourceMappingURL=maps/index.css.map */

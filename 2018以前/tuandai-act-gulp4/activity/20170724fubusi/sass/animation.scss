@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.banner-img{
+    -webkit-animation: banner-img 0.8s 0.2s ease-out both;
+}
+
+.fadeIn{
+    -webkit-animation: fadeIn 0.6s 1s ease-out both;
+}
+
+@-webkit-keyframes banner-img{
+    0%{
+        -webkit-transform: translate3d(0,-50px,0);
+        opacity: 0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.dropdown{
+    -webkit-animation: dropdown 1.4s linear infinite;
+}
+@-webkit-keyframes dropdown{
+    0%{
+        -webkit-transform: translate3d(0,-20px,0);
+        opacity: 0;
+    }
+    100%{
+        -webkit-transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}

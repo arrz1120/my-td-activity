@@ -1,0 +1,176 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.tab-con {
+  white-space: nowrap;
+  overflow-x: auto;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 0; }
+  .tab-con .tab-item {
+    position: relative;
+    width: 33.3%;
+    height: 1.92rem;
+    line-height: 1.92rem;
+    text-align: center;
+    font-size: 0.68267rem;
+    color: #333; }
+    .tab-con .tab-item.active a {
+      border-bottom: 0.128rem solid #c8a66b;
+      color: #b29559; }
+    .tab-con .tab-item a {
+      display: inline-block;
+      height: 100%;
+      color: #333; }
+
+.school-link-item {
+  width: 50%;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center; }
+  .school-link-item:nth-child(odd) {
+    border-right: 1px solid #e6e6e6; }
+  .school-link-item:nth-child(4n+1) i {
+    background-image: url(../images/PE-school-icon1.png); }
+  .school-link-item:nth-child(4n+2) i {
+    background-image: url(../images/PE-school-icon2.png); }
+  .school-link-item:nth-child(4n+3) i {
+    background-image: url(../images/PE-school-icon3.png); }
+  .school-link-item:nth-child(4n+0) i {
+    background-image: url(../images/PE-school-icon4.png); }
+  .school-link-item a {
+    display: block;
+    padding: 2.13333rem 0 1.70667rem; }
+    .school-link-item a i {
+      width: 1.36533rem;
+      height: 1.36533rem;
+      background-size: 1.36533rem;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      margin-bottom: 0.93867rem; }
+    .school-link-item a p {
+      font-size: 0.64rem;
+      color: #000; }
+
+ul {
+  width: 100%;
+  font-size: 0; }
+
+.school-item {
+  width: 100%;
+  display: block;
+  background-color: #fff;
+  padding: 0 0.64rem;
+  border-bottom: 1px solid #f2f2f2; }
+  .school-item .school-title {
+    position: relative;
+    padding: 0.68267rem 0; }
+    .school-item .school-title .school-title-txt {
+      width: 94%;
+      color: #333;
+      line-height: 0.768rem;
+      font-size: 0.68267rem;
+      text-align: justify; }
+    .school-item .school-title .right-opt-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+      .school-item .school-title .right-opt-btn.rotate {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg); }
+  .school-item .school-con {
+    display: none;
+    padding-bottom: 0.85333rem; }
+    .school-item .school-con > * {
+      width: 100% !important; }
+    .school-item .school-con p {
+      line-height: 0.768rem;
+      font-size: 0.55467rem;
+      text-align: justify;
+      word-wrap: break-word; }
+      .school-item .school-con p span {
+        display: inline; }
+    .school-item .school-con img {
+      width: 100%; }
+    .school-item .school-con .snd-title {
+      margin-bottom: 0.21333rem; }
+
+.icon-right-opt-btn, .school-item .school-title .right-opt-btn {
+  width: 0.46933rem;
+  height: 0.256rem;
+  background: url(../images/right-opt-btn.png) no-repeat center;
+  background-size: 0.46933rem;
+  vertical-align: middle; }
+
+/*# sourceMappingURL=maps/PESchool.css.map */

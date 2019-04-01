@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import "../variables";
+@import "../../../../sass/func";
+.dialog-content {
+	padding: pxToRem(50px) pxToRem(30px) !important;
+}
+.r-txt {
+    width: 100%;
+    font-size: 0;
+    span {
+        display: inline-block;
+        width: 100%;
+        font-size: pxToRem(30px);
+        line-height: pxToRem(48px);
+    }
+}
+.margin-txt {
+	display: block;
+	margin-top: pxToRem(50px);
+	font-size: pxToRem(30px);
+	color: #333;
+	.txt-yellow {
+		color: #fab700;
+	}
+}
+.r-txt-small {
+	font-size: pxToRem(24px);
+	display: block;
+	margin-top: pxToRem(20px);
+	color: $txt-grey-dark;
+}
+.pop-result {
+	padding-top: pxToRem(100px);
+	.result {
+		margin-top: 0;
+	}
+}
+// [class^='p-c-'] {
+// 	width: 100%;
+// 	text-align: center;
+// 	line-height: pxToRem(48px);
+// 	display: inline-block;
+// 	color: #333;
+// }
+// .p-c-txt {
+// 	font-size: pxToRem(34px);
+// }
+// .p-c-txt2 {
+// 	font-size: pxToRem(24px);
+// }

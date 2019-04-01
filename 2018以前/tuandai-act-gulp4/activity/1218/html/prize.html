@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="force-rendering" content="webkit">
+	<meta content="email=no" name="format-detection" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>1218</title>
+	<!-- build:css ../css/prize.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/prize.css">
+	<link rel="stylesheet" href="../css/prize_alert.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<script>window.mobileUtils = function (e, t) { var i = navigator.userAgent, n = /android|adr/gi.test(i), a = /iphone|ipod|ipad/gi.test(i) && !n; return { isAndroid: n, isIos: a, isMobile: n || a, isWeixin: /MicroMessenger/gi.test(i), isQQ: /QQ\/\d/gi.test(i), dpr: a ? Math.min(e.devicePixelRatio, 3) : 1, rem: null, fixScreen: function () { var i = this, n = t.querySelector('meta[name="viewport"]'), r = n ? n.content : ""; if (r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) { var o, s = t.documentElement, d = s.dataset.mw || 750, m = a ? Math.min(e.devicePixelRatio, 3) : 1; t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function (e) { return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e }(1), s.firstElementChild.appendChild(n); var c = function () { var e = s.getBoundingClientRect().width; e = e > d ? d : e; var t = e / 16; i.rem = t, s.style.fontSize = t + "px" }; e.addEventListener("resize", function () { clearTimeout(o), o = setTimeout(c, 300) }, !1), e.addEventListener("pageshow", function (e) { e.persisted && (clearTimeout(o), o = setTimeout(c, 300)) }, !1), c() } } } }(window, document), mobileUtils.fixScreen();</script>
+</head>
+<body>
+	<div class="prizeWrapper">
+		<!--未登录-->
+		<div class="userInfo" style="display: none;">
+			<div class="tdHeader">
+				<img src="../images/prize/header.png"/>
+			</div>
+			<div class="username">点我登录</div>
+		</div>
+		<!--已登录-->
+		<div class="userInfo">
+			<div class="tdHeader">
+				<img src="../images/prize/header.png"/>
+			</div>
+			<div class="username">Flame爱学先生123</div>
+			<div class="toInvest">前往团贷网投资</div>
+			<div class="userPrize">
+				<p class="up-p1">已获得加息</p>
+				<p class="up-p2">1.5%</p>
+			</div>
+		</div>
+		
+		<!--普惠加息1%-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon quan-icon">
+					<img src="../images/prize/jiaxi1.png"/>
+				</div>
+				<div class="prize-txt prize-txt2">
+					<p class="pt-p1">普惠加息</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<!--加载中状态-->
+				<div class="prize-loading" style="display: none;">
+					<div class="btn-yellow">加载中</div>
+				</div>
+				<div class="prize-state">
+					<!--领取-->
+					<div class="btn-yellow" style="display: none;">领取</div>
+					<!--已领取-->
+					<div class="jiaxi-finish">
+						<p>+1.5%</p>
+						<div class="icon-get"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--加息0.2%-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon quan-icon">
+					<img src="../images/prize/jiaxi02.png"/>
+				</div>
+				<div class="prize-txt prize-txt2">
+					<p class="pt-p1">爱心接力，<br />瓜分现金红包</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<!--加载中状态-->
+				<div class="prize-loading">
+					<div class="btn-yellow">加载中</div>
+				</div>
+				<div class="prize-state" style="display: none;">
+					<!--前往-->
+					<div class="btn-yellow" style="display: none;">前往</div>
+					<!--已完成-->
+					<div class="jiaxi-finish">
+						<p>+0.2%</p>
+						<div class="icon-finish"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--最高加息0.2%-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon quan-icon">
+					<img src="../images/prize/zgjiaxi02.png"/>
+				</div>
+				<div class="prize-txt prize-txt1">
+					<p class="pt-p1">团币兑换加息特权</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<!--加载中状态-->
+				<div class="prize-loading">
+					<div class="btn-yellow">加载中</div>
+				</div>
+				<div class="prize-state" style="display: none;">
+					<!--前往-->
+					<div class="btn-yellow" style="display: none;">兑换</div>
+					<!--已完成-->
+					<div class="jiaxi-finish">
+						<p>+0.16%</p>
+						<div class="icon-finish"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 签到加息0.1% -->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon quan-icon">
+					<img src="../images/prize/jiaxi01.png"/>
+				</div>
+				<div class="prize-txt prize-txt2">
+					<p class="pt-p1">活动期间<br />App累计签到满3天</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<div class="prize-state">
+					<!--前往-->
+					<div class="btn-yellow" style="display: none;">前往</div>
+					<!--未完成签到-->
+					<div class="not-sign" style="display: none;">
+						<p>2/3天</p>
+						<div class="btn-gray">未完成</div>
+					</div>
+					<!--立即领取-->
+					<div class="not-sign is-sign">
+						<p>3/3天</p>
+						<div class="btn-yellow">立即领取</div>
+					</div>
+					<!--已领取-->
+					<div class="jiaxi-finish" style="display: none;">
+						<p>+0.1%</p>
+						<div class="icon-linqu"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--加息3.5% -->
+		<!--<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon quan-icon">
+					<img src="../images/prize/jiaxi35.png"/>
+				</div>
+				<div class="prize-txt prize-txt1">
+					<p class="pt-p1">派生财富加息特权</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<div class="prize-state">
+					<div class="btn-yellow" style="display: none;">前往</div>
+					<div class="linqu-finish">
+						<div class="icon-linqu"></div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		
+		<!--普惠礼盒-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon gift-icon1">
+					<img src="../images/prize/gift1.png"/>
+				</div>
+				<div class="prize-txt prize-txt1">
+					<p class="pt-p1">普惠礼盒</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<div class="prize-state">
+					<!--未开始-->
+					<div class="gift-state-off" style="display: none;">
+						<div class="btn-gray">未开始</div>
+					</div>
+					<!--查看奖品-->
+					<div class="gift-state-on">
+						<p class="gift-txt">iPad+超级会员1月</p>
+						<div class="btn-yellow toUserPrize">查看奖品</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--奢华礼盒-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon gift-icon2">
+					<img src="../images/prize/gift2.png"/>
+				</div>
+				<div class="prize-txt prize-txt1">
+					<p class="pt-p1">奢华礼盒</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<div class="prize-state">
+					<!--未开始-->
+					<div class="gift-state-off" style="display: none;">
+						<div class="btn-gray">未开始</div>
+					</div>
+					<!--已结束-->
+					<div class="gift-state-off" style="display: none;">
+						<div class="btn-gray">已结束</div>
+					</div>
+					<!--前往-->
+					<div class="gift-state-off">
+						<div class="btn-yellow">前往</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--爱心榜单-->
+		<div class="prizeBox">
+			<div class="prizeItem">
+				<div class="price-icon gift-icon3">
+					<img src="../images/prize/gift3.png"/>
+				</div>
+				<div class="prize-txt prize-txt2">
+					<p class="pt-p1">爱心榜单，<br />壕夺万元红包+金条</p>
+					<p class="pt-p2">2017年12月11日至2017年12月20日</p>
+				</div>
+				<div class="prize-state">
+					<!--已结束-->
+					<div class="gift-state-off" style="display: none;">
+						<div class="btn-gray">已结束</div>
+					</div>
+					<!--未上榜-->
+					<div class="gift-state-off" style="display: none;">
+						<div class="btn-gray">未上榜</div>
+					</div>
+					<!--已上榜-->
+					<div class="gift-state-on" style="display: -none;">
+						<p class="gift-txt gift-txt1">当前排名77</p>
+						<div class="btn-yellow">已上榜</div>
+					</div>
+					<!--有奖品-->
+					<div class="gift-state-on" style="display: none;">
+						<p class="gift-txt">￥2000+金条</p>
+						<div class="btn-yellow toUserPrize">查看奖品</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- 底部按钮 -->
+
+	<a href="" class="back">返回主会场</a>
+	<!-- 底部按钮 end-->
+
+	
+	 <!-- 团币兑换加息弹窗 -->
+    <section class="comp-modal hide js-exchangeModal">
+      <div class="comp-modal-shade js-exchangeModalClose"></div>
+      <div class="comp-modal-container js-exchangeListModal">
+        <div class="comp-modal-gift"></div>
+        <div class="comp-modal-gift-decorate"></div>
+        <div class="comp-modal-content">
+          <div class="view-jx-exchange-modal">
+              <p class="view-jx-exchange-title">团币兑换加息特权</p>
+              <div class="view-jx-exchange-content">
+                <div class="view-jx-exchange-item disabled">
+                  <i class="view-jx-exchange-item-tag"></i>
+                  <div class="view-jx-exchange-icon n1"></div>
+                  <p class="view-jx-exchange-btn">立即兑换</p>
+                </div>
+                <div class="view-jx-exchange-item">
+                  <div class="view-jx-exchange-icon n2"></div>
+                  <p class="view-jx-exchange-btn">立即兑换</p>
+                </div>
+                <div class="view-jx-exchange-item">
+                  <div class="view-jx-exchange-icon n3"></div>
+                  <p class="view-jx-exchange-btn">立即兑换</p>
+                </div>
+                <div class="view-jx-exchange-item">
+                  <div class="view-jx-exchange-icon n4"></div>
+                  <p class="view-jx-exchange-btn">立即兑换</p>
+                </div>
+                <div class="view-jx-exchange-item">
+                  <div class="view-jx-exchange-icon n5"></div>
+                  <p class="view-jx-exchange-btn">立即兑换</p>
+                </div>
+                <p class="view-jx-exchange-tips">（我的团币：<span class="mark">7,500</span> | 每人限兑换一次）</p>
+              </div>
+          </div>
+          <i class="comp-modal-decorate n2"></i>
+        </div>
+        <i class="comp-modal-decorate exchange n1"></i>
+        <div class="comp-modal-close js-exchangeModalClose"></div>
+      </div>
+      <!-- 确认兑换弹窗 -->
+      <div class="comp-modal-container hide js-confirmExchangeModal animate">
+        <div class="comp-modal-gift"></div>
+        <div class="comp-modal-gift-decorate"></div>
+        <div class="comp-modal-content">
+          <div class="view-jx-submit-modal">
+            <p class="view-jx-submit-title">兑换：<span class="mark">+0.2%</span>加息特权</p>
+            <p class="view-jx-submit-title">支付：<span class="mark">-400000</span>团币</p>
+            <p class="view-jx-submit-msg">您的剩余团币不足40000，暂无法兑换！</p>
+            <p class="view-jx-submit-btn">确认兑换</p><!--置灰样式:disabled-->
+            <p class="view-jx-submit-tips">*每人限兑换一次*</p>
+          </div>
+          <i class="comp-modal-decorate n2"></i>
+        </div>
+        <i class="comp-modal-decorate n1"></i>
+        <div class="comp-modal-close js-exchangeModalClose"></div>
+      </div>
+      <!-- 确认兑换弹窗end -->
+    </section>
+    <!-- 团币兑换加息弹窗end -->
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/jsbridge3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/prize.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/advTransition.bundle.js"></script>
+<script src="../js/comment.bundle.js"></script>
+<script>
+      var doms={
+        exchangeListModal:$('.js-exchangeListModal'),
+        exchangeConfirmModal:$('.js-confirmExchangeModal'),
+        exchangeModalCloseEls:$('.js-exchangeModalClose'),
+      }
+
+      var transExchange=new AdvTransition('.js-exchangeModal',{
+        classes:{
+          start:'hide',
+          enter:'animate-enter',
+          end:'animate-end',
+          leave:'animate-leave'
+        },
+        onTransitionOut:function(){
+          exchangAnimate.reset();
+        }
+      })
+
+      var exchangAnimate=(function(){
+        var status=null;
+        doms.exchangeListModal.on('transitionend',function(){
+          if(status===1){
+            $(this).addClass('hide');
+            doms.exchangeConfirmModal.removeClass('hide');
+            setTimeout(function(){
+              doms.exchangeConfirmModal.removeClass('animate');
+            },0);
+          }
+        })
+        doms.exchangeConfirmModal.on('transitionend',function(){
+          if(status===0){
+            $(this).addClass('hide');
+            doms.exchangeListModal.removeClass('hide');
+            setTimeout(function(){
+              doms.exchangeListModal.removeClass('animate');
+            },0)
+          }
+        })
+        return {
+          // 切换到确定兑换弹窗
+          toConfirm:function(){
+            doms.exchangeListModal.addClass('animate');
+            status=1;
+          },
+          // 切换到兑换列表弹窗
+          toList:function(){
+            doms.exchangeConfirmModal.addClass('animate');
+            status=0;
+          },
+          // 重置弹窗
+          reset:function(){
+            status=null;
+            doms.exchangeListModal.removeClass('hide');
+            doms.exchangeListModal.removeClass('animate');
+            doms.exchangeConfirmModal.addClass('animate');
+            doms.exchangeConfirmModal.addClass('hide');
+          }
+        }
+      })();
+
+      // 显示弹窗 click 事件
+      $('.btn-yellow').on('click',function(){
+        transExchange.show();
+      })
+
+      // 兑换列表弹窗 点击兑换 click 事件
+      $('.view-jx-exchange-btn').on('click',function(){
+        exchangAnimate.toConfirm();
+      })
+
+      // 关闭icon click 事件
+      doms.exchangeModalCloseEls.on('click',function(){
+        transExchange.hide();
+      })
+      
+//		var cmmentScroller = new CommentScroller('.comment-list', {
+//			showSlides: 1, //显示的条数
+//			autoplay: true, //autoplay:true 开启滚动
+//			delay: 2000, //轮播间隔时间
+//		})
+
+    </script>
+</html>

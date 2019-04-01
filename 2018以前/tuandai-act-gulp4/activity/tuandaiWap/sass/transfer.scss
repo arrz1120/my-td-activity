@@ -1,0 +1,200 @@
+@charset "UTF-8";
+@import "variables";
+@import "fn";
+@import "../../../sass/reset";
+
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+textarea,
+span {
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+img {
+    display: block;
+}
+
+
+.transfer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.t-top {
+    background-image: -webkit-linear-gradient( 135deg, rgb(250, 171, 11) 0%, rgb(250, 189, 6) 41%, rgb(250, 207, 0) 100%);
+    width: 100%;
+    height: rem(130);
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    .t-left{
+        @include font(26,#fff);
+        padding-left: rem(30);
+        line-height: rem(130);
+    }
+    .t-right{
+        @include font(40,#fff);
+        padding-right: rem(30);
+        line-height: rem(130);
+    }
+}
+
+.t-con{
+    margin-top: rem(44);
+    padding: 0 rem(30);
+}
+
+.con-r1{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    .r-left{
+        @include font(30,#333);
+        line-height: rem(60);
+        span{
+            color: #999;
+            margin-left: rem(20);
+        }
+    }
+    .r-right{
+        @include wh(159,60);
+        border: 1px solid rgb(250, 125, 0);
+        border-radius: rem(28);
+        text-align: center;
+        @include font(26,#fa7d00);
+        line-height: rem(58);
+    }
+}
+
+.con-inp{
+    margin-top: rem(25);
+    position: relative;
+    height: rem(99);
+    padding-left: rem(30);
+    span{
+        @include font(34,#333);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: rem(99);
+        line-height: rem(99);
+        display: inline-block;
+    }
+    input{
+       @include font(34,#333); 
+       display: block;
+       width: 100%;
+       height: 100%;
+       text-align: right;
+    }
+}
+.con-inp:after{
+    @include border(bottom,#e6e6e6,solid);
+}
+
+.recordBox{
+    text-align: right; 
+    padding-top: rem(30);
+}
+.record{
+    @include font(24,#fab600);
+    i{
+        display: inline-block;
+        @include wh(9,16);
+        @include bg('../images/paishengcaifu/arrow.png');
+        margin-left: rem(10);
+        vertical-align: middle;
+    }
+}
+
+.con-btn{
+    @include wh(690,80);
+    background: #e6e6e6;
+    @include font(34,#999);
+    text-align: center;
+    line-height: rem(80);
+    margin: rem(40) auto 0;
+    border-radius: rem(6);
+}
+
+.btn-on{
+    background: #fab600;
+    color: #fff;
+}
+
+.t-bot{
+    padding: rem(26) 0 rem(26) rem(24);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px rem(-4) rem(16) 0 rgba(0, 0, 0, 0.06);
+    i{
+        display: inline-block;
+        @include wh(48,48);
+        margin-right: rem(14);
+        vertical-align: middle;
+        background: url(../images/paishengcaifu/ico_transfer.png) center center no-repeat;
+        background-color: rgba(250,182,0,0.1);
+        background-size: rem(34) rem(34);
+        border-radius: 50%;
+    }
+    p{
+        @include font(24,#999);
+        line-height: rem(34);
+    }
+}
+
+.b-btn{
+    @include wh(130,54);
+    position: absolute;
+    right: rem(30);
+    top: rem(23);
+    background: #fab600;
+    text-align: center;
+    line-height: rem(54);
+    @include font(24,#fff);
+    border-radius: rem(4);
+}
+

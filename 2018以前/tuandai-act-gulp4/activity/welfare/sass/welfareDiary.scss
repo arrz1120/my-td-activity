@@ -1,0 +1,58 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.content{
+	background-color: #f2f2f0;
+}
+// 我的公益排行信息
+.my-rank-con{
+	background-color: $defaultColor;
+	padding: pxToRem(30px);
+	.join-txt{
+		position: relative;
+		font-size: 0;
+		.user-name{
+			width: 70%;
+			margin-bottom: pxToRem(16px);
+		}
+		.rank-info{
+			font-size: pxToRem(26px);
+			color:$textGreyColor;
+			.em{
+				color: $textPinkColor; 
+			}
+		}
+		.love-info{
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(0, -50%); 
+			vertical-align: middle;
+			padding-left: pxToRem(46px);
+			font-size: pxToRem(44px);
+			color: $textPinkColor; 
+			i{
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translate(0, -50%); 
+			}
+		}
+		
+	}
+}
+// 公益日记
+.join-con{
+	margin-top: pxToRem(20px);
+	.join-item{
+		padding-top: pxToRem(40px);
+		padding-bottom: pxToRem(40px);
+		.join-txt{
+			padding-top: 0;
+			width: 69%;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes swing {
+    20% {
+        -webkit-transform: rotate3d(0, 0, 1, 6deg);
+        transform: rotate3d(0, 0, 1, 6deg)
+    }
+    40% {
+        -webkit-transform: rotate3d(0, 0, 1, -3deg);
+        transform: rotate3d(0, 0, 1, -3deg)
+    }
+    60% {
+        -webkit-transform: rotate3d(0, 0, 1, 1deg);
+        transform: rotate3d(0, 0, 1, 1deg)
+    }
+    80% {
+        -webkit-transform: rotate3d(0, 0, 1, -1deg);
+        transform: rotate3d(0, 0, 1, -1deg)
+    }
+    100% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+}
+
+@keyframes swing {
+    10% {
+        -webkit-transform: rotate3d(0, 0, 1, 6deg);
+        transform: rotate3d(0, 0, 1, 6deg)
+    }
+    20% {
+        -webkit-transform: rotate3d(0, 0, 1, -3deg);
+        transform: rotate3d(0, 0, 1, -3deg)
+    }
+    30% {
+        -webkit-transform: rotate3d(0, 0, 1, 1deg);
+        transform: rotate3d(0, 0, 1, 1deg)
+    }
+    40% {
+        -webkit-transform: rotate3d(0, 0, 1, -1deg);
+        transform: rotate3d(0, 0, 1, -1deg)
+    }
+    50% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+    100% {
+        -webkit-transform: rotate3d(0, 0, 1, 0deg);
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+}
+
+.swing {
+    -webkit-animation-name: swing;
+    animation-name: swing;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}

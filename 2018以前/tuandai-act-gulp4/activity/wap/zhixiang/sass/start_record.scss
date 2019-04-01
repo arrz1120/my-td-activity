@@ -1,0 +1,142 @@
+@charset "UTF-8";
+@import "variables";
+@import "fn";
+//@import "iscroll";
+@import "../../../../sass/reset";
+html,
+body {
+    position: relative;
+        height: 100%;
+    width: 100%;
+    //  overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+//  -webkit-overflow-scrolling: touch !important;
+    background: #f2f2f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+textarea,
+span {
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+img {
+    display: block;
+}
+
+.top{
+    position: relative;
+    display: -webkit-box;
+    background: #fff;
+}
+
+.top-tab{
+    width: 50%;
+    height: rem(90);
+    line-height: rem(90);
+    @include font(34,#666);
+    text-align: center;
+}
+.top-tab-cur{
+    color: #fab600;
+}
+
+.top-line{
+    width: 1px;
+    height: rem(34);
+    background: #e6e6e6;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    position: absolute;
+    top: rem(28);
+    left: 50%;
+}
+
+.record-con{
+	background: #fff;
+	margin-top: rem(20);
+	padding-left: rem(30);
+}
+.record-con:before{
+    @include border('top',#e6e6e6,solid);
+}
+.record-con:after{
+    @include border('bottom',#e6e6e6,solid);
+}
+
+.re-tit{
+	position: relative;
+	p{
+		@include font(30,#212121);
+		line-height: rem(90);
+	}
+	span{
+		@include font(30,#fab600);
+		position: absolute;
+		right: rem(34);
+		display: block;
+		line-height: rem(90);
+		top: 0;
+	}
+	.circular{
+		position: absolute;
+		top: 50%;
+		margin-top: -7px;
+		right: rem(118);
+	}
+}
+
+.re-content{
+	display: -webkit-box;
+	padding-bottom: rem(29);
+	position: relative;
+	.con-item{
+		width: 50%;
+	}
+	.recon-p1{
+		@include font(24,#ababab);
+		padding-top: rem(31);
+	}
+	.recon-p2{
+		@include font(30,#333);
+		padding-top: rem(24);
+	}
+	.c-fd6040{
+		color: #fd6040;
+	}
+}
+.re-content:before{
+	@include border('top',#e6e6e6,solid);
+}

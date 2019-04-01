@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+// 首页图标
+.icon-home-page{
+	@include background('../images/home-page.png', 68px, 68px);
+}
+// 我的页面图标
+.icon-my-page{
+	@include background('../images/my-page.png', 68px, 68px);
+}

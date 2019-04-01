@@ -1,0 +1,141 @@
+    @charset "UTF-8";
+    @import "variables";
+    @import "../../../sass/func";
+    /*  for small width screen  */
+    
+    @media screen and (max-width:374px) {}
+    /* =========for short screen============== */
+    
+    @media screen and (max-height: 530px) and (min-width:321px) {
+        .slideItem {
+            padding-top: pxToRem(40px);
+        }
+        .leader-box {
+            margin-top: pxToRem(40px);
+        }
+    }
+    
+    @media screen and (max-height: 480px) and (min-width:360px) {
+        .slideItem {
+            padding-top: pxToRem(39px);
+        }
+        .slide1 {
+            .p {
+                padding: pxToRem(32px) pxToRem(50px) pxToRem(20px) pxToRem(50px);
+            }
+        }
+        .con1 {
+            width: pxToRem(590px);
+        }
+        .con2 {
+            width: pxToRem(620px);
+            margin: 0 auto pxToRem(20px);
+        }
+        .slide2 {
+            .p2-1 {
+                padding: pxToRem(20px) pxToRem(50px) pxToRem(20px) pxToRem(50px);
+            }
+            .p2-2 {
+                padding: pxToRem(20px) pxToRem(50px) 0 pxToRem(50px);
+            }
+        }
+        .leader-box {
+            margin-top: pxToRem(27px);
+        }
+        .con3 {
+            padding: pxToRem(20px) pxToRem(30px) 0 pxToRem(30px);
+        }
+        .txtSwiper {
+            height: pxToRem(400px);
+            margin-top: pxToRem(20px);
+        }
+        .slide4 {
+            .p {
+                padding: pxToRem(15px) pxToRem(50px) pxToRem(15px) pxToRem(50px);
+            }
+        }
+        .con4 {
+            -webkit-transform: scale(0.9, 0.9);
+        }
+    }
+    
+    //* -----------meizu  mx3----------------- */
+    @media screen and (min-height: 589px) and (min-width:430px) {
+        $ratio: 0.9;
+        .slideItem {
+            padding-top: pxToRem(39px);
+        }
+        .slide1 {
+            .p {
+                padding: pxToRem(32px) pxToRem(50px) pxToRem(20px) pxToRem(50px);
+            }
+        }
+        .con1 {
+            width: pxToRem(650px);
+        }
+        .con2 {
+            width: pxToRem(670px);
+            margin: 0 auto pxToRem(20px);
+        }
+        .slide2 {
+            .p2-1 {
+                padding: pxToRem(20px) pxToRem(50px) pxToRem(10px) pxToRem(50px);
+            }
+        }
+        .leader-box {
+            margin-top: pxToRem(30px);
+        }
+        .con3 {
+            padding: pxToRem(20px) pxToRem(30px) 0 pxToRem(30px);
+        }
+        .txtSwiper {
+            height: pxToRem(440px);
+            margin-top: pxToRem(40px);
+        }
+        .slide4 {
+            .p {
+                padding: pxToRem(23px) pxToRem(50px) pxToRem(20px) pxToRem(50px);
+            }
+        }
+    }
+    /* ------------------------iphone 5------------------------ */
+    
+    @media screen and (max-width:320px) and (max-height:508px) {
+        $ratio: 0.9;
+        .slideItem {
+            padding-top: pxToRem(40px);
+        }
+        .leader-box {
+            margin-top: pxToRem(40px);
+        }
+    }
+    /* -------------------------iphone4---------------------------- */
+    
+    @media screen and (max-width:320px) and (max-height:416px) {
+        $ratio: 0.85;
+    }
+    
+    @media screen and (max-width: 320px) {}
+    /* ------------------------iphone 6 微信浏览器（375*603）------------------------ */
+    
+    @media screen and (min-width:375px) and (max-height:603px) {
+        .slideItem {
+            padding-top: pxToRem(40px);
+        }
+        .leader-box {
+            margin-top: pxToRem(40px);
+        }
+        .con3 {
+            padding: pxToRem(40px) pxToRem(30px) 0 pxToRem(30px);
+        }
+    }
+    /* ------------------------iphone 6 safari（375*559）------------------------ */
+    
+    @media screen and (min-width:375px) and (max-height:559px) {
+        .con2 {
+            margin: 0 auto pxToRem(50px);
+        }
+        .txtSwiper {
+            height: pxToRem(520px);
+        }
+    }

@@ -1,0 +1,41 @@
+.icon-login-sprite {
+  background-image: url(../../images/sprite.png);
+  background-size: pxToRem(105px)  pxToRem(77px);
+}
+
+.icon-i-eye-close {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(-77px) pxToRem(-30px);
+  width: pxToRem(28px);
+  height: pxToRem(13px);
+}
+.icon-i-eye {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(-77px) pxToRem(0px);
+  width: pxToRem(28px);
+  height: pxToRem(20px);
+}
+.icon-i-inviter {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(0px) pxToRem(0px);
+  width: pxToRem(31px); 
+  height: pxToRem(33px);
+}
+.icon-i-lock {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(-40px) pxToRem(2px);
+  width: pxToRem(28px);
+  height: pxToRem(38px);
+}
+.icon-i-msg {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(-32px) pxToRem(-42px);
+  width: pxToRem(28px);
+  height: pxToRem(28px);
+}
+.icon-i-phone {
+  @extend .icon-login-sprite;
+  background-position: pxToRem(0px) pxToRem(-40px);
+  width: pxToRem(24px);
+  height: pxToRem(38px);
+}

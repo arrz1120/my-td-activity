@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.strategy-list{
+	width: 100%;
+	padding: 0 pxToRem(30px);
+	font-size: 0;
+	.strategy-item{
+		width: 100%;
+		padding: pxToRem(50px) 0 0;
+		.strategy-date{
+			position: relative;
+			margin-bottom: pxToRem(30px);
+			text-align: center;
+			font-size: pxToRem(26px);
+			color: $txt-grey-color;
+			span{
+				position: relative;
+				&:before,&:after{
+					position: absolute;
+					top: 50%;
+					transform: translate(0, -50%);
+					display: inline-block;
+					content: '';
+					width: pxToRem(16px);
+					border-top: 1px solid $txt-grey-color;
+				}
+				&:before{
+					left: pxToRem(-30px);
+				}
+				&:after{
+					right: pxToRem(-30px);
+				}
+			}
+		}
+		img{
+			width: 100%;
+		}
+	}
+}

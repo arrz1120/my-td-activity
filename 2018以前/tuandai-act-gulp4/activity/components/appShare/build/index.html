@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link href="css/index.css" rel="stylesheet">
+    <script>window.mobileUtils=function(a,b){var c=navigator.userAgent,d=/android|adr/gi.test(c),e=/iphone|ipod|ipad/gi.test(c)&&!d,f=d||e;return{isAndroid:d,isIos:e,isMobile:f,isWeixin:/MicroMessenger/gi.test(c),isQQ:/QQ\/\d/gi.test(c),dpr:e?Math.min(a.devicePixelRatio,3):1,tapEvent:f?"tap":"click",rem:null,fixScreen:function(){function A(a){return"initial-scale="+a+",maximum-scale="+a+",minimum-scale="+a}var o,j,k,l,m,p,q,r,s,t,u,v,w,x,y,z,c=this,d=b.querySelector('meta[name="viewport"]'),g=d?d.content:"",h=g.match(/initial\-scale=([\d\.]+)/),i=g.match(/width=([^,\s]+)/);d?f&&!h&&i&&"device-width"!=i[1]&&(q=parseInt(i[1]),r=a.innerWidth||q,s=a.outerWidth||r,t=a.screen.width||r,u=a.screen.availWidth||r,v=a.innerHeight||q,w=a.outerHeight||v,x=a.screen.height||v,y=a.screen.availHeight||v,z=Math.min(r,s,t,u,v,w,x,y),m=z/q,1>m&&(d.content=g+","+A(m))):(j=b.documentElement,k=j.dataset.mw||750,l=e?Math.min(a.devicePixelRatio,3):1,m=1,b.getElementsByTagName("body")[0],j.removeAttribute("data-mw"),j.dataset.dpr=l,d=b.createElement("meta"),d.name="viewport",d.content=A(m),j.firstElementChild.appendChild(d),p=function(){var b,a=j.getBoundingClientRect().width;a/l>k&&(a=k*l),b=a/16,c.rem=b,j.style.fontSize=b+"px"},a.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(p,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(o),o=setTimeout(p,300))},!1),p())}}}(window,document),mobileUtils.fixScreen();</script>
+  </head>
+  <body>
+    <p style="text-align:center" class="share-btn">点击分享</p>
+
+    <script src="js/jsbridge3.1.4.js"></script>
+    <script src="js/appShare.bundle.js"></script>
+    <script>
+      /*
+      TDApp 分享,需引入 jsbridge.js 文件
+
+      window.appShare.set(opts);
+      @param {Object} opts:分享参数
+       opts:{
+         icon:'',//分享 icon
+         title:'',//分享标题
+         content:'',//分享文案
+         shareUrl:'',//分享链接
+         cover:{//微信分享遮罩图片
+          src:'',//遮罩图片 url
+          style:{//遮罩图片样式
+            width:'',//必须指定 width 
+          },
+         },
+         custom:[],//自定义分享
+         callback:function(result){//分享回调
+          
+         }
+       }   
+      */
+
+      document.querySelector('.share-btn').addEventListener('click',function(){
+        appShare.set({
+          icon:'',
+          title:'标题',
+          content:'内容',
+          shareUrl:'tdw.cn',
+          cover:{
+            src:'./images/share-shade.png',
+            style:{
+              width:'12rem',
+            }
+          },
+          custom:[
+            {key: 5, val: "朋友圈",title:'xxx'}
+          ],
+          callback:function(){}
+        })
+      });
+    </script>
+  </body>
+</html>

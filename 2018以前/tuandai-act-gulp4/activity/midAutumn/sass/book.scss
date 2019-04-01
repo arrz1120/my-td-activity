@@ -1,0 +1,158 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.flipbook-viewport{
+    overflow:hidden;
+    width:100%;
+    height:100%;
+}
+
+.flipbook-viewport .container{
+}
+
+.flipbook-viewport .flipbook{
+    
+}
+
+.flipbook-viewport .page{
+    width:461px;
+    height:600px;
+    background-color:white;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+
+.flipbook .page{
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    margin:0;
+}
+
+.flipbook-viewport .shadow{
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -webkit-box-shadow:0 0 20px #ccc;
+    box-shadow:0 0 20px #ccc;
+}
+
+@-webkit-keyframes reverseRotataZ{
+    0%{-webkit-transform: rotateZ(0deg);}
+    100%{-webkit-transform: rotateZ(-360deg);}
+}
+@-webkit-keyframes rotataZ{
+    0%{-webkit-transform: rotateZ(0deg);}
+    100%{-webkit-transform: rotateZ(360deg);}
+}
+
+.pull-left {position:absolute;bottom:5%;right:0;overflow:hidden;width:240px; height:200px; }/*  |xGv00|e69d3d10a97baed58b34702fd0b01ff5 */
+
+body{
+    background:#dddddd url(../image/background.png) repeat;
+}
+.loadinner{
+    position:absolute;
+    width:76%;
+    height:100%;
+    margin-left:-38%;
+    left:50%;
+    text-align:center;
+    font-size:11px;
+    line-height:20px;
+}
+.graph{
+    background:#6c6c6c;
+    width:70%;
+    margin:10px auto 0 auto;
+}
+#bar{
+    display:block;
+    background:#f1f1f1;
+    height:3px;
+    width:10px;
+}
+
+
+
+.page_con{
+    position: relative;
+    background: #000;
+    img{
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.txt_wraper{
+    z-index: 100;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    img{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+
+
+}
+
+
+.page_1{
+    background: url(../images/book/p_1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.page_2{
+    background: url(../images/book/p_2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+
+
+.btn_share{
+        position: absolute;
+        right: pxToRem(35px);   
+        top: pxToRem(35px); 
+        width:  pxToRem(83px); 
+        height: pxToRem(83px);    
+        background: url(../images/btn_share.png) no-repeat;
+        background-size: 100% 100%;  
+        z-index: 100;
+}
+
+
+.prc-share{
+    z-index: 101 !important;
+}

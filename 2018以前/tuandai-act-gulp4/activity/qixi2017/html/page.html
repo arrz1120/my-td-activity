@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>qixi2017</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/page.css -->
+		<link rel="stylesheet" href="../css/page.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<audio loop="" src="../music/music.mp3" id="media" autoplay="autoplay" preload=""></audio>
+		<audio src="../music/music2.mp3" id="media2" preload=""></audio>
+		<div class="swiper-container pageSwiper" id="pageSwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide swiper-no-swiping">
+					<div class="page page1">
+						<div class="tit1"><img src="../images/tit1.png" /></div>
+						<div class="cloud-bot"></div>
+						<div class="biaobai">
+							<div class="goodMan"></div>
+							<div class="nvshen"></div>
+							<div class="nvshen-cloud"></div>
+							<div class="arrow"></div>
+							<div class="hand" style="display: none;"></div>
+							<div class="singleDog"></div>
+							<div class="dog-cloud"></div>
+							<div class="heart heart-shake"></div>
+							<p class="gaobai-text animated slideInUp">帮单身狗告白</p>
+						</div>
+						<div class="bird"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page page2">
+						<div class="bird1"></div>
+						<div class="content">
+							<div class="goodmanCard animated slideInDown">
+								<img class="swiper-lazy" data-src="../images/goodmanCard.png" />
+							</div>
+							<div class="t1 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t1.png" />
+								<span class="animated tada"></span>
+							</div>
+							<div class="t2 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t2.png" />
+							</div>
+							<div class="t3 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t3.png" />
+							</div>
+							<div class="t4 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4.png" />
+							</div>
+							<div class="t5 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5.png" />
+							</div>
+							<div class="cloud-bot"></div>
+						</div>
+						<div class="bird"></div>
+						<div class="dropdown"></div>
+					</div>
+				</div>
+				<div class="swiper-slide swiper-no-swiping">
+					<div class="page page3">
+						<div class="tit2"><img class="swiper-lazy" data-src="../images/tit2.png" /></div>
+						<div class="wxBg box-center">
+							<div class="talk1 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk1.png" />
+							</div>
+							<div class="talk2 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk2.png" />
+							</div>
+							<div class="talk3 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk3.png" />
+							</div>
+							<div class="talk4 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk4.png" />
+							</div>
+							<div class="talk5 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk5.png" />
+							</div>
+							<div class="talk6 talk-show">
+								<img class="swiper-lazy" data-src="../images/talk6.png" />
+							</div>
+							<div class="fahongbao talk-show">
+								<img class="swiper-lazy" data-src="../images/fahongbao.png" />
+							</div>
+							<div class="talk7" style="opacity: 0;">
+								<img class="swiper-lazy" data-src="../images/talk7.png" />
+							</div>
+						</div>
+						<div class="cloud-bot"></div>
+						<div class="viewBreak animated" style="display: none;"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page page4">
+						<div class="bird1"></div>
+						<div class="content">
+							<div class="img4_1 animated slideInDown">
+								<img class="swiper-lazy" data-src="../images/img4_1.png" />
+							</div>
+							<div class="t4_1 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_1.png" />
+							</div>
+							<div class="t4_2 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_2.png" />
+								<span class="animated tada"></span>
+							</div>
+							<div class="t4_3 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_3.png" />
+							</div>
+							<div class="t4_4 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_4.png" />
+							</div>
+							<div class="t4_5 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_5.png" />
+							</div>
+							<div class="t4_6 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t4_6.png" />
+							</div>
+						</div>
+						<div class="cloud-bot"></div>
+						<div class="bird"></div>
+						<div class="dropdown"></div>
+					</div>
+				</div>
+				<div class="swiper-slide swiper-no-swiping">
+					<div class="page page5">
+						<div class="tit3"><img class="swiper-lazy" data-src="../images/tit3.png" /></div>
+						<div class="zipai">
+							<div class="img_zipai">
+								<img class="swiper-lazy" data-src="../images/img_zipai.png" />
+							</div>
+							<div class="huaixiao" style="display: none;"></div>
+							<div class="zp-hand hand-move"></div>
+						</div>
+						<div class="zp-text"></div>
+						<div class="bird"></div>
+						<div class="cloud-bot"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page page6">
+						<div class="bird1"></div>
+						<div class="content">
+							<div class="img5_1">
+								<img class="swiper-lazy" data-src="../images/img5_1.gif" />
+							</div>
+							<div class="t5_1 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_1.png" />
+								<span class="animated tada"></span>
+							</div>
+							<div class="t5_2 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_2.png" />
+							</div>
+							<div class="t5_3 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_3.png" />
+							</div>
+							<div class="t5_4 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_4.png" />
+							</div>
+							<div class="t5_5 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_5.png" />
+							</div>
+							<!--<div class="t5_6 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_6.png" />
+							</div>
+							<div class="t5_7 animated slideInUp">
+								<img class="swiper-lazy" data-src="../images/t5_7.png" />
+							</div>-->
+						</div>
+						<div class="cloud-bot"></div>
+						<div class="bird"></div>
+						<div class="dropdown"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page page7">
+						<div class="bird1"></div>
+						<div class="t6_1 animated slideInUp">
+							<img class="swiper-lazy" data-src="../images/t6_1.png" />
+						</div>
+						<div class="t6_2 animated slideInUp">
+							<img class="swiper-lazy" data-src="../images/t6_2.png" />
+							<span class="animated tada"></span>
+						</div>
+						<div class="img6 animated slideInUp">
+							<img class="swiper-lazy" data-src="../images/img6.png" />
+						</div>
+						<div class="cloud-bot"></div>
+						<div class="bird"></div>
+						<div class="dropdown"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page page8">
+						<div class="bird1"></div>
+						<div class="dujitang2 animated slideInUp">
+							<img class="swiper-lazy" data-src="../images/dujitang2.png" />
+							<div class="page-btn1"></div>
+							<a href="http://hd.tuandai.com/weixin/newhand/welfarenew.aspx" class="page-btn2"></a>
+							<div class="frame animated zoomIn">
+								<div class="comment-barrage"></div>
+							</div>
+						</div>
+						<div class="cloud-bot"></div>
+						<div class="bird"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="mask" id="mask" style="display: none;">
+			<div class="mask-bg"></div>
+			<div class="mask-con">
+				<div class="textarea">
+					<p class="textareaTips">写下最让你扎心的毒鸡汤</p>
+					<textarea rows="0" cols="0" maxlength="30"></textarea>
+				</div>
+				<p class="inputTips" style="display: none;"></p>
+				<div class="btn-submit">提交</div>
+				<div class="btn-close"></div>
+			</div>
+		</div>
+
+		<div class="mask" id="wxAlert" style="display: none;">
+			<div class="mask-bg"></div>
+			<img src="../images/wxShare.png" />
+		</div>
+		
+		<div class="mask" id="appAlert" style="display: none;">
+			<div class="mask-bg"></div>
+			<img src="../images/appShare.png" />
+			<div class="appShareBtn"></div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/share.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/barrage.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var barrageComment = new Barrage('.comment-barrage', {
+			data: [{
+					key: 0,
+					val: '萌妹子好漂亮漂亮1'
+				},
+				{
+					key: 1,
+					val: '萌妹子好漂亮好漂亮2'
+				},
+				{
+					key: 2,
+					val: '萌妹子好3'
+				},
+				{
+					key: 3,
+					val: '萌妹子4'
+				},
+				{
+					key: 4,
+					val: '萌妹子好漂亮好漂亮好漂亮好漂亮好漂亮5'
+				},
+				{
+					key: 5,
+					val: '萌妹子好6'
+				},
+				{
+					key: 6,
+					val: '萌妹子好漂7'
+				},
+				{
+					key: 7,
+					val: '萌妹子好漂8'
+				},
+				{
+					key: 8,
+					val: '萌妹子好漂9'
+				},
+				{
+					key: 9,
+					val: '萌妹子好漂10'
+				},
+				{
+					key: 10,
+					val: '萌妹子好漂11'
+				},
+				{
+					key: 11,
+					val: '萌妹子好漂12'
+				}
+			],
+			per: 4, //显示的行数
+			styles: [ //样式列表,随机获取
+				{
+					color: '#fff',
+					fontSize: '0.68rem',
+					marginLeft: '1rem'
+				},
+				{
+					color: '#fff',
+					fontSize: '0.48rem',
+					marginLeft: '1.2rem'
+				},
+				{
+					color: '#fff',
+					fontSize: '0.76rem',
+					marginLeft: '1.5rem'
+				},
+				{
+					color: '#fff',
+					fontSize: '0.6rem',
+					marginLeft: '1.8rem'
+				},
+			],
+			speed: 2, //速度系数
+		});
+		barrageComment.move();
+	</script>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>midAutumn</title>
+
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->	
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+</head>
+<body>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page-1">
+            	<div class="dl_wraper">
+            		<img src="../images/dl.png"  class="dl">
+            		<img src="../images/light.png"  class="light">
+            	</div>
+            	<img src="../images/tit.png" class="tit">
+            	<div class="tz">
+            		<div class="jt"></div>
+            	</div>
+				<div class="arrow">	</div>
+
+                <img src="../images/logo.png" class="logo">
+
+            </div>
+            <div class="swiper-slide page-2">
+            	<img data-src="../images/star.png" class="star swiper-lazy" >
+            	<div class="moon">
+            		<div class="xp" id="xp">
+            			<div class="qp"></div>
+            			<div class="zzz">
+							<img data-src="../images/z_1.png" class="swiper-lazy">
+		            		<img data-src="../images/z_2.png" class="swiper-lazy">
+		            		<img data-src="../images/z_3.png" class="swiper-lazy">            			
+            			</div>
+            		</div>
+            	</div>
+				<div class="txt_wraper">
+	            	<img data-src="../images/t_1.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_2.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_3.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_4.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_5.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_6.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_7.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_8.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_9.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_10.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_11.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_12.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_13.png" class=" swiper-lazy" >
+	            	<img data-src="../images/t_14.png" class=" swiper-lazy" >
+				</div>    
+                <span class="btn_share share"></span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+  <script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/loadAudio.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">   
+    var swiper = new Swiper('.swiper-container', {
+        lazyLoading: true
+    });
+    $('#xp').on('click', function() {
+        var _this = $(this);
+        _this.addClass('xp_wakeup');
+        _this.find('.zzz').hide();
+        _this.find('.qp').hide();
+        setTimeout(function() {
+            _this.addClass('xp_down');
+        }, 1000);
+        setTimeout(function() {
+            window.location = 'turn.html';
+        }, 2000);
+    });
+</script>
+</html>

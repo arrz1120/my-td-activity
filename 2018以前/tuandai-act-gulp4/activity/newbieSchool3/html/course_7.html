@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>newbieSchool</title>
+
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/course.css -->
+	<link rel="stylesheet" href="../css/course.css">
+	<!-- endbuild -->
+
+
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+
+
+
+</head>
+
+<style type="text/css">
+
+
+body {
+    background:#fcbd40 url(../images/course/c5/hd.png) no-repeat;
+    background-size: 100% auto;
+
+}
+
+</style>
+
+
+<body>
+
+
+<div class="md1_c5">
+<h2 class="icon_tit"><img src="../images/course/c5/icon_1.png" alt="">小工具位置</h2>
+<p class="txt_1 txt_2">团贷网APP-发现-团贷工具</p>
+<img src="../images/course/c5/img1.png" alt="" class="img_big">
+
+
+<h2 class="icon_tit"><img src="../images/course/c5/icon_2.png" alt="">模拟投资</h2>
+<p class="txt_1 txt_2">输入本金、利率、期限、回款方式，1秒算出预期收益！</p>
+<img src="../images/course/c5/img2.png" alt="" class="img_big">
+
+
+
+<h2 class="icon_tit"><img src="../images/course/c5/icon_3.png" alt="">房贷计算</h2>
+<p class="txt_1">想一键算出房贷还款总额与还款明细吗？想发布资产标借款并计算还款总额吗？贷款计算小工具帮你轻松搞定！</p>
+<img src="../images/course/c5/img3.png" alt="" class="img_big">
+
+
+
+<h2 class="icon_tit"><img src="../images/course/c5/icon_5.png" alt="">CPI跟踪器</h2>
+<p class="txt_1">你的工资涨幅能跑赢负利率吗？你当前的财富在未来的贬值情况怎样呢？CPI跟踪器让你对财富走向了然于胸！</p>
+<img src="../images/course/c5/img5.png" alt="" class="img_big">
+
+</div>
+
+
+<div class="nav_btn" id="nav_btn"></div>
+
+<div class="nav_box_main" id="nav_box_main">
+	<div class="mark"></div>
+	<nav>
+		<a href=""><span>01</span>关于团贷网你不得不知的一些事儿</a>
+		<a href=""><span>02</span>新手福利大公开</a>
+		<a href="" ><span>03</span>团贷网五心保障计划</a>
+		<a href=""><span>04</span>投资产品扫盲特训</a>
+		<a href=""><span>05</span>团贷网风控流程</a>
+		<a href=""><span>06</span>新手有问题，这些地方能帮你</a>
+		<a href=""  class='active'><span>07</span>投资小工具使用攻略</a>
+		<a href=""><span>08</span>关于邀请好友的四个秘密</a>
+		<a href=""><span>09</span>团贷福利活动在哪里</a>
+		<a href=""><span>10</span>团贷网CEO的故事</a>
+		<a href=""><span>11</span>媒体报道、社会责任</a>
+		<a href=""><span>12</span>你该知道的团贷网会员特权</a>
+		<a href=""><span>13</span>团币小百科</a>
+		<a href=""><span>14</span>团粉故事</a>
+		<div class="arrow"></div>
+	</nav>
+</div>
+
+
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/course.js" type="text/javascript" charset="utf-8"></script>
+
+
+</html>

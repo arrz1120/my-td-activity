@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+.invest-info-art{
+	padding: pxToRem(54px) pxToRem(30px) 0;
+	text-align: justify;
+	.art-title{
+		line-height: pxToRem(60px);
+		font-size: pxToRem(48px);
+		font-weight: 100;
+		color: $txt-black-color;
+		margin-bottom: pxToRem(24px);
+	}
+	.art-date{
+		font-size: pxToRem(26px);
+		color: $txt-grey-color;
+		margin-bottom: pxToRem(54px);
+	}
+	.art-txt{
+		font-size: pxToRem(32px);
+	    word-wrap: break-word;
+	    text-align: justify;
+	    p{
+			line-height: pxToRem(48px) !important;
+			margin: 0 !important;
+	    	span{
+				display: inline;
+	    	}
+	    }
+	}
+	img{
+		width: 100%;
+		margin: pxToRem(38px) 0;
+	}
+}

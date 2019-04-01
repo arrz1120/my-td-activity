@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>12.18元气大抽奖</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+<botton class="btn-share" id="btnShare"></botton>
+<div class="share-con">
+    <div class="mask"></div>
+    <div class="share-pic"></div>
+</div>
+<div class="wrapper">
+	<div class="banner">
+		<img src="../images/banner.png" />
+	</div>
+	<div class="content">
+		<div class="md01">
+			<div class="text01">一年一度的“12.18网贷爱心日”，旨在帮助小微企业融资借款，渡过资金周转寒冬或完成创业梦想。今年我们也将和各位团粉一起努力，用我们的力量帮助小微企业度过年关。
+			</div>
+			<div class="text02">
+				为助力“12.18网贷爱心日”，团贷网微信订阅号推出元气大转盘12.18特别版，活动期间每天设立1218份大奖，最高奖为1218元现金奖，以此感恩回馈新老用户一路以来的支持，也欢迎大家来团贷网投资，帮助小微企业融资借款。元气大转盘，要爱也要发，让我们朝着爱心与梦想出发！
+			</div>
+		</div>
+		<div class="md02">
+			<div class="section01">
+				<div class="title">活动时间</div>
+				<div class="desc">12月15日-20日，每天12:18准时开抢</div>
+			</div>
+			<div class="section02">
+				<div class="title">活动奖品</div>
+				<div class="desc">
+					活动期间每天设立1218份大奖<br/>
+					现金红包奖、投资红包奖、团币、<br/>
+					补签卡、京东购物卡、腾讯视频VIP季卡……<br/>
+					每天更有1份1218元现金奖
+				</div>
+			</div>
+			<div class="section03">
+				<div class="title">参与方式</div>
+				<div class="desc">  
+					搜索微信公众号：tuandaiwang<br/>
+					或扫码关注团贷网微信订阅号<br/>
+					<img src="../images/qrcode.png" class="qrcode" />
+					于团贷网官微菜单栏“福利多多 - 元气大转盘”<br/>
+					进入活动页面即可参与抽奖。<br/>
+					更多活动详情，请留意官微动态。
+				</div>
+			</div>
+		</div>
+		<div class="md03">
+			<div class="title">活动规则</div>
+			<div class="rule">
+				1. 活动时间为2017年12月15日-12月20日， 元气大转盘每天中午12:18开放，每次限时30分钟，礼品限量1218份，以时间到或奖品抽完即止。<br/>
+				2. 每个用户每场仅有一次抽奖机会，输入个人账号（手机号）登录后即可参与抽奖；<br/>
+				3.活动结束后，用户可通过团贷网订阅号菜单栏——我的账户——我的资产，登录并查看中奖奖品（签到卡需登录APP团宝箱查看）；<br/>
+				4.所有奖品将于2个工作日内发放。现金红包有效领取期为7天；投资红包及补签卡有效使用期为1个月；腾讯视频季度卡及京东E卡请及时在有效期内使用。用户请及时至团宝箱或个人账户领取奖品，逾期失效。<br/>
+				5.因卡密类虚拟商品属性特殊，请在收到卡密之日起30天内激活使用。若兑换超过30天，平台默认商品发送无误且本身不存在激活等问题，将不再处理售后问题。
+			</div>
+			<div class="tip">*在法律许可的合法范畴内，本活动规则解释权归团贷网所有。</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="../js/jsbridge-3.1.5.js" type="text/javascript" charset="utf-8"></script>
+<!-- build:js ../js/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

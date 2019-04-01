@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>1111</title>
+	<!-- build:css ../css/my_help.css -->
+	<link rel="stylesheet" href="../css/alert.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<link rel="stylesheet" href="../css/my_help.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+<header>
+	<img src="../images/prize/amj.png" alt="">
+	<p class="txt_1">我免费领取了<span>足底按摩器</span></p>
+	<p class="txt_2">快来帮我助力领<span>现金红包</span>吧！</p>
+</header>
+
+
+<div class="time_box">
+	<h3 class="title">剩余时间</h3>
+	<div class="time">
+		<p class="hour">02</p>
+		<p class="minute">35</p>
+		<p class="second">27</p>
+	</div>
+
+	<div class="bar_bg">
+		<div class="bar" style="width:70%">
+			<span class='cur_num'>33</span>/40（人）
+		</div>
+	</div>
+</div>
+
+
+<div class="help_list">
+
+	<div class="list_wraper">
+		<ul class="list_phone">
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+			<li>15820841006</li>
+		</ul>
+	</div>
+	
+</div>
+
+
+<span class="btn share">邀请好友来助力</span>
+
+<p class="bottom_txt_1">好友助力后，将有机会领取邀请四重豪礼!</p>
+
+
+<div class="alert">
+	<div class="mark"></div>
+	<div class="con reg_con">
+		 <p class="title">完成最后一步，就可以助力好友领大奖了！</p>
+
+
+		 <div class="input-box">
+            <input type="text" class="phone" id="phone" maxlength="11" placeholder="输入手机号码一起瓜分红包" />
+            <div class="error" id="phoneError"></div>
+          </div>
+          <div class="input-box"  id="codeInput">
+            <input type="text" class="code" id="messCode" maxlength="6" placeholder="输入短信验证码" />
+            <input type="button" class="send" value="发送" id="btnSendMsg" />
+            <div class="error" id="codeError"></div>
+          </div>
+
+          <a href="javascript:;" class="btn-get btn" id="btnReg">强力助攻</a>
+	</div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/my_help.js" type="text/javascript" charset="utf-8"></script>
+</html>

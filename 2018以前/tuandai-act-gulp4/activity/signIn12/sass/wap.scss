@@ -1,0 +1,203 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+html,
+body {
+  position: relative;
+  //height: 100%;
+  width: 100%;
+  //overflow: auto;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.block{display: block}
+.pos-r{ position: relative;}
+.pos-a{ position: absolute;}
+.pos-f{ position: fixed;}
+.clearfix {zoom:1;}
+.clearfix:after{content:'.'; display:block; visibility:hidden; clear:both; height:0;}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.text-overflow{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.bg-size{
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.content-box{box-sizing: content-box;}
+.webkit-box{display: -webkit-box;}
+.box-center{display: -webkit-box;-webkit-box-align: center;-webkit-box-pack: center;}
+.box-vertical{-webkit-box-orient: vertical;}
+.justify-content{display: flex; justify-content: center;}
+.display-flex{display: flex; }
+.box-vertical{-webkit-box-orient: vertical;}
+.box-flex1{-webkit-box-flex: 1;box-flex: 1;}
+.text-center{text-align: center;}
+
+.scroll-active {
+  -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+  text-decoration: none;
+  font-size: pxToRem(26px);
+}
+
+.scroll {
+  max-width: 414px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  .content {
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div, a, img {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+@mixin font($fontSize, $color) {
+  font-size: $fontSize;
+  color: $color;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background: #004d39 url(../images/wap/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scroll-wap{
+  background: #f1fed6;
+}
+.wraper{
+  padding-top:pxToRem(440px);
+}
+
+.mark{
+  @include background('../images/wap/mark.png', 117px, 111px);
+  left: pxToRem(30px);
+  top:pxToRem(-10px);
+  z-index: 2;
+}
+.xue{
+  @include background('../images/wap/xue.png', 626px, 128px);
+  right: pxToRem(20px);
+  top:pxToRem(100px);
+  z-index: 2;
+}
+.laoren{
+  @include background('../images/wap/laoren.png', 187px, 297px);
+  right: pxToRem(98px);
+  top:pxToRem(139px);
+  z-index: 2;
+}
+.txt{
+  @include background('../images/wap/txt.png', 471px, 220px);
+  left: 50%;
+  margin-left:pxToRem(-235px);
+  top:pxToRem(37px);
+  z-index: 2;
+}
+
+.main{
+  @include background('../images/wap/main-bg.png', 682px, 605px);
+  margin: 0 auto;
+  padding-top:pxToRem(90px);
+  .liwu{
+    @include background('../images/wap/liwu.png', 369px, 300px);
+    position: absolute;
+    z-index: -1;
+    left:pxToRem(122px);
+    top:pxToRem(-180px);
+  }
+  .p1{
+    @include font(pxToRem(36px),#fff);
+    font-weight: bold;
+    text-align: center;
+
+  }
+  .p2{
+    @include font(pxToRem(28px),#fff);
+    text-align: center;
+    padding-top:pxToRem(20px);
+  }
+  .p3{
+    @include font(pxToRem(24px),#fff);
+    text-align: center;
+    line-height:pxToRem(34px);
+  }
+
+  .jp{
+    @include background('../images/wap/jp.png', 530px, 218px);
+    margin: pxToRem(55px) auto pxToRem(50px);
+  }
+}
+.btn-wraper{
+  padding: 0 pxToRem(40px);
+  margin-top: pxToRem(26px);
+  a{
+    @include background('../images/wap/b-l.png', 316px, 103px);
+    line-height: pxToRem(110px);
+    @include font(pxToRem(30px),#fff);
+    font-weight: bold;
+    text-align: center;
+    float: left;
+    border-radius: pxToRem(10px);
+    display: inline-block;
+  }
+  a:last-child{
+    @include background('../images/wap/b-r.png', 316px, 103px);
+    float: right;
+  }
+}
+
+.toast{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: pxToRem(6px);
+  transform: translate(-50%, -50%);
+  width: pxToRem(460px);
+  background-color: rgba(0,0,0,0.6);
+  padding: pxToRem(35px);
+  text-align: center;
+  line-height: pxToRem(40px);
+  font-size: pxToRem(30px);
+  color: #fefefe;
+  z-index: 1100;
+  }
+
+
+
+

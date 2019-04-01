@@ -1,0 +1,333 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+// loader
+$offset: 126;
+$duration: 1.4s;
+
+
+.spinner {
+    position: absolute;
+    z-index: 1200;
+    top: 50%;
+    left: 50%;
+    margin-left: pxToRem(-44px);
+    margin-top: pxToRem(-44px);
+    opacity: 1; // transition: opacity .15s ease;
+    animation: rotator $duration linear infinite;
+    animation-play-state: paused;
+    width: pxToRem(88px);
+    height: pxToRem(88px);
+}
+
+
+.spinner.show {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+// toast
+.toast {
+    background-color: rgba(0, 0, 0, .6);
+    min-width: pxToRem(430px);
+    border-radius: pxToRem(8px);
+    line-height: pxToRem(48px);
+    text-align: center;
+    color: $txt-white;
+    font-size: pxToRem(30px);
+    padding: pxToRem(30px) pxToRem(30px);
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.component-dialog {
+    .dialog-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: pxToRem(610px);
+        background-color: $bg-white;
+        border-radius: pxToRem(20px);
+        font-size: pxToRem(30px);
+        text-align: center;
+        z-index: 1000;
+        overflow: hidden;
+        h5 {
+            color: $txt-grey-darker;
+            line-height: pxToRem(80px);
+            margin: 0 pxToRem(35px);
+            position: relative;
+        }
+        .dialog-content {
+            padding: pxToRem(50px) pxToRem(90px);
+            line-height: pxToRem(44px);
+        }
+        .with-border {
+            &:before {
+                @include border('bottom', $border-color-grey, dashed);
+            }
+        }
+    }
+    .btn {
+        position: relative;
+        height: pxToRem(90px);
+        line-height: pxToRem(90px);
+        color: $txt-yellow;
+        &:before {
+            @include border(top, $border-color-grey);
+        }
+    }
+    .btns {
+
+        &>div {
+            position: relative;
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+        &>div:first-child {
+            &:after {
+                @include border(right, $border-color-grey);
+            }
+        }
+        .btn-nav {
+            color: $txt-grey-darker;
+        }
+    }
+}
+
+@-webkit-keyframes rotator {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+    }
+    100% {
+        transform: scale(0.5) rotate(270deg);
+    }
+}
+
+@keyframes rotator {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+    }
+    100% {
+        transform: scale(0.5) rotate(270deg);
+    }
+}
+
+
+.spinner .path {
+    stroke: #dddddd;
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash $duration ease-in-out infinite;
+}
+
+.component-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 10000;
+    .loading-wrapper {
+        position: absolute;
+        width: pxToRem(250px);
+        height: pxToRem(100px);
+        border-radius: pxToRem(8px);
+        background-color: #fff;
+        box-shadow: 1px pxToRem(4px) pxToRem(20px) 0 rgba( 0, 0, 0, 0.15);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        text-align: center;
+        font-size: pxToRem(30px);
+        line-height: pxToRem(100px);
+        color: #808080;
+        .icon-loader {
+            display: inline-block;
+            vertical-align: sub;
+            margin-right: pxToRem(28px);
+            animation: rotating 0.5s linear infinite;
+        }
+    }
+}
+
+@-webkit-keyframes dash {
+    0% {
+        stroke-dashoffset: $offset;
+    }
+    50% {
+        stroke-dashoffset: ($offset/2);
+        transform: rotate(135deg);
+    }
+
+    100% {
+        stroke-dashoffset: $offset;
+        transform: rotate(450deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: $offset;
+    }
+    50% {
+        stroke-dashoffset: ($offset/2);
+        transform: rotate(135deg);
+    }
+
+    100% {
+        stroke-dashoffset: $offset;
+        transform: rotate(450deg);
+    }
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+//list组件
+// .pull-el {
+//     height: pxToRem(80px);
+// }
+.pull-refresh {
+    height: pxToRem(80px);
+    .loading-container {
+        display: none;
+    }
+}
+
+.loading-container {
+    position: relative;
+    height: pxToRem(80px);
+}
+
+// .list-container {
+//     position: relative;
+//     overflow: hidden;
+//     .list-wrapper {
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: pxToRem(-80px);
+//         bottom: 0;
+//         &.refreshing {
+//             top: 0;
+//         }
+//     }
+// }
+
+.list-scroller {
+    min-height: 101%;
+}
+
+.arrow-wrapper {
+    width: pxToRem(50px);
+    height: pxToRem(80px);
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    line-height: pxToRem(80px);
+    &:after {
+        content: "";
+        width: pxToRem(50px);
+        height: pxToRem(50px);
+        position: absolute;
+        z-index: 1;
+        border: 2px solid #d1d1d1;
+        border-radius: pxToRem(50px);
+        top: 50%;
+        transform: translateY(-50%);
+        box-sizing: border-box;
+    }
+    .scroll-icon-arrow {
+        position: relative;
+        z-index: 99;
+        display: block;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAaBAMAAACumtpNAAAALVBMVEUAAADR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dF5woqQAAAADnRSTlMA8acPopH655h+3ncSCpJauKgAAABnSURBVBjTYwCDwAkMcMCbJ4DgML8bNJyJATBO4wYGuSdQDtO7Aoa+dw4Qjt67AKDAExAHTINEFEAcPaAKkNpHQA5YAiyl804ALAGReicEkoBKvcsDSUCl3oEkEFIOMDbYDgSoWwCmAGMDONhwW0VzAAAAAElFTkSuQmCC');
+        background-size: pxToRem(23px) pxToRem(26px);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        width: pxToRem(50px);
+        height: pxToRem(80px);
+        margin: auto;
+        line-height: pxToRem(80px);
+    }
+}
+
+@-webkit-keyframes flipUp {
+    0% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(540deg);
+        -webkit-transform: rotate(540deg);
+    }
+}
+
+@keyframes flipUp {
+    0% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(540deg);
+        -webkit-transform: rotate(540deg);
+    }
+}
+
+.flip-down {
+    animation: flipDown .3s 1 both;
+}
+
+.flip-up {
+    animation: flipUp .3s 1 both;
+}
+
+@-webkit-keyframes flipDown {
+    0% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes flipDown {
+    0% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}

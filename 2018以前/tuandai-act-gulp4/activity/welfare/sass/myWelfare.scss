@@ -1,0 +1,113 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.content{
+	background-color: #f2f2f0;
+	.my-info-wrapper{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+}
+.my-pic{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	filter: blur(pxToRem(8px));
+}
+// 我的公益信息
+.my-info-con{
+	position: relative;
+	padding: pxToRem(60px) 0;
+	background: linear-gradient( 90deg, rgb(142,229,99) 0%, rgb(92,193,41) 100%);
+	opacity: 0.85;
+	overflow: hidden;
+	text-align: center;
+	color: #fefefe;
+	.my-head{
+		width: pxToRem(160px);
+		height: pxToRem(160px);
+		margin: auto auto pxToRem(20px);
+		border: 1px solid $defaultColor;
+		border-radius: 50%;
+		overflow: hidden;	
+		img{
+			width: 100%;
+		}
+	}
+	.my-name{
+		margin-bottom: pxToRem(66px);
+		font-size: pxToRem(30px);
+	}
+	.my-info-list{
+		width: 100%;
+		.my-info-item{
+			width: 33.33%;
+			float: left;
+			border-right: 1px solid #4db21b;
+			text-align: center;
+			font-size: 0;
+			&:last-child{
+				border-right: none;
+			}
+			p{
+				font-size: pxToRem(24px);
+			}
+			.my-info-num{
+				font-size: pxToRem(48px);
+				margin-bottom: pxToRem(28px);
+			}
+		}
+	}
+}
+
+.btn-table{
+	background: $defaultColor;
+	width: 100%;
+	font-size: 0;
+	border-collapse:collapse;
+	.btn-tr{
+		border-bottom: 1px solid $borderColor;
+	}
+	.btn-td{
+		text-align: center;
+		&.border-right{
+			border-right: 1px solid $borderColor;
+		}
+		.btn-link{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			padding: pxToRem(60px) 0;
+		}
+		.icon-btn{
+			width: pxToRem(64px);
+			height: pxToRem(64px);
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin: auto;
+			margin-bottom: pxToRem(26px);
+			&.welfare-diary{
+				background-image: url(../images/welfare-diary.png);
+			}
+			&.love-ranking{
+				background-image: url(../images/love-ranking.png);
+			}
+			&.my-follow{
+				background-image: url(../images/my-follow.png);
+			}
+			&.my-join{
+				background-image: url(../images/my-join.png);
+			}
+		}
+		p{
+			font-size: pxToRem(30px);
+			color: $textBlackColor;
+		}
+	}
+}

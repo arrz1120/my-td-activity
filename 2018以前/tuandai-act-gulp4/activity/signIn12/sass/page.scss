@@ -1,0 +1,421 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    color: #175f43;
+}
+
+a {
+    text-decoration: none;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+    }
+
+
+body{
+    background: #12927c;
+    padding-top: pxToRem(45px);
+    }
+
+
+.tab-nav{
+    width: pxToRem(694px);
+    margin: 0 auto pxToRem(30px);
+    &.nav1{
+        @include background('../images/nav1.png', 694px, 92px);
+        }
+    &.nav2{
+        @include background('../images/nav2.png', 694px, 92px);
+        }
+    li {
+        display: inline-block;
+        float: left;
+        width: 50%;
+        height: pxToRem(92px);
+        line-height: pxToRem(92px);
+        text-align: center;
+        color: #fff;
+        font-size: pxToRem(40px);
+        }
+    }
+
+.record-nav{
+    width: pxToRem(662px);
+    height: pxToRem(90px);
+    border-bottom: 1px solid #fff;
+    margin: 0 auto pxToRem(48px);
+    display: -webkit-box!important;
+    span{
+        width: 33.33%;
+        display: block;
+        height: pxToRem(101px);
+        @include font(pxToRem(30px),#fff);
+        text-align: center;
+        em{
+            font-style: normal;
+            display: block;
+            @include font(pxToRem(30px),#064338);
+            padding-bottom:pxToRem(10px);
+            }
+
+        &:nth-child(1){
+            width: 26.33%;
+            }
+        &:nth-child(2){
+            width: 47.33%;
+            }
+        &:nth-child(3){
+            width: 26.33%;
+            }
+        }
+
+
+    }
+
+
+.rule-nav{
+    @include background('../images/rule-tab.png', 698px, 101px);
+    margin: 0 auto pxToRem(48px);
+    display: -webkit-box!important;
+    span{
+        width: 33.33%;
+        display: block;
+        height: pxToRem(101px);
+        line-height:pxToRem(101px);
+        @include font(pxToRem(32px),#fff);
+        text-align: center;
+        &.active-tag{
+            @include font(pxToRem(32px),#ffd953);
+            }
+        }
+
+    }
+
+
+
+.main-prize{
+    display: none;
+    &.active {
+        display: block;
+        }
+    }
+
+.main-log{
+    display: none;
+    &.active {
+        display: block;
+        }
+
+    }
+
+.log-list{
+    width: pxToRem(662px);
+    margin: 0 auto;
+    height: pxToRem(610px);
+    //background: #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom:pxToRem(100px);
+    -webkit-overflow-scrolling: touch !important;
+    p{
+        position: relative;
+        height: pxToRem(70px);
+        line-height:pxToRem(70px);
+        @include font(pxToRem(28px),#fff);
+        display: -webkit-box;
+        padding-left:pxToRem(170px);
+        .data{
+            width: pxToRem(180px);
+            text-align: center;
+            line-height:pxToRem(47px);
+            @include font(pxToRem(28px),#fff);
+            position: absolute;
+            left: pxToRem(0px);
+            top:pxToRem(5px);
+            }
+        .sp1,.sp2{
+            display: block;
+            @include font(pxToRem(28px),#fff);
+            -webkit-box-flex: 1;box-flex: 1;
+            }
+        .sp1{
+            width: 65%;
+            text-align: center;
+            }
+        .sp2{
+            width: 35%;
+            text-align: right;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            padding-right: pxToRem(30px);
+            }
+
+        }
+
+    }
+
+.log-none{
+    padding-top:pxToRem(200px);
+    .xiaopai1{
+        @include background('../images/xiaopai1.png', 367px, 265px);
+        margin: 0 auto;
+        }
+    .xiaopai2{
+        @include background('../images/xiaopai2.png', 356px, 293px);
+        margin: 0 auto;
+        }
+    .txt{
+        display: block;
+        padding-top:pxToRem(46px);
+        text-align: center;
+        @include font(pxToRem(30px),#fff);
+        }
+    }
+
+.prize-list{
+    width: pxToRem(698px);
+    margin: 0 auto;
+    height: pxToRem(740px);
+    padding:pxToRem(30px) 0 pxToRem(60px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch !important;
+    .prize{
+        width: 33.33%;
+        padding-bottom:pxToRem(35px);
+        img{
+            display: block;
+            width: pxToRem(124px);
+            height: pxToRem(140px);
+            margin: 0 auto;
+            }
+        .name{
+            padding-top:pxToRem(10px);
+            display: block;
+            @include font(pxToRem(26px),#fff);
+            text-align: center;
+            em{
+                padding-top:pxToRem(5px);
+                @include font(pxToRem(18px),#fff);
+                font-style: normal;
+                display: block;
+                text-align: center;
+                }
+            }
+        }
+
+    }
+
+
+
+.txt-con{
+    padding: 0 pxToRem(30px) pxToRem(100px);
+    height:pxToRem(680px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch !important;
+    display: none;
+    }
+
+.shuoming{
+    padding-top:pxToRem(5px);
+    p{
+        @include font(pxToRem(26px),#fff);
+        line-height:pxToRem(36px);
+        padding-bottom:pxToRem(40px);
+        text-align: justify;
+        position: relative;
+        padding-left:pxToRem(60px);
+        span{
+            @include background('../images/s-x.png', 43px, 42px);
+            @include font(pxToRem(26px),#fff);
+            font-weight: bold;
+            text-align: center;
+            line-height:pxToRem(45px);
+            position: absolute;
+            left: pxToRem(5px);
+            top:pxToRem(-5px);
+            }
+        }
+    }
+
+
+.how{
+    p{
+        @include font(pxToRem(26px),#fff);
+        line-height:pxToRem(36px);
+        padding-bottom:pxToRem(35px);
+        text-align: justify;
+        position: relative;
+        padding-left:pxToRem(60px);
+        span{
+            background: #11806d;
+            width:pxToRem(35px);
+            height: pxToRem(35px);
+            @include font(pxToRem(24px),#fff);
+            text-align: center;
+            line-height:pxToRem(35px);
+            position: absolute;
+            left: pxToRem(5px);
+            top:pxToRem(-2px);
+            border-radius: 50%;
+            font-weight: bold;
+            }
+
+        &.title{
+            @include font(pxToRem(30px),#ffd953);
+            padding-bottom:pxToRem(35px);
+            span{
+                @include background('../images/s-x.png', 43px, 42px);
+                @include font(pxToRem(22px),#fff);
+                text-align: center;
+                line-height:pxToRem(45px);
+                position: absolute;
+                left: pxToRem(5px);
+                top:pxToRem(-5px);
+                }
+
+            }
+
+        }
+
+    }
+
+.table1{
+    width: pxToRem(594px);
+    margin:0 0 pxToRem(30px) pxToRem(60px);
+    border: 1px solid #fff;
+    .webkit-box{
+        width: pxToRem(590px);
+        border-bottom: 1px solid #fff;
+        &:last-child{
+            border-bottom: 0;
+            }
+        div{
+            &:last-child{
+                border-left:1px solid #fff;
+                }
+            width: 50%;
+            height: pxToRem(52px);
+            line-height:pxToRem(52px);
+            -webkit-box-flex: 1;box-flex: 1;
+            text-align: center;
+            @include font(pxToRem(24px),#fff);
+            }
+        }
+    }
+
+
+.table2{
+    width: pxToRem(594px);
+    margin:0 0 pxToRem(30px) pxToRem(60px);
+    border: 1px solid #fff;
+    .webkit-box{
+        width: pxToRem(590px);
+        border-bottom: 1px solid #fff;
+
+        div{
+            &:nth-child(1){
+                width: 30%;
+                }
+            &:nth-child(2){
+                width: 30%;
+                border-left:1px solid #fff;
+                }
+            &:nth-child(3){
+                width: 40%;
+                border-left:1px solid #fff;
+                }
+            height: pxToRem(52px);
+            line-height:pxToRem(52px);
+            -webkit-box-flex: 1;box-flex: 1;
+            text-align: center;
+            @include font(pxToRem(24px),#fff);
+            }
+
+        &:first-child{
+            div{
+                span{
+                    display: block;
+                    @include font(pxToRem(24px),#fff);
+                    line-height:pxToRem(40px);
+                    }
+                height: pxToRem(80px);
+                line-height:pxToRem(80px);
+                }
+            }
+        &:last-child{
+            border-bottom: 0;
+            }
+
+
+
+        }
+    }
+
+
+
+.wenda{
+    p{
+        @include font(pxToRem(26px),#fff);
+        line-height:pxToRem(36px);
+        padding-bottom:pxToRem(48px);
+        text-align: justify;
+        position: relative;
+        padding-left:pxToRem(60px);
+        span{
+            @include font(pxToRem(26px),#fff);
+            text-align: center;
+            line-height:pxToRem(45px);
+            position: absolute;
+            left: pxToRem(5px);
+            top:pxToRem(-4px);
+            }
+
+        &.wen{
+            @include font(pxToRem(26px),#ffd953);
+            padding-bottom:pxToRem(10px);
+            }
+
+        }
+        em{
+            font-style: normal;
+            display: block;
+            position: relative;
+            @include font(pxToRem(26px),#fff);
+            padding-left:pxToRem(45px);
+            i{
+                display: block;
+                @include font(pxToRem(26px),#fff);
+                font-style: normal;
+                position: absolute;
+                top:pxToRem(-2px);
+                left: pxToRem(-18px);
+                }
+            }
+
+    }
+
+.main-b{
+    text-align: center;
+    padding-top:pxToRem(150px);
+    @include background('../images/rule-bg.jpg', 750px, 249px);
+    @include font(pxToRem(18px),#77a196);
+    line-height:pxToRem(30px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    }

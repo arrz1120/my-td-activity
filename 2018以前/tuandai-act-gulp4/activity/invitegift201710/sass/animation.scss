@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+
+@keyframes flash{
+	0%,100%{
+		opacity: 0;
+	}
+
+	50%{
+		opacity: 1;
+	}
+}
+
+
+@keyframes shake_1{
+	0%{
+		transform:rotate(0);
+	}
+
+	25%{
+		transform:rotate(8deg);
+	}
+
+	50%{
+		transform:rotate(0);
+	}
+
+	75%{
+		transform:rotate(-8deg);
+	}
+	100%{
+		transform:rotate(0);
+	}
+
+
+}

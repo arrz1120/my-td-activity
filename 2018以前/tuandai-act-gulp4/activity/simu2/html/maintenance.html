@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>停机维护</title>
+    <!-- build:css ../css/maintenance.css -->
+    <link rel="stylesheet" href="../css/maintenance.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content">
+            <div class="sn-container">
+            	<span class="sn-title">关于派生财富系统停服升级的公告</span>
+            	<section class="sn-content">
+            		<p class="sn-name">亲爱的派生财富用户：</p>
+            		<p class="sn-txt">您好！</p>
+            		<p class="sn-txt">感谢您对派生财富的信任与支持。因网站技术架构调整，派生财富计划于2017年9月15日开始进行系统升级，<font class="txt-gold">派生财富将于2017年9月15日22:00—2017年9月16日23:00暂停所有线上服务</font>（停服），开服时间以实际为准。</p>
+            		<p class="sn-txt"> 停服期间，派生财富官方网站、App、触屏版、微信端均不能登录操作，并显示维护页面，请各位悉知。</p>
+            		<p class="sn-txt">由此给您带来不便，敬请谅解。</p>
+            		<p class="sn-txt">我们将继续努力，一如既往地竭诚为您提供优质的服务！</p>
+            		<p class="sn-sign">成都华羿恒信财富投资管理有限公司</p>
+            		<p class="sn-sign">2017年9月15日</p>
+            	</section>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

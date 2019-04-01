@@ -1,0 +1,194 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+div {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none; }
+
+.bb-c8a66b {
+  position: relative; }
+
+.bb-c8a66b:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid #c8a66b;
+  -webkit-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%; }
+
+body {
+  overflow-y: auto; }
+
+.bg-box {
+  width: 100%;
+  height: 25.70667rem;
+  min-height: 100%;
+  background: url(../images/user/bg.png) no-repeat;
+  background-size: 100% 100%;
+  padding-top: 2.13333rem; }
+
+.logo {
+  width: 2.96533rem;
+  height: 2.96533rem;
+  margin: 0 auto; }
+  .logo img {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+.tips {
+  font-size: 0.64rem;
+  color: #fff;
+  margin-top: 1.17333rem;
+  text-align: center; }
+
+input::-webkit-input-placeholder {
+  color: #626c9e; }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset; }
+
+.user-input {
+  margin-top: 0.42667rem;
+  margin-bottom: 0.21333rem; }
+  .user-input .inp {
+    padding-top: 1.32267rem;
+    width: 12.8rem;
+    height: 2.816rem;
+    margin: 0 auto;
+    padding-left: 1.10933rem; }
+    .user-input .inp img {
+      width: 0.85333rem;
+      height: 0.85333rem;
+      position: absolute;
+      top: 1.62133rem;
+      left: -0.08533rem; }
+    .user-input .inp input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      outline: 0;
+      font-size: 0.72533rem;
+      background: none;
+      color: #fff; }
+    .user-input .inp .getCode {
+      color: #c4c5cc;
+      font-size: 0.55467rem;
+      position: absolute;
+      right: 0;
+      bottom: 0.42667rem; }
+
+.forgetCode {
+  font-size: 0.64rem;
+  color: #c8a66b;
+  margin-left: 1.62133rem; }
+
+.login-btn {
+  width: 12.8rem;
+  height: 1.92rem;
+  line-height: 1.92rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.72533rem;
+  background: #c8a66b;
+  margin: 1.49333rem auto 0; }
+
+.resgiter-btn {
+  width: 12.8rem;
+  height: 1.92rem;
+  line-height: 1.92rem;
+  text-align: center;
+  color: #c8a66b;
+  font-size: 0.72533rem;
+  border: 1px solid #c8a66b;
+  margin: 0.64rem auto 0; }
+
+.agree {
+  color: #c4c5cc;
+  font-size: 0.55467rem;
+  margin-top: 0.64rem;
+  text-align: center; }
+  .agree a {
+    color: #c8a66b; }
+
+/*# sourceMappingURL=maps/user.css.map */

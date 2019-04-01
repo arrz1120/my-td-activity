@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+
+
+
+
+body {
+    background:#feecba;
+    padding: pxToRem(40px);
+}
+
+
+.book_list{
+    li{
+        overflow: hidden;
+        height: pxToRem(400px);
+        background: url(../images/text_library/list_bg.png) no-repeat;
+        background-size: 100% auto;
+        padding: pxToRem(10px) pxToRem(65px) 0;
+        margin-bottom: pxToRem(40px);
+
+    }
+
+    .book{ 
+        background: url(../images/text_library/book.png) no-repeat;
+        background-size: 100% auto;      
+        float: left;
+        width: pxToRem(214px);
+        padding-top: pxToRem(88px);
+
+        h2,p{
+            text-align: center;
+            font-size: pxToRem(24px);
+        }
+
+        .tit{
+            color: #635550;
+        }
+        .txt{
+            color: #fc591f;
+        }
+
+        .btn_answer{
+            height: pxToRem(56px);
+            width: pxToRem(144px);
+            font-size: pxToRem(22px);  
+            line-height:  pxToRem(46px);
+            margin: pxToRem(40px) auto;
+            
+        }
+
+        .date{
+            height: pxToRem(40px);
+            line-height: pxToRem(40px);
+            width: pxToRem(160px);
+            font-size: pxToRem(24px);
+            background: #ddc37c;
+            color: #fff;
+            border-radius: pxToRem(3px);
+            margin:  pxToRem(70px) auto;
+        }
+    }
+    
+    .finish{
+        width: pxToRem(177px);
+        height: pxToRem(146px);
+        background: url(../images/text_library/finish.png) no-repeat;
+        background-size: 100% 100%;
+        margin: pxToRem(10px) auto pxToRem(73px);
+
+        
+        
+    }
+    .book:nth-child(2){
+        float: right;
+    }
+
+}

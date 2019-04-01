@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>zhixiangchoujiang</title>
+
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+	<div class="ruleBtn"></div>
+	<div class="shareBtn"></div>
+	<div class="content">
+		<div class="sec1">
+	
+
+			<div class="tit"></div>
+			<div class="logo"></div>
+			<div class="banner"></div>
+			<div class="rotate" >
+				<div class="rotateBg"  id="rotate"></div>
+				<div class="lotteryBtn" ></div>
+			</div>
+			
+
+			<!-- Swiper -->
+ 
+            <!-- 奖品名单 -->
+
+            <div class="u_prize_list">
+                <div class="txtMarquee-left">
+           
+                  <div class="bd">
+                    <ul class="infoList">
+                      <li>158****1006   抽中体验金9999元</li>
+                      <li>158****1003   抽中体验金9999元</li>
+                      <li>158****1004   抽中体验金9999元</li>
+                      <li>158****1005   抽中体验金9999元</li>
+                      <li>158****1006   抽中体验金9999元</li>
+                      <li>158****1008   抽中体验金9999元</li>
+                    </ul>
+                  </div>
+                </div>
+
+			<p class="times">我的抽奖机会<span>2</span>次 <a href="javascript:void(0);" id="test">继续投资</a></p>
+		</div>
+		<div class="sec2">
+			<div class="tit2"></div>
+			<div class="txt2">
+				<p>智享计划是团贷网为解决用户投资流动性的需求而设立的中介服务。团贷网的投资用户可将在团贷网投资获得的符合相关条件的债权通过申请“智享计划服务”转让给其他团贷网投资人，从而获得流动资金。<a href="javascript:void(0);">了解更多</a></p>
+			</div>
+			<div class="own">
+				<div class="tab-left"></div>
+				<div class="tab-right"></div>
+				<div class="fqr"></div>
+				<div class="tzr"></div>
+			</div>
+			<a class="bot-btn" href="">
+				<p class="txt_1">马上投资</p>
+				<p class="txt_2">(投资方式：App端-投资-智享)</p>
+			</a>
+		</div>
+	</div>
+	<footer>
+		<p>2010- 2018 版权所有 © 团贷网 粤ICP备12043601号-1</p>
+		<p>粤公网安备44190002000538号 东莞团贷网互联网科技服务有限公司</p>
+		<p>地址：东莞市南城街道莞太路111号民间金融大厦1号楼28楼</p>
+	</footer>
+	
+	<!--活动规则-->
+	<div class="alert" id="ruleAlert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con rule-con">
+			<div class="ruleTit">活动细则</div>
+			<div class="ruleTxt">
+				<p>
+					<span>1</span>
+					1月22日-31日，单笔投资“智享计划”成功且满9000元，即可获得1次抽奖机会；
+				</p>
+				<p>
+					<span>2</span>
+					每个用户最多可获得5次抽奖机会；
+				</p>
+				<p>
+					<span>3</span>
+					现金红包、投资红包将于24小时内发放到团宝箱；
+				</p>
+				<p>
+					<span>4</span>
+					爱奇艺会员将以兑换码的形式发放到团贷网App端“我-我的会员-会员商城”或PC端“会员中心-个人账户-我的商品”，请您于获奖后7天内领取，逾期失效，并于收到卡密之日起15天内激活使用，超过15天将不再处理售后问题；
+				</p>
+
+				<p>
+					<span>5</span>
+					抽奖机会仅限活动期间有效，未使用的抽奖机会将在活动结束后清零；
+				</p>
+				<p><span>6</span>
+				一旦发现盗刷奖励、作弊等行为则取消活动奖励资格；</p>
+
+				<p>在法律许可的合法范畴内，本活动最终解释权归团贷网所有。<br>如有疑问请拨打客服电话1010-1218
+
+
+</p>
+			</div>
+			<div class="investAgain ruleOk" id="rule-ok">确定</div>
+		</div>
+	</div>
+	
+	<!--机会已用完 style="display: none;"-->
+	<div class="alert">
+		<div class="alert-bg"></div>
+		<div class="alert-con log-con">
+			<p class="a-txt1">对不起<br />您的抽奖机会已用完</p>
+			<div class="confirmBtn">确定</div>
+			<a href="javascript:void(0);" class="investAgain">继续投资</a>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+	
+	<!--奖品弹窗-->
+	<div class="alert alert_prize" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con">
+			<img src="../images/prize/3.png" class="gift_img">
+			<p class="g-txt1">恭喜你获得</p>
+			<p class="g-txt2">3元现金红包</p>
+
+
+			<a href="javascript:void(0);" class="confirmBtn">查看奖品</a>
+			<a href="javascript:void(0);" class="investAgain">继续投资</a>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+	
+
+	<!--活动已结束-->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con  alert-con-end ">
+			<div class="end-con"></div>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+	
+	<!--已经登录-->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con log-con">
+			<p class="a-txt1">投资智享计划<br />就可以获得抽奖机会哦~</p>
+			<p class="a-txt2">*需单笔投资≥9000元</p>
+			<div class="confirmBtn">确定</div>
+			<div class="investAgain">马上投资</div>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+	
+	<!--未登录-->
+	<!--前往团贷网App-->
+	<!--请前往团贷网App参与该活动！-->
+	<div class="alert" style="display: none;">
+		<div class="alert-bg"></div>
+		<div class="alert-con nolog-con">
+			<p class="a-txt1">抱歉登录后<br />才可以参加抽奖哦~</p>
+			<a href="javascript:void(0);" class="investAgain">前往团贷网App</a>
+			<div class="alert-close"></div>
+		</div>
+	</div>
+	
+
+
+	<div class="alert wxAlert" id="wxAlert" style="display: none;">
+		<div class="alert-bg"></div>
+		<img src="../images/wxAlert.png"/>
+	</div>
+</body>
+
+<!-- build:js ../js/lib/jq.js -->
+<script src="../../../../lib/vendor/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+
+<!-- build:js ../js/lib/all.js -->
+<script src="../js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/awardRotate.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

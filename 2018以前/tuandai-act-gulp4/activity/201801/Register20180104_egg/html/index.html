@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title>砸金蛋赢京东卡</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/index.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			window.mobileUtils = function(e, t) {
+				var i = navigator.userAgent,
+					n = /android|adr/gi.test(i),
+					a = /iphone|ipod|ipad/gi.test(i) && !n;
+				return {
+					isAndroid: n,
+					isIos: a,
+					isMobile: n || a,
+					isWeixin: /MicroMessenger/gi.test(i),
+					isQQ: /QQ\/\d/gi.test(i),
+					dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+					rem: null,
+					fixScreen: function() {
+						var i = this,
+							n = t.querySelector('meta[name="viewport"]'),
+							r = n ? n.content : "";
+						if(r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+							var o, s = t.documentElement,
+								d = s.dataset.mw || 750,
+								m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+							t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function(e) {
+								return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+							}(1), s.firstElementChild.appendChild(n);
+							var c = function() {
+								var e = s.getBoundingClientRect().width;
+								e = e > d ? d : e;
+								var t = e / 16;
+								i.rem = t, s.style.fontSize = t + "px"
+							};
+							e.addEventListener("resize", function() {
+								clearTimeout(o), o = setTimeout(c, 300)
+							}, !1), e.addEventListener("pageshow", function(e) {
+								e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+							}, !1), c()
+						}
+					}
+				}
+			}(window, document), mobileUtils.fixScreen();
+		</script>
+
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:void(0);" class="logo"></a>
+		</header>
+
+		<div class="index">
+
+			<div class="banner">
+				<div class="b-txt1 animated fadeInDown"></div>
+				<div class="b-txt2 animated zoomIn"></div>
+				<div id="eggWrap">
+
+					<div class="comment-list" id="award-list">
+						<div class="comment comment-list-item">
+							恭喜尾号1234的用户砸中100元京东卡
+						</div>
+						<div class="comment comment-list-item">
+							恭喜尾号2345的用户砸中200元京东卡
+						</div>
+						<div class="comment comment-list-item">
+							恭喜尾号3456的用户砸中300元京东卡
+						</div>
+					</div>
+					<div class="platform">
+						<div class="chui chui0"></div>
+						<div class="egg egg1 z12" id="egg1">
+							<div class="chui"></div>
+							<img class="normal egg_move" src="../images/egg.png" />
+							<img class="egg-open" src="../images/egg-800.png" num='800' style="display: none;" />
+							<img class="egg-open" src="../images/egg-518.png" num='518' style="display: none;" />
+							<img class="egg-open" src="../images/egg-none.png" num='0' style="display: none;" />
+						</div>
+						<div class="egg egg2 z11" id="egg2">
+							<div class="chui"></div>
+							<img class="normal egg_move" src="../images/egg.png" />
+							<img class="egg-open" src="../images/egg-800.png" num='800' style="display: none;" />
+							<img class="egg-open" src="../images/egg-518.png" num='518' style="display: none;" />
+							<img class="egg-open" src="../images/egg-none.png" num='0' style="display: none;" />
+						</div>
+						<div class="egg egg3 z10" id="egg3">
+							<div class="chui"></div>
+							<img class="normal egg_move" src="../images/egg.png" />
+							<img class="egg-open" src="../images/egg-800.png" num='800' style="display: none;" />
+							<img class="egg-open" src="../images/egg-518.png" num='518' style="display: none;" />
+							<img class="egg-open" src="../images/egg-none.png" num='0' style="display: none;" />
+						</div>
+					</div>
+					<p class="else-txt">你还有2次砸金蛋机会</p>
+					<div class="txt-rect">
+						<div class="rect-l">
+							<!--<p>当前奖励<i></i><span>2888体验金，518元红包</span></p>-->
+							<p>当前奖励<i></i></p>
+							<div class="swiper-container" id="txtSwiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide swiper-no-swiping">
+										<!--<span>800元京东卡</span>
+										<span>518元红包+2888元理财金</span>  -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="rect-r">马上领取</div>
+					</div>
+
+				</div>
+				<div id="inputBox" style="display: none;">
+					<div class="input-wrap">
+						<div class="inp">
+							<i class="ico-phone"></i>
+							<input type="text" placeholder="输入手机号码" maxlength="11" id="telInp" />
+						</div>
+						<div class="error">输入手机号码格式不对</div>
+						<div id="inpTab" style="display: none;">
+							<div class="inp">
+								<i class="ico-password"></i>
+								<input type="password" placeholder="密码由6-16个字符（字母+数字）组成" maxlength="16" />
+							</div>
+							<div class="error">输入密码格式不对</div>
+							<div class="inp inpHalf">
+								<i class="ico-imgCode"></i>
+								<input type="text" placeholder="输入图形内验证码" maxlength="4" />
+								<div class="codeBtn">
+									<img src="../images/imgCode.png" />
+								</div>
+							</div>
+							<div class="error">验证码输入错误</div>
+							<div class="inp inpHalf">
+								<i class="ico-telCode"></i>
+								<input type="text" placeholder="点此输入验证码" maxlength="6" />
+								<div class="codeBtn">
+									<input type="text" disabled="disabled" value="获取验证码" />
+								</div>
+							</div>
+							<div class="error">点此输入验证码</div>
+						</div>
+						<div class="agree">
+							<span class="checked" id="agreexieyi"></span>我已阅读并同意<a href="//contract.tuandai.com/p2p/weixin/contractagreement.aspx" target="_blank">《团贷网服务协议》</a>和<a href="//contract.tuandai.com/P2P/weixin/contractPaiAgreement.aspx" target="_blank">《派生财富服务协议》</a>
+						</div>
+						<div class="res-btn">立即领取</div>
+
+					</div>
+					<a href="javascript:void(0);" class="login">已有账号，请登录</a>
+					<div class="return" id="return">回到上一页</div>
+				</div>
+			</div>
+			<div class="sec1">
+				<div class="list-tit">
+					<div class="list-left">
+						<p>中奖用户</p>
+					</div>
+					<div class="list-right">
+						<p>奖品</p>
+					</div>
+				</div>
+				<div class="comment-list" id="name-list">
+					<div class="comment comment-list-item">
+						<div class="list-left">
+							<p>****9847****</p>
+						</div>
+						<div class="list-right">
+							<p>518红包+2888体验金</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="list-left">
+							<p>****9847****</p>
+						</div>
+						<div class="list-right">
+							<p>800元京东卡</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="list-left">
+							<p>****9847****</p>
+						</div>
+						<div class="list-right">
+							<p>300元京东卡</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="list-left">
+							<p>****9847****</p>
+						</div>
+						<div class="list-right">
+							<p>100元京东卡</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sec sec2">
+				<div class="tit">投资精选</div>
+				<div class="swiper-container investSwiper" id="investSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<div class="lable"></div>
+								<div class="data">
+									<div class="data-p">
+										<p class="data-p1 rate">13<span>%</span></p>
+										<p class="data-p2">参考年回报率</p>
+									</div>
+									<div class="data-line"></div>
+									<div class="data-p">
+										<p class="data-p1">3<span class="f30">个月</span></p>
+										<p class="data-p2">投资期限</p>
+									</div>
+								</div>
+								<div class="invest-btn">立即投资</div>
+								<p class="b-txt"><i></i>投10000元赚<span>318元+100元京东卡</span></p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<div class="lable"></div>
+								<div class="data">
+									<div class="data-p">
+										<p class="data-p1 rate">11<span>%</span></p>
+										<p class="data-p2">参考年回报率</p>
+									</div>
+									<div class="data-line"></div>
+									<div class="data-p">
+										<p class="data-p1">1<span class="f30">个月</span></p>
+										<p class="data-p2">投资期限</p>
+									</div>
+								</div>
+								<div class="invest-btn">立即投资</div>
+								<p class="b-txt"><i></i>投30000元赚<span>303元+100元京东卡</span></p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<div class="lable"></div>
+								<div class="data">
+									<div class="data-p">
+										<p class="data-p1 rate">10<span>%</span></p>
+										<p class="data-p2">参考年回报率</p>
+									</div>
+									<div class="data-line"></div>
+									<div class="data-p">
+										<p class="data-p1">15<span class="f30">天</span></p>
+										<p class="data-p2">投资期限</p>
+									</div>
+								</div>
+								<div class="invest-btn">立即投资</div>
+								<p class="b-txt">限投3次，累计限额3万，投即计息</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<div class="lable"></div>
+								<div class="data">
+									<div class="data-p">
+										<p class="data-p1 rate">11<span>%</span></p>
+										<p class="data-p2">参考年回报率</p>
+									</div>
+									<div class="data-line"></div>
+									<div class="data-p">
+										<p class="data-p1">12<span class="f30">个月</span></p>
+										<p class="data-p2">投资期限</p>
+									</div>
+								</div>
+								<div class="invest-btn">立即投资</div>
+								<p class="b-txt"><i></i>投50000元赚<span>5738元+300元京东卡</span></p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<div class="lable"></div>
+								<div class="data">
+									<div class="data-p">
+										<p class="data-p1 rate">9.5<span>%</span></p>
+										<p class="data-p2">参考年回报率</p>
+									</div>
+									<div class="data-line"></div>
+									<div class="data-p">
+										<p class="data-p1">6<span class="f30">个月</span></p>
+										<p class="data-p2">投资期限</p>
+									</div>
+								</div>
+								<div class="invest-btn">立即投资</div>
+								<p class="b-txt"><i></i>投100000元赚<span>4988元+800元京东卡</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="prev"></div>
+					<div class="next"></div>
+				</div>
+			</div>
+
+			<div class="sec sec3">
+				<div class="tit">收益在手</div>
+				<div class="con">
+					<div class="type type1">
+						<div class="type-txt">投资金额:</div>
+						<div class="type-inp type-inp1">
+							<input class="input" type="tel" placeholder="请输入投资金额" maxlength="11" id="investMoney" />
+							<span>元</span>
+						</div>
+					</div>
+					<div class="type type2">
+						<div class="type-txt">参考年回报率:</div>
+						<div class="type-inp type-inp1">
+							<!--<div class="showSelect" id="showSelect" >请选择年回报率</div>-->
+							<input type="text" placeholder="请输入年回报率" maxlength="5" id="rate" />
+							<span>%</span>
+						</div>
+					</div>
+					<div class="monthType type1">
+						<div class="type-txt">投资期限</div>
+						<div class="month-select">
+							<div class="month-box">
+								<div class="month" month='1'><span><i></i></span>1个月</div>
+								<div class="month" month='3'><span><i></i></span>3个月</div>
+							</div>
+							<div class="month-box">
+								<div class="month" month='6'><span><i></i></span>6个月</div>
+								<div class="month" month='12'><span><i></i></span>12个月</div>
+							</div>
+						</div>
+					</div>
+					<div id="result" style="display: none;">
+						<div class="type type2">
+							<div class="type-txt">赚取收益:</div>
+							<div class="type-inp type-inp2 onlyIncome"></div>
+						</div>
+						<div class="type type2">
+							<div class="type-txt">本息合计:</div>
+							<div class="type-inp type-inp2 allIncome"></div>
+						</div>
+					</div>
+					<div class="invest-btn calculate">计算收益</div>
+				</div>
+			</div>
+
+			<div class="sec sec4">
+				<div class="tit">平台实力</div>
+				<div class="con">
+					<div class="sl-box">
+						<div class="sl">
+							<img src="../images/shili1.png" />
+							<p class="sl-p1">注册人数</p>
+							<p class="sl-p2">685万</p>
+						</div>
+						<div class="sl">
+							<img src="../images/shili2.png" />
+							<p class="sl-p1">累计投资总额</p>
+							<p class="sl-p2">963亿</p>
+						</div>
+						<div class="sl">
+							<img src="../images/shili3.png" />
+							<p class="sl-p1">累计赚取收益</p>
+							<p class="sl-p2">37亿</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sec sec5">
+				<div class="tit">品牌优势</div>
+				<div class="con">
+					<div class="youshi">
+						<div class="ys-item">
+							<img src="../images/youshi1.png" />
+							<p>银行存管正式上线<br />投资更安心</p>
+						</div>
+						<div class="ys-item">
+							<img src="../images/youshi2.png" />
+							<p>中国互联网金融协会<br />首批会员单位</p>
+						</div>
+					</div>
+					<div class="youshi">
+						<div class="ys-item">
+							<img src="../images/youshi3.png" />
+							<p>新一轮融资18亿元<br />4轮融资合计24.75亿元</p>
+						</div>
+						<div class="ys-item">
+							<img src="../images/youshi4.png" />
+							<p>参考年回报率12.6%<br />投资收益更灵活</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="bot_tips">投资有风险，入市需谨慎，最终收益以实际为准</p>
+			<div class="bot_float">
+				<div class="egg_bot"></div>
+				<div class="bot-btn">马上砸蛋</div>
+			</div>
+			<footer>
+				<div class="f-part f-left">
+					<p>2010-2017 版权所有 © <br />团贷网 粤ICP备16104116号-1</p>
+				</div>
+				<div class="f-line"></div>
+				<div class="f-part f-right">
+					<div class="f-icon"></div>
+					<p class="fr-p1">1010-1218</p>
+					<p class="fr-p2">服务时间 09:00-22:00</p>
+				</div>
+			</footer>
+
+			
+		</div>
+
+		<!--800元京东卡+518元红包-->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="gift-bg">
+				<p class="gift-p1">恭喜获得</p>
+				<p class="gift-p2 pl124"><span>800</span>元京东卡</p>
+				<p class="gift-p3 pl202"><b>+</b><span>518</span>元红包</p>
+				<div class="gift-inp">
+					<i class="ico-phone"></i>
+					<input type="text" placeholder="输入手机号码" />
+				</div>
+				<div class="gift-btn">
+					<div class="btn">立即领取</div>
+					<div class="btn">再砸一次</div>
+				</div>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!--800元京东卡-->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="gift-bg maskInp">
+				<p class="gift-p1">恭喜获得</p>
+				<p class="gift-p3"><span>800</span>元京东卡</p>
+				<div class="gift-inp">
+					<i class="ico-phone"></i>
+					<input type="text" placeholder="输入手机号码" />
+				</div>
+				<div class="gift-btn">
+					<div class="btn">立即领取</div>
+					<div class="btn">再砸一次</div>
+				</div>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!--518元红包+2888元体验金-->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="gift-bg maskInp">
+				<p class="gift-p1">恭喜获得</p>
+				<p class="gift-p2 pl196"><span>518</span>元红包</p>
+				<p class="gift-p2 pl101"><b>+</b><span>2888</span>元体验金</p>
+				<div class="gift-inp">
+					<i class="ico-phone"></i>
+					<input type="text" placeholder="输入手机号码" />
+				</div>
+				<div class="gift-btn">
+					<div class="btn">立即领取</div>
+					<div class="btn">再砸一次</div>
+				</div>
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!--谢谢参与-->
+		<div class="alert" style="display: none;">
+			<div class="alert_bg"></div>
+			<div class="gift-none maskInp">
+				<p class="p-none">谢谢参与！</p>
+				<div class="gift-inp">
+					<i class="ico-phone"></i>
+					<input type="text" placeholder="输入手机号码" />
+				</div>
+				<div class="gift-btn">
+					<div class="btn">立即领取</div>
+					<div class="btn btn-gray">再砸一次</div>
+				</div>
+				<div class="close"></div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

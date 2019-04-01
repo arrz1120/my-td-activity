@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+a {
+    box-sizing: border-box;
+}
+
+body {
+    background: #006ede;
+}
+
+.index {
+    @include size(100%, 100%);
+    background: url(../images/cloud.png) no-repeat;
+    background-size: 100% 100%;
+    padding-top: pxToRem(30px);
+}
+
+.cloud-bot {
+    @include size(100%, pxToRem(183px));
+    background: url(../images/cloud-bot.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.img-i1 {
+    @include size(pxToRem(344px), pxToRem(161px));
+    background: url(../images/img-i1.png) no-repeat;
+    background-size: 100% 100%;
+    margin-left: pxToRem(247px);
+}
+.img-i2 {
+    @include size(pxToRem(672px), pxToRem(161px));
+    background: url(../images/img-i2.png) no-repeat;
+    background-size: 100% 100%;
+    margin: pxToRem(-42px) 0 0 pxToRem(40px);
+}
+.img-i3 {
+    @include size(pxToRem(298px), pxToRem(90px));
+    background: url(../images/img-i3.png) no-repeat;
+    background-size: 100% 100%;
+    margin: pxToRem(-20px) 0 0 pxToRem(224px);
+}
+.bird1 {
+    @include size(pxToRem(166px), pxToRem(67px));
+    background: url(../images/bird1.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: pxToRem(332px);
+    left: pxToRem(25px);
+}
+
+.bird2{
+    @include size(pxToRem(128px), pxToRem(79px));
+    background: url(../images/bird2.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: pxToRem(484px);
+    right: pxToRem(33px);
+}
+
+.dujitang{
+    @include size(pxToRem(659px), pxToRem(520px));
+    background: url(../images/dujitang.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: pxToRem(26px);
+    left: pxToRem(48px);
+    z-index: 2;
+}
+
+.cloud{
+    @include size(pxToRem(548px), pxToRem(336px));
+    background: url(../images/img-i4.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: pxToRem(495px);
+    left: pxToRem(100px);
+    z-index: 1;
+    padding-top: pxToRem(122px);
+    p{
+        font-size: pxToRem(30px);
+        color: #fff;
+        line-height: pxToRem(50px);
+        text-align: center;
+    }
+}
+
+.index-btn{
+    @include size(pxToRem(254px), pxToRem(110px));
+    background: url(../images/index-btn.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: pxToRem(120px);
+    left: pxToRem(253px);
+    z-index: 3;
+}

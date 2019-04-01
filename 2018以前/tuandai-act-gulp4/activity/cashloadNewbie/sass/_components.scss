@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+// toast
+.popup {
+   position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; 
+}
+.masker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 999;
+}
+.toast {
+    background-color: rgba(0, 0, 0, .6);
+    min-width: pxToRem(430px);
+    border-radius: pxToRem(8px);
+    line-height: pxToRem(48px);
+    text-align: center;
+    color: #fff;
+    font-size: pxToRem(30px);
+    padding: pxToRem(30px) pxToRem(30px);
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.component-dialog {
+    .dialog-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -80%);
+        width: pxToRem(610px);
+        background-color: #fff;
+        border-radius: pxToRem(20px);
+        font-size: pxToRem(30px);
+        text-align: center;
+        z-index: 1000;
+        overflow: hidden;
+        // h5 {
+        //     color: $txt-grey-darker;
+        //     line-height: pxToRem(80px);
+        //     margin: 0 pxToRem(35px);
+        //     position: relative;
+        // }
+        .dialog-content {
+            padding: pxToRem(50px) pxToRem(90px);
+            line-height: pxToRem(44px);
+        }
+        // .with-border {
+        //     &:before {
+        //         @include border('bottom', $border-color-grey, dashed);
+        //     }
+        // }
+    }
+    .btn {
+        position: relative;
+        height: pxToRem(90px);
+        line-height: pxToRem(90px);
+        color: #fab600;
+        &:before {
+            @include border(top, #e6e6e6);
+        }
+    }
+    .btns {
+        &>div {
+            position: relative;
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+        &>div:first-child {
+            &:after {
+                @include border(right, #e6e6e6);
+            }
+        }
+        .btn-nav {
+            color: #999;
+        }
+    }
+}

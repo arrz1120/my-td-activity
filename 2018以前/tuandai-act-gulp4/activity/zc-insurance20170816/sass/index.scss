@@ -1,0 +1,259 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/funcAdapt";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%; // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    overflow: hidden;
+    display: none;
+    @at-root .header {
+        margin-bottom: pxToRem(30px);
+        .insurance-name {
+            position: relative;
+            width: 100%;
+            height: pxToRem(94px);
+            line-height: pxToRem(94px);
+            color: #666;
+            background-color: #fff;
+            padding-left: pxToRem(22px);
+            font-size: 0;
+            .icon-guard {
+                margin-right: pxToRem(14px);
+                vertical-align: middle;
+                @include inline-background("../images/icon_guard.png", 38px, 42px);
+            }
+            label {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: pxToRem(24px);
+            }
+            .icon-arrow {
+                position: absolute;
+                right: pxToRem(28px);
+                top: 50%;
+                transform: translateY(-50%);
+                @include inline-background("../images/icon_arrow.png", 9px, 17px);
+            }
+        }
+        .banner {
+            display: block;
+            width: 100%;
+            height: pxToRem(180px);
+            overflow: hidden;
+        }
+        @at-root .insurance-type-list {
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            font-size: 0;
+            white-space: nowrap;
+            overflow: hidden; // padding: pxToRem(40px) 0;
+            padding-top: pxToRem(30px);
+            padding-bottom: pxToRem(26px);
+            .type {
+                display: inline-block;
+                vertical-align: middle;
+                width: 25%;
+                text-align: center;
+                color: #333;
+                font-size: pxToRem(26px);
+                .icon-type {
+                    width: pxToRem(59px);
+                    height: pxToRem(59px);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin: auto;
+                    display: block;
+                }
+                .icon-type01 {
+                    background-image: url("../images/icon_type01.png");
+                    background-size: pxToRem(50px) pxToRem(50px); // @include background("../images/icon_type01.png", 59px, 59px);
+                }
+                .icon-type02 {
+                    background-image: url("../images/icon_type02.png");
+                    background-size: pxToRem(58px) pxToRem(52px); // @include background("../images/icon_type02.png", 59px, 59px);
+                }
+                .icon-type03 {
+                    background-image: url("../images/icon_type03.png");
+                    background-size: pxToRem(46px) pxToRem(53px); // @include background("../images/icon_type03.png", 59px, 59px);
+                }
+                .icon-type04 {
+                    background-image: url("../images/icon_type04.png");
+                    background-size: pxToRem(48px) pxToRem(59px); // @include background("../images/icon_type04.png", 59px, 59px);
+                }
+                div {
+                    margin-top: pxToRem(36px);
+                }
+            }
+        }
+    }
+    @at-root .content-wrapper {
+        .wrapper-title {
+            position: relative;
+            width: 100%;
+            height: pxToRem(90px);
+            line-height: pxToRem(90px);
+            background-color: #fff;
+            border-bottom: 1px solid #e6e6e6;
+            img {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                margin: auto;
+                width: pxToRem(267px);
+                display: block;
+                z-index: 9;
+            }
+        }
+    }
+    @at-root .insurance-list {
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        padding-left: pxToRem(40px);
+        .insurance {
+            position: relative;
+            padding: pxToRem(44px) 0;
+            border-top: 1px solid #e6e6e6;
+            font-size: 0;
+            padding-right: pxToRem(40px);
+            white-space: nowrap;
+            &:first-child {
+                border-top: none;
+            }
+            .icon-insurance01 {
+                @include inline-background("../images/icon_insurance01.png",
+                254px,
+                170px);
+                vertical-align: middle;
+            }
+            .icon-insurance02 {
+                @include inline-background("../images/icon_insurance02.png",
+                254px,
+                170px);
+                vertical-align: middle;
+            }
+            .icon-insurance03 {
+                @include inline-background("../images/icon_insurance03.png",
+                254px,
+                170px);
+                vertical-align: middle;
+            }
+            .icon-insurance04 {
+                @include inline-background("../images/icon_insurance04.png",
+                254px,
+                170px);
+                vertical-align: middle;
+            }
+            .right {
+                position: relative; // float: right;
+                display: inline-block;
+                vertical-align: middle;
+                height: pxToRem(170px);
+                width: pxToRem(376px);
+                margin-left: pxToRem(40px);
+                white-space: initial;
+                .first-title {
+                    font-size: pxToRem(30px);
+                    line-height: pxToRem(38px);
+                    color: #333;
+                    word-break: break-all;
+                    margin-bottom: pxToRem(12px);
+                }
+                .second-title {
+                    font-size: pxToRem(24px);
+                    color: #999;
+                    word-break: break-all;
+                    line-height: 120%;
+                }
+                .item-footer {
+                    position: absolute;
+                    bottom: 0;
+                    color: #ba8955;
+                    .price {
+                        font-size: pxToRem(24px);
+                        label {
+                            font-size: pxToRem(44px);
+                        }
+                    }
+                    .coming-soon {
+                        font-size: pxToRem(34px);
+                    }
+                }
+            }
+        }
+    }
+    .content-footer {
+        position: relative;
+        background-color: #f2f2f0;
+        font-size: pxToRem(24px);
+        text-align: center;
+        padding: pxToRem(40px) 0;
+        img {
+            width: pxToRem(295px);
+            margin: auto;
+            display: block;
+        }
+    }
+}
+
+.sticky-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+}
+
+#defaultView {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    .default-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .icon-default{
+            background-image: url('../images/icon_default.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: pxToRem(223px);
+            height: pxToRem(220px);
+            margin-bottom: pxToRem(60px);
+            display: block;
+        }
+        .label{
+            color: #999;
+            font-size: pxToRem(26px);
+            text-align: center;
+        }
+
+    }
+}

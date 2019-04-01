@@ -1,0 +1,58 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+/*  for small width screen  */
+/* =========for short screen============== */
+@media screen and (max-height: 530px) and (min-width: 321px) {
+  .dropdown {
+    bottom: 6.18667rem; }
+  .slideItem .dropdown {
+    bottom: 2.13333rem; }
+  .con1 {
+    background-size: 90% 90%;
+    background-position: center top;
+    padding: 4.26667rem 0.96rem 0 1.28rem; }
+    .con1 h2 {
+      margin-bottom: 0.42667rem; }
+    .con1 p {
+      margin-bottom: 0.32rem;
+      line-height: 0.81067rem; }
+  .slide-tit {
+    padding-top: 0.85333rem; }
+  .txt2 {
+    margin-top: 0.64rem;
+    padding: 0 0.85333rem; }
+  .img3-1 {
+    width: 14.50667rem;
+    margin: 0.42667rem auto 0; }
+  .tab-tit {
+    margin: 0.42667rem auto 0; }
+  #roundSwiper {
+    margin-top: 0.85333rem; }
+  .con7 {
+    margin: 1.06667rem auto 0; } }
+
+@media screen and (max-height: 480px) and (min-width: 360px) {
+  .tab-con {
+    padding-top: 0.21333rem; }
+    .tab-con p {
+      height: 1.024rem;
+      line-height: 1.024rem; }
+  .txt2 {
+    margin-top: 0.42667rem;
+    padding: 0 0.74667rem; }
+  #txtSwiper {
+    width: 14.656rem;
+    height: 11.30667rem; }
+    #txtSwiper .swiper-wrapper {
+      width: 14.656rem;
+      height: 11.30667rem; }
+    #txtSwiper .swiper-slide {
+      width: 14.656rem;
+      height: 11.30667rem; } }
+
+/* ------------------------iphone 5------------------------ */
+/* -------------------------iphone4---------------------------- */
+
+/*# sourceMappingURL=maps/media.css.map */

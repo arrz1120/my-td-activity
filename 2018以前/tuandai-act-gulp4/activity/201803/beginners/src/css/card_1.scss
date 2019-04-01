@@ -1,0 +1,61 @@
+@charset "utf-8";
+@import './card_common.scss';
+
+body {
+  background:#fbf4ee url(../images/card/bg_1.png) no-repeat;
+  background-size: 100% auto;
+  padding: rem(36) rem(40);
+}
+
+
+.user_msg{
+  background: #fff url(../images/card/bg_msg.png) no-repeat center bottom;
+  background-size: 100% auto;
+  padding: rem(20) rem(110) rem(30);
+  overflow: hidden;
+  border-top: rem(8) solid #ffdaa2;
+  .tx_wraper{
+      margin: 0 auto rem(20);
+      @include wh(300,230);
+      @include bg('../images/card/star.png');
+      background-position: center center;
+      text-align: center;
+
+      .tx{
+        width: rem(180);
+      }
+
+
+      .level{
+        font-size: rem(34);
+        color: #ff6c00;
+      }
+  }
+
+  .name,
+  .score{
+    color: #733323;
+    height: rem(40);
+    // vertical-align: bottom;
+  }
+
+  .name{
+    float: left;
+    width: rem(190);
+    line-height: rem(60);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+  }
+
+
+  .score{
+    float: right;
+    width: rem(240);
+
+    .red{
+      color: #ff6c00;
+      font-size: rem(40);
+    }
+  }
+}

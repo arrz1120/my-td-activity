@@ -1,0 +1,259 @@
+a,
+ins {
+  text-decoration: none; }
+
+a,
+body {
+  color: #444; }
+
+article,
+aside,
+blockquote,
+button,
+code,
+dd,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+body {
+  width: 16rem;
+  margin: 0 auto;
+  position: relative;
+  line-height: 1.25;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Helvetica Neue", Helvetica, "Microsoft Yahei", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  outline: 0;
+  font-size: .55rem;
+  background: #e8eaef;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.o-hide,
+.text-nowrap {
+  overflow: hidden; }
+
+::-webkit-input-placeholder {
+  color: #ccc; }
+
+::-moz-input-placeholder {
+  color: #ccc; }
+
+::input-placeholder {
+  color: #ccc; }
+
+a,
+em,
+i,
+span {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 400; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.text-l,
+caption,
+th {
+  text-align: left; }
+
+button,
+fieldset,
+img,
+input,
+textarea {
+  border: 0; }
+
+li,
+ol,
+ul {
+  list-style: none; }
+
+del {
+  text-decoration: line-through; }
+
+button,
+input,
+optgroup,
+option,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  -webkit-appearance: none;
+  outline: 0; }
+
+a {
+  -webkit-touch-callout: none; }
+
+:focus {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent; }
+
+em,
+i {
+  font-style: normal; }
+
+.text-r {
+  text-align: right; }
+
+.text-c {
+  text-align: center; }
+
+.text-nowrap {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.vertical-t {
+  vertical-align: top; }
+
+.vertical-b {
+  vertical-align: bottom; }
+
+.vertical-m {
+  vertical-align: middle; }
+
+.clear {
+  clear: both; }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+.d-hide {
+  display: none; }
+
+.d-show {
+  display: block; }
+
+body {
+  background: #fdfcf2; }
+
+nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  nav .item {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-align: center;
+    height: 2.13333rem;
+    line-height: 2.13333rem;
+    color: #fff9ea;
+    background: #fe9f36;
+    font-size: 0.64rem; }
+  nav .cur {
+    background: #ffe9d0;
+    color: #8a4800; }
+
+.list {
+  counter-reset: sectioncounter; }
+  .list li {
+    border-bottom: 1px dashed  #ffb058;
+    position: relative;
+    padding: 0 0 0.64rem 0.74667rem;
+    margin-bottom: 0.64rem; }
+    .list li:before {
+      content: counter(sectioncounter);
+      counter-increment: sectioncounter;
+      position: absolute;
+      color: #fff;
+      width: 0.64rem;
+      height: 0.64rem;
+      border-radius: 0.32rem;
+      background: #ffa63e;
+      text-align: center;
+      font-size: 0.512rem;
+      line-height: 0.64rem;
+      left: 0;
+      top: 0; }
+    .list li .txt {
+      line-height: 0.85333rem;
+      font-size: 0.512rem;
+      color: #635550;
+      margin-bottom: 0.21333rem; }
+    .list li .txt_1 {
+      margin-top: 0.42667rem; }
+
+.rule {
+  display: none;
+  width: 13.86667rem;
+  margin: 0.85333rem auto; }
+  .rule .tit {
+    color: #635550;
+    font-size: 0.512rem;
+    margin-bottom: 0.42667rem;
+    font-weight: bold; }
+
+.rule_cur {
+  display: block; }
+
+.rule_1 {
+  display: block;
+  width: 12.37333rem;
+  margin-bottom: 0.21333rem; }
+
+footer {
+  text-align: center;
+  color: #635550;
+  font-size: 0.46933rem;
+  line-height: 0.68267rem; }
+  footer .txt_iphone {
+    margin-top: 0.21333rem; }

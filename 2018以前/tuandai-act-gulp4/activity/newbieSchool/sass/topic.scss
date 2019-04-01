@@ -1,0 +1,191 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+
+
+
+
+body {
+    background:#fdebb9 url(../images/topic/bg.png) no-repeat;
+    background-size: 100% auto;
+    padding: pxToRem(160px) pxToRem(20px) pxToRem(30px);
+}
+
+
+
+.liner{
+    height: pxToRem(16px);
+    border-radius:  pxToRem(8px);
+    background: #e1c676;
+}
+
+
+.topic_wraper{
+    width: pxToRem(690px);
+    margin: pxToRem(-8px) auto 0;
+    background: #fff;
+    border-radius: 0 0 pxToRem(20px) pxToRem(20px);
+    padding: pxToRem(20px)  pxToRem(20px) pxToRem(50px);
+    box-shadow: pxToRem(10px) pxToRem(10px) pxToRem(15px)  pxToRem(15px) #edd8a1; 
+
+    .tit,
+    .txt{
+        margin-bottom:  pxToRem(26px);
+    }
+
+    .tit{
+        font-size: pxToRem(30px);
+        color: #635550;
+        font-weight: bold;
+    }
+
+    .txt{
+        font-size: pxToRem(26px);
+        color: #637dcb;   
+
+    }
+
+    .txt_bottom{
+        padding-bottom: pxToRem(26px);
+        border-bottom: #f4edd9 dashed  pxToRem(2px);
+    }
+}
+
+
+.topic{
+
+    .tit,.radio,.checkbox{
+        color: #635550;
+        font-size: pxToRem(30px);
+        font-weight: bolder;
+        position: relative;
+        padding-left: pxToRem(58px);
+    }
+
+    .tit{
+        line-height:  pxToRem(42px);
+    }
+
+
+    .tit_red{
+        color: #ff5c1c;
+    }
+
+    .tit .num{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: pxToRem(38px);
+        height: pxToRem(38px);
+        line-height: pxToRem(38px);
+        text-align: center;
+        border-radius:  pxToRem(19px);
+        color: #fff;
+        background: #fcbc40;
+        margin-right: pxToRem(19px);
+    }
+
+
+    .radio,.checkbox{
+        margin: 0 0 pxToRem(36px) pxToRem(82px);
+        line-height: pxToRem(46px);
+
+
+        .icon{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: pxToRem(46px);
+            height: pxToRem(46px);
+            border-radius: pxToRem(23px);
+            background: #f1ecde;
+            margin-right: pxToRem(19px);
+        }
+
+
+    }
+
+
+    .checkbox{
+
+        .icon{
+            border-radius: 0;
+        }
+
+    }
+
+     .radio_checked .icon:before,
+     .checkbox_checked .icon:before{
+            content: '';
+            position: absolute;
+            left: pxToRem(12px);
+            top: pxToRem(12px);
+            width: pxToRem(24px);
+            height: pxToRem(24px);   
+            border-radius: pxToRem(12px); 
+            background: linear-gradient(to bottom,#fea205,#ff5c1d);
+
+        }
+
+        
+        .checkbox_checked .icon:before{
+            left: 0;
+            top: 0;
+            width:100%;
+            height:100%;   
+            background: url(../images/topic/right.png) no-repeat;
+            background-size: 100% 100%;
+
+        }
+        
+
+
+
+}
+
+
+.submit{
+    margin: pxToRem(30px) auto;   
+}
+
+
+.alert{
+
+    .con{
+        width:  pxToRem(620px); 
+        height: pxToRem(680px);  
+    }
+    .hd{
+        height: pxToRem(205px);   
+        background: url(../images/index/tips_bg.png) no-repeat;
+        background-size: 100% 100%;
+
+    }   
+
+    .con_val{
+        background: #fff;
+        border-radius: 0 0 pxToRem(20px) pxToRem(20px); 
+        padding: pxToRem(40px) pxToRem(30px) pxToRem(20px);
+        .txt{
+            color: #635550;
+            font-size: pxToRem(36px);
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: pxToRem(16px);
+        }
+        .txt_red{
+            color: #ff5c1c;
+        } 
+
+        .txt_bottom{
+        border-bottom: #f4edd9 dashed  pxToRem(2px);
+        padding-bottom: pxToRem(40px);
+        }
+
+
+        .play-again{
+            margin: 0 auto;
+        }
+    }
+}

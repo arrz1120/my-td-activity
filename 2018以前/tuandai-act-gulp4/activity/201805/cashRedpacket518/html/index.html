@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no,viewport-fit=cover" />
+	<meta name="format-detection" content="telephone=no">
+	<title>瓜分现金红包</title>
+	<!-- build:css ../css/common.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/index.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/popup.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div class="scroll scroll-active wrap">
+	<i class="mark518 pos-a"></i>
+	<i class="icon-cd1 pos-a"></i>
+	<i class="icon-cd2 pos-a"></i>
+	<i class="icon-jb1 pos-a"></i>
+	<i class="icon-jb2 pos-a"></i>
+	<i class="icon-jb3 pos-a"></i>
+	<div class="content pos-r">
+		<p class="hd-time">活动时间：5月14日-5月25日</p>
+		<i class="txt-b"></i>
+		<p class="txt-s">邀请好友一起瓜分 <span>奖金限时翻倍</span></p>
+		<div class="red-packet">
+			<span class="tips">点击瓜分红包</span>
+			<a href="javascript:;" class="btn-open bg-size" id="btnOpen">
+				<span class="btn-open-bg bg-size bouncein breath-border"></span>
+				<span class="kai bg-size breath"></span>
+			</a>
+			<div class="list scroll-list" style="display: none">
+				<ul>
+					<li><p>吴女士成功获得12.58元红包 <span>11分钟前</span></p></li>
+					<li><p>吴女士成功获得0.2%加息特权 <span>32分钟前</span></p></li>
+					<li><p>吴女士成功获得0.2%加息特权<span>11分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+				</ul>
+			</div>
+			<div class="guafen" style="display: none">
+				<p>高手！您已完成所有任务</p>
+				<a href="myRecord.html">查看我的记录</a>
+			</div>
+			<div class="guafen" style="display: block">
+				<p>瓜分任务正在进行...</p>
+				<a href="myRecord.html">查看我的记录</a>
+			</div>
+			<a href="rule.html" class="btn-rule">活动规则<i></i></a>
+		</div>
+	</div>
+	<p class="ad-tips">市场有风险，投资需谨慎</p>
+</div>
+
+<!--瓜分到现金红包弹窗-->
+<div class="mask prize-mask hide" id="prizeMask">
+	<div class="pop-container">
+		<div class="pop-prize1">
+			<p class="title">恭喜您瓜分到</p>
+			<div class="money">
+				<span class="nb"><i>￥</i>16.88</span>
+				<span class="txt">现金红包</span>
+			</div>
+			<p class="gj-tips">红包金额限时翻倍福利<span>戳下方按钮领取红包金额翻倍资格，每人限领一次哦~</span></p>
+		</div>
+		<a href="javascript:;" class="maskBtn">领取红包翻倍资格</a>
+	</div>
+</div>
+
+<!--瓜分到翻倍资格-->
+<div class="mask prize-mask hide" id="">
+	<div class="pop-container">
+		<div class="pop-prize2">
+			<p class="title">恭喜获得<br/>
+				红包限时翻倍资格</p>
+			<div class="money">
+				<span class="nb"><i>￥</i>16.88</span>
+				<span class="txt">现金红包</span>
+			</div>
+			<p class="gj-tips">红包金额翻倍条件<span>领取后24小时内至少邀请1名好友注册并投资达标，邀请人即可享受红包金额翻倍。</span></p>
+		</div>
+		<a href="javascript:;" class="maskBtn">领取红包翻倍资格</a>
+	</div>
+</div>
+
+<!--瓜分到现金-->
+<div class="mask prize-mask hide" id="">
+	<div class="pop-container">
+		<div class="pop-prize3">
+			<p class="title">恭喜您瓜分到</p>
+			<div class="money">
+				<span class="nb"><i>￥</i>16.88</span>
+				<span class="txt">现金红包</span>
+			</div>
+		</div>
+		<a href="javascript:;" class="maskBtn">立即查看</a>
+	</div>
+</div>
+
+
+<!--未登入弹窗 -->
+<div class="mask login-mask hide" id="loginMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<p class="login-txt">请先登录<span>再参与瓜分红包哦~</span></p>
+			<a href="javascript:;" class="maskBtn">立即登录</a>
+		</div>
+		<a href="JavaScript:;" class="close bg-size" id="clsoe_loginMask"></a>
+	</div>
+</div>
+
+<!--无资格参加 -->
+<div class="mask zige-mask hide" id="zigeMask" >
+	<div class="pop-container">
+		<div class="pop-zige">
+			<p>您暂不能瓜分红包</p>
+			<p>本活动仅限当前待收>0的用户瓜分红包<br />
+				请投资后再参与哦~</p>
+			<a href="javascript:;" class="maskBtn">立即投资</a>
+		</div>
+		<a href="JavaScript:;" class="close bg-size" id="clsoe_zige"></a>
+	</div>
+</div>
+
+<!--活动已结束 -->
+<div class="mask time-mask hide" id="endMask" >
+	<div class="pop-container">
+		<div class="pop-time">
+			<p class="end-txt">活动已结束！感谢您的关注~</p>
+		</div>
+		<a href="JavaScript:;" class="close bg-size" id="clsoe_endMask"></a>
+	</div>
+</div>
+
+<!--活动即将开启-->
+<div class="mask time-mask hide" id="startMask" >
+	<div class="pop-container">
+		<div class="pop-time">
+			<p class="end-txt">活动即将开启，敬请期待~</p>
+		</div>
+		<a href="JavaScript:;" class="close bg-size" id="clsoe_startMask"></a>
+	</div>
+</div>
+
+<!--分享遮罩-->
+<div class="mask share-mask" style="display: none" id="shareMask">
+	<div class="share-pic"></div>
+	<div class="masker" id="shareMasker"></div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $("#goAIKnow").click(function () {
+        aniHide("#goneMask");
+    });
+</script>
+</html>

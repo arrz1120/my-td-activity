@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="renderer" content="webkit">
+		<meta name="force-rendering" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta content="email=no" name="format-detection" />
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script>
+			(function(doc, win) {
+				var dpr, rem, scale = 1;
+				var docEl = document.documentElement;
+				var metaEl = document.querySelector('meta[name="viewport"]');
+				var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+				metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no,shrink-to-fit=no');
+				docEl.setAttribute('data-dpr', dpr);
+				var recalc = function() {
+					clientWidth = docEl.clientWidth;
+					if(!clientWidth) return;
+					docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					if(document.body) {
+						document.body.style.fontSize = docEl.style.fontSize;
+					}
+
+				};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css?v=20171205" />
+	</head>
+
+	<body>
+
+		<div class="pageContainer">
+			<header>
+				<div class="logo bgSize"></div>
+				<!--<a href="//m.tdw.cn" class="back">返回首页</a>-->
+			</header>
+
+			<div class="banner"></div>
+
+			<div class="inputBox" style="display: none;">
+				<div class="inp">
+					<i class="ico_phone bgSize"></i>
+					<input type="text" placeholder="输入手机号码" maxlength="11" id="phone">
+				</div>
+				<div class="error" id="dvPhoneError"></div>
+
+				<div class="inp">
+					<i class="ico_pass bgSize"></i>
+					<input type="password" placeholder="设置密码（由6-16个字符（字母+数字））组成" id="passWord" maxlength="16">
+				</div>
+				<div class="error" id="dvPwdError"></div>
+
+				<div class="pos-r">
+					<div class="inp inpHalf">
+						<i class="ico_imgCode bgSize"></i>
+						<input type="text" placeholder="输入图形内验证码" id="txtValidNumber" maxlength="4">
+					</div>
+					<div class="imgCode">
+						<img src="/ajaxhander/ValidateCode.ashx" id="imgVcode" alt="" onclick="reloadCode('/ajaxhander/ValidateCode.ashx')">
+					</div>
+				</div>
+				<div class="error" id="dvValidNumber"></div>
+
+				<div class="pos-r">
+					<div class="inp inpHalf">
+						<i class="ico_telCode bgSize"></i>
+						<input type="text" placeholder="点此输入验证码" id="messCode" maxlength="6">
+					</div>
+					<div class="telCode">
+						<input type="text" readonly="readonly" value="获取验证码" id="btnSendMsg">
+					</div>
+				</div>
+				<div class="error" id="dvCodeError"></div>
+
+				<a href="javascript:;" id="btnReg" class="res-btn">注册并领取518元现金红包</a>
+				<div class="login-tips">
+					已有账号，请
+					<a href="//m.tdw.cn/user/login.aspx">登录</a>
+				</div>
+				<div class="returnPage"><i class="bgSize"></i>回到上一页</div>
+			</div>
+
+			<div class="mdCon">
+				<div class="swiper-container" id="investSwiper">
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<p class="slide-p1">新手专享</p>
+								<p class="slide-p2">— 限投3次,累计限额3万,投即计息 —</p>
+								<div class="slide-rate clearfix">
+									<div class="lf w50p text-center">
+										<div class="rate-p1"><span>10</span>%</div>
+										<div class="rate-p2">预期年化收益</div>
+									</div>
+									<div class="rf w50p text-center">
+										<div class="rate-p1">
+											<span>3</span>个月
+										</div>
+										<div class="rate-p2">投资期限</div>
+									</div>
+								</div>
+								<p class="slide-p3"><b class="ico_jinbi bgSize"></b>投10000元赚<span>300元+100元京东E卡</span></p>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<p class="slide-p1">新手专享</p>
+								<p class="slide-p2">— 限投3次,累计限额3万,投即计息 —</p>
+								<div class="slide-rate clearfix">
+									<div class="lf w50p text-center">
+										<div class="rate-p1"><span>10</span>%</div>
+										<div class="rate-p2">预期年化收益</div>
+									</div>
+									<div class="rf w50p text-center">
+										<div class="rate-p1">
+											<span>3</span>个月
+										</div>
+										<div class="rate-p2">投资期限</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<p class="slide-p1">We计划C</p>
+								<p class="slide-p2">— 限投3次,累计限额3万,投即计息 —</p>
+								<div class="slide-rate clearfix">
+									<div class="lf w50p text-center">
+										<div class="rate-p1"><span>10</span>%</div>
+										<div class="rate-p2">预期年化收益</div>
+									</div>
+									<div class="rf w50p text-center">
+										<div class="rate-p1">
+											<span>3</span>个月
+										</div>
+										<div class="rate-p2">投资期限</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="slide-con">
+								<p class="slide-p1">We计划B</p>
+								<p class="slide-p2">— 限投3次,累计限额3万,投即计息 —</p>
+								<div class="slide-rate clearfix">
+									<div class="lf w50p text-center">
+										<div class="rate-p1"><span>10</span>%</div>
+										<div class="rate-p2">预期年化收益</div>
+									</div>
+									<div class="rf w50p text-center">
+										<div class="rate-p1">
+											<span>3</span>个月
+										</div>
+										<div class="rate-p2">投资期限</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="prev bgSize"></div>
+					<div class="next bgSize"></div>
+
+				</div>
+
+				<div class="md2">
+					<div class="md-tit md2-tit bgSize"></div>
+					<div class="yl zcyl bgSize"></div>
+					<div class="song bgSize"></div>
+				</div>
+
+				<section class="md  md-even md3 clearfix">
+					<div class="yl tzyl bgSize"></div>
+					<ul class="invite-list">
+						<li>
+							<div>
+								<p class="txt">首次投资金额≥<span>200元</span></p>
+								<p class="txt txt_2">（投标月份:<span>1个月及以上</span>）</p>
+							</div>
+							<div></div>
+							<div>
+								<p class="money"><span class="money_num">20</span>元</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p class="txt">首次投资金额:<span>5000元</span></p>
+								<p class="txt txt_2">（投标月份:<span>1个月及以上</span>）</p>
+							</div>
+							<div></div>
+							<div>
+								<p class="money"><span class="money_num">50</span>元</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p class="txt">首次投资金额:<span>10000元</span></p>
+								<p class="txt txt_2">（投标月份:<span>3个月及以上</span>）</p>
+							</div>
+							<div></div>
+							<div>
+								<p class="money"><span class="money_num">100</span>元</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p class="txt">首次投资金额:<span>50000元</span></p>
+								<p class="txt txt_2">（投标月份:<span>6个月及以上</span>）</p>
+							</div>
+							<div></div>
+							<div>
+								<p class="money"><span class="money_num">300</span>元</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p class="txt">首次投资金额:<span>100000元</span></p>
+								<p class="txt txt_2">（投标月份:<span>6个月及以上</span>）</p>
+							</div>
+							<div></div>
+							<div>
+								<p class="money"><span class="money_num">800</span>元</p>
+							</div>
+						</li>
+					</ul>
+
+					<p class="xf-tongyong_1"><strong>资产标、智享计划和债权转让不参与活动</strong></p>
+					<a href="" class="rule_btn" id="rule_btn">活动规则</a>
+				</section>
+
+				<section class="md5 md">
+					<div class="md-tit md5-tit bgSize"></div>
+
+					<ul>
+						<li>
+							<img src="images/md4-1.png?v=01">
+							<p>
+								2017年6月融资<span>18亿</span>，<br> 累计融资
+								<span>24.75亿</span>，<br>
+								<span>150,948,260元</span>质保服务专款。
+							</p>
+						</li>
+						<li>
+							<img src="images/md4-2.png?v=01">
+							<p>
+								累计交易额高达<span>1268亿</span>，<br> 为用户赚取收益
+								<span>61亿</span>，<br> 注册用户人数高达
+								<span>685万</span>人。
+							</p>
+						</li>
+						<li>
+							<img src="images/md4-3.png?v=01">
+							<p>
+								厦门银行<span>资金存管</span><br> 自有资金与用户资金
+								<br> 隔离更安心
+							</p>
+						</li>
+						<li>
+							<img src="images/md4-4.png?v=01">
+							<p>
+								预期年化收益<span>12.6%</span>，<br> 理财产品灵活多样，
+								<br> 自动投标，智能理财。
+							</p>
+						</li>
+
+					</ul>
+					<p class="invite-explian">投资有风险，入市需谨慎，最终收益以实际为准。</p>
+				</section>
+
+				<footer class="footer_gray">
+					<div class="footer1">
+						<p class="p1">2010- 2017 版权所有 ©</p>
+						<p class="p2">团贷网
+							<a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16104116号-1</a>
+						</p>
+					</div>
+					<div class="footer2">
+						<p class="p1">1010-1218</p>
+						<p class="p2">服务时间 09:00-22:00</p>
+					</div>
+					<div class="footer3">
+						<a href="//m.tdw.cn?tdsource=tuiguang">返回首页</a>
+					</div>
+				</footer>
+			</div>
+
+			<div class="inpFloat" id="bot-fix">
+				<p class="iF-p1">领取<span>518</span>元红包+<span>800元</span>京东E卡</p>
+				<div class="iF-inpBox clearfix">
+					<div class="iF-input lf">
+						<i class="bgSize"></i>
+						<input type="tel" placeholder="输入手机号码" id="bot-input" maxlength="11">
+					</div>
+					<div class="rf">
+						<div class="iF-btn" id="bot-btn">注册送518元</div>
+					</div>
+				</div>
+				<div class="iF-error" style="display: none;"></div>
+			</div>
+			
+			<div class="alert" id="rule" style="display: none">
+				<div class="con">
+					<h3>参与规则</h3>
+					<ul>
+						<li><span>1</span>
+							<p>活动有效期：2017年9月1日起至2017年12月31日期间内，在本链接完成注册且首次单笔投资（不含资产标、智享计划和债权转让）满足以上条件的用户，可获得对应奖励。</p>
+						</li>
+						<li><span>2</span>
+							<p>活动有效期：2017年9月1日起至2017年12月31日期间内，在本链接完成注册且首次单笔投资（不含资产标、智享计划和债权转让）满足以上条件的用户，可获得对应奖励。</p>
+						</li>
+						<li><span>3</span>
+							<p>本活动最终解释权归团贷网所有。</p>
+						</li>
+					</ul>
+					<a href="javascript:void(0);" class="close"></a>
+				</div>
+			</div>
+
+			<div class="finish alert" id="close_alert" style="display: none">
+				<div class="con">
+					<img src="images/pass.png" alt="" class="pass">
+					<p class="txt">提交成功</p>
+					<a href="javascript:;" class="close">关 闭</a>
+				</div>
+			</div>
+
+	</body>
+	<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/icheck.min.js"></script>
+	<script src="js/reg.js?v=20171205"></script>
+	<script type="text/javascript">
+		//协议对勾切换
+		function check() {
+			$(".agree").click(function(e) {
+				var i = $(this).find('span');
+				if(e.target.nodeName != 'A') {
+					if(i.hasClass('checked')) {
+						i.removeClass('checked');
+					} else {
+						i.addClass('checked');
+					}
+				}
+			})
+		}
+
+		var investSwiper = new Swiper("#investSwiper", {
+			loop: true,
+			//      	autoplay:4000,
+			autoplayDisableOnInteraction: false,
+			prevButton: '.prev',
+			nextButton: '.next'
+		})
+
+		function inpTab() {
+			$("#phone").on('input', function() {
+				if($(this).val().length == 11) {
+					$("#inpTab").show()
+				}
+			})
+		}
+
+		check();
+		inpTab();
+
+		function tipsHide() {
+			setTimeout(function() {
+				$(".iF-error").fadeOut();
+			}, 2000)
+		}
+
+		function telTest(s) {
+			if(/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(s)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		$("#bot-btn").click(function() {
+			var val = $("#bot-input").val();
+			var tips = $(".iF-error");
+			if(val == '') {
+				tips.text('请输入您的手机号码').fadeIn(function() {
+					tipsHide();
+				});
+			} else {
+				if(telTest(val) == false) {
+					tips.text('手机号码格式有误').fadeIn(function() {
+						tipsHide();
+					});
+				} else {
+					$(".inputBox").show();
+					$("#investSwiper").hide();
+					$(".pageContainer").scrollTop(0);
+					$("#bot-fix").hide();
+					$(".pageContainer").css('padding-bottom', 0);
+					$('#phone').val(val);
+
+				}
+			}
+		})
+
+		$(".returnPage").click(function() {
+			$(".inputBox").hide();
+			$("#investSwiper").show();
+			$("#bot-fix").show();
+			$(".pageContainer").css('padding-bottom', '1.72rem');
+		})
+
+		$('#rule_btn').on('click', function(e) {
+			e.preventDefault();
+			$('#rule').show();
+		});
+
+		$('.close').on('click', function(e) {
+			e.preventDefault();
+			$(this).parent().parent().hide();
+			$('.announcement').show();
+			$('#uesr_name').val('');
+			$('#uesr_phone').val('');
+		});
+
+		$('#rule').on('touchmove', function(e) {
+			e.preventDefault();
+		});
+
+
+		$('#uesr_name').focus(function() {
+			$('#error_uesr_name').html('');
+		})
+
+		$('#uesr_phone').focus(function() {
+			$('#error_uesr_phone').html('');
+		})
+
+		$(function() {
+			//			WeiXinShare(window.location.href, "团贷网送福利", "猛戳查看>>", "<%=Globals.RegisterWebUrl %>/content/images/hongbao.jpg", function() {});
+		});
+	</script>
+
+</html>

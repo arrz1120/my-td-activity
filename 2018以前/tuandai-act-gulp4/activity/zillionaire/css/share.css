@@ -1,0 +1,188 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important; }
+
+a {
+  text-decoration: none; }
+
+body {
+  background: url(../images/share_bg.png) no-repeat;
+  background-size: 100% 100%; }
+
+.tit {
+  width: 100%;
+  display: block; }
+
+.tips {
+  color: #fefff0;
+  font-size: 0.42667rem;
+  position: absolute;
+  left: 0.42667rem;
+  top: 0.42667rem; }
+
+.msg {
+  height: 6.57067rem;
+  width: 15.65867rem;
+  background: url(../images/msg.png) no-repeat;
+  background-size: 100% 100%;
+  margin: 0.64rem auto 0;
+  position: relative;
+  padding-top: 1.49333rem; }
+  .msg .user {
+    position: absolute;
+    left: 0;
+    top: -0.64rem; }
+  .msg .tx_wraper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2.34667rem;
+    width: 2.34667rem;
+    border: 0.04267rem solid #fff;
+    border-radius: 1.17333rem;
+    z-index: 2; }
+    .msg .tx_wraper img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.17333rem; }
+  .msg .name {
+    width: 4.90667rem;
+    height: 0.85333rem;
+    line-height: 0.85333rem;
+    color: #fff726;
+    line-height: 0.85333rem;
+    border-radius: 0.42667rem;
+    font-size: 0.512rem;
+    padding-left: 1.49333rem;
+    background: #6ac017;
+    border: 0.04267rem solid #46a612;
+    position: absolute;
+    left: 1.06667rem;
+    top: 0.64rem; }
+  .msg .txt {
+    text-align: center;
+    font-size: 0.68267rem;
+    width: 12.8rem;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 0.896rem;
+    text-shadow: #4a920f 0.02133rem 0 0, #4a920f 0 0.02133rem 0, #4a920f -0.02133rem 0 0, #4a920f 0 -0.02133rem 0; }
+    .msg .txt span {
+      color: #fff726; }
+
+.zl {
+  height: 5.14133rem;
+  width: 5.14133rem;
+  background: url(../images/zl.png) no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 3.2rem; }
+  .zl p {
+    text-align: center;
+    color: #fff; }
+  .zl .txt_1 {
+    font-size: 0.512rem; }
+    .zl .txt_1 span {
+      color: #fff726; }
+  .zl .txt_2 {
+    font-size: 0.384rem; }
+  .zl .curnum {
+    position: absolute;
+    right: 0.896rem;
+    top: 0.384rem;
+    margin: 0.42667rem 0;
+    text-align: center;
+    font-size: 0.768rem;
+    color: #ff6a2c;
+    text-shadow: #fff 0.04267rem 0 0, #fff 0 0.04267rem 0, #fff -0.04267rem 0 0, #fff 0 -0.04267rem 0; }
+
+.zl_1 {
+  background: url(../images/zl_1.png) no-repeat;
+  background-size: 100% 100%; }
+
+.txt_3 {
+  margin: 0.42667rem 0;
+  text-align: center;
+  font-size: 0.512rem;
+  color: #fff;
+  text-shadow: #619d14 0.04267rem 0 0, #619d14 0 0.04267rem 0, #619d14 -0.04267rem 0 0, #619d14 0 -0.04267rem 0; }
+
+.btn {
+  display: block;
+  height: 2.19733rem;
+  width: 9.49333rem;
+  background: url(../images/play_btn.png) no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=maps/share.css.map */

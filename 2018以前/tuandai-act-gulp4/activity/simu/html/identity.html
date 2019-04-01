@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>实名认证</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/account.css -->
+    <link rel="stylesheet" href="../css/account.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="content">
+    <header class="header">实名认证<span id="back_btn" class="back-btn"></span></header>
+    <div class="input-wrap">
+        <form id="authenForm" action="">
+            <div class="input-box">
+                <label for="realName">实名认证</label>
+                <input type="text" placeholder="请输入使用证件上的姓名" id="realName" name="realName"  maxlength="10" >
+            </div>
+            <div class="input-box">
+                <label for="idcard">身份认证</label>
+                <input type="text" placeholder="请输入身份证号码" id="idcard" name="idcard"  maxlength="18">
+            </div>
+        </form>
+    </div>
+
+    <div class="rz-shixiang">
+        <p class="title">实名认证前请先阅读并确认以下事项：</p>
+        <p class="txt cur">本人保证资金来源的合法性和所提供资料的真实性、有效性、准确性、完整性，没有汇集他人资金，实际控制人和受益人均为本人，并对其承担责任。</p>
+        <p class="txt cur">本人认定已符合以下条件中的一项：</br>
+            -  最近三年个人年均收入不低于50万元</br>
+            - 本人承诺符合金融资产不低于300万元（金融资产包括银行存款、股票、债权、基金份额、资金管理计划、银行理财产品、信托计划、保险产品、期货权益等）。</p>
+        <a href="JavaScript:;" class="btn-hs" id="btnSubmit">提交认证</a>
+    </div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/identity.js" type="text/javascript" charset="utf-8"></script>
+</html>

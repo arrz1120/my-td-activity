@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>瓜分现金红包</title>
+	<!-- build:css ../css/common.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/landing.css -->
+	<link rel="stylesheet" href="../css/landing.css">
+	<link rel="stylesheet" href="../css/popup.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div class="scroll scroll-active wrap">
+	<i class="logo pos-a"></i>
+	<i class="icon-yh1 pos-a"></i>
+	<i class="icon-yh2 pos-a"></i>
+	<i class="icon-jb pos-a"></i>
+	<i class="icon-bz pos-a"></i>
+	<div class="content pos-r">
+
+		<!--发起邀请-->
+		<div class="red-packet-invite" style="display: none">
+			<p class="yq-txt ani-down"><span>赵小明</span><br>邀您一起瓜分红包！</p>
+			<div class="red-packet">
+				<div class="red-packet-top bg-size">
+
+				</div>
+				<a href="javascript:;" class="btn-open bg-size">
+					<span class="btn-open-bg bg-size bouncein"></span>
+					<span class="kai bg-size"></span>
+				</a>
+				<span class="tips">点击瓜分红包</span>
+				<div class="get-txt">
+					他已瓜分到12.58元，点开</br>看看你的手气～
+				</div>
+				<a href="rule.html" class="btn-rule bg-size"></a>
+			</div>
+		</div>
+
+
+		<!--开红包-->
+		<div class="red-packet-open bg-size" style="display: ">
+			<div class="red-packet-top ani-up">
+				<p class="money">￥10.68</p>
+				<p class="gx-txt">恭喜您瓜分到红包！人品超级赞！</p>
+				<!--红包分完				-->
+
+				<!--<p class="sorry-txt">抱歉，来迟一步</p>-->
+				<!--<p class="gx-txt">红包所剩不多！</br>成为发起者速来瓜分哦！</p>-->
+			</div>
+
+			<div class="red-packet-bottom bg-size">
+				<div class="input-wrap">
+					<div class="input-box">
+						<input type="text" class="phone" id="phone" maxlength="11" placeholder="输入手机号码一起瓜分红包">
+						<div class="error" id="phoneError"> </div>
+					</div>
+					<div class="input-box" style="display: none" id="codeInput">
+						<input type="text" class="code" id="messCode" maxlength="6" placeholder="输入短信验证码">
+						<input type="button" class="send send-gray" value="发送">
+						<div class="error" id="codeError"></div>
+					</div>
+					<a href="javascript:;" class="btn-get bg-size">立即领取</a>
+					<p class="txt">赵小明已领取12.58元</p>
+				</div>
+
+				<a href="rule.html" class="btn-rule bg-size"></a>
+			
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!--红包领取失败-->
+<div class="mask zige-mask hide" id="" >
+	<div class="pop-container">
+		<div class="pop-zige d-f">
+			<div class="d-xiaopai"></div>
+			<p>来晚一步，红包已被人领取</p>
+			<p class="p-lr">好友赵小明发起的本轮瓜分红包已被<br/>
+				他人捷足先登，您可以成为瓜分红包的发起者<br/>
+				获得更多红包！
+			</p>
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+			<a href="JavaScript:;" class="close bg-size" id=""></a>
+		</div>
+		<a href="javascript:;" class="maskBtn">红包在这里</a>
+	</div>
+</div>
+
+<!--老用户弹窗-->
+<div class="mask login-mask hide" id="olduserMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<p>老司机，请重新发起红包活动哦~</p>
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+			<a href="javascript:;" class="maskBtn">红包在这里</a>
+			<a href="JavaScript:;" class="close bg-size" id="clsoe_olduser"></a>
+		</div>
+	</div>
+</div>
+
+
+<!--活动已结束-->
+<div class="mask login-mask hide" id="endMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<p>老司机，请重新发起红包活动哦~</p>
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+			<a href="javascript:;" class="maskBtn">我知道了</a>
+		</div>
+	</div>
+
+</div>
+
+<div class="mask login-mask ide" id="userHadBeKickOutMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+				<i class="icon-dl"></i>
+				<i class="icon-yh"></i>
+			<p class="inv-txt">您在限定的时间内未完</br>
+				               成指定任务，瓜分失败</p>
+			<a href="javascript:;" id="goIKnowIBeKickOut" class="maskBtn">我知道了</a>
+		</div>
+	</div>
+</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/landing.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>停机维护</title>
+    <!-- build:css ../css/maintenance.css -->
+    <link rel="stylesheet" href="../css/maintenance.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                // if (docEl.style.fontSize) return;
+                // clientWidth = docEl.clientWidth;
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content">
+            <div class="m-title"><span>停机维护</span></div>
+            <section class="m-det">
+                <p class="m-call">尊敬的速来贷用户：</p>
+                <p class="m-content">您好，为给广大用户提供更加优质的借款体验，速来贷APPv2.0版本正式上线为了进一步保证数据的安全性、准确性，经速来贷运营团队研究决定，速来贷旧版本（v2.0以下版本）将在9月2日0:00之后停止使用，请广大新老用户尽快升级至速来贷APPv2.0版本。</p>
+            </section>
+            <div class="m-btn btn-bottom" id="update">前往更新</div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+(function() {
+    document.getElementById('update').addEventListener('click', function() {
+        console.info('update----');
+        //todo
+    });
+})();
+</script>
+
+</html>

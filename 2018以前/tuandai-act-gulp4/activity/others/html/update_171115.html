@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>停机维护</title>
+    <!-- build:css ../css/update_171115.css -->
+    <link rel="stylesheet" href="../css/update_171115.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                // if (docEl.style.fontSize) return;
+                // clientWidth = docEl.clientWidth;
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content">
+            <i class="icon-update"></i>
+            <span class="update-title">团贷网APP升级啦</span>
+            <span class="update-txt">感谢使用团贷网金融服务！为了让您获得更好体验，我们定期更新应用来优化速度、提升体验，建议更新到最新版本。</span>
+            <div class="btn-update">马上更新</div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/jsbridge-3.1.5.js -->
+<script src="../../../lib/jsbridge/jsbridge-3.1.5.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    $('.btn-update').on('click', function() {
+        Jsbridge.toAppUpdateAPK();
+    });
+
+})();
+</script>
+
+</html>

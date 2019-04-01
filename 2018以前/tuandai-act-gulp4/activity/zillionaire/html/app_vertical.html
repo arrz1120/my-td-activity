@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>zillionaire</title>
+
+
+
+	<!-- build:css ../css/app_vertical.css -->
+	<link rel="stylesheet" href="../css/app_vertical.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+
+<img src="../images/app_tips.png" alt="" class="app_tips">
+
+
+<div class="start_btn">开启大富翁之旅0413</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+Jsbridge.appLifeHook(null, function () {
+
+		// Jsbridge.toAppViedoWebView(1, 'http://10.100.99.175:3002/html/index.html');
+
+	}, function () {
+
+
+	}, null, null);
+
+
+    $('.start_btn').on('click',function(e){
+        e.preventDefault();
+				//放绝对地址
+
+				// alert(Jsbridge.toAppMainPage());
+
+				Jsbridge.toAppViedoWebView(1, 'http://10.100.99.175:3000/html/index.html');
+    });
+</script>
+
+</html>

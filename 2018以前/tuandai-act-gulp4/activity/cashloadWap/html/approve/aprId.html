@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>身份认证</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css  ../../css/approve/index.css -->
+    <link rel="stylesheet" href="../../css/approve/index.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/liveness.css -->
+    <link rel="stylesheet" href="../../../../lib/vendor/liveness/liveness.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+
+    <body>
+        <header id="header" class="header">
+            <div class="btn-back">
+                <i class="icon-block icon-back"></i>
+            </div>
+            <h1>身份认证</h1>
+        </header>
+        <div class="scroll scroll-active">
+            <div class="content ai-content no-footer">
+                <h3>上传身份证照片</h3>
+                <form>
+                    <div class="apr-id-wrapper front">
+                        <input type="file" accept="image/*" id="id_front">
+                        <i class="icon-block icon-camera"></i>
+                        <img src="../../images/default.jpg" alt="">
+                    </div>
+                    <p class="tip">1、点击扫描身份证正面</p>
+                    <div class="apr-id-wrapper back">
+                        <input type="file" accept="image/*" id="id_back">
+                        <i class="icon-block icon-camera"></i>
+                    </div>
+                    <p class="tip">2、点击扫描身份证反面</p>
+                </form>
+                <div class="btn btn-full" id="submit">
+                    确认身份信息
+                </div>
+            </div>
+        </div>
+        <!-- 详细信息确认 -->
+        <div class="popup pop-ids bg-grey">
+            <div class="tip">
+                <i class="icon-inline icon-warn"></i>请确认姓名、身份证信息是否正确
+            </div>
+            <ul class="list-info">
+                <li><span>姓名</span>
+                    <div><input type="text" name="name" value="团小贷款" disabled></div>
+                </li>
+                <li><span>身份证</span>
+                    <div><input type="text" name="idNo" value="123456789" disabled></div>
+                </li>
+                <li><span>签发机关</span>
+                    <div><input type="text" name="org" value="东莞市公安局"></div>
+                </li>
+                <li><span>有效期</span>
+                    <div><input type="text" name="term" value="2017-08-08"></div>
+                </li>
+            </ul>
+            <div class="item-status not-perfect" id="video_vali">
+                <span>视频认证</span>
+                <span class="status">未完成</span>
+                <i class="icon-block icon-arrow"></i>
+                <!-- <input type="file" accept="video/*" id="id_video"> -->
+            </div>
+            <div class="btn btn-full disabled" id="btn_approve">
+                完成
+            </div>
+        </div>
+        <!-- 活体认证 提示弹窗 -->
+        <!-- <div class="popup component-dialog pop-video-tip">
+            <div class="masker"></div>
+            <div class="dialog-wrapper">
+                <img src="../../images/blink.gif">
+                <p>录制不超过<font>10s</font>的视频</p>
+                <p>拍摄视频时请<font>眨眨眼</font></p>
+                <div class="btn-full-round">
+                    开始录制
+                    <input type="file" name="" value="" placeholder="" accept="video/*">
+                </div>
+            </div>
+        </div> -->
+    </body>
+    <!-- build:js ../../js/lib/fastclick-jquery.js -->
+    <script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+    <script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/lrz/lrz.all.bundle.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../../js/approve/aprId.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

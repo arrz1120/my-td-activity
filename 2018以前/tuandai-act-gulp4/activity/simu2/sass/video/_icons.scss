@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@import "../../../../sass/func";
+
+.icon-play {
+	background-image: url(../../images/play.png);
+	width: pxToRem(24px);
+	height: pxToRem(24px);
+}

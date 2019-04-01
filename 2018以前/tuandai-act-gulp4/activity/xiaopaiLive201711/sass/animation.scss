@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+@keyframes rollIn {
+  from {
+  	opacity: 0;
+    transform: rotateX(180deg);
+    visibility: visible;
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+.rollIn {
+  animation-name: rollIn;
+  @extend .animated;
+}

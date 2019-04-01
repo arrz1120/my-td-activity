@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import "variables";
+@import "fn";
+@import "../../../../sass/reset";
+html,
+body {
+    position: relative;
+    //  height: 100%;
+    width: 100%;
+    //  overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #f2f2f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+textarea,
+span {
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+img {
+    display: block;
+}
+
+.top{
+    position: relative;
+    display: -webkit-box;
+    background: #fff;
+}
+
+.top-tab{
+    width: 50%;
+    height: rem(90);
+    line-height: rem(90);
+    @include font(34,#666);
+    text-align: center;
+}
+.top-tab-cur{
+    color: #fab600;
+}
+
+.top-line{
+    width: 1px;
+    height: rem(34);
+    background: #e6e6e6;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    position: absolute;
+    top: rem(28);
+    left: 50%;
+}
+
+.my-link{
+    position: relative;
+    padding-left: rem(30);
+    background: #fff;
+    margin-top: rem(20);
+    a{
+        display: block;
+        height: rem(100);
+        line-height: rem(100);
+        @include font(34,#333);
+        position: relative;
+        span{
+            @include font(24,#999);
+            position: absolute;
+            right: rem(67);
+        }
+        i{
+            display: block;
+            @include wh(16,28);
+            @include bg('../images/ico-arrow.png');
+            position: absolute;
+            right: rem(30);
+            top:rem(36);
+        }
+    }
+}
+.my-link:before{
+    @include border('top',#e6e6e6,solid);
+}
+.my-link:after{
+    @include border('bottom',#e6e6e6,solid);
+}
+.link-bt:before{
+    @include border('top',#e6e6e6,solid);
+}

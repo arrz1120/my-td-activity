@@ -1,0 +1,84 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+/*  for small width screen  */
+@media screen and (min-height: 575px) and (min-width: 412px) {
+  .dujitang {
+    bottom: -1.28rem;
+    background-size: 90% 90%;
+    background-position: center bottom; }
+  .cloud {
+    bottom: 6.50667rem; }
+  .index-btn {
+    bottom: 0.42667rem; }
+  .cloud-bot {
+    bottom: -0.85333rem; }
+  .bird {
+    bottom: 2.83733rem; }
+  .biaobai {
+    margin-top: 1.472rem; }
+  .page3 {
+    padding-top: 0.576rem; }
+  .zp-text {
+    bottom: 3.37067rem; }
+  .page7 {
+    padding-top: 2.83733rem; }
+  .bird1 {
+    top: 8%; }
+  .page8 .dujitang2 {
+    bottom: 1.77067rem; }
+    .page8 .dujitang2 .page-btn1 {
+      top: 8.448rem; }
+    .page8 .dujitang2 .page-btn2 {
+      top: 10.70933rem; }
+  .page8 .bird {
+    bottom: 2.53867rem; } }
+
+/* =========for short screen============== */
+@media screen and (max-height: 540px) and (min-width: 321px) {
+  .dujitang {
+    bottom: 0; }
+  .cloud {
+    bottom: 9.06667rem; }
+  .index-btn {
+    bottom: 1.70667rem; }
+  .bird {
+    bottom: 1.344rem; }
+  .zp-text {
+    bottom: 1.87733rem; }
+  .bird1 {
+    top: 6%; }
+  .page3 {
+    padding-top: 0.64rem; }
+  .page7 {
+    padding-top: 2.83733rem; }
+  .wxBg {
+    margin: 0.21333rem auto 0; }
+  .page8 .dujitang2 {
+    bottom: 1.77067rem; }
+    .page8 .dujitang2 .page-btn1 {
+      top: 8.448rem; }
+    .page8 .dujitang2 .page-btn2 {
+      top: 10.70933rem; }
+  .page8 .bird {
+    bottom: 2.53867rem; } }
+
+@media screen and (max-height: 568px) and (min-width: 359px) {
+  .dujitang {
+    bottom: -1.28rem;
+    background-size: 90% 90%;
+    background-position: center bottom; }
+  .cloud {
+    bottom: 6.50667rem; }
+  .index-btn {
+    bottom: 0.42667rem; }
+  .cloud-bot {
+    bottom: -0.85333rem; }
+  .zp-text {
+    bottom: 3.37067rem; } }
+
+/* ------------------------iphone 5------------------------ */
+/* -------------------------iphone4---------------------------- */
+
+/*# sourceMappingURL=maps/media.css.map */

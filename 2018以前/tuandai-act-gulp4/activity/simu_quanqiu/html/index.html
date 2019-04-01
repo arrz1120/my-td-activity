@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>simu_quanqiu</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="swiper-container" id="pageSwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide slideIndex">
+					<div class="img1-1 animated zoomIn"></div>
+					<div class="img1-2 animated bounceInLeft"></div>
+					<div class="dropdown"></div>
+				</div>
+
+				<div class="swiper-slide slideItem slide1">
+					<div class="tit tit1">全球战略投资 避险掘金并驾齐驱</div>
+					<p class="p">人民币被纳入SDR货币篮子，人民币国际化的大趋势不可逆转，越来越多中产及以上富裕群体拥有国际化视野，一方面随着国内经济增速趋缓和，海外市场迅速将成为新的投资热土。资产全球配置，不仅可避险，还可铸造财富增值。</p>
+					<div class="con1 fadeInUp">
+						<img class="swiper-lazy" data-src="../images/con1.png" />
+					</div>
+				</div>
+
+				<div class="swiper-slide slideItem slide2">
+					<div class="tit tit2">项目介绍</div>
+					<p class="p p2-1">以发达国家和新兴市场债券为主，同时配以外汇、ETF、股指期货、大宗商品期货、结构化产品及其它相关金融衍生工具。</p>
+					<div class="con2">
+						<img class="swiper-lazy" data-src="../images/con2.png" />
+					</div>
+					<div class="tit tit2">项目优势</div>
+					<p class="p p2-2">基金透过严格选择国家、策略性分配资产及优化投资组合，寻求最大的已调整风险回报。以全球债券为主要投资工具进行跨资产、多策略的全球全资产投资，以期实现在全天候条件下的投资盈利。</p>
+				</div>
+
+				<div class="swiper-slide slideItem slide3">
+					<div class="tit tit3">管理人介绍</div>
+					<div class="leader-box">
+						<div class="leader-img">
+							<img class="swiper-lazy" data-src="../images/leader.png" />
+						</div>
+						<div class="leader-txt">
+							<p class="l-name">韩同利</p>
+							<p class="l-word">历任复星集团固定收益首席投资官</p>
+							<p class="l-word">复星资产管理公司CEO</p>
+							<p class="l-word">复星保险集团副总裁</p>
+						</div>
+					</div>
+					<div class="con3">
+						<div class="txt-tab">
+							<div class="tab-item-box">
+								<div class="tab-item tab-item-cur">个人简介 </div>
+								<div class="tab-item">主要成就 </div>
+							</div>
+						</div>
+						<div class="swiper-container" id="tabSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide swiper-no-swiping">
+									<div class="swiper-container txtSwiper" id="txtSwiper1">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<p>2000年，选拨进入中国银行总行交易室，先后于北京、香港、伦敦等地管理全球债券及货币等投资。由于开创了技术难度高，利润丰厚的新业务，在2003年被提拔成为全球债券投资组合经理并被派往香港从事对中总行自有外汇资金的投资管理。</p>
+												<p>2006年，赴美学习、工作，先后在德意志银行及太平洋投资管理公司(PIMCO)美国总部投资组合经理，作为新兴市场债券和新投资团队成员之一，管理约1,500亿美元的债券投资。不到三十岁做上PIMCO最年轻的投资经理, 是比尔·格罗斯(Bill Gross)、朱长虹等投资大师的得力助手。在2008年美国金融危机期间，他成为受美联储委托操盘救市的CPFF平准基金的三位投资经理之一。</p>
+												<p>2012年，回到香港加入交银国际, 任职固定收益主管， 注册及管理交银国际环球策略新兴市场债券基金。根据外媒报道，该基金在他管理下实现9.1%平均年收益，在所有126只香港注册销售的公募债券基金中排名第一，超过几乎所有知名欧美资产管理公司。</p>
+												<p>2014年，加入复星集团，任职固定收益首席投资官及复星资产管理公司CEO，领导复星旗下各个平台海外投资。</p>
+											</div>
+
+										</div>
+										<div class="swiper-scrollbar" id="bar1"></div>
+									</div>
+
+								</div>
+								<div class="swiper-slide swiper-no-swiping">
+									<div class="swiper-container txtSwiper" id="txtSwiper2">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<p>2002年在中国银行总行创建了中国第一个做市商功能的外汇期权交易台。</p>
+												<p>2008年在美国代表PIMCO参与受美联储委托的拯救金融市场行动，作为CPFF的3位主要投资经理之一，代表美联储进行短期公司票据的特殊市场操。</p>
+												<p>外媒2014年报导，他管理的全球债券公募基金以9.1%平均年收益，在获准在香港销售的全球126支公募债券基金中业绩排名第一，投资业绩超过几乎所有知名欧美品牌的资产管理公司。</p>
+												<p>在复星任职固定收益首席投资官和资产管理公司CEO期间，2015年初准确把握了对俄罗斯投资的底部投资机遇，年底把握了对巴西资产和黄金投资的底部投资时机。俄罗斯和巴西的本币资产分别在2015、2016年是全球投资回报率最高国家和地区。</p>
+												<p>作为主要负责人之一，管理某中国国家主权财富基金上千亿美元的债券投资。</p>
+											</div>
+										</div>
+										<div class="swiper-scrollbar" id="bar2"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="swiper-slide slideItem slide4">
+					<div class="tit tit4">管理人观点</div>
+					<p class="p">我一直认为，不论全球股票、信用债还是新兴市场，牛市很可能还会持续两年时间。</p>
+					<div class="con4">
+						<div class="manage-item item1 move1">
+							<p>全球经济成长力<br />继续向上</p>
+						</div>
+						<div class="manage-item item2 move2">
+							<p>美股整体向上<br />中间有修正阶段</p>
+						</div>
+						<div class="manage-item item3 move3">
+							<p>下半年美股性价比<br />弱于欧洲资产</p>
+						</div>
+						<div class="manage-item item4 move4">
+							<p>看好十九大后及<br />2018年A股市场<br />表现</p>
+						</div>
+					</div>
+					<div class="text-bot text-hide">
+						<div class="bot-arrow"><i></i></div>
+						<p>以上信息来自于网络信息资料，投资者应仔细阅读理财产品的法律文件，了解产品风险和收益特征（包括系统性风险和特定产品所特有的投资风险等）。投资者应根据自身资产状况、风险承受能力选择适合自己的理财产品。团贷网提供的资料仅供投资者参考，不构成团贷网的任何推荐或投资建议。投资者应审慎决策、独立承担风险。</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="bottom">
+			<a href="http://www.sobot.com/chat/pc/index.html?sysNum=20ab7dce1e3346e8b90b649bd8baf591" class="bot-item">
+				<i class="icon-b1"></i> 在线咨询
+			</a>
+			<a href="tel:0769-26987956" class="bot-item">
+				<i class="icon-b2"></i> 客服热线
+			</a>
+			<a href="javascript:void(0);" class="bot-item">
+				<i class="icon-b3"></i> 马上预约
+			</a>
+		</div>
+
+		<!--证书弹窗-->
+		<div class="alert" style="display: none;">
+			<div class="alert_con">
+				<img src="../images/zhengshu.png" />
+				<div class="close"></div>
+			</div>
+		</div>
+
+		<!--开始实名认证弹窗-->
+		<div class="mask-div mask-renzheng" style="display: none;">
+			<div class="pop-container">
+				<div class="renzheng-pop">
+					<P>合规才能放心投资，开始投资前，请您进行</P>
+					<p>『 合格投资者身份认证 』</p>
+					<p><i class="icon-dbx bg-size">1</i>实名认证</p>
+					<p><i class="icon-dbx bg-size">2</i>风险评测</p>
+					<a href="JavaScript:;" class="btn-hs toAuth">开始认证吧</a>
+				</div>
+				<a href="JavaScript:;" class="clase-mask-renzheng"><i class="bg-size"></i></a>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+
+		<!--在线预约咨询-->
+		<div class="mask-div mask-booking-success" style="display: none" id="yuyueMask">
+			<div class="pop-container">
+				<div class="yueyu-box">
+					<p class="title">在线预约咨询</p>
+					<div class="input-box">
+						<span>姓名</span>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="input-box">
+						<span>手机</span>
+						<input type="text" placeholder="请输入">
+					</div>
+					<p class="tips">预约后理财顾问将在20分钟内给您回电，为您提供一对一理财咨询服务。</p>
+					<div class="btn-box clearfix">
+						<a href="JavaScript:;" class="fl" id="quxiaoBtn">取消</a>
+						<a href="JavaScript:;" class="fl">提交</a>
+					</div>
+				</div>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+
+		<!--预约成功弹窗-->
+		<div class="mask-div mask-booking-success" style="display: none">
+			<div class="pop-container">
+				<div class="yueyu-box">
+					<p class="title">在线预约咨询</p>
+					<i class="icon-yes bg-size"></i>
+					<p class="s-txt">预约成功</p>
+					<p class="tel">我们将在20分钟内给您回电，来电号码为<span>0769-23602330</span></p>
+					<div class="btn-box clearfix">
+						<a href="JavaScript:;" class="btn-qd">确定</a>
+					</div>
+				</div>
+			</div>
+			<div class="masker-div"></div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

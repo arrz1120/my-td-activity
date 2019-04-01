@@ -1,0 +1,178 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important;
+  background: url(../images/bg-login.png) no-repeat;
+  background-size: 100% auto; }
+
+a {
+  text-decoration: none; }
+
+div,
+textarea,
+span {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none; }
+
+textarea {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  resize: none; }
+
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0; }
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #f8aa32;
+  text-align: center; }
+
+img {
+  display: block; }
+
+.login {
+  width: 100%;
+  height: 100%;
+  padding-top: 5.03467rem; }
+  .login .img-login {
+    width: 16rem;
+    height: 6.016rem;
+    background: url("../images/img-login.png") center top no-repeat;
+    background-size: 100%; }
+
+.input-txt {
+  width: 11.62667rem;
+  height: 0.81067rem;
+  background: url("../images/input-txt.png") center top no-repeat;
+  background-size: 100%;
+  margin: 0.66133rem auto 0; }
+
+.input-box {
+  margin: 0.66133rem auto 0;
+  width: 11.86133rem; }
+  .input-box .inp {
+    width: 11.86133rem;
+    height: 1.38667rem;
+    padding: 0 1.024rem;
+    background: rgba(250, 232, 171, 0.6);
+    border-radius: 0.21333rem; }
+  .input-box input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #565656;
+    font-size: 0.61867rem;
+    background: none; }
+  .input-box .code-box {
+    width: 11.86133rem;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    margin-top: 0.34133rem; }
+  .input-box .inpHalf {
+    width: 5.78133rem;
+    height: 1.38667rem;
+    border-radius: 0.21333rem;
+    border: 0.08533rem solid #fff;
+    padding: 0 0.32rem; }
+    .input-box .inpHalf input {
+      color: #565656;
+      font-size: 0.61867rem; }
+    .input-box .inpHalf input::-webkit-input-placeholder {
+      color: #fcf9d6; }
+  .input-box .getCode {
+    width: 5.78133rem;
+    height: 1.38667rem;
+    line-height: 1.38667rem;
+    color: #f8aa31;
+    font-size: 0.61867rem;
+    text-align: center;
+    background: #fcf9d6;
+    border-radius: 0.21333rem; }
+
+.confirm {
+  background: #8d2e24;
+  border-radius: 0.21333rem;
+  font-size: 0.704rem;
+  text-align: center;
+  color: #f7b833;
+  width: 4.65067rem;
+  height: 1.216rem;
+  line-height: 1.216rem;
+  margin: 1.62133rem auto 0; }
+
+.error {
+  color: #fe0000;
+  font-size: 0.42667rem;
+  padding-left: 0.36267rem;
+  padding-top: 0.32rem;
+  font-weight: bold; }
+
+/*# sourceMappingURL=maps/login.css.map */

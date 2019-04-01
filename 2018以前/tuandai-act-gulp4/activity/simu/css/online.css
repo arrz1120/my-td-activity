@@ -1,0 +1,226 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important; }
+
+a {
+  text-decoration: none; }
+
+div,
+ul,
+li,
+input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background: #f2f2f2; }
+
+header {
+  height: 1.87733rem;
+  background: #293366;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9; }
+
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 5px solid #d8ba84;
+  border-right: 5px solid transparent; }
+
+.triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 5px solid #fff;
+  border-left: 5px solid transparent; }
+
+.online-con {
+  min-height: 100%;
+  padding-top: 5.16267rem;
+  padding-bottom: 0.02133rem; }
+  .online-con ul {
+    width: 100%; }
+  .online-con li {
+    width: 100%;
+    position: relative;
+    margin-bottom: 1.70667rem; }
+    .online-con li img {
+      width: 1.70667rem;
+      height: 1.70667rem;
+      position: absolute;
+      top: 1.62133rem;
+      border-radius: 50%; }
+  .online-con .time {
+    width: 2.56rem;
+    height: 0.98133rem;
+    background: #e6e6e6;
+    text-align: center;
+    line-height: 0.98133rem;
+    color: #999999;
+    font-size: 0.512rem;
+    border-radius: 2px;
+    margin: 0 auto; }
+  .online-con li.answer img {
+    left: 0.64rem; }
+  .online-con li.answer .name {
+    color: #999999;
+    font-size: 0.512rem;
+    padding: 0.64rem 0 0 2.60267rem; }
+  .online-con li.answer .text {
+    position: relative;
+    width: 10.47467rem;
+    background: #fff;
+    padding: 0.46933rem 1.216rem 0.55467rem 0.66133rem;
+    margin-left: 2.77333rem;
+    margin-top: 0.384rem;
+    border-radius: 0 2px 2px 2px; }
+    .online-con li.answer .text .triangle-topright {
+      position: absolute;
+      top: 0;
+      left: -5px; }
+    .online-con li.answer .text p {
+      color: #333;
+      font-size: 0.64rem;
+      line-height: 0.768rem; }
+  .online-con li.ask img {
+    right: 0.64rem; }
+  .online-con li.ask .text {
+    position: relative;
+    width: 10.47467rem;
+    background: #d8ba84;
+    padding: 0.46933rem 0.66133rem 0.55467rem 0.66133rem;
+    margin-left: 2.56rem;
+    margin-top: 0.64rem;
+    border-radius: 2px 0 2px 2px; }
+    .online-con li.ask .text .triangle-topleft {
+      position: absolute;
+      top: 0;
+      right: -5px; }
+    .online-con li.ask .text p {
+      color: #fff;
+      font-size: 0.64rem;
+      line-height: 0.768rem; }
+
+.talk-box {
+  background: #fff;
+  width: 100%;
+  height: 2.34667rem;
+  position: fixed;
+  z-index: 9;
+  top: 1.87733rem;
+  left: 0;
+  padding: 0.42667rem 0; }
+  .talk-box .inp-box {
+    padding: 0 0.64rem;
+    *zoom: 1; }
+    .talk-box .inp-box:before, .talk-box .inp-box:after {
+      content: "";
+      display: table;
+      line-height: 0; }
+    .talk-box .inp-box:after {
+      clear: both; }
+    .talk-box .inp-box .inp {
+      float: left;
+      _display: inline;
+      width: 12.16rem;
+      height: 1.49333rem;
+      border: 1px solid #e6e6e6; }
+    .talk-box .inp-box input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding-left: 0.42667rem;
+      font-size: 0.64rem;
+      outline: none;
+      border: none; }
+    .talk-box .inp-box .send {
+      float: right;
+      _display: inline;
+      width: 2.13333rem;
+      height: 1.49333rem;
+      background: #c8a66b;
+      line-height: 1.49333rem;
+      color: #fff;
+      text-align: center;
+      font-size: 0.55467rem; }
+
+/*# sourceMappingURL=maps/online.css.map */

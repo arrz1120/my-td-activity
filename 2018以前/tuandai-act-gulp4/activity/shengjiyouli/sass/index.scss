@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    // height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.p1 {
+    width: 100%;
+    height: pxToRem(597px);
+    position: relative;
+    background: url(../images/p1.png) no-repeat;
+    background-size: 100% 100%;
+    padding-top: pxToRem(326px);
+    .time {
+        width: pxToRem(446px);
+        height: pxToRem(78px);
+        background: url(../images/time-bg.png) no-repeat;
+        background-size: 100% 100%;
+        padding-top: pxToRem(25px);
+//      padding-left: pxToRem(1px);
+        margin-left: pxToRem(152px);
+        color: #ba64ff;
+        font-size: pxToRem(28px);
+        text-align: center;
+    }
+}
+
+.sj-btn {
+    display: block;
+    width: pxToRem(620px);
+    height: pxToRem(90px);
+    background: url(../images/btn.png) no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    left: pxToRem(65px);
+    bottom: pxToRem(39px);
+    text-align: center;
+    color: #fff;
+    font-size: pxToRem(34px);
+    line-height: pxToRem(90px);
+}
+
+.ruleBtn {
+    width: pxToRem(109px);
+    height: pxToRem(111px);
+    background: url(../images/ruleBtn.png) no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    right: 0;
+    top: pxToRem(360px);
+    z-index: 9;
+}
+
+.hide{
+    display: none !important;
+}
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+
+.alert_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.alert_con{
+    width: pxToRem(630px);
+    position: relative;
+    z-index: 2;
+    background: #fff url(../images/rule-bg.png) no-repeat;
+    background-size: 100% pxToRem(139px);
+    border-radius: pxToRem(15px);
+}
+
+.ruleTit{
+    width: pxToRem(630px);
+    height: pxToRem(139px);
+    padding-top: pxToRem(45px);
+    text-align: center;
+    font-size: pxToRem(34px);
+    color: #fff;
+}
+
+.ruleTxt{
+    padding: pxToRem(46px) pxToRem(41px) pxToRem(46px) pxToRem(40px);
+    p{
+        line-height: pxToRem(48px);
+        font-size: pxToRem(28px);
+        color: #333;
+        margin-bottom: pxToRem(24px);;
+    }
+}
+
+.ico_close{
+    width: pxToRem(60px);
+    height: pxToRem(60px);
+    background: url(../images/close.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: pxToRem(-100px);
+    left: 50%;
+    margin-left: pxToRem(-30px);
+}

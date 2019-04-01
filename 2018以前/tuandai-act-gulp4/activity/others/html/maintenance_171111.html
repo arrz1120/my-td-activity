@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>停机维护</title>
+    <!-- build:css ../css/maintenance_171111.css -->
+    <link rel="stylesheet" href="../css/maintenance_171111.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                // if (docEl.style.fontSize) return;
+                // clientWidth = docEl.clientWidth;
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content">
+            <i class="icon-logo"></i>
+            <section class="m-wrapper">
+                <p class="m-title">团贷网系统升级公告</p>
+                <p class="m-name m-txt">亲爱的团贷网用户：</p>
+                <p class="m-content">
+                    <span class="m-txt">您好！</span>
+                    <span class="m-txt">为了给您提供更优质便捷的服务，<font class="txt-yellow">我公司技术中心在2017年11月13日凌晨1:00至8:00进行系统升级和维护。</font>在此期间，团贷网官方网站、App、触屏版、微信端将无法进行访问和操作。由此给您带来不便，敬请谅解。</span>
+                    <span class="m-txt">感谢您的信任与支持，我们将一如既往竭诚为您服务！</span>
+                    
+                </p>
+                <p class="m-sign">
+                    <span class="m-txt">派生科技集团股份有限公司</span>
+                    <span class="m-txt">2017年11月13日</span>
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+(function() {
+
+})();
+</script>
+
+</html>

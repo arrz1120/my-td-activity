@@ -1,0 +1,48 @@
+.icon-sprite {
+  display: block;
+  background-image: url(../../images/approveSprite.png);
+  background-size: pxToRem(170px)  pxToRem(141px);
+  background-repeat:no-repeat;
+}
+.icon-arrow-y {
+  @extend .icon-sprite;
+  background-position: pxToRem(0px) pxToRem(-120px);
+  width: pxToRem(12px);
+  height: pxToRem(21px);
+}
+.icon-bell {
+  @extend .icon-sprite;
+  background-position: pxToRem(-120px) pxToRem(-60px);
+  width: pxToRem(34px);
+  height: pxToRem(41px);
+}
+.icon-book {
+  @extend .icon-sprite;
+  background-position: pxToRem(0px) pxToRem(0px);
+  width: pxToRem(50px);
+  height: pxToRem(50px);
+}
+.icon-card {
+  @extend .icon-sprite;
+  background-position: pxToRem(-60px) pxToRem(0px);
+  width: pxToRem(50px);
+  height: pxToRem(50px);
+}
+.icon-id {
+  @extend .icon-sprite;
+  background-position: pxToRem(0px) pxToRem(-60px);
+  width: pxToRem(50px);
+  height: pxToRem(50px);
+}
+.icon-mobile {
+  @extend .icon-sprite;
+  background-position: pxToRem(-60px) pxToRem(-60px);
+  width: pxToRem(50px);
+  height: pxToRem(50px);
+}
+.icon-zm {
+  @extend .icon-sprite;
+  background-position: pxToRem(-120px) pxToRem(0px);
+  width: pxToRem(50px);
+  height: pxToRem(50px);
+}

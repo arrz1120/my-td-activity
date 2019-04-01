@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>1111</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/alert.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+
+
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+<div class="first_screen fs_show">
+	<div class="logo"></div>
+	<div class="banner">
+	</div>
+	<p class="time">活动时间：<span>11月10日-11月14日</span></p>
+	<div class="rule_btn">活动规则</div>
+	<div class="cd"></div>
+	<div class="wt">
+		<div class="light_bottom"></div>
+		<div class="light_odd"></div>
+		<div class="light_even"></div>
+		<div class="amj"></div>
+		<div class="other_prize"></div>
+	</div>
+	<div class="bottom_arrow">
+		<p class="bottom_txt">下拉马上参与</p>
+		<span class="arrow"></span>
+	</div>
+</div>
+
+<nav class="nav_top nav_scroll">
+		<span class='cur'>全部</span>
+		<span>热抢中</span>
+		<span>预热中</span>
+		<span>抢完了</span>
+</nav>
+
+
+<nav class="nav_bottom">
+		<a href="#" class="today_help">今日助力</a>
+		<a href="#"  class="my_help">我的助力</a>
+</nav>
+
+
+
+
+<div class="list_wraper list_wraper_fir">
+	<header>
+		<img src="../images/step1.png" alt="">
+		<img src="../images/step2.png" alt="">
+		<img src="../images/step3.png" alt="">
+	</header>
+	
+	<nav class="nav_top">
+		<span class='cur'>全部</span>
+		<span>热抢中</span>
+		<span>预热中</span>
+		<span>抢完了</span>
+	</nav>
+
+
+
+
+
+
+
+
+	<!-- 全部 -->
+	<div class="content cur_con" id="con_0">
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/hb.png" alt="">
+				<p class="time">进行中 &nbsp;&nbsp;&nbsp; 倒计时20：53：07</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					我的助力
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+			<a href="#" class="btn">邀请好友助力</a>
+		</div>
+
+		<div class="md show_ani ">
+			<div class="prizebox">
+				<img src="../images/prize/amj.png" alt="">
+			</div>
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+
+		<div class="md show_ani ">
+			<div class="prizebox">
+				<img src="../images/prize/amj.png" alt="">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/msh.png">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/msh.png">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/msh.png">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/msh.png">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+
+
+		<div class="md">
+			<div class="prizebox">
+				<img src="../images/prize/xj.png">
+				<p class="star_time">11月12号开启</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+
+
+		<p class="bottom_txt_1">我有底线的</p>
+	</div>
+	
+	<!-- 全部 end-->
+
+	<!-- 热抢中 -->
+	<div class="content" id="con_1">
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/amj.png" alt="">
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/hb.png" alt="">
+				<p class="time">进行中 &nbsp;&nbsp;&nbsp; 倒计时20：53：07</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					我的助力
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+
+			<a href="#" class="btn">邀请好友助力</a>
+		</div>
+
+		<div class="md show_ani">
+			<div class="prizebox">
+				<img src="../images/prize/hb.png" alt="">
+				<p class="time">进行中 &nbsp;&nbsp;&nbsp; 倒计时20：53：07</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					竞争对手：幸福的鱼
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+			<div class="bar_box">
+				<h3 class="title">
+					我的助力
+				</h3>
+				<div class="bar_bg">
+					<div class="bar">
+						<span class='cur_num'>33</span>/40（人）
+					</div>
+				</div>
+			</div>
+
+
+			<a href="#" class="btn">邀请好友助力</a>
+		</div>
+		<p class="bottom_txt_1">我有底线的</p>
+	</div>
+
+	<!-- 热抢中 end-->
+
+
+	<!-- 预热中 -->
+	<div class="content" id="con_2">
+		<div class="md">
+			<div class="prizebox">
+				<img src="../images/prize/xj.png">
+				<p class="star_time">11月12号开启</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+		<div class="md">
+			<div class="prizebox">
+				<img src="../images/prize/xj.png">
+				<p class="star_time">11月12号开启</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+		<div class="md">
+			<div class="prizebox">
+				<img src="../images/prize/xj.png">
+				<p class="star_time">11月12号开启</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+
+		<div class="md">
+			<div class="prizebox">
+				<img src="../images/prize/xj.png">
+				<p class="star_time">11月12号开启</p>
+			</div>
+
+			<div class="prize_val">
+				<h3 class="p_name">足底按摩器</h3>
+				<div class="people_num people_num_1">
+					<p class="num">40人</p>
+					<p class="title">需助力人数</p>
+				</div>
+				<div class="people_num">
+					<p class="num">1</p>
+					<p class="title">剩余库存</p>
+				</div>				
+			</div>
+
+			<a href="#" class="btn">免费领取</a>
+		</div>
+		<p class="bottom_txt_1">我有底线的</p>
+
+	</div>
+
+	<!-- 预热中 end-->
+
+	
+
+	<!-- 抢完了 -->
+	<div class="content" id="con_3">
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+
+		<div class="md">
+			<div class="prizebox over">
+				<img src="../images/prize/jsq.png" alt="">
+			</div>
+			<h2 class="prize_name">德尔玛加湿器</h2>
+
+
+			<dl class="marquee">
+				<dt>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+					<p>恭喜***获得德尔玛加湿器</p>
+				</dt>
+				<dd></dd>
+			</dl>
+		</div>
+
+		<p class="bottom_txt_1">我有底线的</p>
+
+	</div>
+
+	<!-- 抢完了 end-->
+
+
+	<!-- 暂时无数据 -->
+	<div class="empty" id="empty">
+	</div>
+
+	<!-- 暂时无数据 end-->
+</div>
+
+
+<!-- 弹窗 -->
+
+
+<div class="alert alert_rule" style="display:none">
+	<div class="mark"></div>
+	<div class="con">
+		<img src="../images/rule_tit.png" class="hd" alt="">
+		<ul class="list">
+			<li data-num='1'>用户发起助力，须在24小时内邀请满指定数量新用户完成助力，助力成功则可免费领取奖品；主动终止或超过24小时邀请人数不足均视为参与失败，每位用户最多可以同时发起1次助力，失败后可重新发起助力，助力人数重新计算；</li>
+			<li data-num='2'>助力的好友必须是未在在团贷网注册的用户，每位新用户只能助力一次，助力后可获得现金红包和518投资红包，参与的助力发起活动成功/失败，都视作已参与助力；</li>
+			<li data-num='3'>奖品有德尔玛加湿器、美的榨汁机、iPod Shuffle、111元投资红包等，用户成功助力后库存即减掉，奖品送完即止；</li>
+			<li data-num='4'>获得奖品将于活动结束后15个工作日内发放，请注意到团宝箱-精美礼品中查收，过期未填写地址，视为放弃，且不支持退换货、兑现、发票等；现金红包、投资红包使用规则以团宝箱说明为准；</li>
+			<li  data-num='5'>在法律许可的合法范畴内，本活动最终解释权归团贷网所有。</li>
+
+		</ul>
+		<div class="close"></div>
+	</div>
+</div>
+
+
+
+<div class="alert" style="display:none" id="start_alert">
+	<div class="mark"></div>
+	<div class="con con_1">
+		<h2 class="title">你将终止【111元投资红包】助力</h2>
+		<h2 class="title_1">“足底按摩器”</h2>
+
+
+		<a href="#" class="left_btn close_left">让我再想想</a>
+		<a href="#" class="right_btn">确定发起</a>
+
+		<!-- 大按钮 -->
+		<!-- <a href="" class="big_btn">前往查看</a> -->
+
+		<span class="close"></span>
+	</div>
+</div>
+
+
+
+
+<!-- 拆红包弹窗 -->
+
+
+<div class="alert"  id="hb_alert" style="display:none">
+	<div class="mark"></div>
+	<div class="con con_hb">
+		<div class="hb">
+			<div class="open_btn"></div>
+		</div>
+		<div class="hb_open">
+			<p class="txt_1">恭喜您获得助力现金红包<span>1.11</span>元</p>
+			<p class="txt_2">同时还获得 <span>518元</span>投资红包</p>
+			<a href="#" class="btn">我也要发起助力</a>
+			<a href="#" class="link">查看红包</a>
+			<span class="close"></span>
+		</div>
+
+		<div class="cd"></div>
+		<div class="cd_1"></div>
+		
+	</div>
+</div>
+
+
+
+<!-- 老用户可以发起助力领大奖！ -->
+
+
+<div class="alert"  id="old_u_alert"  style="display:none" >
+	<div class="mark"></div>
+	<div class="con con_old_u">
+		<p class="txt">新用户才能为好友助力哦，<br>
+		老用户可以发起助力领大奖！
+		</p>
+		<img src="../images/xp.png" alt="" class="xp">
+		<span class="close"></span>
+	<a class="btn" href="">马上参与</a>
+		
+	</div>
+</div>
+
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

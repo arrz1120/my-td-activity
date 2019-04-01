@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>我的借款</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/userCenter/loan.css -->
+    <link rel="stylesheet" href="../../css/userCenter/loan.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>我的借款</h1>
+        <div class="btn-right">
+            查看电子合同
+        </div>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content no-footer bg-grey ldet-cont">
+            <div class="ld-loan-info">
+                <div class="ld-info-cont">
+                    <p class="loan-num">5000元</p>
+                    <p class="loan-time">
+                        <span>2015-08-18 15:00 发起</span>
+                        <span>2015-09-18&nbsp;&nbsp;到期</span>
+                    </p>
+                    <i class="loan-item-btn li-item-red">已逾期</i>
+                    <!-- 根据不同状态显示按钮 已完成为绿色，逾期及严重逾期为红色，其余为黄色 -->
+                    <!-- <i class="loan-item-btn li-item-green">已完成</i> -->
+                    <!-- <i class="loan-item-btn li-item-yellow">待审核</i> -->
+                </div>
+                <div class="ld-charge-cont">
+                    <p class="loan-det">
+                        <span><i class="loan-txt">期限</i><i class="loan-txt2">30天</i></span>
+                        <span><i class="loan-txt">服务费</i><i class="loan-txt2">100</i></span>
+                    </p>
+                    <span class="ld-loan-recomment">将于 2017-09-15 从您的银行卡自动还款 2000元,请确保还款时银行卡内资金充足，避免还款失败</span>
+                </div>
+            </div>
+            <ul class="ld-process">
+                <li class="ld-step" data-step="0">
+                    <i class="ld-icon-step"></i>
+                    <span class="step-text">发起借款</span>
+                    <span class="step-time">2017-07-02  16:00</span>
+                </li>
+                <!-- 已完成状态在li标签中的class添加step-completed -->
+                <li class="ld-step" data-step="1">
+                    <i class="ld-icon-step"></i>
+                    <span class="step-text">审核通过</span>
+                    <span class="step-time">2017-07-08  16:00</span>
+                </li>
+                <li class="ld-step" data-step="2">
+                    <i class="ld-icon-step"></i>
+                    <span class="step-text">投资中</span>
+                    <span class="step-time">2017-07-22  16:00</span>
+                </li>
+                <li class="ld-step ld-unComplete" data-step="3">
+                    <i class="ld-icon-step"></i>
+                    <span class="step-text">投资完成，发放借款</span>
+                    <span class="step-time">2017-08-02  15:00</span>
+                </li>
+            </ul>
+            <div class="btn btn-full" id="repayMentBtn">还款</div>
+        </div>
+    </div>
+</body>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="../../js/userCenter/loanDetail.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    Util.initHeader({
+        header: 'header',
+        rightFun: function() {
+            //查看电子合同
+            //todo
+        }
+    });
+
+    //还款
+    $("#repayMentBtn").on('click', function() {
+        //判断今天主动还款数量，超过1次提示
+        // Util.toast('【银行卡余额不足，请明天再试或等待系统扣款系统扣款时间：还款日后每日15:00、22:00】', 2000);
+        location.href = './repayMent.html';
+    });
+})();
+</script>
+
+</html>

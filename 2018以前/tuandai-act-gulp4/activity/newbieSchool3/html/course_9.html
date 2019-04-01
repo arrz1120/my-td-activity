@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+	/>
+	<meta name="format-detection" content="telephone=no">
+	<title>newbieSchool</title>
+
+
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+	<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+	<!-- endbuild -->
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- endbuild -->
+
+
+
+	<!-- build:css ../css/main_a.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/course.css">
+	<link rel="stylesheet" href="../css/course_a.css">
+	<!-- endbuild -->
+
+
+	<script>
+		//动态算rem
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					// if (docEl.style.fontSize) return;
+					clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+					if (document.body) {
+						document.body.style.fontSize = docEl.style.fontSize;
+					}
+				};
+			recalc();
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener("DOMContentLoaded", recalc, false);
+		})(document, window);
+	</script>
+
+
+
+
+</head>
+
+<style type="text/css">
+	body {
+		background: #fcbd40 url(../images/course/c6/hd.png) no-repeat;
+		background-size: 100% auto;
+	}
+</style>
+
+
+<body>
+
+
+	<div class="md1_c6">
+		<h2 class="icon_tit icon_tit_2">
+			<img src="../images/course/c6/icon_1.png" alt="">签到</h2>
+		<p class="txt_1">进入APP首页 - 签到进行签到，页面下方会展示平台近期活动信息，点击即可进入参与哦！若连续签到3天，还可获得有奖宝箱，宝箱将随机爆出超级会员、现金红包、投资红包、加息券等福利！坚持签到，持续享有！</p>
+		<img src="../images/course/c6/img1.png" alt="" class="img_big">
+
+
+
+		<!-- Swiper -->
+		<div class="swiper-container swiper-container_1">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_1_1.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_1_2.png" alt="">
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next" id="swiper-button-next-1"></div>
+			<div class="swiper-button-prev" id="swiper-button-prev-1"></div>
+		</div>
+
+
+		<h2 class="icon_tit ">
+			<img src="../images/course/c6/icon_2.png" alt="">微信公众号</h2>
+		<p class="txt_1">团贷网公众号不仅集结了金融知识、团货网新闻动态，还有平台活动预告、不定期福利抽奖等，更可一键进入理账户，实时关注财富收益，功能多多，福利多多哦！</p>
+
+		<!-- Swiper -->
+		<div class="swiper-container swiper-container_3">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="../images/course/c6/slide_3_1.png" alt="">
+					</div>
+					<div class="swiper-slide">
+						<img src="../images/course/c6/slide_3_2.png" alt="">
+					</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next" id="swiper-button-next-3"></div>
+				<div class="swiper-button-prev" id="swiper-button-prev-3"></div>
+			</div>
+
+
+		<h2 class="icon_tit icon_tit_3">
+			<img src="../images/course/c6/icon_3.png" alt="">官网、APP广告位</h2>
+		<p class="txt_1">除了投资以外，别忘了多多关注官网、App的广告位哦，App-首页-顶部图片、App-发现-顶部图片等这些地方都是了解平台活动最全面、最直接的方式！</p>
+		<!-- Swiper -->
+		<div class="swiper-container swiper-container_2">
+			<div class="swiper-wrapper">
+
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_2_2.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_2_3.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_2_4.png" alt="">
+				</div>
+				<div class="swiper-slide">
+					<img src="../images/course/c6/slide_2_5.png" alt="">
+				</div>
+				<div class="swiper-slide">
+						<img src="../images/course/c6/slide_2_1.png" alt="">
+					</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next" id="swiper-button-next-2"></div>
+			<div class="swiper-button-prev" id="swiper-button-prev-2"></div>
+		</div>
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+	<div class="nav_btn" id="nav_btn"></div>
+
+	<div class="nav_box_main" id="nav_box_main">
+		<div class="mark"></div>
+		<nav>
+			<a href="">
+				<span>01</span>关于团贷网你不得不知的一些事儿</a>
+			<a href="">
+				<span>02</span>新手福利大公开</a>
+			<a href="">
+				<span>03</span>团贷网五心保障计划</a>
+			<a href="">
+				<span>04</span>投资产品扫盲特训</a>
+			<a href="">
+				<span>05</span>团贷网风控流程</a>
+			<a href="">
+				<span>06</span>新手有问题，这些地方能帮你</a>
+			<a href="">
+				<span>07</span>投资小工具使用攻略</a>
+			<a href="">
+				<span>08</span>关于邀请好友的四个秘密</a>
+			<a href=""  class='active'>
+				<span>09</span>团贷福利活动在哪里</a>
+			<a href="">
+				<span>10</span>团贷网CEO的故事</a>
+			<a href="">
+				<span>11</span>媒体报道、社会责任</a>
+			<a href="">
+				<span>12</span>你该知道的团贷网会员特权</a>
+			<a href="">
+				<span>13</span>团币小百科</a>
+			<a href="">
+				<span>14</span>团粉故事</a>
+			<div class="arrow"></div>
+		</nav>
+	</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/course.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+<script type="text/javascript">
+	var swiper_1 = new Swiper('.swiper-container_1', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		nextButton: '#swiper-button-next-1',
+		prevButton: '#swiper-button-prev-1',
+		spaceBetween: 30
+	});
+
+	var swiper_1 = new Swiper('.swiper-container_2', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		nextButton: '#swiper-button-next-2',
+		prevButton: '#swiper-button-prev-2',
+		spaceBetween: 30
+	});
+
+
+	var swiper_1 = new Swiper('.swiper-container_3', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		nextButton: '#swiper-button-next-3',
+		prevButton: '#swiper-button-prev-3',
+		spaceBetween: 30
+	});
+
+</script>
+
+
+</html>

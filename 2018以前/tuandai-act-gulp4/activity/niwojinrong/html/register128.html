@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>niwojinrong</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/register128.css -->
+		<link rel="stylesheet" href="../css/register128.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:void(0);" class="logo"></a>
+			<a href="javascript:void(0);" class="toIndex">首页</a>
+		</header>
+		
+		<div class="banner">
+			<div class="banner-txt animated zoomIn"></div>
+			<div class="banner-qd animated fadeInUp"></div>
+		</div>
+
+		<div class="sec0">
+
+			<div class="inputBox">
+				<div class="inp">
+					<div class="icon-phone"></div>
+					<input type="text" placeholder="请输入手机号码" maxlength="11" id="phone" />
+					<div class="error" style="display: none;">输入手机号码格式不对！</div>
+				</div>
+				<div class="inputWrap" style="display: none;">
+					<div class="inp inpHalf">
+						<div class="icon-telCode"></div>
+						<input type="text" placeholder="请输入验证码" maxlength="6" />
+						<div class="error" style="display: none;">验证码输入错误！</div>
+						<div class="inpBtn" style="display: none;">获取验证码</div>
+						<div class="inpOff">60s可重发</div>
+					</div>
+					<div class="inp inpHalf">
+						<div class="icon-code"></div>
+						<input type="text" placeholder="请输入图形验证码" maxlength="4" />
+						<div class="error" style="display: none;">图形验证码错误！</div>
+						<div class="inpBtn">
+							<img src="../images/register128/temp.png" />
+						</div>
+					</div>
+					<div class="inp">
+						<div class="icon-password"></div>
+						<input type="password" placeholder="6-16位密码，包含字母+数字" maxlength="16" />
+						<div class="error" style="display: none;">密码格式错误，必须为6-16个字符（包含字母+数字）</div>
+					</div>
+				</div>
+			</div>
+			<div class="agree">
+				<span><i></i></span> 注册即表示已同意
+				<a href="javascript:void(0);">《你我金融注册协议》</a>
+			</div>
+			<a href="javascript:void(0);" class="btn">马上领取</a>
+			<div class="hasAccount">
+				已有账号，请
+				<a href="javascript:void(0);">登录</a>
+			</div>
+
+		</div>
+
+		<div class="sec1">
+			<div class="tit tit1">理财好收益</div>
+			<div class="swiper-container" id="investSwiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="slideCon">
+							<div class="lable">优选</div>
+							<div class="s-tit">预期年化收益</div>
+							<div class="s-num">
+								11.0<span>%</span><b>~</b>14.0<span>%</span>
+							</div>
+							<div class="s-time">
+								2-6个月<span>/</span>每月等额本息
+							</div>
+							<a href="javascript:void(0);" class="invest-btn toTop">立即投资</a>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="slideCon">
+							<div class="lable">推荐</div>
+							<div class="s-tit">预期年化收益</div>
+							<div class="s-num">
+								8.0<span>%</span><b>~</b>10.0<span>%</span>
+							</div>
+							<div class="s-time">
+								7天~31天<span>/</span>到期本息
+							</div>
+							<a href="javascript:void(0);" class="invest-btn toTop">立即投资</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="prev"></div>
+				<div class="next"></div>
+			</div>
+		</div>
+
+		<div class="sec2">
+			<div class="tit tit2">新手抢福利</div>
+			<div class="fuli">
+				<div class="fuli-l">
+					<img src="../images/register128/fuli1.png" />
+					<p class="fuli-p1">288<span>元</span></p>
+					<p class="fuli-p2">返现红包</p>
+				</div>
+				<div class="fuli-r">
+					<img src="../images/register128/fuli2.png" />
+					<p class="fuli-p1">IPhone</p>
+					<p class="fuli-p2">抽奖劵×2</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="sec3">
+			<div class="tit tit3">品牌有优势</div>
+			<div class="shili">
+				<div class="tit-shili">实力见证</div>
+				<div class="sl-con">
+					<div class="sl-item">
+						<img src="../images/register128/shili1.png"/>
+						<p class="sl-p1">1158<span>天</span></p>
+						<p class="sl-p2">安全运营时间</p>
+					</div>
+					<div class="sl-item">
+						<img src="../images/register128/shili2.png"/>
+						<p class="sl-p1">29.13<span>亿</span></p>
+						<p class="sl-p2">累计交易额</p>
+					</div>
+					<div class="sl-item">
+						<img src="../images/register128/shili3.png"/>
+						<p class="sl-p1">7.54<span>千万元</span></p>
+						<p class="sl-p2">用户赚取收益</p>
+					</div>
+				</div>
+			</div>
+			<div class="zengzhi">
+				<div class="tit-zengzhi">安心增值</div>
+				<div class="zz-con">
+					<div class="zz-row">
+						<div class="zz-item">
+							<img src="../images/register128/zengzhi1.png"/>
+							<p class="zz-p1">立体风控</p>
+							<p class="zz-p2">实时关注</p>
+						</div>
+						<div class="zz-item">
+							<img src="../images/register128/zengzhi2.png"/>
+							<p class="zz-p1">第三方担保</p>
+							<p class="zz-p2">标的权益</p>
+						</div>
+					</div>
+					<div class="zz-row">
+						<div class="zz-item">
+							<img src="../images/register128/zengzhi3.png"/>
+							<p class="zz-p1">安全防护</p>
+							<p class="zz-p2">信息安全三级认证</p>
+						</div>
+						<div class="zz-item">
+							<img src="../images/register128/zengzhi4.png"/>
+							<p class="zz-p1">天秤大数据</p>
+							<p class="zz-p2">智能风控系统</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sec4">
+			<p class="investTips">投资有风险，入市需谨慎。最终受益以实际为准</p>
+			<a href="javascript:void(0);" class="btn toTop">马上领取</a>
+		</div>
+		<footer>
+			<p class="footer-p">2010-2017 版权所有 ©你我金融粤ICP备14068627号</p>
+		</footer>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/register128.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%; // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.content {
+    position: relative;
+    z-index: 9;
+    background-color: #fcc803;
+    .logo-wrapper {
+        position: relative;
+        z-index: 999;
+        background-color: #fff;
+        width: 100%;
+        height: pxToRem(88px);
+        .logo {
+            position: absolute;
+            left: pxToRem(30px);
+            top: 50%;
+            transform: translateY(-50%);
+            @include background("../images/icon_logo.png", 409px, 54px);
+        }
+    }
+    @at-root .banner {
+        position: relative;
+        z-index: 9;
+        @include background("../images/icon_banner_done.png", 750px, 555px);
+        margin: auto;
+        .tips {
+            position: absolute;
+            font-size: 0;
+            bottom: pxToRem(86px);
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                color: #fce602;
+                font-size: pxToRem(44px);
+                &.icon-tick {
+                    margin-right: pxToRem(18px);
+                    @include inline-background("../images/icon_tick_y.png", 48px, 48px);
+                }
+            }
+        }
+    }
+    .md {
+        margin-top: pxToRem(66px);
+        .info {
+            background-color: #d9ac00;
+            width: pxToRem(682px); // height: pxToRem(118px);
+            border-radius: pxToRem(59px);
+            margin: auto;
+            font-size: pxToRem(26px);
+            line-height: pxToRem(40px);
+            color: #fff;
+            padding: pxToRem(14px) pxToRem(40px);
+            text-align: center;
+            margin-bottom: pxToRem(66px);
+            label {
+                color: #fffc00;
+            }
+        }
+        @at-root .btn-wrapper {
+            position: relative;
+            width: pxToRem(646px);
+            margin: auto;
+            margin-bottom: pxToRem(44px);
+            .btn-download {
+                width: pxToRem(544px);
+                height: pxToRem(90px);
+                line-height: pxToRem(90px);
+                box-shadow: 0px pxToRem(8px) 0px 0px rgb(225, 26, 7);
+                background-color: #ff5139;
+                border-radius: pxToRem(45px);
+                display: block;
+                margin: auto;
+                color: #fff;
+                text-align: center;
+                font-size: pxToRem(42px);
+                margin-bottom: pxToRem(102px);
+                text-shadow: 0px pxToRem(3px) 0px rgb(225, 26, 7);
+                label:first-child {
+                    margin-right: pxToRem(20px);
+                }
+            }
+            .btn-detail {
+                display: block;
+                text-align: right;
+                color: #cba101;
+                font-size: pxToRem(24px);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .footer {
+        font-size: pxToRem(22px);
+        line-height: pxToRem(32px);
+        color: #7a7a7a;
+        background-color: #d5d5d5;
+        text-align: center;
+        padding: pxToRem(38px) 0;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>cashloadWap</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/others/bankInfo.css -->
+    <link rel="stylesheet" href="../../css/others/bankInfo.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>银行卡认证</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content pai-bg">
+            <div class="info-container">
+                <span class="ic-txt">开户行：建设银行</span>
+                <span class="ic-txt">持卡人：团小贷</span>
+                <span class="ic-txt-bigger">6222 **** **** **** 876</span>
+            </div>
+            <span class="ic-tips">您已完成小派钱包银行卡认证，借款到账与还款代扣均使用此银行卡</span>
+        </div>
+    </div>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    Util.initHeader({
+        header: 'header',
+        leftFun: function() {
+            //标题栏返回按钮
+            history.back();
+        }
+    });
+    $("#header").hide();
+    $(".content").addClass("no-header");
+
+
+})();
+</script>
+
+</html>

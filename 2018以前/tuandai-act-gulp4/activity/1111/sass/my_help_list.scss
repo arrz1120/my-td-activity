@@ -1,0 +1,268 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    position: relative;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+.warper{
+    min-height: 100%;
+    background: #fe6c5b;
+}
+
+
+
+
+
+
+    .nav_bottom{
+        /*display: none;*/
+        padding: pxToRem(20px) 0;
+        border-top:  pxToRem(1px) solid #a8a8a8;
+        overflow: hidden;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%; 
+        z-index: 2;
+        background: #fff;
+        a{
+            float: left;
+            width: 50%;
+            height: pxToRem(84px);
+            line-height: pxToRem(84px);
+            font-size: pxToRem(36px);
+            color: #fff;
+            padding-left: pxToRem(125px);
+        }
+
+        .today_help{
+            background:#fdc82f url(../images/nav_icon_1.png) no-repeat  pxToRem(80px)  pxToRem(20px);
+            background-size: pxToRem(46px) pxToRem(46px);
+            border-right: pxToRem(1px) solid #fff;
+        }
+
+        .my_help{
+            background:#ff8915 url(../images/nav_icon_2.png) no-repeat  pxToRem(80px)  pxToRem(20px);
+            background-size: pxToRem(46px) pxToRem(46px);            
+        }
+    }
+
+
+
+    
+
+
+
+
+
+.my_help_wraper{
+    padding: pxToRem(30px) 0 pxToRem(90px) ;
+    background: #ff6d5c;
+    header{
+        width: pxToRem(697px);
+        height:  pxToRem(326px);
+        background: url(../images/prize_steps.png) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        margin: 0 auto pxToRem(30px) ;
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            opacity: 0;
+        }
+    }
+
+
+    .list{
+        width: pxToRem(690px);
+        margin: 0 auto;
+        li{
+            background: #fff;
+            border-bottom: #dcdcdc solid  pxToRem(1px);
+            padding: pxToRem(20px);
+            height: pxToRem(180px);
+            position: relative;
+        }
+
+        .prize_img{
+            border: #dcdcdc solid  pxToRem(1px);
+            float: left;
+            height: pxToRem(135px);
+            width: pxToRem(165px);
+            background: #f4f4f4;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+
+            }
+        }
+
+
+        .st{
+            position: absolute;
+            right: pxToRem(20px);
+            top: pxToRem(40px);
+            height: pxToRem(96px);
+            width: pxToRem(127px);     
+        }
+
+
+
+        .ongoing{
+            .prize_img{
+                &:before{
+                    content:'进行中';
+                    text-align: center;
+                    height:pxToRem(36px); 
+                    line-height:pxToRem(36px);
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    font-size: pxToRem(20px);
+                    color: #874607;
+                    background: rgba(255,196,18,.8);
+                }
+            }
+        }
+
+        
+
+
+        .finish,
+        .over,
+        .empty,
+        .helped{
+            .prize_img{
+                &:before{
+                    content:'';
+                    text-align: center;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    color: #874607;
+                    background: url(../images/icon_finish.png) no-repeat center center;
+                    background-size: pxToRem(106px) pxToRem(104px);
+                }
+            }
+        }
+
+        .over{
+            .prize_img{
+                &:before{
+                    background: url(../images/icon_over_g.png) no-repeat center center;
+                    background-size: pxToRem(106px) pxToRem(104px);
+                }
+            }
+
+            .st{
+                    background: url(../images/icon_over.png) no-repeat center center;
+                    background-size: 100% 100%;                
+            }
+        }
+
+
+        .helped{
+            .prize_img{
+                &:before{
+                    background: url(../images/icon_helped_g.png) no-repeat center center;
+                    background-size: pxToRem(106px) pxToRem(104px);
+                }
+            }
+
+            .st{
+                    background: url(../images/icon_helped.png) no-repeat center center;
+                    background-size: 100% 100%;                
+            }
+        }
+
+
+
+        .empty{
+            .prize_img{
+                &:before{
+                    background: url(../images/icon_empty_g.png) no-repeat center center;
+                    background-size: pxToRem(106px) pxToRem(104px);
+                }
+            }
+
+            .st{
+                    background: url(../images/icon_empty_r.png) no-repeat center center;
+                    background-size: 100% 100%;                
+            }
+        }
+
+
+
+
+        .msg{
+            float: left;
+            width: pxToRem(340px);
+            color: #333;
+            margin-left:  pxToRem(20px);
+            .title{
+                font-size: pxToRem(30px);
+                margin-top:  pxToRem(10px);
+            }
+
+            .title,
+            .txt_1{
+                margin-bottom:  pxToRem(15px);
+            }
+
+            .txt_1{
+                font-size: pxToRem(24px);
+            }
+
+
+        }
+
+
+        .btn{
+            width: pxToRem(118px);
+            height:pxToRem(50px); 
+            line-height:pxToRem(50px);  
+            background: #ffcc00;
+            color: #874607; 
+            text-align: center;        
+            float:right;
+            margin-top: pxToRem(30px);
+            font-size:  pxToRem(30px);
+            border-radius: pxToRem(10px);
+        }
+    }
+
+
+
+
+
+}
+

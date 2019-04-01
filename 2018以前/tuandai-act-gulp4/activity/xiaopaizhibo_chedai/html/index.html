@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>xiaopaizhibo_chedai</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="pageContainer">
+		<div class="banner">
+			<img src="../images/banner-txt.png" />
+			<div class="b-txt">
+				汽车金融车易贷风控实录
+			</div>
+		</div>
+
+		<div class="sec1">
+			<div class="tit1">深入了解车易贷业务流程</div>
+			<div class="txt1">
+				<p>车易贷是有车就能贷么？ </p>
+				<p>风险可控么？ </p>
+				<p id="showMove">接下来一起跟着小π的脚步，</p>
+				<p>看车易贷如何提供专业服务，保障投资安全！</p>
+			</div>
+			<div class="video">
+				<div class="videoBg"></div>
+				<div class="videoCover" id="videoA">
+					<div class="videoMask"></div>
+					<div class="videoBtn"></div>
+				</div>
+				<div id="video_a" class="video_a">
+				</div>
+				<div class="pai1"></div>
+			</div>
+		</div>
+
+		<div class="sec2">
+			<div class="tit2">风险易控 投资安全</div>
+			<div class="txt2">
+				<div class="txt-left-box animated slideInLeft move1">
+					<img src="../images/txt2_1.png"/>
+				</div>
+				<div class="txt-right-box animated slideInRight move2">
+					<img src="../images/txt2_2.png"/>
+				</div>
+				<div class="txt-left-box animated slideInLeft move3">
+					<img src="../images/txt2_3.png"/>
+				</div>
+				<div class="txt-right-box animated slideInRight move4">
+					<img src="../images/txt2_4.png"/>
+				</div>
+				<div class="txt-left-box animated slideInLeft move5">
+					<img src="../images/txt2_5.png"/>
+				</div>
+				<div class="txt-right-box animated slideInRight move6">
+					<img src="../images/txt2_6.png"/>
+				</div>
+				<!--<img src="../images/txt2.png" />-->
+				<!--<div class="txt-left-box">
+					<div class="txt-left txt-1">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">1.客户填写资料</p>
+						<p class="txt-con">客户填写基本资料， <br />业务员对客户资质进行基本判断。</p>
+					</div>
+				</div>
+				<div class="txt-right-box">
+					<div class="txt-right txt-2">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">2.车辆评估师评估定价</p>
+						<p class="txt-con">车辆评估师进行车辆评估，根据资料<br />信息、车辆属性、车况鉴定<br />给出评估价格。</p>
+					</div>
+				</div>
+				<div class="txt-left-box">
+					<div class="txt-left txt-3">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">3.风控专员面审客户<br />并审批可贷额度</p>
+						<p class="txt-con">风控专员面审客户，电话核实以及网页核查客 <br />户资料，客户一次性通过审核则直接审批可贷 <br />额度。</p>
+					</div>
+				</div>
+				<div class="txt-right-box">
+					<div class="txt-right txt-4">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">4.风控专员复审</p>
+						<p class="txt-con">风控官对初审需补充资料的客户<br />进行复审，审核通过则审批可贷额度。</p>
+					</div>
+				</div>
+				<div class="txt-left-box">
+					<div class="txt-left txt-5">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">5.客户办理车辆抵押登记</p>
+						<p class="txt-con">客户通过风控审核，签署借款抵押合同后，车<br />辆抵押专员陪同客户到当地车管所办理车辆抵<br />押登记，将抵押权转至第三方担保公司。额度。</p>
+					</div>
+				</div>
+				<div class="txt-right-box">
+					<div class="txt-right txt-6">
+						<img class="txt-icon1" src="" alt="" />
+						<p class="txt-tit">6.车辆安装GPS  客户拿到款项</p>
+						<p class="txt-con">GPS安装专员进行GPS安装，便于贷后<br />的车辆管理追踪。完成安装后客户可顺<br />利拿到借款。</p>
+					</div>
+				</div>-->
+			</div>
+		</div>
+
+		<div class="sec3">
+			<div class="tit3">小π直播间 — 投资路上好帮手</div>
+			<div class="txt3">
+				<p>小π直播间是为广大投资人提供有趣有料的资讯内容的视频频道。这里不仅有投资小知识，轻松的生活财经学分享、还有高管直播畅聊团贷规划，前瞻互金大势的深度内容。在烧脑的投资路上，能分分钟缓解您紧张的情绪，为您的投资之路增添乐趣。内容多样，每周更新，让您的投资变得轻松简单。</p>
+			</div>
+			<div class="videoTab">
+				<div class="tab-item tab-item-cur">高管访谈</div>
+				<div class="tab-item">小π讲堂</div>
+				<div class="tab-item">街坊说财经</div>
+				<div class="tab-item">小π娱乐</div>
+			</div>
+			<div class="videoSwiperBox">
+				<div class="swiper-container" id="videoSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="videoSlide">
+								<div class="videoCover videoCover1" id="videoCover1">
+									<div class="videoMask"></div>
+									<div class="videoBtn"></div>
+									<p class="v-tit">高管访谈</p>
+									<p class="v-txt">每个月总有个周五要和高管来场约会</p>
+									<p class="v-txt">畅聊团贷网规划详解最新动态等深度内容</p>
+								</div>
+								<div id="video1" class="video">
+									
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="videoSlide">
+								<div class="videoCover videoCover2" id="videoCover2">
+									<div class="videoMask"></div>
+									<div class="videoBtn"></div>
+									<p class="v-tit">小π讲堂</p>
+									<p class="v-txt">这是一档实地考察的纪录节目，</p>
+									<p class="v-txt">每期纪录团贷网不同的优质资产端。</p>
+								</div>
+								<div id="video2" class="video"></div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="videoSlide">
+								<div class="videoCover videoCover3" id="videoCover3">
+									<div class="videoMask"></div>
+									<div class="videoBtn"></div>
+									<p class="v-tit">街坊说财经</p>
+									<p class="v-txt">发现邻里街坊们的奇妙脑洞，</p>
+									<p class="v-txt">每月分享身边被忽略的生活财经学。</p>
+								</div>
+								<div id="video3" class="video"></div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="videoSlide">
+								<div class="videoCover videoCover4" id="videoCover4">
+									<div class="videoMask"></div>
+									<div class="videoBtn"></div>
+									<p class="v-tit">小π娱乐</p>
+									<p class="v-txt">这里有猛料，励志的扎心的搞笑的温情的，</p>
+									<p class="v-txt">每月都会再加点 给您紧张的生活增添乐趣 。</p>
+								</div>
+								<div id="video4" class="video"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sec4">
+			<div class="txt4">
+				<p>小π讲堂是一档实地考察的纪录节目 </p>
+				<p>节目中小π将化身资深老司机，</p>
+				<p>每期从不同主题， </p>
+				<p>纪录团贷网优质的资产端， </p>
+				<p>360°全面开讲，列车周五开出，</p>
+				<p>团粉们记得上车哟！</p>
+			</div>
+			<div class="commentBox">
+				<div class="comment-list">
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-input">
+					<textarea rows="" cols="" maxlength="120"></textarea>
+					<p class="inputTips" id="inputTips">输入你想对小π说的话... </p>
+					<p class="errorTips">输入内容不能为空</p>
+				</div>
+				<div class="submit-btn">提交评论</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>2010-2017 版权所有 © 团贷网 粤ICP备12043601号-1</p>
+			<p>东莞团贷网互联网科技服务有限公司</p>
+			<p>地址：东莞市南城区鸿福路102号汇成大厦</p>
+		</div>
+			
+		</div>
+		
+		<div class="shareBtn"></div>
+		<div id="wxAlert" class="alert wxAlert" style="display: none;">
+			<img src="../images/wxShare.png"/>
+		</div>
+		
+		<!--登录弹窗-->
+		<div class="alert" style="display: none;">
+			<div class="login-alert">
+				<p>请先登录团贷网哦！</p>
+				<a href="javascript:void(0);">马上登录</a>
+				<div class="close"></div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script type="text/javascript" src="https://players.youku.com/jsapi"></script>
+	<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/share.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js?v=20170904" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var cmmentScroller = new CommentScroller('.comment-list', {
+			showSlides: 3, //显示的条数
+			autoplay: true, //autoplay:true 开启滚动
+			delay: 4000, //轮播间隔时间
+		})
+	</script>
+
+</html>

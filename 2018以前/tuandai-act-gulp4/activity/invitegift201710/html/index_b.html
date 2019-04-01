@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>invitegift201710</title>
+	<!-- build:css ../css/main_b.css -->
+	<link rel="stylesheet" href="../css/index_b.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+	
+	<div class="index">
+		<div class="logo">
+			<img src="../images/b/logo.png"/>
+		</div>
+		<div class="headImg">
+			<img src="../images/b/headImg.png"/>
+		</div>
+		<p class="index-p1">您的好友</p>
+		<p class="index-p2">给您发了一个<span><b>2888</b>元</span>体验金</p>
+		<div class="kai-box">
+			<div class="kai breath" id="kai"></div>
+			<p class="kai-txt">点击领取</p>
+		</div>
+	</div>
+	
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+       var _mtac = {"performanceMonitor":1,"senseQuery":1};
+       (function() {
+            var mta = document.createElement("script");
+            mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500529333");
+            mta.setAttribute("cid", "500529335");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+       })();
+</script>
+<script type="text/javascript">
+	
+	function jump(ele){
+		//nwbi_api.nwbi_logWebEvent('填入用户名','填入点击时间','活动ID','点击按钮','立即注册',1,'','','TDW_WX');
+		ele.removeClass('breath');
+		ele.addClass('rotate');
+		setTimeout(function(){
+			location.href = 'detail_b.html';
+		},1600);
+	}
+	
+	$("#kai").click(function(){
+		jump($(this));
+	})
+	
+	$(".kai-txt").click(function(){
+		jump($("#kai"));
+	})
+</script>
+</body>
+</html>

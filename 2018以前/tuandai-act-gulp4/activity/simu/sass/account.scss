@@ -1,0 +1,291 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+input::-webkit-input-placeholder {color: #cccccc; font-size: pxToRem(26px);}
+
+.pos-r{ position: relative;}
+.pos-a{ position: absolute;}
+.pos-f{ position: fixed;}
+.clearfix {zoom:1;}
+.clearfix:after{content:'.'; display:block; visibility:hidden; clear:both; height:0;}
+.bg-size{
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.account-top{
+  background-image: url(../images/product/acc-top.png);
+  width: 100%;
+  height: pxToRem(376px);
+  .back-btn{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: pxToRem(74px);
+    height: pxToRem(88px);
+    background: url(../images/back-btn.png) no-repeat center;
+    background-size: pxToRem(14px);
+    z-index: 3;
+  }
+  .to-home{
+    display: block;
+    right: pxToRem(30px);
+    top: pxToRem(20px);
+    background-image: url(../images/icons/icon-home.png);
+    width: pxToRem(43px);
+    height: pxToRem(40px);
+    z-index: 3;
+    }
+  .title{
+    display: block;
+    text-align: center;
+    font-size: pxToRem(40px);
+    line-height: pxToRem(40px);
+    padding: pxToRem(26px) 0 pxToRem(38px);
+    color: #ffffff;
+    }
+  .avatar-box{
+    padding:0  pxToRem(30px) 0 pxToRem(132px);
+    height: pxToRem(90px);
+    .avatar{
+      border-radius: 50%;
+      left: pxToRem(30px);
+      top: pxToRem(5px);
+      width: pxToRem(75px);
+      height: pxToRem(75px);
+      img{
+        border-radius: 50%;
+        display: block;
+        width: 100%;
+        height: 100%;
+        }
+      }
+    .avatar-txt{
+      width: 100%;
+      p{
+        padding-top:pxToRem(10px);
+        font-size: pxToRem(26px);
+        color: #fff;
+        .leixing{
+          font-size:pxToRem(20px);
+          color: #c8a66b;
+          margin-left:pxToRem(30px);
+          position: relative;
+          height: pxToRem(34px);
+          line-height: pxToRem(34px);
+          border: pxToRem(1px) solid #c8a66b;
+          padding:0 pxToRem(10px);
+          &:before{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            background-image: url(../images/icons/icon-sj.png);
+            background-size: pxToRem(14px);
+            display: block;
+            width: pxToRem(14px);
+            height: pxToRem(14px);
+            }
+
+          }
+        }
+        .id{
+          font-size: pxToRem(26px);
+          color: #ffffff;
+          }
+
+
+      }
+
+    }
+
+}
+
+.my-zc{
+  padding: 0 pxToRem(30px);
+  bottom: pxToRem(-110px);
+  left: 50%;
+  margin-left: pxToRem(-345px);
+  background-image: url(../images/product/my-zc.png);
+  width: pxToRem(690px);
+  height: pxToRem(261px);
+  box-shadow: 0 pxToRem(16px) pxToRem(20px) 0 rgba(45, 51, 117, 0.16);
+  a{
+    padding-left: pxToRem(20px);
+    display: block;
+    position: relative;
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    font-size: pxToRem(26px);
+    color: #ffffff;
+    &:before{
+      content: '';
+      display: block;
+      width: pxToRem(4px);
+      height: pxToRem(26px);
+      background: #c8a66b;
+      position: absolute;
+      left: 0;
+      top: pxToRem(33px);
+      }
+    &:after{
+      @include border('bottom', rgba(0,0,5,0.12))
+      }
+    i{
+      display: block;
+      right: 0;
+      top: pxToRem(30px);
+      }
+    }
+  .zzc{
+    width: 100%;
+    display:inline-flex;
+    flex-direction: row;
+    div{
+      padding-top: pxToRem(35px);
+      width: 33.333%;
+      text-align: center;
+      span{
+        display: block;
+        }
+      span:nth-child(1){
+        color: #c8a66b;
+        font-size:pxToRem(50px);
+        font-weight: bold;
+        }
+      span:nth-child(2){
+        color: #fff;
+        font-size:pxToRem(26px);
+        line-height: pxToRem(26px);
+        padding-top:pxToRem(20px);
+        }
+
+      }
+    }
+
+  }
+
+.account-bottom{
+  padding:pxToRem(110px) pxToRem(30px) 0;
+  .j-link{
+    width: 100%;
+    display: block;
+    position: relative;
+    height: pxToRem(130px);
+    line-height: pxToRem(130px);
+    font-size: pxToRem(34px);
+    color: #1c2045;
+    &:after{
+      @include border('bottom', #e6e6e6);
+      }
+    span{
+      position: absolute;
+      right: 0;
+      color: #999;
+      font-size: pxToRem(26px);
+      }
+
+    }
+  }
+.btn-hs{
+    margin-top:pxToRem(60px);
+    display: block;
+    width: 100%;
+    background: #c8a66b;
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    text-align:center;
+    font-size: pxToRem(34px);
+    color: #ffffff;
+  }
+
+.input-wrap{
+  border-bottom:pxToRem(20px) solid #f5f4f2;
+
+  .input-box{
+    padding-left:pxToRem(220px);
+    position: relative;
+    height:pxToRem(130px);
+    line-height: pxToRem(130px);
+    margin:0 pxToRem(30px);
+    &:first-child{
+      &:after{
+        @include border('bottom',#e6e6e6)
+        }
+      }
+    label{
+      position: absolute;
+      left: 0;
+      top:0 ;
+      font-size:pxToRem(34px);
+      color: #333;
+      }
+    input{
+      display: block;
+      height: pxToRem(130px);
+      width: 100%;
+      border: 0;
+      font-size: pxToRem(34px);
+      color: #333333;
+      }
+    }
+  }
+
+.rz-shixiang{
+  padding:0 pxToRem(30px);
+  .title{
+    line-height: pxToRem(26px);
+    font-size: pxToRem(26px);
+    color: #333333;
+    padding: pxToRem(40px) 0;
+    }
+  .txt{
+    //padding-left:pxToRem(50px);
+    position: relative;
+    text-align: justify;
+    font-size: pxToRem(24px);
+    line-height: 2;
+    color: #333333;
+    padding-bottom:pxToRem(30px);
+    //i{
+    //  position: absolute;
+    //  left: 0;
+    //  top: pxToRem(10px);
+    //  display: block;
+    //  width: pxToRem(30px);
+    //  height: pxToRem(30px);
+    //  border: pxToRem(2px) solid #b3b3b3;
+    //  background: #fff;
+    //  }
+    }
+    //.cur{
+    //  i{
+    //    display: block;
+    //    width: pxToRem(30px);
+    //    height: pxToRem(30px);
+    //    border: pxToRem(2px) solid #404a80;
+    //    background: #404a80 url("../images/icons/icon-g.png");
+    //    background-size: pxToRem(26px) pxToRem(26px);
+    //    }
+    //
+    //  }
+
+  }
+
+.arrow-gray{
+  margin-left: pxToRem(20px);
+  margin-right: pxToRem(20px);
+  background-image: url(../images/icons/arrow-gray.png);
+  width: pxToRem(12px);
+  height: pxToRem(24px);
+  }
+
+.arrow-yellow{
+  background-image: url(../images/icons/arrow-yellow.png);
+  width: pxToRem(12px);
+  height: pxToRem(24px);
+  }

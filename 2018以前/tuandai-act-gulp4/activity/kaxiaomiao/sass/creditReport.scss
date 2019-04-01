@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+.cr-content {
+    padding: pxToRem(40px) pxToRem(30px);
+    font-size: 0;
+}
+
+.cr-form {
+    width: pxToRem(690px);
+    min-height: pxToRem(760px);
+    border-radius: pxToRem(8px);
+    box-shadow: 0 pxToRem(10px) pxToRem(30px) 0 rgba( 229, 229, 229, .53);
+    font-size: 0;
+    padding-top: pxToRem(60px);
+    .f-title {
+        width: 100%;
+        padding: 0 pxToRem(30px);
+        &>span {
+            width: 100%;
+            display: inline-block;
+        }
+        &>span:first-child {
+            color: #333333;
+            font-size: pxToRem(32px);
+        }
+        &>span:last-child {
+            color: #999999;
+            font-size: pxToRem(26px);
+            margin-top: pxToRem(20px);
+        }
+    }
+    .cr-tips {
+        height: pxToRem(106px);
+        line-height: pxToRem(106px);
+        padding-left: pxToRem(30px);
+        font-size: pxToRem(26px);
+        color: $txt-red;
+    }
+}
+
+.cr-inputs {
+    width: 100%;
+    padding-left: pxToRem(30px);
+    li {
+        width: 100%;
+        height: pxToRem(120px);
+        position: relative;
+        padding-top: pxToRem(50px);
+        padding-right: pxToRem(30px);
+        &:before {
+            @include border('bottom', $border-color);
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background-color: transparent;
+            padding: pxToRem(20px) 0;
+            font-size: pxToRem(32px);
+            color: #333;
+        }
+        input::-webkit-input-placeholder {
+            color: #ccc;
+        }
+    }
+    .icon-captcha {
+        width: pxToRem(120px);
+        height: pxToRem(40px);
+        position: absolute;
+        bottom: pxToRem(20px);
+        right: pxToRem(30px);
+    }
+}
+
+.cr-next {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    height: pxToRem(120px);
+    margin-top: pxToRem(40px);
+    position: relative;
+    font-size: pxToRem(32px);
+    color: #ccc;
+    &:before {
+        @include border('top', $border-color);
+    }
+    &.active {
+        color: $txt-red;
+    }
+}
+
+.cr-recomment {
+    width: 100%;
+    display: inline-block;
+    font-size: pxToRem(26px);
+    color: #999;
+    line-height: pxToRem(32px);
+    margin-top: pxToRem(50px);
+}
+
+.txt-red {
+    color: $txt-red;
+}

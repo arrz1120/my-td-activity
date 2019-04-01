@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>teacher</title>
+	<!-- build:css ../css/scene.css -->
+	<link rel="stylesheet" href="../css/scene.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+
+
+
+
+
+<body>
+	
+
+    <section class="music_btn" id="music_btn">
+        <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+
+<!-- 场景一 -->
+
+	<div class="scene_1 scene scene_wraper" >
+		 <div class="choice_box scene">
+		     <img src="../images/s_1_bg.png" alt="" class="bg">
+		     <div class="choice">
+		     	 <div class="people">	</div>
+		     	 <div class="btn btn_1" data-num='1'>A.偷溜进去</div>
+		     	 <div class="btn btn_2" data-num='2'>B.向老师报告</div>
+		     </div>
+		 </div>
+
+		 <img src="../images/s_1_1.png" alt="" class="img_all_scene choice_img choice_1" >
+		 <img src="../images/s_1_2.png" alt="" class="img_all_scene choice_img choice_2">
+	</div>
+
+
+<!-- 场景二 -->
+
+	<div class="scene_2 scene scene_wraper">
+		    <div class="choice_box scene">
+		     <img src="../images/s_2_bg.png" alt="" class="img_all_scene" >
+		     
+		     <div class="choice">
+		     	 <div class="btn btn_long btn_1" data-num='1'>A.放在数学课本的底下</div>
+		     	 <div class="btn btn_long btn_2" data-num='2'>B.课外书披着数学的包书皮</div>
+		     </div>
+
+		 </div>
+
+		 <img src="../images/s_2_1.png" alt="" class="img_all_scene choice_img choice_1" >
+		 <img src="../images/s_2_1.png" alt="" class="img_all_scene choice_img choice_2" >
+		
+	</div>
+
+
+<!-- 场景三 -->
+
+	<div class="scene_3 scene scene_wraper">
+		<div class="choice_box scene">
+		     <img src="../images/s_3_bg.png" alt="" class="img_all_scene" >
+		     
+		     <div class="choice">
+		     	 <div class="btn  btn_1 btn_long_1" data-num='1'>A.把书堆起来挡住</div>
+		     	 <div class="btn  btn_long_1 btn_2" data-num='2'>B.让同桌帮忙掩护</div>
+		     </div>
+		 </div>
+		 <img src="../images/s_3_1.png" alt="" class="img_all_scene choice_img choice_1" >
+		 <img src="../images/s_3_2.png" alt="" class="img_all_scene choice_img choice_2" >
+	</div>
+         
+         
+<!-- 场景四 -->
+
+	<div class="scene_4 scene scene_wraper last_scene">
+		<img src="../images/s_4_bg.png" alt="" >
+		<img src="../images/r_1.png" class="result_img" id="result_img">
+		<nav>
+			<a class="btn_start" href="blessing.html"></a>
+		</nav>
+	</div>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

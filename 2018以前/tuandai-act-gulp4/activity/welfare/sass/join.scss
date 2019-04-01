@@ -1,0 +1,188 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+// 公共样式
+input{
+	border: none;
+}
+.content{
+	position: relative;
+	background-color: #f2f2f0;
+	font-size: pxToRem(30px);
+	color: $textBlackColor;
+	padding-bottom: pxToRem(200px);
+}
+.checkbox{
+	display: block;
+	input[type="checkbox"]{
+		display: none;
+		&:checked + i {
+			@include background('../images/check.png', 28px, 28px);
+			display: inline-block;
+			background-color: $mainColor;
+			border-color: $mainColor;
+		}
+	}
+	i{	
+		display: inline-block;
+		width: pxToRem(28px);
+		height: pxToRem(28px);
+		border-radius: pxToRem(3px);
+		border: 1px solid #d9d9d9;
+		margin-right: pxToRem(20px);
+		vertical-align: middle;
+		pointer-events: none;
+		
+	}
+	.checkbox-txt{
+		vertical-align: middle;
+		pointer-events: none;
+	}
+}
+.desc{
+	line-height: pxToRem(66px);
+	padding: 0 pxToRem(30px);
+	font-size: pxToRem(26px);
+	color: $textGreyColor;
+	.em{
+		color: $textPinkColor;
+	}
+	i{
+		vertical-align: baseline;
+	}
+}
+// 匿名(报名参加)
+.anon{
+	height: pxToRem(88px);
+	background-color: $defaultColor;
+	margin-bottom: pxToRem(20px);
+	padding-left: pxToRem(36px);
+	line-height: pxToRem(88px);
+	&.coin{ //匿名(筹集团币)
+		padding-left: pxToRem(6px);
+		border-top: 1px solid $borderColor;
+	}
+}
+// 留言
+.msg-con{
+	padding: pxToRem(30px) pxToRem(30px) 0;
+	background-color: $defaultColor;
+	.title{
+		margin-bottom: pxToRem(30px);
+	}
+	textarea{
+		border: none;
+		resize:none;
+		width: 100%;
+		height: pxToRem(372px);
+		margin-bottom: pxToRem(30px);
+		line-height: pxToRem(64px);
+		font-size: pxToRem(30px);
+		color: $textBlackColor; 
+		&::-webkit-input-placeholder {
+			font-size: pxToRem(30px);
+			color: #ccc;
+		}
+	}
+	.get-new-info{
+		height: pxToRem(88px);
+		border-top: 1px solid $borderColor;
+		padding-left: pxToRem(6px);
+		line-height: pxToRem(88px);
+	}
+}
+// 底部按钮
+.join-btn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: pxToRem(90px);
+	background-color: $mainColor;
+	line-height: pxToRem(90px);
+	color: #f2f2f0;
+	text-align: center;
+}
+// 电子感谢函
+.letter-con{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	.letter-bg{
+		@include background('../images/letter-bg.png', 730px, 658px);
+		z-index: 31;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		padding: pxToRem(180px) pxToRem(176px) 0;
+		text-align: justify;
+		color: #945503;
+		font-size: pxToRem(34.2px);
+		line-height: pxToRem(48px);
+		.letter-name{
+			margin-bottom: pxToRem(16px);
+		}
+	}
+}
+
+// 筹集团币类型样式
+// 匿名
+.anon-con{
+	background-color: $defaultColor;
+	padding: pxToRem(20px) 0 0 pxToRem(30px);
+	.em{
+		font-size: pxToRem(26px);
+		color: $mainColor;
+	}
+	.coin-input{
+		margin: pxToRem(30px) 0;
+		height: pxToRem(88px);
+		font-size: pxToRem(56px);
+		color: $textBlackColor;
+		line-height: pxToRem(88px);
+		&::-webkit-input-placeholder{
+			color: #ccc;
+		}
+	}
+}
+// 底部按钮
+.bottom-con{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: pxToRem(90px);
+	line-height: pxToRem(90px);
+	background-color: $defaultColor;
+	font-size: 0;
+	white-space: nowrap;
+	.bottom-txt{
+		padding-left: pxToRem(30px);
+		font-size: pxToRem(34px);
+		width: 65.4%;
+		overflow: hidden;
+		white-space:nowrap;
+		text-overflow: ellipsis;
+		display: inline-block;
+		vertical-align: middle;
+		.em{
+			color: $mainColor;
+		}
+	}
+	.bottom-btn{
+		width: 34.6%;
+		height: pxToRem(90px);
+		background-color: $mainColor;
+		line-height: pxToRem(90px);
+		color: #f2f2f0;
+		text-align: center;
+		font-size: pxToRem(30px);
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

@@ -1,0 +1,150 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+// 私募学堂tab
+.tab-con{
+    white-space: nowrap;
+	overflow-x:auto;
+	border-bottom: 1px solid $border-grey-color;
+	font-size: 0;
+	.tab-item{
+		position: relative;
+		width: 33.3%;
+		height: pxToRem(90px);
+		line-height: pxToRem(90px);
+		text-align: center;
+		font-size: pxToRem(32px);
+		color: $txt-black-color;
+		&.active{
+			a{
+				border-bottom: pxToRem(6px) solid $border-brown-color;
+				color: $txt-brown-color;
+
+			}
+		}
+		a{
+			display: inline-block;
+			height: 100%;
+			color: $txt-black-color;
+		}
+	}
+}
+// 私募学堂主页
+.school-link-item{
+	width: 50%;
+	border-bottom: 1px solid $border-grey-color;
+	text-align: center;
+	&:nth-child(odd){
+		border-right: 1px solid $border-grey-color;
+	}
+	&:nth-child(4n+1){
+		i{
+			background-image: url(../images/PE-school-icon1.png);
+		}
+	}
+	&:nth-child(4n+2){
+		i{
+			background-image: url(../images/PE-school-icon2.png);
+		}
+	}
+	&:nth-child(4n+3){
+		i{
+			background-image: url(../images/PE-school-icon3.png);
+		}
+	}
+	&:nth-child(4n+0){
+		i{
+			background-image: url(../images/PE-school-icon4.png);
+		}
+	}
+	a{
+		display: block;
+		padding: pxToRem(100px) 0 pxToRem(80px);
+		i{
+			width: pxToRem(64px);
+			height: pxToRem(64px);
+			background-size: pxToRem(64px);
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			margin-bottom: pxToRem(44px);
+		}
+		p{
+			font-size: pxToRem(30px);
+			color: #000;
+		}
+	}
+}
+// 私募学堂详情
+ul{
+	width: 100%;
+	font-size: 0;
+}
+.school-item{
+ 	width: 100%;
+ 	display: block;
+	background-color: $default-color;
+	padding: 0 pxToRem(30px);
+	border-bottom: 1px solid $bg-grey-color;
+	.school-title{
+		position: relative;
+		padding: pxToRem(32px) 0;
+		.school-title-txt{
+			width: 94%;
+			color: $txt-black-color; 
+			line-height: pxToRem(36px);
+			font-size: pxToRem(32px);
+			text-align: justify;
+		}
+		.right-opt-btn{
+			@extend .icon-right-opt-btn;
+		    position: absolute;
+		    right: 0;
+		    top: 0;
+		    bottom: 0;
+			margin: auto;
+			transform: rotate(180deg);
+			&.rotate{
+				transform: rotate(0deg);
+			}
+		}
+	}
+	.school-con{
+		display: none;
+		padding-bottom: pxToRem(40px);
+		// padding: pxToRem(10px) 0 pxToRem(32px);
+		// color:#666;
+		&>*{
+			width: 100% !important;
+		}
+		p{
+			line-height: pxToRem(36px);
+			font-size: pxToRem(26px);
+			text-align: justify;
+			word-wrap: break-word;
+			// *{
+			// 	display: block;
+			// }
+			span{
+				display: inline;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		.snd-title{
+			margin-bottom: pxToRem(10px);
+		}
+	}
+ }
+ 
+ // 下拉箭头
+.icon-right-opt-btn{
+	width: pxToRem(22px);
+	height: pxToRem(12px);
+	background: url(../images/right-opt-btn.png) no-repeat center;
+	background-size: pxToRem(22px);
+	vertical-align: middle;
+}

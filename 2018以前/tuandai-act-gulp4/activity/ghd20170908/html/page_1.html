@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>小派带你摸金寻宝</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+	
+
+    <section class="music_btn" id="music_btn">
+        <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+
+
+	<div class="page_1">
+		<img src="../images/bg_2.png" class="body_bg">
+		<img src="../images/logo.png" alt="" class="logo">	
+		<h2 class="tit">背景：</h2>
+		<div class="txt_box" id="txt_box">“楚汉相争，霸王项羽兵败垓下，自刎乌江。汉相张良请旨修建霸王冢，以平息楚人悲愤。传说霸王冢内藏着包含世间所有败者墓穴地图的“雮尘珠”，其价值不可估量。霸王冢沉睡千年，当今现世中除了我们摸金一派，无人可寻得此珍宝。” </div>
+		<div class="show_box" id="show_box"> </div>
+		<a href="page_2.html" class="btn_open hand"></a>
+	</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/typewriting.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/music.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+
+autoPlay();
+
+
+// page_1 打字
+var page_1 = new Input_type($("#txt_box"), $("#show_box"), function() {
+	//打字结束，暂停音乐
+	musicPause();
+})
+page_1.pri()();
+
+</script>
+
+</html>

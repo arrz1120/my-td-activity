@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>我-个人中心</title>
+		<!-- build:css ../css/personalCenter.css -->
+		<link rel="stylesheet" href="../css/personalCenter.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="top-bar">
+				<div class="avatar">
+					<img src="../images/personalCenter/avatar.png" alt="">
+				</div>
+				<span class="name">团小派</span>
+				<a href="" class="to-cg">存管，密码</a>
+				<a href="" class="to-hd">
+					<img src="../images/personalCenter/hd.png" alt="">
+				</a>
+				<a href="" class="to-setting"></a>
+			</div>
+			<div class="zc-con">
+				<div class="my-zc">
+					<span>我的团贷资产</span>
+					<span>777,812,112.32</span>
+					<a href="">查看详情<i></i></a>
+				</div>
+				<div class="balance">
+					<span>可用余额</span>
+					<span>7,812,112.32</span>
+					<a href="">提现</a>
+					<a href="">充值</a>
+				</div>
+				<div class="webkit-box">
+					<a href="" class="box-flex1"><i class="icon-hk"></i>回款计划</a>
+					<a href="" class="box-flex1"><i class="icon-jl"></i>投资记录</a>
+				</div>
+			</div>
+			<div class="j-con">
+				<a href="" class="j-a">财富日历</a>
+				<a href="" class="j-a">账单</a>
+				<a href="" class="j-a">智享管理</a>
+				<a href="" class="j-a">派生财富</a>
+				<a href="" class="j-a">团宝箱</a>
+				<a href="" class="j-a">我的邀请</a>
+			</div>
+		</div>
+
+		<div class="pageBottom">
+			<a class="bottom-item bottom-index-cur">首页</a>
+			<a class="bottom-item bottom-my">我</a>
+		</div>
+
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/landing.js" type="text/javascript" charset="utf-8"></script>
+</html>

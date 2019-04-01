@@ -1,0 +1,42 @@
+.common-sprite {
+  display: block;
+  background-image: url(../images/commonSprite.png) !important;
+  background-size: pxToRem(126px)  pxToRem(91px) !important;
+  background-repeat:no-repeat !important;
+}
+.icon-account {
+  @extend .common-sprite;
+  background-position: pxToRem(-55px) pxToRem(0px) !important;
+  width: pxToRem(38px);
+  height: pxToRem(36px);
+}
+.icon-back {
+  @extend .common-sprite;
+  background-position: pxToRem(-103px) pxToRem(0px) !important;
+  width: pxToRem(24px);
+  height: pxToRem(41px);
+}
+.icon-arrow {
+  @extend .common-sprite;
+  background-position: pxToRem(-103px) pxToRem(-51px) !important;
+  width: pxToRem(14px);
+  height: pxToRem(22px);
+}
+.icon-invest {
+  @extend .common-sprite;
+  background-position: pxToRem(0px) pxToRem(-55px) !important;
+  width: pxToRem(38px);
+  height: pxToRem(36px);
+}
+.icon-loader {
+  @extend .common-sprite;
+  background-position: pxToRem(0px) pxToRem(0px) !important;
+  width: pxToRem(45px);
+  height: pxToRem(45px);
+}
+.icon-money {
+  @extend .common-sprite;
+  background-position: pxToRem(-48px) pxToRem(-55px) !important;
+  width: pxToRem(29px);
+  height: pxToRem(36px);
+}

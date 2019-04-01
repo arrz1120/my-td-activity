@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>1111</title>
+	<!-- build:css ../css/my_help_list.css -->
+	<link rel="stylesheet" href="../css/alert.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<link rel="stylesheet" href="../css/my_help_list.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+
+<div class="warper">
+	
+<nav class="nav_bottom">
+		<a href="#" class="today_help">今日助力</a>
+		<a href="#"  class="my_help">我的助力</a>
+</nav>
+
+
+
+
+<div class="my_help_wraper">
+	<header>
+		<img src="../images/step1.png" alt="">
+		<img src="../images/step2.png" alt="">
+		<img src="../images/step3.png" alt="">
+	</header>
+
+	<ul class="list">
+		<li class="ongoing">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+				<p class="txt_1">剩余时间 20：45：15</p>
+			</div>
+			<a href="" class="btn stop_help">终止</a>
+		</li>
+
+		<li class="ongoing">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+				<p class="txt_1">剩余时间 20：45：15</p>
+			</div>
+			<a href="" class="btn stop_help">终止</a>
+		</li>
+
+
+		<li class="helped">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+			</div>
+			<div class="st">
+			</div>
+		</li>
+
+		<li class="ongoing">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+				<p class="txt_1">剩余时间 20：45：15</p>
+			</div>
+			<a href="" class="btn stop_help">终止</a>
+		</li>
+
+
+		<li class="finish">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+			</div>
+			<a href="" class="btn">领取</a>
+	
+		</li>
+
+
+
+		<li class="over">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+			</div>
+			<div class="st">
+			</div>
+		</li>
+
+
+
+		<li class="empty">
+			<div class="prize_img">
+			 	<img src="../images/prize/hb2.png" alt="">
+			</div>
+			<div class="msg">
+				<h2 class="title">111元投资红包</h2>
+				<p class="txt_1">已邀请 7/11人</p>
+			</div>
+			<div class="st">
+			</div>
+		</li>
+
+
+	</ul>
+</div>
+
+
+<div class="alert" style="display:none" id="stop_alert">
+	<div class="mark"></div>
+	<div class="con con_1">
+		<h2 class="title">你将终止【111元投资红包】助力</h2>
+		<p class="txt_1">且邀请人数不叠加到下次助力中</p>
+		<a href="#" class="left_btn close_left">再努力试试</a>
+		<a href="#" class="right_btn">确定终止</a>
+		<span class="close"></span>
+	</div>
+</div>
+
+
+</div>
+
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/my_help.js" type="text/javascript" charset="utf-8"></script>
+</html>

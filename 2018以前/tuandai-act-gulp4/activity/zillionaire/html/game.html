@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+  />
+  <meta name="format-detection" content="telephone=no">
+  <title>zillionaire</title>
+
+  <!-- build:css ../css/rangeSlider.css -->
+  <link rel="stylesheet" href="../range/normalize.css" />
+  <link rel="stylesheet" href="../range/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="../range/ion.rangeSlider.skinFlat.css" />
+  <!-- endbuild -->
+
+
+
+  <!-- build:css ../css/game.css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/game.css">
+  <link rel="stylesheet" href="../css/animation.css">
+  <!-- endbuild -->
+  <script>
+    //动态算rem
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          // if (docEl.style.fontSize) return;
+          clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+          if (document.body) {
+            document.body.style.fontSize = docEl.style.fontSize;
+          }
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener("DOMContentLoaded", recalc, false);
+    })(document, window);
+  </script>
+
+</head>
+
+<body>
+
+
+
+    <div class="wx_tips" id="wx_tips" style="display:none">
+        <div class="con">
+            <img src="../images/wx_tips.png" alt="">
+            <p class="txt">若安卓机微信用户，同时在微信中开启横屏模式。<br>（路径：我-设置-通用-开启横屏模式）</p>
+        </div>
+      </div>
+
+
+  <div class="md_game">
+    <section class="music_btn" id="music_btn">
+      <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+
+    <!-- 游戏主界面 -->
+
+
+    <div class="game" id="game">
+      <ul class="game_list" id="game_list">
+        <li data-st='start'>
+          <div class="arrow arrow_start"></div>
+          <div class="xp xp_4"></div>
+        </li>
+
+        <li data-st='back_3'>
+          <div class="xp xp_1"></div>
+        </li>
+
+        <li data-st='bqk'>
+          <div class="xp xp_1"></div>
+        </li>
+
+
+        <li data-st='tb_5'>
+          <div class="xp xp_2"></div>
+        </li>
+
+        <li data-st='tb_3'>
+          <div class="xp xp_2"></div>
+        </li>
+
+        <li data-st='move_4'>
+          <div class="xp xp_2"></div>
+        </li>
+
+        <li data-st='smp'>
+          <div class="xp xp_3"></div>
+          <div class="smp_img"></div>
+        </li>
+
+
+        <li data-st='back'>
+          <div class="xp xp_3"></div>
+        </li>
+
+
+        <li data-st='hb'>
+          <div class="xp xp_3"></div>
+        </li>
+
+        <li data-st='again'>
+          <div class="xp xp_4"></div>
+          <div class="shaizi_1"></div>
+          <div class="again_tips">太赞了，再摇一次，离中奖机会又进了一步</div>
+        </li>
+        <li data-st='tb_2_reduce'>
+          <div class="xp xp_4"></div>
+        </li>
+        <li data-st='tb_2_add'>
+          <div class="xp xp_4"></div>
+          <div class="smp_img"></div>
+        </li>
+
+      </ul>
+
+      <div class="shaizi_wraper">
+        <div class="shaizi"></div>
+      </div>
+
+      <div class="arrow"></div>
+    </div>
+
+
+    <!-- 用户信息 -->
+    <div class="user_msg">
+      <div class="tx">
+        <img src="../images/game/tx.png" alt="">
+      </div>
+      <p class="txt">小明在路上</p>
+      <p class="txt txt_1">56485</p>
+    </div>
+
+    <!--
+  btn_start : 开始游戏
+
+  btn_play_game ： 游戏中
+
+  btn_start_share ： 好友已助力
+-->
+
+    <div class="btn_start" id="start_game"></div>
+
+
+    <div class='btn_quit' id="btn_quit"></div>
+    <div class="rule_btn" id="rule_btn"></div>
+    <div class="share_btn" id="share_btn"></div>
+  </div>
+
+  <div class="hg_tips">【广告】市场有风险，投资需谨慎</div>
+
+  <!-- 押注弹窗 -->
+
+  <div class="alert alert_yz" id="yz">
+    <div class="mark"></div>
+    <div class="con">
+      <input type="text" id="range" value="" name="range" />
+
+      <div class="tb">50</div>
+
+      <div class="submit"></div>
+
+      <p class="txt">您的目前团币最多只能押注
+        <span>200团币</span>
+      </p>
+
+      <div class="close yz_close"> </div>
+    </div>
+  </div>
+
+
+
+  <!-- 退出游戏弹窗 -->
+
+  <div class="alert quit_alert" id="quit_alert">
+    <div class="mark"></div>
+    <div class="con">
+      <div class="hd"></div>
+      <div class="bottom_con">
+        <h2 class="tit">确定退出游戏吗？</h2>
+        <p class="txt">游戏正在进行中，中途退出不返还押注团币</p>
+        <div class="btn_wraper">
+          <a href="" class="btn btn_orange" id="quit_btn">确定</a>
+          <a href="" class="btn btn_green close">取消</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 奖品信息轮播 -->
+  <div class="swiper-container prize_list" id="prize_list">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">859分钟前，小明***获得了3000元团币。
+      </div>
+      <div class="swiper-slide">8859分钟前，小明***获得了3000元团币。
+      </div>
+      <div class="swiper-slide">8859分钟前，小明***获得了3000元团币。
+      </div>
+      <div class="swiper-slide">8859分钟前，小明***获得了3000元团币。
+      </div>
+      <div class="swiper-slide">8小时前 小明####
+        <br> 获得了80团币奖励
+      </div>
+      <div class="swiper-slide">8小时前 小明####
+        <br> 获得了80团币奖励
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- 规则弹窗 -->
+
+  <div class="alert  alert_rule" id="rule_alert">
+    <div class="mark"></div>
+    <div class="con">
+
+
+      <nav>
+        <div class="cur">游戏规则</div>
+        <div>大富翁排行榜</div>
+        <div>我的奖品</div>
+      </nav>
+
+      <div class="tab_con">
+        <div class="content  rule_list cur_con">
+          <ul>
+            <li>1、每次押注额为50团币的整数倍，最低50团币，最高1000团币，每押注一次可获一次摇色子的机会，色子大小决定大富翁前进的步数；</li>
+            <li>2、大富翁到达指令位置后，需完成指定的动作或领取相应奖励，领奖后可在现有位置继续发起挑战；
+              <img src="../images/game/tab_img.png" alt="" class="tab_img">
+            </li>
+            <li>3、游戏结束后，分享并获得两个好友助力，可获一次免费游戏机会（免费机会：默认押注50团币，每天最多一次）； </li>
+            <li>4、活动奖品团币自动发放至个人账户，可前往【APP-我-我的会员-我的团币】查看；红包、补签卡等奖品将发放至团宝箱，具体使用规则以说明为准；</li>
+            <li>5、在法律许可的合法范畴内，本活动规则解释权归团贷网所有。</li>
+          </ul>
+        </div>
+
+        <div class="content  rank_con ">
+          <ul class="rank_list">
+            <li>
+              <span class='num'></span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'></span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'></span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'>4</span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'>4</span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'>4</span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'>4</span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class='num'>4</span>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+              <span class="prize">9999999团币</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content  rank_con ">
+          <ul class="rank_list my_prize">
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+            <li>
+              <span class="tx">
+                <img src="../images/game/tx.png" alt="">
+              </span>
+              <span class="name">小明在路上</span>
+
+              <span class="time">2017-8-15 16：00：00</span>
+              <span class="prize">9999999团币</span>
+            </li>
+
+
+
+          </ul>
+          <p class="rank_tips">以上榜单依据获奖者所获奖品的团币价值进行排行</p>
+        </div>
+      </div>
+
+
+      <div class="close"></div>
+
+    </div>
+  </div>
+
+  <!-- 开启方式弹窗 -->
+
+  <div class="alert alert_open">
+    <div class="mark"></div>
+    <div class="con">
+      <p>客官，请选择以下方式，<br>
+        开启您的大富翁之旅～</p>
+        <div class="btn_wraper">
+          <a href="" class="btn btn_orange" id="quit_btn">起点开始>></a>
+          <a href="" class="btn btn_green close">接着走>></a>
+        </div>
+    </div>
+  </div>
+
+<!-- 开启免费游玩弹窗 -->
+<div class="alert alert_open" id="is_free">
+  <div class="mark"></div>
+  <div class="con">
+      <p>
+          客官，你已获得两次助力，<br> 可以免费游玩一次<br> 开启您的大富翁之旅～
+      </p>
+      <div class="btn_wraper">
+          <a href="" class="btn_start_share btn_green btn" id="btn_freePlay">免费游玩>></a>
+      </div>
+  </div>
+</div>
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+
+
+<!-- build:js ../js/lib/gamelib.js -->
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../range/ion.rangeSlider.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/msgbox.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/game.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  //奖品弹窗
+
+  // preact.msgbox.set({
+  //     //奖品类型(0:团币,1:投资红包,2:提现券,3:超级会员,4:补签卡,-1:没中奖)
+  //     type:1,
+  //     //标题
+  //     title:'哇!!!@',
+  //     //内容
+  //     msg:'哇啥',
+  //     //底部文字
+  //     tips:'参加下一轮',
+  //     //按钮(预设前俩个按钮的样式,如果再增加一个,需自定义样式)
+  //     btns:[
+  //       {
+  //         //按钮名字
+  //         text:'分享免费玩<p style="margin-bottom: -0.2rem;margin-top: -.12rem;font-size: 0.18rem;">助理≥2人，可免费玩一次。</p>',
+  //         //自定义样式,没需要可以不写
+  //         //style:{},
+  //         //按钮点击回调
+  //         callback:function(){
+  //           //this:指向 preact.msgbox
+  //           //this.show():创建
+  //           //this.hide():销毁
+  //         }
+  //       },
+  //       {
+  //         text:'不拿',
+  //         callback:function(){}
+  //       },
+  //     ],closeBtn:{
+  //   src:'../images/close.png',
+  //   callback:function(){
+
+  //          this.hide();
+
+
+  //   }
+  // }
+  //   }).show();
+
+
+
+
+
+  //toast 弹窗
+
+  // preact.toast.show('msg!!!!!!!!!!!!');
+</script>
+
+</html>

@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../../sass/reset";
+@import "../../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+@mixin bg($width, $height, $url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+.answer {
+    width: 100%;
+    height: 100%;
+    background: #e7ecf9 url(../images/answer/bg.png) no-repeat;
+    background-size: 100% auto;
+    padding-top: pxToRem(115px);
+}
+
+.an-p1 {
+    @include font(pxToRem(48px), #ffd409);
+    text-align: center;
+    font-weight: bold;
+}
+
+.an-p2 {
+    @include font(pxToRem(32px), #fff);
+    text-align: center;
+    font-weight: bold;
+    margin-top: pxToRem(35px);
+}
+
+.an-p3 {
+    @include font(pxToRem(22px), #fff);
+    text-align: center;
+    margin-top: pxToRem(19px);
+}
+
+.bg-answer {
+    @include bg(pxToRem(747px), pxToRem(926px), '../images/answer/bg_answer.png');
+    margin-top: pxToRem(10px);
+    padding-top: pxToRem(190px);
+}
+
+.ans-tit {
+    @include size(pxToRem(530px), pxToRem(98px));
+    box-shadow: 0px pxToRem(2px) pxToRem(21px) 0px rgba(21, 25, 108, 0.24);
+    background: linear-gradient(#da4235, #c82925);
+    position: relative;
+    margin: 0 auto;
+    border-radius: pxToRem(9px);
+    p {
+        @include font(pxToRem(32px), #ffcb0f);
+        line-height: pxToRem(98px);
+        text-align: center;
+    }
+    .slow {
+        @include bg(pxToRem(484px), pxToRem(42px), '../images/answer/slow.png');
+        position: absolute;
+        top: pxToRem(-16px);
+        left: pxToRem(-5px);
+    }
+}
+
+.ans-con{
+//  @include size(pxToRem(474px), pxToRem(491px));
+    width: pxToRem(474px);
+    padding-bottom: pxToRem(45px);
+    background: linear-gradient(#47917a,#1b6854);
+    margin: 0 auto;
+    box-shadow: 0px pxToRem(2px) pxToRem(21px) 0px rgba(21, 25, 108, 0.24);
+    padding-top: pxToRem(20px);
+    border-radius: pxToRem(8px);
+    li{
+        position: relative;
+        padding: pxToRem(15px) pxToRem(20px) 0 pxToRem(100px);
+        p{
+           @include font(pxToRem(28px), #0d4939); 
+           padding-top: pxToRem(7px);
+           line-height: pxToRem(36px);
+//         white-space:nowrap; overflow:hidden; text-overflow:ellipsis; 
+        }
+        span{
+            display: block;
+            @include size(pxToRem(34px), pxToRem(34px));
+            border-radius: 50%;
+            background: #d5e2f0;
+            position: absolute;
+//          top: pxToRem(42px);
+            top: pxToRem(18px);    
+            left: pxToRem(50px);
+            i{
+                display: block;
+                @include bg(pxToRem(48px), pxToRem(34px), '../images/answer/select.png');
+                position: absolute;
+                left: 0;
+                top: pxToRem(-5px);
+                display: none;
+            }
+        }
+    }
+    .selected{
+        span{
+            i{
+                display: block;
+            }
+        }
+        p{
+            color: #fff;
+        }
+    }
+    .ans-btn{
+        @include bg(pxToRem(378px), pxToRem(82px), '../images/answer/ans-btn.png');
+        @include font(pxToRem(36px), #ec3527);
+        margin: pxToRem(30px) auto 0;
+        font-weight: bold;
+        line-height: pxToRem(82px);
+        text-align: center;
+    }
+}

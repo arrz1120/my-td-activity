@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>tingji</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="swiper-container" id="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="content content1">
+						<div class="logo"><img src="../images/logo.png" /></div>
+						<div class="txt1">
+							<p class="tit">关于厦门银行资金存管系统停服升级的公告</p>
+							<p class="subtit">亲爱的团贷网用户：</p>
+							<p class="p">您好！</p>
+							<p class="p">感谢您一直以来对团贷网的信任与支持。接通知，厦门银行计划于2017年9月15日开始进行系统升级，<span>团贷网将于2017年9月15日22:00—2017年9月16日23:00暂停所有线上服务（停服）</span>，开服时间以实际为准。</p>
+							<p class="p">停服期间如有任何疑问，请致电客服电话1010-1218或关注“团贷网”订阅号咨询在线客服。</p>
+							<p class="p">由此给您带来不便，敬请谅解。我们将继续努力，一如既往地竭诚为您提供优质的服务！</p>
+							<p class="p p-right">派生科技集团股份有限公司<br />2017年9月15日</p>
+						</div>
+						<p class="drop-txt">查看停服期间事项安排</p>
+						<div class="drop-icon drop-move"></div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="content content2">
+						<div class="txt2">
+							<p class="tit tit2">停服期间事项安排</p>
+							<p class="p">1、停服期间，团贷网网贷、定期、私募及保险业务相关的官方网站、App、触屏版、微信端、社区均不能登录操作，并显示维护页面。</p>
+							<p class="p">2、停服期间到期项目的回款、还款程序将顺延至开服后执行，9月16日到期回款的We计划、定期项目、小微企业、微团贷、分期宝、供应链、资产标及智享计划正常计算收益（计算收益=项目的回款金额*标的原始利率*1/365），收益在开服后7个工作日内统一补发至用户账户可用余额。</p>
+							<p class="p">3、9月16日到期未能还款的智享计划，发起人不算逾期；9月17日到期未能还款的资产标，借款人不算逾期。 </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

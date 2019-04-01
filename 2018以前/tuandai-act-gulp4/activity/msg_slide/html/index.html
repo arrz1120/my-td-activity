@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>xiaopaizhibo_chedai</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="pageContainer">
+		<div class="sec4">
+			
+			<div class="commentBox">
+				<div class="comment-list">
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+					<div class="comment comment-list-item">
+						<div class="userHead">
+							<img src="../images/userHead.png" />
+						</div>
+						<div class="zan">
+							<i></i>
+							<span>159</span>
+						</div>
+						<div class="userName">百变小樱</div>
+						<div class="comment-txt">
+							<p>希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术希望能看到小π变魔术</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-input">
+					<textarea rows="" cols="" maxlength="120"></textarea>
+					<p class="inputTips" id="inputTips">输入你想对小π说的话... </p>
+					<p class="errorTips">输入内容不能为空</p>
+				</div>
+				<div class="submit-btn">提交评论</div>
+			</div>
+		</div>
+
+		
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var cmmentScroller = new CommentScroller('.comment-list', {
+			showSlides: 3, //显示的条数
+			autoplay: true, //autoplay:true 开启滚动
+			delay: 4000, //轮播间隔时间
+		})
+	</script>
+
+</html>

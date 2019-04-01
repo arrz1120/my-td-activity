@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title></title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/protocol.css -->
+	<link rel="stylesheet" href="../css/protocol.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div id="content" class="content">
+	<header class="header">了解我们<span id="back_btn" class="back-btn"></span></header>
+	<div class="about">
+		<span class="logo block bg-size"></span>
+		<p class="jianjie">派生财富是一家专注于百万理财的线上平台，为中国高净值客户提供资产配置与财富管理服务。公司成立于2013年，注册资本2000万元，是派生科技集团股份有限公司（下称派生集团）旗下成员。派生集团聚焦实业、科技、金融三大战略投资方向，致力于成为一家以“大数据、人工智能、互联网科技”等技术力量驱动的投资服务集团。</p>
+		<p class="pos-r"><span class="pos-a">联系我们：</span>成都市高新区天府大道中段199号棕榈国际中心1幢1单元19层4号</p>
+		<p class="pos-r"><span class="pos-a">电话号码：</span>028-87326832</p>
+	</div>
+</div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script>
+    (function() {
+        FastClick.attach(document.body);
+        var $body = $('body');
+        // 事件绑定
+        function bindEvent() {
+            $body.on('click', '#back_btn', function () {
+                window.history.back();
+            })
+        }
+        function init() {
+            bindEvent();
+        }
+        init();
+    })();
+</script>
+</html>

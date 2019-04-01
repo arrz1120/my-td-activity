@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>jzt</title>
+
+
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->	
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+<img src="../images/hd.jpg"  class="hd">
+
+
+<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.qian.xiao.er&from=singlemessage&isappinstalled=1" class="load"></a>
+
+
+<div class="md1">
+	<div class="txt_wraper fr">
+		<h2 class="tit"><span class='icon icon_1'></span>活、定期记账</h2>
+		<p class="txt">支持活定期网贷项目记账，<br>真正解放双手</p>
+	</div>
+</div>
+
+
+<div class="md2">
+	<div class="txt_wraper fl">
+		<h2 class="tit"><span class='icon icon_2'></span>资产总览</h2>
+		<p class="txt">各个P2P平台本金收益回款一目了然一站式管理你的资产</p>
+	</div>
+</div>
+
+
+
+
+    <div class="swiper-container md3">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img src="../images/md3_1.jpg" alt="">
+				<div class="txt_wraper fl">
+					<h2 class="tit"><span class='icon icon_3'></span>智能记账</h2>
+					<p class="txt">支持全网P2P平台数据录入<br>操作简单，资产明细轻松掌握</p>
+				</div>
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/md3_2.jpg" alt="">
+				<div class="txt_wraper fl">
+					<h2 class="tit"><span class='icon icon_4'></span>理财历程</h2>
+					<p class="txt">支持全程记录理财历程，分月汇总，实时可见，理财明细轻松掌握。</p>
+				</div>
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/md3_3.jpg" alt="">
+				<div class="txt_wraper fl">
+					<h2 class="tit"><span class='icon icon_5'></span>图表分析</h2>
+					<p class="txt">支持投资平台资产图表分析，一目了然，助您快速分析资产状况。</p>
+				</div>
+            </div>
+            <div class="swiper-slide">
+            	<img src="../images/md3_4.jpg" alt="">
+				<div class="txt_wraper fl">
+					<h2 class="tit"><span class='icon icon_6'></span>热门资讯</h2>
+					<p class="txt">支持实时更新网贷相关热门资讯，可第一时间了解当日网贷热门事件</p>
+				</div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+<div class="md4">
+	<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.qian.xiao.er&from=singlemessage&isappinstalled=1" class="load"></a>
+</div>
+
+
+<div class="md5">
+	<img src="../images/ewm_1.png" class="fl">
+	<img src="../images/ewm_2.png" class="fr">
+</div>
+
+<footer>
+	<p>东莞梦创信息科技有限公司 网贷记账通<br>
+东莞市南城街道莞太路时代广场天雅阁1301室<br>
+Copyright © 2017 wdjzt88.com, All rights reserved <br>
+粤ICP备17002370号-3</p>
+
+<p class="tip">投资有风险，理财需谨慎，不保证收益</p>
+</footer>
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+  <script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<script type="text/javascript" charset="utf-8">
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay:2000
+    });
+</script>
+</html>

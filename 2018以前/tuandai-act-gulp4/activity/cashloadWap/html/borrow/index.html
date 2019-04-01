@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>速来贷</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->
+    <!-- build:css  ../../css/borrow/index.css -->
+    <link rel="stylesheet" href="../../css/borrow/index.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <h1>速来贷</h1>
+    </header>
+    <!-- /header -->
+    <div class="scroll scroll-active">
+        <div class="content borrow-content">
+            <section class="sec-top">
+                <h3>借款金额(元)</h3>
+                <div class="shadow">
+                    <div class="swiper-container select-container" id="select">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">500</div>
+                            <div class="swiper-slide">600</div>
+                            <div class="swiper-slide">700</div>
+                            <div class="swiper-slide">800</div>
+                            <div class="swiper-slide">900</div>
+                            <div class="swiper-slide">1000</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="btns" id="btn_select">
+                    <li class="btn btn-empty" data-value="7">7天</li>
+                    <li class="btn btn-empty active" data-value="15">15天</li>
+                </ul>
+                <div class="row with-border" id="show_coupon">
+                    <span>使用优惠券</span>
+                    <span id="coupon_value">无适用优惠券</span>
+                    <i class="icon-inline icon-arrow"></i>
+                </div>
+                <div class="row">
+                    <span id="ser_charge_q">
+                        服务费<i class="icon-inline icon-q"></i>
+                    </span>
+                    <span>
+                        100起
+                    </span>
+                </div>
+            </section>
+            <section class="sec-bottom">
+                <h3>实际到账(元)</h3>
+                <div class="txt-key" id="money_real">
+                    1000
+                </div>
+                <div class="btn btn-full-round" id="btn_borrow">
+                    我要借
+                </div>
+                <div class="tip">
+                    保持良好还款习惯，可借额度更多，借款费用更少
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <ul>
+            <li class="active" data-href="../borrow/index.html"><i class="icon-block icon-money"></i><span>借款</span></li>
+            <li data-href="../invest/index.html"><i class="icon-block icon-invest"></i><span>投资</span></li>
+            <li data-href="../userCenter/index.html"><i class="icon-block icon-account"></i><span>个人中心</span></li>
+        </ul>
+    </footer>
+    <div class="popup pop-coupon bg-grey">
+        <header id="header_coupon" class="header">
+            <div class="btn-back" id="close_coupon">
+                <i class="icon-block icon-back"></i>
+            </div>
+            <h1>我的优惠券</h1>
+        </header>
+        <div class="coupon-content">
+            <div class="not-use">
+                不使用优惠券
+            </div>
+            <ul class="list list-coupon" id="list_coupon">
+                <li id="last">
+                    <div class="coupon disabled" data-value="12" data-id="00001">
+                        <div class="coupon-left">
+                            <div class="money">12</div>
+                            <span>现金红包</span>
+                        </div>
+                        <div class="coupon-right">
+                            <div>
+                                优惠券名称
+                            </div>
+                            <p class="info">这是一段说明文案这是一段说明文案这是一段说明文案这是一段说明文案</p>
+                            <p class="date">有效期：2017.7.20-2018.07.20</p>
+                        </div>
+                    </div>
+                    <p class="reason">
+                        <font class="font-red">不可用原因：</font>单笔投资金额不满1000元</p>
+                </li>
+                <li>
+                    <div class="coupon lapsed" data-value="12" data-id="00002">
+                        <div class="coupon-left">
+                            <div class="money">12</div>
+                            <span>现金红包</span>
+                        </div>
+                        <div class="coupon-right">
+                            <div>
+                                优惠券名称
+                            </div>
+                            <p class="info">这是一段说明文案这是一段说明文案这是一段说明文案这是一段说明文案</p>
+                            <p class="date">有效期：2017.7.20-2018.07.20</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="coupon" data-value="12" data-id="00003">
+                        <div class="coupon-left">
+                            <div class="money">12</div>
+                            <span>现金红包</span>
+                        </div>
+                        <div class="coupon-right">
+                            <div>
+                                优惠券名称
+                            </div>
+                            <p class="info">这是一段说明文案这是一段说明文案这是一段说明文案这是一段说明文案</p>
+                            <p class="date">有效期：2017.7.20-2018.07.20</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="test">
+                    <div class="coupon" data-value="12" data-id="00004">
+                        <div class="coupon-left">
+                            <div class="money">12</div>
+                            <span>现金红包</span>
+                        </div>
+                        <div class="coupon-right">
+                            <div>
+                                优惠券名称
+                            </div>
+                            <p class="info">这是一段说明文案这是一段说明文案这是一段说明文案这是一段说明文案</p>
+                            <p class="date">有效期：2017.7.20-2018.07.20</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="coupon" data-value="12" data-id="00005">
+                        <div class="coupon-left">
+                            <div class="money">12</div>
+                            <span>现金红包</span>
+                        </div>
+                        <div class="coupon-right">
+                            <div>
+                                优惠券名称
+                            </div>
+                            <p class="info">这是一段说明文案这是一段说明文案这是一段说明文案这是一段说明文案</p>
+                            <p class="date">有效期：2017.7.20-2018.07.20</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../../js/lib/swiper-3.4.2.js -->
+<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/borrow/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

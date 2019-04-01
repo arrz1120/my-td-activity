@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>cashloadWap</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/download.css -->
+    <link rel="stylesheet" href="../css/download.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content no-footer d-content">
+            <i class="d-pic"></i>
+            <section class="d-logo-container">
+                <span>小派钱包</span>
+                <br>
+                <span>官方应用</span>
+            </section>
+            <div class="d-btns">
+                <!-- <div class="btn-open">打开APP</div> -->
+                <div class="btn-download">下载APP</div>
+            </div>
+            <section class="d-txt">
+                <p>东莞市俊特信贷咨询有限公司</p>
+                <p>粤ICP备12079399号-4</p>
+            </section>
+        </div>
+    </div>
+    <div class="popup d-wx-mask">
+        <i class="d-wx-txt"></i>
+        <section class="d-logo-container">
+            <span>小派钱包</span>
+            <br>
+            <span>官方应用</span>
+        </section>
+        <i class="d-wx-pic"></i>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+
+    Util.isWeiXin() && $('.d-wx-mask').show();
+
+    $('.btn-open').on('click', function() {
+        //打开app
+        if (Util.isIosPlatform()) {
+
+        } else {
+
+        }
+    });
+    $('.btn-download').on('click', function() {
+        //下载APP
+        if (Util.isIosPlatform()) {
+
+        } else {
+            location.href = 'http://m.paiwallet.com/wapstatic/apps/xiaopaiv1.0.0.apk';
+        }
+    });
+})();
+</script>
+
+</html>

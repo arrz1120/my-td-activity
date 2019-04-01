@@ -1,0 +1,279 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+
+
+
+
+body {
+    background:#fcbd42 url(../images/lottery/bg.jpg) no-repeat;
+    background-size: 100% auto;
+    padding: pxToRem(210px) 0 pxToRem(30px);
+}
+
+
+.zp{
+    background: url(../images/lottery/zp.png) no-repeat;
+    background-size: 100% 100%;
+    height: pxToRem(800px);
+
+    .rotate{
+        background: url(../images/lottery/zj.png) no-repeat;
+        background-size: 100% 100%;
+        height: pxToRem(194px);  
+        margin: 0 auto;
+        position: relative;
+        top:  pxToRem(208px);  
+        width: pxToRem(150px);  
+    }
+
+
+    .btn_big{
+        margin: pxToRem(548px) auto;
+    }
+
+}
+
+
+
+.prize_msg{
+    
+    width: pxToRem(690px);
+    margin:  pxToRem(90px) auto 0;
+
+    h1{
+        height: pxToRem(90px);
+        line-height: pxToRem(90px);
+        border-radius: pxToRem(10px) pxToRem(10px) 0 0;
+        background: linear-gradient(to bottom,#feec37,#fdd21a);
+        position: relative;
+        padding-left:  pxToRem(330px);
+        color: #c68808;
+        font-size: pxToRem(36px);
+    }
+    .prize_box{
+        border-radius: 0 0 pxToRem(10px) pxToRem(10px);
+        background: linear-gradient(to bottom,#fe9c07,#ff581e);    
+        padding:pxToRem(30px) pxToRem(20px) pxToRem(40px);    
+        .tit_list{
+            position: relative;
+            width:pxToRem(590px);
+            border-bottom: #e78808 pxToRem(2px) solid;
+            height: pxToRem(20px);
+            padding: 0 pxToRem(40px);
+            margin: 0 auto;
+            li{
+                width:  pxToRem(76px);
+                height:  pxToRem(30px);
+                border-radius:  pxToRem(15px);
+                line-height: pxToRem(30px);
+                background: #e78808;
+                color: #ffcd6e;
+                font-size: pxToRem(20px);
+                text-align: center;
+                float: left;
+            }
+
+            li:nth-child(1),
+            li:nth-child(2){
+                margin-right: pxToRem(140px);
+            }
+
+        }
+
+        .msg{
+            margin-top:  pxToRem(50px);
+            .tit{
+               height:  pxToRem(18px);
+               background:#bb6a0b;
+               border-radius:  pxToRem(9px);
+            }    
+
+
+            .list_wraper{
+                width: pxToRem(630px);
+                background: #fff;
+                border-radius:  0 0  pxToRem(10px)  pxToRem(10px);
+                margin: pxToRem(-10px) auto 0;
+
+                .list{
+                    padding: pxToRem(10px);
+                    li{
+                        border-bottom: #f4edd9 dashed  pxToRem(2px);
+                        padding: pxToRem(33px)  0 pxToRem(33px) pxToRem(45px);
+                        position: relative;
+                        overflow: hidden;
+
+                        span{
+                            color: #635550;
+                            font-size: pxToRem(22px);
+                            float: left;
+                        }
+
+                        .phone_num{
+                            width: pxToRem(190px);
+                        }
+    
+
+                        .date{
+                            width: pxToRem(160px);
+                        }
+
+
+                        .prize_val{
+                            width: pxToRem(200px);
+
+                        }
+
+                     }
+                }
+            }        
+        }
+
+    }
+
+
+    h1:before{
+        position: absolute;
+        content: '';
+        background: url(../images/lottery/tit_icon_1.png) no-repeat;
+        background-size: 100% 100%;
+        height: pxToRem(135px);
+        width: pxToRem(109px);
+        bottom: 0;
+        left: pxToRem(240px);
+
+    }
+}
+
+
+.prize_record{
+    .swiper-container{
+        height: pxToRem(470px);
+        .swiper-wrapper{
+            height: 100%;
+        }
+    }   
+
+    h1:before{
+        position: absolute;
+        content: '';
+        background: url(../images/lottery/tit_icon_2.png) no-repeat;
+        background-size: 100% 100%;
+        height: pxToRem(121px);
+        width: pxToRem(112px);
+        bottom: 0;
+        left: pxToRem(225px);
+
+    }
+
+
+}
+
+
+
+.alert_prize{
+
+    .con{
+        width: pxToRem(620px);
+        margin: 0 auto;
+    }
+
+    .hd{
+        background: url(../images/lottery/alert_bg.png) no-repeat;
+        background-size: 100% 100%;
+        height: pxToRem(238px);
+
+    }
+
+
+    .prize_img{
+        width: pxToRem(315px);
+        display: block;
+        position: absolute;
+        top:  pxToRem(10px);  
+        left: 50%;
+        margin-left: pxToRem(-157px);
+    }
+
+
+    .msg{
+        background: #fff;
+        border-radius: 0 0 pxToRem(20px) pxToRem(20px);
+        padding: pxToRem(84px) pxToRem(30px)  pxToRem(20px);
+        p{
+            color: #635550;
+            font-weight: bold;
+            font-size: pxToRem(30px);
+            line-height: pxToRem(40px);
+            text-align: center;
+            width: pxToRem(480px);
+            margin: 0 auto   pxToRem(30px);
+            border-bottom: #f4edd9 dashed  pxToRem(2px);
+            padding-bottom: pxToRem(30px);
+
+            span{
+                color: #ff5c1c;
+            }
+        }
+
+
+    }
+
+       .btn_small{
+            margin: 0 auto;
+        }
+}
+
+
+.alert_detail{
+    .con{
+        height: pxToRem(860px);
+    }
+    .hd{
+        height: pxToRem(190px); 
+        background: url(../images/lottery/alert_bg_1.png) no-repeat;
+        background-size: 100% 100%;
+    }
+        
+    .list_wraper{
+        background: #fff;
+        border-radius: 0 0 pxToRem(20px) pxToRem(20px);
+        padding: pxToRem(24px) pxToRem(34px) pxToRem(40px);
+    }
+    
+    .list{
+        overflow-y: scroll;
+        
+        height:  pxToRem(520px);
+
+        span{
+            float: left;
+        }
+
+        li{
+            height:  pxToRem(80px); 
+            line-height:  pxToRem(80px); 
+            color: #635550;
+            font-size:  pxToRem(24px); 
+            border-bottom: #f4edd9 dashed  pxToRem(2px);
+
+            span:nth-child(1){
+                width:pxToRem(290px); 
+            }
+
+            span:nth-child(2){
+                width:pxToRem(260px); 
+            }
+
+        }
+
+
+        li:nth-child(1){
+            color: #635550;
+            font-weight: bold;
+        }
+    }
+
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>还款</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/userCenter/loan.css -->
+    <link rel="stylesheet" href="../../css/userCenter/loan.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>还款</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content no-footer bg-grey ldet-cont">
+            <div class="lr-cont">
+                <span class="lr-txt">向【现金贷】支付</span>
+                <span class="lr-num">￥20,000</span>
+                <p class="lr-info">
+                    <span>支付方式</span>
+                    <span>中国建设银行储蓄卡（0189）</span>
+                </p>
+                <p class="lr-info">
+                    <span>持卡人</span>
+                    <span>李**</span>
+                </p>
+            </div>
+            <div class="btn btn-full" id="goPay">立即支付</div>
+        </div>
+    </div>
+    <div class="popup component-dialog" id="codeDialog" style="display: none;">
+        <div class="masker"></div>
+        <div class="dialog-wrapper">
+            <h5 class="with-border">请输入验证码</h5>
+            <div class="dialog-content">
+                <span>已发送验证码至你的银行卡预留号码</span>
+                <span>13*******57</span>
+                <div class="dialog-input-container">
+                    <input type="text" name="code" placeholder="请输入验证码">
+                </div>
+                <span class="code-tips">10秒后重新发送</span>
+                <!-- <span class="code-tips resend">重新获取</span> -->
+            </div>
+            <div class="btns">
+                <div class="btn btn-nav">取消</div>
+                <div class="btn btn-pos">确定</div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="success-layer" style="display: none;">
+        <header id="layerHeader" class="header">
+            <div class="btn-back">
+                <i class="icon-block icon-back"></i>
+            </div>
+            <h1>还款</h1>
+        </header>
+        <div class="result-success"></div>
+        <span class="sl-txt">还款成功</span>
+        <span class="sl-txt2">您的额度已恢复至 3,000 元<br>感谢您的使用！</span>
+        <div class="btn btn-full" id="back">返回</div>
+    </div> -->
+</body>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/userCenter/repayMent.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

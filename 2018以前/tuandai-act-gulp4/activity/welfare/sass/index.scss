@@ -1,0 +1,268 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+body {
+    color: $defaultColor;
+}
+
+.content {
+    .all {
+        position: relative;
+        overflow: hidden;
+    }
+    @at-root .header {
+        position: relative;
+        .icon-ellipse01 {
+            position: absolute;
+            @include background("../images/icon-ellipse01.png", 596px, 578px);
+            z-index: 9;
+            left: pxToRem(19px);
+            top: pxToRem(-107px);
+        }
+        .icon-ellipse02 {
+            position: absolute;
+            @include background("../images/icon-ellipse02.png", 96px, 96px);
+            z-index: 999;
+            right: pxToRem(250px);
+            top: pxToRem(330px);
+        }
+        .icon-ellipse03 {
+            position: absolute;
+            @include background("../images/icon-ellipse03.png", 124px, 124px);
+            z-index: 999;
+            right: pxToRem(-33px);
+            top: pxToRem(276px);
+        }
+        .btn-wrapper {
+            position: relative;
+            z-index: 999;
+            width: 100%;
+            height: pxToRem(80px);
+            .btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 999;
+                &.btn-love-list {
+                    right: pxToRem(112px);
+                    @include background("../images/icon-list.png", 37px, 37px);
+                }
+                &.btn-my {
+                    right: pxToRem(32px);
+                    @include background("../images/icon-my.png", 36px, 41px);
+                }
+            }
+        }
+        .swiper-pagination {
+            position: absolute;
+            z-index: 999;
+            margin-top: pxToRem(36px);
+            width: auto;
+            bottom: 0;
+            right: pxToRem(50px);
+            .swiper-pagination-bullet {
+                width: pxToRem(16px);
+                height: pxToRem(16px);
+                margin-right: pxToRem(12px);
+                background-color: #e6e6e6;
+                opacity: 1;
+                &.swiper-pagination-bullet-active {
+                    background-color: #666;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        .banner {
+            $w: 627px;
+            width: pxToRem($w);
+            height: pxToRem(258px);
+            position: relative;
+            // left: 50%;
+            // transform: translateX(-50%);
+            margin-top: pxToRem(30px);
+            overflow: visible;
+            z-index: 99;
+            .swiper-slide {
+                width: pxToRem($w);
+                transform: scale(.9) // transform-origin: ()
+            }
+            .swiper-slide-active {
+                transform: scale(1.1);
+                /* width: pxToRem(688px);
+                    height: pxToRem(289px); */
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: relative;
+                box-shadow: 0 pxToRem(5px) pxToRem(16px) 0 rgba(0, 0, 0, 0.2);
+                border-radius: pxToRem(10px);
+            }
+        }
+        // 轮播
+        @at-root .rolling-con {
+            color: #666;
+            font-size: 0;
+            height: pxToRem(42px);
+            overflow: hidden;
+            position: relative;
+            z-index: 999;
+            padding-left: pxToRem(30px);
+            margin-top: pxToRem(26px);
+            .green {
+                color: #66cc33
+            }
+            ul {
+                width: 100%;
+                animation: rolling 15s linear infinite;
+                .rolling-item {
+                    width: 100%;
+                    line-height: pxToRem(42px);
+                    height: pxToRem(42px);
+                    .tip-mark {
+                        @include background("../images/icon-bell.png", 34px, 41px);
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: pxToRem(12px);
+                    }
+                    .rolling-txt {
+                        font-size: pxToRem(26px);
+                        vertical-align: middle;
+                        display: inline-block;
+                        label {
+                            margin: 0 pxToRem(10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @at-root .act-list {
+        position: relative;
+        margin-top: pxToRem(84px);
+        padding: 0 pxToRem(30px);
+        @at-root .act-item {
+            display: block;
+            box-shadow: 0px pxToRem(2px) pxToRem(10px) 0px rgba(0, 0, 0, 0.08);
+            border-radius: pxToRem(10px);
+            margin-bottom: pxToRem(38px);
+            overflow: hidden;
+            position: relative;
+            .act-header {
+                position: relative;
+                margin-bottom: pxToRem(40px);
+                img {
+                    display: block;
+                    width: 100%;
+                }
+                .label {
+                    position: absolute;
+                    bottom: pxToRem(20px);
+                    right: pxToRem(-18px);
+                    width: pxToRem(112px);
+                    height: pxToRem(32px);
+                    line-height: pxToRem(32px);
+                    border-radius: pxToRem(16px);
+                    color: #fff;
+                    background-color: #999;
+                    font-size: pxToRem(20px);
+                    text-align: center;
+                    &.active {
+                        background-color: #6c3;
+                    }
+                }
+            }
+            .welfare-act-txt {
+                padding: 0 pxToRem(30px);
+                position: relative;
+                .title {
+                    font-size: pxToRem(30px);
+                    color: #000;
+                    margin-bottom: pxToRem(30px);
+                }
+                .goal {
+                    margin-bottom: pxToRem(28px);
+                }
+                .start-date {
+                    margin-bottom: pxToRem(26px);
+                }
+                .act-progress {
+                    margin-bottom: pxToRem(50px);
+                }
+                .welfare-act-footer {
+                    font-size: 0;
+                    white-space: nowrap;
+                    color: #66cc33;
+                    height: pxToRem(40px);
+                    margin-bottom: pxToRem(30px);
+                    text-align: right;
+                    &.third > div {
+                        width: 33.33%;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    &.two > div {
+                        width: 50%;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    & > div {
+                        height: 100%;
+                        border-right: 1px solid $borderColor;
+                        text-align: center;
+                        &:last-child {
+                            border-right: none;
+                        }
+                    }
+                    .icon-coin-active {
+                        @include inline-background("../images/icon-coin-green.png", 30px, 30px);
+                        vertical-align: middle;
+                    }
+                    .icon-people-active {
+                        @include inline-background("../images/icon-people-green.png", 24px, 26px);
+                        vertical-align: middle;
+                    }
+                    .icon-like-active {
+                        @include inline-background("../images/detail-like-act.png", 30px, 27px);
+                        vertical-align: middle;
+                    }
+                    label {
+                        margin-left: pxToRem(10px);
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: pxToRem(26px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes rolling {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    31.83% {
+        transform: translate3d(0, 0, 0);
+    }
+    33.33% {
+        transform: translate3d(0, pxToRem(-40px), 0);
+    }
+    64.87% {
+        transform: translate3d(0, pxToRem(-40px), 0);
+    }
+    66.67% {
+        transform: translate3d(0, pxToRem(-80px), 0);
+    }
+    98.5% {
+        transform: translate3d(0, pxToRem(-80px), 0);
+    }
+    to {
+        transform: translate3d(0, pxToRem(-120px), 0);
+    }
+}

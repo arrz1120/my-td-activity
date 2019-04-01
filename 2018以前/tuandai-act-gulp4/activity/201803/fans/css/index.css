@@ -1,0 +1,262 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+html,
+body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important;
+  background: url(../images/bg.png) no-repeat;
+  background-size: cover; }
+
+a {
+  text-decoration: none; }
+
+div,
+textarea,
+span {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-appearance: none; }
+
+textarea {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  resize: none; }
+
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0; }
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999; }
+
+img {
+  display: block; }
+
+.index {
+  width: 100%;
+  height: 28.45867rem;
+  position: relative;
+  padding-top: 3.05067rem;
+  padding-bottom: 0.64rem; }
+
+.ruleBtn {
+  width: 2.92267rem;
+  height: 0.87467rem;
+  text-align: center;
+  font-size: 0.55467rem;
+  color: #703491;
+  line-height: 1.00267rem;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 0.17067rem;
+  position: absolute;
+  top: 3.008rem;
+  right: 1.408rem; }
+
+.index-tit {
+  width: 8.34133rem;
+  height: 4.288rem;
+  background: url("../images/index-tit.png") center top no-repeat;
+  background-size: 100%;
+  margin-left: 1.536rem; }
+
+.lottery-box {
+  padding-top: 0.49067rem;
+  position: relative;
+  overflow: hidden;
+  width: 13.696rem;
+  margin: 1.70667rem auto 0; }
+
+.fingerBox {
+  position: absolute;
+  top: 3.43467rem;
+  left: 6.31467rem;
+  z-index: 5; }
+  .fingerBox .finger {
+    width: 2.048rem;
+    height: 1.728rem;
+    background: url("../images/finger.png") center top no-repeat;
+    background-size: 100%;
+    margin-left: 0.896rem;
+    position: relative;
+    z-index: 2; }
+  .fingerBox .round {
+    width: 1.088rem;
+    height: 1.088rem;
+    background: url("../images/round.png") center top no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: -0.192rem;
+    left: 0.53333rem;
+    z-index: 1; }
+  .fingerBox .fingerBtn {
+    width: 4.48rem;
+    height: 1.13067rem;
+    background: rgba(141, 46, 36, 0.9);
+    border-radius: 0.46933rem;
+    text-align: center;
+    font-size: 0.53333rem;
+    color: #fdf9e1;
+    line-height: 1.13067rem; }
+
+.lottery {
+  width: 13.22667rem;
+  height: 13.20533rem;
+  background: url("../images/lottery.png") center top no-repeat;
+  background-size: 100%;
+  position: relative;
+  z-index: 2; }
+  .lottery .card-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 0.512rem; }
+
+.cardRow {
+  padding: 0 0.55467rem;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  margin-bottom: 0.29867rem; }
+  .cardRow .item {
+    width: 3.86133rem;
+    height: 3.86133rem;
+    -webkit-transition: all linear 0.6s;
+    -o-transition: all linear 0.6s;
+    transition: all linear 0.6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  .cardRow .item-hb {
+    background: url("../images/hb.png") center top no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    position: relative;
+    z-index: 2; }
+  .cardRow .item-gift {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+  .cardRow img {
+    width: 3.86133rem;
+    height: 3.86133rem; }
+  .cardRow .rotate180 {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
+  .cardRow .rotateY0 {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+
+.comment-list-item {
+  font-size: 0.53333rem;
+  color: #2c2c2c;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.00267rem; }
+
+.lotteryBtn {
+  width: 4.65067rem;
+  height: 1.216rem;
+  font-size: 0.704rem;
+  color: #cb4d72;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.216rem;
+  margin: 0.29867rem auto 0;
+  border-radius: 0.17067rem;
+  background: #ff8db6; }
+
+.userBox {
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  padding-left: 1.6rem;
+  padding-right: 1.45067rem;
+  margin-top: 0.512rem; }
+
+.ub-l {
+  padding-left: 1.536rem;
+  position: relative; }
+  .ub-l img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.28rem;
+    height: 1.28rem;
+    border-radius: 50%; }
+  .ub-l p {
+    font-size: 0.53333rem;
+    color: #2c2c2c;
+    line-height: 1.28rem; }
+
+.ub-r p {
+  font-size: 0.448rem;
+  color: #2c2c2c;
+  text-decoration: underline;
+  line-height: 1.28rem; }
+
+/*# sourceMappingURL=maps/index.css.map */

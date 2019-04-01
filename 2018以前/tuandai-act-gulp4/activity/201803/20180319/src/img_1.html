@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>window.mobileUtils=function(e,t){var i=navigator.userAgent,n=/android|adr/gi.test(i),a=/iphone|ipod|ipad/gi.test(i)&&!n;return{isAndroid:n,isIos:a,isMobile:n||a,isWeixin:/MicroMessenger/gi.test(i),isQQ:/QQ\/\d/gi.test(i),dpr:a?Math.min(e.devicePixelRatio,3):1,rem:null,fixScreen:function(){var i=this,n=t.querySelector('meta[name="viewport"]'),r=n?n.content:"";if(r.match(/initial\-scale=([\d\.]+)/),r.match(/width=([^,\s]+)/),!n){var o,s=t.documentElement,d=s.dataset.mw||750,m=a?Math.min(e.devicePixelRatio,3):1;t.getElementsByTagName("body")[0],s.removeAttribute("data-mw"),s.dataset.dpr=m,n=t.createElement("meta"),n.name="viewport",n.content=function(e){return"initial-scale="+e+",maximum-scale="+e+",minimum-scale="+e}(1),s.firstElementChild.appendChild(n);var c=function(){var e=s.getBoundingClientRect().width;e=e>d?d:e;var t=e/16;i.rem=t,s.style.fontSize=t+"px"};e.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(c,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(o),o=setTimeout(c,300))},!1),c()}}}}(window,document),mobileUtils.fixScreen();</script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html,body{
+
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+
+        .alert{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+
+        }
+
+
+        .alert .close{
+            position: absolute;
+            left: 0;
+            left: 50%;
+            width:1.5rem;
+            height: 1.5rem;
+            margin-left: -.7rem;
+            top:21rem;
+            overflow: auto;   
+            background: url(./images/close.png);
+            background-size: 100% 100%;
+        }
+
+        .alert .img_wraper{
+            position: absolute;
+            left: 0;
+            left: 50%;
+            width:14rem;;
+            height: 18rem;
+            top:2rem;
+            margin-left: -7rem;
+            overflow: auto;   
+        }
+
+
+
+              /*滚动条样式*/
+        .alert .img_wraper::-webkit-scrollbar {
+            width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 4px;
+        }
+        .alert .img_wraper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px #f1f1f1;
+            background: #f1f1f1;
+        }
+        .alert .img_wraper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px #f1f1f1;
+            border-radius: 0;
+            background: rgba(0, 0, 0, .3);
+        }
+
+
+         .alert .mask{
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background:#331c04;
+
+        }        
+
+
+        .alert .img_wraper img{
+            display: block;
+        }        
+    </style>
+
+</head>
+  <body>
+
+    <div class="alert">
+        <div class="mask"></div>
+        
+        <div class="img_wraper">
+            <img src="./images/img_4.jpg" alt="" class="img_con">
+        </div>
+
+        <a href="index.html" class="close"></a>
+
+
+        
+    </div>
+    
+  </body>
+
+
+
+
+</html>

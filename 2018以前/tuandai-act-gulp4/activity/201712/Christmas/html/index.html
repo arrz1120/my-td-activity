@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Christmas</title>
+		<!-- build:css ../css/index.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="index">
+			<div class="banner">
+				<div class="ruleBtn">规则 <i></i>奖品</div>
+				<div class="b-txt"></div>
+				<div class="b-tit"></div>
+				<div class="bg-zs"></div>
+				<div class="giftBox"></div>
+				<div class="b-btn" id="open">拆红包</div>
+				<p class="chance">你还有 <span>1</span>次拆礼包机会</p>
+			</div>
+			<div class="con">
+				<div class="c-tit">获取拆礼包机会</div>
+				<div class="c-item">
+					<div class="item-l">
+						<span>01</span>
+					</div>
+					<div class="item-m">
+						<p class="item-p1">活动期间内登录团贷网</p>
+						<p class="item-p2">最多可获得 1 次机会</p>
+					</div>
+					<div class="item-r">
+						<a href="" class="c-btn btn-on">马上登录</a>
+						<a href="" class="c-btn btn-off" style="display: none;">已获得</a>
+					</div>
+				</div>
+				<div class="c-item">
+					<div class="item-l">
+						<span>02</span>
+					</div>
+					<div class="item-m">
+						<p class="item-p1">给好友派发圣诞礼物</p>
+						<p class="item-p2">最多可获得 2 次机会</p>
+					</div>
+					<div class="item-r">
+						<a href="setQuestion.html" class="c-btn btn-on">派发礼物</a>
+						<p class="gift-txt">已获得 2 次</p>
+					</div>
+				</div>
+				<div class="c-item">
+					<div class="item-l">
+						<span>03</span>
+					</div>
+					<div class="item-m">
+						<p class="item-p1">200团币兑换1次机会</p>
+						<p class="item-p2">最多可获得 1 次机会</p>
+					</div>
+					<div class="item-r">
+						<a href="javascript:void(0);" class="c-btn btn-on" id="use200">马上兑换</a>
+						<a href="javascript:void(0);" class="c-btn btn-off" id="isChange" style="display: none;">已兑换</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-------------弹窗------------->
+		<div class="mask" style="display: none;" id="mask">
+			<div class="mask-tab-box">
+				<div class="mask-tab-tit">
+					<div class="mask-tit tit-l tab-cur">活动规则<i></i></div>
+					<div class="mask-tit tit-r">我的奖品<i></i></div>
+				</div>
+				<div class="mask-tab-con">
+					<!-------------活动规则------------->
+					<div class="rule-con" style="display: none;">
+						<ul>
+							<li>
+								<span>1</span>用户获得的团币、投资红包、京东E卡（以兑换码的形式发放）将于1个工作日内发放到账，请前往团宝箱查看奖品（团币请前往会员中心）；
+							</li>
+							<li>
+								<span>2</span>获得实物奖品的用户需在4天内前往团宝箱填写个人配送信息，奖品将在活动结束后的15个工作日内发出，奖品颜色默认随机发放；
+							</li>
+							<li>
+								<span>3</span>活动期间内，给好友派圣诞礼物且成功领取礼物的好友数达3人时，赠送1次拆礼包机会；
+							</li>
+							<li>
+								<span>4</span>同一用户可多次派发圣诞礼物或回答不同好友的问题，但最多只能领取1份圣诞礼物和获得2次拆礼包机会（即至少两次派发礼物且都符合领取条件）；
+							</li>
+							<li>
+								<span>5</span>通过点击圣诞礼物的分享链接进行注册的用户与派礼物用户为邀请关系，同享平台“邀请有礼”福利；
+							</li>
+							<li>
+								<span>6</span>本活动禁止一切刷奖行为，一经发现，所得奖品将不予承兑；
+							</li>
+							<li>
+								<span>7</span>本活动最终解释权归团贷网所有。
+							</li>
+						</ul>
+						<div class="confirm-btn">确定</div>
+					</div>
+
+					<!-------------我的奖品------------->
+					<div class="gift-con" style="display: block;">
+						<!--有礼包-->
+						<div class="gift-item-box" style="display: none;">
+							<!--投资红包-->
+							<div class="gift-item">
+								<div class="gift-bg">
+									<img class="gift1" src="../images/index/gift1.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">投资红包</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<!--京东E卡-->
+							<div class="gift-item">
+								<div class="gift-bg">
+									<img class="gift2" src="../images/index/gift2.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">100京东E卡</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<!--iphone8-->
+							<div class="gift-item">
+								<div class="gift-bg">
+									<img class="gift3" src="../images/index/gift3.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">iphone8</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<!--团币-->
+							<div class="gift-item">
+								<div class="gift-bg">
+									<img class="gift4" src="../images/index/gift4.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">团币</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<!--小米体脂称-->
+							<div class="gift-item">
+								<div class="gift-bg">
+									<img class="gift5" src="../images/index/gift5.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">小米体脂称</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<!--小米AI音箱-->
+							<div class="gift-item" style="display: none;">
+								<div class="gift-bg">
+									<img class="gift6" src="../images/index/gift6.png" />
+								</div>
+								<div class="gift-txt">
+									<p class="gift-p1">小米AI音箱</p>
+									<p class="gift-p2">2017-11-22 23:00</p>
+								</div>
+							</div>
+							<div class="confirm-btn">确定</div>
+						</div>
+						<!--没有拆过礼包-->
+						<div class="gift-none" style="display: none;">
+							<p>您还没有拆过礼包哦！</p>
+							<div class="confirm-btn">确定</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-------------正在拆开礼包------------->
+		<div class="mask" style="display: none;" id="loadingMask">
+			<div class="loading-box">
+				<div class="loading-img"></div>
+				<div class="loading-txt"></div>
+				<p>正在拆开礼包......</p>
+			</div>
+		</div>
+
+		<!-------------消耗200团币------------->
+		<div class="mask" style="display: none;" id="mask200">
+			<div class="con200">
+				<p>消耗200团币兑换1次拆礼包机会？</p>
+				<div class="btn200">
+					<div class="btn200-l">取消</div>
+					<div class="btn200-r">确定</div>
+				</div>
+			</div>
+		</div>
+
+		<!-------------通用提示框------------->
+		<div class="mask" style="display: none;">
+			<div class="mask-normal">
+				<p>无拆包机会</p>
+				<div class="btn-normal">确定</div></div>
+			</div>
+		</div>
+		
+		<!-------------奖品弹窗------------->
+
+		<!--团币不足-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="tb-none"></div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--兑换成功-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="change-suc"></div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--活动已结束-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="act-end-box">
+					<div class="act-end">活动已结束!</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--活动已结束-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="act-end-box">
+					<div class="act-end">活动已结束!</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--100京东E卡-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-card"></div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--88团币-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-tb">
+						<img class="tb88" src="../images/index/tb88.png" />
+						<p>团币<br /><span>88</span>个</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--28团币-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-tb">
+						<img src="../images/index/tb28.png" />
+						<p>团币<br /><span>28</span>个</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--18团币-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-tb">
+						<img src="../images/index/tb18.png" />
+						<p>团币<br /><span>18</span>个</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--5元投资红包-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-hb">
+						<img src="../images/index/hb5.png" />
+						<p class="tb-p1">5 元</p>
+						<p class="tb-p2">投资红包</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--8元投资红包-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-hb">
+						<img src="../images/index/hb8.png" />
+						<p class="tb-p1">8 元</p>
+						<p class="tb-p2">投资红包</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--10元投资红包-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-hb">
+						<img src="../images/index/hb10.png" />
+						<p class="tb-p1">10 元</p>
+						<p class="tb-p2">投资红包</p>
+					</div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--iphone8-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-iphone"></div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--小米体脂称-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-chen"></div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+
+		<!--小米AI音箱-->
+		<div class="mask" style="display: none;">
+			<div class="prize-mask">
+				<div class="get-box">
+					<div class="get-hifi"></div>
+				</div>
+				<div class="prize-btn">确定</div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/preload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

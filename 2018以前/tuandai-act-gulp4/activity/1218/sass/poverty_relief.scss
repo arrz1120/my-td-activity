@@ -1,0 +1,301 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "./_reset.scss";
+@import "func";
+html,
+body {
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@mixin bg($width,$height,$url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin fontsize($color,$px){
+    font-size: $px;
+    color: $color;
+}
+
+@mixin box($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+body{
+    width: 100%;
+    min-height: 100%;
+    background: #ed3c32;
+}
+
+
+.layout-main{
+    background: url(../images/poverty_relief/bg.png) no-repeat;
+    background-size: 100%  auto; 
+    padding-top: pxToRem(100px);
+    margin: 0 auto;
+    padding-bottom: pxToRem(50px);  
+    max-width:  pxToRem(750px);
+    min-height: 100%;
+    display:block;
+}
+
+
+
+
+.banner{
+    @include bg(100%,pxToRem(64px),'../images/poverty_relief/tit.png')
+}
+
+
+.swiper-container-msg{
+    @include box(pxToRem(600px),pxToRem(278px));
+    margin: pxToRem(20px) auto;
+    .swiper-wrapper{
+    @include box(pxToRem(600px),100%);
+    }
+    p{
+        color: #fff;
+        font-size: pxToRem(22px);
+        line-height:  pxToRem(32px);
+        text-indent:  pxToRem(44px);
+    }
+    
+
+
+    .swiper-wrapper{
+        height: auto;
+        height: max-content;
+    }
+
+    .swiper-slide-msg{
+        height:  inherit;
+    }
+}
+
+
+.arrow_more{
+    display: block;
+    margin:  pxToRem(10px) auto;
+    @include bg(pxToRem(29px),pxToRem(20px),'../images/poverty_relief/arrow.png')
+    
+}
+
+
+.arrow_more_up{
+    @include bg(pxToRem(29px),pxToRem(20px),'../images/poverty_relief/arrow_up.png')
+}
+
+
+.md1{
+    width:  pxToRem(670px);
+    padding: pxToRem(16px) pxToRem(34px);
+    background: #f25636;
+    border-radius: pxToRem(10px);
+    margin: 0 auto;
+
+
+    .viewBox{
+        position: relative;
+        z-index: 3;
+        margin: 0 auto;
+
+
+        @include box(pxToRem(600px),pxToRem(327px));
+
+        .video_img{
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .video-box{
+            @include box(100%,100%);
+            position:absolute;
+            left:0;
+            top:0;
+            transform: translateZ(0);
+            z-index: 0;
+
+
+        }
+
+        #video1{
+            @include box(100%,100%);
+        }
+
+
+
+    
+        .video_bg{
+                @include bg(100%,100%,'../images/poverty_relief/video.png')
+        }
+
+
+    }
+
+
+    .biao{
+        position: relative;
+        @include box(pxToRem(620px),pxToRem(234px));
+        background: #fff;
+        border-radius: pxToRem(20px);
+        margin-top:  pxToRem(50px);
+        padding-top:  pxToRem(30px);
+
+            .biao_tit{
+            @include bg(pxToRem(109px),pxToRem(102px),'../images/poverty_relief/icon.png')
+            position: absolute;
+            left: pxToRem(-8px);
+            top: pxToRem(-6px);
+            }
+
+            .txt{
+                text-align: center;
+                @include fontsize(#9c9c9c,pxToRem(18px));
+                margin:  pxToRem(15px) 0;
+            }
+
+            .num{
+                width:  pxToRem(480px);
+                margin: pxToRem(10px) auto;
+                /*overflow: hidden;*/
+
+
+                &:after { 
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+                } 
+                .txt_2{
+                            @include fontsize(#ff643a,pxToRem(18px));
+                }
+
+                .txt_1{
+                        @include fontsize(#ff643a,pxToRem(80px));
+                        span{
+                            font-size: pxToRem(20px);
+                        }
+                }
+                .left{
+                    float: left;
+
+                .txt_1{
+                        span{
+                            font-size: pxToRem(26px);
+                        }
+                }
+            
+                }
+
+
+                .right{
+                    float: right;
+                    border-left: 1px dashed #595959;
+                    padding-left: pxToRem(40px);
+                    .txt_2{color:#878787;}
+                    .txt_1{color:#878787;
+                            span{
+                            font-size: pxToRem(18px);
+                        }
+                    }
+
+
+                }
+
+
+            }
+
+            .txt_3{
+                        line-height: pxToRem(30px);
+                        text-align: center;
+                        @include fontsize(#a2a2a2,pxToRem(18px));
+                        
+            }
+
+
+            .join_btn{
+                display: block;
+                margin: pxToRem(15px) auto;
+                font-size: pxToRem(24px);
+                color: #711b15;
+                line-height: pxToRem(54px);
+                text-align: center;
+                @include bg(pxToRem(440px),pxToRem(61px),'../images/poverty_relief/bth_bg.png')
+            }
+
+
+
+
+
+
+        .join_btn,.btn_gray{
+            display: block;
+            margin: 0 auto;
+            @include fontsize(#711b15,pxToRem(30px));
+            @include box(pxToRem(460px),pxToRem(60px));
+            line-height: pxToRem(60px);
+            border-radius:pxToRem(40px);
+            text-align: center;
+            box-shadow:0 pxToRem(5px) 0 #ff9100;
+            /*background: linear-gradient(180deg, #ffd023, #ffbb00);*/
+            background: radial-gradient(at top center,#ffd023 20%, #ffbb00 80%);
+        }
+
+
+        .btn_gray{
+            color: #fff;
+            box-shadow:0 pxToRem(5px) 0 #7a7a7a;
+            /*background: linear-gradient(180deg, #ffd023, #ffbb00);*/
+            background: radial-gradient(at top center,#afafaf 20%, #a0a0a0 80%);
+
+            
+        }
+
+
+
+    }
+}
+
+
+/*视频封面*/
+
+
+.x-video-button {
+    background: url(../images/poverty_relief/video.png?v=20171209001) no-repeat;
+    background-size: 100% 100%;
+}
+
+/*.ykplayer .x-video-button .x-video-play-ico {
+    width: pxToRem(99px) !important;
+    height: pxToRem(110px) !important;
+    margin-top: pxToRem(-122px) !important;
+}
+*/
+/*.ykplayer .x-iconmode-new {
+    background: url(../images/link.png) no-repeat !important;
+    background-size: 100% 100% !important;
+    -webkit-animation: move 0.8s linear alternate infinite;
+    animation: move 0.8s linear alternate infinite;
+}*/
+
+.x-dashboard,.x-video-title{
+    /*display: none !important;*/
+}

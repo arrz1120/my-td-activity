@@ -1,0 +1,7 @@
+{
+  "webpack":{
+    "use":true,
+    "port":8888
+  },
+  "preact":false
+}

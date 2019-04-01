@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>速来贷</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>速来贷</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content no-footer">
+            <div class="pop-result">
+                <!-- 成功状态 -->
+                <div class="result success"></div>
+                <!-- 失败状态 -->
+                <!-- <div class="result fail"></div> -->
+                <p>您的存管账户开通成功</p><span class="tip">已成功开通厦门银行资产存管服务</span>
+                <div class="btn btn-full" id="resultBtn">返回</div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    Util.initHeader({
+        header: 'header',
+        leftFun: function() {
+            //标题栏返回按钮
+            history.back();
+        }
+    });
+
+    //返回按钮
+    $('#resultBtn').on('click', function() {
+        history.back();
+    });
+})();
+</script>
+
+</html>

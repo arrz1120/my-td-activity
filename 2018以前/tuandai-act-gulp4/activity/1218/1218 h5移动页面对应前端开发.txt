@@ -1,0 +1,9 @@
+1218 h5移动页面对应前端开发
+
+首页(index.html)--------------杨蓉 
+加息特权(main_gx.html)--------李小锋
+现金红包(cashRedpacket.html)--聂荣
+抽奖(lottery.html)------------杨蓉
+排行榜单(ranking.html)--------聂荣
+团粉故事(main_tfgs.html)------李小锋
+我的奖品(prize.html)----------陈润荣

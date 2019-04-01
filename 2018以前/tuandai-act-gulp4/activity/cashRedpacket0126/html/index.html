@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>瓜分现金红包</title>
+	<!-- build:css ../css/common.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/index.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/popup.css">
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+<div class="scroll scroll-active wrap">
+	<i class="chunjieban pos-a"></i>
+	<i class="icon-yh1 pos-a"></i>
+	<i class="icon-yh2 pos-a"></i>
+	<i class="icon-jb pos-a"></i>
+	<i class="icon-bz pos-a"></i>
+	<div class="content pos-r">
+		<p class="hd-time">活动时间：2月1日-2月28日</p>
+		<i class="txt-b pos-a"></i>
+		<i class="txt-s pos-a"></i>
+		<div class="red-packet">
+			<span class="tips">点击瓜分红包</span>
+			<a href="javascript:;" class="btn-open bg-size" id="btnOpen">
+				<span class="btn-open-bg bg-size bouncein"></span>
+				<span class="kai bg-size"></span>
+			</a>
+			<div class="list scroll-list" style="display: block">
+				<ul>
+					<li><p>吴女士成功获得12.58元红包 <span>11分钟前</span></p></li>
+					<li><p>吴女士成功获得0.2%加息特权 <span>32分钟前</span></p></li>
+					<li><p>吴女士成功获得0.2%加息特权<span>11分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+					<li><p>吴女士成功获得12.58元红包 <span>1分钟前</span></p></li>
+				</ul>
+
+			</div>
+			<div class="guafen" style="display: none">
+				<p>高手！您已完成所有任务</p>
+				<a href="myRecord.html">查看我的记录</a>
+			</div>
+			<div class="guafen" style="display: none">
+				<p>瓜分任务正在进行...</p>
+				<a href="myRecord.html">查看我的记录</a>
+			</div>
+			<a href="rule.html" class="btn-rule bg-size"></a>
+		</div>
+	</div>
+</div>
+
+<!--刮奖弹窗-->
+<div class="mask prize-mask ide" id="prizeMask">
+	<div class="pop-container">
+		<div class="pop-prize">
+			<p>恭喜您瓜分到</p>
+			<p><span>12.58</span></br>现金红包！</p>
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+
+		</div>
+		<a href="javascript:;" class="maskBtn">立即查看</a>
+		<a href="JavaScript:;" class="close bg-size" id="clsoe_prize"></a>
+	</div>
+</div>
+
+<!--未登入弹窗 1218-->
+<div class="mask login-mask hide" id="loginMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+			<p>请登录后再瓜分红包哦，谢谢～</p>
+			<a href="javascript:;" class="maskBtn">立即登录</a>
+			<a href="JavaScript:;" class="close bg-size" id="clsoe_login"></a>
+		</div>
+	</div>
+	<!--<div class="masker"></div>-->
+</div>
+
+<!--无资格参加 1218-->
+<div class="mask zige-mask hide" id="zigeMask" >
+	<div class="pop-container">
+		<div class="pop-zige">
+
+			<p>您暂不能瓜分红包</p>
+			<p>本活动仅限当前待收>0的用户瓜分红包<br />
+				请投资后再参与哦~</p>
+			<i class="icon-dl"></i>
+			<i class="icon-yh"></i>
+			<a href="JavaScript:;" class="close bg-size" id="clsoe_zige"></a>
+			<a href="javascript:;" class="maskBtn">立即投资</a>
+		</div>
+	</div>
+	<!--<div class="masker"></div>-->
+</div>
+
+
+<!--活动已结束 1218-->
+<div class="mask login-mask hide" id="endMask" >
+	<div class="pop-container">
+		<div class="pop-login">
+			<p class="end-txt">活动已结束，<br/>感谢您的关注～</p>
+			<a href="JavaScript:;" class="maskBtn bg-size" id="clsoe_endMask">我知道了</a>
+		</div>
+	</div>
+	<!--<div class="masker"></div>-->
+</div>
+
+
+<!--分享遮罩-->
+<div class="mask share-mask" style="display: -none" id="shareMask">
+	<div class="share-pic"></div>
+	<div class="masker" id="shareMasker"></div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

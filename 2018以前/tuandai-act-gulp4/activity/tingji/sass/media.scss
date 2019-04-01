@@ -1,0 +1,86 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+
+/*  for small width screen  */
+
+@media screen and (max-width:374px) {
+ 
+}
+
+/* =========for short screen============== */
+
+@media screen and (max-height: 559px) and (min-width:321px) {
+    $ratio: 0.85;
+    .txt1 {
+        padding: pxToRem(61px) pxToRem(49px) 0 pxToRem(49px);
+    }
+    .subtit{
+        margin-top: pxToRem(30px);
+        margin-bottom: pxToRem(10px);
+    }
+    .p-right{
+        margin-top: pxToRem(17px);
+    }
+}
+/* =========for 360px short screen============== */
+@media screen and (max-height: 500px) and (min-width:360px) {
+    $ratio: 0.85;
+//  .txt1 {
+//      padding: pxToRem(51px) pxToRem(49px) 0 pxToRem(49px);
+//  }
+//  .subtit{
+//      margin-top: pxToRem(20px);
+//      margin-bottom: pxToRem(10px);
+//  }
+    .p{
+        line-height: pxToRem(42px);
+    }
+    .p-right{
+        margin-top: pxToRem(7px);
+    }
+}
+
+//* -----------魅蓝  mx3----------------- */
+@media screen and (min-height: 567px) and (min-width:384px) {
+    $ratio: 0.9;
+    .txt1 {
+        padding: pxToRem(61px) pxToRem(49px) 0 pxToRem(49px);
+    }
+    .subtit{
+        margin-top: pxToRem(30px);
+        margin-bottom: pxToRem(10px);
+    }
+    .p-right{
+        margin-top: pxToRem(17px);
+    }
+}
+
+//* -----------meizu  mx3----------------- */
+@media screen and (min-height: 589px) and (min-width:430px) {
+    $ratio: 0.9;
+
+}
+
+/* ------------------------iphone 5------------------------ */
+@media screen and (max-width:320px) and (max-height:508px) {
+    $ratio:0.9;
+    .txt1 {
+        padding: pxToRem(61px) pxToRem(35px) 0 pxToRem(35px);
+    }
+    .subtit{
+        margin-top: pxToRem(30px);
+        margin-bottom: pxToRem(10px);
+    }
+}
+
+/* -------------------------iphone4---------------------------- */
+
+@media screen and (max-width:320px) and (max-height:416px) {
+   $ratio: 0.85;
+
+}
+
+@media screen and (max-width: 320px) {
+
+}

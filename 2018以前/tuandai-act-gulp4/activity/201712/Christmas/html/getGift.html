@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Christmas</title>
+		<!-- build:css ../css/getGift.css -->
+		<link rel="stylesheet" href="../css/getGift.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="getGift">
+
+			<!--答对-->
+			<div class="get-box get-res">
+				<div class="get-tit">
+					<div class="slow"></div>
+					<p>你懂我，礼物给你！</p>
+				</div>
+				<div class="get-con">
+					<div class="gift-img"></div>
+					<div class="inp-box">
+						<p class="inp-txt">请填写以下信息，用于礼物发放</p>
+						<div class="inp-wrap">
+							<div class="inp mb56">
+								<i class="ico-phone"></i>
+								<input type="text" placeholder="常用手机号码" maxlength="11" />
+								<div class="error">*手机号码格式不正确</div>
+							</div>
+						</div>
+						<div class="inp-wrap">
+							<div class="inp inp-half">
+								<i class="ico-code"></i>
+								<input type="text" placeholder="输入验证码" maxlength="4" />
+								<div class="error">*验证码还没填哦 </div>
+							</div>
+							<!--<div class="getCode">验证码 </div>-->
+							<img class="imgCode" src="../images/getGift/bg.png"/>
+						</div>
+						<div class="get-btn">立即领取</div>
+					</div>
+				</div>
+			</div>
+
+			<!--答错-->
+			<div class="get-box get-res" style="display: none;">
+				<div class="get-tit tit-wrong">
+					<div class="slow"></div>
+					<p>猜错啦！塞给你1份礼物，常联系哦！</p>
+				</div>
+				<div class="get-con">
+					<div class="gift-img"></div>
+					<div class="inp-box">
+						<p class="inp-txt">请填写以下信息，用于礼物发放</p>
+						<div class="inp-wrap">
+							<div class="inp mb56">
+								<i class="ico-phone"></i>
+								<input type="text" placeholder="常用手机号码" maxlength="11" />
+								<div class="error">*手机号码格式不正确</div>
+							</div>
+						</div>
+						<div class="get-btn">立即领取</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<!--不能领取-->
+		<div class="mask" style="display: none;">
+			<div class="mask-con">
+				<div class="fail"></div>
+				<p class="fail-txt">不能领取自己派发的礼物哦~</p>
+				<div class="fail-btn">确定</div>
+			</div>
+		</div>
+		
+		<!--已领取过该礼物-->
+		<div class="mask" style="display: none;">
+			<div class="mask-con">
+				<div class="fail"></div>
+				<p class="fail-txt fail-txt2">您已领取过该礼物</p>
+				<div class="fail-btn">确定</div>
+			</div>
+		</div>
+		
+		<!--领取成功-->
+		<div class="mask" style="display: none;">
+			<div class="mask-suc">
+				<div class="get-suc"></div>
+				<p class="suc-txt">领取成功</p>
+				<div class="fail-btn">确定</div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script type="text/javascript">
+		
+		$(".fail-btn").click(function(){
+			$(this).parent().parent().hide();
+		})
+	</script>
+
+</html>

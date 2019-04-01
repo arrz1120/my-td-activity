@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>提现成功</title>
+    <!-- build:css ../css/index.css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- endbuild -->
+    <script type="text/javascript">
+    //动态算rem
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                // if (docEl.style.fontSize) return;
+                // clientWidth = docEl.clientWidth;
+                clientWidth = docEl.clientWidth > 414 ? 414 : docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                if (document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+            };
+        recalc();
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+</head>
+
+<body>
+    <div class="scroll scroll-active">
+        <div class="content">
+            <i class="icon-success"></i>
+            <span class="result-txt">提现申请已提交</span>
+            <span class="txt-grey">请耐心等待</span>
+            <section class="tips-container">
+            	<span class="txt-grey txt-line">温馨提醒</span>
+            	<p class="txt-grey">您成功提交提现申请后，按照提现类型不同到账时间不同。</p>
+            	<p class="txt-grey txt-dot">快速提现：申请成功后当天到账； </p>
+            	<p class="txt-grey txt-dot">普通提现：下一个工作日到账，遇双休或法定节假日顺延。 </p>
+            	<p class="txt-grey txt-dot">若有特殊情况，最终由该银行解释为准。</p>
+            </section>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

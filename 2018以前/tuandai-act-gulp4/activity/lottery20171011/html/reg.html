@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>lottery20171011</title>
+	<!-- build:css ../css/reg.css -->
+	<link rel="stylesheet" href="../css/reg.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+
+
+<p class="txt">请填写以下信息，用于奖励发放~</p>
+
+
+
+<div class="input_wraper phone_wraper">
+	<input type="text" class="phone" placeholder='请输入手机号'>
+	<p class="error">请输入正确手机号</p>
+
+</div>
+
+<div class="first_hide">
+	<div class="input_wraper msg_wraper">
+	<input type="text" class="msg" placeholder='请输入短息验证码'>
+	<div class="time">105s</div>
+	<p class="error">请输入正确手机号</p>
+	</div>
+
+	<div class="input_wraper phone_wraper">
+	<input type="password" class="password" placeholder='设置密码（6-16个字符，数字+字母）'>
+	<div class="show"></div>
+	<p class="error">请输入正确手机号</p>
+	</div>
+	<p class="txt_2">领取即表示您已同意<a href="">《团贷网服务协议》</a></p>
+</div>
+
+	<a href="" class="btn_get"></a>
+
+	<p class="txt_2">已有账号？<a href="">登录</a></p>
+
+
+
+
+
+<!-- 弹窗 -->
+
+<!-- 只有一次机会状态 or 本期活动已结束状态 -->
+<div class="alert gameover_alert" id="gameover_alert" style="display:none">
+	<div class="mask"></div>
+	<div class="con">
+		<p class="txt">您已经领取过奖励啦~<br>（每人限领一次哦）
+		</p>
+		<span class="look_for">查看奖品</span>
+		<div class="close"></div>
+	</div>
+</div>
+
+
+
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/reg.js" type="text/javascript" charset="utf-8"></script>
+</script>
+</html>

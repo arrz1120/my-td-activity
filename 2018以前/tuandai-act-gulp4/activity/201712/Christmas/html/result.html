@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Christmas</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/myGift.css -->
+		<link rel="stylesheet" href="../css/myGift.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="myGift">
+			<div class="timu-box">
+				<div class="timu-img">
+					<!--没拆开-->
+					<img id="normal" src="../images/myGift/gift-normal.png" />
+					<!--5元红包-->
+					<img id="hb5" src="../images/myGift/hb5.png" style="display: none;" />
+					<!--10元红包-->
+					<img id="hb10" src="../images/myGift/hb10.png" style="display: none;" />
+					<!--18团币-->
+					<img id="tb18" src="../images/myGift/tb18.png" style="display: none;" />
+					<!--28团币-->
+					<img id="tb28" src="../images/myGift/tb28.png" style="display: none;" />
+					<p class="daozhang" style="display: none;" >( 已到账 )</p>
+				</div>
+				<div class="timu-txt">
+					<p class="timu-p1">【吴沛扬】的圣诞礼物</p>
+					<p class="timu-p2">每逢周末和节假日，我更喜欢？</p>
+					<ul>
+						<li>A . 顺其自然，跟团 </li>
+						<li>B . 放诞不羁，自助游</li>
+						<li>C . 随心所欲，自驾游</li>
+						<li>D . 很少有食物能满足我挑剔的味蕾</li>
+					</ul>
+					<div class="correct" style="display: none;"></div>
+					<div class="wrong" style="display: none;"></div>
+				</div>
+			</div>
+			<div class="friend">
+				<div class="fri-top">看看大家的战绩</div>
+				<div class="fri-tit">
+					<div class="slow"></div>
+					<div class="fri-item">答题好友</div>
+					<div class="fri-item fri-mid">默契程度</div>
+					<div class="fri-item">圣诞礼物</div>
+				</div>
+
+				<!--好友答题-->
+				<div class="que-con">
+					<div class="swiper-container" id="queSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="que-slide">
+									<div class="que1">
+										<img src="../images/myGift/userHead.png" />
+										<p class="que-p1">157**1234</p>
+										<p class="que-p2">选A</p>
+									</div>
+									<div class="que2">
+										我们的塑料花友谊
+									</div>
+									<div class="que3">
+										100元京东E卡
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">
+									<div class="que1">
+										<img src="../images/myGift/userHead.png" />
+										<p class="que-p1">157**1234</p>
+										<p class="que-p2">选A</p>
+									</div>
+									<div class="que2">
+										友谊的小船已经翻了
+									</div>
+									<div class="que3">
+										10元红包
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">
+									<div class="que1">
+										<img src="../images/myGift/userHead.png" />
+										<p class="que-p1">157**1234</p>
+										<p class="que-p2">选A</p>
+									</div>
+									<div class="que2">
+										脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻脸上笑嘻嘻
+									</div>
+									<div class="que3">
+										10元红包
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">
+									<div class="que1">
+										<img src="../images/myGift/userHead.png" />
+										<p class="que-p1">157**1234</p>
+										<p class="que-p2">选A</p>
+									</div>
+									<div class="que2">
+										脸上笑嘻嘻，心里已mmp
+									</div>
+									<div class="que3">
+										10元红包
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="que-slide">
+									<div class="que1">
+										<img src="../images/myGift/userHead.png" />
+										<p class="que-p1">157**1234</p>
+										<p class="que-p2">选A</p>
+									</div>
+									<div class="que2">
+										脸上笑嘻嘻，心里已mmp
+									</div>
+									<div class="que3">
+										10元红包
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 如果需要滚动条 -->
+						<div class="swiper-scrollbar"></div>
+					</div>
+				</div>
+
+				<!--还没有好友答题-->
+				<div class="que-con" style="display: none;">
+					<p class="que-none">还没有好友答题哦~</p>
+				</div>
+
+				<!--我也要派礼物-->
+				<div class="fri-btn btn-link">
+					<a href="index.html" class="btn-l">查看奖励</a>
+					<a href="setQuestion.html" class="btn-r">我也要派礼物</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+
+	<script src="../js/result.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,264 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../../sass/reset";
+@import "../../../../sass/func";
+
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+textarea,
+span {
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    resize: none;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+@function r($px) {
+    @return $px / $base-font-size /2 * 1rem;
+}
+
+@mixin bg($width, $height, $url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+@mixin box-center {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+
+.index {
+    width: 100%;
+    @include size('100%',r(1207px));
+    background-image: url(../images/index/bg_index.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    background-color: #db77a1;
+    padding-top: r(79px);
+}
+
+.i-tit{
+    @include bg(r(691px),r(312px),'../images/index/i_tit.png');
+    margin: 0 auto;
+}
+
+.i-p{
+    @include font(r(24px),#9a1320);
+    text-align: center;
+    margin-top: r(585px);
+}
+
+.i-btn{
+    @include bg(r(500px),r(102px),'../images/index/i_btn.png');
+    @include font(r(40px),#fff);
+    margin: r(67px) auto 0;
+    line-height: r(102px);
+    text-align: center;
+    display: block;
+}
+
+.scale{
+    -webkit-animation: scale 2s 1s ease-in both;
+}
+
+@-webkit-keyframes scale{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    z-index: 99;
+    .mask_bg {
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    .mask_bg1 {
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+}
+
+.mask_con1 {
+    width: r(690px);
+    position: relative;
+    z-index: 2;
+    .close {
+        @include bg(r(48px),
+        r(48px),
+        '../images/select/close.png');
+        position: absolute;
+        top: r(23px);
+        right: r(23px);
+        z-index: 3;
+    }
+    .mask_tit {
+        @include bg(r(690px),
+        r(94px),
+        '../images/select/mask_tit1.png');
+        @include font(r(36px),
+        #fffffe);
+        line-height: r(94px);
+        text-align: center;
+    }
+    .con {
+        background: #fff;
+        padding: r(29px) r(45px) r(60px) r(45px);
+        border-radius: 0 0 r(20px) r(20px);
+        textarea {
+            display: block;
+            width: 100%;
+            height: r(230px);
+            border: 1px solid #ddd;
+            border-radius: 0;
+            @include font(r(26px),
+            #999);
+            padding-top: r(38px);
+            padding-left: r(34px);
+        }
+        .number {
+            @include font(r(24px),
+            #999);
+            text-align: right;
+            padding-top: r(19px);
+        }
+        .m-btn {
+            @include bg(r(600px),
+            r(84px),
+            '../images/select/m-btn.png');
+            margin-top: r(34px);
+            text-align: center;
+            @include font(r(34px),
+            #711b15);
+            line-height: r(84px);
+        }
+    }
+}
+
+.mask_con2 {
+    width: r(600px);
+    position: relative;
+    z-index: 2;
+    .close {
+        @include bg(r(48px),
+        r(48px),
+        '../images/select/close.png');
+        position: absolute;
+        top: r(-58px);
+        right: r(-5px);
+        z-index: 3;
+    }
+    .mask_tit {
+        @include bg(r(600px),
+        r(73px),
+        '../images/select/mask_tit2.png');
+    }
+    .con {
+        background: #fff;
+        border-radius: 0 0 r(20px) r(20px);
+        padding-bottom: r(40px);
+    }
+    .m-btn2 {
+        @include bg(r(500px),
+        r(79px),
+        '../images/select/m-btn2.png');
+        margin: r(72px) auto 0;
+        text-align: center;
+        @include font(r(30px),
+        #711b15);
+        line-height: r(79px);
+        display: block;
+    }
+    .txtCon{
+        padding-top: r(94px); 
+    }
+}
+
+.m-p4 {
+    @include font(r(36px),
+    #434343);
+    text-align: center;
+    font-weight: bold;
+}
+
+.tipsBox{
+    @include box-center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    .tips{
+        padding: r(20px) r(40px);
+        @include font(r(30px),
+        #fff);
+        background: rgba(0,0,0,0.6);
+        border-radius: r(8px);
+    }
+}
+
+#wxAlert{
+    img{
+        width: 100%;
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+}
+

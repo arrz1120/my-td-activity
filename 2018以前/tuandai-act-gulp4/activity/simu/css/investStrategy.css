@@ -1,0 +1,103 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.icon-home-page {
+  display: block;
+  background: url("../images/home-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+.icon-my-page {
+  display: block;
+  background: url("../images/my-page.png") no-repeat center;
+  width: 1.45067rem;
+  height: 1.45067rem;
+  background-size: contain; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+.strategy-list {
+  width: 100%;
+  padding: 0 0.64rem;
+  font-size: 0; }
+  .strategy-list .strategy-item {
+    width: 100%;
+    padding: 1.06667rem 0 0; }
+    .strategy-list .strategy-item .strategy-date {
+      position: relative;
+      margin-bottom: 0.64rem;
+      text-align: center;
+      font-size: 0.55467rem;
+      color: #999; }
+      .strategy-list .strategy-item .strategy-date span {
+        position: relative; }
+        .strategy-list .strategy-item .strategy-date span:before, .strategy-list .strategy-item .strategy-date span:after {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          display: inline-block;
+          content: '';
+          width: 0.34133rem;
+          border-top: 1px solid #999; }
+        .strategy-list .strategy-item .strategy-date span:before {
+          left: -0.64rem; }
+        .strategy-list .strategy-item .strategy-date span:after {
+          right: -0.64rem; }
+    .strategy-list .strategy-item img {
+      width: 100%; }
+
+/*# sourceMappingURL=maps/investStrategy.css.map */

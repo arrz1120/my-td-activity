@@ -1,0 +1,175 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+ul,
+li,
+input {
+    box-sizing: border-box;
+}
+
+body{
+    background: #f2f2f2;
+}
+
+header {
+    height: pxToRem(88px);
+    background: #293366;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.triangle-topleft {
+    width: 0;
+    height: 0;
+    border-top: 5px solid #d8ba84;
+    border-right: 5px solid transparent;
+}
+
+.triangle-topright {
+    width: 0;
+    height: 0;
+    border-top: 5px solid #fff;
+    border-left: 5px solid transparent;
+}
+
+.online-con {
+    min-height: 100%;
+    padding-top: pxToRem(242px);
+    padding-bottom: pxToRem(1px);
+    ul{
+        width: 100%;
+    }
+    li {
+        width: 100%;
+        position: relative;
+        margin-bottom: pxToRem(80px);
+        img {
+            @include size(pxToRem(80px), pxToRem(80px));
+            position: absolute;
+            top: pxToRem(76px);
+            border-radius: 50%;
+        }
+    }
+    .time {
+        @include size(pxToRem(120px), pxToRem(46px));
+        background: #e6e6e6;
+        text-align: center;
+        line-height: pxToRem(46px);
+        color: #999999;
+        font-size: pxToRem(24px);
+        border-radius: 2px;
+        margin: 0 auto;
+    }
+    li.answer {
+        img {
+            left: pxToRem(30px);
+        }
+        .name {
+            color: #999999;
+            font-size: pxToRem(24px);
+            padding: pxToRem(30px) 0 0 pxToRem(122px);
+        }
+        .text {
+            position: relative;
+            width: pxToRem(491px);
+            background: #fff;
+            padding: pxToRem(22px) pxToRem(57px) pxToRem(26px) pxToRem(31px);
+            margin-left: pxToRem(130px);
+            margin-top: pxToRem(18px);
+            border-radius: 0 2px 2px 2px;
+            .triangle-topright {
+                position: absolute;
+                top: 0;
+                left: -5px;
+            }
+            p {
+                color: #333;
+                font-size: pxToRem(30px);
+                line-height: pxToRem(36px);
+            }
+        }
+    }
+    li.ask {
+        img {
+            right: pxToRem(30px);
+        }
+        .text {
+            position: relative;
+            width: pxToRem(491px);
+            background: #d8ba84;
+            padding: pxToRem(22px) pxToRem(31px) pxToRem(26px) pxToRem(31px);
+            margin-left: pxToRem(120px);
+            margin-top: pxToRem(30px);
+            border-radius: 2px 0 2px 2px;
+            .triangle-topleft {
+                position: absolute;
+                top: 0;
+                right: -5px;
+            }
+            p {
+                color: #fff;
+                font-size: pxToRem(30px);
+                line-height: pxToRem(36px);
+            }
+        }
+    }
+}
+
+.talk-box{
+    background: #fff;
+    @include size(100%,pxToRem(110px));
+    position: fixed;
+    z-index: 9;
+    top: pxToRem(88px);
+    left: 0;
+    padding: pxToRem(20px) 0;
+    .inp-box{
+        padding: 0 pxToRem(30px);
+        @include clearfix
+        .inp{
+            @include float-left;
+            @include size(pxToRem(570px),pxToRem(70px));
+            border: 1px solid #e6e6e6;
+        }
+        input{
+            display: block;
+            @include size(100%,100%);
+            padding-left: pxToRem(20px);
+            font-size: pxToRem(30px);
+            outline: none;
+            border: none;
+        }
+        .send{
+            @include float-right;
+            @include size(pxToRem(100px),pxToRem(70px));
+            background: #c8a66b;
+            line-height: pxToRem(70px);
+            color: #fff;
+            text-align: center;
+            font-size: pxToRem(26px);
+        }
+    }
+}

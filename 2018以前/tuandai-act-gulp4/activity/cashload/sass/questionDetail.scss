@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+.scroll {
+    background-color: $bg-grey;
+    .qd-content {
+        // height: 100%;
+        background-color: $bg-white;
+        .qd-container {
+            width: 100%;
+            padding-left: pxToRem(30px);
+            font-size: 0;
+        }
+    }
+}
+
+.qd-question {
+    width: 100%;
+    display: block;
+    min-height: pxToRem(116px);
+    font-size: pxToRem(34px);
+    color: $txt-black;
+    line-height: 1.2;
+    padding: pxToRem(38px) pxToRem(30px) pxToRem(38px) 0;
+    position: relative;
+    font-weight: bold;
+    &:before {
+        @include border('bottom', $border-color-grey);
+    }
+}
+.qd-answer {
+    width: 100%;
+    padding: pxToRem(46px) pxToRem(30px) pxToRem(46px) 0;
+    font-size: pxToRem(30px);
+    line-height: pxToRem(60px);
+    color: $txt-black;
+}
+.qd-btns {
+    width: 100%;
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    font-size: 0;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    &:before {
+        @include border('top', $border-color-grey);
+    }
+    &>div{
+        width: 50%;
+        display: inline-block;
+        font-size: pxToRem(30px);
+        span {
+            height: pxToRem(40px);
+        }
+        span, i {
+            vertical-align: middle;
+        }
+        i {
+            width: pxToRem(32px);
+            height: pxToRem(30px);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin-right: pxToRem(20px);
+        }
+    }
+    .qd-btn-positive {
+        color: $txt-yellow;
+        position: relative;
+        &:before {
+            @include border('right', $border-color-grey);
+        }
+    }
+    .qd-icon-positive {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAMAAACxiD++AAAAYFBMVEUAAAD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD6tgD///974gKqAAAAHnRSTlMA8CetUfL8imQU9unWxLksGQjlzLCdmnZwazwzGwzEQklqAAAApUlEQVQoz4XSWQ7DIAxFUZshgUxNOo/O/ndZEKRSI4Pf7z18IBmYvc3deSjOnChsKPYHpc2FrprUm6UAJkobC91QnuP7AXPHD9+PlNey3eDWO79L82ttp55+u/59TMeHKzFDrUIPOQGWKNBUA6QB68AC1cEggVYCTwH0IICLBIwAukUAZxCAE0DjBTCCAG4SUBFgGdjYa/egQ65dFKrtJi0HrE79C5N9T6JmE7L7AAAAAElFTkSuQmCC');
+    }
+    .qd-icon-negative {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAMAAAB61OwbAAAAb1BMVEUAAABvb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29vb29zzc2sAAAAJHRSTlMACFWqbQTz672fs6+NXiMS5N/DciknH+fUpH5kTzgPzg6TQCy9gIixAAAA1ElEQVQoz4XP2Y6EIBCF4YMCgoK479o9M77/M04izMV0WP6bCqkvIQUMFb898WrA0zBTA+DGR4YWVpQU8AGgL5/BrxC4uNuEANqfBFBbAny/EoAVUxxA0gQ4RAIQbuIAlU4AnSeA4SQOII4EoBI3i4FpRjNGQQMlY0AqkE7sx1n/AySz7aIjANOy6tp7WfsRrn7Jn6Rm+Ot97l+Ncu9MwNslcitYe/oFK1d3fgl/pKN2FnVATG6zKQTaqmeMTQiQl/1kNiFRL6UeSV28EYpka8uLHq5frdAPljWSRmMAAAAASUVORK5CYII=');
+    }
+
+}
+.qd-recomment {
+    width: 100%;
+    text-align: center;
+    color: $txt-grey;
+    font-size: pxToRem(24px);
+    height: pxToRem(26px);
+    display: block;
+    margin-top: pxToRem(20px);
+}

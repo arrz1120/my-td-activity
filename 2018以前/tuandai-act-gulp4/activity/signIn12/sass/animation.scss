@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import "../../../sass/func";
+
+.cfs_fadeInDown{
+  animation-name: cfs_fadeInDown;
+  animation-duration: 0.5s;
+  -webkit-animation-name: cfs_fadeInDown;
+  -webkit-animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes cfs_fadeInDown{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+  }
+  90%,100%{
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes cfs_fadeInDown{
+  0%{
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  90%,100%{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+
+
+@keyframes slideArrow {
+  from {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(0, 100%);
+    -webkit-transform: translate(0, 100%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideArrow {
+  from {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(0, 100%);
+    -webkit-transform: translate(0, 100%);
+    opacity: 0;
+  }
+}
+
+
+.aniFadeIn{-webkit-animation: aniFadeIn 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniFadeOut{-webkit-animation: fadeOut 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniShow{-webkit-animation: aniShow 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+.aniHide{-webkit-animation: aniHide 0.4s cubic-bezier(0.7,0,0.3,1) both;}
+
+@-webkit-keyframes aniFadeIn{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+  }
+@-webkit-keyframes fadeOut{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+  }
+
+@-webkit-keyframes aniShow{
+  0%{-webkit-transform: translate3d(0,-200px,0);opacity: 0;}
+  100%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+  }
+@-webkit-keyframes aniHide{
+  0%{-webkit-transform: translate3d(0,0,0);opacity: 1;}
+  100%{-webkit-transform: translate3d(0,-200px,0);opacity: 0;}
+  }
+

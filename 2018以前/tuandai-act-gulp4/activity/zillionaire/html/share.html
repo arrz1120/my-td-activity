@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>zillionaire</title>
+
+
+
+	<!-- build:css ../css/share.css -->
+	<link rel="stylesheet" href="../css/share.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+<p class="tips">【广告】市场有风险，投资需谨慎</p>
+
+<img src="../images/index_tit.png" class="tit" alt="">
+
+<div class="msg">
+
+	<div class="user">
+		<div class="tx_wraper">
+			<img src="../images/tx.png" class="tit" alt="">
+		</div>
+		<p class="name">小明在路上</p>
+	</div>
+
+	<p class="txt">我在团贷网获得 <span>xxx</span>奖励<br>不服来战</p>
+
+</div>
+
+
+<div class="zl">
+	<p class="txt_1">已有<span>0/2</span>位</p>
+	<p class="txt_2">用户助力</p>
+	<p class="curnum">+2</p>
+</div>
+
+
+<p class='txt_3'>满足两个好友点赞助力，即可获得一次免费游戏机会<br>
+	（免费机会只限当天有效）</p>
+
+
+<a href="" class="btn"></a>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script> -->
+<!-- <script src="../js/index.js" type="text/javascript" charset="utf-8"></script> -->
+</html>

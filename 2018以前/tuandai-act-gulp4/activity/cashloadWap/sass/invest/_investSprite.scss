@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import "../../../../sass/func";
+.icon-invest {
+    display: inline-block;
+    background-image: url(../../images/investSprite.png);
+    background-size: pxToRem(127px) pxToRem(97px);
+    background-repeat: no-repeat;
+}
+
+.icon-inves-dot {
+    @extend .icon-invest;
+    background-position: pxToRem(-122px) pxToRem(-38px);
+    width: pxToRem(5px);
+    height: pxToRem(5px);
+}
+
+.icon-invest-android {
+    @extend .icon-invest;
+    background-position: pxToRem(0px) pxToRem(-71px);
+    width: pxToRem(22px);
+    height: pxToRem(26px);
+}
+
+.icon-invest-arrow {
+    @extend .icon-invest;
+    background-position: pxToRem(-79px) pxToRem(-38px);
+    width: pxToRem(21px);
+    height: pxToRem(12px);
+}
+
+.icon-invest-icon-seri {
+    @extend .icon-invest;
+    background-position: pxToRem(-122px) pxToRem(0px);
+    width: pxToRem(5px);
+    height: pxToRem(28px);
+}
+
+.icon-invest-info {
+    @extend .icon-invest;
+    background-position: pxToRem(-35px) pxToRem(-36px);
+    width: pxToRem(26px);
+    height: pxToRem(26px);
+}
+
+.icon-invest-ios {
+    @extend .icon-invest;
+    background-position: pxToRem(-79px) pxToRem(0px);
+    width: pxToRem(22px);
+    height: pxToRem(28px);
+}
+
+.icon-invest-web {
+    @extend .icon-invest;
+    background-position: pxToRem(-40px) pxToRem(0px);
+    width: pxToRem(29px);
+    height: pxToRem(26px);
+}
+
+.icon-invest-wx {
+    @extend .icon-invest;
+    background-position: pxToRem(0px) pxToRem(0px);
+    width: pxToRem(30px);
+    height: pxToRem(26px);
+}
+
+.icon-invest-certification {
+    @extend .icon-invest;
+    background-position: pxToRem(0px) pxToRem(-36px);
+    width: pxToRem(25px);
+    height: pxToRem(25px);
+}
+
+.icon-link {
+    @extend .icon-invest;
+    background-position: pxToRem(-111px) pxToRem(0px);
+    width: 1px;
+    height: pxToRem(61px);
+}
+
+.icon-rate-line {
+    @extend .icon-invest;
+    background-position: pxToRem(-32px) pxToRem(-70px);
+    width: pxToRem(42px);
+    height: 1px;
+}

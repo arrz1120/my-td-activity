@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script>
+        window.mobileUtils = function (e, t) {
+            var i = navigator.userAgent,
+                n = /android|adr/gi.test(i),
+                a = /iphone|ipod|ipad/gi.test(i) && !n;
+            return {
+                isAndroid: n,
+                isIos: a,
+                isMobile: n || a,
+                isWeixin: /MicroMessenger/gi.test(i),
+                isQQ: /QQ\/\d/gi.test(i),
+                dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+                rem: null,
+                fixScreen: function () {
+                    var i = this,
+                        n = t.querySelector('meta[name="viewport"]'),
+                        r = n ? n.content : "";
+                    if (r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+                        var o, s = t.documentElement,
+                            d = s.dataset.mw || 750,
+                            m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+                        t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n =
+                            t.createElement("meta"), n.name = "viewport", n.content = function (e) {
+                                return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+                            }(1), s.firstElementChild.appendChild(n);
+                        var c = function () {
+                            var e = s.getBoundingClientRect().width;
+                            e = e > d ? d : e;
+                            var t = e / 16;
+                            i.rem = t, s.style.fontSize = t + "px"
+                        };
+                        e.addEventListener("resize", function () {
+                            clearTimeout(o), o = setTimeout(c, 300)
+                        }, !1), e.addEventListener("pageshow", function (e) {
+                            e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+                        }, !1), c()
+                    }
+                }
+            }
+        }(window, document), mobileUtils.fixScreen();
+    </script>
+</head>
+
+<body>
+    <div class='wraper'>
+        <div class="logo"></div>
+        <div class="logo_td"></div>
+        <div class="sq">我的手气</div>
+        <div class="rule_btn" id="rule_btn">活动规则</div>
+        <div class="lottery_wraper">
+            <div class="deng"></div>
+            <ul class="lotcont" id="lottery">
+                <li>
+                    <div class="lotitem lottery-unit lottery-unit-0 icon-yellow">
+
+                        手气值
+                    </div>
+                    <div class="lotitem lottery-unit lottery-unit-1 icon-blue">
+                        爱奇艺/腾讯会员
+
+                    </div>
+                    <div class="lotitem lottery-unit lottery-unit-2 icon-red">
+                        手机话费
+                    </div>
+
+                </li>
+                <li>
+                    <div class="lotitem lottery-unit lottery-unit-7 icon-red">
+                        888元现金
+                    </div>
+
+                    <!-- start_btn：开始抽奖 -->
+                    <!-- try_btn：试试手气 -->
+                    <!-- share_btn：分享 -->
+
+                    <div class=" start_btn"></div>
+
+                    <div class="lotitem lottery-unit lottery-unit-3 icon-yellow mbj">
+                        kindle
+                    </div>
+                </li>
+
+                <li>
+                    <div class="lotitem lottery-unit lottery-unit-6 icon-yellow">
+                        红包
+                    </div>
+                    <div class="lotitem lottery-unit lottery-unit-5 icon-blue">
+                        京东卡
+                    </div>
+                    <div class="lotitem lottery-unit lottery-unit-4 icon-red">
+                        小派礼包
+                    </div>
+
+                </li>
+            </ul>
+
+            <p class="link_wraper">
+                <a href="#">登录</a>参加抽奖
+            </p>
+        </div>
+
+        <div class="prize_list">
+            <h2 class="prize_tit">手气月榜
+                <span>（每月1号自动清零结算 15分钟一更）</span>
+            </h2>
+            <!-- Swiper -->
+            <div class="swiper-container" id="prize_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="prize_box prize_box_0">
+                            500元现金红包
+                        </div>
+                        <div class="prize_box prize_box_1">
+                            富士拍立得相机
+                        </div>
+                        <div class="prize_box prize_box_2">
+                            200元京东购物卡
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="prize_box prize_box_3">
+                            三只松鼠坚果礼包</div>
+                        <div class="prize_box prize_box_4">
+                            德尔玛加湿器</div>
+                        <div class="prize_box prize_box_5">
+                            小π充电宝</div>
+                    </div>
+
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+        </div>
+
+        <dl class="prize_marquee" id="prize_marquee">
+            <dt>
+                <div class='msg_box'>
+                    <p class="phone_num">137****7769</p>
+                    <p class="msg">抽中现金红包99元</p>
+                </div>
+                <div class='msg_box'>
+                    <p class="phone_num">137****7769</p>
+                    <p class="msg">抽中现金红包199元</p>
+                </div>
+                <div class='msg_box'>
+                    <p class="phone_num">137****7769</p>
+                    <p class="msg">抽中现金红包299元</p>
+                </div>
+                <div class='msg_box'>
+                    <p class="phone_num">137****7769</p>
+                    <p class="msg">抽中现金红包1999元</p>
+                </div>
+                <div class='msg_box'>
+                    <p class="phone_num">137****7769</p>
+                    <p class="msg">抽中现金红包2999元</p>
+                </div>
+            </dt>
+            <dd></dd>
+        </dl>
+
+
+        <div class="btn_wraper">
+            <a href="#" class="btn1" id="sq_btn"></a>
+            <a href="#" class="btn2"></a>
+        </div>
+
+
+        <p class="notice">市场有风险，投资需谨慎</p>
+
+
+        <!-- 奖品弹窗 -->
+
+        <div class="prize_alert alert"  style="display:none">
+            <div class="mark">
+
+            </div>
+
+            <div class="con">
+                <p class="txt_1 txt">恭喜您获得</p>
+                <p class="txt_2 txt">888元现金红包&10手气值</p>
+                <img src="images/prize_3.png" class="prize_img">
+                <p class="txt txt_3">奖品已发放到团贷网个人账户</p>
+                <div class="btn_know" id="btn_know">我知道了</div>
+                <div class="close"></div>
+            </div>
+        </div>
+
+
+
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+
+        <!-- 规则弹窗  -->
+
+
+        <div class="rule_alert alert" id="rule_alert" style="visibility: hidden;">
+            <div class="mark">
+
+            </div>
+
+            <div class="con" id="rule_tab">
+                <div class="tab_nav">
+                    <div class="tab_nav_item"></div>
+                    <div class="tab_nav_item"></div>
+                </div>
+
+                <div class="tab_con">
+                    <div class="rule_con tab_con_item cur_con">
+                        <ul>
+                            <li>
+                                <span>1</span>系统每日赠送1次抽奖机会；您若分享活动链接到朋友圈或者给微信好友，可额外再获赠1次抽奖机会。</li>
+                            <li>
+                                <span>2</span>点击“赚手气”按钮分享，有微信好友通过您的分享助力，您可获得额外赠送的手气值，数量随机。</li>
+                            <li>
+                                <span>3</span>手气值每月统计一次，排行前7名均可获得豪礼奖励。</li>
+                            <li>
+                                <span>4</span>本月奖励（抽奖及排行）将于下个月10日发放，届时请登录您的账户查收；红包将发放至您的团宝箱，实物奖励将发放至会员商城。</li>
+                            <li>
+                                <span>3</span>手气值每月统计一次，排行前7名均可获得豪礼奖励。</li>
+                            <li>
+                                <span>3</span>手气值每月统计一次，排行前7名均可获得豪礼奖励。</li>
+                            <li>
+                                <span>4</span>本月奖励（抽奖及排行）将于下个月10日发放，届时请登录您的账户查收；红包将发放至您的团宝箱，实物奖励将发放至会员商城。</li>
+                            <li>
+                                <span>3</span>手气值每月统计一次，排行前7名均可获得豪礼奖励。</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="lottery_rec_con tab_con_item ">
+
+                        <p class="txt_wraper">请
+                            <a href="#">登录</a>查看抽奖记录</p>
+
+                        <p class="txt_wraper">亲,您还未抽奖
+                            <br>
+                            <a href="#">立即前往抽奖</a>
+                        </p>
+
+                        <div id="comlist" class="xxy-down-viewbox comlist">
+                            <div class="view" data-befor="下拉刷新" data-after="上拉加载">
+                                <div class="inner">
+                                    <ul id="rec_list">
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link get">领取</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link get">领取</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link get">领取</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link get">领取</a>
+                                        </li>
+                                        <li>
+                                            <p class="date">1-10 21:55</p>
+                                            <p class="prize_num">99元现金红包</p>
+                                            <a href="" class="link more">查看</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="close"></div>
+            </div>
+
+        </div>
+
+
+
+        <!-- toast style="display:none" -->
+
+
+        <div class="toast alert" id="toast" style="display:none">
+            <div class="txt">toast</div>
+        </div>
+
+    </div>
+
+
+
+        <!-- 手气排行 -->
+
+        <div class="sq_rank alert" id="sq_rank"  style="display:none">
+                <div class="mark">
+
+                </div>
+
+                <div class="con">
+                    <div class="tit">
+                        <span class="left"></span>
+                        <i>1</i>月手气排行（进行中）
+                        <span class="right"></span>
+                    </div>
+
+                    <div class="rank_con">
+                        <p class="txt">上次更新时间为2018-1-1 01：00：56</p>
+                        <!-- Swiper -->
+                        <div class="swiper-container rank_swiper" id="rank_swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+
+                                    <div class="swiper-slide-1">
+                                        <ul>
+
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+
+                                    <div class="swiper-slide-1">
+                                        <ul>
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="swiper-slide">
+
+                                    <div class="swiper-slide-1">
+                                        <ul>
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <span class="num">1</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">2</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span class="num">3</span>
+                                                <div class="img_tx">
+                                                    <img src="./images/tx.png" alt="">
+                                                </div>
+                                                <p class="phone_num">158****1006</p>
+                                                <p class="code_num">564862</p>
+                                                <p class="prize_num">500
+                                                    <br/> 现金红包
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="swiper-button-next1"></div>
+                            <div class="swiper-button-prev1"></div>
+                        </div>
+                        <!-- Swiper end -->
+
+                        <!-- 当前排名 -->
+                        <div class="user_msg">
+                            <span class="num">1</span>
+                            <div class="img_tx">
+                                <img src="./images/tx.png">
+                            </div>
+                            <p class="phone_num">158****1006</p>
+                            <p class="code_num">564862</p>
+                            <p class="prize_num">88
+                                <br>当前排名</p>
+                        </div>
+
+                        <!-- 未登录 -->
+                        <!-- <div class="user_msg not_login">
+                                <div class="img_tx">
+                                        <img src="./images/tx.png">
+                                </div>
+                                <a href="#" class="login">登录查看我的排名</a>
+                        </div>
+                         -->
+
+
+
+                    </div>
+                    <div class="close"></div>
+                </div>
+            </div>
+
+</body>
+
+<!-- build:js ./js/lib/jq.js -->
+<script type="text/javascript" src='./js/jquery-1.8.3.min.js'></script>
+<!-- endbuild -->
+
+<!-- build:js ./js/lib/fastclick-swiper-jsbridge-share.js -->
+<script type="text/javascript" src='./js/fastclick.js'></script>
+<script type="text/javascript" src='./lib/vendors/swiper-3.4.2.min.js'></script>
+<script type="text/javascript" src='./lib/vendors/jsbridge-3.1.5.js'></script>
+<script type="text/javascript" src='./js/appShare.bundle.js'></script>
+<script type="text/javascript" src='./js/xxy.min.js'></script>
+<!-- endbuild -->
+
+<script type="text/javascript" src='./js/index.js'></script>
+
+
+</html>

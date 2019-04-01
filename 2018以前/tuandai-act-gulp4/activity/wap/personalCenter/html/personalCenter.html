@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>我-个人中心</title>
+		<!-- build:css ../css/personalCenter.css -->
+		<link rel="stylesheet" href="../css/personalCenter.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="top-bar bg-fff">
+				<div class="avatar">
+					<img src="../images/personalCenter/avatar.png" alt="">
+				</div>
+				<!--特级标识v1 v2 v3 v4 v5 v6 v7 v8-->
+				<span class="name">团小派 <i class="grade v2"></i></span>
+				<a href="" class="to-cg">存管，密码<i></i></a>
+				<a href="" class="to-hd">
+					<img src="../images/personalCenter/hd.png" alt="">
+				</a>
+				<a href="" class="to-setting"></a>
+			</div>
+			<div class="zc-con bg-fff">
+				<div class="my-zc">
+					<span class="txt-zc">我的团贷资产 <i id="eye" class="eye ico_unsee"></i></span>
+					<span class="money" id="totalAmount">--</span>
+					<a href="">查看详情<i></i></a>
+				</div>
+				<div class="balance">
+					<span class="yue">可用余额</span>
+					<span class="yue-nb" id="totalAviMoney">7,812,112.32</span>
+					<a href="" class="to-tx">提现</a>
+					<a href="" class="to-cz">充值</a>
+				</div>
+				<div class="webkit-box link-con">
+					<a href="" class="box-flex1"><i class="icon-hk"></i>回款计划</a>
+					<a href="" class="box-flex1"><i class="icon-jl"></i>投资记录</a>
+				</div>
+			</div>
+			<div class="j-con">
+				<a href="" class="j-a"><i class="c1"></i>财富日历</a>
+				<a href="" class="j-a"><i class="c2"></i>账单</a>
+				<a href="" class="j-a"><i class="c3"></i>智享管理</a>
+				<a href="" class="j-a"><i class="c4"></i>派生财富</a>
+				<a href="" class="j-a"><i class="c5"></i>团宝箱</a>
+				<a href="" class="j-a"><i class="c6"></i>我的邀请</a>
+			</div>
+		</div>
+
+		<div class="pageBottom">
+			<a class="bottom-item bottom-index">首页</a>
+			<a class="bottom-item bottom-my-cur">我</a>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/Common.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+        function encryptAmount(seeType) {
+            if (seeType == "" || seeType == undefined)
+                seeType = "0";
+            var seeCtrl = $("#eye");
+            if (seeType == "0") {
+                $("#totalAmount").html("--");
+                $("#totalAviMoney").text("--");
+
+                seeCtrl.removeClass("ico_see").addClass("ico_unsee");
+            } else {
+                $("#totalAmount").html("777,812,112.<em>32</em>");
+                $("#totalAviMoney").text("7,812,112.32");
+                seeCtrl.removeClass("ico_unsee").addClass("ico_see");
+            }
+        }
+
+        $(function () {
+
+            var noSee = getCookie("noSee");
+            encryptAmount(noSee);
+
+            $("#eye").click(function () {
+                if ($(this).hasClass("ico_see")) {
+                    setCookie("noSee", "0");
+                    encryptAmount("0");
+                } else {
+                    setCookie("noSee", "1");
+                    encryptAmount("1");
+                }
+            });
+
+        });
+
+	</script>
+</html>

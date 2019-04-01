@@ -1,0 +1,312 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+.tab-container {
+    z-index: 100;
+}
+
+.job-container {
+    background-color: $default-color;
+    padding: 0 pxToRem(30px);
+    position: relative;
+    z-index: 100;
+    margin-top: pxToRem(-3px);
+    .job-box {
+        padding: pxToRem(25px) pxToRem(20px);
+        border-top: 1px solid #cfcfcf;
+        span {
+            position: relative; // width: 25%;
+            padding: pxToRem(25px) 0; // text-align: center;
+            font-size: pxToRem(26px);
+            color: $txt-grey-color;
+            margin-right: pxToRem(66px);
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+            p {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            &.act {
+                color: $txt-black-color;
+                &:after {
+                    @extend .icon-checked;
+                    content: '';
+                    position: absolute;
+                    right: pxToRem(-32px); // margin-left: pxToRem(5px);
+                }
+            }
+        }
+    }
+}
+
+.tab-content {
+    position: relative;
+    background-color: #ececec; // 公共样式
+    z-index: 99;
+    .tab-content-box {
+        margin-top: pxToRem(20px);
+        padding: pxToRem(20px) pxToRem(30px);
+        background-color: $default-color;
+        .tab-content-title {
+            font-size: pxToRem(26px);
+            color: $txt-black-color;
+            padding: 0 pxToRem(30px) pxToRem(20px);
+            border-bottom: 1px solid #cfcfcf;
+        }
+    }
+    /* 招聘职位 */
+    &.job-tab-content {
+        padding-top: pxToRem(210px);
+        overflow: auto;
+        .job-list {
+            padding: 0 pxToRem(30px);
+            .job-item {
+                width: 100%;
+                margin-top: pxToRem(20px);
+                padding: pxToRem(36px) pxToRem(30px);
+                padding-right: pxToRem(20px);
+                background-color: $default-color;
+                .job-header {
+                    position: relative;
+                    margin-bottom: pxToRem(40px);
+                    .job-name {
+                        font-size: pxToRem(24px);
+                        color: $txt-black-color;
+                        max-width: pxToRem(500px);
+                        line-height: normal;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .job-salary {
+                        color: #ff6f6f;
+                        font-size: pxToRem(24px);
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 0;
+                        z-index: 99;
+                    }
+                }
+                .job-detail {
+                    color: $txt-grey-color;
+                    span {
+                        padding: 0 pxToRem(20px);
+                        border-right: 1px solid #d8d8d8;
+                        font-size: pxToRem(22px);
+                        &:last-child {
+                            border-right: 0;
+                        }
+                    }
+                }
+            }
+            .pull-loadmore {
+                padding: pxToRem(16px) 0;
+                display: none;
+                .loading-wrapper {
+                    width: pxToRem(50px);
+                    height: pxToRem(50px);
+                    position: relative;
+                    z-index: 1;
+                    margin: auto;
+                    line-height: pxToRem(50px);
+                    &:after {
+                        content: "";
+                        width: pxToRem(50px);
+                        height: pxToRem(50px);
+                        position: absolute;
+                        z-index: 1;
+                        border: 1px solid #d1d1d1;
+                        border-radius: pxToRem(50px);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        box-sizing: border-box;
+                    }
+                    .icon-loading {
+                        position: relative;
+                        z-index: 1;
+                        display: block;
+                        background-image: url('../images/loading-logo.png');
+                        background-size: pxToRem(34px) pxToRem(34px);
+                        background-repeat: no-repeat;
+                        background-position: 50% 50%;
+                        animation: rotating .8s linear infinite;
+                        animation-fill-mode: both;
+                        -webkit-animation: rotating .8s linear infinite;
+                        -webkit-animation-fill-mode: both;
+                        width: pxToRem(50px);
+                        height: pxToRem(50px);
+                        margin: auto;
+                        line-height: pxToRem(50px);
+                    }
+                }
+            }
+            .deadline {
+                padding: pxToRem(32px) 0;
+                text-align: center;
+                color: #b9b9b9;
+                font-size: 0;
+                display: none;
+                .deadline-txt {
+                    font-size: pxToRem(22px);
+                    vertical-align: middle;
+                    margin: 0 pxToRem(30px);
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .deadline-line {
+                    width: 28%;
+                    border-top: 1px dashed #b9b9b9;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+        /* .deadline{
+            margin: pxToRem(32px) 0;
+            text-align: center;
+            color: #b9b9b9;
+            .deadline-txt{
+                font-size: pxToRem(22px);
+                vertical-align: middle;
+                margin: 0 pxToRem(30px);
+            }
+            .deadline-line{
+                width: 28%;
+                border-top: 1px dashed #b9b9b9;
+            }
+        } */
+    }
+    /* 宣讲行程 */
+    // 宣讲院校
+    .school-box {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: pxToRem(52px);
+        .school-preach{
+            width: pxToRem(690px);
+            display: block;
+            margin: auto;
+            margin-top: pxToRem(40px);
+        }
+    } // 流程
+    .process-box {
+        padding-top: pxToRem(40px);
+        padding-bottom: pxToRem(100px);
+        .process-content {
+            margin-bottom: pxToRem(50px);
+            white-space: nowrap;
+            .icon-arrow-right {
+                margin: 0 pxToRem(12px);
+            }
+            .process-item {
+                position: relative;
+                width: pxToRem(86px);
+                height: pxToRem(86px);
+                border-radius: 100%;
+                border: 1px solid $bg-orange-color;
+                text-align: center;
+                line-height: pxToRem(86px);
+                vertical-align: middle;
+                p {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: pxToRem(26px);
+                    font-size: pxToRem(22px);
+                    color: $bg-orange-color;
+                }
+            }
+        } // 二维码
+        .qr-code-content {
+            text-align: center;
+            .qr-code-pic {
+                width: pxToRem(220px);
+                margin-bottom: pxToRem(10px);
+            }
+            .qr-code-txt {
+                font-size: pxToRem(20px);
+                line-height: pxToRem(30px);
+                color: #666;
+            }
+        }
+    }
+    /* Q&A */
+    .question {
+        position: relative;
+        padding: pxToRem(6px) 0;
+        .question-txt {
+            width: 94%;
+            vertical-align: middle;
+            font-size: pxToRem(26px);
+            color: #2d2d2d;
+            line-height: pxToRem(32px);
+        }
+        .icon-arrow-down {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            &.rotate {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .answer {
+        display: none;
+        margin-top: pxToRem(10px);
+        padding: pxToRem(10px) 0;
+        color: #666;
+        font-size: pxToRem(22px);
+        line-height: pxToRem(34px);
+        text-align: justify;
+    }
+}
+
+// 图标
+.icon-checked {
+    @include background('../images/checked.png',
+    27px,
+    27px);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-arrow-right {
+    @include background('../images/arrow-right.png',
+    10px,
+    18px);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-arrow-down {
+    @include background('../images/arrow-down.png',
+    18px,
+    11px);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@-webkit-keyframes rotating {
+    0% {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+    }
+}

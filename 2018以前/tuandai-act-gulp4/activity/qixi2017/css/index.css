@@ -1,0 +1,176 @@
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* @function baseFontSize($width) {
+	return 20 * $width / 640;
+}
+ */
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch !important; }
+
+a {
+  text-decoration: none; }
+
+div,
+a {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background: #006ede; }
+
+.index {
+  width: 100%;
+  height: 100%;
+  background: url(../images/cloud.png) no-repeat;
+  background-size: 100% 100%;
+  padding-top: 0.64rem; }
+
+.cloud-bot {
+  width: 100%;
+  height: 3.904rem;
+  background: url(../images/cloud-bot.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3; }
+
+.img-i1 {
+  width: 7.33867rem;
+  height: 3.43467rem;
+  background: url(../images/img-i1.png) no-repeat;
+  background-size: 100% 100%;
+  margin-left: 5.26933rem; }
+
+.img-i2 {
+  width: 14.336rem;
+  height: 3.43467rem;
+  background: url(../images/img-i2.png) no-repeat;
+  background-size: 100% 100%;
+  margin: -0.896rem 0 0 0.85333rem; }
+
+.img-i3 {
+  width: 6.35733rem;
+  height: 1.92rem;
+  background: url(../images/img-i3.png) no-repeat;
+  background-size: 100% 100%;
+  margin: -0.42667rem 0 0 4.77867rem; }
+
+.bird1 {
+  width: 3.54133rem;
+  height: 1.42933rem;
+  background: url(../images/bird1.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 7.08267rem;
+  left: 0.53333rem; }
+
+.bird2 {
+  width: 2.73067rem;
+  height: 1.68533rem;
+  background: url(../images/bird2.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 10.32533rem;
+  right: 0.704rem; }
+
+.dujitang {
+  width: 14.05867rem;
+  height: 11.09333rem;
+  background: url(../images/dujitang.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0.55467rem;
+  left: 1.024rem;
+  z-index: 2; }
+
+.cloud {
+  width: 11.69067rem;
+  height: 7.168rem;
+  background: url(../images/img-i4.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 10.56rem;
+  left: 2.13333rem;
+  z-index: 1;
+  padding-top: 2.60267rem; }
+  .cloud p {
+    font-size: 0.64rem;
+    color: #fff;
+    line-height: 1.06667rem;
+    text-align: center; }
+
+.index-btn {
+  width: 5.41867rem;
+  height: 2.34667rem;
+  background: url(../images/index-btn.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 2.56rem;
+  left: 5.39733rem;
+  z-index: 3; }
+
+/*# sourceMappingURL=maps/index.css.map */

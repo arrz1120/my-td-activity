@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>下载app</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/downloadApp.css -->
+    <link rel="stylesheet" href="../css/downloadApp.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="content">
+    <div class="dl-box bg-size">
+        <span class="logo bg-size"></span>
+        <a href="javascript:;">下载APP</a>
+        <p class="txt">2010-2017 版权所有 © 派生财富 粤ICP备14077715</p>
+    </div>
+</div>
+
+<!--指引层-->
+<div class="mask open-browser" id="openBrowser" style="display: none;">
+    <div class="pop-container icon bg-size"></div>
+    <div class="masker" id="masker"></div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script>
+    (function(){
+        FastClick.attach(document.body);
+
+        var $body = $('body');
+
+        $('#appDownload').on('click', function () {
+            if ((navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i))) {
+                window.location.href=$(this).data('iphone');
+            } else {
+                window.location.href=$(this).data('android');
+            }
+        });
+
+        $body.on('click', '#masker', function () {
+            $("#openBrowser").hide();
+        });
+
+    })();
+</script>
+
+</html>

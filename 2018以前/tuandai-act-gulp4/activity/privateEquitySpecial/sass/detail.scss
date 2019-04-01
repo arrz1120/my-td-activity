@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+.content{
+    padding-bottom: 0;
+    overflow-y:hidden;
+    overflow-y:auto;
+    background-color: $default-color;
+}
+img{
+    width: 100%;
+    display: block;
+}
+// 底部
+.footer{
+    position: relative;
+    width: 100%;
+    .footer-back-index-btn{
+        display: block;
+        position: absolute;
+        right: pxToRem(36px);
+        bottom: pxToRem(36px);
+        width: pxToRem(140px);
+        height: pxToRem(50px);
+
+    }
+}

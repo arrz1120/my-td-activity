@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    // height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+    background: #3f77c1;
+}
+
+a {
+    text-decoration: none;
+}
+
+div,
+p,
+span {
+    box-sizing: border-box;
+}
+
+.banner {
+    width: 100%;
+    height: pxToRem(729px);
+    padding-top: pxToRem(66px);
+    background: #b5d6fa url(../images/banner.png) no-repeat;
+    background-size: 100% pxToRem(386px);
+    .txt {
+        width: pxToRem(709px);
+        height: pxToRem(493px);
+        background: url(../images/txt.png) no-repeat;
+        background-size: 100% 100%;
+        margin: 0 auto;
+    }
+}
+
+.con {
+    width: pxToRem(697px);
+    height: pxToRem(731px);
+    background: #fff;
+    margin: pxToRem(-145px) auto pxToRem(19px);
+    border-radius: pxToRem(7px);
+    padding: pxToRem(30px) pxToRem(36px) 0 pxToRem(26px);
+    .p1 {
+        margin-bottom: pxToRem(33px);
+    }
+    p {
+        color: #3f77c1;
+        font-size: pxToRem(30px);
+        line-height: pxToRem(42px);
+        position: relative;
+        padding-left: pxToRem(56px);
+        -webkit-user-select: text;
+        span {
+            display: block;
+            width: pxToRem(50px);
+            height: pxToRem(39px);
+            background: url(../images/arrow.png) no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: pxToRem(-2px);
+            left: 0;
+            padding-left: pxToRem(13px);
+            color: #3f77c1;
+            font-size: pxToRem(30px);
+            font-weight: bold;
+            line-height: pxToRem(39px);
+        }
+        b {
+            font-weight: bold;
+            font-size: pxToRem(30px);
+        }
+    }
+    .img {
+        width: pxToRem(645px);
+        margin: pxToRem(16px) auto 0;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .btn {
+        display: block;
+        width: pxToRem(220px);
+        height: pxToRem(61px);
+        background: #fecb43;
+        margin: pxToRem(25px) auto 0;
+        font-weight: bold;
+        font-size: pxToRem(37.5px);
+        text-align: center;
+        line-height: pxToRem(61px);
+        color: #3f77c1;
+        border-radius: pxToRem(6px);
+    }
+}

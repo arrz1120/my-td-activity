@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta content="email=no" name="format-detection" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="stylesheet" href="./css/index.css">
+  <script>
+    window.mobileUtils = function (e, t) {
+      var i = navigator.userAgent,
+        n = /android|adr/gi.test(i),
+        a = /iphone|ipod|ipad/gi.test(i) && !n;
+      return {
+        isAndroid: n,
+        isIos: a,
+        isMobile: n || a,
+        isWeixin: /MicroMessenger/gi.test(i),
+        isQQ: /QQ\/\d/gi.test(i),
+        dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+        rem: null,
+        fixScreen: function () {
+          var i = this,
+            n = t.querySelector('meta[name="viewport"]'),
+            r = n ? n.content : "";
+          if (r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+            var o, s = t.documentElement,
+              d = s.dataset.mw || 750,
+              m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+            t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement(
+              "meta"), n.name = "viewport", n.content = function (e) {
+              return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+            }(1), s.firstElementChild.appendChild(n);
+            var c = function () {
+              var e = s.getBoundingClientRect().width;
+              e = e > d ? d : e;
+              var t = e / 16;
+              i.rem = t, s.style.fontSize = t + "px"
+            };
+            e.addEventListener("resize", function () {
+              clearTimeout(o), o = setTimeout(c, 300)
+            }, !1), e.addEventListener("pageshow", function (e) {
+              e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+            }, !1), c()
+          }
+        }
+      }
+    }(window, document), mobileUtils.fixScreen();
+  </script>
+</head>
+
+<body>
+  <section class="sec1">
+    <p class="txt-top"><span>广告</span>市场有风险，投资需谨慎</p>
+    <div class="btn-rule invite-rule-btn"></div>
+    <div class="tit-page scale"></div>
+    <div class="con-page">
+      <div class="con-tit">活动时间：2018.01.01-01.31</div>
+      <div class="con-txt1">
+        <div idx="0" class="txt-flex invite-awards-flex-item">0.5%年化佣金</div>
+        <div idx="1" class="txt-flex invite-awards-flex-item">80元现金</div>
+      </div>
+      <div class="con-txt2">
+        <div idx="2" class="txt-flex invite-awards-flex-item">百元红包</div>
+        <div idx="3" class="txt-flex invite-awards-flex-item">400元大奖</div>
+      </div>
+      <div class="comment-scroll">
+        <div class="comment-barrage"></div>
+      </div>
+    </div>
+    <p class="invite-txt">邀请好友投资，可享对应红包奖励（具体详见话动说明）。</p>
+  </section>
+  <section class="sec2">
+    <div class="bg-tit">邀请记录</div>
+    <div class="bg-info">
+      <a class="info-item info-border" href="">
+        <i></i>
+        <div class="item item-l">
+          <p class="p1">邀请好友数</p>
+          <p class="p2">昨日邀请
+            <span>2</span>人</p>
+        </div>
+        <div class="item item-r">
+          <p class="p2">累计邀请
+            <span>22</span>人</p>
+        </div>
+      </a>
+      <a class="info-item info-border" href="">
+        <i></i>
+        <div class="item item-l">
+          <p class="p1">佣金</p>
+          <p class="p2">昨日赚得
+            <span>2.0</span>元</p>
+        </div>
+        <div class="item item-r">
+          <p class="p2">累计赚取
+            <span>14.23</span>元</p>
+        </div>
+      </a>
+      <a class="info-item info-border" href="">
+        <i></i>
+        <div class="item item-l">
+          <p class="p1">现金红包</p>
+          <p class="p2">昨日赚得
+            <span>2.0</span>元</p>
+        </div>
+        <div class="item item-r">
+          <p class="p2">累计赚取
+            <span>14.23</span>元</p>
+        </div>
+      </a>
+      <a class="info-item" href="">
+        <i></i>
+        <div class="item item-l">
+          <p class="p1">投资红包</p>
+          <p class="p2">昨日赚得
+            <span>2.0</span>元</p>
+        </div>
+        <div class="item item-r">
+          <p class="p2">累计赚取
+            <span>14.23</span>元</p>
+        </div>
+      </a>
+    </div>
+    <!--
+      无邀请记录，d-hide为隐藏class
+    --> 
+    <div class="bg-info info-none d-hide">
+     <div class="ico-none"></div>
+     <p>暂无好友应邀 </p>
+    </div>
+    <p class="txt-bot">在法律许可的合法范围内，本活动最终解释权归团贷网所有</p>
+  </section>
+  <div class="bg-bot">
+    <div class="bot-l">查看记录</div>
+    <div class="bot-r" id="shareBtn">马上邀请</div>
+  </div>
+
+  <div class="wxShare-modal d-hide">
+    <div class="wxShare-img"></div>
+  </div>
+
+  <!--奖励规则  -->
+  <div class="rule-modal d-hide">
+    <div class="rule-modal-container swiper-container">
+      <div class="swiper-wrapper">
+        <!--佣金  -->
+        <section class="rule-modal-item swiper-slide">
+          <div class="rule-modal-scroll-container n1 swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide rule-modal-scroll-item">
+                <i class="rule-modal-icon n1"></i>
+                <p class="rule-modal-title">- 活动规则 -</p>
+                <ul class="rule-modal-ul">
+                  <li class="item">1、每日的佣金=所有被邀请人的净待收x佣金费率/365（低于0.01元的佣金，平台不发放）；
+                    <br/>
+                    <span class="gray">备注：净待收（取被邀请人在团贷网的净待收作为参数）=待收本金-待还本金</span>
+                  </li>
+                  <li class="item">2、佣金按日统计，取被邀请人每日23:59之时的净资产作为参数；</li>
+                  <li class="item">3、结算的期限为365天，自每位被邀请人注册之日起计算；</li>
+                  <li class="item">4、佣金奖励，每日0:00后发放前一天获得的佣金奖励，佣金将直接发放至您的资金账户，详情可在【我】-【我的邀请】中查看；</li>
+                  <li class="item">5、此项为现金奖励，可直接提现。</li>
+                </ul>
+                <p class="rule-ownership">在法律许可的合法范畴内
+                  <br/>本活动最终解释权归团贷网所有</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--佣金end  -->
+        <!--80现金红包  -->
+        <section class="rule-modal-item swiper-slide">
+          <div class="rule-modal-scroll-container n2 swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide rule-modal-scroll-item">
+                <i class="rule-modal-icon n2"></i>
+                <p class="rule-modal-title">- 活动规则 -</p>
+                <ul class="rule-modal-ul">
+                  <li class="item">1、您邀请的单个好友自注册之日起10天内累计投资达到相应的金额（投资期限≥1个月，债权转让除外），您即可获得相应的现金红包奖励，详见下表：</li>
+                  <li class="item">
+                    <div class="rule-modal-table-wrapper">
+                      <div class="rule-modal-table title">
+                        <p class="rule-modal-table-cell">好友累计投资金额</p>
+                        <p class="rule-modal-table-cell">现金红包奖励金额</p>
+                      </div>
+                      <div class="rule-modal-table">
+                        <p class="rule-modal-table-cell">5000元≤X＜10000元</p>
+                        <p class="rule-modal-table-cell">15元</p>
+                      </div>
+                      <div class="rule-modal-table">
+                        <p class="rule-modal-table-cell">10000元≤X＜30000元</p>
+                        <p class="rule-modal-table-cell">15元＋25元</p>
+                      </div>
+                      <div class="rule-modal-table">
+                        <p class="rule-modal-table-cell">X≥30000元</p>
+                        <p class="rule-modal-table-cell">15元＋25元＋40元</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item">2、X即累计投资金额，投资1个月及以上项目的累计投资金额总和（债权转让除外）；</li>
+                  <li class="item">3、红包在好友投资达到指定金额后的次日发放，有效期为10天，可在【团宝箱】领取，逾期红包将失效并不予补发；</li>
+                  <li class="item">4、此项为现金奖励，可直接提现；</li>
+                  <li class="item">5、现金红包分阶段奖励，可叠加领取。</li>
+                  <li class="item">
+                    <dl class="rule-modal-dl">
+                      <dt class="rule-modal-dl-dt">例如：</dt>
+                      <dd class="rule-modal-dl-dd">同一个好友投资5000元1个月项目，奖励15元红包；再投资5000元3个月项目，额外奖励25元；若好友累计投资金额30000元，您即可领取80元（15元+25元+40元）现金红包。</dd>
+                    </dl>
+                  </li>
+                </ul>
+                <p class="rule-ownership">在法律许可的合法范畴内<br/>本活动最终解释权归团贷网所有</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--80现金红包end  -->
+        <!--160现金红包  -->
+        <section class="rule-modal-item swiper-slide">
+          <div class="rule-modal-scroll-container n3 swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide rule-modal-scroll-item">
+                <i class="rule-modal-icon n3"></i>
+                <p class="rule-modal-title">- 活动规则 -</p>
+                <ul class="rule-modal-ul">
+                  <li class="item">1、当月邀请2位好友成功注册且每位好友在当月单笔投资金额满足以下条件：【好友单笔投资金额≥3000元，投资期限≥1个月，债权转让除外】，您即可获得60元投资红包；</li>
+                  <li class="item">2、当月邀请3位好友成功注册且每位好友在当月单笔投资金额满足以下条件：【好友单笔投资金额≥3000元，投资期限≥1个月，债权转让除外】，您即可获得奖励100元投资红包；</li>
+                  <li class="item">3、红包奖励可叠加领取，每人每月最高可获得160元红包（红包使用杠杆1:100，投资期限≥1个月，债权转让除外）；</li>
+                  <li class="item">
+                    <dl class="rule-modal-dl">
+                      <dt class="rule-modal-dl-dt">例如：</dt>
+                      <dd class="rule-modal-dl-dd">投资1个月及以上项目满6000元，即可使用60元红包；</dd>
+                    </dl>
+                  </li>
+                  <li class="item">4、该奖励于好友符合投资条件后次日发放，红包可在【团宝箱】中查看，有效期为1个月，过期失效，请及时使用。</li>
+                </ul>
+                <p class="rule-ownership">在法律许可的合法范畴内
+                  <br/>本活动最终解释权归团贷网所有</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--160现金红包end  -->
+        <!--400现金红包  -->
+        <section class="rule-modal-item swiper-slide">
+          <div class="rule-modal-scroll-container n4 swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide rule-modal-scroll-item">
+                <i class="rule-modal-icon n4"></i>
+                <p class="rule-modal-title">- 活动规则 -</p>
+                <ul class="rule-modal-ul">
+                  <li class="item">1、通过移动端（微信/APP）邀请好友，好友通过邀请链接成功注册即可获得10元投资红包奖励；</li>
+                  <li class="item">2、好友在活动期间单笔投资金额满足以下条件：【好友单笔投资金额≥1000元，投资期限≥1个月，债权转让除外】，您即可获得10元投资红包奖励；</li>
+                  <li class="item">3、邀请单个好友满足条件后最多可获1次奖励，本活动每人最高可获得400元投资红包奖励；</li>
+                  <li class="item">4、红包使用杠杆1:100（投资期限≥1个月，债权转让除外），如投资1个月及以上项目满1000元，即可使用10元红包；</li>
+                  <li class="item">5、该奖励于好友符合投资条件后次日发放，红包可在【团宝箱】中查看，有效期为1个月，过期失效，请及时使用。</li>
+                </ul>
+                <p class="rule-ownership">在法律许可的合法范畴内
+                  <br/>本活动最终解释权归团贷网所有</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--400现金红包end  -->
+      </div>
+    </div>
+    <div class="rule-modal-prev"></div>
+    <div class="rule-modal-next"></div>
+    <div class="rule-modal-close"></div>
+  </div>
+  <div class="invite-rule-btn d-hide"></div>
+</body>
+<script src="../lib/vendors/JSLite.min.js"></script>
+<script src="../js/jsbridge3.1.4.js"></script>
+<script src="../js/appShare.bundle.js"></script>
+<script src="../js/rulesModal.bundle.js"></script>
+<script src="../js/barrage.bundle.js"></script>
+<script src="../js/index.js"></script>
+<script>
+  function isWeiXin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  var shareUrl = "";
+
+  var shareParam = {
+    "shareTypeList": [{
+      "ShareToolType": 1,
+      "ShareToolName": "微信",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 5,
+      "ShareToolName": "朋友圈",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "",
+      "ShareContent": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 4,
+      "ShareToolName": "QQ",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 6,
+      "ShareToolName": "QQ空间",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 3,
+      "ShareToolName": "微博",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 2,
+      "ShareToolName": "通讯录好友",
+      "IconUrl": "<%=TuanDai.ActivityHD.Common.Globals.HDActivityWebsiteUrl %>/201708/invite/weixin/images/share.png",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 9,
+      "ShareToolName": "一键邀请",
+      "IconUrl": "",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，注册就送518红包",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 7,
+      "ShareToolName": "二维码",
+      "IconUrl": "",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }, {
+      "ShareToolType": 8,
+      "ShareToolName": "复制链接",
+      "IconUrl": "",
+      "Title": "我在团贷网投资好久啦，送你518元福利，拿去花",
+      "ShareContent": "团贷网稳健运营5年，参考年回报率达12.6%，厦门银行存管，投资更安心。",
+      "ShareUrl": shareUrl,
+      "IsEnabled": true
+    }]
+
+  };
+
+  $("#shareBtn").on('click', function () {
+    if (Jsbridge.isApp()) {
+      Jsbridge.toAppWebViewShare(shareParam);
+    } else if (isWeiXin()) {
+      $(".wxShare-modal").removeClass("d-hide");
+    } else {
+      alert("打开app即可分享");
+    }
+  })
+  $(".wxShare-modal").on('click', function () {
+    $(this).addClass("d-hide");
+  })
+</script>
+
+</html>

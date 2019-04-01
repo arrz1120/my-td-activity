@@ -1,0 +1,143 @@
+@charset "UTF-8";
+@import "../variables";
+@import "../../../../sass/func";
+@import "sprite";
+.inup-content {
+    .tip {
+        text-align: center;
+        a {
+            color: $txt-black-light;
+        }
+    }
+    .tip-bottom {
+        margin: pxToRem(60px) 0 pxToRem(24px);
+    }
+}
+
+.forgot-content {
+    .form-forgot {
+        padding-top: pxToRem(40px);
+        margin-bottom: pxToRem(40px);
+    }
+    .input-wrapper {
+    	padding-left: pxToRem(30px);
+    	margin-bottom: pxToRem(40px);
+    }
+    .step3 {
+    	p {
+    		font-size: pxToRem(34px);
+    		text-align: center;
+    		margin-bottom: pxToRem(120px);
+    	}
+    	
+    }
+}
+
+.bg-signinup {
+    background: url(../../images/bg-login.png) no-repeat center;
+    background-size: 100% 100%;
+    width: pxToRem(750px);
+    height: pxToRem(263px);
+    padding: pxToRem(60px) 0 pxToRem(34px);
+    .icon {
+        margin: 0 auto pxToRem(60px);
+    }
+    li {
+        display: inline-block;
+        float: left;
+        width: 50%;
+        text-align: center;
+        color: $txt-white;
+        font-size: pxToRem(40px);
+    }
+}
+
+.sign-up {
+    display: none;
+    position: relative;
+    padding-top: pxToRem(80px);
+    background-color: $bg-white;
+    min-height: pxToRem(373px * 2);
+    &.active {
+        display: block;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: pxToRem(-14px);
+            left: pxToRem(170px);
+            border-left: pxToRem(16px) solid transparent;
+            border-right: pxToRem(16px) solid transparent;
+            border-bottom: pxToRem(16px) solid $bg-white;
+        }
+    }
+}
+
+.sign-in {
+    @extend .sign-up;
+    &.active {
+        &:before {
+            right: pxToRem(170px);
+            left: auto;
+        }
+    }
+}
+
+.form-sign {
+    width: pxToRem(570px);
+    margin: 0 auto pxToRem(30px);
+    .input-wrapper {
+        position: relative;
+        width: pxToRem(570px);
+        height: pxToRem(88px);
+        padding: 0 pxToRem(100px);
+        margin-bottom: pxToRem(40px);
+        .icon-block {
+            position: absolute;
+            left: pxToRem(44px);
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        .icon-i-eye,
+        .icon-i-eye-close {
+            right: pxToRem(56px);
+            left: auto;
+        }
+        .btn-input-wrapper {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            line-height: pxToRem(88px);
+            width: pxToRem(100px);
+            font-size: pxToRem(26px);
+
+            z-index: 99;
+        }
+        input {
+            width: pxToRem(570px-200px);
+        }
+        .code-sms {
+            width: pxToRem(200px);
+            padding-left: pxToRem(26px);
+            color: $txt-yellow-light;
+        }
+        &.with-code {
+            input {
+                width: pxToRem(570px-100px -200px);
+            }
+        }
+    }
+}
+
+.forget-psw {
+    margin-left: pxToRem(90px);
+}
+
+
+
+// icons
+.icon {
+    @include icon-background("../../images/icon.png", 360px, 80px);
+}

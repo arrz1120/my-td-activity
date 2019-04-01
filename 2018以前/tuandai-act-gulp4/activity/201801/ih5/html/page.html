@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title>Ih5二期</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/page.css -->
+		<link rel="stylesheet" href="../css/page.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			window.mobileUtils = function(e, t) {
+				var i = navigator.userAgent,
+					n = /android|adr/gi.test(i),
+					a = /iphone|ipod|ipad/gi.test(i) && !n;
+				return {
+					isAndroid: n,
+					isIos: a,
+					isMobile: n || a,
+					isWeixin: /MicroMessenger/gi.test(i),
+					isQQ: /QQ\/\d/gi.test(i),
+					dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+					rem: null,
+					fixScreen: function() {
+						var i = this,
+							n = t.querySelector('meta[name="viewport"]'),
+							r = n ? n.content : "";
+						if(r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+							var o, s = t.documentElement,
+								d = s.dataset.mw || 750,
+								m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+							t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function(e) {
+								return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+							}(1), s.firstElementChild.appendChild(n);
+							var c = function() {
+								var e = s.getBoundingClientRect().width;
+								e = e > d ? d : e;
+								var t = e / 16;
+								i.rem = t, s.style.fontSize = t + "px"
+							};
+							e.addEventListener("resize", function() {
+								clearTimeout(o), o = setTimeout(c, 300)
+							}, !1), e.addEventListener("pageshow", function(e) {
+								e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+							}, !1), c()
+						}
+					}
+				}
+			}(window, document), mobileUtils.fixScreen();
+		</script>
+
+	</head>
+
+	<body>
+		<div class="page">
+			<p class="ad-txt">[广告]市场有风险，投资需谨慎</p>
+			<div class="logo"></div>
+			<div class="banner">
+				<div class="hb">
+					<p class="hb-p1" style="opacity: 0;">10元投资红包</p>
+					<p class="hb-p2">领取成功</p>
+					<a href="javascript:void(0);" class="hb-a">查看奖品</a>
+				</div>
+			</div>
+
+			<!--<div class="sec sec1">
+				<div class="bg-dec1"></div>
+				<div class="tit">关于团贷网</div>
+				<div class="con">
+					<p class="con1-p1">2017年6月1日，派生集团（系团贷网集团工商登记主体）正式宣布，已获得新一轮融资18亿元人民币。本轮融资由民生资本投资管理有限公司领投7亿，北京盈生创新科技有限责任公司跟投6.5亿、北海宏泰投资有限公司跟投1.5亿。</p>
+					<div class="rongzi"></div>
+				</div>
+			</div>-->
+
+			<div class="sec sec2">
+				<div class="bg-dec2"></div>
+				<div class="tit">新手专享福利</div>
+				<div class="con">
+					<div class="fuli-item fuli-border">
+						<div class="fl-img">
+							<img src="../images/page/518.png" />
+						</div>
+						<div class="fl-txt">
+							<p class="fl-p1"><span>518元</span>投资红包</p>
+							<p class="fl-p2">新手专享福利</p>
+						</div>
+					</div>
+					<div class="fuli-item fuli-border">
+						<div class="fl-img">
+							<img src="../images/page/2888.png" />
+						</div>
+						<div class="fl-txt">
+							<p class="fl-p1"><span>2888元</span>体验金</p>
+							<p class="fl-p2">新手专享福利</p>
+						</div>
+					</div>
+					<div class="fuli-item">
+						<div class="fl-img">
+							<img src="../images/page/500.png" />
+						</div>
+						<div class="fl-txt">
+							<p class="fl-p1"><span>500元</span>邀请红包</p>
+							<p class="fl-p2">另享0.5%年化佣金</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sec sec3">
+				<div class="bg-dec3"></div>
+				<div class="tit">丰富的投资产品</div>
+				<div class="con">
+					<div class="swiper-container" id="investSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="invest-tit">新手专享</div>
+								<div class="invest-txt">
+									<div class="txt-item">
+										<p class="t-p0">10<span>%</span></p>
+									</div>
+									<div class="txt-item">
+										<p class="t-p1">参考年回报率</p>
+										<p class="t-p2">期限：15天</p>
+									</div>
+									<div class="t-line"></div>
+								</div>
+								<div class="invest-btn">马上投资</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="invest-tit">新手专享</div>
+								<div class="invest-txt">
+									<div class="txt-item">
+										<p class="t-p0">11<span>%</span></p>
+									</div>
+									<div class="txt-item">
+										<p class="t-p1">参考年回报率</p>
+										<p class="t-p2">期限：1个月</p>
+									</div>
+									<div class="t-line"></div>
+								</div>
+								<div class="invest-btn">马上投资</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="invest-tit">新手专享</div>
+								<div class="invest-txt">
+									<div class="txt-item">
+										<p class="t-p0">12<span>%</span></p>
+									</div>
+									<div class="txt-item">
+										<p class="t-p1">参考年回报率</p>
+										<p class="t-p2">期限：3个月</p>
+									</div>
+									<div class="t-line"></div>
+								</div>
+								<div class="invest-btn">马上投资</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="invest-tit">复投宝36</div>
+								<div class="invest-txt">
+									<div class="txt-item">
+										<p class="t-p0">12.6<span>%</span></p>
+									</div>
+									<div class="txt-item">
+										<p class="t-p1">参考年回报率</p>
+										<p class="t-p2">期限：36个月</p>
+									</div>
+									<div class="t-line"></div>
+								</div>
+								<div class="invest-btn">马上投资</div>
+							</div>
+						</div>
+						<div id="paging" class="paging">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sec sec4">
+				<div class="bg-dec4"></div>
+				<div class="tit">选择团贷网的理由</div>
+				<div class="con">
+					<div class="reason">
+						<div class="reason-item">
+							<img src="../images/page/beijing.png" />
+							<p>软件著作权35项<br />高新技术产品5件</p>
+						</div>
+						<div class="reason-item">
+							<img src="../images/page/fengkong.png" />
+							<p>
+								大数据风控模型及<br /> 专业风控团队
+							</p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="reason-item">
+							<img src="../images/page/cunguan.png" />
+							<p>
+								银行存管，资金分账管理
+							</p>
+						</div>
+						<div class="reason-item">
+							<img src="../images/page/zhineng.png" />
+							<p>
+								参考年回报率<span>7%-12.6%</span>
+							</p>
+						</div>
+					</div>
+					<!--<div class="imgSlide">
+						<div class="swiper-container" id="imgSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="../images/page/pic1.png"/>
+								</div>
+								<div class="swiper-slide">
+									<img src="../images/page/pic2.png"/>
+								</div>
+								<div class="swiper-slide">
+									<img src="../images/page/pic3.png"/>
+								</div>
+								<div class="swiper-slide">
+									<img src="../images/page/pic4.png"/>
+								</div>
+							</div>
+							<div class="paging" id="imgPaging"></div>
+
+						</div>
+					</div>-->
+				</div>
+				<!-- <p class="bot_txt">投资有风险，入市需谨慎。</p> -->
+			</div>
+			<footer>
+				<div class="footer-line"></div>
+				<div class="footer_item">
+					<p class="f-p1">2010- 2018 版权所有 ©<br />团贷网 粤ICP备12043601号-1</p>
+				</div>
+				<div class="footer_item">
+					<div class="footer-ico"></div>
+					<p class="f-p2">1010-1218</p>
+					<p class="f-p3">服务时间 09:00-22:00</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<script src="../js/jsbridge3.1.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/page.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>我的信息</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/account.css -->
+    <link rel="stylesheet" href="../css/account.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="content">
+    <div class="account-top pos-r">
+        <span id="back_btn" class="back-btn"></span>
+        <span class="title">我的</span>
+        <a href="index.html" class="to-home bg-size pos-a"></a>
+        <div class="avatar-box pos-r">
+            <div class="avatar pos-a">
+                <img src="../images/product/tx.png" alt="">
+            </div>
+            <div class="avatar-txt">
+                <p>达巴前<span class="leixing">稳健型</span></p>
+                <span class="id">138****3800</span>
+            </div>
+        </div>
+        <div class="my-zc bg-size pos-a">
+            <a href="">我的资产 <i class="arrow-yellow pos-a bg-size"></i></a>
+            <div class="zzc">
+                <div>
+                    <span>1020</span>
+                    <span>总资产(万)</span>
+                </div>
+                <div>
+                    <span>1020</span>
+                    <span>总资产(万)</span>
+                </div>
+                <div>
+                    <span>20</span>
+                    <span>总收益(万)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="account-bottom">
+        <a href="" class="j-link"> 合格投资者认证 <span>未测评<i class="arrow-gray bg-size"></i></span></a>
+        <a href="" class="j-link">修改登录密码 <span>未测评<i class="arrow-gray bg-size"></i></span></a>
+        <a href="JavaScript:;" class="btn-hs">退出登陆</a>
+    </div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function() {
+//        var isApp = Util.getCookie("isApp");
+//        if (isApp == 'true') {
+//            $(".header").hide();
+//        }
+
+        var $body = $('body');
+        $body.on('click', '#back_btn', function () {
+            console.log("111")
+            window.history.back();
+
+        });
+
+    })
+</script>
+
+
+</html>

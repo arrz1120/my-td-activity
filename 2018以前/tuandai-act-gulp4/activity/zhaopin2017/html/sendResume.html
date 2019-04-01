@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>投递简历</title>
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->
+	<!-- build:css ../css/common.css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- endbuild -->
+	<!-- build:css ../css/sendResume.css -->
+	<link rel="stylesheet" href="../css/sendResume.css">
+	<!-- endbuild -->
+ 	<!-- build:js ../js/lib/adapt.js -->
+	<script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+</head>
+<body>
+	<div class="content">
+		<div class="scroll-content">
+			<div class="input-con name">
+				<span>请输入姓名</span>
+				<input type="text" name="name" placeholder="（姓名须与身份证信息一致）" />
+			</div>
+			<div class="input-con phone">
+				<span>请输入手机号码</span>
+				<input type="tel" name="phone" maxlength="11" />
+			</div>
+			<div class="input-con email">
+				<span>请输入电子邮箱</span>
+				<input type="text" name="email"/>
+			</div>
+			<div class="input-con school">
+				<span>请输入毕业院校</span>
+				<input type="text" name="school"/>
+			</div>
+			<div class="input-con profession">
+				<span>请输入所学专业</span>
+				<input type="text" name="profession"/>
+			</div>
+			<div class="input-con btn-dg">
+				<span>请选择最高学历</span>
+				<span class="selected-txt"></span>
+				<span class="select-btn"><span class="select-txt">选择</span><i class="icon-arrow-down"></i></span>
+			</div>
+			<div class="input-con btn-first-position">
+				<span>申请职位</span>
+				<span class="selected-txt"></span>
+				<span class="select-btn"><span class="select-txt">选择</span><i class="icon-arrow-down"></i></span>
+			</div>
+			<!-- 仅限校招显示第二意向职位 -->
+			<div class="input-con btn-second-position">
+				<span>第二意向职位</span>
+				<span class="grey-txt">选填</span>
+				<span class="selected-txt"></span>
+				<span class="select-btn"><span class="select-txt">选择</span><i class="icon-arrow-down"></i></span>
+			</div>
+			<!-- 工作经历或项目经验 -->
+			<div class="experience">
+				<span class="experience-title">请输入工作经历或项目经验</span>
+				<textarea maxlength=300></textarea>
+				<span class="grey-txt">0/300</span>
+				<div class="clr"></div>
+			</div>
+			<!-- 个人照片 -->
+			<div class="photo">
+				<span class="photo-title">个人照片</span>
+				<div class="upload-photo-con">
+					<span class="upload-photo-btn">
+						<input type="file" name="" accept="image/jpg, image/png, image/jpeg" />
+					</span>
+					<span class="msg">
+						<p class="red-txt"></p>
+						<span class="grey-txt">请上传少于2M大小的图片<br/>（支持格式jpg，png）</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- 弹窗 -->
+		<div class="alert-wrapper">
+			<span class="mask"></span>
+			<!-- 学历弹窗 -->
+			<div class="highest-education-select">
+				<p class="alert-title">最高学历</p>
+				<p class="opt-dg">中专 / 职高 / 高中</p>
+				<p class="opt-dg">大专</p>
+				<p class="opt-dg">本科</p>
+				<p class="opt-dg">硕士</p>
+				<p class="opt-dg">硕士以上</p>
+				<p class="cancel-btn">取消</p>
+			</div>
+			<!-- 岗位选择 -->
+			<div class="job-select">
+				<div class="job-select-left">
+					<p class="selected">全部</p>
+					<p>技术研发类</p>
+					<p>风控管理类</p>
+					<p>产品运营类</p>
+					<p>职能管理类</p>
+				</div>
+				<div class="job-select-right">
+					<p>内容推广</p>
+					<p>大数据产品专员</p>
+					<p>数据产品专员</p>
+				</div>
+			</div>
+			<!-- 提交成功 -->
+			<div class="result-content success-content">
+				<div class="result-tip">
+					<i class="icon-surccess"></i><span>提交成功</span>
+				</div>
+				<p>如您的简历成功通过筛选</p>
+				<p>招聘人员将第一时间与您联系</p>
+				<p>请保持手机通讯正常</p>
+				<div class="cls-btn"></div>
+			</div>
+			<!-- 提交失败 -->
+			<div class="result-content fail-content">
+				<div class="result-tip">
+					<i class="icon-fail"></i><span>提交失败</span>
+				</div>
+				<p>竞争太激烈，服务器忙不过来啦！</p>
+				<p>深呼吸！稍后再试试吧</p>
+				<div class="cls-btn"></div>
+			</div>
+		</div>
+		<!-- 提交简历 -->
+		<div class="submit-btn">提交简历</div>
+	</div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/lrz.bundle.js -->
+<script src="../../../lib/vendor/lrz/lrz.bundle.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/common/util.js -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/sendResume.js" type="text/javascript" charset="utf-8"></script>
+</html>

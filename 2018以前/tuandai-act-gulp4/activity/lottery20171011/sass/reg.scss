@@ -1,0 +1,239 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+body{
+    background:#860096 url(../images/index/reg_bg.png) no-repeat;
+    background-size: 100% auto;
+    padding-top:  pxToRem(540px);
+}
+
+
+.txt{
+    color: #fff;
+    text-align: center;
+    margin-bottom: pxToRem(30px);
+    font-size: pxToRem(25px);
+}
+
+.input_wraper{
+    width:  pxToRem(540px);
+    height:  pxToRem(58px);
+    border-radius: pxToRem(5px);
+    background: #ebeaea;
+    padding-left: pxToRem(70px);
+    position: relative;
+    display: block;
+    margin: 0 auto  pxToRem(30px);
+    input{
+        border:none;
+        height:  pxToRem(37px);
+        /*margin-top: pxToRem(5px);*/
+        color: #313131;
+        font-size: pxToRem(22px);
+        background: #ebeaea;
+        width: pxToRem(320px);
+    }
+
+    .time{
+        position: absolute;
+        right: pxToRem(5px);
+        top:  pxToRem(10px);
+        height:  pxToRem(40px);
+        line-height:  pxToRem(40px);
+        color: #313131;
+        font-size:  pxToRem(20px);
+        width: pxToRem(130px);
+        border:pxToRem(1px) solid #898989;
+        text-align: center;
+        border-radius: pxToRem(5px);
+
+    }
+
+}
+
+
+
+.input_wraper:before,.show{
+    position: absolute;
+    top:  pxToRem(10px);
+    width:   pxToRem(42px);
+    height:   pxToRem(40px);
+    content: '';
+}
+
+
+.error{
+    font-size: pxToRem(22px);
+    color: #dc0808;
+    position: absolute;
+    left:0;
+    bottom: pxToRem(-28px);
+    font-size: pxToRem(22px);
+    display: none;
+}
+
+.input_wraper:before{
+    left:  pxToRem(20px);
+}
+
+.show{
+    right:  pxToRem(20px);
+}
+
+.show{
+    background: url(../images/index/eyes_close.png);
+    background-size: 100% 100%;    
+}
+
+
+.eyes_open{
+    background: url(../images/index/eyes.png);
+    background-size: 100% 100%;      
+}
+
+
+
+.msg_wraper:before{
+    background: url(../images/index/msg.png);
+    background-size: 100% 100%;
+}
+
+
+.phone_wraper:before{
+    background: url(../images/index/phone.png);
+    background-size: 100% 100%;
+}
+
+
+.phone_wraper:before{
+    background: url(../images/index/password.png);
+    background-size: 100% 100%;
+}
+
+
+.txt_2{
+    color: #9a45b3;
+    text-align: center;
+    font-size: pxToRem(25px);
+    a{
+        color: #fff600;
+    }
+}
+
+
+.btn_get{
+    display: block;
+    margin: pxToRem(20px) auto;
+    width:   pxToRem(636px);
+    height:   pxToRem(105px);  
+    background: url(../images/index/btn_get.png);
+    background-size: 100% 100%;
+}
+
+.alert{
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    -webkit-box-orient: vertical;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    .con{
+        position: relative;
+        margin: 0 auto;
+    }
+    .look_for{
+        position: absolute;
+        bottom: pxToRem(-40px);
+        width: pxToRem(283px);
+        height: pxToRem(80px);
+        line-height: pxToRem(80px);
+        background: url(../images/index/btn_bg.png) no-repeat;
+        background-size: 100% 100%;     
+        color: #520472;
+        font-weight: bold;
+        text-align: center;
+        font-size: pxToRem(32px);
+        left: 50%;
+        margin-left:  pxToRem(-140px);
+    }
+
+    .close{
+        position: absolute;
+        top: pxToRem(-81px);
+        right: 0;
+        width: pxToRem(58px);
+        height: pxToRem(81px);
+        background: url(../images/index/clsoe.png) no-repeat;     
+        background-size: 100% 100%;     
+    }
+}
+
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+
+
+
+}
+
+
+.first_hide{
+    display: none;
+}
+
+
+
+
+.gameover_alert{
+    .con{
+    width: pxToRem(530px);
+    height: pxToRem(520px);
+    background: url(../images/index/alert_bg_1.png) no-repeat;
+    background-size: 100% 100%;
+    padding:  pxToRem(70px) 0;
+    text-align: center;
+    }
+
+    .txt{
+        font-size: pxToRem(40px);
+        line-height: pxToRem(60px);
+        color: #fff;
+        
+        span{
+            color:#fff600;
+            font-weight: bold;
+        }
+    }
+}
+
+

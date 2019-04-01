@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: #ececec;
+    padding: 0;
+    padding-bottom: pxToRem(100px);
+    max-width: pxToRem(818px);
+    margin: auto;
+    @at-root .header {
+        position: relative;
+        padding: pxToRem(56px) pxToRem(40px);
+        background-color: #fff;
+        margin-bottom: pxToRem(20px);
+        .job-title {
+            color: #333;
+            font-size: pxToRem(24px);
+            margin-bottom: pxToRem(32px);
+            max-width: pxToRem(500px);
+            line-height: normal;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .job-salary {
+            color: #ff6f6f;
+            font-size: pxToRem(24px);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: 99;
+        }
+        &>div {
+            white-space: nowrap;
+            font-size: 0;
+            color: #999;
+            position: relative;
+            .tag-wrapper {
+                font-size: 0;
+                display: inline-block;
+                vertical-align: middle;
+                span {
+                    font-size: pxToRem(22px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    &:not(:last-child)::after {
+                        content: '';
+                        display: inline-block;
+                        vertical-align: middle;
+                        height: pxToRem(26px);
+                        width: 1px;
+                        border-right: 1px solid #d8d8d8;
+                        margin: 0 pxToRem(20px);
+                    }
+                }
+            }
+            .tag-time {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: pxToRem(22px);
+            }
+        }
+    }
+    @at-root .job-desc {
+        position: relative;
+        padding: pxToRem(30px) pxToRem(40px);
+        padding-bottom: pxToRem(34px);
+        background-color: #fff;
+        margin-bottom: pxToRem(20px);
+        .desc-title {
+            width: pxToRem(134px);
+            height: pxToRem(46px);
+            line-height: pxToRem(46px);
+            text-align: center;
+            border-radius: pxToRem(4px);
+            background-color: #e3e3e3;
+            color: #333;
+            font-size: pxToRem(24px);
+            margin-bottom: pxToRem(16px);
+        }
+        .desc-content {
+            padding-left: pxToRem(16px);
+            p {
+                font-size: pxToRem(22px);
+                line-height: pxToRem(44px);
+                display: block;
+                word-break: break-all;
+            }
+        }
+    }
+    @at-root .job-req {
+        position: relative;
+        padding: pxToRem(30px) pxToRem(40px);
+        padding-bottom: pxToRem(34px);
+        background-color: #fff;
+        margin-bottom: pxToRem(20px);
+        .req-title {
+            width: pxToRem(134px);
+            height: pxToRem(46px);
+            line-height: pxToRem(46px);
+            text-align: center;
+            border-radius: pxToRem(4px);
+            background-color: #e3e3e3;
+            color: #333;
+            font-size: pxToRem(24px);
+            margin-bottom: pxToRem(16px);
+        }
+        .req-content {
+            padding-left: pxToRem(16px);
+            p {
+                font-size: pxToRem(22px);
+                line-height: pxToRem(44px);
+                display: block;
+                word-break: break-all;
+            }
+        }
+    }
+   
+}
+ .btn-post {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        max-width: pxToRem(818px);
+        height: pxToRem(100px);
+        line-height: pxToRem(100px);
+        text-align: center;
+        background-color: #ffb400;
+        color: #fff;
+        font-size: pxToRem(34px);
+        z-index: 999;
+    }

@@ -1,0 +1,329 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../../sass/reset";
+@import "../../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #808080;
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input {
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+@mixin bg($width, $height, $url) {
+    width: $width;
+    height: $height;
+    background: url($url) no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+.getGift {
+    width: 100%;
+    height: 100%;
+    background: #e7ecf9 url(../images/getGift/bg.png) no-repeat;
+    background-size: 100% auto;
+    padding-top: pxToRem(57px);
+}
+
+.get-tit {
+    @include size(pxToRem(662px), pxToRem(99px));
+    box-shadow: 0px pxToRem(2px) pxToRem(21px) 0px rgba(21, 25, 108, 0.24);
+    background: linear-gradient(#da4235, #c82925);
+    position: relative;
+    margin: 0 auto;
+    border-radius: pxToRem(9px);
+    p {
+        @include font(pxToRem(48px), #ffd409);
+        line-height: pxToRem(99px);
+        text-align: center;
+        font-weight: bold;
+    }
+    .slow {
+        @include bg(pxToRem(581px), pxToRem(84px), '../images/getGift/slow.png');
+        position: absolute;
+        top: pxToRem(-57px);
+        left: pxToRem(-6px);
+    }
+}
+
+.tit-wrong {
+    p {
+        font-size: pxToRem(36px);
+    }
+}
+
+.get-con {
+    background: linear-gradient(#47917a, #1b6854);
+    height: pxToRem(996px);
+    width: pxToRem(662px);
+    margin: 0 auto;
+    box-shadow: 0px pxToRem(2px) pxToRem(21px) 0px rgba(21, 25, 108, 0.24);
+    padding-top: pxToRem(26px);
+    padding-bottom: pxToRem(39px);
+    border-radius: pxToRem(8px);
+}
+
+.gift-img {
+    @include bg(pxToRem(424px), pxToRem(429px), '../images/getGift/gift.png');
+    margin-left: pxToRem(95px);
+}
+
+.inp-box {
+    padding: 0 pxToRem(49px);
+    margin-top: pxToRem(-66px);
+    .inp-wrap {
+        width: 100%;
+        position: relative;
+    }
+    .inp {
+        @include size(pxToRem(565px), pxToRem(77px));
+//      width: pxToRem(565px);
+        background: #98beb3;
+        border: 1px solid #114d3d;
+        padding-left: pxToRem(74px);
+        border-radius: pxToRem(8px);
+        position: relative;
+        margin-bottom: pxToRem(41px);
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+//          height: pxToRem(75px);
+//          line-height: pxToRem(75px);
+            background: none;
+            @include font(pxToRem(24px), #0f4c3c);
+//          padding: pxToRem(20px) 0;
+        }
+        .ico-phone {
+            @include bg(pxToRem(26px), pxToRem(44px), '../images/getGift/ico-phone.png');
+            position: absolute;
+            top: pxToRem(14px);
+            left: pxToRem(29px);
+        }
+        .ico-pass {
+            @include bg(pxToRem(28px), pxToRem(38px), '../images/getGift/ico-pass.png');
+            position: absolute;
+            top: pxToRem(19px);
+            left: pxToRem(22px);
+        }
+        .ico-code {
+            @include bg(pxToRem(39px), pxToRem(39px), '../images/getGift/ico-code.png');
+            position: absolute;
+            top: pxToRem(17px);
+            left: pxToRem(27px);
+        }
+    }
+    .inp-half {
+        width: pxToRem(376px);
+    }
+    .getCode {
+        @include size(pxToRem(181px), pxToRem(77px));
+        background: #0f5c57;
+        text-align: center;
+        line-height: pxToRem(75px);
+        border: 1px solid #0f4c3c;
+        border-radius: pxToRem(8px);
+        text-align: center;
+        @include font(pxToRem(24px), #ffbb09);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .imgCode{
+        @include size(pxToRem(181px), pxToRem(77px));
+        border-radius: pxToRem(8px);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .error {
+        position: absolute;
+        top: pxToRem(77px);
+        left: 0;
+        width: 100%;
+        height: pxToRem(41px);
+        line-height: pxToRem(41px);
+        @include font(pxToRem(20px), #ffca0f);
+    }
+}
+
+.inp-txt {
+    @include font(pxToRem(30px), #fff);
+    margin-bottom: pxToRem(19px);
+}
+
+.get-btn {
+    @include bg(pxToRem(564px), pxToRem(93px), '../images/getGift/get-btn.png');
+    @include font(pxToRem(36px), #ec3527);
+    margin: pxToRem(30px) auto 0;
+    font-weight: bold;
+    line-height: pxToRem(93px);
+    text-align: center;
+}
+
+.normalTips{
+    @include font(pxToRem(24px), #ec3527);
+    text-align: center;
+    margin-top: pxToRem(15px);
+}
+
+.agree {
+    @include font(pxToRem(20px), #f4f9f8);
+    padding-top: pxToRem(2px);
+    span {
+        display: inline-block;
+        @include size(pxToRem(19px), pxToRem(19px));
+        background: #8bb3a9;
+        border: 1px solid #114d3d;
+        margin-right: pxToRem(8px);
+        position: relative;
+        i {
+            display: none;
+            @include bg(pxToRem(27px), pxToRem(20px), '../images/getGift/check.png');
+            position: absolute;
+            left: -1px;
+            top: pxToRem(-4px);
+        }
+    }
+    a {
+        @include font(pxToRem(20px), #f4f9f8);
+    }
+}
+
+.checked {
+    span {
+        i {
+            display: block;
+        }
+    }
+}
+
+.get-login {
+    .mb56 {
+        margin-bottom: pxToRem(56px);
+    }
+    .get-btn {
+        margin: pxToRem(50px) auto 0;
+    }
+}
+
+.get-res {
+    .get-con {
+        padding-top: pxToRem(64px);
+    }
+//  .inp {
+//      margin-bottom: 0;
+//  }
+    .inp-txt {
+        margin-bottom: pxToRem(32px);
+    }
+    .get-btn {
+        margin: pxToRem(96px) auto 0;
+    }
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+}
+
+.mask-con {
+    @include size(pxToRem(641px), pxToRem(739px));
+    background: linear-gradient(#47917a, #1b6854);
+    border-radius: pxToRem(10px);
+    padding-top: pxToRem(95px);
+    .fail {
+        @include bg(pxToRem(270px), pxToRem(316px), '../images/getGift/get-fail.png');
+        margin: 0 auto;
+    }
+    .fail-txt {
+        @include font(pxToRem(36px), #fefeff);
+        text-align: center;
+        margin-top: pxToRem(45px);
+    }
+    .fail-txt2 {
+        font-size: pxToRem(48px);
+    }
+}
+.fail-btn {
+    @include bg(pxToRem(504px), pxToRem(93px), '../images/getGift/get-btn.png');
+    @include font(pxToRem(36px), #ec3527);
+    margin: pxToRem(63px) auto 0;
+    font-weight: bold;
+    line-height: pxToRem(93px);
+    text-align: center;
+}
+
+.get-suc {
+    @include bg(pxToRem(260px), pxToRem(305px), '../images/getGift/get-suc.png');
+    margin: 0 auto;
+}
+
+.suc-txt {
+    @include font(pxToRem(48px), #fefeff);
+    text-align: center;
+    margin-top: pxToRem(36px);
+}
+
+.loading-box {
+    position: relative;
+    .loading-img {
+        @include bg(pxToRem(201px), pxToRem(208px), '../images/index/loading-img.png');
+        margin: 0 auto;
+    }
+    .loading-txt {
+        @include bg(pxToRem(110px), pxToRem(32px), '../images/index/loading-txt.png');
+        position: absolute;
+        top: pxToRem(97px);
+        left: 50%;
+        margin-left: pxToRem(-55px);
+    }
+    p {
+        @include font(pxToRem(36px), #fff);
+        text-align: center;
+        margin-top: pxToRem(37px);
+    }
+}

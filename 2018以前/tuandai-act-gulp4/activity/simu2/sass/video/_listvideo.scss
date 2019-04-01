@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import "../../../../sass/func";
+
+
+.video-info {
+    // padding: pxToRem(30px) pxToRem(30px) pxToRem(34px);
+    // padding-right: pxToRem(30px);
+    background-color: #fff;
+    padding: pxToRem(30px) pxToRem(30px);
+    margin-bottom: pxToRem(24px);
+    &>p {
+        font-size: pxToRem(30px);
+        line-height: pxToRem(38px);
+        margin-bottom: pxToRem(24px);
+        color: #333;
+    }
+    &>div {
+        font-size: pxToRem(24px);
+        color: #999;
+    }
+    .icon-inline {
+        vertical-align: bottom;
+        margin-right: pxToRem(10px);
+    }
+    .icon-play {
+        margin-left: pxToRem(40px);
+    }
+    .icon-eye {
+        margin-left: pxToRem(40px);
+        vertical-align: baseline;
+    }
+}
+
+.list-video {
+    // padding: pxToRem(40px) 0 0 pxToRem(30px);
+    padding-left: pxToRem(30px);
+    .video-info {
+        // padding: pxToRem(40px) 0;
+        padding: 0;
+        margin-bottom: 0;
+        &>p {
+            // font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            height: pxToRem(74px);
+        }
+    }
+}
+
+.item-video {
+    position: relative;
+    font-size: 0;
+    padding: pxToRem(40px) 0;
+    &>div {
+        display: inline-block; // white-space: nowrap;
+        vertical-align: top;
+    }
+    &:after {
+        @include border(bottom, #e6e6e6);
+        z-index: 10;
+    }
+    .left {
+        width: pxToRem(420px);
+        margin-right: pxToRem(50px);
+    }
+    .pic-play {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url(../../images/play-b.png) no-repeat center;
+            background-size: pxToRem(60px) pxToRem(60px);
+            background-color: rgba(#000, .1);
+        }
+    }
+    .right {
+        position: relative;
+        width: pxToRem(220px);
+        // margin-top: pxToRem(40px);
+        overflow: hidden;
+        text-align: center;
+        img {
+            // width: 100%;
+            height: pxToRem(122px);
+            // height: 100%;
+        } 
+    }
+}
+
+// 
+.icon-clock {
+    background-image: url(../../images/clock.png);
+    width: pxToRem(24px);
+    height: pxToRem(24px);
+}
+
+.icon-eye {
+    background-image: url(../../images/eye.png);
+    width: pxToRem(30px);
+    height: pxToRem(18px);
+}

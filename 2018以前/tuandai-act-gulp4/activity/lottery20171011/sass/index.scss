@@ -1,0 +1,301 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+body{
+    background:#74006e url(../images/index/lottery_bg.png) no-repeat;
+    background-size: 100% auto;
+    padding-top:  pxToRem(416px);
+}
+
+.rule_btn{
+    position: absolute;
+    right: 0;
+    top: pxToRem(15px);
+    width: pxToRem(156px);
+    height: pxToRem(63px);
+    background: url(../images/index/rule_btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.lhj{
+    height: pxToRem(740px);
+    background: url(../images/index/lhj.png) no-repeat;
+    background-size: 100% 100%;
+    padding-top:  pxToRem(30px);
+    .txt{
+    height: pxToRem(60px);
+    line-height: pxToRem(60px);
+    width:  pxToRem(510px);
+    background: #520d92;
+    border-radius: pxToRem(10px);
+    color: #c8afdf;
+    text-align: center;
+    font-size: pxToRem(28px);
+    margin: 0 auto;
+    }
+
+    .img_box{
+        height: pxToRem(226px);
+        width:  pxToRem(617px);
+        background: url(../images/index/prize_box_1.png) no-repeat;
+        background-size: 100% 100%;
+        margin:  pxToRem(15px) auto  pxToRem(25px);
+        position: relative;
+        padding: pxToRem(44px)  0 0 pxToRem(31px);
+        .priez_wraper{
+            width: pxToRem(570px);
+            height: pxToRem(135px);
+            overflow: hidden;
+        }
+
+        .prize_list{
+            float: left;
+            margin-right: pxToRem(31px);
+            width:  pxToRem(169px);
+            height: auto;
+
+            li{
+                width: 100%;
+                height:  pxToRem(136px);
+            }
+
+            .lw{
+                background: url(../images/index/prize_1.png) no-repeat;
+                background-size: 100% 100%;              
+            }
+
+            .lw_mh{
+                       background: url(../images/index/prize_1_m.png) no-repeat;
+                background-size: 100% 100%;                  
+            }
+
+
+            .j{
+                       background: url(../images/index/prize_2.png) no-repeat;
+                background-size: 100% 100%;                  
+            }
+
+            .j_mh{
+                background: url(../images/index/prize_2_m.png) no-repeat;
+                background-size: 100% 100%;                  
+            }
+
+
+            .hb{
+                background: url(../images/index/prize_3.png) no-repeat;
+                background-size: 100% 100%;                  
+            }
+
+           .hb_mh{
+                background: url(../images/index/prize_3_m.png) no-repeat;
+                background-size: 100% 100%;                  
+            }
+
+          
+        }
+
+
+    .last_list{
+        margin-right: 0;
+    }
+    }
+
+
+
+    .txt_1{
+    color: #a267b9;
+    text-align: center;
+    font-size: pxToRem(28px);
+    margin:  pxToRem(15px) auto;
+    }
+
+    .star{
+        display: block;
+        height: pxToRem(148px);
+        width:  pxToRem(612px);
+        background: url(../images/index/gama_star.png) no-repeat;
+        background-size: 100% 100%;  
+        margin: 0 auto;      
+    }
+
+
+
+}
+
+
+.fixed{
+    padding-top:  pxToRem(380px);
+    
+}
+
+
+
+.notice-container{
+    position: absolute;
+    left: 0;
+    bottom: pxToRem(30px);
+    width: 100%;
+    height:  pxToRem(64px);
+    line-height:  pxToRem(64px);
+    background: rgba(0,0,0,.7);
+    span{
+        color: #fff;
+        font-size:  pxToRem(28px) !important;
+        b{
+            color: #ffe75f;
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    color: #cd66c8;
+    font-size: pxToRem(20px) ;
+    line-height:  pxToRem(30px);
+    height:  pxToRem(30px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.alert{
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    -webkit-box-orient: vertical;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+
+    .con{
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .close{
+        position: absolute;
+        bottom: pxToRem(-40px);
+        width: pxToRem(283px);
+        height: pxToRem(80px);
+        line-height: pxToRem(80px);
+        background: url(../images/index/btn_bg.png) no-repeat;
+        background-size: 100% 100%;     
+        color: #520472;
+        font-weight: bold;
+        text-align: center;
+        font-size: pxToRem(32px);
+        left: 50%;
+        margin-left:  pxToRem(-140px);
+    }
+
+}
+
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+
+
+
+}
+
+
+.rule_alert{
+
+    .con{
+    width: pxToRem(530px);
+    height: pxToRem(820px);
+    background: url(../images/index/alert_rule.png) no-repeat;
+    background-size: 100% 100%;
+    padding:  pxToRem(50px) pxToRem(30px);
+        .tit{
+            text-align: center;
+            color: #fff600;
+            font-size: pxToRem(35px);
+            margin-bottom:  pxToRem(50px);
+        }   
+    }
+
+    .list{
+        li{
+            font-size:  pxToRem(25px);
+            color: #fff;
+            line-height: pxToRem(36px);
+            margin-bottom:  pxToRem(20px);
+            text-align: left;
+        }
+    }
+
+}
+
+
+.gameover_alert{
+    .con{
+    width: pxToRem(530px);
+    height: pxToRem(520px);
+    background: url(../images/index/alert_bg_1.png) no-repeat;
+    background-size: 100% 100%;
+    padding:  pxToRem(70px) 0;
+    text-align: center;
+    }
+
+    .txt{
+        font-size: pxToRem(40px);
+        line-height: pxToRem(60px);
+        color: #fff;
+        
+        span{
+            color:#fff600;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.win_alert{
+    .con{
+    width: pxToRem(530px);
+    height: pxToRem(520px);
+    background: url(../images/index/alert_bg_2.png) no-repeat;
+    background-size: 100% 100%;
+    padding:  pxToRem(70px) 0;
+    text-align: center;
+    }
+
+    .txt{
+        font-size: pxToRem(58px);
+        color: #fff;
+    }
+}

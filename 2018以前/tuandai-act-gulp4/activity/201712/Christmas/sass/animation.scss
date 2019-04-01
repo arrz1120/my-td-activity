@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@import "../../../../sass/func";
+
+.loading-img{
+    -webkit-animation: loadingImg 1s ease-out infinite;
+}
+
+@-webkit-keyframes loadingImg{
+    0%{
+        -webkit-transform: rotateZ(0);
+    }
+    100%{
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+

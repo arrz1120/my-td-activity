@@ -1,0 +1,77 @@
+@charset 'utf-8';
+@function rem($px) {
+    @return ($px*16/750)*1rem
+}
+
+@mixin bg($url) {
+    @if $url!='' {
+        background: url($url) center top no-repeat;
+    }
+    @else {
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    background-size: 100%;
+}
+
+@mixin wh($w, $h) {
+    width: rem($w);
+    height: rem($h);
+}
+
+@mixin pos($top, $right, $bottom, $left) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin font($size, $color) {
+    font-size: rem($size);
+    color: $color;
+}
+
+@mixin text-center {
+    text-align: center !important;
+}
+
+@mixin text-overflow {
+    text-align: center !important;
+}
+
+@mixin box-center {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+
+@mixin border($pos, $color, $style:solid) {
+    content: "";
+    position: absolute;
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    @if $pos=='top' {
+        #{$pos}: 0;
+        left: 0;
+        right: 0;
+        border-#{$pos}: 1px solid $color;
+        transform: scaleY(.5);
+        -webkit-transform: scaleY(.5);
+    }
+    @else if $pos=='bottom' {
+        #{$pos}: 0;
+        left: 0;
+        right: 0;
+        border-#{$pos}: 1px $style $color;
+        transform: scaleY(.5);
+        -webkit-transform: scaleY(.5);
+    }
+    @else {
+        top: 0;
+        bottom: 0;
+        #{$pos}: 0;
+        border-#{$pos}: 1px solid $color;
+        transform: scaleX(.5);
+        -webkit-transform: scaleX(.5);
+    }
+}

@@ -1,0 +1,112 @@
+@import "../../../sass/func";
+.m-sprite {
+  display: inline-block;
+
+  background-image: url("../images/mSprite.png");
+  background-repeat: no-repeat;
+  background-size: pxToRem(261px)  pxToRem(245px);;
+}
+.msprite-clock {
+  width: pxToRem(39px);
+  height: pxToRem(40px);
+
+  background-position: pxToRem(-65px) pxToRem(-153px);
+
+  @extend .m-sprite;
+}
+.msprite-contact {
+  width: pxToRem(34px);
+  height: pxToRem(30px);
+
+  background-position: pxToRem(-162px) pxToRem(-153px);
+
+  @extend .m-sprite;
+}
+.msprite-gz {
+  width: pxToRem(30px);
+  height: pxToRem(29px);
+
+  background-position: pxToRem(0px) pxToRem(-218px);
+
+  @extend .m-sprite;
+}
+.msprite-help {
+  width: pxToRem(22px);
+  height: pxToRem(24px);
+
+  background-position: pxToRem(-234px) pxToRem(-84px);
+
+  @extend .m-sprite;
+}
+.msprite-people {
+  width: pxToRem(22px);
+  height: pxToRem(23px);
+
+  background-position: pxToRem(-234px) pxToRem(-51px);
+
+  @extend .m-sprite;
+}
+.msprite-update {
+  width: pxToRem(40px);
+  height: pxToRem(40px);
+
+  background-position: pxToRem(-114px) pxToRem(-153px);
+
+  @extend .m-sprite;
+}
+.msprite-icon1 {
+  width: pxToRem(65px);
+  height: pxToRem(71px);
+
+  background-position: pxToRem(-85px) pxToRem(0px);
+
+  @extend .m-sprite;
+}
+.msprite-icon2 {
+  width: pxToRem(75px);
+  height: pxToRem(81px);
+
+  background-position: pxToRem(0px) pxToRem(0px);
+
+  @extend .m-sprite;
+}
+.msprite-icon3 {
+  width: pxToRem(73px);
+  height: pxToRem(52px);
+
+  background-position: pxToRem(0px) pxToRem(-91px);
+
+  @extend .m-sprite;
+}
+.msprite-icon4 {
+  width: pxToRem(55px);
+  height: pxToRem(57px);
+
+  background-position: pxToRem(0px) pxToRem(-153px);
+
+  @extend .m-sprite;
+}
+.msprite-icon5 {
+  width: pxToRem(64px);
+  height: pxToRem(72px);
+
+  background-position: pxToRem(-160px) pxToRem(0px);
+
+  @extend .m-sprite;
+}
+.msprite-m-arrow {
+  width: pxToRem(27px);
+  height: pxToRem(41px);
+
+  background-position: pxToRem(-234px) pxToRem(0px);
+
+  @extend .m-sprite;
+}
+.msprite-title-bg {
+  width: pxToRem(99px);
+  height: pxToRem(18px);
+
+  background-position: pxToRem(-83px) pxToRem(-91px);
+
+  @extend .m-sprite;
+}

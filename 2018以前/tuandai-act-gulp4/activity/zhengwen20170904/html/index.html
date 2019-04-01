@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>测试测试测试测试测试测试</title>
+
+	
+	<!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->
+
+
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) {
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+<body>
+
+
+<header>
+	<img src="../images/banner.png" class="banner">
+	<a href="" class="btn" id="rule_btn">我要投稿</a>
+</header>
+
+
+<div class="md md1">
+	<img src="../images/tit_1.png" class="tit">
+	<h2 class="tit_1">《恩重如山•难忘师情》</h2>
+	<p class="txt">在人的一生里，有很长的一段时间都在校园度过，而老师，是我们在学生时代除了亲人之外接触最多的成年人。虽然他们不是我们的父母，却为我们倾其所有。他们形塑我们的价值观，影响我们的处事方式，始终在不远处为我们点燃明灯。教师节如期而至，将你与老师的那些事写下来，让文字带我们回味那段青葱的岁月，表达对恩师的感恩之情吧。</p>
+</div>
+
+
+
+<div class="md md2">
+	<img src="../images/tit_2.png" class="tit">
+				
+
+				<!-- Swiper -->
+			    <div class="swiper-container swiper-container_1">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            	<h3 class="prize_tit tit_1"><span></span>团粉之星奖<span></span></h3>
+			            	<div class="prize">
+			            		<img src="../images/prize_1.png">
+			            		<p class="txt">蓝牙耳机1个 + 100元投资红包</p>
+			            	</div>
+			            </div>
+			            <div class="swiper-slide">
+			            	<h3 class="prize_tit tit_1"><span></span>优秀奖<span></span></h3>
+			            	<div class="prize">
+			            		<img src="../images/prize_2.png">
+			            		<p class="txt">小π雨伞1把 + 50元投资红包</p>
+			            	</div>
+			            </div>
+
+			            <div class="swiper-slide">
+			            	<h3 class="prize_tit tit_1"><span></span>幸运奖<span></span></h3>
+			            	<div class="prize">
+			            		<img src="../images/prize_3.png">
+			            		<p class="txt">5元投资红包</p>
+			            	</div>
+			            </div>
+
+			        </div>
+			        <!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next" id="swiper-button-next-1"></div>
+			        <div class="swiper-button-prev" id="swiper-button-prev-1"></div>
+			    </div>
+				<!-- Swiper  end-->
+
+
+
+
+
+</div>
+
+
+
+<div class="md md3">
+	<img src="../images/tit_3.png" class="tit">
+	
+
+			    <!-- Swiper -->
+			    <div class="swiper-container swiper-container_2">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            	<h3 class="tit_1 tit_2"><span class='icon_1'></span>来稿要求</h3>
+			            	<ul class="rule_list rule_list_1">
+			            		<li>文体不限，文章字数300字或以上，图文结合， 附上至少1张与老师相关的照片（读书时期老师的照片、与老师的合照或者毕业合照）；</li>
+			            		<li>请注明自己的昵称以及成为团贷网用户的时间、职业、年龄、居住地；</li> 
+			            		<li>来稿必须原创，抄袭、套改取消评选资格。</li>
+			            	</ul>
+			            </div>
+			            <div class="swiper-slide">
+			            	<h3 class="tit_1 tit_2"><span class='icon_2'></span>参与方式</h3>
+			            	<ul class="rule_list rule_list_2">
+			            		<li>邮箱投稿：<br>将稿件发送至教师节征文邮箱：<br>zhengwen@tuandai.com<br>邮件标题：教师节征文+姓名+地区+手机号</li>
+			            		<li>微信投稿：<br>将稿件直接上传到团贷网微信订阅号后台并回复关键字【教师节征文】+姓名+地区+手机号</li>
+			            		<li>团粉圈投稿：<br>登录团粉圈-热门活动，进入“团粉故事教师节征文”跟帖回复</li>
+			            	</ul>
+			            </div>
+			            <div class="swiper-slide">
+			            	<h3 class="tit_1 tit_2"><span class='icon_3'></span>评选规则</h3>
+			            	<ul class="rule_list">
+			            		<li>文章围绕“恩重如山 难忘师情”为主题，可以记录良师的可敬与幽默；可以回忆人生重大抉择时良师对您的启迪；还可以向我们讲述您和老师之间的动人故事；</li>
+			            		<li>来稿符合征文要求的作品，均可获得【幸运奖】，奖励5元投资红包；</li>
+			            		<li>来稿一经选用并在团贷网微信订阅号进行推送，可获得【优秀奖】，奖励小π雨伞1把+50元投资红包；</li>
+			            		<li>活动结束后，推送并展示到微信订阅号的作品，点赞数最多者获得【团粉之星奖】，奖励蓝牙耳机1个+100元投资红包。</li>
+			            	</ul>
+			            </div>
+			            <div class="swiper-slide">
+			            	<h3 class="tit_1 tit_2 "><span class='icon_4'></span>关于奖品</h3>
+			            	<ul class="rule_list rule_list_1">
+			            		<li>本期征文活动结束后，三个工作日内公布获奖名单，公布名单后实物奖和投资红包将于五个工作日内发放（提醒：来稿时必须写清楚联系方式）；三个工作日内公布获奖名单，获奖者将收到短信通知</li>
+			            		<li>投资红包将发放至个人团宝箱，团粉之星奖的使用杠杆为1:50，优秀奖及幸运奖的使用杠杆均为1:100；使用规则以红包提示为准，过期视为放弃。</li>
+			            		
+			            	</ul>
+			            </div>
+			            <div class="swiper-slide">
+			            	<h3 class="tit_1 tit_2"><span class='icon_5'></span>补充说明</h3>
+			            	<ul class="rule_list rule_list_1">
+			            		<li>团贷网对全部参赛作品具有收藏、发表、出版、宣传等处置权，包括网络发表权、出版权；</li>
+			            		<li>因参赛者抄袭带来的版权纠纷，由参赛者个人承担全部责任，参赛者享有自己作品的署名权； 凡参与活动的团粉视为了解并接受以上规则。</li>
+			            	</ul>
+			            </div>
+			        </div>
+			        <!-- Add Pagination -->
+			        <div class="swiper-pagination"></div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next" id="swiper-button-next-2"></div>
+			        <div class="swiper-button-prev" id="swiper-button-prev-2"></div>
+			    </div>
+				<!-- Swiper  end-->
+
+
+
+
+</div>
+
+<footer>
+	本活动最终解释权归团贷网
+</footer>
+
+
+<div class="share_btn"></div>
+
+<a href="" class="link">长期征文></a>
+
+
+
+<div id="wx_tips">
+	<img src="../images/share.png" alt="">
+	<div class="close"></div>
+</div>
+
+
+
+<!-- 弹窗 -->
+
+<div class="alert" id="rule" style="display:none">
+	<!-- <div class="mark"></div> -->
+	<div class="con">
+		<ul>
+			<li>
+				<span>01</span>
+				<p>方式一：邮箱投稿</p>
+				<p>将稿件发送至教师节征文邮箱：   </p>
+				<p>zhengwen@tuandai.com</p>
+				<p>邮件标题：教师节征文+姓名+地区+手机号</p>
+			</li>
+			<li>
+				<span>02</span>
+				<p>方式二：微信投稿</p>
+				<p>将稿件直接上传到团贷网微信订阅号后台并回复关键字【教师节征文】+姓名+地区+手机号</p>
+			</li>
+			<li>
+				<span>03</span>
+				<p>方式三：团粉圈投稿</p>
+				<p>登录团粉圈-热门活动，进入“团粉故事教师节征文”跟帖回复</p>
+			</li>
+		</ul>
+
+		<p class="tips">注意：来稿需要图文结合哦！</p>
+
+		<div class="btn close_alert">我知道了</div>
+	</div>
+</div>
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+<!-- endbuild -->
+
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+  <script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+
+
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+
+</html>

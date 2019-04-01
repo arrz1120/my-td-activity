@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>帮助中心</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/userCenter/helpCenter.css -->
+    <link rel="stylesheet" href="../../css/userCenter/helpCenter.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>常见问题</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content qd-content">
+            <ul class="qd-list">
+                <li class="qd-container">
+                    <span class="qd-question elem-arrow">什么时候可以提前还款？</span>
+                    <section class="qd-answer">
+                        借款期限1个月以内(含一个月)的借款，需持有14天以上才可以提前还款；借款期限1个月以上的借款，可随时提前还款。
+                    </section>
+                </li>
+                <!-- <li class="qd-container">
+                    <span class="qd-question elem-arrow">什么时候可以提前还款？</span>
+                    <section class="qd-answer">
+                        借款期限1个月以内(含一个月)的借款，需持有14天以上才可以提前还款；借款期限1个月以上的借款，可随时提前还款。
+                    </section>
+                </li> -->
+            </ul>
+        </div>
+        <span class="qd-recomment">客服电话：400-641-0888</span>
+    </div>
+</body>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+
+    Util.initHeader({
+        header: 'header'
+    });
+
+    $('.qd-question').on('click', function() {
+        var _obj = $(this).parent();
+        if (_obj.hasClass('pack-up')) {
+            _obj.removeClass('pack-up');
+        } else {
+            _obj.addClass('pack-up');
+        }
+    });
+})();
+</script>
+
+</html>

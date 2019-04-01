@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@import "variables";
+@import "../../../sass/func";
+.list-coupon {
+    li {
+        position: relative;
+        background-color: $bg-white;
+        border-radius: pxToRem(10px);
+        margin-bottom: pxToRem(20px);
+        overflow: hidden;
+    }
+}
+.coupon {
+        font-size: 0;
+        width: pxToRem(690px);
+        &>div {
+            display: inline-block;
+            font-size: pxToRem(24px);
+        }
+        .money {
+            color: $txt-yellow-dark;
+            font-size: pxToRem(100px);
+            padding: pxToRem(10px) pxToRem(44px) pxToRem(20px);
+            &:before {
+                content: '¥';
+                font-size: pxToRem(32px);
+                margin-right: pxToRem(-8px);
+            }
+        }
+        &.disabled, &.lapsed {
+            .money {
+                color: $txt-grey-darker;
+            }
+        }
+        &.lapsed {
+            &:after {
+                content: '已失效';
+                position: absolute;
+                width: pxToRem(240px);
+                height: pxToRem(54px);
+                line-height: pxToRem(54px);
+                background-color: #e6e6e6;
+                text-align: center;
+                top: pxToRem(24px);
+                right: pxToRem(-68px);
+                font-size: pxToRem(26px);
+                color: $txt-grey-darker;
+                transform: rotate(45deg);
+                // transform-orign: 100% 50%;
+            }
+        }
+        .coupon-left {
+            position: relative;
+            width: pxToRem(200px);
+            padding: pxToRem(70px) 0 pxToRem(54px);
+            &:after {
+                @include border(right, $border-color-grey-darker);
+                border: 1px dashed $border-color-grey-darker;
+            }
+            span {
+                color: $txt-grey-darker;
+                text-align: center;
+                display: block;
+            }
+        }
+        .coupon-right {
+            width: pxToRem(490px);
+            padding: 0 pxToRem(40px) pxToRem(24px) pxToRem(44px);
+            div {
+                font-size: pxToRem(32px);
+                color: $txt-black-light;
+                padding-bottom: pxToRem(20px);
+            }
+            p {
+                color: $txt-grey-darker;
+                padding-bottom: pxToRem(30px);
+                line-height: pxToRem(32px);
+            }
+            .info {
+                font-size: pxToRem(26px);
+                @include ellipsis();
+            }
+        }
+    }

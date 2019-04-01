@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>window.mobileUtils=function(a,b){var c=navigator.userAgent,d=/android|adr/gi.test(c),e=/iphone|ipod|ipad/gi.test(c)&&!d,f=d||e;return{isAndroid:d,isIos:e,isMobile:f,isWeixin:/MicroMessenger/gi.test(c),isQQ:/QQ\/\d/gi.test(c),dpr:e?Math.min(a.devicePixelRatio,3):1,tapEvent:f?"tap":"click",rem:null,fixScreen:function(){function A(a){return"initial-scale="+a+",maximum-scale="+a+",minimum-scale="+a}var o,j,k,l,m,p,q,r,s,t,u,v,w,x,y,z,c=this,d=b.querySelector('meta[name="viewport"]'),g=d?d.content:"",h=g.match(/initial\-scale=([\d\.]+)/),i=g.match(/width=([^,\s]+)/);d?f&&!h&&i&&"device-width"!=i[1]&&(q=parseInt(i[1]),r=a.innerWidth||q,s=a.outerWidth||r,t=a.screen.width||r,u=a.screen.availWidth||r,v=a.innerHeight||q,w=a.outerHeight||v,x=a.screen.height||v,y=a.screen.availHeight||v,z=Math.min(r,s,t,u,v,w,x,y),m=z/q,1>m&&(d.content=g+","+A(m))):(j=b.documentElement,k=j.dataset.mw||750,l=e?Math.min(a.devicePixelRatio,3):1,m=1,b.getElementsByTagName("body")[0],j.removeAttribute("data-mw"),j.dataset.dpr=l,d=b.createElement("meta"),d.name="viewport",d.content=A(m),j.firstElementChild.appendChild(d),p=function(){var b,a=j.getBoundingClientRect().width;a/l>k&&(a=k*l),b=a/16,c.rem=b,j.style.fontSize=b+"px"},a.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(p,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(o),o=setTimeout(p,300))},!1),p())}}}(window,document),mobileUtils.fixScreen();</script>
+    <style>
+      #circular{
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <canvas id="circular"></canvas>
+    <script src="js/circularProcess.bundle.js"></script>
+    <script>
+      /*
+      环形进度条(canvas)
+      new CircularProcess(el,opts);
+      @param {String||domNode} el:canvas 节点
+      @param {Object} opts:配置参数
+      opts:{
+        anticlockwise:true,//顺时针渲染,逆时针为 false
+        bgColor:'#ddd',//进度条底色
+        animate:true,//开启动画进度
+        animateSpeed:15,//动画速度
+        startDeg:0,//开始角度
+        maxDeg:360,//最大角度
+        lineWidth:5,//进度条线宽
+        dpr:1,//canvas 放大倍数,解决高清屏下锯齿问题
+        circles:[//进度条列表
+          {
+            color:'#f60',//进度条颜色
+            radius:45,//进度条圆半径
+            val:100,//进度条数值(注意不是输入百分比,输入各自数值会自动渲染正确各自百分比)
+            percent:0,//进度条百分比( percent 和 val 二选一)
+          }
+        ]
+      }
+
+      方法:
+      render():渲染 canvas
+      clear():清除 canvas (不是销毁)
+      set(opts):重新设置参数(调用后默认清除 canvas ,需自行调用 render() 渲染)
+      */
+      var circular=new CircularProcess('#circular',{
+        anticlockwise:false,
+        bgColor:'#eee',
+        animate:true,
+        animateSpeed:15,
+        dpr:2,
+        lineWidth:5,
+        circles:[
+          {
+            color:'#f60',
+            radius:100,
+            val:1,
+          }
+        ]
+      });
+      circular.render();
+    </script>
+  </body>
+</html>

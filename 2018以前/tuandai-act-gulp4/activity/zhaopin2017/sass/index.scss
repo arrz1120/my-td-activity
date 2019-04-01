@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/func";
+.tab-content{
+    padding: 0 pxToRem(50px);
+    img{
+        width: 100%;
+        margin-bottom: pxToRem(38px);
+    }
+}

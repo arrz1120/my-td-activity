@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>Register20170830_18yi</title>
+		<!-- build:css ../css/swiper-3.4.2.min.css -->
+		<link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+		<!-- endbuild -->
+		<!-- build:css ../css/main.css -->
+		<link rel="stylesheet" href="../css/index.css">
+		<link rel="stylesheet" href="../css/media.css">
+		<link rel="stylesheet" href="../css/animation.css">
+		<!-- endbuild -->
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="pageContainer">
+			<div class="banner">
+				<div class="banner-tit">贺团贷网喜获18亿元融资</div>
+				<div class="banner-txt"><span>12.6%</span>预期年化收益</div>
+			</div>
+			<section class="sec1">
+				<div class="inputBox">
+					<div class="inp">
+						<div class="inp-icon icon-phone"><i></i></div>
+						<input type="text" placeholder="输入手机号码免费领取" maxlength="11" id="telInput" />
+						<div class="error">请输入正确的手机号</div>
+					</div>
+
+					<div id="input-wrapper" class="">
+
+						<div class="inp inp-short">
+							<div class="inp-icon icon-code"><i></i></div>
+							<input type="text" placeholder="输入短信验证码" maxlength="6" />
+							<div class="error">验证码错误，请重新输入</div>
+							<!--<input type="button" id="btnSendMsg" class="getCode" value="162秒后可重发" />-->
+							<input type="button" id="btnSendMsg" class="getCode" value="162秒后可重发" />
+							<!--<div id="btnSendMsg" class="getCode">162秒后可重发</div>-->
+						</div>
+
+						<div class="inp">
+							<div class="inp-icon icon-password"><i></i></div>
+							<input type="password" placeholder="设置密码(6-16个字符,字母+数字）" maxlength="16" id="password" />
+							<div class="error">密码格式错误</div>
+							<div class="icon-eye icon-eye-close"></div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="agree">
+					领取表示您已同意
+					<a href="javascript:void(0);">《团贷网服务协议》</a>
+				</div>
+
+				<a href="success.html" class="inp-btn">立即领取518元红包</a>
+
+				<div class="login-tips">已有账号，请
+					<a href="">登录</a>
+				</div>
+			</section>
+
+			<section class="sec2">
+				<div class="sec-tit">融资专享福利</div>
+				<div class="fuli">
+					<div class="fuli-item fuli-item1">
+						<p><span>518元</span>投资红包</p>
+						<a href="javascript:void(0);">注册即送</a>
+					</div>
+					<div class="fuli-item fuli-item2">
+						<p><span>2888元</span>体验金</p>
+						<a href="javascript:void(0);">注册即送</a>
+					</div>
+					<div class="fuli-item">
+						<p><span>500元</span>邀请红包</p>
+						<a href="javascript:void(0);">另享0.5%年化佣金</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="sec3">
+				<div class="bg-d1"></div>
+				<div class="bg-d2"></div>
+				<div class="sec-tit">丰富的理财产品</div>
+				<div class="swiper-container" id="investSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="invest-bg">
+								<div class="invest-tit">新手专享标</div>
+								<div class="invest-text">
+									<div class="invest-l">
+										<p class="p1"><span>10</span>%</p>
+										<p class="p2">预期年化收益</p>
+									</div>
+									<div class="invest-r">
+										<p class="p1"><span>15</span>天</p>
+										<p class="p2">到期本息</p>
+									</div>
+								</div>
+								<a href="javascript:void(0);" class="invest-btn clickToInput">马上投资</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="invest-bg">
+								<div class="invest-tit">新手专享标</div>
+								<div class="invest-text">
+									<div class="invest-l">
+										<p class="p1"><span>11</span>%</p>
+										<p class="p2">预期年化收益</p>
+									</div>
+									<div class="invest-r">
+										<p class="p1"><span>1</span>个月</p>
+										<p class="p2">到期本息</p>
+									</div>
+								</div>
+								<a href="javascript:void(0);" class="invest-btn clickToInput">马上投资</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="invest-bg">
+								<div class="invest-tit">新手专享标</div>
+								<div class="invest-text">
+									<div class="invest-l">
+										<p class="p1"><span>12</span>%</p>
+										<p class="p2">预期年化收益</p>
+									</div>
+									<div class="invest-r">
+										<p class="p1"><span>3</span>个月</p>
+										<p class="p2">到期本息</p>
+									</div>
+								</div>
+								<a href="javascript:void(0);" class="invest-btn clickToInput">马上投资</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="invest-bg">
+								<div class="invest-tit">复投宝36</div>
+								<div class="invest-text">
+									<div class="invest-l">
+										<p class="p1"><span>12.6</span>%</p>
+										<p class="p2">预期年化收益</p>
+									</div>
+									<div class="invest-r">
+										<p class="p1"><span>36</span>个月</p>
+										<p class="p2">到期本息</p>
+									</div>
+								</div>
+								<a href="javascript:void(0);" class="invest-btn clickToInput">马上投资</a>
+							</div>
+						</div>
+					</div>
+					<div class="paging" id="paging"></div>
+				</div>
+			</section>
+
+			<section class="sec4">
+				<div class="sec-tit">关于团贷网</div>
+				<div class="td-text">
+					<p>2017年6月1日，派生集团（系团贷网集团工商登记主体）正式宣布，已获得新一轮融资<span>18亿元人民币</span>。本轮融资由民生资本投资管理有限公司领投<span>7亿</span>，北京盈生创新科技有限责任公司跟投<span>6.5亿</span>、北海宏泰投资有限公司跟投<span>1.5亿</span>。</p>
+				</div>
+				<div class="rongzi"></div>
+			</section>
+
+			<section class="sec5">
+				<div class="bg-d1"></div>
+				<div class="bg-d2"></div>
+				<div class="sec-tit">选择团贷网的理由</div>
+				<div class="reason-box">
+					<div class="reason reason-row">
+						<div class="reason-l">
+							<img src="../images/reason1.png" />
+							<p>新一轮融资<span>18亿元</span><br />4轮融资<span>24.75亿元</span></p>
+						</div>
+						<div class="reason-r">
+							<img src="../images/reason2.png" />
+							<p>中国互联网<br />金融协会<span>首批会员单位</span></p>
+						</div>
+					</div>
+					<div class="reason">
+						<div class="reason-l">
+							<img src="../images/reason3.png" />
+							<p>厦门银行资金存管<br />自有资金与用户资金隔离更安心</p>
+						</div>
+						<div class="reason-r">
+							<img src="../images/reason4.png" />
+							<p>理财收益更灵活<br />预期年化收益<span>12%</span></p>
+						</div>
+					</div>
+
+					<div class="swiper-container" id="picSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="pic-box">
+									<img src="../images/1.jpg" />
+									<div class="pic-text">国家级互金平台11月综合排名第四位</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic-box">
+									<img src="../images/2.jpg" />
+									<div class="pic-text pic-text-s">商业大咖史玉柱鼎力支持</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic-box">
+									<img src="../images/3.jpg" />
+									<div class="pic-text">2016年10月C轮融资完成</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic-box">
+									<img src="../images/4.jpg" />
+									<div class="pic-text">国务院参事在东莞市领导陪同下考察</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic-box">
+									<img src="../images/5.jpg" />
+									<div class="pic-text">2015年6月—团贷网完成B轮融资</div>
+								</div>
+							</div>
+						</div>
+						<div class="paging" id="paging2"></div>
+					</div>
+
+					<a href="javascript:void(0);" class="inp-btn bot-btn clickToInput">立即领取518元红包</a>
+
+					<p class="invest-tips">投资有风险，入市需谨慎，最终收益以实际为准！</p>
+				</div>
+
+			</section>
+
+			<footer>
+				<div class="line"></div>
+				<div class="footer-l">
+					<p>2010- 2017 版权所有 ©<br />团贷网 粤ICP备16104116号-1 </p>
+				</div>
+				<div class="footer-r">
+					<img src="../images/icon-tel.png" alt="" />
+					<p class="p-phone">1010-1218</p>
+					<p class="p-time">服务时间 09:00-22:00</p>
+				</div>
+			</footer>
+
+	</body>
+
+	<!-- build:js ../js/lib/fastclick-jquery.js -->
+	<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!-- build:js ../js/lib/swiper-3.4.2.js -->
+	<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
+	<!--<script src="../js/reg.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".clickToInput").each(function(i,item){
+    		$(item).click(function(){
+    			$(window).scrollTop(0);
+    		})
+    	})
+	</script>
+</html>

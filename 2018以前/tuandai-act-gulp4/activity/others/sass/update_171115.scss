@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.scroll-active {
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.scroll {
+    max-width: 414px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    .content {
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/171115/bg-top.png'), url('../images/171115/bg-bottom.png');
+        background-size: pxToRem(499px) pxToRem(75px), pxToRem(750px) pxToRem(72px);
+        background-position: right top, bottom;
+        background-repeat: no-repeat, no-repeat;
+        padding-top: pxToRem(128px);
+        font-size: 0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.icon-update {
+    @include background('../images/171115/bg-pic.png',
+    511px,
+    449px);
+    margin: auto;
+}
+
+.update-title {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: pxToRem(48px);
+    line-height: pxToRem(48px);
+    font-weight: bold;
+    margin-top: pxToRem(60px);
+    position: relative;
+    &:before {
+        content: '';
+        width: pxToRem(62px);
+        height: pxToRem(14px);
+        border-radius: pxToRem(14px);
+        background-color: #ffc128;
+        box-shadow: 1px pxToRem(2px) pxToRem(10px) 0px rgba( 255, 193, 40, .35);
+        position: absolute;
+        left: 50%;
+        bottom: pxToRem(-30px);
+        transform: translate(-50%, 0);
+    }
+}
+
+.update-txt {
+    width: 100%;
+    display: inline-block;
+    padding: pxToRem(60px) pxToRem(80px);
+    font-size: pxToRem(30px);
+    line-height: pxToRem(60px);
+    text-align: justify;
+}
+
+.btn-update {
+    background-image: linear-gradient( 0deg, rgb(255, 174, 0) 0%, rgb(255, 196, 46) 100%);
+    box-shadow: pxToRem(4px) pxToRem(7px) pxToRem(20px) 0px rgba( 255, 183, 0, .35);
+    width: pxToRem(470px);
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    border-radius: pxToRem(90px);
+    font-size: pxToRem(34px);
+    text-align: center;
+    margin: auto;
+    margin-top: pxToRem(30px);
+    color: #fff;
+}

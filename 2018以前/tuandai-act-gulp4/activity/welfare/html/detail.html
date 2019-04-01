@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>简单公益</title>
+    <!-- build:css ../css/common.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/swiper-3.4.2.min.css -->
+    <link rel="stylesheet" href="../../../lib/vendor/swiper/swiper-3.4.2.min.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/detail.css -->
+    <link rel="stylesheet" href="../css/detail.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!-- tab -->
+    <header>
+        <span id="back_btn" class="back-btn" style="display: none;"></span>
+        <ul class="tab">
+            <li class="tab-item act" data-index="1">项目详情</li>
+            <li class="tab-item" data-index="2">参与情况</li>
+            <li class="tab-item" data-index="3">最新进展</li>
+        </ul>
+    </header>
+    <div id="content" class="content">
+        <!-- 项目详情 -->
+        <div class="welfare-con welfare-detail-con">
+            <div id="share_con" class="share-con">
+                <div class="mask"></div>
+                <div class="share-pic"></div>
+            </div>
+            <div class="welfare-detail-scroll">
+                <!-- 公益活动 -->
+                <div class="welfare-act-con">
+                    <!-- 轮播图 -->
+                    <div class="swiper-container">
+                      <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                          <img src="../images/detail.png"/>
+                        </li>
+                        <li class="swiper-slide">
+                          <img src="../images/detail.png"/>
+                        </li>
+                        <li class="swiper-slide">
+                          <img src="../images/detail.png"/>
+                        </li>
+                        <li class="swiper-slide">
+                          <img src="../images/detail.png"/>
+                        </li>
+                      </ul>
+                      <!-- 轮播图小点 -->
+                      <div class="swiper-pagination"></div>
+                    </div>
+                    <!-- <img class="pic" src="../images/detail.png" /> -->
+                    <div class="welfare-act-txt">
+                        <p class="title">帮助智力残障儿童户外安全行走活动</p>
+                        <p class="goal"><span class="goal-num">8,888</span>目标团币</p>
+                        <p class="start-date">2016年06月08日开始</p>
+                        <!-- 进度条 如果活动为开始，则没有进度条, 进度条如果大于14%则act-progress-icon加right类-->
+                        <div class="act-progress">
+                            <div class="act-progress-per" style="width: 80%;">
+                                <i class="act-progress-icon right">80%</i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 筹集团币ul加上coin类名,报名参加则加上people类名 -->
+                    <ul class="welfare-act-detail coin">
+                        <li class="detail-item">
+                            <p class="detail-item-txt">已筹团币</p>
+                            <p class="detail-item-num">7620 个</p>
+                        </li>
+                        <li class="detail-item">
+                            <p class="detail-item-txt">参与团粉</p>
+                            <p class="detail-item-num">7620 人</p>
+                        </li>
+                        <li class="detail-item">
+                            <p class="detail-item-txt">共获得</p>
+                            <p class="detail-item-num">7620 赞</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 公益活动介绍 -->
+                <div class="welfare-act-intro">
+                    <p class="welfare-act-title"><span class="line"></span><span class="title-txt">公益项目介绍</span></p>
+                    <div class="intro-con">
+                        <p>“项目介绍”由项目发起人在后台的“公益项目管理”模块对相应公益项目进行新增/修改时，对相应的“项目介绍”进行富文本自定义编辑（</p>
+                        <p>“项目介绍”由项目发起人在后台的“公益项目管理”模块对相应公益项目进行新增/修改时，对相应的“项目介绍”进行富文本自定义编辑（</p>
+                        <img src="../images/detail.png">
+                    </div>
+                </div>
+            </div>
+            <!-- 底部按钮 -->
+            <ul id="bottom_btn" class="bottom-btn">
+                <li class="small-btn-item" data-index="1">
+                    <i></i>
+                    <p>分享</p>
+                </li>
+                <li class="small-btn-item" data-index="2">
+                    <i></i>
+                    <p>点赞</p>
+                </li>
+                <li class="small-btn-item" data-index="3">
+                    <i></i>
+                    <p>关注</p>
+                </li>
+                <li class="big-btn-item" data-index="4">敬请期待</li>
+                <li class="big-btn-item start" data-index="5" style="display: none;">我要捐币</li>
+                <li class="big-btn-item start" data-index="6" style="display: none;">我要参加</li>
+                <li class="big-btn-item finish" data-index="7" style="display: none;">项目已完成</li>
+            </ul>
+        </div>
+        <!-- 参与情况 参加活动与参与捐赠样式一致,只有文案不一致 -->
+        <div id="join_con" class="welfare-con join-con" style="display: none;">
+            <div>
+                <ul>
+                    <li class="join-item">
+                        <img class="user-head" src="../images/detail-head.png"/>
+                        <span class="join-txt">
+                            <p class="user-name">夏木晓</p>
+                            <p class="donate-date">2017-06-16 12:25</p>
+                            <span class="donate-coin">捐赠 10000 团币</span>
+                            <!-- <span class="donate-coin">已参加</span> -->
+                            <span class="user-love"><i class="icon-love"></i>+20000</span>
+                            <p class="user-msg">这样的公益活动，赠人玫瑰，手留余香。希望爱心继续传递。</p>
+                        </span>
+                    </li>
+                    <li class="join-item">
+                        <img class="user-head" src="../images/detail-head.png"/>
+                        <span class="join-txt">
+                            <p class="user-name">夏木晓</p>
+                            <p class="donate-date">2017-06-16 12:25</p>
+                            <span class="donate-coin">捐赠 10000 团币</span>
+                            <!-- <span class="donate-coin">已参加</span> -->
+                            <span class="user-love"><i class="icon-love"></i>+20000</span>
+                            <p class="user-msg">这样的公益活动，赠人玫瑰，手留余香。希望爱心继续传递。</p>
+                        </span>
+                    </li>
+                    <li class="join-item">
+                        <img class="user-head" src="../images/detail-head.png"/>
+                        <span class="join-txt">
+                            <p class="user-name">夏木晓</p>
+                            <p class="donate-date">2017-06-16 12:25</p>
+                            <span class="donate-coin">捐赠 10000 团币</span>
+                            <!-- <span class="donate-coin">已参加</span> -->
+                            <span class="user-love"><i class="icon-love"></i>+20000</span>
+                            <p class="user-msg">这样的公益活动，赠人玫瑰，手留余香。希望爱心继续传递。</p>
+                        </span>
+                    </li>
+                    <li class="join-item">
+                        <img class="user-head" src="../images/detail-head.png"/>
+                        <span class="join-txt">
+                            <p class="user-name">夏木晓</p>
+                            <p class="donate-date">2017-06-16 12:25</p>
+                            <span class="donate-coin">捐赠 10000 团币</span>
+                            <!-- <span class="donate-coin">已参加</span> -->
+                            <span class="user-love"><i class="icon-love"></i>+20000</span>
+                            <p class="user-msg">这样的公益活动，赠人玫瑰，手留余香。希望爱心继续传递。</p>
+                        </span>
+                    </li>
+                    <li class="join-item">
+                        <img class="user-head" src="../images/detail-head.png"/>
+                        <span class="join-txt">
+                            <p class="user-name">夏木晓</p>
+                            <p class="donate-date">2017-06-16 12:25</p>
+                            <span class="donate-coin">捐赠 10000 团币</span>
+                            <span class="user-love"><i class="icon-love"></i>+20000</span>
+                            <!-- <span class="donate-coin">已参加</span> -->
+                            <p class="user-msg">这样的公益活动，赠人玫瑰，手留余香。希望爱心继续传递。</p>
+                        </span>
+                    </li>
+                </ul>
+                <div class="no-more">没有更多了</div>
+            </div>
+            <div class="error-con">
+                <div class="no-data-pic"></div>
+                <p class="error-info">没有相关记录</p>
+            </div>
+        </div>
+        <!-- 最新进展 -->
+        <div id="latest_dev_con" class="welfare-con latest-dev-con" style="display: none;">
+            <div class="latest-dev-list">
+                <p class="welfare-act-title"><span class="line"></span>公益项目最新进展</p>
+                <ul>
+                    <li class="latest-dev-item">
+                        <p class="dev-date">2017-06-16</p>
+                        <p class="latest-dev-txt">“项目介绍”由项目发起人在后台的“公益项目管理”模块对相应公益项目进行新增/修改时，对相应的“项目介绍”进行富文本自定义编辑（</p>
+                        <img src="../images/detail.png" alt=""/>
+                    </li>
+                    <li class="latest-dev-item">
+                        <p class="dev-date">2017-06-16</p>
+                        <p class="latest-dev-txt">“项目介绍”由项目发起人在后台的“公益项目管理”模块对相应公益项目进行新增/修改时，对相应的“项目介绍”进行富文本自定义编辑（</p>
+                        <img src="../images/detail.png" alt=""/>
+                    </li>
+                </ul>
+            </div>
+            <div class="no-more">没有更多了</div>
+        </div>
+    </div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/swiper-3.4.2.js -->
+<script src="../../../lib/vendor/swiper/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/vendor/jsbridge-3.1.4.js -->
+<script src="../../../lib/vendor/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/detail.js" type="text/javascript" charset="utf-8"></script>
+</html>

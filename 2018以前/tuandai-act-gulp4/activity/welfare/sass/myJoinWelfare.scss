@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@import "variables";
+@import "sprite";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+.content{
+	background-color: #f2f2f0;
+}
+
+// 我参与的公益项目/我关注的公益项目
+.join-con{
+	margin-top: pxToRem(20px);
+	ul{
+		padding: 0 pxToRem(30px);
+	}
+	.join-item{
+		padding-top: pxToRem(40px);
+		padding-bottom: pxToRem(40px);
+		padding-right: 0;
+		.join-item-link{
+			display: block;
+			.join-txt{
+				padding-top: 0;
+				width: 69%;
+				.act-name{
+					margin-bottom: pxToRem(32px);
+				}
+				.act-status{
+					margin-bottom: pxToRem(32px);
+					&.going{
+						i{
+							background-color: #a5e839;
+						}
+						span{
+							color: $textBlackColor;
+						}
+						
+					}
+					&.finish{
+						i{
+							background-color: $textBlackColor;
+						}
+						span{
+							color: $textBlackColor;
+						}
+					}
+					
+					i{
+						width: pxToRem(14px);
+						height: pxToRem(14px);
+						margin-right: pxToRem(10px);
+						border-radius: 50%;
+						background-color: $textGreyColor;
+						vertical-align: middle;
+					}
+					span{
+						font-size: pxToRem(26px);
+						color: $textGreyColor;
+						vertical-align: middle;
+					}
+				}
+				.donate-coin{
+					font-size: pxToRem(26px);
+					margin-bottom: 0;
+				}
+			}
+			// 关注按钮
+			.follow-btn{
+				width: pxToRem(160px);
+				height: pxToRem(60px);
+				border: 1px solid $mainColor;
+				border-radius: pxToRem(10px);
+				line-height: pxToRem(60px);
+				font-size: pxToRem(26px);
+				color: $mainColor;
+				text-align: center;
+			}
+		}
+	}
+}
+
+// 取消关注弹窗
+.alert-wrapper{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	.alert-con{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		width: pxToRem(610px);
+		background-color: $defaultColor;
+		border-radius: pxToRem(14px);
+		z-index: 30;
+		text-align: center;
+		font-size: 0;
+		.msg{
+			padding: pxToRem(60px) 0;
+			font-size: pxToRem(34px);
+			color: $textBlackColor;
+		}
+		.btn{
+			height: pxToRem(88px);
+			line-height: pxToRem(88px);
+			border-top: 1px solid $borderColor;
+			span{
+				width: 49.9%;
+				font-size: pxToRem(34px);
+				text-align: center;
+			}
+			.cancel-btn{
+				border-right: 1px solid $borderColor;
+				color: $textGreyColor;
+			}
+			.confirm-btn{
+				color: $mainColor;
+			}
+		}
+	}
+}

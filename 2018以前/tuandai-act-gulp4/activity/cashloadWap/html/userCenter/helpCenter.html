@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>帮助中心</title>
+    <!-- build:css ../../css/main.css -->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/media.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../../css/userCenter/helpCenter.css -->
+    <link rel="stylesheet" href="../../css/userCenter/helpCenter.css">
+    <!-- endbuild -->
+    <!-- build:js ../../js/lib/adapt.js -->
+    <script src="../../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <header id="header" class="header">
+        <div class="btn-back">
+            <i class="icon-block icon-back"></i>
+        </div>
+        <h1>帮助中心</h1>
+    </header>
+    <div class="scroll scroll-active">
+        <div class="content mh-content no-footer">
+           <!--  <ul class="services-container">
+                <li class="service-item service-online" data-type="0">
+                    <span>在线客服</span>
+                    <span>24小时专属服务</span>
+                </li>
+                <li class="service-item service-tel" data-type="1">
+                    <span>电话客服</span>
+                    <span>拨打客服热线</span>
+                </li>
+            </ul> -->
+            <section class="service-container">
+                <span>拨打客服热线</span>
+                <a href="tel:400-6410-888">400-1690-188 ></a>
+                <span>服务时间：周一至周五9:00-22:00，周末 9:00-18:00</span>
+            </section>
+            <ul class="mh-qlist">
+                <li data-id="0">常见问题</li>
+                <li class="elem-arrow" data-id="1">如何进行刷脸认证？</li>
+                <li class="elem-arrow" data-id="2">为什么要进行手机运营商认证？</li>
+                <li class="elem-arrow" data-id="3">贷款资金获取途径有哪些？ </li>
+                <li class="elem-arrow" data-id="4">一般贷款后多久才能到账？</li>
+                <li class="elem-arrow" data-id="5">到期后如何还款？</li>
+            </ul>
+            <ul class="mh-icon-list">
+                <li class="mh-icon" data-type="0">
+                    <div class="item-icon icon-account-h"></div>
+                    <span>个人账户</span>
+                </li>
+                <li class="mh-icon" data-type="1">
+                    <div class="item-icon icon-authentication-h"></div>
+                    <span>身份认证</span>
+                </li>
+                <li class="mh-icon" data-type="2">
+                    <div class="item-icon icon-face-h"></div>
+                    <span>刷脸认证</span>
+                </li>
+                <li class="mh-icon" data-type="3">
+                    <div class="item-icon icon-opreator-h"></div>
+                    <span>手机运营商</span>
+                </li>
+                <li class="mh-icon" data-type="4">
+                    <div class="item-icon icon-loan-h"></div>
+                    <span>贷款还款</span>
+                </li>
+                <li class="mh-icon" data-type="5">
+                    <div class="item-icon icon-custody-h"></div>
+                    <span>银行存管</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</body>
+<!-- build:js ../../js/lib/fastclick-jquery.js -->
+<script src="../../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+(function() {
+    FastClick.attach(document.body);
+    Util.initHeader({
+        header: 'header'
+    });
+
+
+    //点击问题
+    $('.mh-qlist>li').on('click', function() {
+        var id = $(this).attr('data-id');
+        console.info('question id--', id);
+        location.href = './questionDetail.html?id=' + id;
+    });
+
+    $('.mh-icon').on('click', function() {
+        var type = $(this).attr('data-type');
+        switch (+type) {
+            case 0:
+                console.info('个人账户');
+                break;
+            case 1:
+                console.info('身份认证');
+                break;
+            case 2:
+                console.info('刷脸认证');
+                break;
+            case 3:
+                console.info('手机运营商');
+                break;
+            case 4:
+                console.info('贷款还款');
+                break;
+            case 5:
+                console.info('银行存管');
+                break;
+        }
+    });
+})();
+</script>
+
+</html>

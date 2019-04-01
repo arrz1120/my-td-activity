@@ -1,0 +1,210 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color: $color;
+}
+
+.wrap{
+    background-image: url(../images/index-bg.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    .logo{
+        background-image: url(../images/logo.png?v=0127);
+        width: pxToRem(386px);
+        height: pxToRem(64px);
+        position: absolute;
+        left: pxToRem(30px);
+        top: pxToRem(30px);
+    }
+    i{
+        display: block;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .chunjieban{
+        @include background('../images/chunjieban.png', 126px, 77px);
+        position: absolute;
+        left: pxToRem(30px);
+        top: 0;
+        font-size:pxToRem(30px);
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .icon-yh1{
+        @include background('../images/icon-yh1.png', 91px, 105px);
+        right: pxToRem(10px);
+        top:pxToRem(10px);
+        z-index: 2;
+    }
+
+    .icon-yh2{
+        @include background('../images/icon-yh2.png', 78px, 71px);
+        left: pxToRem(12px);
+        top:pxToRem(319px);
+        z-index: 2;
+        }
+
+    .icon-jb{
+        @include background('../images/icon-jb.png', 108px, 136px);
+        right: pxToRem(20px);
+        bottom:pxToRem(45px);
+        z-index: 2;
+        }
+
+    .icon-bz{
+        @include background('../images/icon-bz.png', 102px, 104px);
+        left: pxToRem(10px);
+        bottom:pxToRem(72px);
+        z-index: 2;
+        }
+
+
+    .content{
+        padding-top:pxToRem(64px);
+        .hd-time{
+            font-size:pxToRem(24px);
+            color: #ffaa0a;
+            text-align: center;
+        }
+        .txt-b{
+            @include background('../images/txt-b.png', 694px, 161px);
+            left: 50%;
+            margin-left:pxToRem(-347px);
+            top:pxToRem(75px);
+            }
+
+        .txt-s{
+            @include background('../images/txt-s.png', 540px, 59px);
+            left: 50%;
+            margin-left:pxToRem(-270px);
+            top:pxToRem(250px);
+            }
+    }
+}
+#lipao{
+     opacity: 0;
+    }
+
+.red-packet{
+    @include background('../images/rp-bg.png', 604px, 819px);
+    margin: pxToRem(260px) auto 0;
+    position: relative;
+    padding-top:pxToRem(100px);
+    .tips{
+        font-size:pxToRem(26px);
+        color: #fa4d3c;
+        text-align: center;
+        margin: 0 auto;
+        line-height:pxToRem(26px);
+        text-indent: -9999em;
+        display: block;
+        background-image: url("data:image/png;base64,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");
+        width:pxToRem(226px);
+        height: pxToRem(46px);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .btn-open{
+        display: block;
+        position: absolute;
+        width: pxToRem(243px);
+        height: pxToRem(243px);
+        left: 50%;
+        top:pxToRem(170px);
+        margin-left: pxToRem(-121px);
+        z-index: 5;
+        .btn-open-bg{
+            position: absolute;
+            display: block;
+            background-image: url(../images/btn-open-bg.png?v=0126);
+            width: pxToRem(243px);
+            height: pxToRem(243px);
+        }
+        .kai{
+            display: block;
+            margin: pxToRem(25px) auto 0;
+            background-image: url(../images/btn-open.png?v=0127);
+            width: pxToRem(176px);
+            height: pxToRem(188px);
+        }
+    }
+    .list{
+        width: pxToRem(448px);
+        height: pxToRem(180px);
+        overflow: hidden;
+        margin: pxToRem(300px) auto 0;
+        ul{
+            li{
+                width: 100%;
+                height:pxToRem(45px);
+                line-height:pxToRem(45px);
+                p{
+                    font-size:pxToRem(23px);
+                    color: #ffffff;
+                    position: relative;
+                    padding-right:pxToRem(100px);
+                    height:pxToRem(45px);
+                    line-height:pxToRem(45px);
+                    span{
+                        height:pxToRem(45px);
+                        line-height:pxToRem(45px);
+                        width: pxToRem(100px);
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        font-size:pxToRem(23px);
+                        color: #ffffff;
+                    }
+                }
+
+            }
+        }
+    }
+    .guafen{
+        width: pxToRem(460px);
+        margin: pxToRem(210px) auto 0;
+        p{
+            font-size:pxToRem(23px);
+            color: #ffffff;
+            text-align: center;
+            padding-bottom:pxToRem(45px);
+        }
+        a{
+            width: pxToRem(460px);
+            height: pxToRem(94px);
+            margin: 0 auto pxToRem(55px);
+            background: #ffe73a;
+            display: block;
+            box-shadow:  0 pxToRem(12px)  0 #fac022;
+            border-radius: pxToRem(65px);
+            text-align: center;
+            line-height: pxToRem(100px);
+            font-size:pxToRem(44px);
+            color: #fa4d3c;
+        }
+
+    }
+    .btn-rule{
+        background-image: url(../images/btn-rule.png?v=0127);
+        display: block;
+        width: pxToRem(386px);
+        height:pxToRem(51px);
+        position: absolute;
+        left: 50%;
+        margin-left:pxToRem(-193px);
+        bottom: pxToRem(100px);
+        font-size:pxToRem(29px);
+        z-index: 5;
+    }
+
+}
+

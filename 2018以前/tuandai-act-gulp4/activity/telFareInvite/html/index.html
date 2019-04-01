@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>话费邀请</title>
+    <!-- build:css ../css/main.css -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/animation.css">
+    <!-- endbuild -->
+    <!-- build:css ../css/index.css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- endbuild -->
+    <!-- build:js ../js/lib/adapt.js -->
+    <script src="../../../lib/adapt.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+	<div class="content">
+		<div class="scroll">
+			<div class="logo"></div>
+			<div class="title">
+				<!-- 话费剩余 -->
+				<div class="fare-remain-wrapper">
+					<div class="fare-remain-con">
+						<span class="fare-remain-txt">话费<br/>剩余</span>
+						<span class="fare-remain-num-con">
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+							<span class="fare-remain-num">0</span>
+						</span>
+						<span class="fare-remain-txt big-font">元</span>
+					</div>
+				</div>
+			</div>
+			<div class="rule-btn">活动规则></div>
+			<div id="form_wrapper" class="box-wrapper">
+				<!-- 手机号 -->
+				<input type="tel" name="phone" maxlength="11" placeholder="输入手机号"/>
+				<!-- 错误信息 -->
+				<p class="input-msg phone-msg hide"></p>
+				<!-- 新用户显示验证码 -->
+				<div class="verify-code-con hide">
+					<input type="tel" name="verify-code" placeholder="输入短信验证码"/>
+					<span class="send-msg-btn">发送短信</span>
+					<!-- 错误信息 -->
+					<p class="input-msg hide"></p>
+				</div>
+				<div class="yellow-btn start-btn">话费开抢</div>
+				<p class="bottom-tip">（提示：新用户验证后即成为团贷网用户）</p>
+			</div>
+			<p class="footer">* 本活动与苹果公司无关 *</p>
+		</div>
+	</div>
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<!-- build:js ../js/lib/vendor/jsbridge-3.1.4.js -->
+<script src="../../../lib/vendor/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="../js/common/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

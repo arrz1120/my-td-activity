@@ -1,0 +1,339 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+img{
+    max-width: 100%;
+}
+
+header{
+    height: pxToRem(1200px);
+    background: url(../images/detail/bg.png) no-repeat;
+    background-size: 100% 100%;
+    padding-top:pxToRem(1000px); 
+    .btn{
+    width:  pxToRem(600px);
+    height: pxToRem(87px);
+    background: url(../images/detail/btn.png) no-repeat;
+    background-size: 100% 100%;      
+    display: block;
+    margin: 0 auto; 
+    }
+}
+
+
+.tit{
+    font-size: pxToRem(40px);
+    color: #fff;
+    text-align: center;
+    height: pxToRem(56px);
+    line-height: pxToRem(56px);
+    background: url(../images/detail/tit_bg.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto pxToRem(90px); 
+}
+
+.tit_2{
+    background: url(../images/detail/tit_bg_1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.md1{
+    background:#330881 url(../images/detail/md_even_bg.png) no-repeat center bottom;
+    background-size:100%  pxToRem(419px); 
+    padding: pxToRem(90px) 0;
+    font-weight: normal;
+    .txt{
+        width: pxToRem(690px);
+        margin: 0 auto;
+        padding: pxToRem(40px);
+        border-radius: pxToRem(10px);
+        background: #27026c;
+        text-indent: pxToRem(60px);
+        font-size: pxToRem(30px);
+        color: #fff;
+        line-height:  pxToRem(65px);
+        span{
+            color: #ffea00;
+        }
+    }
+
+    .list{
+        margin: pxToRem(65px) auto;
+        width:pxToRem(670px);
+        height:pxToRem(904px);
+        background:url(../images/detail/list_bg_line.png) no-repeat pxToRem(68px) center;
+        background-size: pxToRem(41px) 100%; 
+        padding-top: pxToRem(70px);
+        li{
+            height:pxToRem(160px);
+            background: url(../images/detail/list_bg.png) no-repeat ;
+            background-size:100%  100%; 
+            padding-top: pxToRem(46px);
+            margin-bottom: pxToRem(35px);
+             p{
+                    color: #fff;
+                }
+            .left{
+                float: left;
+                width: pxToRem(160px);
+                height:  pxToRem(160px);
+                text-align: center;
+                .month{
+                    font-size:  pxToRem(43px);
+                }
+                .year{
+                    font-size:  pxToRem(22px);
+                    margin-bottom: pxToRem(8px);
+                }
+
+            }
+
+
+            .right{
+                float: right;
+                width: pxToRem(390px);
+                height:  pxToRem(160px);
+                text-align: left;
+                .txt_3{
+                    font-size:  pxToRem(43px);
+                    font-weight: bold;
+                    span{
+                        color: #ffea00;
+                    }
+                }
+                .txt_2{
+                    font-size:  pxToRem(22px);
+                    margin-bottom: pxToRem(8px);
+                }
+
+            }
+
+
+        }
+    }
+
+
+
+ }
+
+
+
+
+
+.md2{
+    background:#27026c url(../images/detail/md_odd_bg.png) no-repeat center bottom;
+    background-size:100%  pxToRem(419px); 
+    padding: pxToRem(90px) 0  pxToRem(140px);  
+
+    .list{
+        margin: pxToRem(65px) auto;
+        width:pxToRem(650px);
+        li{
+            overflow: hidden;
+            img{
+                float: left;
+                width: pxToRem(203px);
+            }
+            .right{
+                float: left;
+                width: pxToRem(437px);
+                height: pxToRem(116px);
+                background:#27026c url(../images/detail/list_bg_1.png) no-repeat center bottom;
+                background-size:100% 100%; 
+                margin-top: pxToRem(37px);
+                padding-left:  pxToRem(44px);
+                p{
+                    color: #fff;
+                    text-align: center;
+                    line-height: pxToRem(116px);
+                    font-size:  pxToRem(32px);
+                     span{
+                        color: #ffea00;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.md3{
+    background:#330881 url(../images/detail/md_last_bg.png) no-repeat center bottom;
+    background-size:100%  pxToRem(510px); 
+    padding: pxToRem(90px) 0  pxToRem(100px);  
+    .swiper-container {
+        width: 100%;
+        height:  pxToRem(507px);
+    }
+
+
+    .biao{
+        width: pxToRem(536px);
+        height: pxToRem(377px);
+        padding: pxToRem(10px)   pxToRem(30px) 0;  
+        background: url(../images/detail/biao_bg.png) no-repeat ;
+        background-size:100%  100%; 
+        margin: 0 auto;
+        .tit_1{
+            color: #330881;
+            font-size: pxToRem(30px);
+            text-align: center;
+            font-weight: normal;
+        }
+        .con{
+            overflow: hidden;
+            margin:  pxToRem(120px) 0  pxToRem(100px);
+        }
+
+        .rate{
+            float: left;
+            width: pxToRem(200px);
+            color: #ffea00;
+            font-size: pxToRem(80px);
+            font-weight: bold;
+            text-align: center;
+        }
+        
+
+        .txt{
+            float: right;
+        }
+
+        .txt_2{
+            font-size:  pxToRem(28px);
+            color: #fff;
+                   span{
+                        color: #ffea00;
+                    }
+        }
+        .txt_1{
+            font-size:  pxToRem(32px);
+            font-weight: bold;
+            color: #fff;
+            margin-bottom:  pxToRem(20px);
+        }
+
+        .btn{
+            width: pxToRem(290px);
+            height: pxToRem(88px);
+            line-height: pxToRem(88px);
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            background: url(../images/index/btn_bg.png) no-repeat ;
+            background-size:100%  100%;   
+            font-size:  pxToRem(32px);
+            font-weight: bold;          
+        }
+
+    }
+}
+
+
+.swiper-pagination-bullet{
+    background: #fff;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    background: #710eb5;
+}
+
+
+
+.md4{
+    background: #27026c;
+    padding:  pxToRem(90px) 0  pxToRem(15px);
+
+
+
+    .list{
+        overflow: hidden;
+        li{
+            float: left;
+            width: 50%;
+            text-align: center;
+            color: #fff;
+            margin-bottom: pxToRem(80px);
+            .icon{
+                width:  pxToRem(160px);
+                height:  pxToRem(180px);
+                background: url(../images/detail/icon_bg.png) no-repeat ;
+                background-size:100%  100%;   
+                margin: 0 auto pxToRem(30px);
+                position: relative;
+                padding-top:  pxToRem(120px);
+                font-size: pxToRem(20px);
+            }
+
+            img{
+                position: absolute;
+                left: 0;top: 0;
+            }
+
+            p{
+                font-size:  pxToRem(25px);
+                line-height:  pxToRem(36px);
+                     span{
+                        color: #ffea00;
+                    }
+            }
+        }
+    }
+
+    .swiper-container {
+        height:   pxToRem(430px);
+        margin-bottom:  pxToRem(90px);
+
+        .swiper-slide {
+            width:  pxToRem(500px);
+            height:  pxToRem(370px);
+            position: relative;
+            img{
+                height: 100%;
+            }
+            p{
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height:  pxToRem(56px);
+                line-height:  pxToRem(56px);
+                color: #fff;
+                background: rgba(0,0,0,.7);
+                font-size:  pxToRem(22px);
+                text-align: center;
+            }
+        }
+    }
+
+
+
+    footer{
+    color: #a58bd5;
+    font-size:  pxToRem(20px);
+    text-align: center;
+    }
+}
+
+

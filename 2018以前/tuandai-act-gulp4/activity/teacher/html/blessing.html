@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>teacher</title>
+	<!-- build:css ../css/main.css -->
+	<link rel="stylesheet" href="../css/media.css">
+	<link rel="stylesheet" href="../css/animation.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<!-- endbuild -->
+ 	<script>
+	//动态算rem
+	(function(doc, win) {
+		var docEl = doc.documentElement,
+        	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	recalc = function() {
+            	// if (docEl.style.fontSize) return;
+            	clientWidth = docEl.clientWidth;
+            	if (!clientWidth) return;
+            	docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+            	if (document.body) { 
+                	document.body.style.fontSize = docEl.style.fontSize;
+            	}
+        	};
+    	recalc();
+    	if (!doc.addEventListener) return;
+    	win.addEventListener(resizeEvt, recalc, false);
+    	doc.addEventListener("DOMContentLoaded", recalc, false);
+	})(document, window);
+	</script>
+
+</head>
+
+
+
+
+
+<body>
+	
+    <section class="music_btn" id="music_btn">
+        <audio loop="" src="../images/music.mp3" id="media" autoplay="" preload=""></audio>
+    </section>
+
+	<div class="blessing">
+
+
+		<div class="con">
+			
+
+
+		<div class="hb">
+			<p class="nickname">
+				Dear
+				<input type="text" class="name">
+			</p>
+
+			<div class="word">
+				<p class="tips" id="tips">
+					教诲如春风，师恩似海深。<br>感谢您的关怀与照顾，<br>祝您教师节快乐！
+				</p>
+ 
+				<textarea id="word_val" class="word_val" maxlength="30" ></textarea>
+			</div>
+
+			<p class="tips_red">最多输入30个字</p>
+		</div>
+
+
+		<div class="share_btn" id="share_btn"></div>
+		<a class="invite_btn" href="#"></a>
+		
+		</div>
+
+	</div>
+
+
+
+
+	
+
+</body>
+<!-- build:js ../js/lib/fastclick-jquery.js -->
+<script src="../../../lib/fastclick-jquery.js" type="text/javascript" charset="utf-8"></script>
+<!-- endbuild -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../js/jsbridge-3.1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/appShare.bundle.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	
+	      document.querySelector('.share_btn').addEventListener('click', function() {
+	      	window.appShare.set({
+	      		iconUrl: '',
+	      		title: '',
+	      		content: '',
+	      		shareUrl: '',
+	      		wxShareImg: {
+	      			url: '../images/share-shade.png',
+	      			style: {
+	      				width: '100%',
+	      			}
+	      		}
+	      	})
+	      });
+</script>
+</html>

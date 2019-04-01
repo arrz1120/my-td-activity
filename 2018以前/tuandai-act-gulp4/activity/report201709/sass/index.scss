@@ -1,0 +1,804 @@
+@charset "UTF-8";
+@import "variables";
+@import "icons";
+@import "../../../sass/reset";
+@import "../../../sass/func";
+html,
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    &:focus {
+        outline: none
+    }
+}
+
+i,
+span,
+a,
+{
+    display: inline-block;
+}
+
+.abs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.mask {
+    @extend .abs;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.masker {
+    @extend .mask;
+    background: rgba(0, 0, 0, 0.3); // z-index: 100;
+}
+
+::-webkit-scrollbar {
+    //滚动条不可见
+    display: none;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: pxToRem(750px);
+    margin: 0 auto;
+    overflow: auto;
+    overflow-x: hidden;
+    font-size: 0;
+    background: url(../images/bg.png) center top;
+    background-size: 100%;
+}
+
+// 弹窗
+.alert-wrapper{
+    @extend .abs;
+    z-index: 30;
+    .alert-con{
+        position: absolute;
+        &.share-con{ //分享引导层
+            right: 0;
+            top: 0;
+            width: pxToRem(575px);
+            img{
+                width: 100%;
+            }
+            .cls-btn{
+                position: absolute;
+                right: pxToRem(174px);
+                top: pxToRem(430px);
+                width: pxToRem(284px);
+                height: pxToRem(140px);
+            }
+        }
+    }  
+}
+
+
+// 导航按钮
+.nav-btn {
+    @include background('../images/nav-btn.png', 74px, 74px);
+    position: absolute;
+    right: pxToRem(30px);
+    top: pxToRem(130px);
+    z-index: 6;
+}
+
+// 分享按钮
+.share-btn {
+    @include background('../images/share-btn.png', 77px, 73px);
+    position: absolute;
+    left: pxToRem(60px);
+    bottom: pxToRem(90px);
+    z-index: 6;
+}
+
+.page-down {
+    @include background('../images/page-down.png', 54px, 46px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: pxToRem(100px);
+    margin: auto;
+    z-index: 6;
+}
+
+// 导航栏
+$nav-list: oper-data, investor, oper-event, td-event,interact;
+.nav-container {
+    @extend .abs;
+    z-index: 30;
+    display: none;
+    .nav-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(27, 28, 31, 0.95);
+        width: pxToRem(440px);
+        transform: translate3d(0%, 0, 0);
+        opacity: 1;
+        .nav-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .nav-item {
+                width: pxToRem(296px);
+                height: pxToRem(126px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                margin-left: pxToRem(50px);
+                line-height: pxToRem(126px);
+                font-size: pxToRem(28px);
+                color: #d2d2d2;
+                vertical-align: middle;
+                &:nth-child(5) {
+                    border-bottom: none;
+                }
+                &.act {
+                    color: $txt-yellow-color;
+                    i {
+                        @each $nav in $nav-list {
+                            &.#{$nav} {
+                              background-image: url('../images/nav/#{$nav}-act.png');
+                            }
+                        }
+                    }
+                }
+                i {
+                    width: pxToRem(40px);
+                    height: pxToRem(40px);
+                    background-position: center;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    vertical-align: middle;
+                    margin-right: pxToRem(20px); // pointer-events: none;
+                    @each $nav in $nav-list {
+                        &.#{$nav} {
+                          background-image: url('../images/nav/#{$nav}.png');
+                        }
+                    }
+                }
+            }
+            .back-btn {
+                @include background('../images/nav/back-btn.png', 60px, 60px);
+                margin: pxToRem(124px) auto 0;
+            }
+            .visible {
+                height: 100%;
+                vertical-align: middle;
+                width: 0;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+// 页面滑动
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    @at-root .swiper-slide {
+        // 首页
+        &.slide-index {
+            background: url(../images/index.png) no-repeat center top;
+            background-size: 100%;
+            .title {
+                @include background('../images/title1.png', 568px, 161px);
+                margin: pxToRem(280px) auto 0;
+            }
+        } 
+        /* 累计交易额 */
+        &:nth-child(2) {
+            .slide-data {
+                height: pxToRem(381px);
+                img {
+                    height: 0;
+                }
+            }
+        } 
+        /* 累计收益 */
+        &:nth-child(3) {
+            .graph-con {
+                margin-top: pxToRem(30px);
+                .slide-data {
+                    height: pxToRem(430px);
+                    img {
+                        height: 0;
+                    }
+                }
+            }
+        }
+        &.height.swiper-slide-active{
+            .slide-data {
+                img {
+                    @extend .height;
+                }
+            }
+        }
+        /* 累计用户,速度占比,投资金额分布2(从左边划入) */
+        &.left-in {
+            .graph-con {
+                overflow: hidden;
+                img {
+                    opacity: 0;
+                    transform: translate3d(-100%, 0, 0);
+                }
+            }
+            &.swiper-slide-active{
+                .graph-con {
+                    img {
+                        @extend .slideInLeft;
+                    }
+                }
+            }
+        }
+        /* 帮助融资个数及金额 */
+        &:nth-child(5) {
+            .graph-con {
+                margin: pxToRem(30px) auto;
+                background: url(../images/slide5-bg1.png) no-repeat;
+                background-size: 100%;
+                width: pxToRem(588px);
+                height: pxToRem(265px);
+                .slide-data {
+                    height: pxToRem(228px);
+                    img {
+                        height: 0;
+                    }
+                }
+            } 
+            /* // .bottom-txt{
+            //     margin-top: pxToRem(10px);
+            // } */
+            .snd-main-txt-con {
+                margin-top: pxToRem(20px);
+            }
+            .snd-graph-con {
+                position: relative;
+                width: pxToRem(588px);
+                height: pxToRem(160px);
+                background: url(../images/slide5-data2.png) no-repeat;
+                background-size: 100%;
+                overflow: hidden;
+                div {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #1b3b3d;
+                }
+            }
+            &.swiper-slide-active{
+                .snd-graph-con {
+                    div{
+                        @extend .wipeToRight;
+                    }
+                }
+            }
+        } 
+        /* 速度占比 */
+        &:nth-child(6) {
+            .main-content{
+                padding-top: pxToRem(80px);
+            }
+        }
+        /* 饼状图--交易额占比,不同期限标的交易额占比,投资金额分布1 */
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(13) {
+            .slide-data {
+                width: pxToRem(600px);
+                height: pxToRem(442px);
+                margin-bottom: pxToRem(90px);
+                img {
+                    transform: scale(0) rotate(180deg);
+                }
+            }
+            .graph-con {
+                >img {
+                    transform: translate3d(0, 100px, 0);
+                    opacity: 0;
+                    animation-delay: 0.8s;
+                }
+            }
+            &.swiper-slide-active{
+                .slide-data {
+                    img {
+                        @extend .scaleInRotate;
+                    }
+                }
+                .graph-con{
+                    >img{
+                        @extend .slideInUp;  
+                    }
+
+                }
+            }
+        }
+        &.slideInUp.swiper-slide-active{
+            .graph-con {
+                img,.invest-rank{
+                    @extend .slideInUp;  
+
+                }
+            }
+        }
+        &:nth-child(13) {
+            .slide-data {
+                height: pxToRem(389px);
+            }
+        } 
+        /* 不同收益标的交易额占比 */
+        &:nth-child(9){
+            .main-content{
+                padding-top: pxToRem(90px);
+            }
+            .graph-con {
+                margin-top: pxToRem(90px);
+            }
+        }
+        /* 隐藏图片--不同收益标的交易额占比&c类页面 */
+        &.hide-img {
+            img {
+                opacity: 0;
+            }
+        }
+        /* 不同地域投资人数分布&不同地域投资金额分布(地图) */
+        &:nth-child(10),
+        &:nth-child(11) {
+            img {
+                opacity: 0;
+            }
+            .graph-con {
+                margin-top: pxToRem(10px);
+                &>img {
+                    animation-delay: 1s;
+                }
+            }
+            &.swiper-slide-active{
+                .graph-con{
+                    >img{
+                        @extend .slideInUp;  
+                    }
+
+                }
+            }
+        }
+        &.slideInDown.swiper-slide-active{
+            .map {
+                img{
+                    @extend .slideInDown;  
+                    
+                }
+            }
+            .graph-con {
+                .invest-title,img{
+                    @extend .slideInDown;  
+
+                }
+            }
+        }
+        /* 不同地域投资金额分布 */
+        &:nth-child(11) {
+            .map{
+                img{
+                    &:nth-child(2) {
+                        left: pxToRem(320px);
+                        top: pxToRem(256px);
+                    }
+                    &:nth-child(3) {
+                        left: pxToRem(305px);
+                        top: pxToRem(200px);
+                    }
+                }
+            }
+        }
+        &:nth-child(12) {
+            .graph-con {
+                margin-top: pxToRem(50px);
+            }
+        }
+        &:nth-child(13),
+        &:nth-child(14) {
+            .graph-con {
+                margin-top: pxToRem(100px);
+            }
+        }
+        /* 关注我们 */
+        &:last-child{
+            .main-wrapper{
+                padding-top: pxToRem(57px);
+                padding-bottom: pxToRem(130px);
+                .main-content{
+                    padding-top: pxToRem(100px);
+                    .logo{
+                        display: block;
+                        width: pxToRem(192px);
+                        margin: 0 auto pxToRem(55px);
+                    }
+                    .main-white-txt{
+                        line-height: pxToRem(46px);
+                        text-align: center;
+                        margin-bottom: pxToRem(80px);
+                    }
+                    .follow-con{
+                        text-align: center;
+                        img{
+                            width: pxToRem(166px);
+                            margin-right: pxToRem(30px);
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                        .follow-item{
+                            width: pxToRem(166px);
+                            height: pxToRem(248px);
+                            background-size: pxToRem(165px);
+                            background-repeat: no-repeat;
+                            margin-right: pxToRem(30px);
+                            &.wx-sub{
+                                background-image: url(../images/wx-subscribe.png);
+                            }
+                            &.wx-serve{
+                                background-image: url(../images/wx-serve.png);
+                                
+                            }
+                            &.sina{
+                                background-image: url(../images/sina.png);
+                                
+                            }
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .follow-back-btn{
+                        @include background('../images/follow-back-btn.png', 96px, 104px);
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: pxToRem(210px);
+                        margin: auto;
+                    }
+                }
+                .follow-tip{
+                    height: pxToRem(130px);
+                    line-height: pxToRem(130px);
+                        text-align: center;
+                    p{
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: pxToRem(22px);
+                        line-height: pxToRem(36px);
+                        color: #818181;
+                    }
+                }
+            }
+        }
+        .title {
+            @include background('../images/title2.png', 750px, 127px);
+            margin: auto;
+            &.invest {
+                background-image: url(../images/title3.png);
+            }
+            &.operate {
+                background-image: url(../images/title4.png);
+            }
+            &.td {
+                background-image: url(../images/title5.png);
+            }
+            &.fans {
+                background-image: url(../images/title6.png);
+            }
+        }
+        .main-wrapper {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            padding: pxToRem(150px) pxToRem(20px) pxToRem(46px);
+            @at-root .main-content {
+                width: 100%;
+                height: 100%;
+                background: url(../images/main-bg.png);
+                background-size: 100% 100%;
+                padding: pxToRem(60px) pxToRem(18px) 0;
+                p {
+                    margin-bottom: pxToRem(16px);
+                }
+                .bottom-txt {
+                    line-height: pxToRem(40px);
+                    p {
+                        margin-bottom: 0;
+                        text-align: center; // white-space: nowrap;
+                    }
+                }
+                .main-txt-con {
+                    padding: 0 pxToRem(40px);
+                    &.long{
+                        padding: 0 pxToRem(20px);
+                    }
+                    @at-root .main-title {
+                        font-size: pxToRem(46px);
+                        font-weight: bold;
+                        color: $txt-yellow-color;
+                    }
+                    @at-root .main-yellow-txt {
+                        font-size: pxToRem(26px);
+                        color: $txt-yellow-color;
+                    }
+                    @at-root .main-white-txt {
+                        font-size: pxToRem(24px);
+                        color: $default-color;
+                        .main-txt-bg{
+                            height: pxToRem(45px);
+                            background-color: #102c2e;
+                            border-radius: pxToRem(4px);
+                            line-height: pxToRem(45px);
+                            padding: 0 pxToRem(40px);
+                        }
+                        em {
+                            font-size: pxToRem(24px);
+                            color: $txt-yellow-color;
+                        }
+                    }
+                }
+                .main-grey-txt {
+                    font-size: pxToRem(20px);
+                    color: #a2a2a2;
+                }
+                @at-root .graph-con {
+                    position: relative;
+                    text-align: center;
+                    margin: pxToRem(70px) auto;
+                    img {
+                        display: block;
+                        width: pxToRem(596px);
+                        margin: auto;
+                    }
+                }
+                @at-root .slide-data {
+                    position: relative;
+                    width: pxToRem(596px);
+                    margin: auto;
+                    img {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                    .main-white-txt{
+                        margin-bottom: pxToRem(20px);
+                    }
+                } 
+
+                /* 地图 */
+                @at-root .map {
+                    @include background('../images/map.png', 581px, 517px);
+                    position: relative;
+                    margin: 0 auto pxToRem(20px);
+                    img {
+                        position: absolute;
+                        width: pxToRem(164px);
+                        &:nth-child(1) {
+                            left: pxToRem(330px);
+                            top: pxToRem(138px);
+                        }
+                        &:nth-child(2) {
+                            left: pxToRem(300px);
+                            top: pxToRem(222px);
+                            animation-delay: 0.2s;
+                        }
+                        &:nth-child(3) {
+                            left: pxToRem(334px);
+                            top: pxToRem(263px);
+                            animation-delay: 0.4s;
+                        }
+                        &:nth-child(4) {
+                            left: pxToRem(411px);
+                            top: pxToRem(326px);
+                            animation-delay: 0.6s;
+                        }
+                        &:nth-child(5) {
+                            left: pxToRem(300px);
+                            top: pxToRem(410px);
+                            animation-delay: 0.8s;
+                        }
+                    }
+                } 
+
+                /* 投资top10 */
+                .invest-title {
+                    @include background('../images/slide12-title.png', 536px, 300px);
+                    margin: 0 auto pxToRem(30px);
+                    opacity: 0;
+                }
+                .invest-rank {
+                    display: inline-block;
+                    margin: auto; // padding: 0 pxToRem(30px);
+                    opacity: 0;
+                    animation-delay: 0.5s;
+                    .invest-rank-header {
+                        width: 100%;
+                        height: pxToRem(63px);
+                        background-color: #50959a;
+                        border-radius: pxToRem(10px) pxToRem(10px) 0px 0px;
+                        line-height: pxToRem(63px);
+                        font-size: pxToRem(24px);
+                        color: $default-color;
+                        padding-left: pxToRem(20px);
+                        text-align: left;
+                        .invest-num {
+                            margin-right: pxToRem(50px);
+                        }
+                        .invest-user {
+                            margin-right: pxToRem(70px);
+                        }
+                        i {
+                            width: pxToRem(24px);
+                            height: pxToRem(22px);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            vertical-align: middle;
+                            margin-right: pxToRem(8px);
+                            &.icon-user {
+                                background-image: url(../images/slide12-user.png);
+                            }
+                            &.icon-money {
+                                background-image: url(../images/slide12-money.png);
+                            }
+                        }
+                    }
+                    .invest-list {
+                        position: relative;
+                        height: pxToRem(290px);
+                        background-color: #254a51;
+                        border-radius: 0 0 pxToRem(10px) pxToRem(10px);
+                        padding: pxToRem(20px) pxToRem(20px) pxToRem(20px) 0;
+                        overflow: hidden;
+                        .invest-scroll {
+                            height: 100%;
+                            padding: 0 pxToRem(20px);
+                            overflow: auto;
+                            &::-webkit-scrollbar {
+                                // position: absolute;
+                                // right: pxToRem(0px);
+                                display: block;
+                                width: pxToRem(10px);
+                                height: 90%;
+                                padding-right: pxToRem(10px);
+                                background-color: #254a51;
+                            }
+                            &::-webkit-scrollbar-track {
+                                width: pxToRem(10px);
+                                border-radius: pxToRem(5px);
+                                background-color: #1a3a3c;
+                            }
+                            &::-webkit-scrollbar-thumb {
+                                width: pxToRem(10px);
+                                border-radius: pxToRem(5px);
+                                background-color: #50959a;
+                            }
+                            img {
+                                width: pxToRem(536px);
+                            }
+                        }
+                    }
+                }
+                
+                &.short {
+                }
+            }
+        }
+    }
+}
+
+//关注我们弹窗
+.follow-alert-wrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: pxToRem(672px);
+    text-align: center;
+    z-index: 30;
+    transform: translateY(100%); 
+    .follow-alert-content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding-top: pxToRem(75px);
+        img{
+            width: pxToRem(300px);
+            margin-bottom: pxToRem(30px);
+        }
+        .main-white-txt{
+            margin-bottom: pxToRem(20px);
+        }
+        .grey-txt{
+            font-size: pxToRem(28px);
+            line-height: pxToRem(40px);
+            color: #aaaaaa;
+        }
+        .cls-btn{
+            @include background('../images/cls-btn.png', 60px, 60px);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: pxToRem(50px);
+            margin: auto;
+        }
+    }
+}
+
+// 动画
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+.height {
+    @extend .animated;
+    animation-name: height;
+}
+.width {
+    @extend .animated;
+    animation-name: width;
+}
+.wipeToRight {
+    -webkit-mask: -webkit-gradient(linear, 0% 0%, 0% 80%, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 1)));
+    @extend .animated;
+    animation-name: wipeToRight;
+}
+.slideInRight {
+    @extend .animated;
+    animation-name: slideInRight;
+    animation-direction:alternate;
+}
+.slideInLeft {
+    @extend .animated;
+    animation-name: slideInLeft;
+}
+.slideInUp {
+    @extend .animated;
+    animation-name: slideInUp;
+}
+.slideInDown {
+    @extend .animated;
+    animation-name: slideInDown;
+}
+.slideInUpAll {
+    @extend .animated;
+    animation-name: slideInUpAll;
+}
+.slideOutRight {
+    @extend .animated;
+    animation-name: slideOutRight;
+}
+
+.scaleInRotate {
+    @extend .animated;
+    animation-name: scaleInRotate;
+}
+
+.fadeOutDown {
+    animation-name: fadeOutDown;
+}
