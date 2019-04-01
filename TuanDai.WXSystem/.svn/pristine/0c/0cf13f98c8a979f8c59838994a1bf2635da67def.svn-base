@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <title>新手专享We+自动服务常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+    <p class="title">1、投资者加入新手专享We+自动服务后，如何计算持续享有新手专享We+自动服务的参考回报和实际收益？</p>
+    <p>投资者享有新手专享We+自动服务的参考回报按照：加入金额 * 参考年回报率 * 持续服务期/12（持续服务期以月为单位）或加入金额 * 参考年回报率 * 持续服务期/365（持续服务期以天为单位）计算。</p>
+	<p>举例说明：</p>
+	<p>加入3个月的新手专享We+自动服务10000元，对应参考回报：10000*11%*3/12=275； </p>
+	<p>加入15天的新手专享We+自动服务10000元，对应参考回报：10000*9%*15/365=36.98。</p>
+	<p>参考回报不代表对实际收益回报的承诺。</p>
+    <p class="title">2、投资者加入新手专享We+自动服务的实际收益是如何计算的？</p>
+    <p>投资者加入新手专享We+自动服务的实际收益以其所投所有标的的收益总和为准，于服务结束时进行结算。</p>
+    <p class="title">3、新手专享We+自动服务安全吗？</p>
+    <p>加入新手专享We+自动服务后，其所投项目适用于第三方担保机构担保。</p>
+    <p class="title">4、如何结束新手专享We+自动服务？</p>
+    <p>投资者持续享有新手专享We+自动服务相应服务期后可结束服务，结束服务完成时间视市场交易情况而定。</p>
+	<p class="title">5、为什么新手专享We+自动服务的持续服务期与其所投标的的借款期限不一定相同呢？</p>
+    <p>新手专享We+自动服务所投标的借款期限与其持续服务期无关，如其所投标的借款期限比其持续服务期长，系统会在其持续服务期到期时协助投资者退出债权；如其所投标的借款期限比其持续服务期短，系统会在标的到期后自动帮投资者匹配新的标的。</p>
+	<p class="title">6、新手专享We+自动服务的持续服务期从哪一日开始？</p>
+    <p>新手专享We+自动服务的持续服务期自加入之日起算。</p>
+	<p class="title">7、加入新手专享We+自动服务后，相应的待收什么时候会增加？</p>
+    <p>投资者加入新手专享We+自动服务后，相应的待收按参考回报计算，系统会在投资者加入新手专享We+自动服务后即增加相应的待收。</p>
+    <p class="title">8、加入新手专享We+自动服务后，团币是如何发放的？</p>
+    <p>投资者加入新手专享We+自动服务后，相应的团币会在投资者加入后按加入金额计算并发放。</p>
+	</div>
+</body>
+</html>

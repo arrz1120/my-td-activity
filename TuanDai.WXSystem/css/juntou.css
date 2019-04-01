@@ -1,0 +1,233 @@
+/*俊拓金融*/
+
+body{
+	background: #fff;
+}
+/*header*/
+head img,
+section h2 img{
+	width: 100%;
+}
+
+section h2{
+	margin-bottom: 18px;
+}
+
+.gray_font{
+	color: #666;
+	font-size: 15px;
+	line-height: 24px;
+	text-indent: 30px;
+
+}
+
+
+/*con_1*/
+.con_1{
+	padding: 0 10px 10px;
+}
+.con_1 .unfold_btn{
+	display: block;
+ 	background: url(/imgs/juntou/btn_1.png) no-repeat;
+ 	background-size: 100%;
+ 	width: 17px;
+ 	height: 11px;
+ 	margin: 10px auto;
+
+}
+
+.con_1 .fold_btn{
+	display: block;
+ 	width: 17px;
+ 	height: 11px;
+ 	margin: 10px auto;
+	background:url(..//imgs/juntou/btn_2.png) no-repeat;
+	background-size: 100%
+}
+.unfold{
+	display: none;
+}
+
+
+/*con_2*/
+
+.con_2{
+	background: #d5f1fe;
+	height: 165px;
+	padding: 15px 0;
+	-moz-border-radius: 5px;      
+    -webkit-border-radius: 5px;   
+    border-radius:5px;      
+    overflow: hidden; 
+    position: relative;
+}
+.img_wraper{
+	padding: 0 15px;
+}
+#slider_img img{
+	height: 134px !important;
+	width: 48% !important;
+	float: left;
+}
+
+/*.con_2 .focus{
+  bottom: -23px !important;
+}*/
+
+#slider_img .fir-img{
+	margin-right: 10px;
+}
+
+/*con_3*/
+.con_3 img,
+.con_4 img{
+	width: 100%;
+}
+
+
+
+/*.con_5*/
+.con_5 {
+	background:#57c7fc; 
+	padding-top: 15px;
+	height: 550px;
+	position: relative;
+}
+
+.con_5  .tit{
+	color: #ffcf1f;
+	text-align: center;
+	font-size: 15px;
+
+}
+
+.con_5  .bg_bottom{
+position: absolute;
+height: 200px;
+background: #37b5f3;
+width: 95%;
+-webkit-border-radius: 10px;border-radius: 10px;
+bottom: 5px;
+margin-left: -47%;
+left: 50%;
+}
+
+.con_5  .top_bottom{
+position: absolute;
+height: 200px;
+background: #37b5f3;
+width: 95%;
+-webkit-border-radius: 10px;border-radius: 10px;
+top: 200px;
+margin-left: -47%;
+left: 50%;
+}
+.con_5 p{
+	color: #fff;
+	font-size: 15px;
+	line-height: 24px;
+	text-indent: 30px;
+	padding: 0 16px;
+}
+
+/*con_5-slide*/
+.slider{display:none}/*用于获取更加体验*/
+.focus span{width:10px;height:10px;margin-right:10px;border-radius:50%;background:#a1e0fe;font-size:0}
+.focus span.current{background:#fff}
+ p.p1{ font-size:18px; color:#fff; line-height:30px; text-indent:2em;}
+ .fk_model{ height:308px;   width: 100%; position:relative; border:1px solid #fff; -webkit-border-radius: 10px;border-radius: 0px;margin-top:20px;}
+ .fk_model_r{position: absolute; width: 305px;height: 220px;top: 84px;}
+ .fk_model_r li{ display:none;}
+ .fk_model_r_text{ float:left; width:320px; font-size:16px; line-height:24px; color:#fff; padding-top:105px;}
+ .fk_model_r_tab{ float:right; text-align:center; width:510px; padding-top:60px;}
+ .fk_model_r_tab1{background:url(/imgs/juntou/tab1.png?v=20151023001) bottom center no-repeat;width:300px; height:197px;background-size: 100%; position:relative;  margin: 0 auto;}
+ .fk_model_r_tab1 .bg-57c5fa{ background:#57c5fa;}
+ .fk_model_r_tab1 .bg-fdd73f{ background:#fdd73f;}
+ .fk_model_r_tab1 span{ position:absolute; width:15px; bottom:38px;}
+ .fk_model_r_tab1 span i{ width:100%; height:0%; position:absolute; bottom:0;}
+ .fk_model_r_tab1 .s1{ height:93px;left: 50px;}
+ .fk_model_r_tab1 .s2{ height:93px;left:65px;}
+ .fk_model_r_tab1 .s3{ height:92px;left:89px;}
+ .fk_model_r_tab1 .s4{ height: 90px;left: 104px;}
+ .fk_model_r_tab1 .s5{ height:101px;left:128px;}
+ .fk_model_r_tab1 .s6{ height:99px;left:143px;}
+ .fk_model_r_tab1 .s7{ height:94px;left:165px;}
+ .fk_model_r_tab1 .s8{ height:90px;left:180px;}
+ .fk_model_r_tab1 .s9{ height:92px;left:205px;}
+ .fk_model_r_tab1 .s10{ height:72px;left:220px;}
+ .fk_model_r_tab1 .s11{ height:85px;left:245px;}
+ .fk_model_r_tab1 .s12{ height:32px;left:260px;}
+ .fk_model_r_tab1 .curve{background:url(/imgs/juntou/tab1_curve.png) center no-repeat; background-size: 100%;width:223px; height:128px; position:absolute; left: 58px; top:38px; display:none;opacity:0;}
+ .fk_model_r_tab2{  margin: 0 auto; background:url(/imgs/juntou/tab2.png?v=20151023001) bottom left no-repeat;width:300px; height:197px;background-size: 100%;position:relative;}
+ .fk_model_r_tab2 .bg-57c5fa{ background:#57c5fa;}
+ .fk_model_r_tab2 span{ position:absolute; width:25px; bottom:40px;}
+ .fk_model_r_tab2 span i{ width:100%; height:100%; position:absolute; bottom:0;}
+ .fk_model_r_tab2 .s1{ height:50px; left:55px;}
+ .fk_model_r_tab2 .s2{ height:75px; left:94px;}
+ .fk_model_r_tab2 .s3{ height:105px; left:130px;}
+ .fk_model_r_tab2 .s4{ height:98px; left:169px;}
+ .fk_model_r_tab2 .s5{ height:102px; left:211px;}
+ .fk_model_r_tab2 .s6{ height:95px; left:247px;}
+ .fk_model_r_tab2 .curve{
+  background: url(/imgs/juntou/tab2_curve.png) center no-repeat;
+  width: 214px;
+  height: 80px;
+  position: absolute;
+  background-size: 100%;
+  left: 56px;
+  top: 44px;
+}
+ .fk_model_r_tab3{  margin: 0 auto;background:url(/imgs/juntou/tab3.png?v=20151023001) bottom left no-repeat;width:300px; height:197px;
+background-size: 100%;position:relative;}
+ .fk_model_r_tab3 .curve{
+  background: url(/imgs/juntou/tab3_curve.png) center no-repeat;
+  background-size: 100%;
+  width: 213px;
+  height: 22px;
+  position: absolute;
+  left: 57px;
+  bottom: 28px;
+  display: block !important;
+}
+ .fk_model_r_tab4{  margin: 0 auto; background:url(/imgs/juntou/tab4.png?v=20151023001) bottom left no-repeat;width:300px; height:197px;
+background-size: 100%;position:relative;}
+ .fk_model_r_tab4 .bg-57c5fa{ background:#57c5fa;}
+ .fk_model_r_tab4 span{ position:absolute; width:28px; bottom:39px;}
+ .fk_model_r_tab4 span i{ width:100%; height:100%; position:absolute; bottom:0;}
+ .fk_model_r_tab4 .s1{ height: 66px;left: 42px;}
+ .fk_model_r_tab4 .s2{ height:84px; left:88px;}
+ .fk_model_r_tab4 .s3{ height: 73px;left: 128px;}
+ .fk_model_r_tab4 .s4{ height: 82px;left: 167px;}
+ .fk_model_r_tab4 .s5{ height: 74px;left: 205px;}
+ .fk_model_r_tab4 .s6{ height: 84px;left: 246px;}
+ .fk_model_r_tab4 .curve{    background: url(/imgs/juntou/tab3_curve.png) center no-repeat;
+  background-size: 100%;
+  width: 213px;
+  height: 22px;
+  position: absolute;
+  left: 57px;
+  bottom: 33px;
+  display: block !important;}
+
+.text_tab{
+	width: 100%;
+	float: left;
+	color: #fff;
+}
+.text_tab  h5{
+	font-size: 15px;
+	margin-bottom: 10px;
+	padding: 0 15px;
+}
+.focus{
+	  min-height: 20px !important;
+	  height: 20px !important;
+
+}
+
+#slider{
+	  margin-top: -93px  !important; 
+}
+.con_6{
+	padding: 20px 15px 10px;
+}

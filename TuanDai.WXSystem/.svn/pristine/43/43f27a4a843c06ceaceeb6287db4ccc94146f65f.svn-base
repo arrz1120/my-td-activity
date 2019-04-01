@@ -1,0 +1,100 @@
+html,body{width: 100%;overflow-x: hidden;}
+body{background: #fbfbf9;}
+
+.memberCenter header{ height: 160px; width: 100%; padding: 33px 3% 33px 5%; background: url('/imgs/member/memberCenter_home_bg.png'); -webkit-background-size:cover;background-size:cover; background-position: 50% 50%; position: relative; z-index: 20;}
+.memberCenter header .headPic{ float: left; width: 90px; height: 90px; border-width: 2px; border-style: solid; border-color: rgba(255,255,255,.4); border-radius: 50%;-webkit-border-radius: 50%; padding: 3px;}
+.memberCenter header .headPic img{ border-radius: 50%;-webkit-border-radius: 50%;}
+.memberCenter header .memberinfoBox{padding-left: 98px; padding-top: 20px;}
+.memberCenter header .memberinfoBox .row1{position: relative;margin-bottom: 10px;}
+.memberCenter header .memberinfoBox .row1 .lable{position: absolute;left: 0;top: 0;}
+.memberCenter header .memberinfoBox .con{padding-left: 60px;font-size: 1rem;}
+.myLevel{display: inline-block;font-size: 1rem;}
+.myLevel{background: #fff;border-radius: 10px;height: 20px;padding-right: 10px;line-height: 20px;color: #c68122;}
+.myLevel img{margin: -2px 5px 0 10px;height: 14px;}
+.privileges{display: inline-block;height: 20px;color: #c68122;background: #fff;border-radius: 10px;padding: 0 8px;line-height: 20px;margin-left: 5px;font-size: 1rem;}
+.privileges img{width: 14px;height: 14px;margin: -2px 5px 0 -3px;}
+.bar{margin-left: 60px;position: relative;border-radius: 20px;height: 12px;background: #fff;top: 5px;margin-right: 5px;max-width: 182px;}
+.bar p{color: #81511c;position: absolute;left: 40%;top: -6px;}
+.bar .percent{position: absolute;top: 0;left: 0;background: #bdf300;height: 12px;border-radius: 20px;}
+@media only screen and (max-width: 360px) {
+	.myLevel{padding-right: 7px;}
+	.myLevel img{margin: -4px 5px 0 7px;height: 12px;}
+	.privileges{margin-left: 5px;padding: 0 7px;}
+	.privileges img{width: 12px;height: 12px;margin: -4px 4px 0 -1px;}
+}
+@media only screen and (max-width: 320px) {
+	.memberCenter header{ padding: 33px 1% 33px 5%;}
+	.myLevel{padding-right: 4px;}
+	.myLevel img{margin: -4px 2px 0 4px;height: 12px;}
+	.privileges{margin-left: 0px;padding: 0 1px;}
+	.privileges img{margin: -3px 2px 0 1px;width: 10px;height: 10px;}
+}
+
+/*ad*/
+.memberCenter .ad{height: 40px;background: #fff8e2;padding: 0 10px;line--height: 40px;position: relative;}
+.memberCenter .ad img{float: left;width: 10px;margin: 12px 5px 0 0;}
+.memberCenter .ad p{line-height: 40px;font-size: 1.2rem;color: #c49e14;}
+.memberCenter .ad .clickToGet{background: #fd6040;padding: 1px 5px;color: #fff;float: right;font-size: 1.2rem;border-radius: 4px;position: absolute;top: 7px;right: 10px;}
+
+.memberCenter section{border: 1px solid #cccccc;margin-bottom: 15px;}
+.memberCenter section .secWrap{padding-left: 10px;background: #fff;}
+.memberCenter section .secWrap .secTit{height: 50px;border-bottom: 1px solid #e6e6e6;position: relative;}
+.memberCenter section .secWrap .secCon{height-: 100px;}
+
+.memberCenter section .secWrap .secTit01{background: url(/imgs/member/tit01.png) left center no-repeat;background-size: auto 18px;}
+.memberCenter section .secWrap .secTit02{background: url(/imgs/member/tit02.png) left center no-repeat;background-size: auto 18px;}
+.memberCenter section .secWrap .secTit03{background: url(/imgs/member/tit03.png) left center no-repeat;background-size: auto 18px;border-bottom:none;}
+.memberCenter section .secWrap .secTit .ico_arrow_r2{position: absolute;right: 15px;height: 18px;top: 16px;}
+.memberCenter section .secWrap .secTit .link{position: absolute;right: 35px;height: 50px;line-height: 50px;}
+.memberCenter section .secWrap .secTit .link a{font-size: 1.2rem;color: #ababab;}
+.memberCenter section .secWrap .gongshiWrap{padding: 20px 0;width: 100%;box-sizing: border-box;border-bottom: 1px solid #e6e6e6;}
+.memberCenter section .secWrap .gongshi{width: 90%;margin: 0 auto;}
+.memberCenter section .secWrap .gongshi img{width: 100%;}
+.memberCenter section .secWrap .mission{padding: 20px 0;}
+
+.memberCenter section .secWrap .mission .missionL{float: left;width: 50%;border-right: 1px solid #e6e6e6;position: relative;}
+.memberCenter section .secWrap .mission .missionR{float: right;width: 50%;position: relative;}
+.memberCenter section .secWrap .mission img{width: 45px;}
+.memberCenter section .secWrap .mission .missionR img{margin-left: 10px;}
+.memberCenter section .secWrap .mission .misTxt{position: absolute;top: 0;left: 50px;}
+.memberCenter section .secWrap .mission .misTxtR{left: 60px;}
+.memberCenter section .secWrap .mission .misTxt font{font-size: 1.25rem;color: #000000;}
+.memberCenter section .secWrap .mission .misTxt p{font-size: 1rem;color: #ababab;line-height: 1.2rem;}
+
+.activity{padding-right: 10px;padding-bottom: 20px;}
+.activityCon{border: 1px solid #e6e6e6;border-radius: 6px;padding-bottom: 40px;position: relative;}
+.btn_getNow{height: 30px;border: 1px solid #fac502;color: #fac502;line-height: 30px;padding: 0 15px;border-radius: 4px;position: absolute;right: 15px;bottom: 5px;border-radius: 5px;-webkit-border-radius: 5px; cursor:pointer;}
+.btn_getNowGray{height:30px;border: 1px solid #bebebe;color: #fff; background:#bebebe; line-height: 30px;padding: 0 15px;border-radius: 4px;position: absolute;right: 15px;bottom: 5px; border-radius: 5px;-webkit-border-radius: 5px;}
+
+
+.mark{width: 60px;margin: 10px auto 0;}
+.swiper-pagination-bullet{width: 10px;height: 10px;border: 1px solid #fac502;border-radius: 50%;float: left;margin-right: 10px;background: #fff;}
+.swiper-pagination-bullet-active{background: #fac502;}
+.swiper-slide img{width:100%;}
+
+#in_industry .swiper-wrapper{padding: 15px 0;}
+#in_industry .swiper-slide{width:20%;text-align:center; position:relative;}
+#in_industry .swiper-slide .pics{position:relative;}
+#in_industry .swiper-slide .img{width:40px;}
+#in_industry .words p{font-size:1rem; color:#212121;}
+#in_industry .words p.c-b2b2b2{color: #b2b2b2;}
+@media only screen and (max-width: 360px) {
+	#in_industry .swiper-slide{width:22%;}
+}
+@media only screen and (max-width: 320px) {
+	#in_industry .swiper-slide{width:25%;}
+}
+
+.memberCenter .window{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.3);z-index: 999;}
+.memberCenter .window .content{position:fixed;width: 80%;background: #fff url('/imgs/member/window_bg.png') left top no-repeat;background-size: 100% auto;left: 10%;top: 50%;border-radius: 8px;padding-top: 80px;margin-top: -168px;}
+.memberCenter .window .content .inner{padding: 0 20px 20px 20px;border-bottom: 1px solid #e6e6e6;}
+.memberCenter .window .content .inner .h6{font-weight: normal;color: #ababab;font-size: 1.6rem;text-align: center;}
+.memberCenter .window .award{font-size: 2rem;color: #ff781c;text-align: center;margin-top: 10px;}
+.memberCenter .window .awardList{padding: 20px;}
+.memberCenter .window .listItem{width: 33.333%;float: left;text-align: center;}
+.memberCenter .window .listItem img{height: 40px;}
+.memberCenter .window .list3 img{height: 30px;margin-top: 5px;}
+.memberCenter .window .listItem .num{font-size: 1.2rem;color: #ff781c;margin-top: 10px;}
+.memberCenter .window .listItem .ins{font-size: 1rem;color: #ababab;}
+.memberCenter .window .list3 .num{margin-top: 15px;}
+.memberCenter .window .confirm{height: 40px;line-height: 40px;text-align: center;color: #fff;background: #ffcf1f;font-size: 1.4rem;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}

@@ -1,0 +1,169 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="contractTypeIP7.aspx.cs" Inherits="TuanDai.WXApiWeb.Contract.contractTypeIP7" %>
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>iPhone7白拿活动服务协议</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css?v=20160922000001" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+        document.oncontextmenu = function (e) { return false; }
+
+        var omitformtags = ["input", "textarea", "select"]
+        omitformtags = omitformtags.join("|")
+        function disableselect(e) {
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+                return false
+        }
+        function reEnable() {
+            return true
+        }
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function("return false")
+        else {
+            document.onmousedown = disableselect
+            document.onmouseup = reEnable
+        }
+    </script>
+</head>
+<body>
+    <header class="headerMain" id="header">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">iPhone7白拿活动服务协议</h1>
+        </div>
+    </header>
+    <div class="nav pos-f webkit-box bb-c7c7ca">
+        <a href="ContractType100.aspx?key=<%=key %>" class="box-flex1 "><span>合同一</span></a>
+        <a class="box-flex1 active"><span>合同二</span></a>
+    </div>
+    <!--第1页>-->
+    <div class="Contract" style="margin-top: 0.1rem;">
+        <h3>iPhone7白拿活动服务协议</h3>
+        <div class="Contract_t">
+            <ul>
+                <li>
+                    <div>甲方（用户）：<span><%= this.subBasicModel.RealName %></span></div>
+                    <div>乙方（服务方）：<span><%=strCompanyName %> </span></div>
+                    <div>丙方（贸易房）：<span><%=maoyiCompanyName %></span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="Contract_c">
+            <p>乙方联合丙方为甲方提供具有先进消费理念的产品服务，即乙方在团贷网服务平台（以下简称“团贷网”，网址：http://www.tuandai.com ）为甲方推出“iPhone7白拿活动”。甲方阅读本协议约定的内容，在活动页面点击“立即购买”并确认后即视为甲方同意加入本次“iPhone7白拿活动”，并自愿遵守本服务协议约定及团贷网现有的相关协议及页面描述规则。现甲乙丙三方本着自愿、诚实信用的原则，达成如下协议：</p>
+            <p class="title">一、产品释义</p>
+            <p>1、iPhone7白拿活动（以下简称“本服务”）服务即用户在乙方运营平台选择丙方提供的商品，通过其在团贷网投资获得的部分利息收入用于支付前述商品的消费模式。用户可根据“iPhone7白拿活动”页面要求的投资金额参加本服务，加入后即视为用户委托服务方将本次投资金额代投标参与“We计划Y7或Z7”中的任一类型产品。投资到期后，用户授权服务方将其通过本服务投资所获得的部分利息收入划扣给丙方，用以支付购买商品的等价货款及乙方服务费。</p>
+            <p>2、商品：丙方提供参加本服务的商品，并将商品信息在团贷网的平台上进行展示，用户根据信息选择提前置换的商品。丙方承诺商品证件齐全、质量符合国家标准，若用户购买的商品存在任何质量问题，乙方承诺协助用户进行商品售后维权；若商品在运输途中发生毁损，乙方承诺协助用户向丙方申请重新换货。</p>
+            <p>3、本服务履行期间内甲方同意由服务方系统自动实现“We计划Y7或Z7”投资，且系统所投资的标的均适用于团贷网用户权益保障机制。用户选择加入本服务时，已深度理解并知悉服务方系统所设定的交易规则，系统仅会在复合用户授权之范围内代为行使甲方权利，所行使之权利均视为用户自身行为。</p>
+            <p>4、还款方式：到期本息。</p>
+            <p>5、投资具体标的的借款期限：用户加入本次计划后，以服务方为用户提供自动匹配的具体标的约定的实际借款期限为准。</p>
+
+        </div>
+    </div>
+    <!--第2页>-->
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title">二、本次iPhone7白拿活动服务详情</p>
+            <div class="content">
+                <table cellpadding="0" cellspacing="0" class="tab">
+                    <tr><td style="width:200px;">We计划：</td><td> <%=model.ProductName %></td></tr>
+                    <tr><td>投资金额：</td><td>￥<%=ToolStatus.ConvertDetailWanMoney(model.JoinAmount) %></td></tr>
+                    <tr><td>投资期限：</td><td><%=model.Deadline %>个月</td></tr>
+                    <tr><td>还款方式：</td><td>到期本息</td></tr>
+                    <tr><td>预期年化收益：</td><td><%=ToolStatus.DeleteZero(model.YearRate) %>%</td></tr>
+                    <tr><td>预期利息收益：</td><td>￥<%=GetPreInterest() %></td></tr>
+                    <tr><td>实物收益：</td><td>iPhone7 Plus 128G，1台，颜色随机</td></tr>
+                    <tr><td>实物价值：</td><td>7188元</td></tr>
+                </table>
+            </div>
+            <p class="title">三、“iPhone7白拿活动”的加入</p>
+            <p>1、甲方在本次“iPhone7白拿活动”服务开放加入时间内成功加入We计划Y7、Z7则视为甲方已成功加入本次“iPhone7白拿活动”，一旦成功加入不可撤销。投资期满后，甲方通过“iPhone7白拿活动”投资所获得的部分利息收入将会自动划扣给丙方指定团贷网账户。</p>
+            <p>2、用户成功加入后的七个工作日内，丙方承诺按用户填写的收货地址寄出商品，用户应当仔细核对自身在“团贷网”平台上填写的收货信息，若因用户自身的原因导致货物错误送达或无法送达，用户自行承担损失。</p>
+            <p>3、甲方在加入本次“iPhone7白拿活动”的同时，确认同意并接受本协议及“We计划”项下的所有条款。本协议以团贷网《注册服务协议》为前提，甲方参与本次“iPhone7白拿活动”的任何行为都应同时遵守团贷网《注册服务协议》和团贷网不时公示之交易规则、说明、公告等涉及甲、乙、丙三方权利义务的法律文件及相关规则，如有违反，甲方应当自行承担相关法律后果。</p>
+            <p class="title">四、投标方式及规则</p>
+            <p>1、自用户参加本次“iPhone7白拿活动”起，服务方系统即按照本协议之约定，将用户确认参与本计划的款项自动投入“We计划Y7、Z7”，依据用户加入“We计划Y7、Z7”的先后顺序为用户进行有限自动投标。</p>
+            <p>2、本计划持续服务期间用户选择同意系统投资的“We计划Y7、Z7”的标若出现提前还款或借款方逾期等情况，无法支付足额的商品费用，不足的部分损失丙方自行承担。</p>
+        </div>
+    </div>
+
+    <!--第3页>-->
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title">五、甲方的权利和义务</p>
+            <p>1、甲方在此无条件且不可撤销地授权：自甲方加入本次“iPhone7白拿活动”起，即授权乙方通过服务方“We计划Y7、Z7”进行自动投标，并授权团贷网通过系统以甲方名义自动签署“iPhone7白拿活动”服务协议和相关“We计划”所有协议，甲方应提前查看并了解相关协议内容；甲方对此等自动投标和自动签署相关服务协议之安排及内容已充分知悉并理解；该等自动签署的相关服务协议均视为甲方真实意思的表示，甲方对该等法律文件的效力均予以认可且无任何异议，并无条件接受该等自动签署的法律文件之约束。</p>
+            <p>2、甲方的收益分配：甲方成功加入本次“iPhone7白拿活动”后即可前往团宝箱填写收货地址领取用户指定的商品，甲方已知晓、了解并同意投资期满后乙方将会把甲方通过“iPhone7白拿活动”投资所获得的部分利息收入自动划扣给丙方指定团贷网账户，用以支付购买商品的款项及乙方服务费。</p>
+            <p>3、税费问题：由甲方自行承担加入本次“iPhone7白拿活动”计划匹配的“We计划”所获利息收益的应纳税费。</p>
+            <p>4、甲方保证参加本计划的所使用的资金为合法取得，且甲方对该资金拥有完全且无瑕疵的所有权及处分权。</p>
+            <p>5、甲方在收到商品后须尽验收的义务，对商品的信息和质量进行确认，验收无误后再签收。若商品因配送受损的，甲方须立即主动与乙方客服联系，要求乙方客服协助向丙方申请换货。商品在使用过程中出现质量问题的，用户可要求客服协助厂家售后维权。</p>
+            <p>6、甲方可通过其注册的团贷网账户查询、了解本次参与的“We计划”的相关信息及进度，如未及时查询，或由于通讯故障、系统故障以及其他不可抗力等因素影响使甲方无法及时了解相关信息，由此产生的责任和风险由甲方自行承担。</p>
+            <p>7、甲方成功加入“iPhone7白拿活动”后，在提交商品订单给丙方之前，乙方有权对甲方加入本计划的资金进行合法性审核，乙方若发现或单方面认为甲方资金存在问题的，乙方有权单方面终止本次“iPhone7白拿活动”，同时知会丙方、解除冻结甲方自动加入We计划的待投本金。甲丙双方知晓并接受乙方这一权利。</p>
+            <p class="title">六、乙方的权利和义务</p>
+            <p>1、甲方通过服务方系统自动投标而签署的“iPhone7白拿活动”服务协议和“We计划”等相关服务协议等法律文件或其中的相关条款生效后，乙方即可依据上述法律文件和本协议相关约定，对甲方的加入资金进行划扣、支付、冻结以及行使其他权利，甲方对此均予以接受和认可。</p>
+            <p>2、甲方在确认加入本次“iPhone7白拿活动”后，乙方系统第一时间根据加入“We计划”先后顺序自动安排优先投标。</p>
+            <p>3、乙方接受甲方的委托行为所产生的法律后果由甲方承担。如因甲方或其他方（包括但不限于技术问题）造成的延误或错误，乙方不承担任何责任。</p>
+            <p>4、乙方仅在本协议明确规定的责任范围内承担相关责任。</p>
+        </div>
+    </div>
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title">七、丙方的权利与义务</p>
+            <p>1、丙方承诺在用户成功加入“iPhone7白拿活动”后的七个工作日内按用户填写的收货地址寄出商品。</p>
+            <p>2、丙方承诺提供的商品是通过正规渠道、有正规、齐全的证件且有质量保证的商品。</p>
+            <p>3、本计划持续服务期间用户选择同意系统投资的“We计划”的标的若出现提前还款或借款方逾期等情况，无法支付足额的商品费用，丙方承诺不足的部分损失自行承担。</p>
+            <p>4、丙方承诺对在运输途中致损的商品予以换货处理；对在三包政策范围内由非人为因素引起的质量问题商品予以换货处理；丙方应在收到甲方提出的合理换货申请之时积极主动处理，不得怠慢。</p>
+            <p class="title">八、违约责任</p>
+            <p>甲乙丙三方均应按照以上所有条款的约定执行，若有一方或几方不履行合同义务或者履行合同义务不符合规定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。其他方保留追究其法律责任的权利。</p>
+            <p class="title">九、其他</p>
+            <p>1、若因司法机关或行政机关对甲方采取强制措施导致其本次We计划对应的资金被全部或部分划扣，视为甲方提前退出本次“iPhone7白拿活动”计划，本协议自动终止。本协议因此而自动终止的，甲方将不享有相应权利。本金到期偿还时，服务方将自动扣除商品费用直接支付给丙方。</p>
+            <p>2、由于团贷网及相关第三方的设备、系统故障或缺陷、黑客攻击、计算机病毒侵入或发作、电力中断、因政府管制而造成的暂时性关闭等影响网络正常经营的不可抗力而造成交易中断、延误的，甲、乙双方互不追究责任。甲、乙双方应在条件允许的情况下，采取一切必要的补救措施以减小不可抗力造成的损失。</p>
+            <p>3、甲方确认：在签署本协议书前，乙方已就本协议的全部条款和内容向甲方进行了详细的说明和解释，甲方已认真阅读本协议有关条款，对有关条款不存在任何疑问和异议，并对协议双方的权利、义务、责任与风险有清楚和准确的理解。</p>
+            <p class="title">十、争议解决</p>
+            <p>因本协议所引起的纠纷，三方应协商解决，协商不成的，任何一方可向乙方所在地的人民法院提起诉讼。</p>
+            <p class="title">十一、协议成立与生效</p>
+            <p>本协议通过团贷网平台电子协议签署的要求签署，适用《中华人民共和国电子签名法》的规定，用户参与本次“iPhone7白拿活动”，在We计划Y7、Z7页面里确认加入的金额，点击“立即购买”并确认后，即视为甲方以电子签名的形式确认本协议的成立。本协议自成立起生效，甲方同意接受本协议的全部约定及团贷网上与本协议相关的各项规则的规定。本协议一旦生效，即对甲、乙、丙三方均具有法律约束力。</p>
+        </div>
+        <div class="Contract_b">
+            <p><br /><strong>各方签署：</strong></p>
+            <p>甲方：<span><%= this.subBasicModel.RealName %></span></p>
+            <p>日期：<em><%=this.model.OrderDate.Year.ToString() %></em>年<em><%=this.model.OrderDate.Month.ToString() %></em>月<em><%=this.model.OrderDate.Day.ToString() %></em>日</p>
+            <p>乙方：<span>乙方：<%=strCompanyName %></span></p>
+            <p>日期：<em><%=this.model.OrderDate.Year.ToString() %></em>年<em><%=this.model.OrderDate.Month.ToString() %></em>月<em><%=this.model.OrderDate.Day.ToString() %></em>日</p>
+            <p>丙方：<span><%=maoyiCompanyName %></span></p>
+            <p>日期：<em><%=this.model.OrderDate.Year.ToString() %></em>年<em><%=this.model.OrderDate.Month.ToString() %></em>月<em><%=this.model.OrderDate.Day.ToString() %></em>日</p>
+            <!--盖章-->
+            <!--<div class="seal-con pos-a">
+                <img src="images/hnstrz.png" alt=""/>
+            </div>-->
+            <div class="Seal_zhuochen" style="background: url('<%=Sealt_TuanDai%>') no-repeat scroll left center transparent"></div> 
+            <div class="Seal_business" style="background: url('<%=maoyiGongZhang%>') no-repeat scroll left center transparent"></div> 
+        </div>
+    </div>
+    <div class="clearfix mt20"></div>
+    <script type="text/javascript">
+        var url = window.location.href;
+        if (url.indexOf("type=mobileapp") >= 0) {
+            document.getElementById("header").style.display = "none";
+        }
+    </script>
+</body>
+</html>

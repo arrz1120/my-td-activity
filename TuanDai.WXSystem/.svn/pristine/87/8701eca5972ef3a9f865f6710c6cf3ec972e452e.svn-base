@@ -1,0 +1,22 @@
+﻿using System;
+
+namespace TuanDai.WXApiWeb.Member.safety
+{
+    public partial class mobile_change_step2 : BasePage
+    {
+        protected string TelNo;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!this.IsPostBack)
+            {
+                string originalcode = Request.QueryString["originalcode"];
+                Response.Redirect(GlobalUtils.WebURL + "/Member/safety/mobile_change_step2.aspx?originalcode="+originalcode);
+                //if (string.IsNullOrEmpty(originalcode))
+                //{
+                //    Response.Redirect("~/Member/safety/mobile_change_step1.aspx");
+                //}
+            }
+        }
+    }
+}

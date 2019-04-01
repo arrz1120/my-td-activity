@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>团币明细</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160407" />
+<link rel="stylesheet" type="text/css" href="/css/mall.css?v=20160407" />
+</head>
+<body class="bg-f1f3f5">
+    <header class="headerMain">
+        <div class="header bb-e6e6e6">
+            <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">团币明细</h1>
+        </div>
+        <a href="javascript:void(0);" class="header-list-icon"><img src="/imgs/images/header-list-icon01.png"></a>
+        <div class="none"></div>
+    </header>
+    <div class="sub-list">
+		<div class="screen-box pos-r bg-f6f7f8 bb-e6e6e6">
+			<img src="/imgs/member/mall/pic-tbmx.png" class="pos-a">
+			<div class="pos-a my-tb">
+				<p class="f12px c-ababab"><span class="f26px c-fd6040 mr5">16</span>枚</p>
+				<p class="f15px c-808080">我的团币</p>
+			</div>
+			<div class="select">
+					<div class="selectName"><span class="selectId c-808080 f15px mr5">最近1个月的明细</span><i class="ico-sprite01 ico-triangle rotate0"></i></div>
+					<div class="selectCon">
+						<ul>
+							<li class="bb-e6e6e6 ml15"><a href="javascript:;">最近1个月的明细</a></li>
+							<li class="bb-e6e6e6 ml15"><a href="javascript:;">最近3个月的明细</a></li>
+							<li class="ml15"><a href="javascript:;">最近12个月的明细</a></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+
+    	<ul class="pl15 bg-fff bb-e6e6e6 pos-r z-index10">
+    		<li class="clearfix pr15 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">投资赠送(团币系数1.2)</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-212121 f17px text-right">＋7</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    		<li class="clearfix pr15 bt-e6e6e6 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">邀请好友投资赠送</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-212121 f17px text-right">＋7</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    		<li class="clearfix pr15 bt-e6e6e6 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">实名认证赠送</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-212121 f17px text-right">＋7</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    		<li class="clearfix pr15 bt-e6e6e6 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">抽奖获奖</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock v4 mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-212121 f17px text-right">＋7</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    		<li class="clearfix pr15 bt-e6e6e6 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">抽奖支出</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-fd6040 f17px text-right">＋10</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    		<li class="clearfix pr15 bt-e6e6e6 pt10 pb10">
+    			<div class="lf">
+    				<p class="c-212121 f17px text-overflow name-overflow">商品兑换</p>
+    				<p class="line-h16 mt5 f13px c-ababab"><i class="ico-clock mr5"></i>2016-01-02 12:45:32</p>
+    			</div>
+    			<div class="rf f15px c-212121">
+    				<p class="c-fd6040 f17px text-right">＋52</p>
+    				<p class="f13px c-d1d1d1 line-h16 mt5">账户剩余：16枚</p>
+    			</div>
+    		</li>
+    	</ul>
+    </div>
+
+	<div class="layer-tb"></div>
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+  //订单筛选
+  $(".select").each(function() {
+	  var select = $(this);
+	  var zIndex = parseInt(select.css("z-index"));
+	  var selectName = $(this).children(".selectName");
+	  var selectId = $(this).find(".selectId");
+	  var selectCon = $(this).children(".selectCon");
+	  var layerTb = $(".layer-tb");
+	  var triangle = $(".ico-triangle");
+
+	  //展开效果
+	  var _show = function() {
+		  selectCon.slideDown(200);
+		  selectName.addClass("cur");
+		  select.css("z-index", zIndex + 1);
+		  layerTb.fadeIn(200).bind("touchmove", function(e) {
+			  e.preventDefault();
+		  });
+		  triangle.removeClass('rotate0');
+	  };
+
+	  //关闭效果
+	  var _hide = function() {
+		  selectCon.slideUp(200);
+		  selectName.removeClass("cur");
+		  select.css("z-index", zIndex);
+		  layerTb.fadeOut(200);
+		  triangle.addClass('rotate0');
+	  };
+
+	  selectName.click(function() {
+		  selectCon.is(":hidden") ? _show() : _hide();
+	  });
+
+	  selectCon.find("a").click(function() {
+		  selectId.html($(this).html());
+		  _hide();
+		  layerTb.fadeOut(200);
+	  });
+
+	  layerTb.click(function(i) {
+		  !$(i.target).parents(".select").first().is(select) ? _hide() : "";
+		  layerTb.fadeOut(200);
+	  });
+  });
+
+	function nameOverflow(){
+		$.each($(".name-overflow"),function(i,item){
+			$(this).css('max-width',$(window).width()-$('li .rf').width()-40);
+		})
+	}
+	nameOverflow();
+</script>
+</html>

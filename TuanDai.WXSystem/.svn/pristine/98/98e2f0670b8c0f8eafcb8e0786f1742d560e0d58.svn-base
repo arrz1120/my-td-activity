@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>充值</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=20151214" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">确认投资</h1>
+            <div class="text"><a href="recharge_record.html"></a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="c_banner">
+    	<h5>预期收益</h5>
+    	<p>￥1,000</p>
+    </div>
+    <div class="clearfix pl15 pr15 mt20 pb5">
+    	<div class="lf">
+    		<p class="f12px c-ababab">投资单位:<span class="f12px c-212121 ml5">10元/份</span></p>
+    	</div>
+    	<div class="rf">
+    		<p class="f12px c-ababab">账户余额:<span class="f12px c-212121 ml5">￥130</span></p>
+    	</div>
+    </div>
+    <div class="bg-bdtopBom1-ccc pl15 pr15 pt10 pb10 clearfix">
+    	<input class="lf pieceInp" type="text" placeholder="请输入份数" />
+    	<div class="rf allAmo">
+    		全额
+    	</div>
+    </div>
+    <div class="pd15 mt5">
+    	<a class="btn btnRed" href="#">确认投资</a>
+    </div>
+    <div class="c-fd6040 text-center f12px">新手投资，立享2%的加息</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function(){
+    	
+    })
+</script>
+</body>
+</html>

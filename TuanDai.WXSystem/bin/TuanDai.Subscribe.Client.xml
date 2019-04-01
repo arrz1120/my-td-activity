@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.Subscribe.Client</name>
+    </assembly>
+    <members>
+        <member name="M:TuanDai.Subscribe.Client.MQDao.SendBuyWe(System.String,System.String@)">
+            <summary>
+            购买we计划
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:TuanDai.Subscribe.Client.SubscribeClient">
+            <summary>
+            申购的客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.SubscribeProject(TuanDai.ServerContract.SubscribeRequest,System.String@)">
+             <summary>
+             发送申购
+             </summary>
+             <param name="request">申购请求</param>
+             <param name="ErrorMessage">空：无异常 非null:有异常</param>
+             <returns>status:-1:方式不对－2：份数不能少于1份－3：项目不存在-4:份数不够-5:用户不存在-6:未实名－7：状态不对－8：用户类型不对-9：发送申购项目份数队列失败
+            -10:修改申购状态失败或者已经处理(发送资金处理请求)
+            -11:付款失败</returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.SubscribeBorrowerPayRequest(System.String@)">
+            <summary>
+            申购给借款人钱请求
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.SubscribeStatus(System.String,System.String@)">
+            <summary>
+            获取申购状态
+            </summary>
+            <param name="subscribeId">申购ID</param>
+            <param name="ErrorMessage"></param>
+            <returns>-100:系统异常</returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.SubscribeMoniter(System.String@)">
+            <summary>
+            申购监控
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.BuyWeProduct(TuanDai.ServerContract.BuyWeRequest,System.String@)">
+            <summary>
+            购买we计划产品
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.GetWeResult(System.String,System.String@)">
+            <summary>
+            获取we计划的结果
+            </summary>
+            <param name="tradeNo"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.AutoProjectList(System.String@)">
+            <summary>
+            所有的项目自动投标
+            </summary>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.ProjectAudit(System.String,System.String@,System.Int32)">
+            <summary>
+            项目审核
+            </summary>
+            <param name="projectid">项目Id</param>
+            <param name="type">默认是1:项目 2:分期宝</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.ProjectAgainAudit(System.String@)">
+            <summary>
+            项目重新审核
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.TestDB(System.String@)">
+            <summary>
+            测试DB
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClient.WePlanSubscribeByAllProduct(System.String@)">
+             <summary>
+            全部we计划产品申购(按产品)
+             </summary>
+             <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.#ctor">
+            <summary>
+            必须使用using释放
+            </summary>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.SubscribeProject(TuanDai.ServerContract.SubscribeRequest,System.String@)">
+             <summary>
+             发送申购
+             </summary>
+             <param name="request">申购请求</param>
+             <param name="ErrorMessage">空：无异常 非null:有异常</param>
+             <returns>status:-1:方式不对－2：份数不能少于1份－3：项目不存在-4:份数不够-5:用户不存在-6:未实名－7：状态不对－8：用户类型不对-9：发送申购项目份数队列失败
+            -10:修改申购状态失败或者已经处理(发送资金处理请求)
+            -11:付款失败</returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.SubscribeBorrowerPayRequest(System.String@)">
+            <summary>
+            申购给借款人钱请求
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.SubscribeMoniter(System.String@)">
+            <summary>
+            申购监控
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.BuyWeProduct(TuanDai.ServerContract.BuyWeRequest,System.String@)">
+            <summary>
+            购买we计划产品
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.AutoProjectList(System.String@)">
+            <summary>
+            所有的项目自动投标
+            </summary>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.ProjectAudit(System.String,System.String@,System.Int32)">
+            <summary>
+            项目审核
+            </summary>
+            <param name="projectid">项目Id</param>
+            <param name="type">默认是1:项目 2:分期宝</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.ProjectAgainAudit(System.String@)">
+            <summary>
+            项目重新审核
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.TestDB(System.String@)">
+            <summary>
+            测试DB
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.SubscribeClientService.WePlanSubscribeByAllProduct(System.String@)">
+             <summary>
+            全部we计划产品申购(按产品)
+             </summary>
+             <param name="ErrorMessage"></param>
+        </member>
+        <member name="F:TuanDai.Subscribe.Client.TdConfig.SubscribeAddress">
+            <summary>
+            申购地址
+            </summary>
+        </member>
+        <member name="F:TuanDai.Subscribe.Client.TdConfig.BuyWeProducterType">
+            <summary>
+            购买we计划类型 0:直接 1:队列
+            </summary>
+        </member>
+        <member name="F:TuanDai.Subscribe.Client.TdConfig.MqSubscribe">
+            <summary>
+            申购的MQ地址
+            </summary>
+        </member>
+        <member name="F:TuanDai.Subscribe.Client.TdConfig.MQExchargeNameBySubscribe">
+            <summary>
+            MQ申购的路由
+            </summary>
+        </member>
+        <member name="M:TuanDai.Subscribe.Client.ZooKDao.GetSubscribeUrl(System.String@)">
+            <summary>
+            获取申购的地址
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

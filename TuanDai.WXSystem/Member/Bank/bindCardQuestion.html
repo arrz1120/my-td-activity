@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>常见问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+</head>
+<body class="bg-f6f7f8">
+    <!-----底部跳转按钮---->
+    <div class='float-jump'>
+        <a href='/Index.aspx'>
+            <img src='/imgs/images/icon/ico_toHome.png' />
+        </a>   <a href='/Member/my_account.aspx'>
+            <img src='/imgs/images/icon/ico_toAccount.png' />
+        </a>
+    </div>
+    <div class="pl15 pr15 pt10 pb10">
+        <p class="f15px c-fab600">为遵守国家反洗钱和套现行为的相关法律规定：充值后的所有资金不投标须等15天后才能提现；解绑银行卡受理时间：周一至周五9:00-12:00，13:30-18:00，周六日与法定节假日除外。</p>
+    </div>
+
+    <div class="questionWrap">
+        <ul>
+            <li>
+                <div class="question-tit bb-e6e6e6 pl15 pt18 pb18 bg-fff">
+                    <p class="c-212121 f17px">
+                        <i class="icon-triagle-r rotateZ90"></i>解绑银行卡
+                    </p>
+                </div>
+                <div class="question-txt bg-f6f7f8">
+                    <p class="c-808080 pt10 pl15 pr15 pb15 f13px text-justify">为了减少恶意套现行为，保障用户的资金安全，团贷网对换绑银行卡流程做了以下调整，对您造成的不便，请谅解。</p>
+                    <div class="flow pos-r">
+                        <div class="flowLine"></div>
+                        <dl>
+                            <dt class="bb-e6e6e6 pb15">
+                                <span class="flow1"></span>
+                                <p class="c-694514 f15px">添加服务号</p>
+                                <p class="f13px c-808080 mt8 text-justify">用户如需解绑，请添加服务QQ号：<div id="qqNum" class="f13px c-808080 mt8 text-justify"></div></p>
+                            </dt>
+                            <dt class="bb-e6e6e6 pb15 pt20">
+                                <span class="flow2"></span>
+                                <p class="c-694514 f15px">提交材料</p>
+                                <p class="f13px c-808080 mt8 text-justify">添加服务QQ后，请提交以下换卡材料：身份证、旧银行卡描件或照片。如遇旧银行卡销户、挂失或其他无法提供扫描件或照片的情况，须提供该银行卡业务回执单扫描件或照片。</p>
+                            </dt>
+                            <dt class="bb-e6e6e6 pb15 pt20">
+                                <span class="flow3"></span>
+                                <p class="c-694514 f15px">审核材料</p>
+                                <p class="f13px c-808080 mt8 text-justify">根据客服引导进行视频认证，并准备好身份证和旧银行卡配合验证。</p>
+                            </dt>
+                            <dt class="bb-e6e6e6 pb15 pt20">
+                                <span class="flow4"></span>
+                                <p class="c-694514 f15px">视频认证</p>
+                                <p class="f13px c-808080 mt8 text-justify">视频认证后，平台将在30分钟内完成银行卡解绑；材料不齐全或视频认证不通过，则视为申请失败。</p>
+                            </dt>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="question-tit bb-e6e6e6 pl15 pt18 pb18 bg-fff">
+                    <p class="c-212121 f17px">
+                        <i class="icon-triagle-r1 rotateZ90"></i>绑定银行卡
+                    </p>
+                </div>
+                <div class="question-txt1 bg-f6f7f8">
+                    <div class="flow pos-r">
+                        <div class="flowLine"></div>
+                        <dl>
+                            <dt class="bb-e6e6e6 pb15 pt20">
+                                <span class="flow5"></span>
+                                <p class="c-694514 f15px">绑定银行卡</p>
+                                <p class="f13px c-808080 mt8 text-justify">解绑后，用户可到“我-个人资料-投资前准备-银行卡”进行新的银行卡绑定。</p>
+                            </dt>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div style="text-align: center;">
+            <a class="pt15 pb15 text-center f13px c-ababab" href="tel:400-641-0888">如有疑问，请联系客服:<span class="c-ff7357 f13px ml10">400-641-0888</span></a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var attr = ["2880323191", "2880323207", "2880761023"];
+            var index = Math.round(Math.random() * 2);
+            $("#qqNum").html(attr[index]);
+
+            $(".questionWrap li")
+                .eq(0)
+                .click(function () {
+                    var box = $(this).find('.question-txt');
+                    var ico = $(this).find('.icon-triagle-r');
+                    if (box.hasClass('hide')) {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.removeClass('hide');
+                    } else {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.addClass('hide');
+                    }
+                });
+            $(".questionWrap li")
+                .eq(1)
+                .click(function () {
+                    var box = $(this).find('.question-txt1');
+                    var ico = $(this).find('.icon-triagle-r1');
+                    if (box.hasClass('hide')) {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.removeClass('hide');
+                    } else {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.addClass('hide');
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

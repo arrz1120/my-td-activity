@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>我的账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css" />
+	</head>
+
+	<body class="bg-f1f3f5 pt10">
+
+		<div class="bt-e6e6e6">
+			<div class="zhgl-top bb-e6e6e6 pl15">
+				<div class="bb-e6e6e6">
+					<p class="f17px top-p1"><span class="c-fab700 mr5 f17px">米粒1215</span>绑定的团贷网账户</p>
+					<p class="f13px c-ababab top-p2 telNum">136****1121</p>
+					<a href="javascript:void(0);" class="jiebang">解绑</a>
+				</div>
+			</div>
+			<div class="zhgl-item bb-e6e6e6 pl15">
+				<div class="bb-e6e6e6">
+					<p class="f17px top-p1 telNum">136****1012</p>
+					<a href="javascript:void(0);" class="jiebang">解绑</a>
+				</div>
+			</div>
+			<div class="zhgl-item bb-e6e6e6 pl15">
+				<div class="bb-e6e6e6">
+					<p class="f17px top-p1 telNum">136****1013</p>
+					<a href="javascript:void(0);" class="jiebang">解绑</a>
+				</div>
+			</div>
+			<div class="bb-e6e6e6 pl20 zhgl-bottom bg-fff">
+				<p>绑定其他团贷网账户</p>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript" src="/scripts/jquery.extensions.js?v=20171107001"></script>
+	<script type="text/javascript">
+		$(".jiebang").bind("click", function() {
+			var telNum = $(this).parent().find('.telNum').html();
+			$("body").showMessage({
+				message: "确定<span class='f17px c-fab600'>米粒1215</span>与" + telNum + "<br />解除账户绑定关系",
+				okString: "解绑",
+				showCancel: true,
+				okbtnEvent: function() {
+					
+				}
+			});
+		});
+	</script>
+
+</html>

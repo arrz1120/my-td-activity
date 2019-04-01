@@ -1,0 +1,40 @@
+html,body{width: 100%;overflow-x: hidden;}
+body{background: #fbfbf9;}
+
+.newUserTips{background: #fff8e2;height: 40px;text-align: center;}
+.newUserTips p{line-height: 40px;color: #c49e14;font-size: 1.2rem;}
+.myPrivileges .banner{height: 150px;background:#ffcf1f;position: relative;padding: 10px 0;}
+.myPrivileges .banner .triangle{display: block;width: 18px;height: 9px;background: url(/imgs/member/triangle.png) no-repeat;background-size: 100%;
+position: absolute;bottom: 0;left: 50%;margin-left: -9px;}
+.myPrivileges .itemOuter{border-bottom: 1px solid #e6e6e6;padding: 15px 20px 15px 15px;}
+.myPrivileges .list .item{padding-left: 55px;}
+.myPrivileges .list .item h3{font-size: 1.5rem;color: #000;font-weight: normal;}
+.myPrivileges .list .item p{font-size: 1.2rem;color: #ababab;line-height: 2.2rem;}
+.myPrivileges .list .item01{background: url('/imgs/member/Privileges1.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray01{background: url('/imgs/member/Privileges1_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item05{background: url('/imgs/member/Privileges2.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray05{background: url('/imgs/member/Privileges2_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item08{background: url('/imgs/member/Privileges3.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray08{background: url('/imgs/member/Privileges3_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item06{background: url('/imgs/member/Privileges4.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray06{background: url('/imgs/member/Privileges4_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item03{background: url('/imgs/member/Privileges5.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray03{background: url('/imgs/member/Privileges5_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item02{background: url('/imgs/member/Privileges6.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray02{background: url('/imgs/member/Privileges6_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item07{background: url('/imgs/member/Privileges7.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray07{background: url('/imgs/member/Privileges7_gray.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .item04{background: url('/imgs/member/Privileges8.png') left top no-repeat;background-size: 40px 40px;}
+.myPrivileges .list .gray04{background: url('/imgs/member/Privileges8_gray.png') left top no-repeat;background-size: 40px 40px;}
+
+.swiper-container{width: 100%;height: 100%;}
+.swiper-slide{width: 25%;height: 100%;position: relative;}
+.swiper-slide .userLevel{position: absolute;top: 0;width: 100%;text-align: center;}
+.swiper-slide .userLevel img{max-width: 90px;}
+.swiper-slide .pics{height: 60px;width: 100%;background: url(/imgs/member/shadow_s.png) center bottom no-repeat;background-size: 35px auto;
+	position: absolute;top: 45px;}
+.swiper-slide-active .pics{background: url(/imgs/member/shadow_b.png) center bottom no-repeat;background-size: 60px auto;top: 35px;height: 80px;}
+.swiper-slide .pics .img{width: 50px;margin: 0 auto;}
+.swiper-slide .pics .img_b{width: 70px;display: none;}
+.swiper-slide-active .pics .img_s{display: none;}
+.swiper-slide-active .pics .img_b{display: block;}

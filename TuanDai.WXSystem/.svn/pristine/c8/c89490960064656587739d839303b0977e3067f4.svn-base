@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>分期宝-分期乐</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css?v=201603110001" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+        document.oncontextmenu = function (e) { return false; }
+
+        var omitformtags = ["input", "textarea", "select"]
+        omitformtags = omitformtags.join("|")
+        function disableselect(e) {
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+                return false
+        }
+        function reEnable() {
+            return true
+        }
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function("return false")
+        else {
+            document.onmousedown = disableselect
+            document.onmouseup = reEnable
+        }
+    </script>
+
+</head>
+<body>
+<!--分期乐-->
+<header class="headerMain" id="header">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">分期宝债权转让及回购协议</h1>
+    </div>
+</header>
+<!--第1页>-->
+<div class="Contract">
+    <h3>分期宝债权转让及回购合同</h3>
+    <div class="Number">合同编号：**********</div>
+
+    <div class="Contract_t">
+        <ul>
+            <li>
+                <div>甲方（债权转让方、回购方）：<span> ***</span></div>
+                <div>组织机构代码证：<span>**********</span></div>
+                <div>法定代表人：<span>***</span></div>
+            </li>
+            <li>
+                <div>乙方（债权受让方）：<span>***</span></div>
+                <div>证件证号：<span>******************</span></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Contract_c">
+        <p class="text-ind">本协议由甲方运营管理的P2P网络借贷平台“分期乐”（http://www.fenqile.com/，以下称“分期乐平台”）通过“团贷网”平台（http://www.tuandai.com/，以下简称“团贷网平台”）转让其合法所有的债权（以下简称“标的债权”），并按约定回购标的债权；由乙方通过团贷网平台受让前述转让债权。现甲乙双方就上述债权转让及回购事宜，达成如下协议，以资共同遵守。</p>
+        <p class="text-ind">本协议为电子协议，本协议的电子签署视为《中华人民共和国电子签名法》中所称“电子签名“。甲方通过团贷网平台提供的机构账户发布转让债权及回购信息视为对本协议的确认，乙方通过使用其在团贷网平台的用户账户点击确认行为视为对本协议的确认。</p>
+    </div>
+</div>
+<!--第2页>-->
+<div class="Contract">
+    <div class="Contract_c">
+        <p class="title-n1">第一条<span>标的债权</span></p>
+        <p>本协议项下标的债权主要信息如下：</p>
+        <table border="1" cellspacing="0">
+            <tr>
+                <td>标的债权项目编号</td>
+                <td width="66%">**********</td>
+            </tr>
+            <tr>
+                <td>标的债权文件编号</td>
+                <td width="66%">**********</td>
+            </tr>
+            <tr>
+                <td>债权到期日</td>
+                <td>****年**月**日</td>
+            </tr>
+            <tr>
+                <td>标的债权本金金额</td>
+                <td>*****</td>
+            </tr>
+            <tr>
+                <td>标的债权应收利息</td>
+                <td>*****</td>
+            </tr>
+            <tr>
+                <td>标的债权转让价款</td>
+                <td>*****</td>
+            </tr>
+        </table>
+
+        <p class="title-n1">第二条 标的债权的转让及回购</p>
+        <p>
+        2.1 甲方同意按照本协议约定向乙方转让标的债权。乙方同意根据本协议的约定，受让甲方持有的对原债务人的标的债权，并支付标的债权转让价款。
+        <p>2.2 标的债权的转让</p>
+        <p class="text-ind">（1）标的债权转让日为本协议生效之日，即甲方将标的债权转让给乙方，且乙方向甲方支付标的债权全部转让价款之日。</p>
+        <p class="text-ind">（2）除本协议另有约定外，自标的债权转让日起（包括该转让日），甲方基于标的债权所享有的债权及其附属的一切权利、利益均转让给乙方，该等权利、利益包括但不限于：</p>
+        <p>1）标的债权的全部所有权（现时的和未来的、现实的和或有的）和相关权益（包括但不限于担保权益以及其他权利或利益）；</p>
+        <p>2）标的债权相关的滞纳金、违约金及延期补偿金等权利；</p>
+        <p>3）获得标的债权被转让、被出售、被拍卖、被变卖或者被以其他方式处置所获得的全部款项的权利；</p>
+        <p>4）以诉讼或其他形式请求、收回、接受与标的债权相关的全部应偿付款项的权利；</p>
+        <p>5）债权文件项下甲方享有的除标的债权及上述各项权利以外的其他一切权利和利益。</p>
+
+    </div>
+</div>
+<div class="Contract">
+    <div class="Contract_c">
+        <p>2.3 标的债权转让价款</p>
+        <p class="text-ind">（1）双方同意，标的债权的转让价款以上表标的债权价格为准。</p>
+        <p class="text-ind">（2）乙方应于标的债权转让日一次性向甲方支付转让价款，支付完毕即视为标的债权转让成功。</p>
+        <p>2.4 标的债权的回购</p>
+        <p>自甲方转让标的债权后，甲方分<span>**</span>个月对标的债权本金进行分期回购，并按月向乙方支付标的债权应收利息，即每月向乙方支付<span>*****</span>元。
+        </p>
+        <p>2.5 标的债权转让或回购将通过团贷网平台站内消息的方式通知甲方、乙方，站内消息一经发出即视为送达。</p>
+
+        <p class="title-n1">第三条 保障措施</p>
+        <p>为确保原债务人履行融资项目项下的义务，标的债权已获得的担保义务人（如有）向甲方提供的连带责任保证担保，甲乙双方在此确认，自标的债权转让日起，甲方在标的债权上设置的前述担保等权利亦转让于乙方。</p>
+
+        <p class="title-n1">第四条 甲方的陈述与保证</p>
+        <p>4.1 甲方系中华人民共和国合法存续经营的法人单位，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>4.2 甲方签署并履行本协议不违反对其有约束力或有影响的法律法规或协议的限制；本协议签署后，本协议约定即形成对其合法、有效和有约束力的义务。</p>
+        <p>4.3 甲方是标的债权的合法所有人，且有权转让标的债权；标的债权合法、真实、有效。</p>
+    </div>
+</div>
+<div class="Contract">
+    <div class="Contract_c">
+        <p class="title-n1">第五条 乙方的陈述与保证</p>
+        <p>5.1 乙方系中华人民共和国公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>5.2 乙方对本协议的签署和履行不违反对其有约束力或有影响的法律法规或协议的限制。本协议签署后，即构成对乙方合法、有效和有约束力的义务。</p>
+        <p>5.3 乙方保证其用于受让标的债权的投标资金为其合法所有或享有支配权的财产，前述投标资金与与其他任何个人、法人及其他组织不存在法律上的任何纠纷。</p>
+
+        <p class="title-n1">第六条 税费的承担</p>
+        <p>6.1 除各方签署的其他协议另有约定外，各方应按照现行有效的中国法律法规的规定各自承担其因签署和履行本协议而产生的相应税费。</p>
+        <p>6.2 因处置标的债权、担保物（如有）而产生的所有税费适用债权文件的约定。</p>
+
+        <p class="title-n1">第七条 协议的变更</p>
+        <p>7.1 本协议的任何修改、补充均须以团贷网平台电子文本形式作出。</p>
+        <p>7.2 变更后的内容或补充协议与本协议具有同等法律效力，如果变更后的内容或补充协议与本协议发生冲突，以变更后的内容或补充协议为准。</p>
+
+        <p class="title-n1">第八条 违约责任</p>
+        <p>任何一方未履行或未适当履行其在本协议项下的义务，或违反其在本协议项下任何声明与保证的，视为该方违约，违约方应当赔偿因其违约而给其他方造成的全部损失。</p>
+    </div>
+</div>
+<div class="Contract">
+    <div class="Contract_c">
+
+        <p class="title-n1">第九条 法律适用及争议解决方式</p>
+        <p>9.1 本协议的签署、生效、履行、解释、修改和终止等事项均适用中华人民共和国现行法律法规。</p>
+        <p>9.2 各方履行本协议过程中发生争议均应当以友好协商的方式解决，协商不成的，任何一方均可向东莞市第一人民法院提起诉讼。</p>
+
+        <p class="title-n1">第十条 协议的生效</p>
+        <p>10.1 甲方通过团贷网平台发布转让标的债权的信息，乙方通过点击确认后，本协议成立。</p>
+        <p>10.2 乙方根据本协议第2.3条第（2）款的约定将标的债权转让价款支付至甲方在第三方支付机构或监管银行账户时，本协议立即生效。</p>
+
+        <p class="title-n1">第十一条 <span>其他事项</span></p>
+        <p>11.1 各方已经充分阅读并完全理解本协议及相关法律文件及其含义，对于本协议项下的行为自愿承担各自的法律责任和义务。</p>
+        <p>11.2 如果本协议的任何条款因任何原因无效，该条款的无效不影响本协议其他条款有效性的，则各方应当继续履行本协议其他条款。</p>
+        <p>11.3 本协议项下相关费用支付受法定假日或公休日影响的，则支付日提前至法定假日或公休日前一天。</p>
+        <p>11.4 本协议项下的各标题仅为行文方便而设，不用于解释本协议。</p>
+    </div>
+    <div class="Contract_b">
+        <!--盖章-->
+        <!--<div class="seal-con pos-a">
+            <img src="images/hnstrz.png" alt=""/>
+        </div>-->
+    </div>
+</div>
+<div class="clearfix mt20"></div>
+<script type="text/javascript">
+    var url = window.location.href;
+    if (url.indexOf("type=mobileapp") >= 0) {
+        document.getElementById("header").style.display = "none";
+    }
+</script>
+</body>
+</html>

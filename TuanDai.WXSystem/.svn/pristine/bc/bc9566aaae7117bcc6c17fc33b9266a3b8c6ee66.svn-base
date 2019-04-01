@@ -1,0 +1,312 @@
+﻿<%@ WebHandler Language="C#"  Class="TuanDai.WXApiWeb.Activity.ExperienceGold.RegHandler" %>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using TuanDai.PortalSystem.BLL;
+using System.Data.SqlClient;
+using TuanDai.PortalSystem.Model;
+using System.Text.RegularExpressions;
+using Tool;
+using BusinessDll;
+using TuanDai.PortalSystem.Model.Enums;
+using TuanDai.WXApiWeb.Common;
+using Kamsoft.Data.Dapper;
+using System.Data;
+using TuanDaiOldDb = DB;
+
+namespace TuanDai.WXApiWeb.Activity.ExperienceGold
+{
+    /// <summary>
+    /// 体验金投资活动
+    /// Allen 2015-08-10
+    /// </summary>
+    public class RegHandler : SafeHandlerBase
+    {
+
+        #region 验证用户名
+        /// <summary>
+        /// 检查用户名是否存在
+        /// </summary>
+        public void CheckUserName()
+        {
+            string sUserName = HttpContext.Current.Request["username"];
+            UserBLL userBll = new UserBLL();
+            SqlParameter[] paramDatas = new SqlParameter[] { new SqlParameter("@UserName", sUserName), new SqlParameter("@TelNo", sUserName) };
+            UserBasicInfoInfo model = userBll.WXGetUserBasicInfo("UserName=@UserName or TelNo=@TelNo", paramDatas);
+            if (model != null)
+                PrintJson("1", "手机号已注册，请更换");
+            else
+                PrintJson("0", "");
+        }
+        #endregion
+
+
+        #region 获取手机验证码
+        public void GetPhoneRegCode()
+        {
+          
+            string mobileNumber = HttpContext.Current.Request["mobilenumber"];
+            if (string.IsNullOrEmpty(mobileNumber))
+            {
+                PrintJson("0", "手机号码不能为空");
+                return;
+            }
+            string phoneRegex = @"^1[3|4|5|8][0-9]\d{4,8}$";
+            if (!Regex.IsMatch(mobileNumber, phoneRegex))
+            {
+                PrintJson("0", "手机号码格式不正确");
+                return;
+            }
+
+            string sVerCode = Tool.WEBRequest.GetFormString("validatecode");
+            if (sVerCode == "" || sVerCode.Length != 4)
+            {
+                PrintJson("0", "图形码不能为空");
+                return;
+            }
+
+            string valued = HttpContext.Current.Session["webcheckcodereg"] == null ? "" : HttpContext.Current.Session["webcheckcodereg"].ToString();
+            Context.Session["webcheckcodereg"] = null; 
+            string cookieValCode =CookieHelper.GetCookie("WX_Code01");
+            if (Encryption.MD5(sVerCode.Trim().ToLower()) != cookieValCode)
+            {
+                NetLog.WriteLoginHandler("体验金活动", "图形验证码:" + valued.ToLower() + " 接收值:" + sVerCode.ToLower() + " cookie:" + cookieValCode, "触屏版"); 
+                PrintJson("-4", "发送失败：请重新输入图形验证码");  
+                return;
+            }
+
+            var db = new TuanDaiOldDb.JunTeEntities();
+            string strIP = Tool.WebFormHandler.GetIP();
+            if (strIP != "121.13.249.210")
+            {
+                DateTime enddate = DateTime.Parse(DateTime.Now.AddDays(-1).ToShortDateString());
+                int count = db.CodeRecord.Where(p => (p.token == strIP || p.TypeValue == mobileNumber) && p.AddDate >= enddate).Count();
+                if (count > 5)
+                {
+                    PrintJson("0", "发送失败：验证码获取太频繁！");
+                    return;
+                }
+            }
+            UserBLL userBll = new UserBLL();
+            SqlParameter[] paramDatas = new SqlParameter[] { new SqlParameter("@TelNo", mobileNumber) };
+            UserBasicInfoInfo ubInfo = userBll.WXGetUserBasicInfo("TelNo=@TelNo", paramDatas); 
+            string random = "";
+            if (ubInfo != null)
+            {
+                PrintJson("0", "此手机号码已注册");
+                return;
+            }
+            random = StringUtilily.GetRandomString(6);
+
+            TuanDaiOldDb.CodeRecord codeRcord = new TuanDaiOldDb.CodeRecord();
+            codeRcord.AddDate = DateTime.Now;
+            codeRcord.Code = random;
+            codeRcord.Id = Guid.NewGuid();
+            codeRcord.Status = (int)ConstString.MSCodeStatus.Unused;
+
+            codeRcord.token = strIP;
+            codeRcord.Type = (int)ConstString.MSCodeType.PhoneCode;
+            codeRcord.Type2 = (int)ConstString.MSCodeType2.RegPhoneValid;
+            codeRcord.TypeValue = mobileNumber;
+            codeRcord.UserId = null;
+            db.CodeRecord.AddObject(codeRcord);
+
+            int result = db.SaveChanges();
+            if (result > 0)
+            {
+                var parameters = new Dictionary<string, object>();
+                parameters.Add("ValidateCode", random);
+
+                var msgSender = new BusinessDll.MessageSend();
+                var sendResult = msgSender.SendMessage2(option: SendOption.Sms,
+                    eventCode: MessageTemplates.ValidateCode, parameters: parameters, mobile: mobileNumber);
+
+                if (sendResult != "1")
+                {
+                    PrintJson("0", "发送失败：发送短信验证码异常！");
+                }
+                else
+                {
+                    PrintJson("1", "");
+                }
+            }
+            else
+            {
+                PrintJson("-2", "注册失败");
+            }
+        }
+        #endregion
+
+
+        #region 用户注册
+        public void RegisterUser()
+        {
+            string mobileNumber = Tool.WEBRequest.GetFormString("mobilenumber");
+            string validateCode = Tool.WEBRequest.GetFormString("verificationCode");
+            string sourceFrom = Tool.WEBRequest.GetFormString("from");
+            string StoreNo = Tool.WEBRequest.GetFormString("StoreNo");//商家编号
+            if (string.IsNullOrEmpty(mobileNumber))
+            {
+                PrintJson("0", "手机号码不能为空");
+                return;
+            }
+            if (string.IsNullOrEmpty(validateCode))
+            {
+                PrintJson("0", "手机验证码不能为空");
+                return;
+            }
+            UserBLL bll = new UserBLL();
+            var userName = bll.StrGetUserName();
+            SqlParameter[] paramData = new SqlParameter[] { new SqlParameter("@TelNo", mobileNumber), new SqlParameter("@UserName", userName) };
+            UserBasicInfoInfo model = bll.WXGetUserBasicInfo("TelNo=@TelNo or UserName=@UserName", paramData);
+            if (model != null)
+            {
+                PrintJson("0", "该手机号码已注册,请更换手机号码");
+                return;
+            }
+            //判断注册IP是否受限
+            string strIP = Tool.WebFormHandler.GetIP();
+            string[] IP = strIP.Split(',');
+            string RealIP = "";
+            if (IP.Length > 1)
+                RealIP = IP[1];
+            else
+                RealIP = IP[0];
+            string result = Users.UserIsRegByIP(RealIP);
+            if ("1" != result)
+            {
+                string dt = result.Split('|')[1];
+                PrintJson("0", "注册失败：为防止恶意注册，请在" + dt + "后重新注册");
+            }
+
+            int codeResult = BusinessDll.Users.CheckCodeRecord(ConstString.MSCodeType.PhoneCode, ConstString.MSCodeType2.RegPhoneValid, mobileNumber, validateCode);
+            if (codeResult != 1)
+            {
+                PrintJson("0", "注册失败：验证码错误或已过期,请重新获取输入");
+            }
+            Guid userid = Guid.NewGuid();
+            string newPassWord = GetRandomPassword(8);
+            var userbasicEntity = WXRegister.AddUserInfo(userid,  StoreNo!=""?"sj":sourceFrom,  newPassWord, mobileNumber, "", "", "", "", 0);
+            if (userbasicEntity != null)
+            { 
+                if (StoreNo.IsNotEmpty())
+                {
+                    try
+                    {
+                        SqlParameter[] parameters = {
+                        Kamsoft.Data.SqlHelper.MakeInParam("@StoreNo", SqlDbType.VarChar, StoreNo),
+                        Kamsoft.Data.SqlHelper.MakeInParam("@UserId", SqlDbType.UniqueIdentifier, userid),
+                        Kamsoft.Data.SqlHelper.MakeInParam("@RealName", SqlDbType.NVarChar, "")};
+
+                        int row = Kamsoft.Data.SqlHelper.ExecuteNonQuery(TuanDai.Config.BaseConfig.ConnectionString,
+                             CommandType.StoredProcedure, "p_Marketing_StoreUser_Insert", parameters);
+                        if (row == 0)
+                        {
+                            //2014-09-09 添加重试机制 并且添加日志
+                            System.Threading.Thread.Sleep(100);//休眠0.1秒 重试一次
+                            row = Kamsoft.Data.SqlHelper.ExecuteNonQuery(TuanDai.Config.BaseConfig.ConnectionString,
+                              CommandType.StoredProcedure, "p_Marketing_StoreUser_Insert", parameters);
+                            if (row == 0)//重试失败 记录错误日志
+                            {
+                                NetLog.WriteTraceLogHandler("商家推广注册", string.Format("商家推荐码StoreNo：{0}；UserID：{1},ErrorInfo:{2}", StoreNo, userbasicEntity.Id, "存储过程p_Marketing_StoreUser_Insert执行失败"), "触屏版");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        NetLog.WriteLoginHandler("商家推广注册", string.Format("商家推荐码StoreNo：{0}；UserID：{1},ErrorMsg:{2}", StoreNo, userbasicEntity.Id, ex.Message), "触屏版");
+                    }
+                }
+                //BusinessDll.RegisterIp.WriteLoginHandler(userbasicEntity.Id);
+                //发送密码短信通知 
+                var msgSender = new BusinessDll.MessageSend();
+                string smsContent = string.Format("恭喜您，注册成功！请前往团宝箱领取礼品;团贷网用户名:{0}，密码:{1}, 登录www.tuandai.com免费领取收益奖金.",mobileNumber, newPassWord);
+                msgSender.AsyncSendNoteHandler("Note", null, mobileNumber, smsContent);
+
+                GetExperienceGoldDelegate getExperience = new GetExperienceGoldDelegate(GetExperienceGold);
+                getExperience.Invoke(userbasicEntity.Id);
+
+                PrintJson("1", "");
+            }
+            PrintJson("0", "注册失败");
+        }
+        private delegate void GetExperienceGoldDelegate(Guid userId);
+        
+        //自动领取体验金
+        private void GetExperienceGold(Guid userId)
+        {
+            using (SqlConnection connection = new SqlConnection(TuanDai.Config.BaseConfig.ConnectionString))
+            {
+
+                //发送团宝箱后,自动标记已领取,不然后面不好做投资             
+                string strSQL = "select Id from UserPrize WHERE ActivityCode='20150510' AND TypeId=16 and IsReceive=0 AND prizeName='注册送体验金活动' and UserId=@UserId";
+                var dyParams = new DynamicParameters();
+                dyParams.Add("@UserId", userId);
+
+                Guid? prizeId = connection.Query<Guid?>(strSQL, dyParams).FirstOrDefault();
+                if (prizeId != null && prizeId.HasValue)
+                {
+                    UserBLL userbll = new UserBLL();
+                    int outStatus = -1;
+                    userbll.GetUserPrize(userId, prizeId.Value, 2, out  outStatus);
+                }
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        #endregion
+
+
+        #region 用体验金投资
+        public void ExperienceGoldInvest()
+        {
+            Guid? userId = WebUserAuth.UserId;
+            string result = "-101";
+            if (userId == Guid.Empty)
+            {
+                this.PrintJson("0", "您还未登录!");
+                return;
+            }
+            else
+            {
+                this.GetExperienceGold(userId.Value);
+                
+                using (SqlConnection connection = new SqlConnection(TuanDai.Config.BaseConfig.ConnectionString))
+                {
+
+                    var dyParams = new DynamicParameters();
+                    dyParams.Add("@UserId", userId);
+                    dyParams.Add("@outStatus", 0, System.Data.DbType.Int32, System.Data.ParameterDirection.Output);
+
+                    connection.Execute("p_ExperienceGoldInvest", dyParams, null, null, CommandType.StoredProcedure);
+                    result = dyParams.Get<int>("@outStatus").ToString();
+
+                    connection.Close();
+                    connection.Dispose();
+                    this.PrintJson(result, "");
+                }
+            }
+          
+        }    
+        #endregion
+
+        #region 私有方法
+        private string GetRandomPassword(int num)
+        {
+            char[] Pattern = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            string result = "";
+            int n = Pattern.Length;
+            System.Random random = new Random(~unchecked((int)DateTime.Now.Ticks));
+            for (int i = 0; i < num; i++)
+            {
+                int rnd = random.Next(0, n);
+                result += Pattern[rnd];
+            }
+            return result;
+        }
+        #endregion
+    }
+}

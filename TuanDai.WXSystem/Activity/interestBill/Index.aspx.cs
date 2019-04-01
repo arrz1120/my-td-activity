@@ -1,0 +1,319 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.DAL;
+using System.Data.SqlClient; 
+using System.Data;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.Activity.interestBill
+{
+    public partial class Index : AppActivityBasePage
+    {
+        protected InterestBillInfo interestBillInfo;
+        protected List<BillInfo> InvestList;//投资
+        protected List<BillInfo> ReturnList;//收益
+        protected List<BillInfo> ProjectList;//项目
+        protected List<BillInfo> ExtendtList;//推荐
+        protected double InvestMoney;//投资总和
+        protected double ReturnMoney;//收益总和
+        protected string name = string.Empty;//颜值
+        protected double tenMoney = 0;
+        protected string image = string.Empty;
+        protected string type = string.Empty;//触屏版:wx，APP:""
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            type = Tool.WEBRequest.GetString("type");
+            if (!IsPostBack)
+            {
+                Guid? userId = WebUserAuth.UserId;
+                if (userId == Guid.Empty)
+                {
+                    if (type == "wx")
+                        Response.Redirect(GlobalUtils.WebURL + "/user/Login.aspx?ReturnUrl=" + HttpContext.Current.Request.RawUrl);
+                    else
+                        Response.Redirect("ToAppLogin");
+                }
+                else
+                {
+                    GetBind();
+                }
+            }
+        }
+
+        private void GetBind()
+        {
+            interestBillInfo = new InterestBillInfo();
+            
+                #region
+                string sqlText = @"
+                                DECLARE @ExtendKey NVARCHAR(50);
+                                SELECT @UserAddDate=AddDate,@UserAddDay=DATEDIFF(Day,AddDate,GETDATE()),@ExtendKey=ExtendKey,@Sex=Sex,@HeadImage=HeadImage FROM dbo.UserBasicInfo WITH(NOLOCK) WHERE Id=@UserId;
+
+                                SELECT @ExtendCount=COUNT(0) FROM dbo.UserBasicInfo WITH(NOLOCK)
+                                WHERE ExtenderKey=@ExtendKey;
+                    
+                                SELECT @ReturnInMoney=SUM(ISNULL(InterestAmout,0)+ISNULL(Amount,0)) FROM dbo.SubscribeDetail WITH(NOLOCK)
+                                WHERE SubscribeUserId=@UserId; 
+                                
+                                SELECT @TotalInMoney= SUM(A1)+SUM(A2)+SUM(A3)+SUM(A4) FROM --收益
+                                (
+                                SELECT  SUM(ISNULL(InterestAmout,0)) AS A1,0 AS A2,0 AS A3,0 AS A4 FROM dbo.SubscribeDetail WITH(NOLOCK)
+                                WHERE SubscribeUserId=@UserId 
+                                UNION ALL
+                                SELECT 0 AS A1,SUM(ISNULL(A.RealInterestAmout,0)) AS A2 ,ISNULL(SUM(B.Interest),0)+ISNULL(SUM(B.PenaltyAmount),0)/2 AS A3,0 AS A4
+                                FROM dbo.SubscribeDetailHistory A WITH(NOLOCK) LEFT JOIN dbo.OverDueRecord B WITH(NOLOCK) ON A.SubscribeId=B.SubscribeId AND B.IsBorrow=0
+                                WHERE A.SubscribeUserId=@UserId
+                                
+                                ) T;
+                                
+                                DECLARE @temp1 NUMERIC(18,2)=0
+                                DECLARE @temp2 NUMERIC(18,2)=0
+                                SELECT @temp2= COUNT(0) FROM FundAccountInfo WITH(NOLOCK)
+                                
+                                SELECT @temp1= A.TotalInvestRank FROM (
+                                SELECT ROW_NUMBER() OVER(ORDER BY TotalIncomeInvest DESC) AS TotalInvestRank,UserId FROM dbo.FundAccountInfo WITH(NOLOCK))
+                                AS A WHERE A.UserId=@UserId
+                                SELECT @TotalInMoneyPercent= CAST((@temp2-@temp1)/@temp2*100 AS NUMERIC(18,2));
+                                
+                                ";
+                DynamicParameters paramDatas = new DynamicParameters();
+                paramDatas.Add("@UserId", WebUserAuth.UserId.Value);
+                paramDatas.Add("@UserAddDate", null, DbType.DateTime, ParameterDirection.Output);
+                paramDatas.Add("@UserAddDay", 0, DbType.Int32, ParameterDirection.Output);
+                paramDatas.Add("@ExtendCount", 0, DbType.Int32, ParameterDirection.Output);
+                paramDatas.Add("@Sex", 0, DbType.Int32, ParameterDirection.Output);
+                paramDatas.Add("@ReturnInMoney", 0, DbType.Double, ParameterDirection.Output);
+                paramDatas.Add("@TotalInMoney", 0, DbType.Double, ParameterDirection.Output);
+                paramDatas.Add("@TotalInMoneyPercent", 0, DbType.Double, ParameterDirection.Output);
+                paramDatas.Add("@HeadImage", "", DbType.String, ParameterDirection.Output);
+
+                PublicConn.ExecuteTD(PublicConn.DBWriteType.Read, sqlText, ref paramDatas); 
+
+                interestBillInfo.UserAddDate = paramDatas.Get<DateTime>("@UserAddDate");
+                interestBillInfo.UserAddDay = paramDatas.Get<Int32>("@UserAddDay");
+                interestBillInfo.ExtendCount = paramDatas.Get<Int32>("@ExtendCount");
+                interestBillInfo.Sex = paramDatas.Get<Int32?>("@Sex");
+                interestBillInfo.ReturnInMoney = paramDatas.Get<Double?>("@ReturnInMoney");
+                interestBillInfo.TotalInMoney = paramDatas.Get<Double?>("@TotalInMoney");
+                interestBillInfo.TotalInMoneyPercent = paramDatas.Get<Double?>("@TotalInMoneyPercent");
+                interestBillInfo.HeadImage = paramDatas.Get<String>("@HeadImage");
+                if (string.IsNullOrWhiteSpace(interestBillInfo.HeadImage))
+                    interestBillInfo.HeadImage = "/imgs/users/avatar/bav_head.gif";
+
+                int temp = (int)(interestBillInfo.ReturnInMoney == null ? 0 : interestBillInfo.ReturnInMoney);
+                interestBillInfo.ReturnIntegral = temp / 1000 > 100 ? 100 : temp / 1000;
+                //
+                var r = 1.08 / 100;
+                var d = Math.Pow(1 + r, 10 * 12);
+                var P = temp * d;
+                var P2 = temp * ((d - 1) / r);
+                var pSum = P + P2;
+                tenMoney = Math.Round(pSum); //价值
+                tenMoney = tenMoney < 100000 ? 100000 : tenMoney;
+
+                double money = interestBillInfo.TotalInMoney == null ? 0 : Convert.ToDouble(interestBillInfo.TotalInMoney);
+                int sex = interestBillInfo.Sex == null ? 1 : Convert.ToInt32(interestBillInfo.Sex);
+                if (money <= 10000)
+                {
+                    name = sex == 1 ? "普通男青年" : "普通女青年";
+                    image = name == "普通男青年" ? "images/role/role1.png" : "images/role/普通女青年-.png";
+                }
+                else if (money > 10000 && money <= 20000)
+                {
+                    name = sex == 1 ? "文艺男青年" : "文艺女青年";
+                    image = name == "文艺男青年" ? "images/role/文艺男青年-.png" : "images/role/文艺女青年-.png";
+                }
+                else if (money > 20000 && money <= 30000)
+                {
+                    name = sex == 1 ? "经济适用男" : "小家碧玉";
+                    image = name == "经济适用男" ? "images/role/经济适用男.png" : "images/role/小家碧玉.png";
+                }
+                else if (money > 30000 && money <= 50000)
+                {
+                    name = sex == 1 ? "小资男" : "陀枪师姐";
+                    image = name == "小资男" ? "images/role/小姿男.png" : "images/role/陀枪师姐.png";
+                }
+                else if (money > 50000 && money <= 70000)
+                {
+                    name = sex == 1 ? "城市精英" : "百变御姐";
+                    image = name == "城市精英" ? "images/role/城市精英.png" : "images/role/百变御姐.png";
+                }
+                else if (money > 70000 && money <= 100000)
+                {
+                    name = sex == 1 ? "多金男" : "白富美";
+                    image = name == "多金男" ? "images/role/多金男.png" : "images/role/白富美.png";
+                }
+                else if (money > 100000 && money <= 150000)
+                {
+                    name = sex == 1 ? "土豪" : "选美皇后";
+                    image = name == "土豪" ? "images/role/土豪.png" : "images/role/选美皇后.png";
+                }
+                else if (money > 150000 && money <= 300000)
+                {
+                    name = sex == 1 ? "国民老公" : "国民美女";
+                    image = name == "国民老公" ? "images/role/国民老公.png" : "images/role/国民美女.png";
+                }
+                else if (money > 300000)
+                {
+                    name = sex == 1 ? "霸道总裁" : "富婆";
+                    image = name == "霸道总裁" ? "images/role/霸道总裁-.png" : "images/role/富婆.png";
+                }
+
+                #endregion
+
+                #region
+                InvestList = new List<BillInfo>();
+                sqlText = @"SELECT ISNULL(SUM(t.ParaValue3),0) AS ParaValue3,t.ParaValue1 FROM
+                            (
+                            SELECT ISNULL(Amount,0) AS ParaValue3,ParaValue1=
+                            CASE WHEN AddDate>='2012-07-01' AND AddDate<'2013-01-01' THEN 1
+                            WHEN AddDate>='2013-01-01' AND AddDate<'2013-07-01' THEN 2
+                            WHEN AddDate>='2013-07-01' AND AddDate<'2014-01-01' THEN 3
+                            WHEN AddDate>='2014-01-01' AND AddDate<'2014-07-01' THEN 4
+                            WHEN AddDate>='2014-07-01' AND AddDate<'2015-01-01' THEN 5
+                            WHEN AddDate>='2015-01-01' AND AddDate<'2015-07-01' THEN 6
+                            ELSE 0 END
+                            FROM dbo.Subscribe WITH(NOLOCK) WHERE SubscribeUserId=@UserId
+                            ) t GROUP BY t.ParaValue1";
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@UserId", WebUserAuth.UserId.Value);
+                InvestList = PublicConn.QueryBySql<BillInfo>(sqlText,ref  param);
+
+                InvestMoney = InvestList.Where(p => p.ParaValue1 != 0).Sum(p => p.ParaValue3);
+                #endregion
+
+                #region
+                ReturnList = new List<BillInfo>();
+                sqlText = @"SELECT ISNULL(SUM(t.ParaValue3),0) AS ParaValue3,t.ParaValue1 FROM
+                            (
+                            SELECT ISNULL(RealInterestAmout,0) AS ParaValue3,ParaValue1=
+                            CASE WHEN CycDate>='2012-07-01' AND CycDate<'2013-01-01' THEN 1
+                            WHEN CycDate>='2013-01-01' AND CycDate<'2013-07-01' THEN 2
+                            WHEN CycDate>='2013-07-01' AND CycDate<'2014-01-01' THEN 3
+                            WHEN CycDate>='2014-01-01' AND CycDate<'2014-07-01' THEN 4
+                            WHEN CycDate>='2014-07-01' AND CycDate<'2015-01-01' THEN 5
+                            WHEN CycDate>='2015-01-01' AND CycDate<'2015-07-01' THEN 6
+                            ELSE 0 END
+                            FROM dbo.SubscribeDetailHistory WITH(NOLOCK) WHERE SubscribeUserId=@UserId
+                            ) t GROUP BY t.ParaValue1";
+                DynamicParameters para = new DynamicParameters();
+                para.Add("@UserId", WebUserAuth.UserId.Value);
+                ReturnList = PublicConn.QueryBySql<BillInfo>(sqlText, ref para);
+                ReturnMoney = ReturnList.Where(p => p.ParaValue1 != 0).Sum(p => p.ParaValue3);
+                #endregion
+                #region
+                ProjectList = new List<BillInfo>();
+                sqlText = @"SELECT ParaValue2,COUNT(0) AS ParaValue3 FROM
+                            (
+                            SELECT ParaValue2 =
+                            CASE WHEN  dbo.f_ProjectPartition(p.Type)=1 THEN '小微企业'
+                            WHEN  dbo.f_ProjectPartition(p.Type)=2 THEN '微团贷'
+                            WHEN  dbo.f_ProjectPartition(p.Type)=3 THEN '证券宝'
+                            WHEN  dbo.f_ProjectPartition(p.Type)=4 THEN '分期宝'
+                            ELSE '净股专区' END
+                            FROM dbo.Subscribe s WITH(NOLOCK)
+                            LEFT JOIN Project p WITH(NOLOCK) ON s.ProjectId=p.Id
+                            WHERE s.SubscribeUserId=@UserId AND dbo.f_ProjectPartition(p.Type) IS NOT NULL
+                            ) t GROUP BY t.ParaValue2";
+                DynamicParameters paramm = new DynamicParameters();
+                paramm.Add("@UserId", WebUserAuth.UserId.Value);
+                ProjectList = PublicConn.QueryBySql<BillInfo>(sqlText,ref paramm);
+                double projectCount = ProjectList.Sum(p => p.ParaValue3);
+                int percent = 0;
+                for (int i = 0; i < ProjectList.Count; i++)
+                {
+                    if (i == ProjectList.Count - 1)
+                    {
+                        ProjectList[i].ParaValue1 = 100 - percent;
+                    }
+                    else
+                    {
+                        ProjectList[i].ParaValue1 = (int)(ProjectList[i].ParaValue3 / projectCount * 100);
+                        percent += ProjectList[i].ParaValue1;
+                    }
+
+                }
+                #endregion
+                #region
+                ExtendtList = new List<BillInfo>();
+                sqlText = @"DECLARE @ExtendKey NVARCHAR(50);
+                            SELECT @ExtendKey=ExtendKey FROM dbo.UserBasicInfo WITH(NOLOCK) WHERE Id=@UserId;
+                            SELECT TOP 7 NickName AS ParaValue2,HeadImage AS ParaValue4 FROM dbo.UserBasicInfo WITH(NOLOCK)
+                            WHERE ExtenderKey=@ExtendKey ORDER BY AddDate DESC;
+                           ";
+                DynamicParameters parammm = new DynamicParameters();
+                parammm.Add("@UserId", WebUserAuth.UserId.Value);
+                ExtendtList = PublicConn.QueryBySql<BillInfo>(sqlText,ref parammm);
+                foreach (var item in ExtendtList)
+                {
+                    if (string.IsNullOrWhiteSpace(item.ParaValue4))
+                        item.ParaValue4 = "/imgs/users/avatar/bav_head.gif";
+                }
+                #endregion 
+        }
+        /// <summary>
+        /// 投资，收益
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public string GetValue(int value, string type = "0")
+        {
+            BillInfo Info;
+            if (type == "1")
+                Info = ReturnList.FirstOrDefault(p => p.ParaValue1 == value);
+            else
+                Info = InvestList.FirstOrDefault(p => p.ParaValue1 == value);
+
+            if (Info != null)
+                return ToolStatus.ConvertLowerMoney(Info.ParaValue3);
+            else
+                return "0.00";
+        }
+        /// <summary>
+        /// 投资项目
+        /// </summary>
+        /// <param name="projectName"></param>
+        /// <returns></returns>
+        public int GetProject(string projectName)
+        {
+            BillInfo Info = ProjectList.FirstOrDefault(p => p.ParaValue2 == projectName);
+            if (Info != null)
+                return Info.ParaValue1;
+            else
+                return 0;
+        }
+        /// <summary>
+        /// 趣味账单
+        /// </summary>
+        public class InterestBillInfo
+        {
+            public DateTime UserAddDate { get; set; }//注册日期
+            public int UserAddDay { get; set; }//注册天数
+            public double? ReturnInMoney { get; set; }//待收
+            public int ReturnIntegral { get; set; }//待收积分
+            public int ExtendCount { get; set; }//推荐人数
+            public double? TotalInMoney { get; set; }//收益
+            public double? TotalInMoneyPercent { get; set; }//收益排名
+            public int? Sex { get; set; }//用户性别
+            public string HeadImage { get; set; }//用户头像
+
+        }
+        /// <summary>
+        /// 公共
+        /// </summary>
+        public class BillInfo
+        {
+            public int ParaValue1 { get; set; }
+            public string ParaValue2 { get; set; }
+            public double ParaValue3 { get; set; }
+            public string ParaValue4 { get; set; }
+        }
+    }
+}

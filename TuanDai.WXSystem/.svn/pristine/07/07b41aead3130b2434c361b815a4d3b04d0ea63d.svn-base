@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>转让详情</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160222" />
+<link rel="stylesheet" type="text/css" href="/css/debt.css?v=20160222" />
+
+<style type="text/css">
+	.ico-666{display: block;width: 5px;height: 5px;background: #666;border-radius: 50%;left: 0;top: 15px;margin-left: 0 !important;}
+	.verifyInfo div.ico-loanbox{height: 26px;margin-bottom: 10px;}
+	.verifyInfo div img{width: 40%;}
+	.verifyInfo div img.ico-loan1{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan2{width: 20px;}
+	.verifyInfo div img.ico-loan3{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan4{width: 33px;}
+	.verifyInfo div img.ico-loan5{width: 22px;}
+</style>
+
+</head>
+<body class="pb15 bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">转让详情</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="debt-detail-top bg-fff">
+		<span class="f17px c-212121">商友贷</span>
+		<p class="f17px c-808080">某投资有限公司短期借款平台优质老用户</p>
+	</div>
+	<div class="clearfix bg-fff pl15 pr15 pt13 pb18">
+		<div class="lf"><p class="c-ababab f13px">发布时间：2016-02-16</p></div>
+		<div class="rf"><p class="c-fd6040 f13px"><i class="ico ico-biao"></i>原始标的</p></div>
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 pl15 pb25 bg-fff">
+		<div class="clearfix pt25">
+			<div class="lf w50p"><p class="f14px c-ababab">年化收益:<span class="f14px c-ff6600 ml7">18.5%</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">还款期限:<span class="f14px c-ff6600 ml7">12</span><span class="f14px c-212121">个月</span></p></div>
+		</div>
+		<div class="clearfix pt25">
+			<div class="lf w50p"><p class="f14px c-ababab">转让本金:<span class="f14px c-ff6600 ml7">20,000</span><span class="f14px c-212121">元</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">转让价:<span class="f14px c-ff6600 ml7">19,980</span><span class="f14px c-212121">元</span></p></div>
+		</div>
+		<div class="clearfix pt25">
+			<div class="lf w50p"><p class="f14px c-ababab">转让单价:<span class="f14px c-ff6600 ml7">199.90</span><span class="f14px c-212121">元/份</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">应计利息:<span class="f14px c-ff6600 ml7">199.90</span><span class="f14px c-212121">元</span></p></div>
+		</div>
+		<div class="clearfix pt25">
+			<div class="lf w50p"><p class="f14px c-ababab">已转让:<span class="f14px c-ff6600 ml7">2</span><span class="f14px c-212121">份</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">剩余份数:<span class="f14px c-ff6600 ml7">199.90</span><span class="f14px c-212121">份</span></p></div>
+		</div>
+	</div>
+	
+	<div class="bb-e6e6e6 pl15 pr15 pt13 pb13 bg-fff">
+		<p class="f17px c-212121"><i class="ico ico-deal7"></i>转让中<span class="f13px c-808080 ml10">(剩余时间 01:30:30)</span></p>
+		<div class="absBtn-right f13px c-ffffff pos-a" id="stop-debt">终止转让</div>
+	</div>
+	
+	<div class="bg-fff bt-e6e6e6">
+		<div class="mt15 pd15 bb-e6e6e6 webkit-box">
+			<div class="box-flex1 f13px c-808080 text-left">承接人</div>
+			<div class="box-flex1 f13px c-808080 text-center">承接金额</div>
+			<div class="box-flex1 f13px c-808080 text-right">合同</div>
+		</div>
+		
+		<div class="pd15 bb-e6e6e6 webkit-box">
+			<div class="box-flex1 f15px c-212121 text-left text-overflow">h**********</div>
+			<div class="box-flex1 f15px c-212121 text-center text-overflow">￥5,000（20份）</div>
+			<div class="box-flex1 f15px c-fab600 text-right text-overflow">查看合同</div>
+		</div>
+		
+		<div class="pd15 bb-e6e6e6 webkit-box">
+			<div class="box-flex1 f15px c-212121 text-left text-overflow">h**********</div>
+			<div class="box-flex1 f15px c-212121 text-center text-overflow">￥5,000000（20份）</div>
+			<div class="box-flex1 f15px c-fab600 text-right text-overflow">查看合同</div>
+		</div>
+	</div>
+	
+	<div class="alert z-index1000 webkit-box box-center" id="dvPopStop" style="display: none;">
+		<div class="alert-stop-assignment bg-fff pos-r">
+			<div class="text-center c-212121 f17px pt25 pb20 fb">终止转让</div>
+			<div class="alert-inp ml10 mr10">
+				<input  type="text" placeholder="请输入验证码" id="txtValCode" maxlength="6"  />
+				<div class="absBtn-right f13px c-ffffff pos-a" id="btnSendMsgCode">获取验证码</div>
+			</div>
+			<div class="pl10"><p class="c-fd6040 f13px pos-a" style="display:none;left:10px;top: 115px;" id="dvErrTip"><i class="ico ico-warn"></i>验证码错误</p></div>
+			<div class="clearfix bt-e6e6e6 mt30">
+				<div class="lf w50p br-e6e6e6">
+					<div class="btn c-808080 f17px" style="border-right: 1px solid #f0f0f0;"  id="btnPopCancel">取消</div>
+				</div>
+				<div class="rf w50p">
+					<div class="btn c-ffc61a f17px" id="btnPopConfirm">购买</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--中止转让成功提示-->
+	<div class="webkit-box box-center successTipsWrap" style="display: none;">
+		<div class="successTips text-center f17px c-ffffff">
+			<i class="ico ico-success"></i>终止转让成功
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+		$("#stop-debt").click(function(){
+			$("#code-alert").show();
+		})
+       
+	</script>
+
+</body>
+</html>

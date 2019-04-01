@@ -1,0 +1,20 @@
+{
+    "lists":[
+        {
+            "title":"骰子竞猜",
+            "description":"朕惊！最高日赚3000团币",
+            "pic":"./images/1.png"
+        },
+        {
+            "title":"骰子竞猜",
+            "description":"手气大pk，好礼转不停",
+            "pic":"./images/2.png"
+
+        },
+        {
+            "title":"骰子竞猜",
+            "description":"手气大pk，好礼转不停1",
+            "pic":"./images/3.png"
+        }
+    ]
+}

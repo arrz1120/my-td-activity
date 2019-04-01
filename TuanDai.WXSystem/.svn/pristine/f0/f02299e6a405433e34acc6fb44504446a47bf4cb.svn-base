@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>退出规则</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=20160305001"/>
+</head>
+<body class="bg-fbfbf9">
+    <div class="con-box bt-d1d1d1 bb-d1d1d1 bg-fff">
+        <h3 class="f17px bb-e6e6e6">退出手续费</h3>
+        <p class="f15px">手续费费率表（退出时间按提交申请的时间计算）</p>
+        <div class="table-box">
+            <table>
+                <tr class="bb-ffcf1f">
+                    <th class="f15px br-ffcf1f">退出时间</th>
+                    <th class="f15px">费率</th>
+                </tr>
+                <tr class="bb-ffcf1f">
+                    <td class="f15px br-ffcf1f">第4～6个月</td>
+                    <td class="f15px">1%</td>
+                </tr>
+                <tr>
+                    <td class="f15px br-ffcf1f">第7～9个月</td>
+                    <td class="f15px">0.80%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="con-box con-box bt-d1d1d1 bb-d1d1d1 bg-fff">
+        <h3 class="f17px bb-e6e6e6">退出到账时间</h3>
+        <p class="f15px">退出到账需要等其他用户承接您的债权，退出时间以实际交易时间为准。</p>
+    </div>
+
+    <div class="con-box con-box bt-d1d1d1 bb-d1d1d1 bg-fff">
+        <h3 class="f17px bb-e6e6e6">撤销退出</h3>
+        <p class="f15px">无人承接时可撤销退出申请。</p>
+    </div>
+
+    <div class="con-box con-box bt-d1d1d1 bb-d1d1d1 bg-fff">
+        <h3 class="f17px bb-e6e6e6">退出到账金额</h3>
+        <p class="f15px">到账金额计算方式为：赎回本金＋对应利息－管理费。退出期间仍计算利息，所以根据退出到账时间不同，到账金额有所不同。</p>
+    </div>
+
+</body>
+
+</html>

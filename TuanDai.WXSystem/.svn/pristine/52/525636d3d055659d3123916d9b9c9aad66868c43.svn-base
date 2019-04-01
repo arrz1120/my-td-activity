@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>复投宝常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+            <div class="q-box">
+        <p class="title">1. 什么是安盈宝？</p>
+        <p>安盈宝是由大连京北互联网金融资产交易中心备案，通过团贷网向投资人定向募集的金融资产收益权产品。您可使用银行卡直接投资安盈宝，无需充值。产品满额后第二个工作计息，产品到期后，本金和利息将在x个工作日内自动打到您绑定的银行卡。</p>
+        <p class="text-default break-word">举例说明：加入24个月复投宝10000元，全额投标成功后，如您在持有6个月15天（对应年化利率11.5%）时申请提前退出，复投宝收益：10000*11.5%*6/12+10000*11.5%*15/365=622.26。</p>
+        <p class="title">2. 什么是金融资产收益权？</p>
+        <p>金融资产收益权，是指标的资产的合法受益人（即“产品转让人/回购人”）将其依法享有的全部或部分投资收益通过连交所转让并约定到期回购的创新金融产品。</p>
+        <p class="title">3. 安盈宝有哪些投资要求？</p>
+        <p>每期产品的投资人数不能超过200人；投资者的年龄必须大于18周岁。</p>
+        <p class="title">4. 如何购买安盈宝？</p>
+        <P>购买安盈宝需要投资人在大连京北互联网金融资产交易中心开户并注册成为其会员，所以投资前您需要对交易中心的开户协议进行确认，之后绑定银行卡进行支付。产品募集成功后，交易中心将对您的投资份额进行登记。</P>
+        <p class="title">5. 安盈宝在到期前可以提前赎回么？</p>
+        <p>在投标期内，即满标前，您的投资资金将被冻结，不能取消。如果产品募集失败，则申购资金会退回至您的账户内。当产品募集成功后，您不能提前赎回，只能等到产品到期。</p>
+	<br />
+        <p>注：具体说明以产品说明书为准</p>
+    </div>
+    </div>
+</body>
+</html>

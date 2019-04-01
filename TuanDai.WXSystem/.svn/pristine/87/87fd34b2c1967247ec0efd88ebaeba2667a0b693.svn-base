@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MVipWebStite.master.cs" Inherits="TuanDai.WXApiWeb.MVipWebStite" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=20170605001" />         
+    <script src="/scripts/jquery.cookies.2.2.0.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/base.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<%--<body>
+    <form id="form1" runat="server">
+        
+    </form>
+
+   
+</body>--%>
+<asp:contentplaceholder id="body" runat="server">
+ </asp:contentplaceholder>
+<asp:contentplaceholder id="footer" runat="server">    
+ </asp:contentplaceholder>
+</html>
+<script type="text/javascript">
+    function isCookieLogin() {
+        var cookieValue = jaaulde.utils.cookies.get("tuandaiw");
+        if (cookieValue != "" && cookieValue != null)
+            return true;
+        else
+            return false;
+    }
+
+    function isWeiXin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var nwbi_userName = "";
+    var nwbi_sysNo = "TDW_APP";
+    var IsLogin = isCookieLogin();
+    if (IsLogin) {
+        var nickname = jaaulde.utils.cookies.get("TDWUserName");
+        nwbi_userName = nickname;
+    }
+    if (isWeiXin) {
+        nwbi_sysNo = "TDW_WX";
+    }
+    else {
+
+    }
+
+    //你我金融统计代码
+    (function () {
+        var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+        ta.src = ((("https:") == document.location.protocol) ? "https://" : "http://") + 'bilog.niiwoo.com/js/webaccess.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ta, s);
+    })();
+
+    //百度统计代码
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6dff67da4e4ef03cccffced8222419de";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+    //腾讯统计代码
+    var _mtac = {};
+    (function () {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500455784");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>

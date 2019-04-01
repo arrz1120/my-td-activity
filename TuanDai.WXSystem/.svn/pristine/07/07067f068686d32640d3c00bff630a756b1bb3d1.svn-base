@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>安全中心 - 我的账户</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+    <!--未验证状态 S-->
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>身份验证</div>
+            <div class="rf f14px c-ababab lh22">未验证<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>手机验证</div>
+            <div class="rf f14px c-ababab lh22">未验证<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="trade_password.html" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>交易密码</div>
+            <div class="rf f14px c-ababab lh22">未开启<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>银行卡</div>
+            <div class="rf f14px c-ababab lh22">未验证<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <!--未验证状态 E-->
+
+    <!--未通过状态 S-->
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-fail-ro"></i>身份验证</div>
+            <div class="rf f14px c-ababab lh22">未通过<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-fail-ro"></i>手机验证</div>
+            <div class="rf f14px c-ababab lh22">未通过<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>交易密码</div>
+            <div class="rf f14px c-ababab lh22">未开启<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-fail-ro"></i>银行卡</div>
+            <div class="rf f14px c-ababab lh22">未通过<i class="ico-arrow-r"></i></div>
+        </section>
+    </a>
+    <!--未通过状态 E-->
+
+    <!--已通过状态 S-->
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <span class="lf lh22 f14px c-212121"><i class="icoBox17 ico-suc-ro"></i>身份验证</span>
+            <span class="lf f12px lh22 c-ababab ml10">胡** 421***********4773</span>
+        </section>
+    </a>
+    <div class="f12px lh20 pl15 c-ababab mt5 clearfix">身份证不允许修改、更换或注销</div>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <span class="lf lh22 f14px c-212121"><i class="icoBox17 ico-suc-ro"></i>手机验证</span>
+            <span class="lf f12px lh22 c-ababab ml10">13*******47</span>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <span class="lf lh22 f14px c-212121"><i class="icoBox17 ico-suc-ro"></i>交易密码</span>
+            <span class="lf f12px lh22 c-ababab ml10">已设置</span>
+        </section>
+    </a>
+
+    <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <span class="lf lh22 f14px c-212121"><i class="icoBox17 ico-suc-ro"></i>银行卡</span>
+            <span class="lf f12px lh22 c-ababab ml10">6227**********05581</span>
+        </section>
+    </a>
+     <a href="" target="_self" class="safety-link">
+        <section class="safetyBox clearfix">
+            <div class="lf c-212121 f14px lh22"><i class="icoBox17 ico-ex"></i>登录密码</div>
+          
+        </section>
+    </a>
+    <div class="f12px lh20 pl15 c-ababab mt5 clearfix">如需改绑，请<a href="/html/download.html" target="_blank" class="c-ff7357 f12px">登录团贷PC端</a>查看详细的改绑流程。</div>
+    <!--已通过状态 E-->
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

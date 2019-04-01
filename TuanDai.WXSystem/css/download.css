@@ -1,0 +1,21 @@
+.bg{width: 100%;height: 166px;background: url(/imgs/images/bg/bg_download.png) no-repeat;background-size: 100% 100%;position: absolute;top: 0;left: 0;}
+.pageContent{padding-top: 112px;}
+.logo{width: 105px;height: 122px;margin: 0 auto;background: url(/imgs/images/icon/logo2.png) no-repeat;background-size: 100% 100%;position: relative;z-index: 2;}
+.app_version i{display: inline-block;width: 14px;height: 14px;background: url(/imgs/images/Loan_Stock_right.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -3px;}
+.app_version span{display: inline-block;height: 9px;width: 1px;background: #999999;margin: 0 10px;}
+.btnWrap{margin-top: 55px;}
+.btnWrap .btnWhite{border: 1px solid #ffcc00;}
+
+.footer{width: 100%;margin-top: 30px;}
+.f_bg{padding-top: 9px;padding-bottom: 46px;background: url(/imgs/images/bg/dl_pic.png) center top no-repeat;background-size: 100% 100%;}
+.footer .f_r1 span{display: inline-block;width: 30px;height: 1px;background: #999999;margin: 0 10px;vertical-align: 5px;}
+.footer .f_r2{font-size: 18px;color: #eb8206;text-align: center;padding-top: 7px;}
+.footer .f_r2 span{color: #eb8206;margin: 0 7px;font-size: 18px;}
+.footer .f_r2 i{display: inline-block;width: 11px;height: 10px;vertical-align: 10px;}
+.footer .f_r2 i.comma_l{background: url(/imgs/images/icon/comma_l.png) no-repeat;background-size: 100% 100%;margin-right: 10px;}
+.footer .f_r2 i.comma_r{background: url(/imgs/images/icon/comma_r.png) no-repeat;background-size: 100% 100%;margin-left: 10px;}
+.footer .f_r3{height: 45px;line-height: 45px;text-align: center;color: #b6a667;background: #fffae8;}
+
+.downloadAlert{padding-top: 26px;border-radius: 7px;width: 84%; box-shadow: 1.5px 2.598px 21px 0px rgb( 194, 194, 194 );background: #fff;}
+.downloadAlert .p_tit{padding-bottom: 11px;}
+.downloadAlert .p_con{line-height: 26px;padding: 0 23px 24px 23px;}

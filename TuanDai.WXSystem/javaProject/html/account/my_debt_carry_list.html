@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>债权承接</title>
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/account/debt.css" />
+	</head>
+
+	<body class="pb15 bg-f1f3f5">
+		<header class="headerMain2">
+			<div class="header bb-e6e6e6">
+				<div class="header-tab">
+					<a href="javascript:void(0);" class="active">承接</a>
+					<a href="/javaProject/html/account/my_debt_transferlist.html" class="">转让</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="tab-nav webkit-box bg-fff bb-e6e6e6 pt10 pb10">
+			<div class="box-flex1 text-center f17px tab-nav-active" id="Inprogress">回收中</div>
+			<div class="box-flex1 text-center f17px" id="CompletedAndFlow">已完成</div>
+		</div>
+
+		<div id="wrapper" class="pr0" style="top: 90px;">
+			<div id="scroller">
+				<div id="pullDown">
+					<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+				</div>
+				<div id="thelist" class="debt-list-wrap">
+					<!--加载列表-->
+				</div>
+				<!--没有标-->
+				<div class="debt-empty" style="display: none;" id="divNone">
+					<div class="img-debt-empty">
+						<img src="/imgs/images/debt-empty.png" />
+					</div>
+					<div class="text-center f17px c-212121 mt40" id="divTitle">暂无回款中标的</div>
+					<div class="mt40 pl40 pr40">
+						<a class="btn btnRed f16px" href="/pages/invest/invest_list.aspx"><i class="ico ico-arrow-right"></i>前往投资专区</a>
+					</div>
+				</div>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert z-index10" style="display: none;"></div>
+
+		<script type="text/javascript" src="/javaProject/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/iscroll.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/scrollUpdate.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/base.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/jquery.extensions.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				iScroll.onLoadData = LoadReturnList;
+				LoadReturnList('empty');
+			});
+
+			var pageCount = 3;
+
+			var dataLength = 5;
+
+			if(pageCount <= 1) {
+				$("#pullUp").hide();
+			} else {
+				$("#pullUp").show();
+			}
+
+			function LoadReturnList(flag) {
+				if(flag == "empty") {
+					$("#thelist").children().remove();
+				}
+				//有数据
+				if(dataLength > 0) {
+					var str = '';
+					str = '<section class="mt10 bt-e6e6e6 bb-e6e6e6 pl15 bg-fff debt-list">' +
+						'<a href="/javaProject/html/account/debt_detail.html">' +
+						'<div class="bb-e6e6e6 debt-list-title"><p class="f14px c-212121">债权转让<span class="f13px c-808080 ml8">债权转让_071509503465</span></p></div>' +
+						'<div class="debt-list-body"><p class="f12px c-ababab"><i class="ico ico-money1"></i>承接金额<span class="f21px c-ffcf1f ml20">￥100.39</span></p><p class="f12px c-ababab mt10"><i class="ico ico-date1"></i>下次回款<span class="f12px c-ababab ml20">(4/6期)</span></p></div>' +
+						'</a>' +
+						'</section>';
+
+					for(var i = 0; i < dataLength; i++) {
+						$("#thelist").append(str);
+					}
+				}
+				//没有数据
+				else {
+					$("#divNone").show();
+				}
+
+			}
+		</script>
+
+	</body>
+
+</html>

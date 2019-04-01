@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>自动投标</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/auto-invest.css?v=2016082501" />
+</head>
+<body class="bg-f1f3f5 pb15">
+	
+	<div class="tabBox clearfix bg-fff">
+		<div class="tabItem lf w50p br-e6e6e6">理财计划</div>
+		<div class="tabItem act lf w50p">优质项目</div>
+	</div>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	
+	<div class="bg-fff pt25">
+		<div class="pl15 pr15">
+			<p class="f15px c-212121"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%<i class="ico-edit" id="income-edit"></i></p>
+			<div class="range-slider">
+				<span class="c-ababab f12px span_from pos-a">5%</span>
+			    <input type="text" class="js-range-slider1" value="" tabindex="-1"/ style="border: none;">
+		    	<span class="c-ababab f12px span_to pos-a">20%</span>
+		    </div>
+		    <p class="f15px c-212121 mt40">
+				<span class="f15px c-ababab">回款期限：</span>
+				<span class="f23px c-212121" id="count3">7<small class="f15px c-212121">天</small></span> ~
+				<span class="f23px c-212121" id="count4">18<small class="f15px c-212121">个月</small></span>
+				<i class="ico-edit" id="time-edit"></i>
+			</p>
+			<div class="range-slider">
+				<span class="c-ababab f12px span_from pos-a">7天</span>
+				<input type="text" class="js-range-slider2" value="" tabindex="-1" / style="border: none;">
+				<span class="c-ababab f12px span_to pos-a">18个月</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg-fff pl15 pb10">
+		<div class="selectBox selectBox2 bg-fff pt30">
+			<p class="pb10 f15px c-ababab">投标类型</p>
+			<ul class="clearfix">
+				<li><div class="selected">小微企业</div></li>
+				<li><div class="selected">微团贷</div></li>
+				<li><div class="selected">资产标</div></li>
+				<li><div class="selected">分期宝</div></li>
+				<li><div class="selected">供应链</div></li>
+				<li><div class="selected">项目宝</div></li>
+			</ul>
+		</div>
+		
+		<div class="selectBox selectBox1 bg-fff pt25 pb5">
+			<p class="pb10 f15px c-ababab">还款方式</p>
+			<ul class="clearfix">
+				<li><div class="selected">一次性还本付息</div></li>
+				<li><div class="selected">每月付息，到期还本</div></li>
+				<li><div>等额本息</div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	
+	<div class="pl15 bg-fff">
+		<div class="inputBox bb-e6e6e6">
+			<span class="ib_span1">预留金额</span>
+			<input type="text" placeholder="请输入账户需预留金额"/>
+			<span class="ib_span2">元</span>
+		</div>
+		<div class="checkBox pt10 pb21 pt10 pb10">
+			<span class="f15px">有效期</span>
+			<span class="f15px"><i class="checked"></i>长期有效</span>
+			<span class="f15px"><i></i>自定义</span>
+		</div>
+		<div class="dateBox hide clearfix">
+			<div class="w50p lf pr15 pos-r">
+				<input type="date" value="2016-08-24"/>
+				<i class="ico-arrow-r ico-arrow-rl"></i>
+			</div>
+			<div class="w50p lf pl15 pos-r">
+				<input type="date" />
+				<i class="ico-arrow-r"></i>
+			</div>
+		</div>
+	</div>
+	
+	<div class="pt10 pl10 pr10">
+		<div class="btn btnYellow">保存</div>
+	</div>
+	
+	<div class="pt10 pl10 pr10">
+		<div class="btn bg-d1d1d1 c-212121">删除</div>
+	</div>
+	
+	<!--输入年化利率弹框 -->
+	<div class="alert webkit-box box-center hide" id="alert-income">
+		<div class="alert-con alert-income-inp bg-fff text-center pt30">
+			<p class="f17px">请输入年化利率</p>
+			<div class="mt30 f15px">
+				<input type="number" id="inp1" />%
+				<span class="c-212121 f15px">~</span>
+				<input type="number" id="inp2"/>%
+			</div>
+			<div class="webkit-box mt30 bt-e6e6e6">
+				<div class="box-flex1 c-808080 f17px text-center pt10 pb10 br-e6e6e6" id="income-cancel">取消</div>
+				<div class="box-flex1 c-fcb700 f17px text-center pt10 pb10" id="income-confirm">确定</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--输入回款期限弹框 -->
+	<div class="alert webkit-box box-center hide" id="alert-time">
+		<div class="bg-fff text-center alert-con">
+			<p class="f17px pt25 pb12 c-212121">请输入回款期限</p>
+			<div class="alert-input pt15 pl30">
+				<div class="inp">
+					<span class="f15px mr15">从</span>
+					<input type="number" id="from_inp" placeholder="输入期限"/>
+					<i class="i_month cur" id="from_month">月</i>
+					<i class="i_day" id="from_day">日</i>
+				</div>
+			</div>
+			<div class="alert-input pt15 pl30">
+				<div class="inp">
+					<span class="f15px mr15">到</span>
+					<input type="number" id="to_inp" placeholder="输入期限"/>
+					<i class="i_month cur" id="to_month">月</i>
+					<i class="i_day" id="to_day">日</i>
+				</div>
+			</div>
+			<div class="webkit-box mt30 bt-e6e6e6">
+				<div class="box-flex1 c-808080 f17px text-center pt10 pb10 br-e6e6e6" id="time-cancel">取消</div>
+				<div class="box-flex1 c-fcb700 f17px text-center pt10 pb10" id="time-confirm">确定</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script type="text/javascript">
+		
+		//滑块
+		range1(5, 20, 5, 20);
+		range2(7, 47, 7, 47);
+		var from1 = 5,
+			to1 = 20,
+			from2 = {
+				from: 7,
+				dateType: '天'
+			},
+			to2 = {
+				to: 18,
+				dateType: '个月'
+			}
+
+		function range1(min, max, from, to) {
+			var $range = $(".js-range-slider1");
+			$range.ionRangeSlider({
+				type: "double",
+				min: min,
+				max: max,
+				from: from,
+				to: to,
+				onChange: function(data) {
+					from1 = data.from;
+					to1 = data.to;
+					updateValues(from1, to1);
+				}
+			});
+			var slider = $range.data("ionRangeSlider");
+			var updateRange = function(from, to) {
+				slider.update({
+					from: from,
+					to: to
+				});
+			};
+			var updateValues = function(from, to) {
+				$("#count1").html(from);
+				$("#count2").html(to);
+			};
+			$("#reset").click(function() {
+				from1 = 5;
+				to1 = 20;
+				updateRange(5, 20);
+				updateValues(5, 20);
+			})
+			
+			
+			
+			$("#inp1").on('input',function(){
+				var val1 = parseInt($("#inp1").val());
+				var val2 = parseInt($("#inp2").val());
+				if(val1 < 5){console.log(val1);
+					val1 = 5
+				}
+				if(val1 > 20){
+					val1 = 20
+				}
+				if(val2 < val1){
+					val2 = val1
+				}
+				$("#inp1").val(val1);
+			})
+			
+			$("#inp2").on('input',function(){
+				var val1 = parseInt($("#inp1").val());
+				var val2 = parseInt($("#inp2").val());
+				if(val2 < 5){
+					val2 = 5
+				}
+				if(val2 > 20){
+					val2 = 20
+				}
+				if(val2 < val1){
+					val2 = val1
+				}
+				$("#inp2").val(val2);
+			})
+			
+			$("#income-confirm").click(function(){
+				var val1 = parseInt($("#inp1").val());
+				var val2 = parseInt($("#inp2").val());
+				if(val1 == '' || val1 < 5){
+					val1 = 5;
+				}
+				if(val2 == '' || val1 > 20){
+					val2 = 20;
+				}
+				if(val2 < val1){
+					val2 = val1
+				}
+				updateRange(val1, val2);
+				updateValues(val1, val2);
+				$("#alert-income").addClass('hide');
+			})
+		}
+
+		function range2(min, max, from, to) {
+			var $range = $(".js-range-slider2");
+			$range.ionRangeSlider({
+				type: "double",
+				min: min,
+				max: max,
+				from: from,
+				to: to,
+				onChange: function(data) {
+					updateValues(data.from, data.to);
+				}
+			});
+			var slider = $range.data("ionRangeSlider");
+			var updateRange = function(from, to) {
+				slider.update({
+					from: from,
+					to: to
+				});
+			};
+			var updateValues = function(f, t) {
+				var objFrom = {};
+				var objTo = {};
+				t = t - 29;
+				if(f > 29) {
+					f = f - 29;
+					objFrom = {
+						from: f,
+						dateType: '个月'
+					}
+				} else {
+					objFrom = {
+						from: f,
+						dateType: '天'
+					}
+				}
+				if(t < 1) {
+					t = t + 29;
+					objTo = {
+						to: t,
+						dateType: '天'
+					}
+				} else {
+					objTo = {
+						to: t,
+						dateType: '个月'
+					}
+				}
+				from2 = objFrom;
+				to2 = objTo;
+				$("#count3").html(objFrom.from + '<small class="f15px c-212121">' + objFrom.dateType + '</small>');
+				$("#count4").html(objTo.to + '<small class="f15px c-212121">' + objTo.dateType + '</small>');
+			};
+			
+			$("#reset").click(function() {
+				from2 = 7;
+				to2 = 47;
+				updateRange(7, 47);
+				updateValues(7, 47);
+			})
+			
+			var from_month = $("#from_month");
+			var from_day = $("#from_day");
+			var to_month = $("#to_month");
+			var to_day = $("#to_day");
+			var from_inp = $("#from_inp");
+			var to_inp = $("#to_inp");
+			var from_val;
+			var to_val;
+			
+			from_month.click(function(){
+				if(to_day.hasClass('cur')){
+					to_month.addClass('cur');
+					to_day.removeClass('cur');
+				}
+				from_month.addClass('cur');
+				from_day.removeClass('cur');
+				dealMonthVal(from_inp);
+			})
+			from_day.click(function(){
+				from_month.removeClass('cur');
+				from_day.addClass('cur');
+				dealDayVal(from_inp);
+			})
+			to_month.click(function(){
+				to_day.removeClass('cur');
+				to_month.addClass('cur');
+				dealMonthVal(to_inp);
+			})
+			to_day.click(function(){
+				if(from_day.hasClass('cur')){
+					to_month.removeClass('cur');
+					to_day.addClass('cur');
+				}
+				dealDayVal(to_inp);
+			})
+			
+			function dealMonthVal($this){
+				var val = parseInt($this.val());
+				if(val<1) val=1;
+				if(val>18) val = 18;
+				$this.val(val);
+			}
+			
+			function dealDayVal($this){
+				var val = parseInt($this.val());
+				if(val<7) val=7;
+				if(val>29) val = 29;
+				$this.val(val);
+			}
+			
+			from_inp.on('input',function(){
+				if(from_month.hasClass('cur')){
+					dealMonthVal($(this));
+				}else{
+					dealDayVal($(this));
+				}
+			})
+			
+			
+			to_inp.on('input',function(){
+				if(to_month.hasClass('cur')){
+					dealMonthVal($(this));
+				}else{
+					dealDayVal($(this));
+				}
+			})
+			
+			$("#time-confirm").click(function(){
+				var fi_val = from_inp.val();
+				var ti_val = to_inp.val();
+				if(from_month.hasClass('cur')){
+					from_val = parseInt(fi_val)+29;
+				}else{
+					from_val = parseInt(fi_val);
+				}
+				if(to_month.hasClass('cur')){
+					to_val = parseInt(ti_val)+29;
+				}else{
+					to_val = parseInt(ti_val);
+				}
+				if(to_val<from_val){
+					to_val = from_val;
+				}
+				if(isNaN(from_val)){
+					from_val = 7;
+				}
+				if(isNaN(to_val)){
+					to_val = 47;
+				}
+				$("#alert-time").addClass('hide');
+				updateRange(from_val, to_val);
+				updateValues(from_val, to_val);
+			})
+			
+		}
+		
+		function dealInputValue(){
+		}
+		dealInputValue();
+		//输入收益弹框事件
+		$("#income-edit").click(function(){
+			$("#inp1,#inp2").val('');
+			$("#alert-income").removeClass('hide');
+		});
+		$("#income-cancel").click(function(){
+			$("#alert-income").addClass('hide');
+		})
+		$("#time-edit").click(function(){
+			$("#from_inp,#to_inp").val('');
+			$("#alert-time").removeClass('hide');
+		});
+		$("#time-cancel").click(function(){
+			$("#alert-time").addClass('hide');
+		});
+		
+		(function(){
+			var iCheck = $(".checkBox").find('i');
+			var dateBox = $(".dateBox");
+			iCheck.each(function(i,item){
+				$(item).click(function(){
+					if(i == 0){
+						iCheck.eq(0).addClass('checked');
+						iCheck.eq(1).removeClass('checked');
+						dateBox.addClass('hide');
+					}else{
+						iCheck.eq(0).removeClass('checked');
+						iCheck.eq(1).addClass('checked');
+						dateBox.removeClass('hide');
+					}
+				})
+			})
+		})();
+</script>
+
+</body>
+</html>

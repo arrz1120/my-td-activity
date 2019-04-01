@@ -1,0 +1,34 @@
+(function() {
+	FastClick.attach(document.body);
+	//do your thing.
+	
+	//头部切换
+	$(".top-tab").click(function(){
+		var index = $(this).index();
+		$(".top-tab-cur").removeClass('top-tab-cur');
+		$(this).addClass('top-tab-cur');
+		$(".record-list").hide();
+		$(".record-list").eq(index).show();
+	})
+
+    //环形进度条(canvas)
+	$('.circular').each(function(i, item) {
+		var percent = $(item).parent().find('span').html().replace('%','')/100;
+		var circular = new CircularProcess(item, {
+			anticlockwise: false,
+			bgColor: '#e6e6e6',
+			animate: false,
+//			animateSpeed: 15,
+			startDeg: 0,
+			maxDeg: 360,
+			dpr: 2,
+			lineWidth: 2,
+			circles: [{
+				color: '#fab600',
+				radius: 6,
+				percent: percent,
+			}]
+		})
+		circular.render();
+	})
+})();

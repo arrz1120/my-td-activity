@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>补签卡</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/giftBox.css" /><!--团宝箱-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">补签卡</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<section class="signMain">
+    <div class="signBox blue">
+        <h3 class="tit">补签卡</h3>
+        <div class="signCont">
+            <p>来源：签到奖品</p>
+            <p>说明：补签卡只可补签近2日的签到</p>
+            <div class="num">X&nbsp;2</div>
+            <i class="icoSign"></i>
+        </div>
+    </div>
+    <div class="signBox orange">
+        <h3 class="tit">签到加1卡</h3>
+        <div class="signCont">
+            <p>来源：签到奖品</p>
+            <p>说明：签到天数立刻加1，会员天数不增加</p>
+            <div class="num">X&nbsp;2</div>
+            <i class="icoSign"></i>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

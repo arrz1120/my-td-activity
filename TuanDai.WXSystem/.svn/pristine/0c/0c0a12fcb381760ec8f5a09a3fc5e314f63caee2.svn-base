@@ -1,0 +1,353 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="mjn_detail.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.mjn_detail" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>沐金农项目详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/investProcess.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /> 
+</head>
+<script type="text/javascript">
+    var projectId = "<%=projectId %>";
+    var backurl = "<%= GetEncodeBackUrl()%>";
+</script>
+<body class="bg-f1f3f5 pb45">
+    <%= this.GetNavStr()%>
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">计划详情</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	<div id="bigDiv">
+		<div class="detail-top-bg pro-notFinish" >
+			<div class="pl15 pos-r pt15 detail_tit">
+				<p class="f14px c-808080 text-overflow"><%=model.Title %></p>
+				<!--<div class="round-btn"><i class="ico-record"></i>加入记录</div>-->
+			</div>
+			<div class="pt10 text-center">
+				<p><span class="f13px c-ababab">预期年化收益率（<%=ToolStatus.ConvertRepaymentType(model.RepaymentType.Value)%>）</span></p>
+			</div>
+			<div class="rateIncome">
+				<p><%=CommUtils.GetProjectDetailShowRate(model)%></p>
+			</div>
+			<div class="bg005 mt5">
+				<div class="clearfix pt15">
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121"><%=ToolStatus.ConvertLowerMoney(CommUtils.GetProjectSurplusAmount(model)) %></p>
+						<p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121"><%=model.Deadline %><%=model.DeadType==1?"个月":"天" %></p>
+						<p class="line-h20 f12px c-ababab">期限</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121"><%=ToolStatus.DeleteZero(model.LowerUnit) %>元/份</p>
+						<p class="line-h20 f12px c-ababab">投资单位</p>
+					</div>
+				</div>
+				<div class="pl15 pr15 pt15 pb11">
+					<div class="pBar">
+						<div class="barRate" style="width: <%=finishProcess%>;"></div>
+					</div>
+					<div class="mt4 clearfix">
+						<div class="lf f13px c-ababab">借款金额：<%=ToolStatus.ConvertLowerMoney(model.Amount) %></div>
+						<div class="rf f13px c-ababab"><%=finishProcess%></div>
+					</div>
+				</div>
+				<div class="bt-e6e6e6 moneySafty pr40 pl15" id="f1">
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>风险拨备金</div>
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>第三方担保</div>
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>电子合同</div>
+					<div class="ico-arrow-r"></div>
+				</div>
+			</div>
+			<div class="finishImg"><img src="/imgs/images/bg/pro-finish.png"/></div>
+		</div>
+		
+		<div onclick="JAVASCRIPT:window.location.href='/pages/invest/SubscribeUser.aspx?type=project&id=<%=model.Id %>';" class="is_tit bb-e6e6e6 pos-r f17px mt15 pl15 bg-fff">
+			投资记录
+			<b class="c-ababab f13px"><%=SubscribeUserCount %></b>
+			<div class="ico-arrow-r"></div>
+		</div>
+		
+		<!--项目描述-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>项目描述</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">本项目由沐金农推介，沐金农是国内首批专注三农领域行业的垂直互联网金融平台，其是集多种模式于一体的适应农业行业特征的金融中介平台。沐金农希望让新农人沐浴在高效便捷的金融服务之下，通过金融手段解决食品安全问题，让9.3亿农民享受到平等金融服务。沐金农专注于深耕三农产业链，利用产业互联网技术实现从三农产业的原材料到成品再到消费者全方位梳理、跟踪、把控，实现信息流、资金流、物流多流合一。沐金农推介的项目均经过多重审核机制复查——初审，由沐金农工作人员线下面对面审核借款人资料的真实性，再由沐金农的三农动态信用评分系统对借款人进行综合评估，对资质良好的新农人给予借款；沐金农推介项目到团贷网时，团贷网再次对借款人信息进行第三轮审核。借款人群为三农人群，单笔借款金额小，风险分散。
+                <p class="f14px">
+                    资金用途：用于短期生产经营借款，扩大种植养殖规模，购买农资原材料等。
+                </p>
+				</div>
+               
+			</div>
+		</div>
+		
+		<!--风控措施-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb5 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>风控措施</div>
+			<div class="dropdownCon hide">
+				<div class="pr15 bb-e6e6e6">
+					<div class="f14px pt10 pb10 is_tit2"><span>一、</span>借款人还款来源主要有以下五种：</div>
+					<div class="c-808080 f14px text-justify ml15">1. 土地地上作物收入、畜牧养殖收入以及其他经营收入</div>
+					<div class="c-808080 f14px text-justify ml15">2. 借款人及其配偶承担无限连带责任；</div>
+					<div class="c-808080 f14px text-justify ml15">3. 土地流转租金；</div>
+					<div class="c-808080 f14px text-justify ml15">4. 沐金农当地运营商代偿、运营商风险保证金代偿；</div>
+					<div class="c-808080 f14px text-justify ml15 pb15 bb-e6e6e6">5. 沐金农风险保证金账户代偿。</div>
+					<div class="f14px pt10 pb10 is_tit2"><span>二、</span>沐金农采用多种风控手段，全方位监控，降低项目风险：</div>
+					<div class="c-808080 f14px text-justify ml15">1. 配偶无限连带责任；</div>
+					<div class="c-808080 f14px text-justify ml15">2. 土地地上作物未来收益权、畜牧养殖监管；</div>
+					<div class="c-808080 f14px text-justify ml15">3. 沐金农当地运营商熟人监管；</div>
+					<div class="c-808080 f14px text-justify ml15 is_txt pb15 bb-e6e6e6"><span>4. </span>沐金农风控人员将严审借款人资金使用及整体运作情况，及时向风险控制部门反馈相关信息，风控部门经过整理分析，根据具体情况制定贷后监管的实施方案，通过严格的贷后监管避免风险的发生。</div>
+					<div class="f14px pt10 pb15 mt5 is_tit2 bb-e6e6e6"><span>三、</span>作为项目推介方的沐金农公司本身运转良好，拥有优秀的风控团队和风控措施</div>
+					<div class="f14px pt10 pb15 mt5 is_tit2"><span>四、</span>本项目适用团贷网100%本息保障计划，由第三方担保公司连带担保</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--借款人信息-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>借款人信息</div>
+			<div class="dropdownCon hide">
+				<div class="h43 c-808080 f14px pl15">昵称：<%=BusinessDll.StringHandler.MaskStartPre(borrowUserInfo.NickName,5)%></div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">年龄：<%=CommUtils.GetAge(fq_ItemSetsProjectInfo.IdentityCard)%></div>
+				<div class="h43 c-808080 f14px pl15">性别：<%=TuanDai.WXApiWeb.CommUtils.GetSex(fq_ItemSetsProjectInfo.IdentityCard,borrowUserInfo.sex)%></div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">手机号码：<%=BusinessDll.StringHandler.MaskTelNo(fq_ItemSetsProjectInfo.TelNo)%></div>
+				<div class="h43 c-808080 f14px pl15">居住地区：<%=BusinessDll.StringHandler.MaskStartPre(Tool.WebFormHandler.CutString(fq_ItemSetsProjectInfo.Address,6),3)%></div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">户籍属性：<%=fq_ItemSetsProjectInfo.HouseholdPro%></div>
+				<div class="h43 c-808080 f14px pl15">所属行业：<%=this.MaskStartPre(fq_ItemSetsProjectInfo.Profession,6)%></div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">月均收入：<%=fq_ItemSetsProjectInfo.MonthlyIncome%>元</div>
+				<div class="h43 c-808080 f14px pl15">耕种土地：自有土地50亩</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">住房情况：<%=fq_ItemSetsProjectInfo.HouseSituation%></div>
+				<div class="h43 c-808080 f14px pl15">种植作物：<%=this.MaskPre(fq_ItemSetsProjectInfo.Plant,12)%></div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">养殖牲畜：<%=this.MaskPre(fq_ItemSetsProjectInfo.BreedDes,12)%></div>
+				<div class="mt15">
+					<div class="pt15 pb15 c-212121 f17px ml15">审核记录</div>
+					<div class="clearfix pb15 shenhe">
+						<div class="w25p lf text-center">
+							<img src="/imgs/images/pic/id1.png">
+							<p class="c-808080 f13px mt8">身份验证</p>	
+						</div>
+						<div class="w25p lf text-center">
+							<img src="/imgs/images/pic/id2.png">
+							<p class="c-808080 f13px mt8">手机验证</p>	
+						</div>
+						<div class="w25p lf text-center">
+							<img src="/imgs/images/pic/id3.png">
+							<p class="c-808080 f13px mt8">邮箱验证</p>	
+						</div>
+					</div>		
+				</div>	
+				<div class="bb-e6e6e6">
+					<div class="pt15 c-212121 f17px bt-e6e6e6 ml15">信用档案</div>
+					<div class="h43 c-808080 f14px pl15">申请借款：<%=creditInfo.ApplyBorrowProjectCount %>笔</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">成功借款：<%=creditInfo.SuccessBorrowProjectCount%>笔</div>
+					<div class="h43 c-808080 f14px pl15">借款总额：<%=ToolStatus.ConvertLowerMoney(creditInfo.TotalBorrowAmount) %>元</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">逾期金额：<%=ToolStatus.ConvertLowerMoney(creditInfo.TOverdueCIofborrower)%>元</div>
+					<div class="h43 c-808080 f14px pl15">逾期期数：<%=creditInfo.OverdueNum %>期</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">还清笔数：<%=creditInfo.PayOffProjectCount %>笔</div>
+					<div class="h43 c-808080 f14px pl15">待还本息：<%=ToolStatus.ConvertLowerMoney(creditInfo.DueOutPAndI)%>元</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--业务模型-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>业务模型</div>
+			<div class="dropdownCon hide">
+				<div class="pl20 pt18 pb25 pos-r">
+					<div class="firmModule h302"></div>
+					<div class="pos-a firm_txt">
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>借款人申请借款</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>沐金农初审，线下当面验证借款人和各项资料</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>沐金农总部复审</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>沐金农向团贷网推荐标的</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>团贷网审核</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>发标借款</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>满标，借款人按期还款，第三方担保公司担保</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>到期结清</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+		
+	<div class="text-center c-ababab bt-e6e6e6 ftb_bot">
+			市场有风险，投资需谨慎。查看<a class="c-fab600" href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/P2PRisk.html">《风险揭示书》</a>
+	</div>
+	<div class="pos-f btn-joinNow">
+		<%if ((model.Status ?? 0)==2){ %>
+          <div class="btn btnYellow loan-button">马上投资</div>
+        <a href="javascript:void(0);" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a> 
+        <%}else{ %>
+           <div class="btn btnGray loan-button-gray">已满标</div>
+        <%} %> 
+	</div>
+	</div>
+    <!--资金安全弹框-->
+    <div class="frame bg-op09 hide" id="frame1">
+    	<p class="f19px c-282828 pt20 pb20 text-center">资金安全</p>
+    	<div class="pl15 pr15">
+	    	<div class="safty_tiem">
+	    		<div class="ico_r ico_sprite ico_bCourse11"></div>
+	    		<p class="f17px">第三方担保专款</p>
+	    		<p class="f13px c-808080 pb10">厦门银行存管，<%=TuanDai.WXApiWeb.CommUtils.GetBabyPlanAmountStr()%>万+第三方担保专款</p>
+	    		<div class="bt-e6e6e6 pt10 line-h18 f11px c-ababab">
+	    			当借款项目出现逾期时，担保公司自有资金先行垫付，若垫付资金不足则根据偿付规则启用“第三方担保专款”进行质保偿付，赔付投资者投资资金，以在一定限度内补偿出借人可能存在的回款损失。
+	    		</div>
+	    	</div> 
+            <div class="safty_tiem mt15">
+	    		<div class="ico_r ico_sprite ico_bCourse10"></div>
+	    		<p class="f17px">第三方担保</p>
+	    		<p class="f13px c-808080 pb10"><%=CommUtils.GetBorrowerGuaranteeFullName(model)%></p>
+	    	</div>
+	    	<div class="safty_tiem mt15">
+	    		<div class="ico_r ico_sprite ico_contract"></div>
+	    		<p class="f17px">合同保障</p>
+	    		<p class="f13px c-808080 pb10">每笔投资都会生成有效的电子合同</p>
+	    	</div>
+    	</div>
+    </div>
+    <div class="pos-f frame-law-b hide" id="frame1-b" style="z-index: 99999;">
+		<div class="opa_cover"></div>
+		<div class="frame-close" id="close1"></div>
+    </div>
+	<!--弹框-->
+	<div class="slide2 hide">
+			<div class="slide-close">
+				
+			</div>
+			<div class="slide-big">
+				<div class="swiper-container3" id="swiper3">
+					<div class="swiper-wrapper"></div>
+				</div>
+			</div>
+			<div class="mark"></div>
+		</div>
+     <footer></footer>  
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/Common.js"></script>  
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/investNew.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/noLoginInvest.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+
+<% if((model.Status ?? 0)==2){ %>
+<script type="text/javascript" src="/scripts/jweixin-1.0.0.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/weixinapi.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/detailShare.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" ></script> 
+<script type="text/javascript">
+    ShareObj.projecttitle = "<%=model.Title%>";
+    ShareObj.projectrate = "<%=model.InterestRate%>";
+    ShareObj.projectdeadline = "<%=model.Deadline%>";
+    ShareObj.projectdeadtype = "<%=model.DeadType%>";
+    ShareObj.wxsharetitle = "我在团贷发现了一个不错的项目，你也来看看吧！";
+    ShareObj.wxsharedesc = "年化利率<%=ToolStatus.DeleteZero(model.InterestRate)%>%，期限<%=model.Deadline%><%=model.DeadType==1?"个月":"天"%>，<%=ToolStatus.ConvertRepaymentType(model.RepaymentType.Value)%>";
+    ShareObj.shareurl = "<%=TuanDai.WXApiWeb.GlobalUtils.MTuanDaiURL%><%=HttpContext.Current.Request.RawUrl %>"; 
+</script>
+<%} %>
+<script type="text/javascript">
+    var scrollT = "";
+    function moveToTop(open, target) {
+        $(open).click(function () {
+            scrollT = $(window).scrollTop();
+            $(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+            setTimeout(function () {
+                $("#bigDiv").hide();
+            }, 400);
+        });
+    }
+
+    function moveToBottom(close, target) {
+        $(close).click(function () {
+            $("#bigDiv").show();
+            $(window).scrollTop(scrollT);
+            $(target).removeClass('moveToTop').addClass('moveToBottom');
+            setTimeout(function () {
+                $(target).addClass('hide');
+            }, 400);
+        });
+    }
+    
+    var swiper1 = undefined;
+    var swiper3 = undefined;
+    var swiper2 = new Swiper('#swiper2', {
+        slidesPerView: 'auto'
+    });
+    var len = $("#swiper1").find('.swiper-slide').length;
+    $(".mark").html("<p><span id='nowMark'>1/</span>" + len + "</p>");
+
+    $('.slide-close').click(function() {
+        $('.slide2').addClass('hide');
+        swiper3.destroy(true, true);
+        swiper3 = undefined;
+    });
+
+    function initSwiper1() {
+        swiper1 = new Swiper('#swiper1', {
+            slidesPerView: 'auto',
+            preloadImages: false,
+            watchSlidesVisibility: true,
+            lazyLoading: true,
+            lazyLoadingOnTransitionStart: true
+        });
+        swiper1.on('tap', function () {
+            $(".slide2").removeClass('hide');
+            var idx = swiper1.clickedIndex;
+            if (idx == 0) {
+                $("#nowMark").html('1/');
+            }
+            var wrapper1 = $("#swiper1").find('.swiper-wrapper').html();
+            $("#swiper3").find('.swiper-wrapper').html(wrapper1);
+            swiper3 = new Swiper('#swiper3', {
+                initialSlide: idx,
+                slidesPerView: '1',
+                spaceBetween: 1,
+                preloadImages: false,
+                lazyLoading: true,
+                lazyLoadingOnTransitionStart: true,
+                onSlideChangeEnd: function (swiper3) {
+                    console.log(swiper3.activeIndex + 1);
+                    $("#nowMark").html((swiper3.activeIndex + 1) + '/');
+                }
+            });
+        });
+    }
+
+    $(function() {
+        //栏目显示切换
+        $(".dropdownTit").click(function() {
+            var next = $(this).next();
+            var triangle = $(this).find('i');
+            if (next.hasClass('hide')) {
+                triangle.removeClass('rotate0');
+                next.removeClass('hide');
+            } else {
+                triangle.addClass('rotate0');
+                next.addClass('hide');
+            }
+            if ($(this).hasClass('slideTit')) {
+                initSwiper1();
+            }
+        });
+        moveToTop("#f1", '#frame1,#frame1-b');
+        moveToBottom('#close1', '#frame1,#frame1-b');
+        moveToTop("#f2", '#frame2,#frame2-b');
+        moveToBottom('#close2', '#frame2,#frame2-b');
+    });
+</script>
+
+</html>

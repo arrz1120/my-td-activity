@@ -1,0 +1,296 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using Dapper;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model; 
+using System.Data;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    /// <summary>
+    /// 供应链标--详情
+    /// Allen 2015-10-21
+    /// </summary>
+    public partial class gyl_detail : BasePage
+    {
+        protected Guid? projectId = Guid.Empty; 
+        protected ProjectDetailInfo model = null; 
+        private ProjectBLL bll = null;  
+        protected string rating = "<span style=\"color:Green;\">低</span>";
+        protected UserBasicInfoInfo borrowerUserInfo = null;
+        protected string allMonthBadrate = "0";
+        protected decimal GylPlusRate = 0; //供应链加息利息
+        protected decimal Day15PlusRate = 0; 
+        protected bool IsShowPlusRate = false;
+        protected decimal NewHandRate = 0; //是否新手投资者利率
+        protected string EnterpriseName = "";
+        protected decimal TotalCreditScore = 0;//总信用评分
+        protected string finishProcess = "0%";
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+
+        /// <summary>
+        /// 企业信息
+        /// </summary>
+        protected UserEnterprise1 UserEnterpriseInfo;
+        /// <summary>
+        /// 综合评级
+        /// </summary>
+        protected WebSettingInfo OverallRanking; 
+        /// <summary>
+        /// 供应链扩展属性
+        /// </summary>
+        protected Project_GYLInfo ProjectGylInfo;
+        //项目展示图
+        protected List<ProjectImageInfo> imageList;
+        protected BorrowUserCreditInfo creditInfo = null;
+
+        protected decimal limitInvest = 10000;//新手标限制投资金额
+        protected string limitInvestStr = string.Empty;
+        protected int InterestModel = 1;//起息方式
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                GetLimitInvestMoney();
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    
+                    if (!this.GetData())
+                        return; 
+                    //信用档案
+                    creditInfo = CommUtils.GetBorrowerCreditData(model.UserId.Value); 
+                    imageList = CommUtils.GetProjectImages(this.projectId.Value);
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取新手标限制金额
+        /// </summary>
+        private void GetLimitInvestMoney()
+        {
+            string sql = "SELECT Param1Value FROM WebSetting with(nolock) where id='FC5BAE60-716E-4344-9C10-F1E808064FC7'";
+            var para = new Dapper.DynamicParameters();
+            limitInvest = PublicConn.QuerySingle<decimal>(sql, ref para);
+
+            if (limitInvest >= 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest / 10000)) + "万";
+            }
+            else if (limitInvest >= 1000 && limitInvest < 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest / 1000)) + "千";
+            }
+            else
+            {
+                limitInvestStr = Math.Floor(limitInvest).ToString();
+            }
+        }
+
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+
+            switch (model.Rating)
+            {
+                case 1:
+                    rating = "<span style=\"color:Green;\">低</span>";
+                    break;
+                case 2:
+                    rating = "<span style=\"color:Orange;\">中</span>";
+                    break;
+                case 3:
+                    rating = "<span style=\"color:Red;\">高</span>";
+                    break;
+            }
+            GetBorrowUserInfo();
+
+            WebSettingBLL setbll = new WebSettingBLL();
+            //新手加息判断
+            WebSettingInfo GylSetInfo = setbll.GetWebSettingInfo("5AC96A83-B678-4191-BADB-C39C02DFEBB5");
+            if (GylSetInfo != null)
+            {
+                GylPlusRate = Tool.StrObj.StrToDecimalDef(GylSetInfo.Param3Value, 0);
+                Day15PlusRate = Tool.StrObj.StrToDecimalDef(GylSetInfo.Param4Value, 0);
+            }
+            if (this.model.DeadType.Value == 2 && (this.model.Deadline == 7 && GylPlusRate > 0) || (this.model.Deadline == 15 && Day15PlusRate > 0))
+                IsShowPlusRate = true;
+
+            DynamicParameters dyParams;
+            string sql = "";
+            if (WebUserAuth.IsAuthenticated && IsShowPlusRate)
+            {
+                //判断是否投资新手
+                sql = "select count(1) from Subscribe with(Nolock) where SubscribeUserId=@userid";
+                dyParams = new DynamicParameters();
+                dyParams.Add("@userid", WebUserAuth.UserId.Value);
+
+                bool IsNewHand = PublicConn.QuerySingle<int>(sql, ref dyParams) == 0;
+                NewHandRate = IsNewHand ? (this.model.Deadline == 7 ? GylPlusRate : Day15PlusRate) : 0;
+            }
+
+            dyParams = new DynamicParameters();
+            dyParams.Add("@projectid", projectId);
+            sql = @"select  ProjectID,ProjectDesc2,CreditStatus,EnterpriseCredit,OperatingConditions,RoyalRiskAbility from dbo.Project_GYL with(nolock) where ProjectID=@projectid";
+            ProjectGylInfo = PublicConn.QuerySingle<Project_GYLInfo>(sql, ref dyParams);
+            if (ProjectGylInfo != null)
+            {
+                OverallRanking = setbll.GetWebSettingInfo(new Guid("A874BE7E-492F-4A21-9064-B75CA16D2DF3").ToString());
+            }
+            if (ProjectGylInfo != null)
+                TotalCreditScore = ProjectGylInfo.CreditStatus + ProjectGylInfo.EnterpriseCredit + ProjectGylInfo.OperatingConditions + ProjectGylInfo.RoyalRiskAbility;
+
+
+
+            GetBusinessRange(model.Id);
+            finishProcess = CommUtils.GetProjectProcess(model);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+            InterestModel = TuanDai.PortalSystem.Redis.ProjectRedis.GetProjectInterestMode(model.Type.Value, model.RepaymentType.Value);
+            return true;
+        }
+        /// <summary>
+        /// 获取企业信息
+        /// </summary>
+        protected void GetBusinessRange(Guid projectId)
+        {
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@projectid", projectId);
+            string sql = @"select A.EnterpriseName,A.OpeningDate,A.RegisteredCapital,A.RegistrationNo,A.RegistrationAuthority,a.CreateDate, A.BusinessRange from dbo.UserEnterprise  A with(nolock)  
+                inner join dbo.Project D with(nolock) on A.UserId=D.UserId
+                where D.Id=@projectid";
+            UserEnterpriseInfo = PublicConn.QuerySingle<UserEnterprise1>(sql, ref dyParams);
+            if (UserEnterpriseInfo == null)
+            {
+                UserEnterpriseInfo = new UserEnterprise1();
+                UserEnterpriseInfo.OpeningDate = DateTime.Now;
+                UserEnterpriseInfo.CreateDate = DateTime.Now;
+                UserEnterpriseInfo.EnterpriseName = "未填写";
+                UserEnterpriseInfo.RegisteredCapital = 0;
+                UserEnterpriseInfo.RegistrationNo = "未填写";
+                UserEnterpriseInfo.RegistrationAuthority = "未填写";
+                UserEnterpriseInfo.BusinessRange = "未填写";
+            }
+        }
+        
+        //获取借款人信息
+        protected void GetBorrowUserInfo() { 
+            UserBLL userbll = new UserBLL();
+            this.borrowerUserInfo= userbll.GetUserBasicInfoModelById(model.UserId.Value);  
+
+            //借款次数统计
+            allMonthBadrate = calcrate(model.TotalSumShares ?? 0, model.badShares ?? 0);
+        }
+
+        #region 计算逾期还款率 calcrate
+        /// <summary>
+        /// 计算逾期还款率
+        /// </summary>
+        /// <param name="successcount">成功记录数</param>
+        /// <param name="badcount">逾期记录数</param>
+        /// <returns></returns>
+        private string calcrate(int successcount, int badcount)
+        {
+            if (successcount != 0)
+            {
+                return ((double)(badcount) / (double)(successcount) * 100).ToString("0.00");
+            }
+            else
+            {
+                return "0";
+            }
+        } 
+        #endregion
+    }
+
+    #region 内部Model
+    /// <summary>
+    /// 企业信息
+    /// </summary>
+    public class UserEnterprise1
+    {
+        /// <summary>
+        /// 企业名称
+        /// </summary>
+        public string EnterpriseName { get; set; }
+        /// <summary>
+        /// 成立时间
+        /// </summary>
+        public DateTime? OpeningDate { get; set; }
+        /// <summary>
+        /// 注册资本
+        /// </summary>
+        public decimal RegisteredCapital { get; set; }
+        /// <summary>
+        /// 注册号
+        /// </summary>
+        public string RegistrationNo { get; set; }
+        /// <summary>
+        /// 注册机关
+        /// </summary>
+        public string RegistrationAuthority { get; set; }
+        /// <summary>
+        /// 注册时间
+        /// </summary>
+        public DateTime? CreateDate { get; set; }
+        /// <summary>
+        /// 经营范围
+        /// </summary>
+        public string BusinessRange { get; set; }
+    }
+
+    public class Project_GYLInfo
+    {
+        /// <summary>
+        /// 项目描述
+        /// </summary>
+        public string ProjectDesc2 { get; set; }
+        /// <summary>
+        /// 资信状况
+        /// </summary>
+        public int CreditStatus { get; set; }
+        /// <summary>
+        /// 企业征信
+        /// </summary>
+        public int EnterpriseCredit { get; set; }
+        /// <summary>
+        ///  经营状况
+        /// </summary>
+        public int OperatingConditions { get; set; }
+        /// <summary>
+        /// 御险能力
+        /// </summary>
+        public int RoyalRiskAbility { get; set; }
+    }
+   #endregion
+
+}

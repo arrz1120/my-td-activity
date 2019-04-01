@@ -1,0 +1,211 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bond_detail.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.bond_detail" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>股票配资-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/invest.css?v=20160229001" /> 
+    <link rel="stylesheet" type="text/css" href="/css/investProcess.css?v=20160229001" />
+    <style type="text/css">
+      .fMoney{ font-weight:bold;  color:#ff7506}
+      .disableBtn{display: block; height: 44px; line-height: 44px;margin:10px; background:#B4B6B0;text-align: center;font-size: 1.8rem; color: #fff;
+    -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+    </style>
+    <script type="text/javascript">
+        var projectId = "<%=projectId %>";
+        var backurl = "<%= GetEncodeBackUrl()%>";
+    </script>
+</head>
+<body>
+<div id="bigDiv">
+<%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header">
+        <a class="back" href="<%=string.IsNullOrEmpty(GoBackUrl)?"/pages/invest/invest_list.aspx":GoBackUrl %>">返回</a>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header>
+<section class="wrapper-invest">
+<div id="wrapperdetail">
+    <div id="scroller">
+        <div id="pullDown" style="display:none;">
+            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+        </div> 
+    <h1>【配】<%=model.Title%></h1>
+    <p class="ml10 c-ababab f12px">借款总额:</p>
+    <p class="ml10 c-ff6600 f16px"><%=ToolStatus.ConvertDetailWanMoney(model.Amount.Value)%><span class="c-424242 f16px">元</span></p>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>预期年化利率:<span> <%=ToolStatus.DeleteZero(model.InterestRate.Value) %>%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款期限:<span><%=model.Deadline %>天</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span><%=ToolStatus.DeleteZero(model.LowerUnit) %></span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款方式:<span>满标付息到期还本</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>借入份数:<span><%=(model.Status??0)==6?model.TotalShares:model.CastedShares %></span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>剩余份数:<span><%=model.Status==6?"0":ToolStatus.diff(model.TotalShares, model.CastedShares)%></span><span class="c-212121">份</span></p>
+        </div>
+    </div>
+    <div class="invest-info">
+        <div class="info-m">
+            <p>截止时间: 
+              <%if (model.Status == 2 && model.TenderDate > DateTime.Now)
+                  {%>
+                 <span class="timeSet" enddate="<%=model.TenderDate %>" startdate="<%=model.TenderStartDate %>"
+                    serverdate="<%=DateTime.Now %>" style="color: Black;">
+                    <span id="day" style="font-size: 16px;color: #ff6600; ">00</span> 天 
+                    <span id="hour" style="font-size: 16px;color: #ff6600; ">00</span> 时 
+                    <span id="mini" style="font-size: 16px;color: #ff6600; ">00</span> 分 
+                    <span id="sec" style="font-size: 16px;color: #ff6600;">00</span> 秒
+                </span>
+                <%}
+                  else if (model.Status > 2 || model.TenderDate < DateTime.Now)
+                  { %><span class="timeSet" enddate="<%=DateTime.Now %>" startdate="<%=model.TenderStartDate %>"
+                      serverdate="<%=DateTime.Now %>" style="color: none;">已结束</span>
+                <%} %>
+            </p>
+        </div>
+    </div>
+
+    <div class="bg-fbfbf9"><h2><img src="/imgs/images/ico-title.png" alt=""/>借款详情</h2></div>
+    <h3>用户信息</h3>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>性别:<span class="c-212121"><%=TuanDai.WXApiWeb.CommUtils.GetSex(borrowUserInfo.Birthday,borrowUserInfo.sex)%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>年龄:<span class="c-212121"><%=TuanDai.WXApiWeb.CommUtils.GetAge(borrowUserInfo.Birthday) %></span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>所在地:<span class="c-212121"><%=borrowUserInfo.BankCity%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>昵称:<span class="c-212121"> <%=borrowUserInfo.NickName%></span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix border-b1px">
+        <div class="info-l lf">
+            <p>注册时间:<span class="c-212121"> <%=Tool.SafeConvert.ToDateTime(borrowUserInfo.AddDate).ToString("yyyy-MM-dd")%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>手机:<span class="c-212121"><%=GetPhoneNumber(borrowUserInfo.TelNo)%></span></p>
+        </div>
+    </div>
+
+    <h3>借款方信用档案</h3>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>申请借款(笔):<span class="c-212121"><%=userCreditInfo.ApplyCount%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>成功借款(笔):<span class="c-212121"><%=userCreditInfo.FinishCount%></span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>还清笔数(笔):<span class="c-212121"><%=userCreditInfo.RepayedBorrowNum%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>借款额度(元):<span class="c-212121"> <%=Tool.MoneyHelper.ConvertLowerMoney(userCreditInfo.BorrowerAmount)%></span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>借款总额(元):<span class="c-212121"><%=Tool.MoneyHelper.ConvertLowerMoney(userCreditInfo.TotalBorrowAmount)%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>待还本息(元):<span class="c-212121"><%=Tool.MoneyHelper.ConvertLowerMoney(userCreditInfo.DueOutPAndI)%></span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix border-b1px">
+        <div class="info-l lf">
+            <p>逾期金额(元):<span class="c-212121"><%=Tool.MoneyHelper.ConvertLowerMoney(userCreditInfo.TOverdueCIofborrower)%></span></p>
+        </div>
+        <div class="info-r rf">
+            <p>逾期次数(次):<span class="c-212121"><%=userCreditInfo.TOverdueCINumofBorrower%></span></p>
+        </div>
+    </div>
+
+    <h3>保证金信息</h3>
+    <p class="des f12px">借款人已提供<span class="fMoney"><%=Tool.MoneyHelper.ConvertLowerMoney(model.Amount/lever) %>元</span>风险保证金和市值<span class="fMoney"><%=Tool.MoneyHelper.ConvertLowerMoney(model.Amount) %>元</span>的股票抵押物，本项目借款用于国内股票投资。保证金和抵押物由团贷网专人专户进行监管，完全规避了借款人资金抽逃风险，标的安全有保障。</p>
+    <h3>风险控制措施</h3>
+    <p class="des f12px">
+       • 团贷网对借款人股票账户实时监管，并委托证券公司分析其持仓状况，及时进行风险预警与处置。一旦账户资金低于<span class="fMoney"><%=Tool.MoneyHelper.ConvertLowerMoney(Convert.ToDecimal(0.5) * model.Amount / lever + model.Amount)%>元</span>，
+        团贷网发出风险预警提醒借款人补充保证金。一旦低于<span class="fMoney"><%=Tool.MoneyHelper.ConvertLowerMoney(Convert.ToDecimal(0.3) * model.Amount / lever + model.Amount)%>元</span>，则系统自动平仓，以保障标的投资者本金及收益安全。<br />
+      • 回款日前两天，团贷网提醒借款人还款。还款日的前一个交易日借款人须将股票账户内的股票卖出，以保证有足够的还款资金，否则系统将自动平仓其股票账户，保障投资人无逾期风险。<br />
+      • 团贷网根据合作券商的风险分析设置相应的证券买卖规则，禁止借款人投资高风险股票并限制持仓比例。</p>
+    <h3>风险评估:</h3>
+    <p class="ml10 c-3d3d3d f12px">经团贷网评估，此标风险系数为：<span class="c-3db331">低</span></p>
+            <div class="info-item assetsbid-d pb30 mt-12">
+               <a href="/pages/invest/SubscribeUser.aspx?type=project&id=<%=model.Id %>">
+               <div class="clearfix border-b link">
+                       <h3 class="f13px lf">申购人数</h3>
+                       <div class="rf f13px">
+                           <%=SubscribeUserCount %>人<i class="ico-arrow-r"></i>
+                       </div>
+               </div>
+               </a>
+           </div>
+   </div>
+</div>
+    <div class="text-center c-ababab bt-e6e6e6 ftb_bot">
+			市场有风险，投资需谨慎。查看<a class="c-fab600" href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/P2PRisk.html">《风险揭示书》</a>
+	</div>
+</section>
+</div>
+<footer>
+    <%--<% if (TuanDai.WXApiWeb.WebUserAuth.IsAuthenticated)
+       {
+    %>--%>
+    <a href="javascript:void(0)" class="<%=((model.Status??0) == 2)?"loan-button":"loan-button-gray" %>"><%=((model.Status??0) == 2)?"马上投资":"已满标" %></a>
+    <%--<%
+       }
+       else
+       {
+           %>
+    <div class="pl10 pr5" style="width:46%; float: left;"><a href="/user/login.aspx?ReturnUrl=<%=HttpContext.Current.Request.Url %>" target="_self" class="userBtn btnRed ">登录</a></div>
+    <div class="pl10 pr5" style="width:46%; float: left;"><a href="/user/register.aspx?ReturnUrl=<%=HttpContext.Current.Request.Url %>" target="_self" class="userBtn btnYellow">注册</a></div>
+    <%
+       } %>--%>
+    
+</footer>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/zq_timedown.js"> </script>  
+<script type="text/javascript" src="/scripts/jquery.cookies.2.2.0.js"></script> 
+<script type="text/javascript" src="/scripts/TdStringHandler.js?v=2015101601"></script> 
+<script type="text/javascript" src="/scripts/Common.js"></script> 
+<script type="text/javascript" src="/scripts/iscroll.js"></script>
+<script type="text/javascript" src="/scripts/scrollDetail.js?v=2.0"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/investNew.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/noLoginInvest.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript">
+    $(function () {
+        iScroll.onLoadData = refreshPage;
+    });    
+</script>
+</body>
+</html>

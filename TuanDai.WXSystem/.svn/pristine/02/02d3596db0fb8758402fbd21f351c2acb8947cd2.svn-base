@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.CunGuanTong.Client;
+using TuanDai.CunGuanTong.Model;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.cgt
+{
+    public partial class openCgt : UserPage
+    {
+        public UserBasicInfoInfo model;
+        public string Href;
+        protected string PreTelNo = "";//预留手机号
+        public int iCardType = 1;
+        protected string pageType = "";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            pageType = WEBRequest.GetQueryString("pageType");  
+            if (!IsPostBack)
+            {
+                //Response.Redirect(GlobalUtils.WebURL+"/Member/Cgt/OpenCgt.aspx?pageType="+pageType);
+                InitFormData();
+            }
+        }
+
+        protected void InitFormData() {
+            var userid = WebUserAuth.UserId.Value;
+            if (userid != null && userid != Guid.Empty)
+            {
+                model = new UserBLL().GetUserBasicInfoModelById(userid);
+            }
+            if (model == null)
+            {
+                model = new UserBasicInfoInfo();
+                model.IsValidateIdentity = false;
+            }
+
+            cgt_user_UserExt_Info cgtUser = new QueryClient().GetUserByPlatformUserNo(userid);
+            if (cgtUser != null)
+            {
+                PreTelNo = cgtUser.mobile;
+
+                //1.身份证 2.港澳台同胞回乡证 3.外国人永久居留证 4.护照
+                if (cgtUser.idCardType.Value != 0)
+                    iCardType = cgtUser.idCardType.Value;
+
+                //判断已开通存管的不要再进此页面
+                if (cgtUser.accountStage == 3)
+                {
+                    if (cgtUser.accessType.ToUpper() == "FULL_CHECKED")
+                    {
+                        Response.Redirect("/Member/my_account.aspx");
+                    }
+                }
+                if (cgtUser.accountStage == 2)
+                {
+                    Response.Redirect("/Member/cgt/activeCgt.aspx",false);
+                    return;
+                }
+            }         
+        }
+    }
+}

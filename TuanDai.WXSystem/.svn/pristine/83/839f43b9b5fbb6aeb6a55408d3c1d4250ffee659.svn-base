@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>We自动服务常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+        <p class="title">We自动服务投标后，什么时候开始起息？</p>
+        <p>We自动服务以实际投标成功次日为起息时间（若1月1日加入，1月2日匹配标的，起息时间为1月3日）。</p>
+        <p class="title">We自动服务安全吗？</p> 
+        <p>加入We自动服务后，其所投项目适用于第三方担保机构担保。</p>
+        <p class="title">We自动服务什么时候结束服务？</p>
+        <p> 投资者加入We自动服务的资金全额投标成功或锁定期结束即结束We自动服务。</p>
+        <p class="title"> We自动服务什么时候回款？</p>
+        <p>We自动服务是一款自动投标服务，其本身不具备回款功能，回款时间请查看具体所投标的回款时间。</p>
+        <p class="title">什么是We自动服务的资金锁定期？</p>
+        <p>资金锁定期：T(加入We自动服务当日)+5个自然日内；加入We自动服务的资金将被冻结在投资者的个人存管账户，锁定期内系统在投资者授权下对符合要求的标的进行优先自动投标。锁定期内如加入We自动服务的资金部分未投标成功，未投标成功的资金将在锁定期结束时解除冻结，由投资者自行支配。</p>
+    </div>
+</body>
+</html>

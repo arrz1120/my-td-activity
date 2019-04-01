@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=640,target-densitydpi=device-dpi,user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>财神来了</title>
+<meta name="author" content="kevin" />
+    <meta name="Copyright" content="东莞团贷网互联网科技服务有限公司" />
+<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财" />
+<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。" />
+</head>
+<body>
+<div id="wraper">
+    <div id="main">
+        <section class="sec sec01" style="display:block">
+            <div class="bgBox top-text1"><span>毛大主席</span></div>
+            <div class="imgBox overPic"><img src="images/imgdone.jpg"></div>
+            <div class="btn" id="lookPacket">查看红包</div>
+        </section>
+        <section class="sec sec02">
+            <div class="bgBox smallPacket"></div>
+            <div class="bgBox bgPacket">
+                <div class="text1">恭喜您获得来自<br>温昌龙财神的红包</div>
+                <div class="num">10<span class="f30px">元</span></div>
+                <div class="bgBox curve"></div>
+                <div class="bigBtn-Y" id="transmitPacket">传递财运·享用红包</div>
+            </div>
+        </section>
+        <section class="sec sec03">
+            <div class="imgBox frame"><img src="images/frame.png"></div>
+            <div class="tipText">点击右侧按钮上传图片</div>
+            <div id="container" class="editor"></div>
+            <div class="bgBox top-text-fx"></div><!--分享进来显示-->
+            <!-- <div class="bgBox top-text-sm"></div> --><!--扫码进来显示-->
+            <div class="fileuploadBox">
+                <input id="fileupload" class="bgBox" type="file" accept="image/*" capture="camera">
+            </div>
+            <div class="hand-sm"></div>
+            <div class="fdCont">
+                <input type="text" name="txtName" id="txtName" placeholder="输入您的姓名">
+                <div class="textC c-666 mt10 mb10"><span class="c-cd3232">*</span>只能输入汉字，且字数不能超4个</div>
+                <div class="btnR" style="width:240px;">马上当财神</div>
+            </div>
+            <div class="bgBox tips1"></div>
+        </section>
+        <section class="sec sec04">
+            <div class="bgBox top-text1"><span class="nameText">毛大主席</span></div>
+            <div class="imgBox overPic"><img src="images/imgdone.jpg"></div>
+            <div class="fdCont" style="top:70%">
+                <div class="textC c-666 mt10 mb10 f18px">恭喜您已成功当上财神<br>赶紧给小伙伴传递财运</div>
+                <div class="btnR" style="width:320px;"><b class="hand"></b>传递财运·派送红包</div>
+            </div>
+            <div class="bgBox overshare"></div>
+        </section>
+        <section class="sec sec05">
+            <div class="bgBox bgPacket">
+                <div class="text2"><span class="nameText">温昌龙</span>财神<br>感谢您成功将财运传给大家<br>赶紧享用前面领取的红包吧</div>
+            </div>
+            <div class="fdCont" style="top:78%">
+                <a href="" class="btnR" style="width:320px;">马上使用红包赚钱</a>
+            </div>
+        </section>
+        <section class="sec sec06">
+            <div class="bgBox top-text2"><span>毛大主席</span></div>
+            <div class="imgBox overPic"><img src="images/imgdone.jpg"></div>
+            <div class="fdCont" style="top:70%">
+                <div class="textC c-666 mt10 mb10 f18px">温昌龙财神<br>已有<span class="c-cd3232">990</span>人领取了您派发的红包</div>
+                <div class="btnR" style="width:320px;"><b class="hand"></b>您已使用过自己领取的红包</div>
+            </div>
+        </section>
+        <div class="ruleText">活动规则</div>
+        <div class="bg-footer"></div>
+    </div>
+    <!--规则 S-->
+    <div id="rule">
+        <div class="btnBig">活动规则</div>
+        <ul class="ruleCont">
+            <li><b>1</b>开始时间：9月11日；</li>
+            <li><b>2</b>每人仅可以领取1份红包，派发红包份数无限；</li>
+            <li><b>3</b>本次活动共设红包10000份,派完即止；</li>
+            <li><b>4</b>本次活动红包限投资满1000元方可使用；</li>
+            <li><b>5</b>获得红包后，需于1个月内在微信服务号中登陆团贷账号并进行关联方可使用；</li>
+            <li><b>6</b>完成关联后，1个月内红包有效，过期即作废；</li>
+            <li><b>7</b>本次活动解释权归团贷网所有。</li>
+        </ul>
+        <div class="back">返回</div>
+        <div class="bg-footer"></div>
+    </div>
+    <!--规则 E-->
+</div>
+</body>
+<script type="text/javascript" src="js/motion.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //规则和正文内容的切换
+        $(".ruleText").on("tap",function(){
+            $("#main").addClass('visited');
+            $("#rule").addClass('current');
+        });
+        $(".back").on("tap",function(){
+            $("#main").removeClass('visited');
+            $("#rule").removeClass('current');
+        });
+        //查看红包
+        $("#lookPacket").on("tap",function(){
+            showPop(".sec02");
+            hidePop(".sec01");
+        });
+        //传递财运
+        $("#transmitPacket").on("tap",function(){
+            showPop(".sec03");
+            hidePop(".sec02");
+        });
+        //*上传图片*///////
+         eidtor = new mo.ImageEditor({
+            trigger: $('#fileupload'),
+            container: $('#container'),
+            width: 400,
+            height: 400,
+            stageX: $('#container')[0].offsetLeft,
+            event: {
+                beforechange: function () {
+                    $(".sec03 .tips1").fadeIn(function () {
+                        setTimeout(function () {
+                            hidePop(".sec03 .tips1");
+                        }, 1000);
+                    });
+                }
+            }
+        });
+        //合成图片
+        $(".sec03 .btnR").on("tap", function () {
+            //为提高用户体验此处应加上合成等待提示
+            window.overlay1 = new mo.Overlay('照片合成中，请稍候！');
+            overlay1.on('open', function () {
+                var self = this;
+                eidtor.toDataURL(function (data) {
+                    var cvs = document.createElement('canvas');
+                    cvs.width = 640;
+                    cvs.height = 960;
+                    var ctx = cvs.getContext("2d");
+
+                    var img = new Image();
+                    img.onload = function () {
+                        ctx.drawImage(this, 0, 0, img.width, img.height, 120, 225, img.width, img.height);
+                        img = new Image();
+                        img.onload = function () {
+                            ctx.drawImage(this, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
+                            $(".overPic").html('<img src="' + cvs.toDataURL("image/jpeg") + '"/>');
+                            self.close();
+                            hidePop(".sec03");
+                            showPop(".sec04");
+                            $(".nameText").text($("#name").val());
+                        }
+                        img.src = "images/frame.png";//自定义合成的图片
+                    }
+                    img.src = data;//相机拍摄或者相册的图片
+                    //alert(data);
+                });
+            });
+            return;
+        });
+        //点击上传照片按钮时清空原有的值
+        $(".fileuploadBox").on("tap",function(){
+            eidtor.clear()
+        });
+        //弹出分享
+        $(".sec04 .btnR").on("tap",function(){
+            showPop(".overshare");
+        });
+        //点击分享遮罩层的动作
+        $(".overshare").on("tap",function(){
+            hidePop(".sec04");
+            showPop(".sec05");
+        });
+
+    });
+    function showPop(e) {$(e).fadeIn()}
+    function hidePop(e) {$(e).fadeOut()}
+</script>
+</html>

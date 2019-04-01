@@ -1,0 +1,53 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sysmsgdetails.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.news.sysmsgdetails" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>公告详情</title>
+	<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+	<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <!--动态计算rem-->
+	<script>
+        (function(doc, win) {
+            var dpr, rem, scale = 1;
+            var docEl = document.documentElement;
+            var metaEl = document.querySelector('meta[name="viewport"]');
+            var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no,shrink-to-fit=no');
+            docEl.setAttribute('data-dpr', dpr);
+            var recalc = function() {
+                clientWidth = docEl.clientWidth;
+                if(!clientWidth) return;
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                if(document.body) {
+                    document.body.style.fontSize = docEl.style.fontSize;
+                }
+
+            };
+            recalc();
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+	</script>
+	<link rel="stylesheet" href="css/sysmsgdetailsstyle.css?0622000001" />
+</head>
+<body>
+<section class="wrap scroll scroll-active">
+	<div class="wrapper">
+		<div class="border-b">
+			<p class="title"><%=strTitle %></p>
+			<p class="time"><%=strAddDate %></p>
+		</div>
+		<div class="notice-con">
+			<%=strContent %>
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

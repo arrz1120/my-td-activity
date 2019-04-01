@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>回款详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">回款详情</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="return-top-cn">
+        <a href="">
+        <div class="clearfix">
+            <div class="lf">
+                <p class="f11px c-434343">股票配资   股票配资【GPPZ-1505191104134...</p>
+                <p class="f10px c-ababab mt5">投标时间：2014-05-11 13:42 (手动投标) </p>
+            </div>
+            <div class="rf">
+                <i class="icoBox11 state5"></i><span class="f13px c-9aca40">还款中</span><i class="ico_arrow_r3"></i>
+                <!--下面注释的不同状态 逾期-->
+                <!--<i class="icoBox11 state1"></i><span class="f13px c-9aca40">逾期</span><i class="ico_arrow_r3"></i>-->
+            </div>
+        </div>
+        </a>
+    </section>
+
+    <section class="fundPreview">
+        <div class="c-694514 f12px">待收本息（元）</div>
+        <div class="c-fff f30px pt15 pb15">¥ 1,100,100.52</div>
+        <div class="warningMain clearfix">
+            <div>
+                <p class="c-212121 f12px lh20">投资金额（元）</p>
+                <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+            </div>
+            <div>
+                <p class="c-212121 f12px lh20">可获利息（元）</p>
+                <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+            </div>
+        </div>
+    </section>
+    <div class="returned-box clearfix">
+        <section class="clearfix">
+            <div class="returned-nav clearfix">
+                <div class="p-left">
+                    <div class="textBox" id="textBox">
+                        <span class="dataBox"><i class="ico-date1 ico-date1_g"></i>05/11期</span>
+                        <i class="ico-arrow-d"></i>
+                    </div>
+                    <ul class="selectList">
+                        <li><i class="ico-date1"></i>按日统计</li>
+                        <li><i class="ico-date2"></i>按月统计</li>
+                    </ul>
+                </div>
+                <div class="p-left1">本金+（利息+奖金）</div>
+                <div class="p-right">状态</div>
+            </div>
+        </section>
+
+        <section class="clearfix">
+            <div class="listBox pd0 clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="md pos-a f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-fd6040">10.3</i></span>
+                        <span class="rf f14px c-808080">已回款</span>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="md pos-a f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-fd6040">10.3</i></span>
+                        <span class="rf f14px c-808080">待回款</span>
+                    </li>
+                    <li class="on">
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <div class="pos-a list-cn">
+                            <p><span class="f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-fd6040">10.3</i></span></p>
+                            <p><span class="f12px sp1">滞纳金</span><span class="f12px c-fd6040"> ¥ 5.3</span>，<span class="f12px c-fd6040">3天</span></p>
+                        </div>
+                        <div class="pos-a hint-cn"><p>发生逾期，团贷网已经提供本金保障服务</p></div>
+                        <div class="pos-a state-cn">
+                            <span class="f14px c-fd6040">逾期</span>
+                            <span class="f10px c-fd6040">三天</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="md pos-a f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <span class="rf f14px c-808080">待回款</span>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+    </div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //筛选条件显示/隐藏
+        $("#textBox").click(function(){
+            $(".selectList").slideToggle();
+        });
+        $(".selectList li").click(function(){
+            $(".selectList").slideUp();
+        });
+
+        setInterval(function(){
+            $(".mytakeCont").slideUp();
+            $(".selectList").slideUp();
+        },5000);
+
+    })
+</script>
+</body>
+</html>

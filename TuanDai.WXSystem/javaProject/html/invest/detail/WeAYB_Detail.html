@@ -1,0 +1,372 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>安盈计划详情</title>
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/global.css">
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/project-detail.css">
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/investProcess.css">
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div id="bigDiv" class="pb45">
+			<div class="loading-box" id="cMloading" style="display: none;">
+				<div class="loading-tips"><img src="/javaProject/imgs/images/icon/ico_loading.png" alt=""><span>加载中...</span></div>
+			</div>
+			<!-----底部跳转按钮---->
+			<div class="float-jump" style="bottom: 43px;">
+				<a href="http://10.100.1.14:9006/Index.aspx"><img src="/javaProject/imgs/images/icon/ico_toHome.png"></a>
+				<a href="http://10.100.1.14:9006/Member/my_account.aspx"><img src="/javaProject/imgs/images/icon/ico_toAccount.png"></a>
+			</div>
+			<div class="detail-top-bg pro-notFinish">
+				<div class="pl15 pos-r pt15 detail_tit">
+					<p class="f14px c-808080 text-overflow">安盈计划24(170525171525)</p>
+					<!--<div class="round-btn"><i class="ico-record"></i>加入记录</div>-->
+				</div>
+				<div class="pt10 text-center">
+					<p><span class="f13px c-ababab">预期年化利率</span></p>
+				</div>
+				<div class="rateIncome">
+					<p>13<span>%</span></p>
+				</div>
+				<div class="rect-box webkit-box box-center" style="width:100%;">
+
+				</div>
+				<div class="bg005 mt5">
+					<div class="clearfix pt15 pb10">
+						<div class="lf w33p text-center">
+							<p class="f17px c-212121">88,000.00</p>
+							<p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+						</div>
+						<div class="lf w33p text-center">
+							<p class="f17px c-212121">24个月</p>
+							<p class="line-h20 f12px c-ababab">计划期限</p>
+						</div>
+						<div class="lf w33p text-center">
+							<p class="f17px c-212121">1000元/份</p>
+							<p class="line-h20 f12px c-ababab">投资单位</p>
+						</div>
+					</div>
+				</div>
+				<div class="finishImg"><img src="/javaProject/imgs/images/bg/pro-finish.png"></div>
+			</div>
+
+			<div class="is_tit bb-e6e6e6 pos-r f17px mt15 pl15 bg-fff" onclick="window.location.href='/javaProject/html/invest/record/investRecord.html'">
+				投资记录
+				<b class="c-ababab f13px">43</b>
+				<div class="ico-arrow-r"></div>
+			</div>
+
+			<!--计划介绍-->
+			<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+				<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle"></i>计划介绍</div>
+				<div class="dropdownCon ">
+					<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">安盈计划是团贷网为方便用户投资推出的标准化投资工具，用户加入后，平台立即启动优先匹配投标，按用户认可的标的范围内，对符合要求的标的进行优先自动投标，提高了用户投资的速度和灵活度，及时盘活用户资金，更好的满足用户多样化的投资需求。此外，该计划所投资标的都受安全保障计划+第三方担保机构保障。</div>
+					<div class="clearfix pr15 pt10 pb10">
+						<div class="lf f14px c-808080">计划总额</div>
+						<div class="rf f14px c-808080">100,000.00元</div>
+					</div>
+					<div class="pt10 pb10 bt-e6e6e6 pos-r f14px c-808080" onclick="javascript:window.location.href='/javaProject/html/contract/ContractTypeAYB.html';">
+						服务协议
+						<div class="ico-arrow-r"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--投标范围及标的来源-->
+			<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+				<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>投标范围及标的来源</div>
+				<div class="dropdownCon hide">
+					<div class="is_tit bt-e6e6e6 pos-r f14px c-808080">
+						安盈宝
+						<b class="c-ababab f13px" onclick="javascript:window.location.href='/javaProject/html/contract/ContractAgreement1.html';">查看合同</b>
+						<div class="ico-arrow-r"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--规则说明-->
+			<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+				<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>规则说明</div>
+				<div class="dropdownCon hide">
+					<div class="f14px pb10">退出计划</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">1、自用户加入当期安盈计划起，加入的资金将被冻结在用户的存管账户中，T+5个自然日内系统未将用户加入计划的资金全额投完，未投资出去的资金将被解除冻结由用户自由支配。
+
+						<br>2、安盈计划所匹配的标的，持有3个月可转让，转让服务费=转让总额*0.7%。
+
+					</div>
+					<div class="f14px pb10 pt10">保障方式</div>
+					<div class="c-808080 f14px pb15 text-justify pr15">安全保障计划+第三方担保机构。</div>
+				</div>
+			</div>
+
+			<!--常见问题-->
+			<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+				<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>常见问题</div>
+				<div class="dropdownCon hide">
+					<div class="f14px pb10">1、安盈计划的投资期限有几种？</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">目前，团贷网推出的安盈计划期限有1、3、6、12和24个月，后期会根据实际情况推出更多期限产品供投资者选择。</div>
+					<div class="f14px pb10 pt10">2、安盈计划什么时候启动优先投标？</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">加入安盈计划后（不需满额）即可立即启动优先匹配投标。</div>
+					<div class="f14px pb10 pt10">3、安盈计划起息日怎么计算？</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">安盈计划起息日自资金实际投资标的完成当日起算。</div>
+					<div class="f14px pb10 pt10">4、安盈计划结清期限怎么计算？</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">安盈计划结清期限为所投资标的到期当日。</div>
+					<div class="f14px pb10 pt10">5、安盈计划安全吗？</div>
+					<div class="c-808080 f14px pb15 text-justify pr15 bb-e6e6e6">安盈计划所投标的都受安全保障计划+第三方担保机构保障。</div>
+				</div>
+			</div>
+
+			<div class="text-center c-ababab bt-e6e6e6 ftb_bot">
+				市场有风险，投资需谨慎。查看
+				<a class="c-fab600" href="http://10.100.1.14:8050/dq/weixin/DQRisk.html">《风险揭示书》</a>
+			</div>
+			<!--按钮区域-->
+			<div class="pos-f btn-joinNow">
+
+				<a href="javascript:void(0)" class="btn btnYellow" id="btnJoin">马上加入</a>
+
+			</div>
+
+		</div>
+		<div class="coverBox invest-alert bg-fff hide" style="z-index:501;" id="invest_alert">
+			<div class="pt10 pb10 pl15 bg-fff">
+				<div class="ico-round-close" id="detail-close"></div>
+				<div class="f20px c-212121 text-center"></div>
+			</div>
+			<div class="pl15 pr15">
+				<div class="f13px pl15" id="SharesDesc">1000元/份 剩余30,000份</div>
+				<div class="invest-alert-inp mt10"><input type="tel" placeholder="请输入投资份数" id="InvestShares"><span class="minus " id="InvestMinus"></span><span class="add " id="InvestAdd"></span></div>
+				<div class="bb-dashed">
+					<div class="pt20 pb20 clearfix" id="ues_rp">
+						<div class="lf c-999999 f15px">使用优惠券：</div>
+						<div class="rf"> <span class="f15px c-fab600" id="redValue" prizeid="">无优惠券可用</span> <i class="ico-a-r-999"></i> </div>
+					</div>
+				</div>
+				<div class="f14px c-212121 pt15">
+					<div class="clearfix pl15 pr15">
+						<div class="lf c-ababab f15px">投资总额：</div>
+						<div class="rf f15px" id="TotalMoney2">￥0.00</div>
+					</div>
+					<div class="clearfix pl15 pr15 pt10 pb10">
+						<div class="lf c-ababab f15px">预期总收益：</div>
+						<div class="rf f15px c-ffc000 hide" id="spPrizeInterest">+￥0.00</div>
+						<div class="rf f15px" id="ProfitMoney">￥0.00</div>
+					</div>
+				</div>
+				<div class="btn btnYellow  mt15" id="btnSubmit">马上加入</div>
+				<div class="mt10 f13px text-center c-ababab">投资即表示同意
+					<a class="f12px c-fab600" href="/Contract/ContractTypeAYB.html">《安盈计划服务协议》</a>
+				</div>
+				<div class="mt30 tips-box scaleX scaleX0" id="pay-tips">
+					<p style="display: none;">登录密码不正确</p>
+				</div>
+			</div>
+		</div>
+		<!--弹框-->
+		<div class="alert webkit-box box-center hide" id="repay-alert">
+			<div class="bg-fff alert-con moveTop">
+				<p class="text-center c-212121 f17px fb ">回款日期说明</p>
+				<p class="pt12 f15px c-808080 text-justify pl20 pr20">回款日期仅供参考，请以实际回款时间为准。</p>
+				<div class="bt-e6e6e6 pt10 pb10 c-fcb700 text-center f17px mt25" id="iKnowRepay">我知道了</div>
+			</div>
+		</div>
+		<div class="z-index100 coverBox invest-alert rp-ways hide pb30" id="rp_ways"> </div>
+		<div class="coverBox invest-alert hide" style="z-Index:502;" id="invest_login">
+			<div class="pt10 pb10 pl15 bg-fff">
+				<div class="ico-round-close pos-r" id="detail-close1" style="z-index:400;left:0;top:0;"></div>
+				<div class="f20px c-212121 text-center"></div>
+			</div>
+			<div class="" id="animate1">
+				<div class="moveToTop1">
+					<div class="pt17 text-center td_logo fadeOut1"><img src="/javaProject/imgs/images/bg/tuandai_logo.png"></div>
+					<div class="pt17 text-center font-box">
+						<p class="fadeOut2">马上开始投资</p>
+						<p class="loginTxt opacity0">登录</p>
+						<p class="zhuceTxt opacity0">注册</p>
+					</div>
+					<div class="input-box pt38"><input type="tel" placeholder="手机号码" id="tel-inp"></div>
+				</div>
+			</div>
+			<div class="animate2 hide" id="animate2">
+				<div class="input-box moveToTop2 opacity0"><input type="password" placeholder="登录密码" id="logincode-inp">
+					<div id="btnSee2" class="ico-eye-ban pos-a"></div>
+				</div>
+				<div class="text-right moveToTop2 pr15 mt5">
+					<a href="/member/safety/ResetPwd.aspx?backurl=qk4apiF1dtY9tBAM0+b/K1f+Pg3uNkJXSi60gu7Z3zGZz7Uo46kcPT+zCPbe+2wFCTsR97WSekq25fOmYWNHc5PgBBwBy+oSVWJTAX4G52JarX+lMZbufD53QAxc1W00" class="f13px c-fd6040">忘记密码?</a>
+				</div>
+				<div class="mt50 pl20 pr25 moveToTop3 opacity0">
+					<div class="btn btnYellow opacity05" id="loginConfirm">确定</div>
+					<div class="mt30 tips-box scaleX scaleX0" id="login-tips">
+						<p style="display: none;">登录密码不正确</p>
+					</div>
+				</div>
+			</div>
+			<div class="animate2 hide" id="animate3">
+				<div class="input-box moveToTop2" id="likeHolder"><input type="password" name="txtPassword" id="txtPassword" class="codeIpt">
+					<p class="likePlaceholder">登录密码 <span>（6-16个字符，数字+字母）</span></p>
+					<div id="btnSee" class="ico-eye-ban pos-a"></div>
+				</div>
+				<div class="input-box moveToTop2"><input type="text" placeholder="验证码" id="phoneCode-inp">
+					<div class="phoneCode" id="sendMsgCode">发送验证码</div>
+				</div>
+				<div class="noPhoneCode moveToTop2" id="sendVCode">收不到验证码 ? 使用
+					<a id="sendVoiceCode">语音验证码</a>
+				</div>
+				<div class="mt25 pl20 pr25 moveToTop3">
+					<div class="btn btnYellow opacity05" id="zhuceConfirm">确定</div>
+					<div class="mt30 tips-box scaleX scaleX0" id="zhuce-tips">
+						<p style="display: none;">登录密码不正确</p>
+					</div>
+				</div>
+			</div>
+		</div><input type="hidden" id="txtInvestType">
+		<!--设置交易密码-->
+		<div class="coverBox invest-alert bg-f6f7f8 hide" style="z-Index:503;" id="tranPwd_alert">
+			<div class="pt10 pb10 pl15 bg-f6f7f8">
+				<div class="ico-round-close" id="detail-close2"></div>
+				<div class="f20px c-212121 text-center"></div>
+			</div>
+			<div class="text-center">
+				<div class="pic-lock mt20"><img src="/javaProject/imgs/images/pic/lock.png"></div>
+				<p class="mt15 fb f14px c-212121">注册成功，设置交易密码</p>
+				<p class="mt10 f11px c-999999 pr10 pl10">交易密码主要用于保障资金交易(投资、充值和提现)安全。</p>
+			</div>
+			<div class="clearfix inpBox4 bg-fff pt10 pb10 pl15 mt30 pos-r">
+				<div class="lf f14px c-212121">交易密码</div><input type="password" class="lf f14px" id="txtPayPwd" placeholder="请设置交易密码">
+				<div id="btnSee1" class="ico-eye-ban pos-a"></div>
+			</div>
+			<div class="c-999999 f11px pl15 mt5">6~16个字符，需包含字母和数字</div>
+			<div class="pl15 pr15 mt30">
+				<a class="btn btnYellow" id="btnUpdatePayPwd">确定</a>
+				<div class="mt30 tips-box scaleX scaleX0" id="pay-tips">
+					<p style="display: none;">登录密码不正确</p>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+		<!----------------------弹框----------------------->
+		<!--资金安全弹框-->
+		<div class="frame bg-op09 hide" id="frame1">
+			<p class="f19px c-282828 pt20 pb20 text-center">资金安全</p>
+			<div class="pl15 pr15">
+				<div class="safty_tiem">
+					<div class="ico_r ico_sprite ico_bCourse11"></div>
+					<p class="f17px">风险拨备金</p>
+					<p class="f13px c-808080 pb10">南粤银行存管，7000万+风险拨备金</p>
+					<div class="bt-e6e6e6 pt10 line-h18 f11px c-ababab">
+						当项目出现逾期时，平台将按照垫付规则及时使用风险拨备金进行垫付（超级会员垫付本息，普通会员垫付本金）
+					</div>
+				</div>
+				<div class="safty_tiem mt15">
+					<div class="ico_r ico_sprite ico_bCourse10"></div>
+					<p class="f17px">第三方担保</p>
+					<p class="f13px c-808080 pb10">东莞市联胜非融资性担保有限公司</p>
+				</div>
+				<div class="safty_tiem mt15">
+					<div class="ico_r ico_sprite ico_contract"></div>
+					<p class="f17px">电子合同</p>
+					<p class="f13px c-808080 pb10">每笔投资都会生成有效的电子合同</p>
+				</div>
+			</div>
+			<div class="frame-close" id="close1"></div>
+		</div>
+
+		<!--收益演示弹框-->
+		<div class="frame bg-f6f7f8 hide" id="frame2">
+			<div class="bg-fff pl15">
+				<div class="pt20 pb20 bb-e6e6e6">
+					<p class="c-fab600 f20px">投资1万元，可赚取收益300元</p>
+					<p class="c-808080 f13px mt7">(收益是余X宝的5倍)</p>
+				</div>
+				<div class="pb20 pt5">
+					<div class="incomeCompare">
+						<span class="compare_l f13px c-808080">团贷网:</span>
+						<span class="compare_r f13px c-808080">1000元</span>
+						<div class="compareBar">
+							<div class="barFill" style="width: 100%;"></div>
+						</div>
+					</div>
+					<div class="incomeCompare">
+						<span class="compare_l f13px c-808080">余X宝:</span>
+						<span class="compare_r f13px c-808080">50元</span>
+						<div class="compareBar">
+							<div class="barFill" style="width: 20.4%;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ml15 mr15 pt15 pb15 bb-e6e6e6 f15px">
+				2015.05.24投资，2015.08.25到期
+			</div>
+			<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+				<div class="lf c-808080 f15px">2015.05.24投资</div>
+				<div class="rf c-808080 f15px">- 10000.00元</div>
+			</div>
+			<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+				<div class="lf c-808080 f15px">2015.05.24投资</div>
+				<div class="rf c-808080 f15px">- 10000.00元</div>
+			</div>
+			<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+				<div class="lf c-808080 f15px">2015.05.24投资</div>
+				<div class="rf c-808080 f15px">- 10000.00元</div>
+			</div>
+			<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+				<div class="lf c-808080 f15px">2015.05.24投资</div>
+				<div class="rf c-808080 f15px">- 10000.00元</div>
+			</div>
+			<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+				<div class="lf c-808080 f15px">2015.05.24投资</div>
+				<div class="rf c-808080 f15px">- 10000.00元</div>
+			</div>
+
+			<div class="frame-close" id="close2"></div>
+		</div>
+
+		<script type="text/javascript" src="/javaProject/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/base.js"></script>
+
+		<script type="text/javascript">
+			var scrollT = "";
+
+			function moveToTop(open, target) {
+				$(open).click(function() {
+					scrollT = $(window).scrollTop();
+					$(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+					setTimeout(function() {}, 400);
+				});
+			}
+
+			function moveToBottom(close, target) {
+				$(close).click(function() {
+					$(window).scrollTop(scrollT);
+					$(target).removeClass('moveToTop').addClass('moveToBottom');
+					setTimeout(function() {
+						$(target).addClass('hide');
+					}, 400);
+				});
+			}
+			moveToTop("#f1", '#frame1');
+			moveToBottom('#close1', '#frame1');
+			moveToTop("#f2", '#frame2');
+			moveToBottom('#close2', '#frame2');
+			
+			$(".dropdownTit").click(function () {
+		        var next = $(this).next();
+		        var triangle = $(this).find('i');
+		        if (next.hasClass('hide')) {
+		            triangle.removeClass('rotate0');
+		            next.removeClass('hide');
+		        } else {
+		            triangle.addClass('rotate0');
+		            next.addClass('hide');
+		        }
+		    });
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>彩票</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/giftBox.css" /><!--团宝箱-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">彩票</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<section class="lotteryMain">
+    <div class="lotteryBox">
+        <div class="p-left">
+            <div class="num">
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+                <span>04</span>
+                <span>05</span>
+                <span>06</span>
+                <span>+</span>
+                <span>15</span>
+            </div>
+            <p>期数：双色球，20150331期 </p>
+            <p>来源：签到奖励</p>
+        </div>
+        <div class="p-right c-fa502e">中奖20000元</div>
+        <i class="line"></i>
+    </div>
+    <div class="lotteryBox">
+        <div class="p-left">
+            <div class="num">
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+                <span>04</span>
+                <span>05</span>
+                <span>06</span>
+                <span>+</span>
+                <span>15</span>
+            </div>
+            <p>期数：双色球，20150331期 </p>
+            <p>来源：签到奖励</p>
+        </div>
+        <div class="p-right c-6d5103">未中奖</div>
+        <i class="line"></i>
+    </div>
+    <div class="clearfix">
+        <p class="f12px c-ababab">请使用本账号到团贷彩票兑奖。</p>
+        <p class="f12px c-ababab">如有疑问，请联系客服：<span class="c-ff7357 f14px">400-641-0888</span></p>
+    </div>
+</section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

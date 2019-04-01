@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>绑定手机号</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+	</head>
+	<body class="bg-f1f3f5">
+		<div class="step clearfix bg-fff">
+			<div class="w50p lf text-center stepActive">
+				<span>1</span>验证原手机号码
+			</div>
+			<div class="w50p lf text-center">
+				<span>2</span>绑定新手机号码
+			</div>
+			<i class="arrow1"></i>
+		</div>
+		
+		<div class="bg-fff mt10">
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">原手机号码</div>
+				<div class="inp"><input type="text" value="18*******61" readonly="readonly" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">验证码</div>
+				<div class="inp"><input type="text" placeholder="请输入验证码" /></div>
+				<a href="javascript:void(0);" class="supportBank f12px">发送验证码</a>
+			</div>
+		</div>
+		
+		<div class="pl15 pr15 pt20">
+			<a href="javasript:void(0);" class="btn btnYellow">下一步</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>绑定银行卡</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160307" />
+<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160307" />
+</head>
+<body class="bg-f6f7f8">
+    <header class="headerMain">
+        <div class="header bb-c2c2c2">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">绑定银行卡</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="pl15 pr15 pt8 pb8">
+    	<p class="line-h23 c-999999 f13px">绑定银行卡主要用于充值和提现，每个账号只能绑定一张银行卡。(请绑定本人持有的银行卡)</p>
+    </div>
+    
+    <div class="pl15 bg-fff bb-e6e6e6 bt-e6e6e6">
+		<div class="pt10 pb10 pos-r pl92 bb-e6e6e6">
+			<span class="c-212121 f17px pos-a l0">持卡人</span>
+			<input class="inp f17px c-212121" type="text" placeholder="请输入持卡人名字" />
+		</div>
+		<div class="pt10 pb10 pos-r pl92">
+			<span class="c-212121 f17px pos-a l0">手机号</span>
+			<input class="inp f17px c-212121" type="text" placeholder="请输入银行预留手机号" />
+		</div>
+    </div>
+    
+    <div class="mt15 bb-e6e6e6"></div>
+    <div class="pl15 bg-fff bb-e6e6e6">
+		<div class="pt10 pb10 pos-r pl92 bg-fff">
+			<span class="c-212121 f17px pos-a l0">银行卡号</span>
+			<input class="inp f17px c-212121" type="text" placeholder="请输入银行卡号" />
+		</div>
+	</div>	
+	
+	<div class="pl15 c-fd6040 f13px mt5"><i class="state1"></i>请勿绑定信用卡! 不支持使用信用卡充值</div>
+	
+	<div class="ml15 mr15 mt30">
+		<div class="btn btnYellow">确定</div>
+	</div>
+	
+	<a href="" class="block c-ff6040 f13px text-center text-underline mt50">支持银行卡列表</a>
+	
+	<!--弹框-->
+	<!--无法识别该卡号弹框-->
+	<div class="alert webkit-box box-center" style="display: none;">
+		<div class="bbc-alert-box">
+			<div class="c-212121 f15px pt30 pb30 text-center">无法识别该卡号，请使用其它银行卡!</div>
+			<div class="text-center f17px c-ffc61a bt-e6e6e6 pt13 pb13">我知道了</div>
+		</div>
+	</div>
+	<!--确认信息弹框-->
+	<div class="alert webkit-box box-center" style="display-: none;">
+		<div class="bbc-alert-box">
+			<div class="fb f17px text-center pt30 pb20">请确认信息</div>
+			<div class="f15px c-212121 bbc-alert-center">卡号<span class="ml25 c-212121 f15px">1234  3546  2345  7683  456</span></div>
+			<div class="f15px c-212121 bbc-alert-center">银行<span class="ml25 c-212121 f15px">招商银行</span></div>
+			<div class="f13px c-808080 bbc-alert-center pt20 pb20">请确保银行卡信息准确，否则无法进行充值或提现。</div>
+    		<div class="webkit-box bt-e6e6e6 mt25">
+    			<div class="box-flex1 text-center f17px c-808080 pt10 pb13 br-e6e6e6">取消</div>
+    			<div class="box-flex1 text-center f17px c-ffc61a pt10 pb13">确定</div>
+    		</div>
+		</div>
+	</div>
+	<!--验证中弹框-->
+	<div class="alert webkit-box box-center" style="display: none;">
+        <div class="loadTips">
+        	<div class="text-center pos-r loadTipsContent">
+	            <div class="loadingCirle lf"></div>
+	            <div class="yan pos-a"><img src="/imgs/images/loaduser.png" alt=""></div>
+	            <div class="loadTips_txt f17px c-ffffff">验证中，请稍候……</div>
+        	</div>
+        </div>
+	</div>
+</body>
+</html>

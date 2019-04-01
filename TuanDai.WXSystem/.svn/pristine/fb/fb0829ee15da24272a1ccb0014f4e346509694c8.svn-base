@@ -1,0 +1,130 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="recharge_question.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Bank.recharge_question" %>
+<%@ Import  Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>常见问题</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160518" />
+</head>
+<body class="bg-f6f7f8">
+    <%= this.GetNavStr()%>
+	<div class="pl15 pr15 pt10 pb10">
+		<p class="f15px c-fab600">为遵守国家反洗钱和套现行为的相关法律规定：充值后的所有资金不投标须等15天后才能提现；解绑银行卡受理时间：周一至周五9:00-12:00，13:30-18:00，周六日与法定节假日除外。</p>
+	</div>
+	
+	<div class="questionWrap">
+		<ul>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18 bg-fff">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>解绑银行卡</p>
+				</div>
+				<div class="question-txt bg-f6f7f8">
+					<p class="c-808080 pt10 pl15 pr15 pb15 f13px text-justify">为了减少恶意套现行为，保障用户的资金安全，团贷网对换绑银行卡流程做了以下调整，对您造成的不便，请谅解。</p>
+					<div class="flow pos-r">
+						<!--<div class="flow-img"><img src="/imgs/images/pic/recharge-flow.png"/></div>-->
+						<div class="flowLine"></div>
+						<dl>
+							<dt class="bb-e6e6e6 pb15">
+								<span class="flow1"></span>
+								<p class="c-694514 f15px">添加服务号</p>
+								<p class="f13px c-808080 mt8 text-justify">用户如需换卡，请添加服务微信或QQ号：2880761023</p>
+							</dt>
+							<dt class="bb-e6e6e6 pb15 pt20">
+								<span class="flow2"></span>
+								<p class="c-694514 f15px">提交材料</p>
+								<p class="f13px c-808080 mt8 text-justify">添加服务微信或QQ号后，请提交以下换卡材料：手持身份证、旧银行卡正反面的半身照片（需露出五官、卡片信息需清晰可见）。</p>
+							</dt>
+							<dt class="bb-e6e6e6 pb15 pt20">
+								<span class="flow3"></span>
+								<p class="c-694514 f15px">视频审核</p>
+								<p class="f13px c-808080 mt8 text-justify">根据提示进行视频审核，需直视镜头，露出五官。</p>
+							</dt>
+							<dt class="bb-e6e6e6 pb15 pt20">
+								<span class="flow4"></span>
+								<p class="c-694514 f15px">完成解绑</p>
+								<p class="f13px c-808080 mt8 text-justify">视频认证后，平台将在30分钟内完成银行卡解绑；材料不齐全或视频认证不通过，则视为申请失败。</p>
+							</dt>
+						</dl>
+					</div>
+				</div>
+				
+			</li>
+            <li>
+                <div class="question-tit bb-e6e6e6 pl15 pt18 pb18 bg-fff">
+                    <p class="c-212121 f17px">
+                        <i class="icon-triagle-r1 rotateZ90"></i>绑定银行卡
+                    </p>
+                </div>
+                <div class="question-txt1 bg-f6f7f8">
+                    <div class="flow pos-r">
+                        <div class="flowLine"></div>
+                        <dl>
+                            <dt class="bb-e6e6e6 pb15 pt20">
+                                <span class="flow5"></span>
+                                <p class="c-694514 f15px">绑定银行卡</p>
+                                <p class="f13px c-808080 mt8 text-justify">解绑后，用户可到“我-个人资料-投资前准备-银行卡”进行新的银行卡绑定。</p>
+                            </dt>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+		</ul>
+		<div class="pt15 pb15 text-center f13px c-ababab">如有疑问，请联系客服:<a class="c-ff7357 f13px ml10" <%=IsInApp?"":"href='tel:10101218'" %> >1010-1218</a></div>
+	</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+  	$(function () {
+
+  	    $(".questionWrap li")
+                .eq(0)
+                .click(function () {
+                    var box = $(this).find('.question-txt');
+                    var ico = $(this).find('.icon-triagle-r');
+                    if (box.hasClass('hide')) {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.removeClass('hide');
+                    } else {
+                        if (ico.hasClass('rotateZ90')) {
+                            ico.removeClass('rotateZ90').addClass('rotateZ0');
+                        } else {
+                            ico.removeClass('rotateZ0').addClass('rotateZ90');
+                        }
+                        box.addClass('hide');
+                    }
+                });
+  	    $(".questionWrap li")
+            .eq(1)
+            .click(function () {
+                var box = $(this).find('.question-txt1');
+                var ico = $(this).find('.icon-triagle-r1');
+                if (box.hasClass('hide')) {
+                    if (ico.hasClass('rotateZ90')) {
+                        ico.removeClass('rotateZ90').addClass('rotateZ0');
+                    } else {
+                        ico.removeClass('rotateZ0').addClass('rotateZ90');
+                    }
+                    box.removeClass('hide');
+                } else {
+                    if (ico.hasClass('rotateZ90')) {
+                        ico.removeClass('rotateZ90').addClass('rotateZ0');
+                    } else {
+                        ico.removeClass('rotateZ0').addClass('rotateZ90');
+                    }
+                    box.addClass('hide');
+                }
+            });
+    });
+</script>
+</body>
+</html>

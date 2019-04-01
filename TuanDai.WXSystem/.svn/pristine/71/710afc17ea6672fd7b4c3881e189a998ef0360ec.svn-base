@@ -1,0 +1,54 @@
+﻿body{ background: #fbfbf9;}
+
+/***新闻列表********************************/
+.newsMain{ padding: 0 15px;}
+.newsMain .listCont{ height: 80px; padding: 10px 0; border-bottom: 1px solid #d9d9d9; position: relative; z-index: 20;}
+.newsMain .listCont .picBox{ float: left; width: 57px; height: 57px; margin-right: 10px; }
+.newsMain .listCont .picBox img{ display: block; width: 57px; height: 57px; border-radius: 21px;-webkit-border-radius: 21px;}
+.newsMain .listCont .tit{ color: #212121; font-size: 1.2rem; line-height: 150%;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.newsMain .listCont .date{ text-align: right; color: #ababab; font-size: 1.2rem; position: absolute; bottom: 5px; right: 0;}
+/**新闻内容页**/
+.newsMain .title{ color: #212121; font-size: 1.4rem; line-height: 150%;}
+.newsMain .date{color: #ababab; font-size: 1.2rem; margin-top: 5px;}
+.newsCont,.newsCont p{ color: #909090; font-size: 1.2rem; line-height: 180%;word-wrap: break-word;}
+.newsCont img{width:100%;}
+.newsCont p{ margin-bottom: 10px;}
+.newsCont img,.newsCont p img{ display: block; margin: 10px auto; text-indent: 0em!important;}
+
+/*公告列表页*/
+.newsMain .listCont .notice-date{ text-align: left; color: #ababab; font-size: 1.2rem; position: absolute; bottom: 5px; left: 0;}
+.newsMain .listCont .notice-tit{ width:90%;color: #212121;height: 25px; font-size: 1.2rem; line-height: 25px;overflow : hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;}
+.newsMain .listCont .new{ position: absolute;width: 30px; height: 13px;top:30px;right: 0;}
+
+/*公告详情页*/
+.newsMain .border1px{border-bottom:1px solid  #e6e6e6; padding-bottom: 15px; margin-bottom: 15px;}
+.notice-cn p{ color: #212121; background: #fbfbf9!important;}
+.notice-cn .dif{text-indent: 0;}
+
+/*带图标标题*/
+.text-title-icon-1{line-height: 35px; text-indent: 20px; background: url("/imgs/images/icon-20150825-1.png") 0 10px  no-repeat; background-size: 12px 11px }
+.text-title-icon-2{line-height: 35px; text-indent: 20px;  background: url("/imgs/images/icon-20150825-2.png") 0 6px no-repeat; background-size:12px 11px; }
+/*按钮*/
+.btn-20150825{ height: 42px; display: block; line-height: 42px; background: #fde090; border-radius: 2px; -webkit-border-radius: 2px; margin: 10px auto 20px; }
+.btn-20150825-1{ background: #fde090;  }
+.btn-20150825-2{  background: #fec627;  }
+.btn-20150825-3{  background: #afafae;  }
+/**/
+
+
+/*进度条样式*/
+.dataTables_processing {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -55px;
+	margin-top: -25px;
+	width: 110px;
+	height: 50px;
+	text-align: center; 
+	text-indent: 2em; 
+	color: #333;
+    background: url(/imgs/loading01.gif) 10px 10px no-repeat #fff; 
+	z-index:9999;
+	box-shadow: 0 0 10px #ccc; line-height: 50px; border-radius: 5px; 
+}

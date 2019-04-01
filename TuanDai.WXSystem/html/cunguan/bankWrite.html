@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>绑定银行卡</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+	</head>
+
+	<body class="bg-f1f3f5">
+
+		<div class="tips">
+			<p>为了保证您的提现能够快速准确到账，请完善您的开户行信息</p>
+		</div>
+
+		<div class="bg-fff">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">银行卡号</div>
+				<div class="inp"><input type="text" value="" placeholder="请输入银行卡号" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">开户银行</div>
+				<div class="inp"><input type="text" value="" placeholder="请输入开户银行" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">预留手机号</div>
+				<div class="inp"><input type="text" value="" placeholder="请输入预留手机号" /></div>
+			</div>
+		</div>
+
+		<div class="bg-fff mt10">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">开户行地址</div>
+				<div class="inp selectDiv">
+					<select class="c-ababab f15px">
+						<option value="">请选择开户行所在地</option>
+						<option value="北京市">北京市</option>
+						<option value="天津市">天津市</option>
+						<option value="河北省">河北省</option>
+						<option value="山西省">山西省</option>
+						<option value="内蒙古自治区">内蒙古自治区</option>
+						<option value="辽宁省">辽宁省</option>
+						<option value="吉林省">吉林省</option>
+						<option value="黑龙江省">黑龙江省</option>
+						<option value="上海市">上海市</option>
+						<option value="江苏省">江苏省</option>
+						<option value="浙江省">浙江省</option>
+						<option value="安徽省">安徽省</option>
+						<option value="福建省">福建省</option>
+						<option value="江西省">江西省</option>
+						<option value="山东省">山东省</option>
+						<option value="河南省">河南省</option>
+						<option value="湖北省">湖北省</option>
+						<option value="湖南省">湖南省</option>
+						<option value="广东省">广东省</option>
+						<option value="海南省">海南省</option>
+						<option value="广西壮族自治区">广西壮族自治区</option>
+						<option value="甘肃省">甘肃省</option>
+						<option value="陕西省">陕西省</option>
+						<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+						<option value="青海省">青海省</option>
+						<option value="宁夏回族自治区">宁夏回族自治区</option>
+						<option value="重庆市">重庆市</option>
+						<option value="四川省">四川省</option>
+						<option value="贵州省">贵州省</option>
+						<option value="云南省">云南省</option>
+						<option value="西藏自治区">西藏自治区</option>
+					</select>
+				</div>
+				<div class="ico-arrow-r"></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6" id="bankContainer">
+				<div class="inpName">开户行名称</div>
+				<div class="inp"><input type="text" value="" placeholder="请输入开户银行支行名称" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">验证码</div>
+				<div class="inp"><input type="text" placeholder="请输入验证码" /></div>
+				<a href="javascript:void(0);" class="supportBank">获取验证码</a>
+				<!--<a href="javascript:void(0);" class="supportBank getTelCode c-cccccc">90s后重新发送</a>-->
+			</div>
+		</div>
+
+		<div class="pl15 pr15 pt20">
+			<a href="javasript:void(0);" class="btn btnYellow">提交</a>
+		</div>
+		<p class="txtBot text-center">遇到问题？请
+			<a href="javascript:void(0);" class="f13px c-1fcafb">联系客服</a>
+		</p>
+
+		<div class="alert webkit-box box-center hide">
+			<div class="alert-select">
+				<div class="pl18 pr18">
+					<div class="c-999999 f15px text-center pt10 pb10 bb-dashed">请确认信息</div>
+				</div>
+				<div class="c-333333 f17px pt25 pb10 pl40">银行地址：广东省东莞市</div>
+				<div class="c-333333 f17px pb25 pl15 pl40">支行名称：东莞宏伟路支行</div>
+				<div class="clearfix bt-e6e6e6">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6">取消</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-ffc61a f17px">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+	</script>
+
+</html>

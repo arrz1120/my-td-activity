@@ -1,0 +1,108 @@
+/*debt_detail*/
+.state1 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state1.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state2 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state2.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state3 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state3.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state4 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state4.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state5 {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state5.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state7 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state7.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+}
+
+.state8 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state8.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.state9 {
+	width: 11px;
+	height: 11px;
+	background-image: url('/javaProject/imgs/images/state9.png');
+	background-size: 100% 100%;
+	vertical-align: 0;
+	margin-right: 5px;
+}
+
+.debt-amo {
+	padding-top: 23px;
+	position: relative;
+}
+
+.debt-amo-yLine {
+	position: absolute;
+	left: 50%;
+	top: 35px;
+	width: 1px;
+	height: 45px;
+	background: #eea718;
+}
+
+/*invest_detail*/
+.bg005{background: #fcfcfc;}
+.detail-top-bg{width: 100%;position: relative;background: #fff;}
+.detail_tit{padding-right: 15px;}
+
+.mt1{margin-top: 1px;}
+.mt2{margin-top: 2px;}
+.pl35{padding-left: 35px;}
+.f37px{font-size: 37px;line-height: 37px;}
+.rotateZ0{-webkit-transform: rotateZ(0);}
+.rotateZ90{-webkit-transform: rotateZ(90deg);}
+.ico-right{display: inline-block;width: 8px;height: 14px;background: url(/javaProject/imgs/images/icon/ico-arrow-r-d1d1d1.png) no-repeat;background-size: 100% 100%;margin-left: 10px;vertical-align: -2px;}
+.icon-triagle-r{display: inline-block;width: 7px;height: 9px;background: url(/javaProject/imgs/images/ico-triangle-r.png) no-repeat;background-size: 100% 100%;margin-right: 13px;vertical-align: 3px;transition: transform 0.2s linear;}
+.lookProject{position: absolute;right: 15px;top: 50%;margin-top: -12px;}
+.rect_o{color: #fc9732;font-size: 11px;display: inline-block;width: 55px;height: 17px;border: 1px solid #fc9732;border-radius: 2px;text-align: center;line-height: 14px;margin-left: 8px;top: 30px;}
+@media only screen and (max-width: 320px) {
+	.f17px{font-size: 15px !important;}
+}
+
+/*invest_record*/
+

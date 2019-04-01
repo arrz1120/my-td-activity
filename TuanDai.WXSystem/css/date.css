@@ -1,0 +1,107 @@
+.lh1{line-height: 1 !important;}
+.date-header{height: 60px;background: #ffcf1f;}
+.date-header-month b{display: inline-block;width: 11px;height: 18px;background: url(/imgs/images/icon/slant.png) no-repeat;background-size: 100% 100%;margin-left: 6px;}
+.date-header-btn{font-size: 15px;color: #694514;height: 24px;line-height: 24px;text-align: center;width: 74px;border: 1px solid #694514;border-radius: 4px;margin-top: 16px;}
+.date_row ul{white-space: nowrap;}
+.date_row li{width: 40px;height: 40px;line-height: 40px;text-align: center;font-size: 15px;position: relative;color: #212121;border: 1px solid transparent;border-radius: 50%;float: left;margin-top: 19px;}
+.date_row li.today{background: #fff8de;color: #212121 !important;}
+.date_row li.red{color: #fd6040;}
+.date_row li.red div{position: absolute;top: 19px;left: 0;width: 100%;}
+.date_row li.red div i{display: inline-block;width: 4px;height: 4px;border-radius: 50%;}
+.date_row li.red div i.ico_return{background: #fab600;margin-right: 2px;}
+.date_row li.red div i.ico_repay{background: #4ac6ff;}
+.date_row li.red div i.ico_notready{background: #a7cb3a;margin-right: 2px;}
+
+.week{background: #f2f2f2;height: 30px;}
+.week li{height: 30px;line-height: 30px;margin-top: 0;color: #808080;font-size: 12px;}
+
+.date_mark{text-align: center;margin-top: 0;}
+.swiper-pagination-bullet{opacity: 1;width: 7px;height: 2px;border-radius: 1px;background: #e6e6e6;margin-right: 5px;border-radius: 2px;}
+.swiper-pagination-bullet-active{background: #ffcf1f;}
+
+.moneyInfo{padding: 2px 15px 0 35%;}
+
+/*.sam-p1 span{color: #fd6040;}*/
+.sam-icon{display: inline-block;width: 8px;height: 8px;border-radius: 50%;margin-right: 10px;vertical-align: middle;}
+.sam-yellow{background: #fab600;}
+.sam-green{background: #a7cb3a;}
+.sam-blue{background: #4ac6ff;}
+.sam-p2 .lf{padding-left: 17px;}
+.sam-p2 .rf{padding-left: 7px;}
+
+.zx-item{
+	color: #999;
+	position: absolute;
+	line-height: 1;
+	top: 20px;
+	right: 15px;
+}
+.zx-item:before{
+	content: "";
+	width: 7px;
+	height: 7px;
+	background: url(/imgs/images/icon/icon-zx.png) no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right:5px;
+}
+.zcb-item{
+	color: #999;
+	position: absolute;
+	line-height: 1;
+	top: 20px;
+	right: 15px;
+}
+.zcb-item:before{
+	content: "";
+	width: 7px;
+	height: 6px;
+	background: url(/imgs/images/icon/icon-zcb.png) no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right:5px;
+}
+
+.data-tips{display: block;height: 30px;line-height: 30px;background: #fef9ea;color: #f58300;padding-left: 15px;}
+
+
+/*弹框*/
+.dateAlert{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #f1f3f5;z-index: 10;}
+.d_top{height: 49px;line-height: 49px;text-align: center;position: relative;background: #f8f8f8;}
+.d_top span{font-size: 15px;}
+.d_top i{display: block;width: 40px;height: 40px;position: absolute;right: 0;top: 4px;background: url(/imgs/images/icon/ico-close.png) center center no-repeat;background-size: 12px 12px;}
+.d_tab .cur{border-bottom: 2px solid #fab600;}
+.d_tab .cur p:first-child{color: #fab600;}
+.d_list{-webkit-animation: d_list 0.4s 0.2s ease-out both;}
+.d_list .d_item{background: #fff;border: 1px solid #e6e6e6;border-radius: 2px;padding: 15px;}
+.d_list .d_item .r_money{font-size: 17px;margin-left: 10px;}
+.d_list .d_item .proName .lf{width: 72%;}
+.d_list .d_item .d_itemTips{display: inline-block;width: auto;height: 14px;line-height: 14px;padding: 0 5px;border: 1px solid #fab600;color: #fab600;border-radius: 20px;margin-left: 10px;}
+
+.moveToTop{-webkit-animation: moveToTop 0.3s ease-out both;}
+.moveToBottom{-webkit-animation: moveToBottom 0.3s ease-in both;}
+@-webkit-keyframes moveToTop{
+	0%{-webkit-transform: translate(0,100%);}
+	100%{-webkit-transform: translate(0,0);}
+}
+@-webkit-keyframes moveToBottom{
+	0%{-webkit-transform: translate(0,0);}
+	100%{-webkit-transform: translate(0,100%);}
+}
+@-webkit-keyframes d_list{
+	0%{-webkit-transform: translate(0,40px);opacity: 0;}
+	100%{-webkit-transform: translate(0,0);opacity: 1;}
+}
+
+@media only screen and (max-width: 360px) {
+	.d_list .d_item{padding: 10px;}
+	.d_list .d_item .r_money{font-size: 16px;}
+}
+@media only screen and (max-width: 320px) {
+	.d_list .d_item{padding: 10px 8px;}
+	.d_list .d_item .d_itemTips{margin-left: 5px;}	
+	.d_list .d_item .r_money{font-size: 14px;margin-left: 4px;}
+	.d_list .d_item .d_itemTips{padding: 0 2px;}
+}

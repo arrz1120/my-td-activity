@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>债权转让</title>
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/account/debt.css" />
+	</head>
+	 <script type="text/javascript"> 
+        var pStatus = "<%=CurTabName%>";
+        var curPageUrl = "<%=curPageUrl%>";
+    </script>
+
+	<body class="bg-f1f3f5">
+		<header class="headerMain2">
+			<div class="header bb-e6e6e6">
+				<div class="header-tab">
+					<a href="/javaProject/html/account/my_debt_carry_list.html" class="">承接</a>
+					<a href="javascript:void(0);" class="active">转让</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="tab-nav webkit-box bg-fff bb-e6e6e6 pt10 pb10">
+			<div class="box-flex1 text-center f17px tab-nav-active" id="tabCanTran">可转让</div>
+			<div class="box-flex1 text-center f17px" id="tabTraning">转让中</div>
+			<div class="box-flex1 text-center f17px" id="tabFinished">已完成</div>
+		</div>
+
+		<div id="wrapper" class="pr0" style="top:94px;background: #f1f3f5;">
+			<div id="scroller">
+				<div id="pullDown" style="margin-bottom: 0;background: #f1f3f5;">
+					<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+				</div>
+				<!--下拉数据 start-->
+
+				<div class="debt-on">
+					<div class="bg-fff8e2 text-center c-fd6040 f13px pt8 pb8" style="display:none;" id="dvLastTime">
+						<i class="ico ico-clock-red"></i>剩余时间：<span class="timeSet" count="0">00时00分00秒</span>
+					</div>
+					<div id="thelist" style="margin:0;padding:0;"></div>
+				</div>
+
+				<!--可转让、转让中：空-->
+				<div class="debt-empty" style="display: none;">
+					<div class="img-debt-empty">
+						<img src="/javaProject/imgs/images/debt-empty.png" />
+					</div>
+					<div class="text-center f17px c-212121 mt40" id="dvEmptyText">暂无可转让标的</div>
+					<a href="/pages/invest/zhaiquan_question.aspx" class="block f13px c-ff7357 text-center mt15">查看转让规则</a>
+				</div>
+
+				<!--下拉数据 end-->
+				<div id="pullUp" style="background: #f1f3f5;">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert z-index10" style="display: none;"></div>
+
+		<script type="text/javascript" src="/javaProject/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/iscroll.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/scrollUpdate.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/base.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/jquery.extensions.js"></script>
+		<script type="text/javascript" src="/javaProject/scripts/zqzrTransfer.js"></script>
+
+	</body>
+
+</html>

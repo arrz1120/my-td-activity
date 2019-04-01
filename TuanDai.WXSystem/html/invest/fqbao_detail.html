@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>分期宝-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/invest.css" />
+    <link rel="stylesheet" type="text/css" href="/css/investProcess.css" />
+</head>
+<body>
+<section class="wrapper-invest">
+    <h1>培训深圳博沃思050</h1>
+    <p class="ml10 c-ababab f12px">借款总额:</p>
+    <p class="ml10 c-ff6600 f16px">2,400,000<span class="c-424242 f16px">元</span></p>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span>14%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款期限:<span>3个月</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span>100</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款方式:<span>按月付息到期还本</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>借入份数:<span>20000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>剩余份数:<span>4000</span><span class="c-212121">份</span></p>
+        </div>
+    </div>
+    <div class="invest-info">
+        <div class="info-m">
+            <p>截止时间: <span>2014</span><span class="c-212121">年</span><span>12</span><span class="c-212121">月</span><span>11</span><span class="c-212121">日</span><span>23</span><span class="c-212121">时</span><span>30</span><span class="c-212121">分</span></p>
+        </div>
+    </div>
+
+    <div class="bg-fbfbf9"><h2><img src="/imgs/images/ico-title.png" alt=""/>借款详情</h2></div>
+    <h3>项目介绍</h3>
+    <p class="des f12px">借款人为团贷网合作机构--深圳市博沃思文化传播有限公司的学员。</p>
+    <h3>产品介绍</h3>
+    <p class="des f12px">分期宝是团贷网与合作机构共同推出的产品，借款人都为合作机构长期客户，款项用于借款人在合作机构的消费。款项直接定向支付至合作机构，借款人按月等额还款。分期宝借款人必须为团贷网合作机构会员，由团贷网和合作机构双重审核后才能发标借款。
+    </p>
+    <h3>风控措施</h3>
+    <div class="ul-box">
+        <ul>
+            <li>团贷网严格借款人信用风险审核；</li>
+            <li>团贷网审核合作机构，确保合作机构具有经营资质；</li>
+            <li>采用资金定向支付方式 ，确保借款人的借款用于机构消费；</li>
+            <li>借款人已提供身份证、培训机构证明、收入证明、工作证/学生证。</li>
+        </ul>
+    </div>
+    <h3>风险评估:</h3>
+    <p class="ml10 c-3d3d3d f12px">经团贷网评估，此标风险系数为：<span class="c-3db331">低</span></p>
+
+</section>
+
+<!--投资弹框-->
+<div class="zIndex200 coverBox invest-alert" id="invest_process">
+	<div class="pt10 pb10 pl15 bg-fff">
+        <div class="ico-round-close" id="detail-close"></div>
+        <div class="f20px c-212121 text-center"></div>
+    </div>
+    <div class="pl15 pr15">
+	    <div class="f14px c-212121">购买份数：</div>
+	    <div class="invest-alert-inp mt10">
+	    	<input type="text" placeholder="1000元/份  剩余30,000份 "/>
+	    	<span class="minus">-</span>
+	    	<span class="add">+</span>
+	    </div>
+	    <div class="mt20 invest_type">
+	    	<ul class="clearfix">
+	    		<li class="active">本息复投</li>
+	    		<li>本金复投</li>
+	    	</ul>
+	    </div>
+	    <div class="mt20 f14px c-212121 pt15 pb15" style="border-top: 1px solid #e6e6e6;">
+	    	预期收益：<span class="f14px c-fd6040">￥106.80 </span>（每月付息）
+	    </div>
+	    <div class="btn btnYellow" id="investNow">马上投资 ￥150,000</div>
+	    <div class="mt10 f12px text-center">投资即表示同意<span class="f12px c-fab600">《We计划服务协议》</span></div>
+    </div>
+</div>
+
+<!--设置交易密码-->
+<div class="zIndex200 coverBox invest-alert hide bg-f6f7f8">
+	<div class="pt10 pb10 pl15 bg-f6f7f8">
+        <div class="ico-round-close" id="detail-close"></div>
+        <div class="f20px c-212121 text-center"></div>
+    </div>
+   <div class="text-center">
+		<div class="pic-lock mt20">
+			<img src="/imgs/images/pic/lock.png"/>
+		</div>
+		<p class="mt15 fb f14px c-212121">设置交易密码</p>
+		<p class="mt10 f11px c-999999 pr10 pl10">交易密码主要用于保障资金交易(投资、充值和提现)安全。</p>
+	</div>
+	
+	<div class="clearfix inpBox4 bg-fff pt10 pb10 pl15 mt30">
+		<div class="lf f14px c-212121">交易密码</div>
+		<input type="text" class="lf f14px" placeholder="请设置交易密码" />
+	</div>
+	
+	<div class="c-999999 f11px pl15 mt5">6~16个字符，需包含字母和数字</div>
+	
+	<div class="pl15 pr15 mt30">
+		<a class="btn btnYellow">确定</a>
+	</div>
+</div>
+
+<!--注册登录流程-->
+<div class="zIndex200 coverBox invest-alert hide">
+	<div class="pt10 pb10 pl15 bg-fff">
+        <div class="ico-round-close" id="detail-close"></div>
+        <div class="f20px c-212121 text-center"></div>
+    </div>
+    <div class="" id="animate1">
+    	<div class="moveToTop1">
+		    <div class="pt17 text-center td_logo fadeOut1">
+		    	<img src="/imgs/images/bg/tuandai_logo.png"/>
+		    </div>
+		    <div class="pt17 text-center font-box">
+		    	<p class="fadeOut2">马上开始投资</p>
+		    	<p class="loginTxt opacity0">登录</p>
+		    	<p class="zhuceTxt opacity0">注册</p>
+		    </div>
+		    <div class="input-box pt38">
+		    	<input type="text" placeholder="手机号码"/ id="tel-inp">
+		    </div>
+    	</div>
+    </div>
+    
+    <div class="animate2 hide" id="animate2">
+	    <div class="input-box moveToTop2 opacity0">
+	    	<input type="password" placeholder="登录密码"/ id="logincode-inp">
+	    </div>
+	    <div class="mt50 pl20 pr25 moveToTop3 opacity0">
+	    	<div class="btn btnYellow opacity05" id="loginConfirm">确定</div>
+		    <div class="mt30 tips-box scaleX scaleX0" id="login-tips">
+		    	<p style="display: none;">登录密码不正确</p>
+		    </div>
+	    </div>
+    </div>
+    
+    <div class="animate2 hide" id="animate3">
+	    <div class="input-box moveToTop2" id="likeHolder">
+    		<input type="password" name="txtPassword" id="txtPassword" class="codeIpt">
+    		<p class="likePlaceholder">登录密码 <span>（6-16个字符，数字+字母）</span></p>	
+    		<input type="button" id="btnSee" class="btneyehui" value="" />
+	    </div>
+	    <div class="input-box moveToTop2">
+	    	<input type="text" placeholder="验证码" id="phoneCode-inp">
+	    	<div class="phoneCode">发送验证码</div>	
+	    </div>
+	    <div class="noPhoneCode moveToTop2">收不到验证码 ? 使用<a href="">语音验证码</a></div>
+	    <div class="mt25 pl20 pr25 moveToTop3">
+	    	<div class="btn btnYellow opacity05" id="zhuceConfirm">确定</div>
+		    <div class="mt30 tips-box scaleX scaleX0" id="zhuce-tips">
+		    	<p style="display: none;">登录密码不正确</p>
+		    </div>
+	    </div>
+    </div>
+    
+</div>
+
+
+
+<footer>
+    <a href="javascript:void(0)" class="loan-button">马上出借</a>
+</footer>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<!--<script type="text/javascript" src="/scripts/invest.js?v=20150901"></script>-->
+<script type="text/javascript">
+    //显示密码
+    $("#btnSee").click(function (){
+    	var $txtPassword = $("#txtPassword");
+    	if($txtPassword.attr('type')=='password'){
+            $txtPassword.attr('type', 'text');
+    	}else{
+    		$txtPassword.attr('type', 'password');
+    	}
+    });
+	function likePlaceHolder(){
+		var txtPassword = document.getElementById('txtPassword');
+		var $txtPassword = $("#txtPassword");
+		var phoneCode = document.getElementById('phoneCode-inp');
+		var $phoneCode = $("#phoneCode-inp");
+		var placeholder = $(".likePlaceholder");
+		$("#likeHolder").click(function(){
+			if(txtPassword.value==''){
+				$txtPassword.focus();
+			}
+		});
+		$txtPassword.blur(function(){
+			if($(this).val()==''){
+				placeholder.show();
+			}
+		});
+		txtPassword.oninput = function(){
+			if(this.value.length==0){
+				placeholder.show();
+			}else{
+				placeholder.hide();
+			}
+			if(this.value.length >= 6 && phoneCode.value.length>6){
+        		$("#zhuceConfirm").removeClass('opacity05');
+        	}else{
+        		$("#zhuceConfirm").addClass('opacity05');
+        	}
+		}
+		phoneCode.oninput = function(){
+			if(txtPassword.value.length >= 6 && this.value.length>6){
+        		$("#zhuceConfirm").removeClass('opacity05');
+        	}else{
+        		$("#zhuceConfirm").addClass('opacity05');
+        	}
+		}
+		
+	}
+	likePlaceHolder();
+        
+        //注册登录动画
+        var telInp = document.getElementById('tel-inp');
+        var isReg = false;
+        telInp.oninput = function(){
+        	if(telInp.value.length == 11){
+        		$("#tel-inp").blur();
+        		//已注册,显示登录
+        		if(isReg == true){
+        			$("#animate1").addClass('animate1');
+        			$(".loginTxt").addClass('fadeIn1');
+        			$("#animate2").removeClass('hide');
+        		}
+        		//未注册,显示注册
+        		else{
+        			$("#animate1").addClass('animate1');
+        			$(".zhuceTxt").addClass('fadeIn1');
+        			$("#animate3").removeClass('hide');
+        		}
+        		
+        	}
+        }
+        
+        //改变登录确定按钮透明度
+        document.getElementById('logincode-inp').oninput = function(){
+        	if(this.value.length >= 6){
+        		$("#loginConfirm").removeClass('opacity05');
+        	}else{
+        		$("#loginConfirm").addClass('opacity05');
+        	}
+        }
+        
+        //改变注册确定按钮透明度
+        document.getElementById('logincode-inp').oninput = function(){
+        	if(this.value.length >= 6){
+        		$("#loginConfirm").removeClass('opacity05');
+        	}else{
+        		$("#loginConfirm").addClass('opacity05');
+        	}
+        }
+        
+        //输入错误提示
+        $("#loginConfirm").click(function(){
+        	//透明度为0.5的时候不可点击
+        	if($(this).hasClass('opacity05')){
+        		return false;
+        	}else{
+	        	$(".tips-box").removeClass('scaleX0').addClass('scaleX1');
+	        	setTimeout(function(){
+	        		$(".tips-box").find('p').fadeIn(240);
+	        	},240);
+	        	setTimeout(function(){
+	        		$(".tips-box").find('p').fadeOut(240);
+	        	},2000);
+	        	setTimeout(function(){
+	        		$(".tips-box").removeClass('scaleX1').addClass('scaleX0');
+	        	},2240);
+        	}
+        })
+        
+        
+	 	//投资弹框
+        function moveToTop(ele){
+        	$(ele).removeClass('moveToBottom').removeClass('hide').addClass('moveToTop').bind("touchmove", function(e) {
+					e.preventDefault();
+				})
+        }
+        function moveToBottom(ele){
+        	$(ele).removeClass('moveToTop').addClass('moveToBottom');
+        	setTimeout(function(){
+        		$(ele).addClass('hide');
+        	},500);
+        }
+        $("footer").find('a').click(function(){
+    		moveToTop("#invest_process");
+        });
+        $("#detail-close").click(function(){
+        	moveToBottom("#invest_process");
+        });
+</script>
+</body>
+</html>

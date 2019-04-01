@@ -1,0 +1,211 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>游戏专区</title>
+	<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+	<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+	<script type="text/javascript" src="js/rem.js"></script>
+	<link rel="stylesheet" href="css/style.css?v=news" />
+</head>
+<body>
+<section class="wrap pos-r scroll scroll-active">
+	<header class="bg-size">
+		<p class="page-title"><i class="bg-size"></i><span>团币游戏专区</span></p>
+	</header>
+	<!--分页下拉刷新上拉加载-->
+	<div id="wrapper">
+		<div id="scroller">
+			<div id="pullDown">
+				<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+			</div>
+			<div id="list">
+				<a href="">
+					<div class="list-con">
+						<div class="img-box">
+							<img src="images/1.png" alt="">
+						</div>
+						<div class="con-b">
+							<p class="title">股市竞猜</p>
+							<p class="s-title">猜涨跌，瓜分上万团币</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div id="pullUp">
+				<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+			</div>
+		</div>
+	</div>
+
+	<!--<div class="list-con">-->
+	<!--<div class="img-box webkit-box box-center bg-e6e6e6">-->
+	<!--<p><i class="bg-size"></i>敬请期待</p>-->
+	<!--</div>-->
+	<!--<div class="con-b">-->
+	<!--<p class="title">团币云宝</p>-->
+	<!--<p class="s-title">梦想再渺小，机会不会少</p>-->
+	<!--</div>-->
+	<!--</div>-->
+	<div class="footer">
+		<a href="">做任务  赚团币&gt;</a>
+	</div>
+</section>
+<script type="text/javascript" src="js/fastclick-jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/scripts/iscroll.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+        resetDom();
+    });
+
+//    下拉刷新上拉加载
+    var myScroll,
+        pullDownEl, pullDownOffset,
+        pullUpEl, pullUpOffset;
+    var pageIndex = 1;
+    var pageCount = 1;
+
+    function resetDom(){
+        var downHtml = '<div class="centerBox-wp">'+
+            '<div class="pullDownTips">'+
+            '<span class="pullDownIcon"></span>'+
+            '<div class="pullLoading">'+
+            '<div class="loading-circle"></div>'+
+            '<div class="loading-logo"></div>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+        var upHtml = '<div class="centerBox-wp">'+
+            '<div class="pullDownTips">'+
+            '<div class="pullLoading">'+
+            '<div class="loading-circle"></div>'+
+            '<div class="loading-logo"></div>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+
+        $('#pullDown').html('').html(downHtml);
+        $('#pullUp').html('').html(upHtml);
+    }
+
+
+    /**
+     * 下拉刷新 （自定义实现此方法）
+     * myScroll.refresh();  // 数据加载完成后，调用界面更新方法
+     */
+
+    var scrollCon = '<a>'
+        +'<div class="list-con">'
+        +'<div class="img-box">'
+        +'<img src="images/1.png">'
+        +'</div>'
+        +'<div class="con-b">'
+        +'<p class="title">团币云宝</p>'
+        +'<p class="s-title">梦想再渺小，机会不会少</p>'
+        +'</div>'
+        +'</div>'
+        +'</a>';
+
+    function pullDownAction () {
+        setTimeout(function () { // <-- Simulate network congestion, remove setTimeout from production!
+            var el, list, i;
+            el = document.getElementById('list');
+
+            for (i=0; i<3; i++) {
+                list = document.createElement('div');
+
+                list.innerHTML = scrollCon;
+                el.appendChild(list, el.childNodes[0]);
+            }
+
+            myScroll.refresh();  //数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+        }, 1000); // <-- Simulate network congestion, remove setTimeout from production!
+    }
+
+    /**
+     * 滚动翻页 （自定义实现此方法）
+     * myScroll.refresh();  // 数据加载完成后，调用界面更新方法
+     */
+    function pullUpAction () {
+        setTimeout(function () { // <-- Simulate network congestion, remove setTimeout from production!
+            var el, list, i;
+            el = document.getElementById('list');
+
+            for (i=0; i<3; i++) {
+                list = document.createElement('div');
+                list.innerHTML = scrollCon;
+                el.appendChild(list, el.childNodes[0]);
+            }
+
+            myScroll.refresh();  // 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+        }, 1000); // <-- Simulate network congestion, remove setTimeout from production!
+    }
+
+    /**
+     * 初始化iScroll控件
+     */
+    function loaded() {
+        pullDownEl = document.getElementById('pullDown');
+        pullDownOffset = pullDownEl.offsetHeight;
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+
+        myScroll = new iScroll('wrapper', {
+            scrollbarClass: 'myScrollbar', /* 重要样式 */
+            useTransition: false, /* 此属性不知用意，本人从true改为false */
+            topOffset: pullDownOffset,
+            onRefresh: function () {
+                if (pullDownEl.className.match('loading')) {
+                    pullDownEl.className = '';
+//                    pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                } else if (pullUpEl.className.match('loading')) {
+                    pullUpEl.className = '';
+//                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                    //有翻页到底时不显示
+//                    if (pageIndex == pageCount) {
+//                        $("#pullUp").hide();
+//                    }
+                }
+            },
+            onScrollMove: function () {
+                if (this.y > 10 && !pullDownEl.className.match('pulling')) {
+                    pullDownEl.className = 'pulling';
+                    pullDownEl.querySelector('.pullDownIcon').style.transform = 'rotateZ(-180deg)';
+                    pullDownEl.querySelector('.pullDownIcon').style.webkitTransform = 'rotateZ(-180deg)';
+                    this.minScrollY = 0;
+                }
+                if (this.y < 10 && pullDownEl.className.match('pulling')) {
+                    pullDownEl.className = '';
+                    pullDownEl.querySelector('.pullDownIcon').style.transform = 'rotateZ(0)';
+                    pullDownEl.querySelector('.pullDownIcon').style.webkitTransform = 'rotateZ(0)';
+                    this.minScrollY = -pullDownOffset;
+                }
+            },
+            onScrollEnd: function () {
+                if (pullDownEl.className.match('pulling')) {
+                    pullDownEl.className = 'loading';
+                    pullDownEl.querySelector('.pullDownIcon').style.transform = 'rotateZ(0)';
+                    pullDownEl.querySelector('.pullDownIcon').style.webkitTransform = 'rotateZ(0)';
+                    pullDownAction();   // Execute custom function (ajax call?)
+                }
+                if (this.y == this.maxScrollY ) {
+                    pullUpEl.className = 'loading';
+                    pullUpAction();
+                }
+            }
+        });
+
+        setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+    }
+
+    //初始化绑定iScroll控件
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    document.addEventListener('DOMContentLoaded', loaded, false);
+
+</script>
+</body>
+</html>

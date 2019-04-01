@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.CunGuanTong.Client;
+using TuanDai.CunGuanTong.Model;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.Member.cgt
+{
+    public partial class activeCgt : UserPage
+    { 
+        protected string strGoUrl = "";
+        protected string StrErr = "";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                ActiveCgt();
+            }
+        }
+
+        protected void ActiveCgt() {
+            Guid userid = WebUserAuth.UserId.Value;
+            var usermode = new UserBLL().GetUserBasicInfoModelById(userid);
+            if (usermode != null)
+            {
+                var cgtmode = new QueryClient().GetUserByPlatformUserNo(userid);
+                if (cgtmode == null || cgtmode.accountStage == 1)
+                {
+                    Response.Redirect("/Member/cgt/openCgt.aspx",false);
+                    return;
+                }
+                string rtn = string.Empty;
+                if (usermode.UserTypeId == 1)
+                {
+                    string errorMessage = string.Empty;
+                    string respData = string.Empty;
+                    QueryClient cli = new QueryClient();
+                    bool isCli = cli.QUERY_USER_INFORMATION_API(userid, ref errorMessage, ref respData);
+                    if (isCli)
+                    {
+                        //QUERY_USER_INFORMATION                
+                        QUERY_USER_INFORMATION_Response model = Newtonsoft.Json.JsonConvert.DeserializeObject<QUERY_USER_INFORMATION_Response>(respData);
+                        if ((model != null) && (model.isImportUserActivate))
+                        {
+                            bool result = TuanDai.CunGuanTong.Client.UserClient.USER_INFORMATION_CHECK(userid, ref errorMessage);
+                            if (result)
+                            {
+                                Response.Redirect("/Member/my_account.aspx");
+                                return;
+                            }
+                        }
+                    }
+
+                    ACTIVATE_IMPORT_USER_Request request = new ACTIVATE_IMPORT_USER_Request();
+
+                    request.callbackUrl = CgtCallBackConfig.GetCgtCallBackUrl(CgtCallBackConfig.CgtCallBackType.ActivateImportUser);
+                    request.platformUserNo = userid.ToString();
+                    request.userDevice = userDevice.MOBILE;
+                    rtn = UserClient.ACTIVATE_IMPORT_USER_Req(request);
+                    strGoUrl =rtn; 
+                    return;
+                }
+                else {
+                    StrErr = "暂时不支持企业用户";
+                }
+            }
+            Response.Redirect("/Member/my_account.aspx");
+        }
+    }
+}

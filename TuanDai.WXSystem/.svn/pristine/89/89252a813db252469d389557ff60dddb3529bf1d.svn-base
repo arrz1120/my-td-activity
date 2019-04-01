@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>我的账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20161117" />
+		<link rel="stylesheet" type="text/css" href="/css/account2_new.css?v=0232323" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pageContainer">
+	
+			<div class="mt10 bg-fff acount-link">
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m1"></i>
+					<a href="" class="bb-e6e6e6">我要借款<i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m2"></i>
+					<a href="" class="bb-e6e6e6">我的借款<i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m3"></i>
+					<a href="" class="bb-e6e6e6">还款计划<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+	
+			<div class="mt10 bg-fff acount-link">
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m4"></i>
+					<a href="" class="bb-e6e6e6">债权转让<i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m5"></i>
+					<a href="" class="bb-e6e6e6">帮助中心<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+
+
+			<div class="mt10 bg-fff acount-link">
+				<div class="click-respond linkBox">
+					<i class="ico_more ico_m6"></i>
+					<a href="" class="bb-e6e6e6">会员中心<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+
+			<div class="quit click-respond" id="quit">退出登录</div>
+			<div class="kefu text-center mt15 f13px">客服电话：400 641 0888</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+	</script>
+
+</html>

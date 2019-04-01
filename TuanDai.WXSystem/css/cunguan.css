@@ -1,0 +1,141 @@
+html,body{min-height: 100%;}
+input{border: none;outline: none;}
+.pl0{padding-left: 0 !important;}
+.bg-cecfd0{background-color: #cecfd0;}
+.step{position: relative;}
+.step .lf{height: 45px;line-height: 45px;border-top: 3px solid #ebebeb;color: #999;font-size: 14px;}
+.step .lf span{display: inline-block;width: 15px;height: 15px;color: #999;border: 1px solid #999;line-height: 15px;text-align: center;margin-right: 4px;border-radius: 50%;}
+.step .stepActive{border-top: 3px solid #ffcc00;color: #fab600;}
+.step .stepActive span{background: #fab600;border: 1px solid #fab600;color: #fff;}
+.step .lineActive{border-top: 3px solid #ffcc00;}
+.arrow1{display: block;width: 6px;height: 11px;background: url(/imgs/cunguan/arrow1.png) no-repeat;background-size: 100% 100%;position: absolute;left: 184px;top: 19px;}
+.arrow3{left: 123px;}
+.arrow4{left: 247px;}
+.tips{padding: 12px 22px 13px 16px;}
+.tips p{line-height: 18px;color: #999;font-size: 13px;text-align: justify;}
+.inputBox{position: relative;}
+.inputBox .inpName{width: 30%;padding-left: 15px;height: 45px;line-height: 45px;font-size: 15px;}
+.inputBox .inp{width: 50%;}
+.inputBox .inp input{height: 45px;font-size: 15px;width: 100%;}
+.inputBox .arrow2{display: block;width: 7px;height: 13px;background: url(/imgs/cunguan/arrow2.png) no-repeat;background-size: 100% 100%;position: absolute;right: 15px;top: 17px;}
+.inputBox .supportBank{display: block;height: 44px;line-height: 44px;width: 88px;color: #fab600;font-size: 15px;position: absolute;top: 0;right: 0;background: #fff;z-index: 2;text-align: center;}
+.btnBan{opacity: 0.5;}
+.txtBot{color: #ababab;font-size: 13px;margin-top: 40px;}
+
+	
+.sucBox{padding-top: 60px;}
+.ico_suc{width: 110px;height: 110px;background: url(/imgs/cunguan/ico_suc.png) no-repeat;background-size: 100% 100%;}
+.ico_fail{width: 110px;height: 110px;background: url(/imgs/cunguan/ico_fail.png) no-repeat;background-size: 100% 100%;}
+
+.sucTip{height: 65px;line-height: 65px;color: #999;font-size: 15px;}
+.sucTip i{display: inline-block;width: 22px;height: 22px;background: url(/imgs/cunguan/ico_suc2.png) no-repeat;background-size: 100% 100%;margin-right: 10px;vertical-align: -5px;}
+.mianmiBox{padding: 0 15px 15px 15px;}
+.mianmi{border-radius: 7px;box-shadow: 0px 5px 15px 0px rgba(170, 170, 170, 0.1);padding: 19px 20px 40px 20px;}
+.mm_p1{text-align: justify;font-size: 15px;}
+.mm_p2{margin-top: 66px;position: relative;}
+.mm_p2 p:nth-child(1){font-size: 15px;}
+.mm_p2 p:nth-child(1) i{display: inline-block;width: 18px;height: 18px;background: url(/imgs/cunguan/ico_checked.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: -3px;}
+.mm_p2 p:nth-child(2){font-size: 12px;color: #999;margin-top: 4px;padding-left: 34px;}
+.btn_mm{width: 610px;margin: 70px auto 0;}
+
+.jumpPage{width: 100%;height: 100%;padding-bottom: 100px;margin-top: 50% !important;}
+.jump_loading{width: 30px;height: 30px;background: url(/imgs/cunguan/loading.gif) no-repeat;background-size: 100% 100%;}
+.jumpPage p{font-size: 15px;color: #999;margin-top: 15px;}
+
+.suc_p1{margin-top: 27px;font-size: 17px;}
+.suc_p2{font-size: 13px;color: #ababab;margin-top: 5px;}
+
+/*银行列表*/
+.bankList ul li{position: relative;padding: 10px 0 10px 45px;}
+.bankList ul li.selected{background: url(/imgs/cunguan/bankSelect.png) 95% center no-repeat;background-size: 22px 15px;}
+.bankList ul li img{position: absolute;top: 50%;}
+.gongshang,
+.nongye,
+.zhaoshang,
+.jianshe,
+.zhongguo,
+.zhongxin{width: 27px;height: 27px;margin-top: -13px;left: 1px;}
+.guangda{width: 33px;height: 15px;margin-top: -7px;left: 0;}
+.guangfa{width: 27px;height: 24px;margin-top: -12px;left: 1px;}
+.pingan{width: 33px;height: 15px;margin-top: -7px;left: -2px;}
+.xingye{width: 30px;height: 18px;margin-top: -9px;left: 0;}
+.minsheng{width: 27px;height: 21px;margin-top: -10px;left: 2px;}
+.pufa{width: 27px;height: 24px;margin-top: -12px;left: 1px;}
+.youzheng{width: 27px;height: 26px;margin-top: -13px;left: 1px;}
+.jiaotong{width: 25px;height: 27px;margin-top: -13px;left: 3px;}
+.moren{width: 24px;height: 27px;margin-top: -13px;left: 2px;}
+.xiamen{width: 30px;height: 30px;margin-top: -15px;left: 2px;}
+.shanghai{width: 25px;height: 24px;margin-top: -13px;left: 2px;}
+.huaxia{width: 24px;height: 24px;margin-top: -13px;left: 2px;}
+.beijing{width: 25px;height: 27px;margin-top: -13px;left: 3px;}
+
+/*投资前准备*/
+.bg-f2f2f0{background: #f2f2f0;}
+.imgTouZiQian1{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest1.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian2{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest2.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian3{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest3.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian4{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest4.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian5{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest5.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian6{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest6.png) no-repeat;background-size: 100% 100%;}
+.imgTouZiQian7{width: 134px;height: 117px;background: url(/imgs/cunguan/beforeInvest7.png) no-repeat;background-size: 100% 100%;}
+.ico_shield{display: inline-block;width: 13px;height: 15px;background: url(/imgs/cunguan/ico_shield.png) no-repeat;background-size: 100% 100%;margin-right: 6px;vertical-align: -2px;}
+
+.myBank{height: 60px;padding-left: 62px;position: relative;}
+.myBank img{position:absolute;top: 50%;left: 18px;}
+.myBank p{line-height: 60px;color: #333;font-size: 15px;}
+.myBank p span{color: #999;font-size: 15px;margin-left: 12px;}
+
+.rotateZ0{-webkit-transform: rotateZ(0);}
+.rotateZ90{-webkit-transform: rotateZ(90deg);}
+.questionWrap ul li:last-child{border-bottom: 0;}
+.questionWrap ul li i{display: inline-block;width: 7px;height: 9px;background: url(/imgs/images/ico-triangle-r.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;transition: transform 0.2s linear;}
+.questionWrap ul li i.icon-round{width: 7px;height: 7px;background: url(/imgs/images/yuan_gray.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;}
+.questionWrap ul li .arrow-right{width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) no-repeat;background-size: 100% 100%;position: absolute;right: 15px;top: 23px;}
+.flow .flowLine{width: 2px;background: #ffcf1f;position: absolute;left: 22px;top: 1px;height: 84%;}
+.flow dl{padding-left: 45px;padding-right: 15px;}
+.flow dl dt{position: relative;}
+.flow dl dt span{display: block;position: absolute;left: -35px;top: 21px;height: 24px;width: 24px;background:url(/imgs/images/icon/ico-rechargeFlow.png) no-repeat;background-size:24px 96px}
+.flow dl dt span.flow3{background-position:0 0;}
+.flow dl dt span.flow4{background-position:0 -24px;}
+.flow dl dt span.flow1{background-position:0 -48px;top: 1px;}
+.flow dl dt span.flow2{background-position:0 -72px;}
+.flow dl dt span.flow5{background:url(/imgs/cunguan/flow5.png) no-repeat;background-size:24px 24px;}
+
+#bankAlert{position: absolute;top: 0;left: 0;width: 100%;z-index: 99;}
+.inpDiv p{line-height: 45px;}
+.inpDiv p .bankImg{margin-left: 10px;vertical-align: 2px;}
+.inpDiv p img{height: 15px;}
+.inpDiv select{border: 0;outline: 0;font-family: inherit;height: 45px;line-height: 45px;}
+.inpDiv select option{font-size: 15px;color: #ababab;}
+
+.c-cccccc{color: #ccc !important;}
+.inputBox .getTelCode{width: 112px;}
+.inputBox .selectDiv{width: 70%;}
+.inputBox .selectDiv select{width: 100%;height: 45px;line-height: 45px;border: 0;outline: 0;font-family: inherit;}
+.inputBox .selectDiv select option{font-size: 15px;color: #ababab;}
+
+.callKeFu{ width: 115px;border-radius: 20px;margin: 15px auto 0;color: #fab600;font-size: 13px;text-align: center;height: 27px;line-height: 27px;display: block;text-align: center;border: 1px solid #fab600;}
+.ico_warn{width: 12px;height: 12px;display: inline-block;background: url(/imgs/cunguan/ico_warn.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -1px;}
+
+/* 2018.1.12 新增 */
+.alert-select{width: 305px;-webkit-border-radius: 10px;}
+.alert-select .btn{ height: 45px; line-height: 45px;}
+.pl45{ padding-left: 40px;}
+.pr45{ padding-right:40px;}
+.hide {display: none;}
+.result-fail{ width: 89px;height: 89px;background: url(/imgs/cunguan/icon-dh.png) no-repeat;background-size: 100% 100%; }
+.result-success{ width: 89px;height: 89px;background: url(/imgs/cunguan/icon-yes.png) no-repeat;background-size: 100% 100%; }
+.result-txt{ font-size: 12px; line-height: 24px; color: #999999; padding: 35px 62px 15px; }
+.result-txt span{ font-size: 12px; color: #fa7d00; }
+.info-tips{ position: relative; padding-left: 30px; color: #fa7d00; }
+.icon-warn{width: 12px;height: 12px;display: inline-block;background: url(/imgs/cunguan/icon-warn.png) no-repeat;background-size: 100% 100%; position: absolute; left: 15px;top:12px;}
+.a-Box{ background: #f2f2f0; position: relative; height: 45px; }
+.a-Box .supportBank{display: block;height: 44px;line-height: 44px;width: 88px;color: #fa7d00;font-size: 15px;position: absolute;top: 0;right: 0;background: #f2f2f0;z-index: 2;text-align: center;}
+.a-Box .supportBank i{ width: 7px;height: 13px;background: url(/imgs/cunguan/arrow3.png) no-repeat;background-size: 100% 100%;display: inline-block; margin-left: 5px; vertical-align: -2px; }
+
+.suc-main{margin: 60px 30px; height:130px;border: 1px #ccc solid; padding-top:30px; position: relative;-webkit-border-radius: 5px;}
+.suc-main .p1{ font-size:17px; color: #ffb700;text-align: center; }
+.suc-main .p2{ font-size:12px; color: #999;text-align: center; padding-top:5px;}
+.suc-main .icon-pd{width: 294px;height: 30px;background: url(/imgs/cunguan/icon-pd.png) no-repeat;background-size: 100% 100%;margin: 0 auto;}
+.suc-main a{ width: 150px;height: 40px;-webkit-border-radius: 20px; line-height: 40px; position: absolute;left: 50%; margin-left:-75px;bottom: -25px;
+    text-align: center; background: #ffb700; font-size:18px; color: #ffffff;}

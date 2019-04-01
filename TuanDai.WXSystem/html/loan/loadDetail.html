@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>借款项目详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160613" />
+	<link rel="stylesheet" type="text/css" href="/css/loan.css?v=20160613" />
+</head>
+<style type="text/css">
+</style>
+<body class="bg-f1f3f5">
+	<div class="detail_t bg-fff">
+		[资]企业资金周转保证无逾期标题长了就换行
+		<a href="javascript:void(0);">还款中</a>
+		<a href="javascript:void(0);" class="isEnd" style="display: none;">已完成</a>
+		<p class="line-h16 f12px c-ababab mt4">2016-01-27&nbsp;&nbsp;&nbsp;&nbsp;13:58</p>
+	</div>
+	<div class="detail_b bt-f8ebcd bb-e6e6e6">
+		<div class="clearfix pt10">
+			<div class="lf w50p c-666666 f13px">借入金额<span class="ml20 c-fab600 f13px">5000.00</span></div>
+			<div class="lf w50p w50p c-666666 f13px">已还本息<span class="ml20 c-fab600 f13px">110.00</span></div>
+		</div>
+		<div class="clearfix pt10 pb15">
+			<div class="lf w50p c-666666 f13px">总利息<span class="ml32 c-fab600 f13px">110.00</span></div>
+			<div class="lf w50p c-666666 f13px">待还本息<span class="ml20 c-fab600 f13px">670.00</span></div>
+		</div>
+		<div class="bt-d1-dash">
+			<div class="clearfix pt13 pb13">
+				<div class="lf w50p w50p c-666666 f13px">借款金额<span class="ml20 f13px">5000.00</span></div>
+				<div class="lf w50p c-666666 f13px">管理费<span class="ml32 f13px">10000.00</span></div>
+			</div>
+		</div>
+	</div>
+	
+	<!--还款中-->
+	<div class="pt10" style="padding-bottom: 60px;">
+		<div class="clearfix loaning_tit bt-e6e6e6">
+			<div class="lf c-808080 f12px">还款中(1/12)</div>
+			<div class="rf c-808080 f12px">待还本金&nbsp;&nbsp;+&nbsp;&nbsp;利息</div>
+		</div>
+		<div class="loaning_project bt-e6e6e6">
+			<div class="clearfix loaning_item">
+				<div class="lf f15px line-h32 c-ababab">2016-02-17<span class="loaningS loaningS1">已还</span></div>
+				<div class="rf f15px line-h32 c-ababab">￥368000.00<span class="c-ababab f16px txt_add">+</span><span class="f15px c-ababab">1800.00</span></div>
+			</div>	
+		</div>
+		<div class="loaning_project bt-e6e6e6">
+			<div class="clearfix loaning_item">
+				<div class="lf f15px line-h32 c-ababab">2016-02-17<span class="loaningS loaningS1">提前还款</span></div>
+				<div class="rf f15px line-h32 c-ababab">￥368000.00<span class="c-ababab f16px txt_add">+</span><span class="f15px c-ababab">1800.00</span></div>
+			</div>
+		</div>
+		<div class="loaning_project bt-e6e6e6">
+			<div class="clearfix loaning_item">
+				<div class="lf f15px line-h32">2016-02-17<span class="loaningS loaningS2">待还款</span></div>
+				<div class="rf f15px line-h32">￥368000.00<span class="c-ababab f16px txt_add">+</span><span class="f15px c-fab600">1800.00</span></div>
+			</div>
+			<div class="loanDelay clearfix">
+				<div class="lf c-fd6040">逾期3天</div>
+				<div class="rf c-fd6040"><span class="c-fd6040 mr15">(逾期利息+滞纳金)</span>￥100.00&nbsp;+&nbsp;100.00</div>
+			</div>
+		</div>
+		<div class="loaning_project bt-e6e6e6 bb-e6e6e6">
+			<div class="clearfix loaning_item">
+				<div class="lf f15px line-h32">2016-02-17<span class="loaningS loaningS2">待还款</span></div>
+				<div class="rf f15px line-h32">￥368000.00<span class="c-ababab f16px txt_add">+</span><span class="f15px c-fab600">1800.00</span></div>
+			</div>	
+		</div>
+		<div class="loan_btn pt25">
+			<div class="btn btnYellow">提前还款</div>
+		</div>
+	</div>
+		
+	<!--借入中-->
+	<div class="bg-fff pos-r" id="loaning" style="display: none;">
+		
+		<div class="pl15 pr15">
+			<div class="pt15 pb15 f15px">
+				借入中
+			</div>
+			<div class="loanBar">
+				<div class="loaningBar" style="width: 65%;"></div>
+			</div>
+			<p class="c-ababab mt8 f13px">截止日期:&nbsp;&nbsp;2016.10.27</p>
+			<p class="c-ababab mt3 f13px">(截止日期前未满标，项目将自动下架)</p>
+		</div>
+		
+		<div class="loan_btn">
+			<div class="btn btnYellow">结束发标</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	//计算高度
+	$("#loaning").height($(window).height()-230);
+</script>
+
+</body>
+</html>

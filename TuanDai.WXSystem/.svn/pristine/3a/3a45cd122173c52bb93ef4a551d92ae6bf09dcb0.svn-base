@@ -1,0 +1,45 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="maintenance.aspx.cs" Inherits="TuanDai.WXApiWeb.APPShutdownMaintenance.html.maintenance" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>停机维护</title>
+    <link rel="stylesheet" href="/APPShutdownMaintenance/css/main.css?v=20170503">
+    <script src="/APPShutdownMaintenance/js/lib/adapt.js?v=20170503"></script>
+</head>
+<body>
+    <div class="content">
+    	<div class="test"></div>
+        <section class="m-container">
+            <p class="m-title">团贷网系统升级公告</p>
+            <p class="m-head">亲爱的团贷网用户：</p>
+            <div class="m-content">
+                <p class="m-txt">您好！  </p>
+               <%-- <p class="m-txt">您好！感谢您一直以来对团贷网的信任与支持！  </p>--%>
+                <p class="m-txt">受团贷网业务调整影响，平台计划于
+                    <font class="txt-orange">2017年5月4日01:00至08:00</font>进行系统升级和维护。在此期间，团贷网官方网站、APP、触屏版、微信端，将无法进行访问和操作。
+                </p>
+                <%--<p class="m-txt">1、用户无法注册或激活厦门银行账户；</p>
+                <p class="m-txt">2、不支持修改厦门银行账户安全设置；</p>
+                <p class="m-txt">3、不支持充值、投资、提现、债权转让、提前 还款、发布资产标等与资金交易相关操作。
+                </p>
+                <p class="m-txt">本次维护属于厦门银行内部系统升级，团贷网官 方网站、APP、触屏版、微信端其他功能不受影响。
+                </p>--%>
+                <p class="m-txt">由此给您带来不便，敬请谅解。</p>
+                <p class="m-txt">我们将继续努力，一如既往竭诚为您提供优质的服务！</p>
+            </div>
+            <p class="m-txt-right">东莞团贷网互联网科技服务有限公司</p>
+            <p class="m-txt-right">2017年5月3日</p>
+        </section>
+    </div>
+</body>
+<script src="/APPShutdownMaintenance/js/lib/fastclick-jquery.js?v=20170503"></script>
+<script src="/APPShutdownMaintenance/js/lib/vendor/jsbridge-3.1.2.js?v=20170503"></script>
+<script src="/APPShutdownMaintenance/js/maintenance.js?v=20170503" type="text/javascript" charset="utf-8"></script>
+</html>

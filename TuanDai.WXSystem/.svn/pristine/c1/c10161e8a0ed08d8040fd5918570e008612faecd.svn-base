@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>商品列表页</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160406" />
+	<link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160406001" />
+	<link rel="stylesheet" type="text/css" href="/css/mall.css?v=20160406001" />
+</head>
+<body class="bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-e6e6e6">
+	        <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">商品详情</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="goods-banner">
+		<div class="zhuanxiang">V5以上专享</div>
+		<img src="/imgs/member/mall/cj11.png"/>
+		<div class="banner-split"></div>
+		
+		<div class="detailActivity">
+			<div class="clearfix">
+				<div class="lf pl10 pt20">
+					<i class="ico_pai1"></i><span class="f30px c-ffffff">7500</span>
+				</div>
+				<div class="rf pt12 pr20">
+					<div class="normalPrice f12px">
+						<i class="ico_pai2"></i>75000
+						<div class="priceLine"></div>
+					</div>
+					<div class="exchangePeople f11px mt3">200人兑换</div>
+				</div>
+			</div>
+			<div class="detail-time detail-time-start pt5 hide">
+				<p class="c-b55e00 f12px">距结束仅剩</p>
+				<p class="c-b55e00 f12px">
+					<span class="c-b55e00 f13px" id="hour1">50</span>:<span class="c-b55e00 f13px" id="minute1">26</span>:<span class="c-b55e00 f13px" id="second1">08</span>
+				</p>
+			</div>
+			<div class="detail-time detail-time-notstart pt5">
+				<p class="c-626262 f12px">距结束仅剩</p>
+				<p class="c-626262 f12px">
+					<span class="c-727272 f13px" id="hour2">50</span>:<span class="c-727272 f13px" id="minute2">26</span>:<span class="c-727272 f13px" id="second2">08</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="pd15 clearfix bg-fff">
+		<div class="lf c-fd6040 f35px">100<span class="f17px c-ababab ml5">团币</span></div>
+		<div class="rf c-ababab f17px pt5">库存<span class="c-fd6040 f17px">1008</span>件</div>
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff pl15 pr15 pt20 pb20">
+		<p class="c-808080 f13px">商品名称</p>
+		<p class="c-212121 f15px">10元投资红包</p>
+		<p class="c-808080 f13px pt20">商品简介</p>
+		<p class="c-212121 f15px text-justify">使用说明...使用说明使用说明...使用说明使用说明使用说明...</p>
+	</div>
+	
+	<div class="pt15 pb15 bg-fafafa">
+		<div class="webkit-box">
+			<div class="box-flex1 c-ababab f12px text-center"><i class="ico-c1"></i>100%正品</div>
+			<div class="box-flex1 c-ababab f12px text-center"><i class="ico-c1"></i>免运费</div>
+			<div class="box-flex1 c-ababab f12px text-center"><i class="ico-c1"></i>售后保障</div>
+			<div class="box-flex1 c-ababab f12px text-center"><i class="ico-c1"></i>3～5天发货</div>
+		</div>
+	</div>
+	
+	<div class="mt10 bg-fff pos-r bt-e6e6e6 bb-e6e6e6 clearfix click-respond">
+		<a href="" class="block pt10 pb10 pl15 f15px">兑换纪录</a>
+		<span class="f15px c-808080 ex_record">20</span>
+		<i class="ico-arrow-r"></i>
+	</div>
+	
+	<div class="mt10 bg-fff bt-e6e6e6 bb-e6e6e6 pd15">
+		<p class="c-808080 f13px">兑换须知</p>
+		<p class="f15px c-212121">1、兑换成功后，投资红包将实时发送至您的账户，请在<span class="f15px c-fd6040">“团贷网个人中心-我的团宝箱”</span>查看并领取；</p>
+		<p class="f15px c-212121">2、投资红包有效期为：领取期限1个月，使用期限1个月</p>
+		<p class="f15px c-212121">3、投资红包仅限投1个月及以上期限的标，使用比例为1:100；</p>
+		<p class="f15px c-212121">4、单笔投资仅限使用一个投资红包；</p>
+		<p class="f15px c-212121">5、由于投资红包的虚拟特性，一经兑换，一律不退还团币。</p>
+	</div>
+	
+	<div class="mt10 bg-fff bt-e6e6e6 bb-e6e6e6 pd15">
+		<p class="c-808080 f13px pb15">商品详情</p>
+		<div class="detail-img text-center"><img src="/imgs/member/mall/pic1.png" alt="" /></div>
+		<div class="detail-img text-center"><img src="/imgs/member/mall/pic2.png" alt="" /></div>
+		<div class="detail-img text-center"><img src="/imgs/member/mall/pic3.png" alt="" /></div>
+		<div class="detail-img text-center pt40 pb40"><img src="/imgs/member/mall/logo.png" alt="" /></div>
+	</div>
+	
+	<div class="mt15">
+		<!--灰色样式：  btnGray ： 商品已下架  -->
+		<div class="btn btnYellow" id="buyNow1">立即购买</div>
+	</div>
+	
+	<div class="alert hide">
+		<div class="alert-con">
+			<div class="con_t bb-e6e6e6">
+				<div class="con_t_img"><img src="/imgs/member/mall/mouse_s.png"/></div>
+				<div class="con_t_name">罗技M238可爱光电萌兽无线鼠标笔记本台式电脑通用光电罗技M238可爱光电萌兽无线鼠标笔记本台式电脑通用光电</div>
+				<div class="clearfix">
+					<div class="c-fd6040 f17px pt8 lf">8500<span class="f13px c-ababab ml5">团币</span></div>
+					<div class="rf c-ababab f13px pt10">库存<span class="f13px c-fd6040">1008</span>件</div>
+				</div>
+				<div class="close"></div>
+			</div>
+			<div class="con_m">
+				<p class="c-808080 pl15 pt10 pb10">颜色</p>
+				<ul class="color_select clearfix pl10 pr10">
+					<li>贵黑</li>
+					<li>爱粉</li>
+					<li class="selected">雅白</li>
+					<li>银灰</li>
+				</ul>
+				<p class="c-808080 pl15 pb10">尺寸</p>
+				<ul class="size_select clearfix pl10 pr10">
+					<li class="selected">S</li>
+					<li>M</li>
+					<li>L</li>
+				</ul>
+				<div class="mt5 pos-r pb20">
+					<p class="c-808080 pl15 pt3">购买数量</p>
+					<div class="countBox">
+						<span class="minus"></span>
+						<input type="text" placeholder="0"/>
+						<span class="add"></span>
+					</div>
+				</div>
+				<div class="btn btnYellow" id="buyNow2">立即购买</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="watchImg webkit-box box-center hide">
+		<p class="f15px"><span class="c-212121 f19px">1/</span>1</p>
+		<img src=""/>
+	</div>
+	
+	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js"></script>
+<script type="text/javascript">
+	$(".con_m").find('li').css('width',($(window).width()-50)/3);
+	
+	function moveFromBottom(){
+		$(".alert").removeClass('hide');
+		$(".alert-con").removeClass('moveToBottom').addClass('moveFromBottom');
+	}
+	function moveToBottom(){
+		$(".alert-con").removeClass('moveFromBottom').addClass('moveToBottom');
+		setTimeout(function(){
+			$(".alert").addClass('hide');
+		},300);
+	}
+	
+	$("#buyNow1").click(function(){
+		moveFromBottom();
+	});
+	$(".alert").click(function(){
+		moveToBottom();
+	});
+	$(".alert-con").click(function(){
+		return false;
+	});
+	$(".close").click(function(){
+		moveToBottom();
+	});
+	
+	$(".goods-banner").click(function(){
+		var watchImg = $(".watchImg");
+		watchImg.find('img').attr('src',$(this).find('img').attr('src'));
+		watchImg.removeClass('hide');
+	});
+	$(".watchImg").click(function(){
+		$(this).addClass('hide');
+	})
+	
+	//倒计时
+	function pad(n) {
+		return(n < 10 ? '0' : '') + n;
+	}
+
+	function time(target_time, hourId, minuteId, secondId) {
+		target_time = new Date(target_time);
+		var $hour = $(hourId),
+			$minute = $(minuteId),
+			$second = $(secondId);
+			
+		getCountdown();
+
+		var timeout = setInterval(function() {
+			getCountdown();
+		}, 1000);	
+
+		function getCountdown() {
+			var now_time = new Date().getTime();
+			var left_time = (target_time - now_time) / 1000;
+			if(left_time<=0){
+				return
+			}
+			left_time = left_time % 86400;
+			hours = pad(parseInt(left_time / 3600));
+			left_time = left_time % 3600;
+			minutes = pad(parseInt(left_time / 60));
+			seconds = pad(parseInt(left_time % 60));
+			console.log(seconds)
+			
+			$hour.html(hours);
+            $minute.html(minutes);
+            $second.html(seconds);
+		}
+	}
+	
+	time('2016/12/22 20:00:00','#hour1','#minute1','#second1');
+	time('2016/12/22 21:00:00','#hour2','#minute2','#second2');
+</script>
+
+</body>
+</html>

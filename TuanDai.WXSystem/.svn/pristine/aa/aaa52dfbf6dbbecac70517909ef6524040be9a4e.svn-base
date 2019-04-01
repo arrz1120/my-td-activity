@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>会员中心</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/memberCenter.css" /><!--会员中心-->
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">会员中心</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="memberCenter">
+    	<header>
+            <div class="headPic"><img src="/imgs/images/headerPic.jpg"></div>
+            <div class="memberinfoBox">
+                <div class="row1">
+                	<span class="lable">我的等级:</span> 
+                	<div class="con">
+	                	<div class="myLevel">
+	                		<img src="/imgs/images/V7.png"/>投资大鳄
+	            		</div>
+	            		<div class="privileges">
+	            			<img src="/imgs/member/icon-huangzuan.png"/>黄钻会员
+	            		</div>
+                	</div>
+                </div>
+                <div class="row1">
+                	<span class="lable">成长值:</span> 
+                	<div class="bar">
+                		<div class="percent" style="width: 42.7%;"></div>
+                		<p>1709/3999</p>
+                	</div>
+                </div>
+            </div>
+        </header>
+        <div class="ad">
+        	<img src="/imgs/member/icon_gift.png"/><p>您已获得一个88元的投资礼包</p>
+        	<a id="clickToGet" class="clickToGet" href="javascript:void(0)">点击领取</a>
+        </div>
+        <section>
+        	<div class="secWrap">
+        		<div class="secTit secTit01">
+        			<img class="ico_arrow_r2" src="/imgs/images/ico_arrow_r2.png"/>
+        			<div class="link link01">
+        				<a href="myPrivileges.html">查看更多</a>
+        			</div>
+        		</div>
+        		<div class="secCon">
+        			<div class="swiper-container1" id="in_industry">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges1_gray.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p class="c-b2b2b2">升级投资礼包</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges2.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p class="c-b2b2b2">专属客服</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges3.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>年会邀请函</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges4_gray.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>贵宾俱乐部</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges5.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>快速提现</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges6.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>专享服务</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges7.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>周年纪念品</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/member/Privileges8.png"  alt="" class="img tc"/>
+								</div>
+								<div class="words">
+									<p>生日特权</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+        		</div>
+        	</div>
+        </section>	
+        <section>
+        	<div class="secWrap">
+        		<div class="secTit secTit02">
+        			<img class="ico_arrow_r2" src="/imgs/images/ico_arrow_r2.png"/>
+        			<div class="link link01">
+        				<a href="growUpDetail.html">查看成长值明细</a>
+        			</div>
+        		</div>
+        		<div class="gongshiWrap">
+        			<div class="gongshi">
+        				<img src="/imgs/member/gongshi.png"/>
+        			</div>
+        		</div>
+        		<div class="mission clearfix">
+        			<a href="missionDetail.html">
+	        			<div class="missionL">
+	        				<img src="/imgs/member/icon_newUser.png"/>
+	        				
+		        				<div class="misTxt">
+		        					<font>新手任务</font>
+		        					<p>实名认证，绑定银行卡等</p>
+		        				</div>
+	        				
+	        			</div>
+        			</a>
+        			<a href="missionDetail.html">
+	        			<div class="missionR">
+	        				<img src="/imgs/member/icon_daily.png"/>
+	        				<div class="misTxt misTxtR">
+	        					<font>日常任务</font>
+	        					<p>每日签到，邀请好友等</p>
+	        				</div>
+	        			</div>
+        			</a>
+        		</div>
+        	</div>
+        </section>
+        <section>
+        	<div class="secWrap">
+        		<div class="secTit secTit03"></div>
+        		<div class="activity">
+        			<div class="activityCon">
+	        			<div class="swiper-container">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide"><img src="/imgs/member/activity1.png"/></div>
+						        <div class="swiper-slide"><img src="/imgs/member/activity1.png"/></div>
+						        <div class="swiper-slide"><img src="/imgs/member/activity1.png"/></div>
+						    </div>
+						    <!-- 如果需要分页器 -->
+						    <!--<div class="swiper-pagination"></div>-->
+						</div>
+	        			<div class="btn_getNow">
+	        				马上领取
+	        			</div>
+        			</div>
+        			<div class="mark"></div>
+        		</div>
+        	</div>
+        </section>
+	    <div id="window" class="window" style="display: none;">
+	    	<div class="content">
+	    		<div class="inner">
+		    		<div class="h6">恭喜您获得</div>
+		    		<div class="award">
+		    			88元投资礼包
+		    		</div>
+	    		</div>
+	    		<div class="awardList clearfix">
+	    			<div class="listItem list1">
+	    				<img src="/imgs/member/icon1.png"/>
+	    				<div class="num">
+	    					￥10
+	    				</div>
+	    				<div class="ins">
+	    					投资红包
+	    				</div>
+	    			</div>
+	    			<div class="listItem list2">
+	    				<img src="/imgs/member/icon2.png"/>
+	    				<div class="num">
+	    					￥18 x 2
+	    				</div>
+	    				<div class="ins">
+	    					投资红包
+	    				</div>
+	    			</div>
+	    			<div class="listItem list3">
+	    				<img src="/imgs/member/icon3.png"/>
+	    				<div class="num">
+	    					2个月
+	    				</div>
+	    				<div class="ins">
+	    					特权会员
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div id="confirm" class="confirm">
+	    			确定
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+    
+    <!--end-->
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+			var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: false,
+			    // 如果需要分页器
+			    pagination: '.mark',
+			    onSlideChangeEnd : function(mySwiper){
+			    	console.log(mySwiper.activeIndex);
+			    }
+			  }); 
+			  var swiper = new Swiper('#in_industry', {
+				slidesPerView: 'auto',
+		        spaceBetween: 10
+			});
+			$("#clickToGet").click(function(){
+				$("#window").show();
+			});
+			$("#confirm").click(function(){
+				$('#window').hide();
+			})
+		})		  
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="orderDetail.aspx.cs" MasterPageFile="~/MVipWebStite.Master" Inherits="TuanDai.WXApiWeb.Member.Mall.orderDetail" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/mall.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="Server">
+    <body class="bg-fff">
+        <header class="headerMain">
+            <%= this.GetNavStr()%>
+            <div class="header bb-e6e6e6">
+                <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+                <h1 class="title">订单详情</h1>
+            </div>
+            <%= this.GetNavIcon()%>
+            <div class="none"></div>
+        </header>
+
+        <div class="ml15 order-get">
+            <% if (order != null)
+               {
+                   if (order.SubType == 9 || order.SubType == 29) //实物
+                   {
+                       if (order.Status == 0) //未领取
+                       {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">未领取</span>
+            </div>
+            <%
+               }
+               else if (order.Status == 1) //已领取
+               {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">待发货</span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">收货人</span>
+                <p class="r-span"><span class="c-808080 f14px"><%=order.ShipTo %></span><span class="c-808080 f14px ml20"><%=order.TelNo %></span></p>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">收货地址</span>
+                <span class="r-span c-808080 f14px"><%=order.Address %></span>
+            </div>
+            <% if (!string.IsNullOrEmpty(order.UserNote))
+               {
+            %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">订单留言</span>
+                <span class="r-span c-808080 f14px"><%=order.UserNote %></span>
+            </div>
+            <%
+       }
+               }
+               else if (order.Status == 2) //已配送
+               {
+            %>
+            <div class="get-con pt15 pos-r">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">已发货</span>
+            </div>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">快递信息</span>
+                <span class="r-span c-434343 f15px"><%=order.Express+order.ExpressNumber %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">收货人</span>
+                <p class="r-span"><span class="c-808080 f14px"><%=order.ShipTo %></span><span class="c-808080 f14px ml20"><%=order.TelNo %></span></p>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">收货地址</span>
+                <span class="r-span c-808080 f14px"><%=order.Address %></span>
+            </div>
+            <% if (!string.IsNullOrEmpty(order.UserNote))
+               {
+            %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">订单留言</span>
+                <span class="r-span c-808080 f14px"><%=order.UserNote %></span>
+            </div>
+            <%
+       }
+               }
+               else if (order.Status == -11)   //已退款
+               {%>
+            <div class="get-con pt15 pos-r">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">已退款</span>
+            </div>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">退款原因</span>
+                <span class="r-span c-434343 f15px"><%=string.IsNullOrEmpty(order.Remark6)?"库存不足":order.Remark6 %></span>
+            </div>
+            <%}
+           }
+           else if (order.SubType == 2 || order.SubType == 3 || order.SubType == 4 || order.SubType == 8 || order.SubType == 13 || order.SubType == 18 || order.SubType == 20)//2提现优惠券 3普通红包 4奖金红包 8送VIP 13现金红包 18加息券 20团币
+           {
+               if (order.Status == 0)
+               {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">未领取</span>
+            </div>
+            <%
+               }
+               else if (order.Status == 1)
+               {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">领取中</span>
+            </div>
+            <%
+               }
+               else
+               {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">已领取</span>
+            </div>
+            <% 
+               }
+            %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">接收用户</span>
+                <span class="r-span c-808080 f14px"><%=order.UserName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品名称</span>
+                <span class="r-span c-808080 f14px"><%=order.ProductName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品数量</span>
+                <span class="r-span c-808080 f14px"><%=order.TotalNum %>件（<%=order.TotalTuanBi %>团币）</span>
+            </div>
+            <%
+           }
+           else//虚拟 21电影票 22话费 23门票 24购物卡
+           {
+               if (!string.IsNullOrEmpty(order.ECouponNo))
+               {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">电子券</span>
+                <span class="r-span c-fab600 f17px"><%= order.ECouponNo %></span>
+            </div>
+            <% if (order.Status == 1) //已配送
+               {
+            %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">接收用户</span>
+                <span class="r-span c-808080 f14px"><%= order.UserName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品名称</span>
+                <span class="r-span c-808080 f14px"><%= order.ProductName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品数量</span>
+                <span class="r-span c-808080 f14px"><%= order.TotalNum %>件（<%= order.TotalTuanBi %>团币）</span>
+            </div>
+            <%
+               }
+               else //已发货
+               {
+            %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品名称</span>
+                <span class="r-span c-808080 f14px"><%= order.ProductName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">有效时间</span>
+                <span class="r-span c-808080 f14px"><%= order.AddDate %>～<%= order.ExpireDate %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">使用方法</span>
+                <span class="r-span c-808080 f14px"  style="word-break: break-all; word-wrap: break-word; "><%=order.UsAge %></span>
+            </div>
+            <%
+               } %>
+            <%
+               }
+               else
+               {
+                   if (order.Status == 1)//待发货
+                   {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">待发货</span>
+            </div>
+            <%
+                   }
+                   else//已配送
+                   {
+            %>
+            <div class="bb-e6e6e6 get-con pt15 pb15">
+                <span class="l-span c-ababab f13px">订单状态</span>
+                <span class="r-span c-fab600 f17px">已发送</span>
+            </div>
+            <%
+                   } %>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">接收用户</span>
+                <span class="r-span c-808080 f14px"><%= order.UserName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品名称</span>
+                <span class="r-span c-808080 f14px"><%= order.ProductName %></span>
+            </div>
+            <div class="get-con pt15 mr15 pos-r">
+                <span class="l-span c-ababab f13px">商品数量</span>
+                <span class="r-span c-808080 f14px"><%= order.TotalNum %>件（<%= order.TotalTuanBi %>团币）</span>
+            </div>
+            <%
+               } %>
+            <% 
+           }
+       } %>
+
+            <a class="btn btnYellow pos-f pay-but">前往团宝箱</a>
+
+        </div>
+
+    </body>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">
+    <script type="text/javascript" src="/scripts/statistics.tencent.js"></script>
+    <script type="text/javascript" src="/scripts/fastclick.js"></script>
+    <script type="text/javascript">
+        var type = "<%= order.SubType%>";
+        if (type == "2" || type == "3" || type == "4" || type == "8" || type == "13" || type == "18" || type == "20") {
+            $(".pay-but").attr("href", "/Member/UserPrize/Index.aspx").html("前往团宝箱领取使用");
+        } else {
+            $(".pay-but").attr("href", "myProduct.aspx").html("我知道了");
+        }
+    </script>
+</asp:Content>

@@ -1,0 +1,367 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+using Dapper;
+using TuanDai.RedisApi.Client;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.pages.invest.WE
+{
+    /// <summary>
+    /// WE计划列表
+    /// Allen 2015-05-21
+    /// </summary>
+    public partial class WE_list : AppActivityBasePage
+    {
+        protected List<WeProductDetailInfo> WeList; //We计划数据
+        protected ProjectBLL projectBll = null;
+        protected int recordCount = 0;
+        protected int pageCount = 0; 
+        protected ShowImage showImage;//列表页上面图片
+        protected WebSettingInfo curSellSet; //1218当天配置
+        protected WebSettingInfo preSellSet; //1218预售项目
+        protected WebSettingInfo sellSet518;//518活动加息
+        protected string IsPreView1218 = "0";//可预览1218配置 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/pages/downOpenApp.aspx",true);
+            if (!IsPostBack) {
+                this.IsShowRightBar = GlobalUtils.IsWeiXinBrowser ? false : true;
+                projectBll = new ProjectBLL();
+                this.GetData();
+            }
+        }
+
+        private void GetData()
+        {
+            WebSettingBLL webSettingBll = new WebSettingBLL();
+            preSellSet = webSettingBll.GetWebSettingInfo("6F9D3B77-C15C-4A5A-B883-21004E10BE29");
+            curSellSet = webSettingBll.GetWebSettingInfo("B11558CB-3C6B-4DAD-9D2F-D6D2DE13CCF7");
+            sellSet518 = webSettingBll.GetWebSettingInfo("5E02F517-E6FC-4451-8232-378377837EC1");
+            IsPreView1218 = System.Configuration.ConfigurationManager.AppSettings["IsPreView1218"];
+            if (IsPreView1218 == "1")
+            {
+                preSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+            else if (IsPreView1218 == "2")
+            {
+                preSellSet.Param1Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd 23:59:59");
+
+                curSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                curSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+            ProjectBLL bll = new ProjectBLL();
+            WeList = GetInvestListWePlan(out recordCount);
+
+            double divide = recordCount / GlobalUtils.PageSize;
+            double floor = System.Math.Floor(divide);
+            if (recordCount % GlobalUtils.PageSize != 0)
+                floor++;
+            pageCount = Convert.ToInt32(floor);//总页数
+
+            GetShowImage(); 
+        }
+
+        /// <summary>
+        /// 获取显示Image
+        /// </summary>
+        private void GetShowImage()
+        {
+            string sql = @"SELECT TOP 1 ImageUrl,Link,Title  FROM AdImage(nolock)  where Type=42  AND  IsEnable=1  ORDER BY AddDate DESC ";
+            var para = new Dapper.DynamicParameters();
+            showImage = PublicConn.QuerySingle<ShowImage>(sql, ref para); 
+        }
+
+
+        #region 前台显示格式化
+        public static string GetWePlanTitle(string productName, int flag)
+        {
+            if (flag == 1)
+            {
+                return productName.GetCharLeft("(");
+            }
+            else if (flag == 3)
+            {
+                return productName.GetCharRight("【").GetCharLeft("】");
+            }
+            else
+            {
+                return productName.GetCharRight("(").GetCharLeft(")");
+            }
+        }
+        public static string GetWePlanSurplusMoney(WeProductDetailInfo weInfo)
+        {
+            decimal o = (weInfo.PlanAmount ?? 0) - (weInfo.OrderQty ?? 0) * (weInfo.UnitAmount ?? 0);
+            return string.Format("<span>{0}</span>{1}", (o >= 10000) ? ToolStatus.ConvertWanMoney(o) : ToolStatus.ConvertLowerMoney(o), (o >= 10000) ? "万" : "元");
+        }
+        public static decimal GetFloatSurplusMoney(WeProductDetailInfo weInfo)
+        {
+            decimal o = (weInfo.PlanAmount ?? 0) - (weInfo.OrderQty ?? 0) * (weInfo.UnitAmount ?? 0);
+            return o;
+        }
+        public string GetWePlanYearRate(WeProductDetailInfo item)
+        {
+            string formatStr = "{0}<span style='font-size:14px;'>{1}%</span>";
+            string yearRate = ToolStatus.DeleteZero(item.YearRate);
+            string addRateStr = "";
+            //1218当天标识
+            if (DateTime.Parse(preSellSet.Param1Value) <= item.StartDate && item.StartDate < DateTime.Parse(curSellSet.Param2Value) && item.IsPreSell)
+            {
+                addRateStr = "+至少1.5";
+            }
+            return string.Format(formatStr, CommUtils.GetFloatDivideStr(decimal.Parse(yearRate), 1), CommUtils.GetFloatDivideStr(decimal.Parse(yearRate), 2) + addRateStr);
+        }
+
+        public static string GetDeadlineString(WeProductDetailInfo item)
+        {
+            if (item.IsWeFQB || item.ProductName.ToLower().Contains("a"))
+            {
+                return "到期本息...";
+            }
+            else if (item.ProductName.ToLower().Contains("b") || item.ProductName.ToLower().Contains("c") || item.ProductName.ToLower().Contains("h"))
+            {
+                return "每月付息";
+            }
+            else if (item.ProductName.ToLower().Contains("g")||item.IsFTB)
+            {
+                return "到期本息";
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        protected string GetWeDetailUrl(WeProductDetailInfo item)
+        {
+            string strGo = "";
+            if (item.IsWeFQB)
+                strGo = "/pages/invest/WE/WeFqb_detail.aspx?id=" + item.ProductId;
+            else if (item.IsFTB)
+                strGo = "/pages/invest/WE/WeFtb_detail.aspx?id=" + item.ProductId;
+            else
+                strGo = "/pages/invest/WE/WE_detail.aspx?id=" + item.ProductId;
+
+            strGo += "&typeId=" + item.ProductTypeId + "&IsPreSell=" + (item.IsPreSell ? 1 : 0).ToString();
+            return strGo;
+        }
+        #endregion
+
+
+        #region 读取数据
+
+        /// <summary>
+        /// 绑定we计划相关列表
+        /// </summary>
+        private List<WeProductDetailInfo> GetInvestListWePlan(out int iRecordCount)
+        {
+            List<WeProductDetailInfo> returnList;
+            if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+            {
+                List<string> typeWordArrary =null;
+                if (ConfigHelper.getConfigString("IsOpenSyb") == "1")
+                {
+                    typeWordArrary = new List<string>() {"C", "B", "A", "G", "36", "24", "18", "12", "6", "3", "1", "H"};
+                }
+                else
+                {
+                    typeWordArrary = new List<string>() { "C", "B", "A", "G", "36", "24", "18", "12", "6", "H" };
+                }
+                IList<WeProductDetailInfo> tmpList = new WeProductBLL().GetWePlanListByRedis(typeWordArrary, TdConfig.ApplicationName);
+                //returnList = FilterPreSellWe(tmpList).ToList();
+                returnList = tmpList.ToList();
+                if (returnList != null)
+                {
+                    returnList = returnList.Where(p => p.IsNewHand == false).ToList();
+                }
+                iRecordCount = returnList != null ? returnList.Count : 0;
+            }
+            else
+            {
+                returnList = WXGetWePlanShowList(15, 1, out iRecordCount);
+            }
+            if (returnList != null)
+            {
+                if (ConfigHelper.getConfigString("IsOpenSyb") == "1")
+                    returnList = returnList.Where(p => p.IsPreSell == false).OrderBy(p => p.StatusId).ThenBy(p => p.SortOrder).ToList();
+                else
+                    returnList = returnList.Where(p => p.IsPreSell == false && p.FTBSubType != 3).OrderBy(p => p.StatusId).ThenBy(p => p.SortOrder).ToList();
+            }
+
+                
+            return returnList;
+        }
+
+        /// <summary>
+        /// 获取We计划列表页数据
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<WeProductDetailInfo> WXGetWePlanShowList(int pageSize, int pageIndex, out int recordCount)
+        {
+            string sqlText = @"SELECT * FROM (
+                                  select ROW_NUMBER() over(ORDER BY A.StatusId, A.Startdate DESC) as rownum, B.ProductId,
+                                    A.ProductName, A.ProductNumber,
+                                    A.ProductTypeId, A.PlanAmount, A.YearRate, A.UnitAmount, A.StatusId, A.Deadline, A.ProjectTypes, A.StartDate, A.EndDate, 
+                                    A.InvestCompleteDate, A.OrderCompleteDate, B.InvestCount, C.SortOrder,C.TypeWord, B.OrderCount, 
+                                    B.RealOrderQty as OrderQty, B.TotalQty,ISNULL(A.MinYearRate,0) AS MinYearRate,ISNULL(A.IsWeFQB,0) as IsWeFQB, 
+                                    isnull(A.TuandaiRedRate,0) as TuandaiRedRate,
+                                    isnull(a.CashLimitAmount,0) as CashLimitAmount,isnull(a.TuandaiCashRate,0) as TuandaiCashRate,
+                                    isnull(A.IsFTB,0) as IsFTB,isnull(A.IsPreSell,0) AS IsPreSell, A.PreSellInvestDate,C.MqQueueName,A.TuanDaiRedTitle
+                                    from dbo.We_Product  A with(nolock)
+                                    inner join dbo.We_ProductDetail B with(nolock) on A.Id=B.ProductId
+                                    INNER JOIN dbo.We_ProductType C WITH (NOLOCK) ON (A.Id=C.NewProductId or A.Id=C.PreNewProductId)
+                                    where C.TypeWord in({0}) and isnull(A.IsPreSell,0) = 0
+                                ) Main 
+                                WHERE Main.rownum>@PageSize*(@PageIndex-1) and Main.rownum<=@PageSize*@PageIndex
+                                order by StatusId, SortOrder";
+            if (ConfigHelper.getConfigString("IsOpenSyb") == "1")
+            {
+                sqlText = string.Format(sqlText, "'C','B','A','G','36','24','18','12','6','3','1','H'");
+            }
+            else
+            {
+                sqlText = string.Format(sqlText, "'C','B','A','G','36','24','18','12','6','H'");
+            }
+            
+            DynamicParameters param = new DynamicParameters();
+            param.Add("PageSize", pageSize);
+            param.Add("PageIndex", pageIndex); 
+            List<WeProductDetailInfo> weProductList = new List<WeProductDetailInfo>();
+            IList<WeProductDetailInfo> list = DB.TuanDaiDB.Query<WeProductDetailInfo>(TdConfig.ApplicationName, TdConfig.DBRead, sqlText, ref param);
+            recordCount = list != null ? list.Count : 0;
+            //IList<WeProductDetailInfo> resultList = FilterPreSellWe(list);
+            //return resultList.ToList();
+            if (list != null)
+                weProductList =
+                    list.OrderBy(p => p.StatusId)
+                        .ThenByDescending(p => p.IsPreSell ? 1 : 0)
+                        .ThenBy(p => p.SortOrder)
+                        .ToList();
+            return weProductList;
+        }
+        protected IList<WeProductDetailInfo> FilterPreSellWe(IList<WeProductDetailInfo> welist)
+        {
+            IList<WeProductDetailInfo> resultList = new List<WeProductDetailInfo>();
+            if (welist != null && welist.Any())
+            {
+                resultList = welist;
+                //預售期,相同类型的删除正式的
+                if (DateTime.Parse(preSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(preSellSet.Param2Value))
+                {
+                    //同一种类型的，有预售时优先显示这个
+                    //List<string> typeWordList = new List<string>() { "A", "B", "C", "G", "18", "24", "36"};
+                    //foreach (string typeword in typeWordList)
+                    //{
+                    //    WeProductDetailInfo temp = welist.Where(p => p.TypeWord == typeword && p.IsPreSell && p.StatusId == 1).FirstOrDefault();
+                    //    if (temp != null)
+                    //    {
+                    //        resultList.Add(temp);
+                    //    }
+                    //    else
+                    //    {
+                    //        temp = welist.Where(p => p.TypeWord == typeword && p.IsPreSell == false).FirstOrDefault();
+                    //        if (temp != null)
+                    //            resultList.Add(temp);
+                    //    }
+                    //} 
+                }
+                else
+                {
+                    //1218当天标识及預售前期  删除所有预售的项目 
+                    List<WeProductDetailInfo> tmpList = resultList.Where(p => p.IsPreSell).ToList();
+                    if (tmpList != null && tmpList.Any())
+                    {
+                        tmpList.ForEach(p => resultList.Remove(p));
+                    }
+                }
+            }
+            if (resultList != null)
+            {
+                resultList = resultList.OrderBy(p => p.StatusId).ThenByDescending(p => p.IsPreSell ? 1 : 0).ThenBy(p => p.SortOrder).ToList();
+            }
+            return resultList;
+        }
+        #endregion
+
+
+        #region 加息，返现标签
+        /// <summary>
+        /// We返现标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWePubCach(WeProductDetailInfo model)
+        {
+            string pic = "";
+            //发标时就设置返现
+            if ((model.TuandaiCashRate ?? 0) > 0)
+            {
+                WebSettingBLL webSettingBll = new WebSettingBLL();
+                WebSettingInfo AllWeCachSet = webSettingBll.GetWebSettingInfo("421DBE8C-6435-4A9A-852A-EC51F0B0DDA8");
+
+                string cashFormat = AllWeCachSet.Param2Value;
+                if ((model.CashLimitAmount ?? 0) > 0)
+                    cashFormat = AllWeCachSet.Param1Value;
+                if (cashFormat.ToText() == "")
+                {
+                    cashFormat = ((model.CashLimitAmount ?? 0) > 0 ? "起投{Amount}元，" : "") + "返现{Rate}%";
+                }
+                decimal limitAmount = model.CashLimitAmount ?? 0;
+                string strLimitAmount = limitAmount >= 10000 ? ToolStatus.DeleteZero(limitAmount / 10000) + "万" : ToolStatus.DeleteZero(limitAmount / 1000) + "千";
+                // <div class="item_r1">迎中秋返现<%=ToolStatus.DeleteZero(SetModel.Param1Value) %>%</div>
+                pic += "<div class=\"item_r1\">" + cashFormat.Replace("{Rate}", ToolStatus.DeleteZero(model.TuandaiCashRate)).Replace("{Amount}", strLimitAmount) + "</div>";
+            }
+            return pic;
+        }
+
+        /// <summary>
+        /// 加息标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWeRank(WeProductDetailInfo model)
+        {
+            string pic = "";
+            if ((model.TuandaiRedRate ?? 0) > 0)
+            {
+                if (string.IsNullOrEmpty(model.TuanDaiRedTitle))
+                    model.TuanDaiRedTitle = "加息";
+                pic = "<div class=\"item_r1\">" + model.TuanDaiRedTitle + ToolStatus.DeleteZero(model.TuandaiRedRate) + "%</div>";
+            }
+                
+            return pic;
+        }
+        #endregion
+
+
+        #region 内部Model
+        protected class ShowImage
+        {
+            /// <summary>
+            /// 标题
+            /// </summary>
+            public string Title { get; set; }
+            /// <summary>
+            /// 图片路径
+            /// </summary>
+            public string ImageUrl { get; set; }
+            /// <summary>
+            /// 超链接地址
+            /// </summary>
+            public string Link { get; set; }
+        }
+        #endregion
+
+    }
+}

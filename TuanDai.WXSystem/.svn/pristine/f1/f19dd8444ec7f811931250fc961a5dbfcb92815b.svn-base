@@ -1,0 +1,490 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContractType15.aspx.cs" Inherits="TuanDai.WXApiWeb.Contract.ContractType15" %>
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>分期宝-分期乐</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css?v=2016061600001" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+        document.oncontextmenu = function (e) { return false; }
+
+        var omitformtags = ["input", "textarea", "select"]
+        omitformtags = omitformtags.join("|")
+        function disableselect(e) {
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+                return false
+        }
+        function reEnable() {
+            return true
+        }
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function("return false")
+        else {
+            document.onmousedown = disableselect
+            document.onmouseup = reEnable
+        }
+    </script>
+
+</head>
+<body>
+   <header class="headerMain" id="header">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">借款合同</h1>
+        </div>
+    </header>
+
+    <%if (mOrgInfo.OrgTypeId == 5)
+      { 
+      //小树时代
+       if (mOrgInfo.SubTypeId == 3) { 
+       %>
+    <!--第1页>-->
+    <div class="Contract">
+        <h3>分期宝债权转让及回购协议</h3>
+        <div class="Number">合同编号：<%=xssdmodel.ProContactNo%></div>
+        <div class="Contract_t">
+            <ul>
+                <li>
+                    <div>甲方（债权转让方、回购方）：<span>肖*</span></div>
+                    <div>身份证号码：<span>360***********2023</span></div>
+                </li>
+                <li>
+                    <div>甲方代理人：<span><%=xssdmodel.OrgName%></span></div>
+                    <div>组织机构代码证：<span><%=xssdmodel.OrgCode%></span></div>
+                    <div>法定代表人：<span><%=xssdmodel.OrgLegalPerson%></span></div>
+                </li>
+                <li>
+                    <div>乙方（债权受让方）：<span><%=xssdmodel.InvestUserName%></span></div>
+                    <div>身份证号码：<span><%=xssdmodel.InvestCardNo%></span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="Contract_c">
+            <p class="text-ind">本协议由甲方代理人运营管理的P2P网络借贷平台“小树时代”（www.xiaoshushidai.com，以下称“小树时代平台”）受甲方委托，通过“团贷网”平台（http://www.tuandai.com/，以下简称“团贷网平台”）转让甲方合法所有的债权（以下简称“标的债权”），并按约定回购标的债权；乙方通过团贷网平台受让标的债权。现甲乙双方就标的债权转让及回购事宜，达成如下协议，以资共同遵守。</p>
+            <p class="text-ind">本协议为电子协议，本协议的电子签署视为《中华人民共和国电子签名法》中所称“电子签名“。甲方代理人通过团贷网平台提供的机构账户发布转让债权及回购信息视为甲方对本协议的确认，乙方通过使用其在团贷网平台的用户账户点击确认行为视为对本协议的确认。</p>
+        </div>
+    </div>
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title-n1">第一条<span>标的债权</span></p>
+            <p>本协议项下标的债权主要信息如下：</p>
+            <table border="1" cellspacing="0">
+                <tr>
+                    <td>标的债权文件编号</td>
+                    <td width="66%"><%=xssdmodel.SubContractNo%></td>
+                </tr>
+                <tr>
+                    <td>债权到期日</td>
+                    <td><%=xssdmodel.ExpireYear%>年<%=xssdmodel.ExpireMonth%>月<%=xssdmodel.ExpireDay%>日</td>
+                </tr>
+                <tr>
+                    <td>标的债权本金金额</td>
+                    <td><%=xssdmodel.Amount%></td>
+                </tr>
+                <tr>
+                    <td>标的债权转让价款</td>
+                    <td><%=xssdmodel.Amount %></td>
+                </tr>
+            </table>
+            <p class="title-n1">第二条<span>标的债权的转让及回购</span></p>
+            <p>2.1 甲方同意按照本协议约定向乙方转让标的债权。乙方同意根据本协议的约定，受让甲方持有的对原债务人的标的债权，并支付标的债权转让价款。</p>
+            <p>2.2 标的债权的转让</p>
+            <p class="text-ind">（1）标的债权转让日为本协议生效之日，即甲方将标的债权转让给乙方，且乙方向甲方支付标的债权全部转让价款之日。</p>
+            <p class="text-ind">（2）除本协议另有约定外，自标的债权转让日起（包括该转让日），甲方基于标的债权所享有的债权及其附属的一切权利、利益均转让给乙方，该等权利、利益包括但不限于：</p>
+            <p>1）标的债权的全部所有权（现时的和未来的、现实的和或有的）和相关权益（包括但不限于担保权益以及其他权利或利益）；</p>
+            <p>2）标的债权相关的滞纳金、违约金及延期补偿金等权利；</p>
+            <p>3）获得标的债权被转让、被出售、被拍卖、被变卖或者被以其他方式处置所获得的全部款项的权利；</p>
+            <p>4）以诉讼或其他形式请求、收回、接受与标的债权相关的全部应偿付款项的权利；</p>
+            <p>5）债权文件项下甲方享有的除标的债权及上述各项权利以外的其他一切权利和利益。</p>
+        </div>
+    </div>
+    <div class="Contract">
+        <div class="Contract_c">
+            <p>2.3 标的债权转让价款</p>
+            <p class="text-ind">（1）双方同意，标的债权的转让价款以上表标的债权价格为准。</p>
+            <p class="text-ind">（2）乙方应于标的债权转让日一次性向甲方支付转让价款，支付完毕即视为标的债权转让成功。</p>
+            <p>2.4 标的债权的回购</p>
+            <p>自甲方转让标的债权后，甲方分<span><%=xssdmodel.DeadLine%></span>个月对标的债权本金进行等额分期回购，即每月向乙方支付<span><%=xssdmodel.PerAmount%></span>元，并按月向乙方支付回购期限的利息，年化利率为<span><%=xssdmodel.Rate%></span>。</p>
+            <p>2.5 标的债权转让或回购将通过团贷网平台站内消息的方式通知甲方、乙方，站内消息一经发出即视为送达。</p>
+
+            <p class="title-n1">第三条 <span>保障措施</span></p>
+            <p>为确保原债务人履行融资项目项下的义务，标的债权已获得的担保义务人（如有）向甲方提供的连带责任保证担保，甲乙双方在此确认，自标的债权转让日起，甲方在标的债权上设置的前述担保等权利亦转让于乙方。</p>
+
+            <p class="title-n1">第四条 <span>甲方的陈述与保证</span></p>
+            <p>4.1 甲方系中华人民共和国法律法规下具有完全民事行为能力的公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+            <p>4.2 甲方签署并履行本协议不违反对其有约束力或有影响的法律法规或协议的限制；本协议签署后，本协议约定即形成对其合法、有效和有约束力的义务。</p>
+            <p>4.3 甲方是标的债权的合法所有人，且有权转让标的债权；标的债权合法、真实、有效。</p>
+        </div>
+    </div>
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title-n1">第五条 <span>乙方的陈述与保证</span></p>
+            <p>5.1 乙方系中华人民共和国公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+            <p>5.2 乙方对本协议的签署和履行不违反对其有约束力或有影响的法律法规或协议的限制。本协议签署后，即构成对乙方合法、有效和有约束力的义务。</p>
+            <p>5.3 乙方保证其用于受让标的债权的投标资金为其合法所有或享有支配权的财产，前述投标资金与与其他任何个人、法人及其他组织不存在法律上的任何纠纷。</p>
+            <p class="title-n1">第六条 <span>税费的承担</span></p>
+            <p>6.1 除各方签署的其他协议另有约定外，各方应按照现行有效的中国法律法规的规定各自承担其因签署和履行本协议而产生的相应税费。</p>
+            <p>6.2 因处置标的债权、担保物（如有）而产生的所有税费适用债权文件的约定。</p>
+            <p class="title-n1">第七条 <span>协议的变更</span></p>
+            <p>
+                7.1 本协议的任何修改、补充均须以团贷网平台电子文本形式作出。
+            <p>7.2 变更后的内容或补充协议与本协议具有同等法律效力，如果变更后的内容或补充协议与本协议发生冲突，以变更后的内容或补充协议为准。</p>
+            <p class="title-n1">第八条 <span>违约责任</span></p>
+            <p>任何一方未履行或未适当履行其在本协议项下的义务，或违反其在本协议项下任何声明与保证的，视为该方违约，违约方应当赔偿因其违约而给其他方造成的全部损失。</p>
+        </div>
+    </div>
+    <div class="Contract">
+        <div class="Contract_c">
+            <p class="title-n1">第九条 <span>法律适用及争议解决方式</span></p>
+            <p>9.1 本协议的签署、生效、履行、解释、修改和终止等事项均适用中华人民共和国现行法律法规。</p>
+            <p>9.2 各方履行本协议过程中发生争议均应当以友好协商的方式解决，协商不成的，任何一方均可向东莞市第一人民法院提起诉讼。</p>
+            <p class="title-n1">第十条 <span>协议的生效</span></p>
+            <p>10.1 甲方通过团贷网平台发布转让标的债权的信息，乙方通过点击确认后，本协议成立。</p>
+            <p>10.2 乙方根据本协议第2.3条第（2）款的约定将标的债权转让价款支付至甲方在第三方支付机构或监管银行账户时，本协议立即生效。</p>
+            <p class="title-n1">第十一条 <span>其他事项</span></p>
+            <p>11.1 各方已经充分阅读并完全理解本协议及相关法律文件及其含义，对于本协议项下的行为自愿承担各自的法律责任和义务。</p>
+            <p>11.2 如果本协议的任何条款因任何原因无效，该条款的无效不影响本协议其他条款有效性的，则各方应当继续履行本协议其他条款。</p>
+            <p>11.3 本协议项下相关费用支付受法定假日或公休日影响的，则支付日提前至法定假日或公休日前一天。</p>
+            <p>11.4 本协议项下的各标题仅为行文方便而设，不用于解释本协议。</p>
+
+        </div>
+        <div class="Contract_b">
+            <p>
+                <br />
+                <strong>各方签署：</strong></p>
+            <p>甲方：<span>肖*</span> </p>
+            <p>甲方代理人：<span><%=xssdmodel.OrgName%></span> </p>
+            <p>乙方：<span><%=xssdmodel.InvestUserName%></span> </p>
+            <p>签署日期：<em><%=xssdmodel.BorrowSignYear%></em>年<em><%=xssdmodel.BorrowSignMonth%></em>月<em><%=xssdmodel.BorrowSignDay%></em>日</p>
+          
+        </div>
+    </div>
+
+    <% }
+          //你我金融
+          else if (mOrgInfo.SubTypeId == 5) { %> 
+<!--第1页>-->
+<div class="Contract">
+    <h3>分期宝 债权转让及回购协议</h3>
+    <div class="Number">编号：<%=kldmodel.ProContactNo %></div>
+    <div class="Contract_t">
+        <ul>
+            <li>
+                <div>甲方（债权转让方、回购方）：<span>杜**</span></div>
+                <div>身份证号码：<span>510***********0577</span></div>
+                <div>甲方代理人：<span>深圳市你我金融信息服务股份有限公司</span></div>
+            </li>
+            <li>
+                <div>乙方（债权受让方）：<span><%=kldmodel.InvestUserName%></span></div>
+                <div>身份证号码：<span><%=kldmodel.InvestCardNo%></span></div>
+            </li>
+            <li>
+                <div> 丙方（担保方）：<span>东莞市志诚非融资性担保有限公司</span></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Contract_c">
+        <p class="text-ind"> 甲方通过在深圳市你我金融信息服务股份有限公司运营的“你我金融”互联网金融平台（http://www.niiwoo.com，以下简称“你我金融平台”）投资取得相应标的的债权 ，现甲方通过广东团贷网互联网科技信息有限公司运营的团贷网平台（以下简称“团贷网平台”）转让甲方合法持有的债权（以下简称“标的债权”），并按约定定期回购标的债权；乙方通过团贷网平台受让标的债权。现甲乙丙三方就标的债权转让及回购事宜，达成如下协议，以资共同遵守。<p>
+        <p class="text-ind">本协议为电子协议，本协议的电子签署视为《中华人民共和国电子签名法》中所称“电子签名“。甲方（或甲方代理人）通过团贷网平台提供的机构账户发布转让债权及回购信息视为甲方对本协议的确认，乙方通过使用其在团贷网平台的用户账户点击确认行为视为对本协议的确认。</p>
+        <p>第一条 标的债权</p>
+        <P>本协议项下标的债权主要信息如下，金额单位为人民币（元）：</P>
+        <div class="content">
+            <table cellpadding="0" cellspacing="0" class="tab">
+                <tr><td style="width:160px;">标的债权文件编号：</td><td><%=kldmodel.ProContactNo%></td></tr>
+                <tr><td>债权到期日：</td><td><%=kldmodel.ExpireYear%>年<%=kldmodel.ExpireMonth%>月<%=kldmodel.ExpireDay%>日</td></tr>
+                <tr><td>标的债权本金总额：</td><td><%=kldmodel.Amount%></td></tr>
+                <tr><td>标的债权转让价款：</td><td><%=kldmodel.Amount%></td></tr>
+            </table>
+        </div>
+        <p class="">第二条 标的债权的转让及回购</p>
+        <p>2.1 甲方同意按照本协议约定向乙方转让标的债权。乙方同意根据本协议的约定，受让甲方持有的对原债务人标的债权的 <span class="red">【份额】</span>，并支付标的债权转让价款的 <span class="red">【份额】</span>。</p>
+        <p> 2.2 标的债权的转让</p>
+        <p class="text-ind">标的债权满标日：债权本金总额筹满之日。标的债权转让日为本协议生效之日，即甲方将标的债权转让给乙方，且乙方向甲方支付标的债权全部转让价款之日。</p>
+        <p>2.3 标的债权转让价款</p>
+        <p class="text-ind">（1）双方同意，标的债权的转让价款以上表标的债权价格为准。</p>
+        <p class="text-ind">（2）乙方应于标的债权转让日一次性向甲方支付转让价款，支付完毕即视为标的债权转让成功。</p>
+        <p> 2.4 标的债权的回购</p>
+        <p>自甲方转让标的债权后，甲方分<%=kldmodel.DeadLine%>个月对标的债权本金进行回购，回购方式：<%=kldmodel.ReturnType%>，即每月向乙方支付人民币<%=kldmodel.PerAmount%>元，并按月向乙方支付回购期限的回购收益，年化费率为<%=kldmodel.Rate%>%。</p>
+        <p>2.5 标的债权转让或回购将通过团贷网平台站内消息的方式通知甲方、乙方，站内消息一经发出即视为送达。</p>
+        <p>2.6 债权转让成功后，乙方取得债权。甲、乙方双方约定：债权所产生的利息由甲方所得，甲方应按本协议约定的回购规则进行回购并向乙方支付回购期间的回购收益。</p>
+        <p> 2.7甲方定期回购所取得的相应债权，乙方同意若借款人当期归还本金时，甲方优先受偿。</p>
+    </div>
+</div>
+<!--第2页>-->
+<div class="Contract">
+    <div class="Contract_c">
+
+        <p class="title">第三条 保障措施</p>
+        <p>3.1  为确保原债务人履行融资项目项下的义务，标的债权已获得的担保义务人（如有）向甲方提供的连带责任保证担保，甲乙双方在此确认，自标的债权转让日起，甲方在标的债权上设置的担保权利亦转让于乙方。</p>
+        <p> 3.2  由丙方为本次债权转让及回购事项提供保证担保，担保方式为连带责任保证担保。在甲方逾期支付回购款及回购收益时，丙方应及时履行保证责任。</p>
+        <p>3.3  甲方到期未及时回购或未及时支付回购收益的，丙方应及时承担保证责任，垫付标准以乙方购买债权时其在团贷网平台的会员等级制度执行。若乙方购买债权时为普通会员，则出现前述情况下丙方仅向乙方垫付相应债权回购款；若乙方购买债权时为超级会员，出现上述情况下丙方全额垫付。</p>
+        <p>3.4   自丙方代甲方清偿其逾期的回购本金或支付回购收益时，丙方有权向甲方追偿已垫付的上述款项及其后产生的利息（利息按照甲方承诺的回购收益计算）。</p>
+
+        <p class="title"> 第四条 甲方的陈述与保证</p>
+        <p> 4.1 甲方系中华人民共和国法律法规下具有完全民事行为能力的公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>4.2 甲方签署并履行本协议不违反对其有约束力或有影响的法律法规或协议的限制；本协议签署后，本协议约定即形成对其合法、有效和有约束力的义务。</p>
+        <p> 4.3 甲方是标的债权的合法所有人，且有权转让标的债权；标的债权合法、真实、有效。</p>
+
+        <p class="title">第五条 乙方的陈述与保证</p>
+        <p>5.1 乙方系中华人民共和国公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>5.2 乙方对本协议的签署和履行不违反对其有约束力或有影响的法律法规或协议的限制。本协议签署后，即构成对乙方合法、有效和有约束力的义务。</p>
+        <p> 5.3 乙方保证其用于受让标的债权的投标资金为其合法所有或享有支配权的财产，前述投标资金与与其他任何个人、法人及其他组织不存在法律上的任何纠纷。</p>
+
+
+        <p class="title">第六条 税费的承担</p>
+        <p>6.1 除各方签署的其他协议另有约定外，各方应按照现行有效的中国法律法规的规定各自承担其因签署和履行本协议而产生的相应税费。</p>
+        <p> 6.2 因处置标的债权、担保物（如有）而产生的所有税费适用债权文件的约定。</p>
+
+        <p class="title">第七条 协议的变更</p>
+        <p>7.1 本协议的任何修改、补充均须以团贷网平台电子文本形式作出。</p>
+        <p>7.2 变更后的内容或补充协议与本协议具有同等法律效力，如果变更后的内容或补充协议与本协议发生冲突，以变更后的内容或补充协议为准。</p>
+
+        <p class="title">第八条 违约责任</p>
+        <p>8.1 任何一方未履行或未适当履行其在本协议项下的义务，或违反其在本协议项下任何声明与保证的，视为该方违约，违约方应当赔偿因其违约而给其他方造成的全部损失。</p>
+        <p> 8.2 由于甲方违反本协议的约定，致使乙方通过其他途径采取补救或追索措施的，由此引起的一切费用，包括但不限于催收费用、律师费、诉讼费、仲裁费、财产保全费、执行费、公告费、差旅费，或依法处置甲方财产而发生的任何费用及其他费用等，概由甲方承担。</p>
+
+        <p> 第九条 法律适用及争议解决方式</p>
+        <p>9.1 本协议的签署、生效、履行、解释、修改和终止等事项均适用中华人民共和国现行法律法规。</p>
+        <p>9.2 各方履行本协议过程中发生争议均应当以友好协商的方式解决，协商不成的，任何一方可提交湛江仲裁委员会在东莞仲裁，并按其当时有效的仲裁规则适用简易程序进行仲裁。</p>
+
+        <p class="title">第十条 协议的生效</p>
+        <p>10.1 甲方授权丙方通过团贷网平台发布转让标的债权的信息，乙方通过点击确认签章后，本协议成立。</p>
+        <p>10.2 乙方根据本协议第2.3条第（2）款的约定将标的债权转让价款支付至甲方在第三方支付机构或监管银行账户时，本协议立即生效。</p>
+
+        <p class="title">第十一条 其他事项</p>
+        <p> 11.1 各方已经充分阅读并完全理解本协议及相关法律文件及其含义，对于本协议项下的行为自愿承担各自的法律责任和义务。</p>
+        <p>11.2 如果本协议的任何条款因任何原因无效，该条款的无效不影响本协议其他条款有效性的，则各方应当继续履行本协议其他条款。</p>
+        <p>11.3 本协议项下相关费用支付受法定假日或公休日影响的，则支付日提前至法定假日或公休日前一天。</p>
+        <p>11.4 本协议项下的各标题仅为行文方便而设，不用于解释本协议。</p>
+    </div>
+    <div class="Contract_b">
+        <p><br /><strong>各方签署：</strong></p>
+        <p>甲方：<span>杜**</span></p>
+        <p>甲方代理人：<span>深圳市你我金融信息服务股份有限公司</span></p>
+        <p>乙方：<span><%=kldmodel.InvestUserName%></span></p>
+        <p>丙方：<span><%= kldmodel.Assure %></span></p>
+        <p>协议签署日期：<em><%=kldmodel.BorrowSignYear%></em>年<em><%=kldmodel.BorrowSignMonth%></em>月<em><%=kldmodel.BorrowSignDay%></em>日</p> 
+        <div class="Seal_zhuochen" style="background: url('<%=assureModel.image %>') no-repeat scroll left center transparent"> </div>
+    </div>
+</div> 
+    <%   }
+         //快来贷
+          else if (mOrgInfo.SubTypeId == 4) { %> 
+<!--第1页>-->
+<div class="Contract">
+    <h3>债权转让及回购协议</h3>
+    <div class="Number">编号：<%=kldmodel.ProContactNo%></div>
+    <div class="Contract_t">
+        <ul>
+            <li>
+                <div>甲方（债权转让方、回购方）：<span>席** </span></div>
+                <div>身份证号码：<span>362***********4830</span></div>
+                <div>甲方代理人：<span>东莞市银众实业投资有限公司</span></div>
+            </li>
+            <li>
+                <div>乙方（债权受让方）：<span><%=kldmodel.InvestUserName%></span></div>
+                <div>身份证号码：<span><%=kldmodel.InvestCardNo%></span></div>
+            </li>
+            <li>
+                <div>丙方（担保方）：<span>东莞市志诚非融资性担保有限公司</span></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Contract_c">
+        <p class="text-ind">甲方通过在东莞市银众实业投资有限公司运营的“快来贷”互联网金融平台（http://www.kuailaidai.com，以下称“快来贷平台”）投资取得相应标的债权，现甲方通过广东团贷网互联网科技信息有限公司运营的团贷网平台（以下简称“团贷网平台”）转让甲方合法持有的债权（以下简称“标的债权”），并按约定定期回购标的债权；乙方通过团贷网平台受让标的债权。现甲乙丙三方就标的债权转让及回购事宜，达成如下协议，以资共同遵守。<p>
+        <p class="text-ind">本协议为电子协议，本协议的电子签署视为《中华人民共和国电子签名法》中所称“电子签名“。甲方（或甲方代理人）通过团贷网平台提供的机构账户发布转让债权及回购信息视为甲方对本协议的确认，乙方通过使用其在团贷网平台的用户账户点击确认行为视为对本协议的确认。</p>
+        <p class="title">第一条 标的债权</p>
+        <P>本协议项下标的债权主要信息如下，金额单位为人民币（元）：</P>
+        <div class="content">
+            <table cellpadding="0" cellspacing="0" class="tab">
+                <tr><td style="width:160px;">标的债权文件编号：</td><td><%=kldmodel.ProContactNo%></td></tr>
+                <tr><td>债权到期日：</td><td><%=kldmodel.ExpireYear%>年<%=kldmodel.ExpireMonth%>月<%=kldmodel.ExpireDay%>日</td></tr>
+                <tr><td>标的债权本金总额：</td><td><%=kldmodel.Amount%></td></tr>
+                <tr><td>标的债权转让价款：</td><td><%=kldmodel.Amount%></td></tr>
+            </table>
+        </div>
+        <p class="title">第二条 标的债权的转让及回购</p>
+        <p>2.1 甲方同意按照本协议约定向乙方转让标的债权。乙方同意根据本协议的约定，受让甲方持有的对原债务人标的债权的 <span class="red">【份额】</span>，并支付标的债权转让价款的 <span class="red">【份额】</span>。</p>
+        <p>2.2 标的债权的转让</p>
+        <p class="text-ind">标的债权满标日：债权本金总额筹满之日。标的债权转让日为本协议生效之日，即甲方将标的债权转让给乙方，且乙方向甲方支付标的债权全部转让价款之日。</p>
+        <p>2.3 标的债权转让价款</p>
+        <p class="text-ind">（1）双方同意，标的债权的转让价款以上表标的债权价格为准。</p>
+        <p class="text-ind">（2）乙方应于标的债权转让日一次性向甲方支付转让价款，支付完毕即视为标的债权转让成功。</p>
+        <p>2.4 标的债权的回购</p>
+        <p>自甲方转让标的债权后，甲方分<%=kldmodel.DeadLine%>个月对标的债权本金进行回购，回购方式：<%=kldmodel.ReturnType%> ，即每月向乙方支付人民币<%=kldmodel.PerAmount%>元，并按月向乙方支付回购期限的回购收益，年化费率为<%=kldmodel.Rate%>%。</p>
+        <p>2.5 标的债权转让或回购将通过团贷网平台站内消息的方式通知甲方、乙方，站内消息一经发出即视为送达。</p>
+        <p>2.6 债权转让成功后，乙方取得债权。甲、乙方双方约定：债权所产生的利息由甲方所得，甲方应按本协议约定的回购规则进行回购并向乙方支付回购期间的回购收益。</p>
+        <p>2.7甲方定期回购所取得的相应债权，乙方同意若借款人当期归还本金时，甲方优先受偿。</p>
+    </div>
+</div>
+<!--第2页>-->
+<div class="Contract">
+    <div class="Contract_c">
+
+        <p class="title">第三条 保障措施</p>
+        <p>3.1 为确保原债务人履行融资项目项下的义务，标的债权已获得的担保义务人（如有）向甲方提供的连带责任保证担保，甲乙双方在此确认，自标的债权转让日起，甲方在标的债权上设置的担保权利亦转让于乙方。</p>
+        <p>3.2 由丙方为本次债权转让及回购事项提供保证担保，担保方式为连带责任保证担保。在甲方逾期支付回购款及回购收益时，丙方应及时履行保证责任。</p>
+        <p>3.3 甲方到期未及时回购或未及时支付回购收益的，丙方应及时承担保证责任，垫付标准以乙方购买债权时其在团贷网平台的会员等级制度执行。若乙方购买债权时为普通会员，则出现前述情况下丙方仅向乙方垫付相应债权回购款；若乙方购买债权时为超级会员，出现上述情况下丙方全额垫付。</p>
+        <p>3.4 自丙方代甲方清偿其逾期的回购本金或支付回购收益时，丙方有权向甲方追偿已垫付的上述款项及其后产生的利息（利息按照甲方承诺的回购收益计算）。</p>
+
+        <p class="title">第四条 甲方的陈述与保证
+        <p>4.1 甲方系中华人民共和国法律法规下具有完全民事行为能力的公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>4.2 甲方签署并履行本协议不违反对其有约束力或有影响的法律法规或协议的限制；本协议签署后，本协议约定即形成对其合法、有效和有约束力的义务。</p>
+        <p>4.3 甲方是标的债权的合法所有人，且有权转让标的债权；标的债权合法、真实、有效。</p>
+
+        <p class="title">第五条 乙方的陈述与保证
+        <p>5.1 乙方系中华人民共和国公民，具有签署和履行本协议及与本协议有关的其他文件的民事权利能力和行为能力，能够独立承担民事责任。</p>
+        <p>5.2 乙方对本协议的签署和履行不违反对其有约束力或有影响的法律法规或协议的限制。本协议签署后，即构成对乙方合法、有效和有约束力的义务。</p>
+        <p>5.3 乙方保证其用于受让标的债权的投标资金为其合法所有或享有支配权的财产，前述投标资金与与其他任何个人、法人及其他组织不存在法律上的任何纠纷。</p>
+
+
+        <p class="title">第六条 税费的承担</p>
+        <p>6.1 除各方签署的其他协议另有约定外，各方应按照现行有效的中国法律法规的规定各自承担其因签署和履行本协议而产生的相应税费。</p>
+        <p>6.2 因处置标的债权、担保物（如有）而产生的所有税费适用债权文件的约定。</p>
+
+        <p class="title">第七条 协议的变更</p>
+        <p>7.1 本协议的任何修改、补充均须以团贷网平台电子文本形式作出。</p>
+        <p>7.2 变更后的内容或补充协议与本协议具有同等法律效力，如果变更后的内容或补充协议与本协议发生冲突，以变更后的内容或补充协议为准。</p>
+
+        <p class="title">第八条 违约责任
+        <p>8.1 任何一方未履行或未适当履行其在本协议项下的义务，或违反其在本协议项下任何声明与保证的，视为该方违约，违约方应当赔偿因其违约而给其他方造成的全部损失。</p>
+        <p>8.2 由于甲方违反本协议的约定，致使乙方通过其他途径采取补救或追索措施的，由此引起的一切费用，包括但不限于催收费用、律师费、诉讼费、仲裁费、财产保全费、执行费、公告费、差旅费，或依法处置甲方财产而发生的任何费用及其他费用等，概由甲方承担。</p>
+
+        <p class="title">第九条 法律适用及争议解决方式</p>
+        <p>9.1 本协议的签署、生效、履行、解释、修改和终止等事项均适用中华人民共和国现行法律法规。</p>
+        <p>9.2 各方履行本协议过程中发生争议均应当以友好协商的方式解决，协商不成的，任何一方可提交湛江仲裁委员会在东莞仲裁，并按其当时有效的仲裁规则适用简易程序进行仲裁。</p>
+
+        <p class="title">第十条 协议的生效</p>
+        <p>10.1 甲方授权丙方通过团贷网平台发布转让标的债权的信息，乙方通过点击确认签章后，本协议成立。</p>
+        <p>10.2 乙方根据本协议第2.3条第（2）款的约定将标的债权转让价款支付至甲方在第三方支付机构或监管银行账户时，本协议立即生效。</p>
+
+        <p class="title">第十一条 其他事项</p>
+        <p>11.1 各方已经充分阅读并完全理解本协议及相关法律文件及其含义，对于本协议项下的行为自愿承担各自的法律责任和义务。</p>
+        <p>11.2 如果本协议的任何条款因任何原因无效，该条款的无效不影响本协议其他条款有效性的，则各方应当继续履行本协议其他条款。</p>
+        <p>11.3 本协议项下相关费用支付受法定假日或公休日影响的，则支付日提前至法定假日或公休日前一天。</p>
+        <p>11.4 本协议项下的各标题仅为行文方便而设，不用于解释本协议。</p>
+    </div>
+    <div class="Contract_b">
+        <p><br /><strong>各方签署：</strong></p>
+        <p>甲方：<span>席**</span></p>
+        <p>甲方代理人：<span>东莞市银众实业投资有限公司</span></p>
+        <p>乙方：<span><%=kldmodel.InvestUserName%></span></p>
+        <p>丙方：<span><%=kldmodel.Assure %></span></p>
+        <p>协议签署日期：<em><%=kldmodel.BorrowSignYear%></em>年<em><%=kldmodel.BorrowSignMonth%></em>月<em><%=kldmodel.BorrowSignDay%></em>日</p> 
+        <div class="Seal_zhuochen" style="background: url('<%=assureModel.image %>') no-repeat scroll left center transparent"> </div>
+    </div>
+    </div> 
+       <%   }  
+       }
+      else//普通分期宝
+      { %> 
+      <!--第1页>-->
+      <div class="Contract">
+        <h3>借款合同</h3>
+        <div class="Number">合同编号：<%=fqbmodel.ProContactNo %></div>
+        <div class="Contract_t">
+            <ul>
+                <li>
+                    <div>甲方（出借人）：<span><%=fqbmodel.CreditorName %></span></div>
+                    <div>身份证号码：<span><%=fqbmodel.CreditorCardNo %></span></div>
+                </li>
+                <li>
+                    <div>乙方（借款人）：<span><%=fqbmodel.DebtorName %></span></div>
+                    <div>身份证号码：<span><%=fqbmodel.DebtorCardNo %></span></div>
+                </li>
+                <li>
+                    <div>丙方（担保人）：<span><%=fqbmodel.Assure %></span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="Contract_c">
+            <p>
+                特别提示：<br />
+                甲、乙、丙三方请认真仔细阅读本合同项下的全部条款。甲、乙、丙三方一旦签订本合同，即视为三方已充分理解并完全同意本合同项下的所有条款及内容。<br/>乙方向甲方借款，用于支付其向<span><%=fqbmodel.OrgName %></span>购买<span><%=fqbmodel.ProductName %></span>产品的<span><%=fqbmodel.Amount %></span>费用，丙方为乙方的借款提供连带担保。甲、乙、丙三方在平等自愿、协商一致的基础上，经充分友好协商，现达成如下借款合同，以兹共同遵守执行。</p>
+            <p>
+                一、借款条款<br />
+                1、借款金额：人民币￥<span><%=fqbmodel.BorrowMoney %></span>元（大写人民币：<span><%=fqbmodel.BorrowMoneyCn %></span>）<br />
+                2、借款期限：<span><%=fqbmodel.DeadLine %></span>个月，自乙方的本借款标满标之日起计算<span><%=fqbmodel.DeadLine %></span>个月到期。<br />
+                3、借款利息：在本合同规定的借款期内，年利率为<span><%=fqbmodel.Rate %>%</span>。不足一个月的按一个月计算。乙方如果不按期、足额归还借款，逾期部分除了按本合同约定年利率<span><%=fqbmodel.OverRate %>%</span>折算成天计算借款利息外，还需按每天万分之三计算违约金。<br />
+                4、还款方式：<%=fqbmodel.RepaymentTypeName %>。</p>
+            <p>
+                二、保证担保<br />
+                1. 乙方应按照约定向丙方支付担保费。如果乙方到期未按规定归还借款本金及利息，甲方有权立即要求丙方承担保证责任，有权立即直接要求丙方向甲方偿还本合同项下的借款本金。<br />
+                2. 如果乙方到期未按规定归还借款本金及利息，甲方有权立即要求丙方承担保证责任，向甲方偿还本合同项下的借款本金。<br />
+                3. 自丙方代乙方清偿剩下的借款本金给甲方时，丙方有权向乙方追偿。<br />
+              </p>
+        </div>
+    </div>
+      <!--第2页>-->
+      <div class="Contract">
+        <div class="Contract_c">
+            <p>
+                三、追索费用<br />
+                如果乙方到期未归还借款本金及利息从而引致甲方或者丙方向乙方追索的，则甲方或者丙方因行使追索权而产生的包括但不限于诉讼费用、仲裁费用、律师费用等在内的一切费用和开支，一概均由乙方负责承担。</p>
+            <p>
+                四、违约责任<br />
+                本合同签定后，甲、乙、丙三方必须全面适当地履行本合同项下各自的义务及/或责任。任何一方对本合同项下任一条款之违反，即被视为违约，违约方须对非违约方承担相应之违约责任，赔偿非违约方因违约而遭致的一切经济损失。如果乙方违约，甲方或者丙方有权向有关个人征信系统予以披露，有权通过社会公告等形式追究其违约责任。</p>
+            <p>
+                五、争议解决方式<br />
+                合同履行过程中如果发生争议，协商解决，协商不成的，任何一方可提交湛江仲裁委员会在东莞仲裁，并按其当时有效的仲裁规则适用简易程序进行仲裁。仲裁裁决是终局的，对各方均有约束力。</p>
+            <p>
+                六、生效及其他<br />
+                本电子合同适用《中华人民共和国电子签名法》的规定，本合同对各方均有约束力。本合同书自甲、乙、丙三方签字或者盖章，且乙方的借款标满标之日起成立并生效。</p>
+        </div>
+        <div class="Contract_b">
+            <p>
+                <br />
+                <strong>各方签署：</strong></p>
+            <p>
+                甲方：<span><%=fqbmodel.CreditorName %></span></p>
+            <p>
+                乙方：<span><%=fqbmodel.DebtorName %></span></p>
+            <p>
+                丙方：<span><%=fqbmodel.Assure %></span></p>
+            <p>
+                协议签订地：<span><%=fqbmodel.Address %></span></p>
+            <p>
+                协议签署日期：<em><%=fqbmodel.BorrowSignYear %></em>年<em><%=fqbmodel.BorrowSignMonth %></em>月<em><%=fqbmodel.BorrowSignDay %></em>日</p>
+            <!--盖章-->
+            <!--<div class="seal-con pos-a">
+                <img src="images/hnstrz.png" alt=""/>
+            </div>-->
+
+        </div>
+    </div> 
+     <%}%>
+
+    <div class="clearfix mt20"></div>
+
+    <script type="text/javascript">
+        var url = window.location.href;
+        if (url.indexOf("type=mobileapp") >= 0) {
+            document.getElementById("header").style.display = "none";
+        }
+    </script>
+</body>
+</html>

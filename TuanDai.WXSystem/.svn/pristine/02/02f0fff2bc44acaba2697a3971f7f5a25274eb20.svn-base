@@ -1,0 +1,8 @@
+body{background: #fff;}
+.growUpDetail_list{padding: 0 10px;}
+.growUpDetail_list ul{border-bottom: 1px solid #cccccc;}
+.growUpDetail_list ul li{margin-left: 10px;border-top: 1px solid #e6e6e6;padding: 10px 10px 10px 0;}
+.growUpDetail_list ul li .row1 font{float: left;font-size: 1.4rem;color: #212121;}
+.growUpDetail_list ul li .row1 span{float: right;font-size: 2rem;color: #ff781c;}
+.growUpDetail_list ul li .row2 font{float: left;font-size: 1rem;color: #ababab;}
+.growUpDetail_list ul li .row2 span{float: right;font-size: 1rem;color: #ababab;}

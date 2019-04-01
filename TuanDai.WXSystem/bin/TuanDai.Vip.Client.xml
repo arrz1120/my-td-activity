@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.Vip.Client</name>
+    </assembly>
+    <members>
+        <member name="M:TuanDai.Vip.Client.Tools.SetMsgMQ(System.String,System.String,System.String@,System.String)">
+            <summary>
+            获取MQ链接基本信息
+            </summary>
+            <param name="MQVirtualHost"></param>
+            <param name="MQHostIp"></param>
+            <param name="MQUserName"></param>
+            <param name="MQPassword"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+    </members>
+</doc>

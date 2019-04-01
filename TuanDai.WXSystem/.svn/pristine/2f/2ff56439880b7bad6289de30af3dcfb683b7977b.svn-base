@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>现金红包</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/giftBox.css?v=898989" />
+    <!--团宝箱-->
+</head>
+<body class="bg-f1f3f5">
+<section class="pb30">
+    <div class="use-rule">
+        <a href="invest_redPacket_rule.html">使用规则<i></i></a>
+    </div>
+    <div class="ticket-con red pos-r bg-fff">
+        <div class="ticket-d-wrap rp-pt">
+            <div class="tx-ticket-details pos-r">
+                <p class="p1">不使用优惠券</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticket-con red pos-r bg-fff">
+        <div class="ticket-d-wrap rp-pt">
+            <div class="tx-ticket-details pos-r">
+                <p class="p1"><span>100元</span>投资红包</p>
+                <p class="use">满1000元使用</p>
+                <p class="date">有效期：2017.04.25-2017.05.24</p>
+            </div>
+        </div>
+        <span class="icon-used"></span>
+    </div>
+
+    <div class="ticket-con red pos-r bg-fff">
+        <div class="ticket-d-wrap rp-pt">
+            <div class="tx-ticket-details pos-r">
+                <p class="p1"><span>100元</span>投资红包</p>
+                <p class="use">满1000元使用</p>
+                <p class="date">有效期：2017.04.25-2017.05.24</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticket-con red pos-r bg-fff">
+        <div class="ticket-d-wrap rp-pt">
+            <div class="tx-ticket-details pos-r">
+                <p class="p1"><span>100元</span>投资红包</p>
+                <p class="use">满1000元使用</p>
+                <p class="date">有效期：2017.04.25-2017.05.24</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticket-con gray pos-r bg-fff">
+        <div class="ticket-d-wrap rp-pt">
+            <div class="tx-ticket-details pos-r">
+                <p class="p1"><span>100元</span>投资红包</p>
+                <p class="use">满1000元使用</p>
+                <p class="date">有效期：2017.04.25-2017.05.24</p>
+                <p class="no-use pos-r"><span>不可用原因：</span>单笔投资金额不满1000元</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--网络不给力-->
+<section class="tips-box hide">
+    <img src="/imgs/invest/no-network.png" alt="">
+    <p class="p1">网络不给力</p>
+    <p class="p2">下拉可以刷新</p>
+</section>
+
+<!--暂时没有优惠券哦~-->
+<section class="tips-box hide">
+    <img src="/imgs/invest/no-record.png" alt="">
+    <p class="p1">网络不给力</p>
+    <p class="p2">下拉可以刷新</p>
+</section>
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</html>

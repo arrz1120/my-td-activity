@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>团贷网触屏版</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160305" />
+</head>
+<body class="bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <div class="list_nav webkit-box">
+	        	<div class="box-flex1 text-center f16px" style="border-right: 1px solid #d1d1d1;">We</div>
+				<div class="box-flex1 text-center f16px">散标</div>
+				<div class="box-flex1 text-center f16px active">转让</div>
+	        </div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="webkit-box bg-fff pl20 pr20 pt10 pb10 pos-r z-index100" style="opacity: 0.95;">
+		<div class="box-flex1 text-center f16px c-808080">利率</div>
+		<div class="box-flex1 text-center f16px c-808080">期限
+			<span class="inline-block">
+				<p style="line-height: 5px;"><i class="triangle triangle-up-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+				<p style="line-height: 5px;"><i class="triangle triangle-down-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+			</span>
+		</div>
+		<div class="box-flex1 text-center f16px c-fab600" id="sort">筛选<i class="triangle triangle-down-orange" id="sort-ico"></i></div>
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 pt20 pl20 pr20 pb15 mt10 bg-fff">
+    	<div class="webkit-box">
+    		<div class="box-flex1 text-left">
+    			<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+    			<p class="f12px c-ababab mt5">年化利率</p>
+    		</div>
+    		<div class="box-flex1 text-center">
+    			<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+    			<p class="f12px c-ababab mt5">投资期限</p>
+    		</div>
+    		<div class="box-flex1 text-right">
+    			<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+    			<p class="f12px c-ababab mt5">剩余金额</p>
+    		</div>
+    	</div>
+    	<div class="pt10 clearfix itemWrap">
+    		<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">债权转让_022316310378</p></div>
+    	</div>
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 pt20 pl15 pr15 pb15 mt10 bg-fff">
+    	<div class="webkit-box">
+    		<div class="box-flex1 text-left">
+    			<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+    			<p class="f12px c-ababab mt5">年化利率</p>
+    		</div>
+    		<div class="box-flex1 text-center">
+    			<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+    			<p class="f12px c-ababab mt5">投资期限</p>
+    		</div>
+    		<div class="box-flex1 text-right">
+    			<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+    			<p class="f12px c-ababab mt5">剩余金额</p>
+    		</div>
+    	</div>
+    	<div class="pt10 clearfix itemWrap">
+    		<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">债权转让_022316310378</p></div>
+    	</div>
+	</div>
+	<div class="alert z-index10 pos-a hide" id="alert" style="padding-top: 92px;">
+		<div class="bg-f7f7f5 pt25 bt-d1d1d1" id="sort-move">
+			<div class="pl15 pr15">
+				<p class="f15px c-212121 pl5"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%</p>
+				<div class="range-slider">
+				    <input type="text" class="js-range-slider1" value="" tabindex="-1"/ style="border: none;">
+			    </div>
+			    <p class="f15px c-212121 pl5 mt40">
+			    	<span class="f15px c-ababab">回款期限：</span>
+			    	<span class="f23px c-212121" id="count3">7<small class="f15px c-212121">天</small></span>
+			    	~
+			    	<span class="f23px c-212121" id="count4">18<small class="f15px c-212121">个月</small></span>
+			    	<i class="ico-edit" id="time-edit"></i>
+			    </p>
+				<div class="range-slider">
+				    <input type="text" class="js-range-slider2" value="" tabindex="-1"/ style="border: none;">
+			    </div>
+			</div>
+		    <div class="webkit-box bt-e6e6e6 mt30">
+		    	<div class="box-flex1 text-center f17px c-808080 pt13 pb13 br-e6e6e6" id="reset">重置</div>
+		    	<div class="box-flex1 text-center f17px c-fab600 pt13 pb13" id="confirm">确定</div>
+		    </div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script type="text/javascript">
+	//循环计算投资专区下标题宽度
+		$(".itemWrap").each(function(i){
+			var parent = $(".itemWrap").eq(i);
+			var itemTipsBox = parent.find('.itemTipsBox');
+			var itemTxtBox = parent.find('.itemTxtBox');
+			if(itemTipsBox.length!=0){
+				itemTxtBox.width(parent.width() - itemTipsBox.width());
+			}else{
+				itemTxtBox.width(parent.width());
+			}
+		});
+		
+		//筛选显示隐藏
+		function moveFromTop(){
+			$('#alert').removeClass('hide');
+			$('#sort-move').removeClass('moveToTop').addClass('moveFromTop');
+			$('#sort-ico').removeClass('triangle-down-orange').addClass('triangle-up-orange');
+		}
+		function moveToTop(){
+			$('#sort-move').removeClass('moveFromTop').addClass('moveToTop');
+			$('#sort-ico').removeClass('triangle-up-orange').addClass('triangle-down-orange');
+			setTimeout(function(){
+				$('#alert').addClass('hide');
+			},400);
+		}
+		$("#sort").click(function(){
+			if($('#alert').hasClass('hide')){
+				moveFromTop();
+			}else{
+				moveToTop();
+			}
+		});
+		$("#alert").click(function(){
+			moveToTop();
+		});
+		$("#sort-move").click(function(){
+			return false;
+		});
+		$("#confirm").click(function(){
+			moveToTop();
+		});
+		
+		
+		//滑块
+		range1( 5, 20, 5, 20);
+		range2( 7, 47, 7, 47);
+			
+		function range1(min, max, from, to){
+			var $range = $(".js-range-slider1");
+			$range.ionRangeSlider({
+		      type: "double",
+		      min: min,
+		      max: max,
+		      from: from,
+		      to: to,
+		      onChange: function (data) {
+		        updateValues(data.from,data.to);
+		      }
+		    });
+		    var slider = $range.data("ionRangeSlider");
+		    var updateRange = function (from,to) {
+	    		slider.update({
+			        from: from,
+			        to: to
+		      	});
+		    };
+		    var updateValues = function (from,to) {
+			    $("#count1").html(from);
+			    $("#count2").html(to);
+		    };
+		}
+			
+		function range2(min, max, from, to){
+			var $range = $(".js-range-slider2");
+			$range.ionRangeSlider({
+		      	type: "double",
+		     	 min: min,
+		     	 max: max,
+		      	from: from,
+		      	to: to,
+		      	onChange: function (data) {
+			        updateValues(data.from,data.to);
+		      	}
+		    });
+		    var slider = $range.data("ionRangeSlider");
+		    var updateRange = function (from,to) {
+	    		slider.update({
+			        from: from,
+			        to: to
+		      	});
+		    };
+		    var updateValues = function (f,t) {
+		    	var objFrom = {};
+		      	var objTo = {};
+		      	t = t-29;
+		      	if(f>29){
+		      		f = f-29;
+		      		objFrom = {from : f,dateType:'个月'}
+		      	}else{
+		      		objFrom = {from : f,dateType:'天'}
+		      	}
+		      	if(t<1){
+		      		t = t+29;
+		      		objTo = {to : t,dateType:'天'}
+		      	}else{
+		      		objTo = {to : t,dateType:'个月'}
+		      	}
+			    $("#count3").html(objFrom.from+'<small class="f15px c-212121">'+objFrom.dateType+'</small>');
+			    $("#count4").html(objTo.to+'<small class="f15px c-212121">'+objTo.dateType+'</small>');
+		    };
+		    $("#time-confirm").click(function(){
+		    	$("#alert-time").addClass('hide');
+				var from = Number($("#inp3").val());
+				var to = Number($("#inp4").val());
+				if(from<0 || from=='' || isNaN(from+1)){
+					from = 0;
+				}
+				if(to>18 || to=='' || isNaN(to+1)){
+					to = 18;
+				}
+				updateRange(from,to);
+				updateValues(from,to);
+			});
+		}
+
+
+</script>
+
+</body>
+</html>

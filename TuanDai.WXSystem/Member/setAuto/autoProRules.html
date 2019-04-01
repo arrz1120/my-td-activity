@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+	<meta name="format-detection" content="telephone=no">
+	<title>团贷网自动受托规则</title> 
+ 	<script src="/scripts/adapt-64d176742c.js?v=201806200221"></script>
+    <link rel="stylesheet" type="text/css" href="/css/autoProRules.css?v=201806200221" />
+    
+</head>
+<body>
+   <div class="content">
+        <ul class="ap-list">
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="1.">使用自动受托的好处是什么？</p>
+                <p class="ap-answ">自动受托是一个根据您的设置条件自动帮您完成受托的工具，您只需设置服务类型、期限、回报率等条件（详细条件以页面为准），开启后系统即可全天候帮您进行受托，为您省时省力。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="2.">如何设置自动受托？</p>
+                <p class="ap-answ">要正确使用自动受托，您需要进行以下设置：</p>
+                <p class="ap-answ">（1）账户保留金额，即您希望账户里保留多少资金不被用于自动受托。设置为0时表示账户所有的可用余额均可用于自动受托；</p>
+                <p class="ap-answ">（2）服务类型，即您希望自动投哪一类型的服务；</p>
+                <p class="ap-answ">（3）期限，即您希望自动投哪些期限的服务；</p>
+                <p class="ap-answ">（4）参考年回报率，即您希望自动投多少回报率的服务；</p>
+                <p class="ap-answ">（5）使用投资红包，即您是否希望系统帮你自动使用投资红包；</p>
+                <p class="ap-answ">（6）有效期，即您希望该策略运行多久会停止，长期有效表示一直不会停止，自定义即到了您设定的时间点，该策略会自动停止；</p>
+                <p class="ap-answ">（7）策略名称，即该策略的名称，方便您辨识不同的策略。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="3.">自动受托支持使用哪些优惠券？</p>
+                <p class="ap-answ">目前仅支持投资红包，<font class="txt-red">暂不支持加息券。</font></p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="4.">投资红包使用规则是怎样的？</p>
+                <p class="ap-answ">您需在【使用投资红包】中勾选【是】，系统即自动使用最优惠的投资红包，使用规则如下：</p>
+                <p class="ap-answ">（1）根据您的自动受托设置及自动受托可用金额筛选可用红包；</p>
+                <p class="ap-answ">（2）优先使用面额最大（以返现金额为准）的红包，若面额相同则使用起投金额最小的，若起投金额一样则优先使用快过期的；</p>
+                <p class="ap-answ">（3）根据面额最大红包的使用条件以及您的自动受托设置来筛选服务；</p>
+                <p class="ap-answ">（4）按照达到红包起投金额来进行受托。</p>
+                <br />
+                <p class="ap-answ">例子：用户小明有5个投资红包，自动受托设置为智享、45天或90天，自动受托可用金额为20000元。</p>
+                <p class="ap-answ">（1）根据小明的设置以及可用金额20000元，筛选出有3个红包可用：</p>
+                <p class="ap-answ">A红包：项目类型为we we+ 智享，可投期限为60天及以上，满3000返300</p>
+                <p class="ap-answ">B红包：项目类型为智享，可投期限为60天及以上，满5000返50</p>
+                <p class="ap-answ">C红包：项目类型为智享，可投期限为90天及以上，满8000返100</p>
+                <p class="ap-answ">（2）优先使用A红包，因为300元的面额是最大的</p>
+                <p class="ap-answ">（3）根据A红包的使用条件以及小明的设置来筛选服务，即投：智享，90天，剩余金额≥3000的服务</p>
+                <p class="ap-answ">（4）使用A红包时，单次受托的金额会压着3000元这个值来投。目的是不把小明的资金一次投光，以便还有金额去使用B、C红包</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="5.">自动受托排队顺序是怎样的？</p>
+                <p class="ap-answ">自动受托以策略为维度，先开启策略的排在受托队列前面，按照先后顺序执行各个策略（按策略来排队，并不是按账户，所以一个账户的多条策略可能会分布在队列中的不同位置）。若您设置了多条策略，则执行先开启那条。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="6.">若存在多个符合我设置的服务，优先投哪些？</p>
+                <p class="ap-answ">优先投参考年回报率最高的，回报率一样则投最早发布的。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="7.">设置了自动受托，为什么无法受托出去？</p>
+                <p class="ap-answ">投不出去的常见原因如下，请依次检查：</p>
+                <p class="ap-answ">（1）策略开关是否已打开；</p>
+                <p class="ap-answ">（2）账户保留金额是否过高；</p>
+                <p class="ap-answ">（3）所设置的条件是否过于苛刻，比如参考年回报率是否过高、对应期限服务是否存在</p>
+                <p class="ap-answ">（4）有可用红包时，自动受托可用余额不符合服务的起投金额。如可用余额为3000，投智享，并可用一个满3000返10的红包，此时资金是受托不出去的。因为智享起投金额为45元，需3015元才能成功受托并使用红包。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="8.">为什么极少数情况下删除策略、修改策略、修改账户保留金额后，并没有生效？</p>
+                <p class="ap-answ">系统执行您的某条策略需要一定时间，在开始执行此条策略后，您再进行删除、修改等操作，在此次受托队列中就不会生效。</p>
+                <p class="ap-answ">例子：系统在14:05:00已经开始执行您的策略，您在14:05:02修改完成，此条策略在14:05:05完成受托，那么所执行的受托将按修改前的设置进行</p>
+                <p class="ap-answ">这是极少数情况下才会发生，建议您进行删除、修改时，先关闭策略。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="9.">为什么列表有更高参考年回报率的服务，自动受托却没有帮我投到？</p>
+                <p class="ap-answ">首先，自动受托受托队列是每3-10分钟执行一次，您看到列表有更高回报率的服务，可能自动受托队列开始执行时已经被抢完；</p>
+                <p class="ap-answ"> 其次，自动受托受托队列有先后顺序，更高回报率的服务可能已被排在您前面的用户投完。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="10.">为什么会出现所投服务超过风险评测等级提示？</p>
+                <p class="ap-answ">为更好地让用户了解受托行为的风险等级，当您所选择的服务风险等级超过您的风险评测等级时，我们会提醒您相关信息，供您作投资参考。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="11.">当风险评测等级发生变化时，自动受托是否会自动停止？</p>
+                <p class="ap-answ">不会。当您的风险评测等级发生变化时，建议您手动停止自动受托，并重新设置符合您风险评测等级的服务。若没有手动停止，则自动受托还会按照此前的设置继续执行自动受托。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="12.">当有待结清的智享（资产标）时，对自动受托有何影响？</p>
+                <p class="ap-answ">若您当天及下一天存在待结清的智享转让或资产标（含逾期），自动受托将会给您的账户预留这两天的待结清金额，不会自动使用，以免影响您的结清计划。</p>
+            </li>
+            <li class="ap-row">
+                <p class="ap-ques" data-seri="13.">自动受托可用金额是怎么计算的？</p>
+                <p class="ap-answ">自动受托可用金额=账户可用余额-账户保留金额-今明两天待结清智享金额。</p>
+            </li>
+
+        </ul>
+   </div>
+</body>
+
+</html>

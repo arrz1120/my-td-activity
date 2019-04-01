@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>资金统计</title>
+		<link rel="stylesheet" type="text/css" href="/Member/fundStatistics/css/fundStatistics.css?v=<%=GlobalUtils.Version %>" />
+		<link rel="stylesheet" type="text/css" href="/Member/fundStatistics/css/swiper-3.4.0.min.css?v=<%=GlobalUtils.Version %>" />
+	</head>
+
+	<body style="font-size: 50px;">
+		<script>
+			(function(doc, win) {
+				var dpr, rem, scale = 1;
+				var docEl = document.documentElement;
+				var metaEl = document.querySelector('meta[name="viewport"]');
+				var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+				metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no,shrink-to-fit=no');
+				docEl.setAttribute('data-dpr', dpr);
+				var recalc = function() {
+					clientWidth = docEl.clientWidth;
+					if(!clientWidth) return;
+					docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					if(document.body) {
+						document.body.style.fontSize = docEl.style.fontSize;
+					}
+
+				};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<div class="loading-box" id="cMloading" style="display: none;">
+			<div class="loading-tips"><img src="/imgs/images/icon/ico_loading.png" alt=""><span>加载中...</span></div>
+		</div>
+		<div class="float-jump">
+			<a href="/Index.aspx"><img src="/imgs/images/icon/ico_toHome.png"></a>
+			<a href="/Member/my_account.aspx"><img src="/imgs/images/icon/ico_toAccount.png"></a>
+		</div>
+		<section class="sec01">
+			<p class="p1_1 text-center">资产总额</p>
+			<p class="p1_2 text-center">
+				32,521.15
+			</p>
+			<div class="lqBox clearfix" id="swiper-tab1">
+				<div class="w50p text-center lf lq-item lq-item-cur">
+					<p class="lq_p1">P2P：151.60</p>
+					<div class="active-line"></div>
+				</div>
+				<div class="w50p text-center lf lq-item">
+					<p class="lq_p1">智享：0.00</p>
+					<div class="active-line"></div>
+				</div>
+			</div>
+			<div class="lqSlide">
+				<div class="swiper-container" id="swiper1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="frame frame1">
+								<div class="frame-tit">资产总计：32,521.15</div>
+								<div class="frame_row">
+									<div class="lfBox lfBox1">
+										<p><span class="markRound f_mark1"></span>待收本金</p>
+										<p>
+											31,710.00
+										</p>
+									</div>
+									<div class="lfBox lfBox2">
+										<p><span class="markRound f_mark1"></span>待收利息</p>
+										<p>
+											760.67
+										</p>
+									</div>
+									<div class="lfBox lfBox3">
+										<p><span class="markRound f_mark1"></span>可用余额</p>
+										<p>
+											50.48
+										</p>
+									</div>
+								</div>
+								<div class="frame_row mt18">
+									<div class="lfBox lfBox1">
+										<p><span class="markRound f_mark1"></span>冻结资金</p>
+										<p>
+											0.00
+										</p>
+									</div>
+									<div class="lfBox lfBox2">
+										<p><span class="markRound f_mark1"></span>提现待审核</p>
+										<p>
+											0.00
+										</p>
+									</div>
+									<div class="lfBox lfBox3">
+										<p><span class="markRound f_mark1"></span>投资待满标</p>
+										<p>
+											0.00
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="frame frame2">
+								<div class="frame-tit">资产总计：0.00</div>
+								<div class="frame_row">
+									<div class="lfBox lfBox1">
+										<p><span class="markRound f_mark1"></span>待收本金</p>
+										<p>
+											0.00
+										</p>
+									</div>
+									<div class="lfBox lfBox2">
+										<p><span class="markRound f_mark1"></span>待收利息</p>
+										<p>
+											0.00
+										</p>
+									</div>
+									<div class="lfBox lfBox3">
+										<p><span class="markRound f_mark1"></span>可用余额</p>
+										<p>
+											0.00
+										</p>
+									</div>
+								</div>
+								<div class="frame_row mt18">
+									<div class="lfBox lfBox1">
+										<p><span class="markRound f_mark1"></span>冻结资金</p>
+										<p>
+											0.00
+										</p>
+									</div>
+									<div class="lfBox lfBox2">
+										<p><span class="markRound f_mark1"></span>提现待审核</p>
+										<p>
+											0.00
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="split split1">
+			<div class="ico_bgleft"></div>
+			<div class="imgLine imgLine1 margin-auto"></div>
+			<div class="ico_bgright"></div>
+		</div>
+		<section class="sec02">
+			<div class="secTop text-center">
+				<p class="st_p1">投资收益</p>
+				<p class="st_p2">
+					1,322.22
+				</p>
+				<div class="clearfix income-wrap">
+					<div class="income-line"></div>
+					<div class="w50p lf">
+						<p class="income-p1">智能投资：700</p>
+						<p class="income-p2"><span class="markRound markOrange"></span>已收利息<span class="income-num">500.00</span></p>
+						<p class="income-p3"><span class="markRound markRed"></span>待收利息<span class="income-num">200.00</span></p>
+					</div>
+					<div class="w50p lf">
+						<p class="income-p1">智享：700</p>
+						<p class="income-p2"><span class="markRound markOrange"></span>已收利息<span class="income-num">500.00</span></p>
+						<p class="income-p3"><span class="markRound markRed"></span>待收利息<span class="income-num">200.00</span></p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="split">
+			<div class="imgLine imgLine1 margin-auto"></div>
+		</div>
+		<section class="sec03">
+			<div class="secTop text-center">
+				<p class="st_p1">其它收益</p>
+				<p class="st_p2">
+					667.52
+				</p>
+			</div>
+			<div class="otherIncome">
+				<div class="other-part">
+					<p><span class="markRound markOrange"></span>红包收益<span class="other-num" id="hbIncome">1,111,111.00</span></p>
+				</div>
+				<div class="other-part">
+					<p><span class="markRound markRed"></span>邀请收益<span class="other-num" id="inviteIncome">21,111,111.00</span></p>
+				</div>
+			</div>
+			
+			<!--<div class="otherIncome">
+				<div class="lfBox lfBox1">
+					<p><span class="markRound markOrange"></span>红包收益</p>
+					<p id="hbIncome">
+						516.47
+					</p>
+				</div>
+				<div class="lfBox lfBox1">
+					<p><span class="markRound markRed"></span>邀请收益</p>
+					<p id="inviteIncome">
+						151.05
+					</p>
+				</div>
+			</div>-->
+			<div class="oiBar">
+				<div class="oiBarPer hbBar" id="bar1" style="width: 77.3715%;"></div>
+				<div class="oiBarPer inviteBar" id="bar3" style="width: 100%;"></div>
+			</div>
+		</section>
+		<div class="split">
+			<div class="ico_bgleft"></div>
+			<div class="imgLine imgLine1 margin-auto"></div>
+			<div class="ico_bgright"></div>
+		</div>
+		<section class="sec04">
+			<div class="secTop text-center">
+				<p class="st_p1">支出总计</p>
+				<p class="st_p2">
+					19.46
+				</p>
+			</div>
+			<div class="clearfix iChartBox" id="iChartBox3">
+				<div class="lf">
+					<div class="iDataNum iDataNum2">
+						<p class="iData_p1">已付利息</p>
+						<p class="iData_p2">
+							0.00
+						</p>
+					</div>
+					<div class="iDataNum iDataNum1">
+						<p class="iData_p1">购买会员</p>
+						<p class="iData_p2">
+							0.00
+						</p>
+					</div>
+					<div class="iDataNum iDataNum3">
+						<p class="iData_p1">提现费用</p>
+						<p class="iData_p2">
+							19.46
+						</p>
+					</div>
+					<div class="iDataNum iDataNum4">
+						<p class="iData_p1">支付佣金</p>
+						<p class="iData_p2">
+							0.00
+						</p>
+					</div>
+					<div class="iDataNum iDataNum5">
+						<p class="iData_p1">待付利息</p>
+						<p class="iData_p2">
+							0.00
+						</p>
+					</div>
+				</div>
+				<div class="chartBox" id="iDataBox">
+					<div class="chartImg chartRed"></div>
+					<div class="chartImg chartOrange"></div>
+					<div class="chartImg chartPurple"></div>
+					<div class="chartImg chartGreen"></div>
+					<div class="chartImg chartBlue"></div>
+					<div class="chartLineBox">
+						<span class="y_num">19</span>
+						<div class="chartLine"></div>
+					</div>
+					<div class="chartLineBox">
+						<span class="y_num">12</span>
+						<div class="chartLine"></div>
+					</div>
+					<div class="chartLineBox">
+						<span class="y_num">6</span>
+						<div class="chartLine"></div>
+					</div>
+					<div class="chartLineBox">
+						<span>0</span>
+						<div class="chartLine"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="split">
+			<div class="imgLine imgLine3 margin-auto"></div>
+		</div>
+		<section class="sec06">
+			<div class="dayCount text-center">
+				2015.09.29注册，已加入团贷网
+				<span>8</span>
+				<span>4</span>
+				<span>2</span> 天！
+			</div>
+		</section>
+		<div class="split">
+			<div class="imgLine imgLine3 margin-auto"></div>
+		</div>
+		<section class="sec07">
+			<div class="incomePart">
+				<div class="clearfix">
+					<div class="partOpt text-center w50p lf bre6">
+						<p>累计投资</p>
+						<p>
+							91,164.00
+						</p>
+					</div>
+					<div class="partOpt text-center w50p lf">
+						<p>累计借款</p>
+						<p>
+							0.00
+						</p>
+					</div>
+				</div>
+				<!--<div class="clearfix">
+					<div class="partOpt text-center w50p lf bre6">
+						<p>累计充值</p>
+						<p>
+							62,096.88
+						</p>
+					</div>
+					<div class="partOpt text-center w50p lf">
+						<p>累计提现</p>
+						<p>
+							31,646.14
+						</p>
+					</div>
+				</div>-->
+				<!--<div class="imgLine imgLine3 margin-auto"></div>
+				<div class="partCenter">
+					<i></i>
+				</div>-->
+			</div>
+		</section>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js?v=20180115001"></script>
+		<script src="/Member/fundStatistics/js/swiper-3.4.0.jquery.min.js?v=20180115001" type="text/javascript" charset="utf-8"></script>
+		<script src="/Member/fundStatistics/js/script.js?v=20180115001" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="/scripts/base.js?v=20180115001"></script>
+		<script type="text/javascript" src="/scripts/jquery.extensions.js?v=20180115001"></script>
+	</body>
+
+</html>

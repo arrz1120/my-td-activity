@@ -1,0 +1,224 @@
+﻿using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.Model;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.Member.Repayment
+{
+    public partial class my_debt_carry_detail : UserPage
+    {
+        protected WXSubscribeInfo1 subscribeInfo;//申购实体
+        protected Guid SubscribeId;//申购ID
+        protected string projectTitle;
+        protected Guid projectId;
+        protected List<SubscribeInfo> listtable = new List<SubscribeInfo>();
+        protected string Status = string.Empty;//状态
+        protected string CurrTab;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            SubscribeId = WEBRequest.GetGuid("SubscribeId", "");
+            projectTitle = WEBRequest.GetQueryString("Title");
+            projectId = WEBRequest.GetGuid("projectid", "");
+            CurrTab = WEBRequest.GetQueryString("tab");
+            if (!IsPostBack)
+            {
+                subscribeInfo = WXGetSubscribeInfo(SubscribeId);
+                Status = WXConverter.GetSubscribeStatusString(99, subscribeInfo.Status, subscribeInfo.IsBorrow);
+                BindList();
+            }
+        }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        protected void BindList()
+        {
+
+            listtable = GetSubscribeDetailList(SubscribeId);
+            decimal totalInterest = 0;
+            foreach (SubscribeInfo item in listtable)
+            {
+                totalInterest += item.InterestAmout + item.PublisherRedPacket+item.TuandaiRedPacket;
+                if (item.IsBorrow != null && item.IsBorrow == false)
+                {
+                    item.Desc = "已逾期";
+                    DateTime tEnd = DateTime.Now.ToShortDate();
+                    DateTime tBegin = Convert.ToDateTime(item.OverDueDate).ToShortDate();
+                    item.OverDueDay = Math.Abs(((TimeSpan)(tEnd - tBegin)).Days + 1);//逾期天数 
+                }
+                if (item.CycDate < DateTime.Now && item.Desc.IndexOf("待") >= 0)
+                {
+                    item.Desc = "已逾期";
+                    DateTime tEnd = DateTime.Now.ToShortDate();
+                    DateTime tBegin = Convert.ToDateTime(item.CycDate).ToShortDate();
+                    item.OverDueDay = Math.Abs(((TimeSpan)(tEnd - tBegin)).Days + 1);//逾期天数
+                }
+            }
+            subscribeInfo.InterestAmount = totalInterest;
+        }
+
+        /// <summary>
+        /// 获取回款记录明细
+        /// </summary>
+        /// <param name="subscribeId">申购Id</param>
+        /// <returns></returns>
+        protected List<SubscribeInfo> GetSubscribeDetailList(Guid subscribeId)
+        {
+            List<SubscribeInfo> list = null;
+           
+            string sqlText = @"select CycDate,Amount,InterestAmout,ISNULL(InvestCommission,0) AS Commission,ISNULL(TuandaiRedPacket,0) AS TuandaiRedPacket,ISNULL(PublisherRedPacket,0)AS PublisherRedPacket,Periods,0 as OverDueAmount,0 RealAmount,0 AdvanceAmount,NULL IsRefundAdvance,1 Status,'待回款' AS [Desc] 
+            from SubscribeDetail with(nolock)
+            where SubscribeId=@SubscribeID
+            order by Periods";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@SubscribeID",subscribeId);
+            list = PublicConn.QueryBySql<SubscribeInfo>(sqlText, ref para);
+
+            sqlText = @"select Adddate  CycDate,RealAmount Amount,RealInterestAmout InterestAmout,isnull(InvestCommission, 0) as Commission,isnull(TuandaiRedPacket, 0) TuandaiRedPacket,isnull(PublisherRedPacket, 0) PublisherRedPacket,Periods ,0 OverDueAmount,0 RealAmount,0 AdvanceAmount,NULL IsRefundAdvance,2 as Status ,'已回款' as [Desc] from SubscribeDetailHistory_h1 with(nolock) where SubscribeId=@SubscribeID order by Periods";
+            var hlist = TuanDai.DB.TuanDaiDB.Query<SubscribeInfo>(TdConfig.ApplicationName,
+                TdConfig.DBSubDetailHisRead, sqlText, ref para);
+            if (hlist != null && hlist.Count > 0)
+            {
+                
+                foreach (var info in hlist)
+                {
+                    info.IsBorrow = true;
+                    sqlText = string.Empty;
+                    sqlText = @"select b.Adddate OverDueDate,b.IsBorrow  from OverDueRecord B with(nolock) where B.SubscribeId=@SubscribeID and B.periods=@periods and isnull(b.IsHide,0)=0";
+                    SubscribeInfo s = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<SubscribeInfo>(TdConfig.ApplicationName,
+                TdConfig.DBRead, sqlText, ref para);
+                    if (s != null)
+                    {
+                        info.IsBorrow = s.IsBorrow;
+                        info.OverDueDate = s.OverDueDate;
+                    }
+                }
+                list.AddRange(hlist);
+            }
+            if (list != null && list.Count > 0)
+            {
+                list = list.OrderBy(o => o.Periods).ToList();
+            }
+            
+            return list;
+        }
+
+        /// <summary>
+        /// 投资
+        /// </summary>
+        /// <param name="SubscribeId"></param>
+        /// <returns></returns>
+        public WXSubscribeInfo1 WXGetSubscribeInfo(Guid SubscribeId)
+        {
+            WXSubscribeInfo1 model = new WXSubscribeInfo1();
+
+            string cmdText = @"SELECT s.Id AS SubscribeId,s.TranDate as AddDate,s.TenderMode,s.Status,o.IsBorrow,s.Amount,s.InterestAmount,s.ReceiveAmount,s.ReceiveInterest,
+									ISNULL(s.TuandaiRedPacket,0) as TuandaiRedPacket, isnull(PublisherRedPacket,0) as PublisherRedPacket, s.ContractNo
+								   FROM Subscribe s with(nolock)
+								   LEFT JOIN OverDueRecord o with(nolock) ON s.Id=o.SubscribeId AND o.IsBorrow=0 and  isnull(o.IsHide,0)=0
+                                   WHERE s.Id=@Id";
+            var paras = new { Id = SubscribeId };
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@Id", SubscribeId);
+            model = PublicConn.QuerySingle<WXSubscribeInfo1>(cmdText, ref dyParams);
+
+            return model;
+        }
+    }
+    //投资记录-
+    public class WXSubscribeInfo1
+    {
+        public Guid SubscribeId { get; set; }
+        public DateTime? AddDate { get; set; }
+        public int? TenderMode { get; set; }
+        public int? Status { get; set; }
+        public bool? IsBorrow { get; set; }
+        public decimal? Amount { get; set; }
+        /// <summary>
+        /// 利息
+        /// </summary>
+        public decimal? InterestAmount { get; set; }
+        /// <summary>
+        /// 团贷红包
+        /// </summary>
+        public decimal? TuandaiRedPacket { get; set; }
+        /// <summary>
+        /// 发标人红包
+        /// </summary>
+        public decimal? PublisherRedPacket { get; set; }
+
+        public decimal? ReceiveAmount { get; set; }
+
+        public decimal? ReceiveInterest { get; set; }
+        /// <summary>
+        /// 合同编号
+        /// </summary>
+        public string ContractNo { get; set; }
+    }
+    /// <summary>
+    /// 回款明细
+    /// </summary>
+    public class SubscribeInfo
+    {
+        /// <summary>
+        /// 回款时间
+        /// </summary>
+        public DateTime CycDate { get; set; }
+        /// <summary>
+        /// 本金
+        /// </summary>
+        public decimal Amount { get; set; }
+        /// <summary>
+        /// 利息
+        /// </summary>
+        public decimal InterestAmout { get; set; }
+        /// <summary>
+        /// 投资佣金
+        /// </summary>
+        public decimal Commssion { get; set; }
+        /// <summary>
+        /// 当期期数
+        /// </summary>
+        public int Periods { get; set; }
+        /// <summary>
+        /// 说明
+        /// </summary>
+        public string Desc { get; set; }
+        /// <summary>
+        /// 团贷奖励
+        /// </summary>
+        public decimal TuandaiRedPacket { get; set; }
+        /// <summary>
+        /// 滞纳金
+        /// </summary>
+        public decimal PenaltyAmount { get; set; }
+        /// <summary>
+        /// 是否逾期
+        /// </summary>
+        public bool? IsBorrow { get; set; }
+        /// <summary>
+        /// 逾期日期
+        /// </summary>
+        public DateTime? OverDueDate { get; set; }
+        /// <summary>
+        /// 逾期天数
+        /// </summary>
+        public int? OverDueDay { get; set; }
+        /// <summary>
+        /// 发标人红包
+        /// </summary>
+        public decimal PublisherRedPacket { get; set; }
+        /// <summary>
+        /// 申购日期
+        /// </summary>
+        public DateTime InvestDate { get; set; }
+    }
+}

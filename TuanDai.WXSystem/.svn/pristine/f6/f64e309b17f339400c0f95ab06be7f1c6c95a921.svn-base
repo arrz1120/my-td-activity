@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>提现记录</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">提现记录</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="recordBox clearfix pl0 ">
+          <a href="" class="cash pl20 f14px" >
+
+                    不使用提现券
+
+                <div class="r-cont"><i class="icoBox11 next-arrow"></i></div>
+          </a>
+          <a href="" class="cash  pl20 border-b0 f14px">
+
+                30元提现券
+
+            <div class="r-cont c-ababab"><i class="icoBox11 next-arrow"></i></div>
+        </a>
+ </section>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>定期理财_定期项目_计划详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160323" />
+	<link rel="stylesheet" type="text/css" href="/css/investProcess.css?v=20160323" />
+</head>
+<body class="bg-f1f3f5 pb45">
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">计划详情</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+		<div class="detail-top-bg pro-notFinish">
+			<div class="pl15 pos-r pt15 detail_tit">
+				<p class="f14px c-808080 text-overflow">安盈宝-连交所-达商001期</p>
+				<!--<div class="round-btn"><i class="ico-record"></i>加入记录</div>-->
+			</div>
+			<div class="pt10 text-center">
+				<p><span class="f13px c-ababab">预期年化利率（到期本息）</p>
+			</div>
+			<div class="rateIncome">
+				<p>13<span>.30%</span></p>
+			</div>
+			<div class="bg005 mt5">
+				<div class="clearfix pt15">
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">200,000.00</p>
+						<p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">3个月</p>
+						<p class="line-h20 f12px c-ababab">计划期限</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">100元/份</p>
+						<p class="line-h20 f12px c-ababab">投资单位</p>
+					</div>
+				</div>
+				<div class="pl15 pr15 pt15 pb11">
+					<div class="pBar">
+						<div class="barRate" style="width: 70%;"></div>
+					</div>
+					<div class="mt4 clearfix">
+						<div class="lf f13px c-ababab">借款金额：300,000.00</div>
+						<div class="rf f13px c-ababab">70%</div>
+					</div>
+				</div>
+				<div class="bt-e6e6e6 moneySafty pr40 pl15" id="f1">
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>风险拨备金</div>
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>第三方担保</div>
+					<div class="c-ababab f13px text-center"><i class="ico-suc03"></i>电子合同</div>
+					<div class="ico-arrow-r"></div>
+				</div>
+			</div>
+			<div class="finishImg"><img src="/imgs/images/bg/pro-finish.png"/></div>
+		</div>
+		
+		<!--收益演示-->
+		<div class="incomeShow mt15 bt-e6e6e6 bb-e6e6e6 bg-fff">
+			<div class="is_tit bb-e6e6e6 pos-r ml15 f15px" id="f2">
+				投资1万元，可赚取收益<span class="f15px c-fd6040">1,250.00</span>元
+				<b class="c-ababab f13px">收益演示</b>
+				<div class="ico-arrow-r"></div>
+			</div>
+			<div class="is_img clearfix">
+				<div class="lf w50p text-center"><img src="/imgs/images/pic/investProcess1.png"></div>
+                
+				<div class="lf w50p text-center"><img src="/imgs/images/pic/investProcess3.png"></div>
+			</div>
+			<div class="is_Round clearfix">
+				<div class="lf w50p text-center pos-r">
+					<div class="is_line is_line1"></div>
+					<i class="is_cur"></i>
+				</div>
+                
+				<div class="lf w50p text-center pos-r">
+					<div class="is_line is_line3"></div>
+					<i></i>
+				</div>
+			</div>
+
+			<div class="clearfix pb20">
+				<div class="w50p lf text-center">
+					<p class="f13px c-694514">开始投资</p>
+					
+				</div>
+                
+				<div class="w50p lf text-center">
+					<p class="f13px c-694514">到期本息</p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="is_tit bb-e6e6e6 pos-r f17px mt15 pl15 bg-fff">
+			投资记录
+			<b class="c-ababab f13px">367</b>
+			<div class="ico-arrow-r"></div>
+		</div>
+		
+		<!--项目介绍-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>项目介绍</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">安盈宝是由大连京北互联网金融资产交易中心备案，通过团贷网向投资人定向募集的金融资产收益权产品。</div>
+			</div>
+		</div>
+		
+		<!--产品介绍-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>产品介绍</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 text-justify pr15">本产品为大连京北互联网金融资产交易中心（简称“连交所”）备案产品--LJS-002-201609-000001号金融资产收益权。金融资产收益权，是指标的资产的合法受益人（即“产品转让人/回购人”，以下简称“转让人”）将其依法享有的全部或部分投资收益通过连交所转让并约定到期回购的创新金融产品。</div>
+				<div class="c-808080 f14px pb15 text-justify pr15">本次产品所涉及的标的资产由******小额贷款有限公司严格甄选，到期按约定进行回购。</div>
+			</div>
+		</div>
+		
+		<!--合作机构-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>合作机构</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">大连京北互联网金融资产交易中心有限公司（简称“连交所”）成立于2015年11月，是专业从事金融资产交易的创新型金融服务平台，是全国六家互联网金融资产交易中心之一，为金融资产交易提供登记、托管、交易、结算、咨询和订制等服务。</div>
+			</div>
+		</div>
+		
+		<!--还款保障-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>还款保障</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px text-justify pr15">还款来源：</div>
+				<div class="c-808080 f14px text-justify pr15">1. 标的资产的本息回笼；</div>
+				<div class="c-808080 f14px text-justify pr15">2. ****小额贷款有限公司到期全额回购；</div>
+				<div class="c-808080 f14px text-justify pr15">3. XXX担保公司提供担保。</div>
+			</div>
+		</div>
+		
+		<div class="is_tit bb-e6e6e6 pos-r f17px mt15 pl15 bg-fff">
+			常见问题
+			<div class="ico-arrow-r"></div>
+		</div>
+		
+		<div class="text-center pt5 pb5 c-aaaaaa">投资有风险，购买需谨慎</div>
+		
+		
+		
+	<div class="pos-f btn-joinNow">
+		<div class="btn btnYellow">马上加入</div>
+		<a href="" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a>
+	</div>
+	
+	<!----------------------弹框----------------------->
+	<!--资金安全弹框-->
+    <div class="frame bg-op09 hide" id="frame1">
+    	<p class="f19px c-282828 pt20 pb20 text-center">资金安全</p>
+    	<div class="pl15 pr15">
+	    	<div class="safty_tiem">
+	    		<div class="ico_r ico_sprite ico_bCourse11"></div>
+	    		<p class="f17px">风险拨备金</p>
+	    		<p class="f13px c-808080 pb10">南粤银行存管，7000万+风险拨备金</p>
+	    		<div class="bt-e6e6e6 pt10 line-h18 f11px c-ababab">
+	    			当项目出现逾期时，平台将按照垫付规则及时使用风险拨备金进行垫付（超级会员垫付本息，普通会员垫付本金）
+	    		</div>
+	    	</div>
+	    	<div class="safty_tiem mt15">
+	    		<div class="ico_r ico_sprite ico_bCourse10"></div>
+	    		<p class="f17px">第三方担保</p>
+	    		<p class="f13px c-808080 pb10">东莞市联胜非融资性担保有限公司</p>
+	    	</div>
+	    	<div class="safty_tiem mt15">
+	    		<div class="ico_r ico_sprite ico_contract"></div>
+	    		<p class="f17px">电子合同</p>
+	    		<p class="f13px c-808080 pb10">每笔投资都会生成有效的电子合同</p>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close1"></div>
+    </div>
+    
+	<!--收益演示弹框-->
+    <div class="frame bg-f6f7f8 hide" id="frame2">
+    	<div class="bg-fff pl15">
+	    	<div class="pt20 pb20 bb-e6e6e6">
+	    		<p class="c-fab600 f20px">投资1万元，可赚取收益300元</p>
+	    		<p class="c-808080 f13px mt7">(收益是余X宝的5倍)</p>
+	    	</div>
+	    	<div class="pb20 pt5">
+		    	<div class="incomeCompare">
+		    		<span class="compare_l f13px c-808080">团贷网:</span>
+		    		<span class="compare_r f13px c-808080">1000元</span>
+		    		<div class="compareBar">
+		    			<div class="barFill" style="width: 100%;"></div>
+		    		</div>
+		    	</div>
+		    	<div class="incomeCompare">
+		    		<span class="compare_l f13px c-808080">余X宝:</span>
+		    		<span class="compare_r f13px c-808080">50元</span>
+		    		<div class="compareBar">
+		    			<div class="barFill" style="width: 20.4%;"></div>
+		    		</div>
+		    	</div>
+	    	</div>
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 bb-e6e6e6 f15px">
+    		2015.05.24投资，2015.08.25到期
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+    		<div class="lf c-808080 f15px">2015.05.24投资</div>
+    		<div class="rf c-808080 f15px">- 10000.00元</div>
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+    		<div class="lf c-808080 f15px">2015.05.24投资</div>
+    		<div class="rf c-808080 f15px">- 10000.00元</div>
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+    		<div class="lf c-808080 f15px">2015.05.24投资</div>
+    		<div class="rf c-808080 f15px">- 10000.00元</div>
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+    		<div class="lf c-808080 f15px">2015.05.24投资</div>
+    		<div class="rf c-808080 f15px">- 10000.00元</div>
+    	</div>
+    	<div class="ml15 mr15 pt15 pb15 clearfix f15px">
+    		<div class="lf c-808080 f15px">2015.05.24投资</div>
+    		<div class="rf c-808080 f15px">- 10000.00元</div>
+    	</div>
+    	
+    	<div class="frame-close" id="close2"></div>
+    </div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	//
+	$(".dropdownTit").click(function(){
+		var next = $(this).next();
+		var triangle = $(this).find('i');
+		if(next.hasClass('hide')){
+			triangle.removeClass('rotate0');
+			next.removeClass('hide');
+		}else{
+			triangle.addClass('rotate0');
+			next.addClass('hide');
+		}
+	})
+	
+	var scrollT="";	
+	function moveToTop(open,target){
+		$(open).click(function(){
+			scrollT = $(window).scrollTop();
+			$(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+			setTimeout(function(){
+			},400);
+		});
+	}
+		
+	function moveToBottom(close,target){
+		$(close).click(function(){
+			$(window).scrollTop(scrollT);
+			$(target).removeClass('moveToTop').addClass('moveToBottom');
+			setTimeout(function(){
+				$(target).addClass('hide');
+			},400);
+		})
+	}
+	moveToTop("#f1",'#frame1');
+	moveToBottom('#close1','#frame1');
+	moveToTop("#f2",'#frame2');
+	moveToBottom('#close2','#frame2');
+</script>
+
+</html>

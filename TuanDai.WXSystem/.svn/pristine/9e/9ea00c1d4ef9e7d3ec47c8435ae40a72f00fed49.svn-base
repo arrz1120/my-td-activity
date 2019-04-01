@@ -1,0 +1,202 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="TuanDai.WXApiWeb.user.Register" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>会员注册-团贷网</title> 
+
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/log-alert.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/baikedaohang.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+
+</head>
+<body>
+	<div id="bigDiv">
+    <div class="bg-fff wh100">
+        <div class="text-center f17px pt15 pb15">注册</div>
+        <input id="hd_returnUrl" type="hidden" value="<%=this.returnUrl %>"/>
+        <input id="hd_tdFrom" type="hidden" value="<%=this.tdFrom %>"/>
+        <input id="hd_extendKey" type="hidden" value="<%=this.extenderkey %>"/>
+        <div class="contentWrap pt20" id="loginConfirm">
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite phone"></i>
+                <input type="text" name="txtMobileNumber" id="txtMobileNumber" placeholder="请输入手机号码" maxlength="11" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" value="<%=Request["phone"] %>" />
+            </div>
+            <div class="input-box bb-e6e6e6" id="setPassword">
+                <i class="block logSprite lock"></i>
+                <input type="password" name="txtPassword" id="txtPassword" maxlength="16" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')" />
+                <p id="likePlaceholder">设置密码<span>（6-16个字符，数字+字母）</span></p>
+                <div class="btnsee webkit-box box-center" id="btnSee">
+                    <b class="block logSprite eye-close"></b>
+                </div>
+            </div>
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite info"></i>
+                <input type="text" name="txtCode" id="txtCode" placeholder="验证码" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" maxlength="6" />
+                <div class="timeout bl-e6e6e6 f13px c-ffcf1f text-center" id="btnCode">
+                    获取验证码
+                </div>
+
+                <div class="timeWrap bl-e6e6e6 hide" id="timeWrap">
+                    <div class="time_bg"></div>
+                    <div class="time">
+                        <div class="wrap circle_right">
+                            <div class="round rightcircle" id="rightcircle"></div>
+                        </div>
+                        <div class="wrap circle_left">
+                            <div class="round leftcircle" id="leftcircle"></div>
+                        </div>
+                        <div id="show"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <% if(extenderkey==""){ %>
+            <div class="clearfix pl10 mt8 invite_t">
+                <div class="lf c-ffcf1f f13px" id="invite"><i class="triangle-r"></i>邀请人手机号码</div>
+                <div class="rf c-ffcf1f f13px" id="btnSendVoice">语音验证码</div>
+            </div>
+            <div class="input-box bb-e6e6e6 mt13 hide" id="invite-inp">
+                <i class="block logSprite people"></i>
+                <input type="tel" id="txtTelNo" placeholder="邀请人手机号码" />
+            </div>
+            <%} %>
+
+            <% if(tdFrom.ToLower()=="activity_xianjinhongbao_20160718"){ %>
+            <div class="text-center f13px c-fd6040 mt25">要当天注册才能领取红包哦！</div>
+            <%} %>
+             <a href="javascript:void(0)" id="btnSubmit" class="btn btnYellow mt40" >注册</a> 
+            <div class="text-center f13px c-ababab mt8">注册即表示您已同意<span class="f13px c-ffcf1f"><a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/contractagreement.aspx" class="f13px c-ffcf1f">《团贷网服务协议》</a></span>
+                <br/>和<span class="f13px c-ffcf1f"><a href="" class="f13px c-ffcf1f">《团贷网服务协议》</a></span></div>
+             <% if(tdFrom.ToLower()!="activity_xianjinhongbao_20160718"){ %>
+              <div class="text-center f13px c-ababab mt30">我已是团贷网会员<a href="/user/login.aspx" class="f13px c-ffcf1f pl5">马上登录</a></div>
+            <%} %>
+        </div>
+    </div>
+		
+	</div>
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/fastclick.js"></script>
+    <script type="text/javascript" src="/scripts/icheck.min.js"></script>
+    <script type="text/javascript" src="/scripts/TdStringHandler.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/Common.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/register.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions_code.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/seo.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        //设置密码
+        function likePlaceHolder() {
+            var txtPassword = document.getElementById('setPassword').getElementsByTagName('input')[0];
+            var $txtPassword = $("#setPassword").find('input');
+            var placeholder = $("#likePlaceholder");
+            placeholder.click(function () {
+                if (txtPassword.value == '') {
+                    $txtPassword.focus();
+                }
+            });
+            $txtPassword.blur(function () {
+                if ($(this).val() == '') {
+                    placeholder.show();
+                }
+            });
+            txtPassword.oninput = function () {
+                if (this.value.length == 0) {
+                    placeholder.show();
+                } else {
+                    placeholder.hide();
+                }
+            }
+
+            $("#btnSee").click(function () {
+                var eye = $(this).find('b');
+                if ($txtPassword.attr('type') == 'password') {
+                    eye.removeClass('eye-close').addClass('eye-open');
+                    $txtPassword.attr('type', 'text');
+                } else {
+                    eye.removeClass('eye-open').addClass('eye-close');
+                    $txtPassword.attr('type', 'password');
+                }
+            });
+
+        }
+        likePlaceHolder();
+
+
+        //圆形进度条
+        var second = 181;
+        var angle = 0;
+        var timer;
+        $("#btnCode").click(function () { 
+            if (!ValidateMobilerNumber()) {
+                return false;
+            }
+            else {
+                $(this).addClass('hide');
+                $("#timeWrap").removeClass('hide');
+                $("#btnSendVoice").addClass('hide');               
+                timer = setInterval(function () {
+                    getTime();
+                }, 1000);
+                GetVerificationCode();
+            }           
+        });
+
+        $("#btnSendVoice").click(function () {
+            if (!ValidateMobilerNumber()) {
+                return false;
+            }
+            else {
+                $(this).addClass('hide');
+                $("#timeWrap").removeClass('hide');                
+                $("#btnCode").addClass('hide');
+                timer = setInterval(function () {
+                    getTime();
+                }, 1000);
+                GetVerificationCode();
+            }
+        });
+        //GetVerificationVoiceCode
+
+        function getTime() {
+            second -= 1;
+            angle += 1;
+            var rightcircle = document.getElementById('rightcircle');
+            var leftcircle = document.getElementById('leftcircle');
+            var show = document.getElementById('show');
+            show.innerHTML = second;
+            if (angle >= 181) {
+                rightcircle.style.cssText = "transform: rotate(" + (45 - (angle - 180)) + "deg)";
+                leftcircle.style.cssText = "transform: rotate(-135deg)";
+                if (second <= 0) {
+                    clearInterval(timer);
+                    $("#timeWrap").addClass('hide');
+                    $("#btnCode").removeClass('hide');
+                    $("#btnSendVoice").removeClass('hide');
+                }
+            } else {
+                rightcircle.style.cssText = "transform: rotate(45deg)";
+                leftcircle.style.cssText = "transform: rotate(" + (45 - angle) + "deg)";
+            }
+        }
+
+        //显示隐藏邀请人手机号码输入框
+        $("#invite").click(function () {
+            var inp = $("#invite-inp");
+            var $this = $(this);
+            if (inp.hasClass('hide')) {
+                $this.find('i').removeClass('triangle-r').addClass('triangle-d');
+                inp.removeClass('hide');
+            } else {
+                $this.find('i').removeClass('triangle-d').addClass('triangle-r');
+                inp.addClass('hide');
+            }
+        });
+    </script>
+</body>
+</html>

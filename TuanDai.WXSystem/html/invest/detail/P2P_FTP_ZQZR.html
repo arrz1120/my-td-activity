@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>我的_P2P理财_复投宝_债权明细</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+		<link rel="stylesheet" type="text/css" href="/css/project-detail.css?dasdasdasdasdas" />
+	</head>
+
+	<body>
+		<div class="wrap-mx">
+			<div class="mx-con bb-e6e6e6">
+				<div class="title clearfix">
+					<p class="lf">正合普惠会员借款16020213-7</p>
+					<a href="javascript:;" class="rf">查看合同</a>
+				</div>
+				<div class="webkit-box mx-item">
+					<div class="box-flex1 mx-name">
+						<span>李**</span>
+						<span>借款人/企业</span>
+					</div>
+
+					<div class="box-flex1 mx-money">
+						<span>1,5000.00元</span>
+						<span>已匹配的本金</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mx-con bb-e6e6e6">
+				<div class="title clearfix">
+					<p class="lf">正合普惠会员借款16020213-7</p>
+					<a href="javascript:;" class="rf">查看合同</a>
+				</div>
+				<div class="webkit-box mx-item">
+					<div class="box-flex1 mx-name">
+						<span>李**</span>
+						<span>借款人/企业</span>
+					</div>
+
+					<div class="box-flex1 mx-money">
+						<span>1,5000.00元</span>
+						<span>已匹配的本金</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mx-con bb-e6e6e6">
+				<div class="title clearfix">
+					<p class="lf">正合普惠会员借款16020213-7</p>
+					<div href="javascript:;" class="rf mx-tab">
+						<i></i> 承接明细
+						<div class="arrowFrame" style="display: none;">
+							<a href="javascript:;">承接记录</a>
+							<a href="javascript:;">查看合同</a>
+						</div>
+					</div>
+				</div>
+				<div class="webkit-box mx-item">
+					<div class="box-flex1 mx-name">
+						<span>李**</span>
+						<span>借款人/企业</span>
+					</div>
+
+					<div class="box-flex1 mx-money">
+						<span>1,5000.00元</span>
+						<span>已匹配的本金</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mx-con bb-e6e6e6">
+				<div class="title clearfix">
+					<p class="lf">正合普惠会员借款16020213-7</p>
+					<div href="javascript:;" class="rf mx-tab">
+						<i></i> 承接明细
+						<div class="arrowFrame" style="display: none;">
+							<a href="javascript:;">承接记录</a>
+							<a href="javascript:;">查看合同</a>
+						</div>
+					</div>
+				</div>
+				<div class="webkit-box mx-item">
+					<div class="box-flex1 mx-name">
+						<span>李**</span>
+						<span>借款人/企业</span>
+					</div>
+
+					<div class="box-flex1 mx-money">
+						<span>1,5000.00元</span>
+						<span>已匹配的本金</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		var tab = $(".mx-con").find('.mx-tab');
+		var allFrame = tab.find('.arrowFrame');
+		var allArrow = tab.find('i');
+		tab.each(function(i, item) {
+			$(item).click(function(e) {
+				e.stopPropagation(); 
+				var oframe = $(this).find('.arrowFrame');
+				var arrow = $(this).find('i');
+				if(oframe.css('display') == 'none') {
+					allFrame.hide();
+					allArrow.css({
+						'-webkit-transform': 'rotateZ(0)',
+						'transform': 'rotateZ(0)'
+					})
+					oframe.show();
+					arrow.css({
+						'-webkit-transform': 'rotateZ(90deg)',
+						'transform': 'rotateZ(90deg)'
+					})
+				} else {
+					oframe.hide();
+					arrow.css({
+						'-webkit-transform': 'rotateZ(0)',
+						'transform': 'rotateZ(0)'
+					})
+				}
+			})
+		})
+	</script>
+
+</html>

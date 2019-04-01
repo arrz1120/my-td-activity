@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>投800送800</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body class="wrap-bg2">
+
+<section class="wrap">
+    <div>
+        <img src="imgs/banner2.png"/>
+    </div>
+    <section class="main-box pl40 pr40 mt15">
+        <h3 class="f14px pb20 c-a25b06 title1">
+            <img src="imgs/ico-j.png"/>
+            <img src="imgs/ico-d.png"/>
+            【体验金专享标1】
+        </h3>
+        <div class="main-cn">
+            <p class="c-d97b0b mt15 f15px">借款金额：<span class="c-a25b06 f20px">2000000元</span></p>
+            <div class="clearfix">
+                <p class="lf c-d97b0b f15px mt15">期限：<span class="c-a25b06 f20px">6天</span> </p>
+                <p class="rf c-d97b0b f15px mt15">利率：<span class="c-ff3526 f20px">15%</span></p>
+            </div>
+            <div class="pro-bar-box mt15">
+                <div class="pos-r progress-bar">
+                    <div class="progress bg-ffc840" style="width: 49.4%"></div>
+                    <span class="solid-dot" style="left: 46%;">49.4%</span>
+                </div>
+            </div>
+            <a href="javascript:;" class="invest-but f16px mt15" id="investBut">我要投资</a>
+            <p class="mt15 c-a25b06"><img src="imgs/ico-z.png"/>此标的仅限新用户使用体验金投资</p>
+        </div>
+
+        <div class="popup-wrap">
+            <div class="popup animated">
+                <h3 class="f16px clearfix">赚钱就是这么简单 <a href="javascript:;" class="rf" id="close"><img src="imgs/close.png" alt=""/></a></h3>
+                <div class="nub-box pl15 pr15 mt15">
+                    <p class="f12px c-d97b0b clearfix">您的可用余额：<span class="c-a25b06 f14px">2000元</span><a href="" class="recharge f14px rf">我要充值</a></p>
+                    <p class="f12px c-d97b0b">最大出借份数：<span class="c-a25b06 f14px">2000份</span></p>
+                    <p class="f12px c-d97b0b">预期收益：<span class="c-ff3526 f15px">5元</span></p>
+                    <div class="inp-wrap pos-r mt15">
+                        <a href="javascript:void(0)" class="pos-a minus count-but" id="minus">
+                            <img src="imgs/minus.png">
+                        </a>
+                        <div class="pos-a input-box">
+                            <input class="number-text" name="" type="text" value="1" maxshares="">
+                        </div>
+                        <a href="javascript:void(0)" class="pos-a plus count-but" id="plus">
+                            <img src="imgs/plus.png">
+                        </a>
+                        <input type="button"  class="loan-but f14px pos-a" value="确认出借">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $("#investBut").click(function(){
+        $(".popup-wrap").fadeIn(400);
+        $(".popup").addClass("fadeInUp");
+    });
+
+    $("#close").click(function(){
+        $(".popup-wrap").fadeOut(400);
+    });
+
+</script>
+</body>
+</html>

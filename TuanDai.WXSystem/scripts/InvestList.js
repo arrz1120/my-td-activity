@@ -1,0 +1,363 @@
+﻿var queryType = "queryByDefault";
+var orderByDesc = 1;
+var projectType = "0";
+var from1 = 5, to1 = 20;
+var from2 = { from: 7, dateType: '天' }, to2 = { to: 18, dateType: '个月' };
+
+//页面初始化
+$(function () { 
+   
+    dealOverflow();
+    $(window).resize(function(){
+    	dealOverflow();
+    })
+    $("#sort-move").click(function () {
+        return false;
+    });
+    //确定事件 
+    $("#confirm").click(function () {
+        moveToTop();
+        setTimeout(function () {
+            //重新加载数据
+            LoadProjectList('empty');
+            myScroll.refresh();
+        }, 500);
+    })
+    //点遮罩层隐藏框
+    $("#alert").click(function () {
+        moveToTop();
+    });
+
+    //滑块
+    range1(5, 20, 5, 20);
+    range2(7, 47, 7, 47);
+
+
+    if (pageCount <= 1) {
+        $("#pullUp").hide();
+    }
+    iScroll.onLoadData = LoadProjectList;
+});
+
+//循环计算投资专区下标题宽度
+function dealOverflow() {
+    $(".itemWrap").each(function (i) {
+        var parent = $(".itemWrap").eq(i);
+        var itemTipsBox = parent.find('.itemTipsBox');
+        var itemTxtBox = parent.find('.itemTxtBox');
+        if (itemTipsBox.length != 0) {
+        	itemTxtBox.css('width',parent.width() - itemTipsBox.width()-1);
+        } else {
+        	itemTxtBox.css('width',parent.width()-1);
+    	}
+    });
+}
+//筛选显示隐藏
+function moveFromTop() {
+    $('#alert').removeClass('hide');
+    $('#sort-move').removeClass('moveToTop').addClass('moveFromTop');
+    $('#sort-ico').removeClass('ico-down-gray').addClass('ico-up-gray');
+}
+function moveToTop() {
+    $('#sort-move').removeClass('moveFromTop').addClass('moveToTop');
+    $('#sort-ico').removeClass('ico-up-gray').addClass('ico-down-gray');
+    setTimeout(function () {
+        $('#alert').addClass('hide');
+    }, 400);
+}
+
+function range1(min, max, from, to) {
+    var $range = $(".js-range-slider1");
+    $range.ionRangeSlider({
+        type: "double",
+        min: min,
+        max: max,
+        from: from,
+        to: to,
+        onChange: function (data) {
+            from1 = data.from;
+            to1 = data.to;
+            updateValues(from1, to1);
+        }
+    });
+    var slider = $range.data("ionRangeSlider");
+    var updateRange = function (from, to) {
+        slider.update({
+            from: from,
+            to: to
+        });
+    };
+    var updateValues = function (from, to) {
+        $("#count1").html(from);
+        $("#count2").html(to);
+    };
+    $("#reset").click(function () {
+        from1 = 5;
+        to1 = 20;
+        updateRange(5, 20);
+        updateValues(5, 20);
+    });
+}
+
+function range2(min, max, from, to) {
+    var $range = $(".js-range-slider2");
+    $range.ionRangeSlider({
+        type: "double",
+        min: min,
+        max: max,
+        from: from,
+        to: to,
+        onChange: function (data) {
+            updateValues(data.from, data.to);
+        }
+    });
+    var slider = $range.data("ionRangeSlider");
+    var updateRange = function (from, to) {
+        slider.update({
+            from: from,
+            to: to
+        });
+    };
+    var updateValues = function (f, t) {
+        var objFrom = {};
+        var objTo = {};
+        t = t - 29;
+        if (f > 29) {
+            f = f - 29;
+            objFrom = { from: f, dateType: '个月' }
+        } else {
+            objFrom = { from: f, dateType: '天' }
+        }
+        if (t < 1) {
+            t = t + 29;
+            objTo = { to: t, dateType: '天' }
+        } else {
+            objTo = { to: t, dateType: '个月' }
+        }
+        from2 = objFrom;
+        to2 = objTo;
+        $("#count3").html(objFrom.from + '<small class="f15px c-212121">' + objFrom.dateType + '</small>');
+        $("#count4").html(objTo.to + '<small class="f15px c-212121">' + objTo.dateType + '</small>');
+    };
+    $("#time-confirm").click(function () {
+        $("#alert-time").addClass('hide');
+        var from = Number($("#inp3").val());
+        var to = Number($("#inp4").val());
+        if (from < 0 || from == '' || isNaN(from + 1)) {
+            from = 0;
+        }
+        if (to > 18 || to == '' || isNaN(to + 1)) {
+            to = 18;
+        }
+        updateRange(from, to);
+        updateValues(from, to);
+    });
+    $("#reset").click(function () {
+        from2 = 7;
+        to2 = 47;
+        updateRange(7, 47);
+        updateValues(7, 47);
+    });
+}
+
+//点击头部排序
+function OrderByFun(id, iid) {
+    queryType = id;
+    pageIndex = 1;
+
+    setClass("#RateOrderBy", "up-gray");
+    setClass("#dRateOrderBy", "down-gray");
+
+
+    setClass("#DeadlineOrderBy", "up-gray");
+    setClass("#dDeadlineOrderBy", "down-gray");
+
+//  setClass("#dvfilter", "808080");
+    setClass("#dvDefault", "808080");
+    setClass("#dvRate", "808080");
+    setClass("#dvDeadline", "808080");
+
+//  setClass("#sort-ico", "down-gray");
+    setClass("#sortdefault-ico", "down-gray");
+
+    if (queryType == "queryByRate") {
+        moveToTop();
+        var _iid = parseInt(iid);
+        var value1 = $('#RateOrderBy').attr("orderby");
+        if (value1 == "" || value1 == undefined) {
+            orderby = _iid;
+            $('#RateOrderBy').attr("orderby", _iid);
+            setClass("#dRateOrderBy", "down-orange");
+        } else {
+            if (value1 == _iid) {
+                orderby = _iid - 1;
+                $("#RateOrderBy").attr("orderby", orderby);
+                setClass("#RateOrderBy", "up-orange");
+            } else {
+                orderby = _iid;
+                $("#RateOrderBy").attr("orderby", orderby);
+                setClass("#dRateOrderBy", "down-orange");
+            }
+        }
+        setClass("#dvRate", "fab600");
+        orderByDesc = $('#RateOrderBy').attr("orderby");
+    }
+    if (queryType == "queryByDeadline") {
+        moveToTop();
+        var _iid = parseInt(iid);
+        var value1 = $('#DeadlineOrderBy').attr("orderby");
+        if (value1 == "" || value1 == undefined) {
+            orderby = _iid;
+            $('#DeadlineOrderBy').attr("orderby", _iid);
+            setClass("#DeadlineOrderBy", "up-orange");
+        } else {
+            if (value1 == _iid) {
+                orderby = _iid + 1;
+                $("#DeadlineOrderBy").attr("orderby", orderby);
+                setClass("#dDeadlineOrderBy", "down-orange");
+            } else {
+                orderby = _iid;
+                $("#DeadlineOrderBy").attr("orderby", orderby);
+                setClass("#DeadlineOrderBy", "up-orange");
+            }
+        }
+        setClass("#dvDeadline", "fab600");
+        orderByDesc = $('#DeadlineOrderBy').attr("orderby");
+    }
+    if (queryType == "queryByDefault") {
+        moveToTop();
+        setClass("#sortdefault-ico", "down-orange");
+        setClass("#dvDefault", "fab600");
+    }
+    if (queryType == "filter") {
+        if ($('#alert').hasClass('hide')) {
+//          setClass("#sort-ico", "down-orange");
+//          setClass("#dvfilter", "fab600");
+            moveFromTop();
+        } else {
+//          setClass("#sort-ico", "down-gray");
+//          setClass("#dvfilter", "808080");
+            moveToTop();
+        }
+    }
+
+    if (queryType != "filter") {
+        setTimeout(function () {
+            //重新加载数据
+            LoadProjectList('empty');
+            myScroll.refresh();
+        }, 500);
+    }
+}
+
+function setClass(objid, className) {
+    if (className == "down-gray") {
+        $(objid).removeClass("triangle-down-orange").addClass("triangle-down-gray");
+    } else if (className == "down-orange") {
+        $(objid).removeClass("triangle-down-gray").addClass("triangle-down-orange");
+    } else if (className == "up-gray") {
+        $(objid).removeClass("triangle-up-orange").addClass("triangle-up-gray");
+    } else if (className == "up-orange") {
+        $(objid).removeClass("triangle-up-gray").addClass("triangle-up-orange");
+    }
+    else if (className == "808080") {
+        $(objid).removeClass("c-fab600").addClass("c-808080");
+    } else if (className == "fab600") {
+        $(objid).removeClass("c-808080").addClass("c-fab600");
+    }
+}
+
+
+//加载投标记录列表
+function LoadProjectList(flag) {
+    var paramObj = {
+        Cmd: "GetProjectShowList", queryType: queryType, orderByDesc: orderByDesc,
+        startYearRate: 0, endYearRate: 0, startDeadline: 0, endDeadline: 0, startDeadType: 1, endDeadType: 1,
+        pageIndex: pageIndex, projectType: projectType,
+    };
+    
+    if ( !(from1 == 5 && to1 == 20)  ||  !((from2.from + from2.dateType) == "7天" && (to2.to+to2.dateType) == "18个月")) {
+        paramObj.startYearRate = from1;
+        paramObj.endYearRate = to1;
+        paramObj.startDeadline = from2.from;
+        paramObj.startDeadType = from2.dateType == "天" ? 2 : 1;
+
+        paramObj.endDeadline = to2.to;
+        paramObj.endDeadType = to2.dateType == "天" ? 2 : 1; 
+    }
+
+    jQuery.ajax({
+        async: true,
+        type: "post",
+        url: "/ajaxCross/InvestAjax.ashx",
+        dataType: "json",
+        data: paramObj,
+        success: function (jsonstr) {
+            if (flag == "empty") {
+                $("#thelist").children().remove();
+            }
+            var html = new Array();
+            var str = "";
+            if (jsonstr.result == "1") {
+                pageCount = jsonstr.pagecount; 
+                for (var i = 0; i < jsonstr.list.length; i++) {
+                    var item = jsonstr.list[i];
+                    //var isCanExit = 0;
+                    //if ("1,3,9,10,11,".indexOf(item.TypeId + ",") != -1)
+                    //    isCanExit = 1;
+                    var JtJxStr = '<div class="item_r1">即投即计息</div>';
+                    //if ((",15,24,25,26,27,28,").indexOf(","+item.TypeId + ",") > -1)
+                        JtJxStr = "";
+                    str = '<div class="list-item bb-e6e6e6">' +
+                        "<a href='" + item.LinkUrl + "'>" +
+                        JtJxStr +
+                        '<div class="item_r2 text-overflow">['+item.TypeName+']</div>' +
+                        '<div class="item_r3">' +
+                            '<div class="list-box-left">' +
+                                '<p class="f12px c-ababab">预期年化利率</p>' +
+                                '<p class="rate">' + item.YearRate + '</p>' +
+                            '</div>' +
+                            '<div class="list-box-center text-center">' +
+                                '<p class="f12px c-ababab">' + item.RepaymentTypeString + '</p>' +
+                                '<p class="f15px c-212121 mt15">' + item.Deadline + '</p>' +
+                            '</div>' +
+                            '<div class="list-box-right">' +
+                                '<p class="f12px c-ababab">剩余' + item.SurplusAmount + '</p>' +
+                                '<p class="f14px c-212121">' +
+                                    '<a href="javascript:checkCgtSubGoUrl(\'' + item.LinkUrl + '\');" class="toBuy">抢购</a>' +
+                                '</p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="item_r4 mt8">' +
+                            '<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>' +
+                        '</div>' +
+                        '</a>'+
+                    '</div>';
+                    html.push(str);
+                }
+                $("#thelist").append(html.join(""));
+                //重置宽度
+                dealOverflow();
+                
+                //重新调用按压事件
+                clickRespond(".click-respond",'respond-style');
+
+                if (pageCount <= 1) {
+                    $("#pullUp").hide();
+                } else {
+                    $("#pullUp").show();
+                }
+            }
+            else {
+                pageCount = 0;
+                $("#thelist").append('<div class="debt-empty mt50"><div class="img-debt-empty text-center"><img style="width: 60%;" src="/imgs/images/debt-empty.png"/></div><div class="text-center f14px c-212121 mt20">全部标都被抢完了！</div><div class="text-center f12px c-ababab mt5">设置自动投标，让团贷网为你抢标！</div><div class="pl40 pr40 mt20"><a class="btn btnRed f16px" href="/Member/setAuto/auto_invest.aspx">去设置</a></div></div>');
+                $("#pullUp").hide();
+            }
+            myScroll.refresh();
+            
+        },
+        error: function () {
+            
+        }
+    });
+}

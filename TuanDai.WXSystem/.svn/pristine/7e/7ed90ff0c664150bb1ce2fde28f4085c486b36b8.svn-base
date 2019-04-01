@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using Dapper;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using System.Data;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    public partial class youxindai_detail : BasePage
+    {
+        protected Guid? projectId = Guid.Empty;
+        protected ProjectDetailInfo model = null;
+        private ProjectBLL bll = null;
+        protected UserBasicInfoInfo borrowerUserInfo = null;
+        protected t_UserBasicInfo_ExtInfo userBasicInfoExt = null;
+        protected string finishProcess = "0%";
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+        //项目展示图
+        protected List<ProjectImageInfo> imageList;
+        protected BorrowUserCreditInfo creditInfo = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+
+                    if (!this.GetData())
+                        return;
+                    //信用档案
+                    creditInfo = CommUtils.GetBorrowerCreditData(model.UserId.Value);
+                    imageList = CommUtils.GetProjectImages(this.projectId.Value);
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+        
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+            if (model.Type.Value != 32)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+
+            GetBorrowUserInfo();
+            DynamicParameters dyParams;
+            string sql = "";
+
+            dyParams = new DynamicParameters();
+            dyParams.Add("@projectid", projectId);
+            sql = @"select  ProjectID,ProjectDesc2,CreditStatus,EnterpriseCredit,OperatingConditions,RoyalRiskAbility from dbo.Project_GYL with(nolock) where ProjectID=@projectid";
+            finishProcess = CommUtils.GetProjectProcess(model);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+            return true;
+        }
+
+        //获取借款人信息
+        protected void GetBorrowUserInfo()
+        {
+            if (model != null && model.UserId != null && model.UserId != Guid.Empty)
+            {
+                UserBLL userbll = new UserBLL();
+                this.borrowerUserInfo = userbll.GetUserBasicInfoModelById(model.UserId.Value);
+                userBasicInfoExt = new UserBLL().GetUserBasicInfo_Ext(model.UserId.Value);
+            }
+            else
+            {   
+                borrowerUserInfo= new UserBasicInfoInfo();
+                userBasicInfoExt = new t_UserBasicInfo_ExtInfo();
+            }
+        }
+
+
+        /// <summary>
+        /// 计算逾期还款率
+        /// </summary>
+        /// <param name="successcount">成功记录数</param>
+        /// <param name="badcount">逾期记录数</param>
+        /// <returns></returns>
+        private string calcrate(int successcount, int badcount)
+        {
+            if (successcount != 0)
+            {
+                return ((double)(badcount) / (double)(successcount) * 100).ToString("0.00");
+            }
+            else
+            {
+                return "0";
+            }
+        }
+        protected string GetAge()
+        {
+            if (borrowerUserInfo.UserTypeId == 1)
+            {
+                if (string.IsNullOrEmpty(borrowerUserInfo.IdentityCard))
+                    return "保密";
+                int year;
+                if (!int.TryParse(borrowerUserInfo.IdentityCard.Substring(6, 4), out year))
+                    return "保密";
+                int age = DateTime.Now.Year - year;
+                if (age < 18 || age > 60) return "保密";
+                return age.ToString();
+            }
+            else
+            {
+                if (!borrowerUserInfo.Birthday.HasValue)
+                {
+                    return "保密";
+                }
+                else
+                {
+                    int tempAge = DateTime.Today.Year - borrowerUserInfo.Birthday.Value.Year;
+                    if (tempAge <= 0)
+                        tempAge = 1;
+                    if (tempAge < 18 || tempAge > 60)
+                        return "保密";
+                    return tempAge.ToString();
+                }
+            }
+        }
+    }
+}

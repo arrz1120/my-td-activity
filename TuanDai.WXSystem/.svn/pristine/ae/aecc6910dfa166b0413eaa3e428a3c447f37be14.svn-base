@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>会员活动</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/activity.css" /><!--会员活动-->
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">会员活动</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="activity">
+    	<div class="bg-box"><img src="/imgs/member/banner.png"/></div>
+    	<div class="bg-box">
+    		<img src="/imgs/member/con02.png"/>
+    		<a class="act_btn" href="yuyue_address.html">
+    			一分钟填写预约信息
+    		</a>
+    	</div>
+    	<div class="bg-box">
+    		<img src="/imgs/member/con03.png"/>
+    		<div class="con03">
+    			<p>别样江南，秋日胜春朝</p>
+    			<p>沉吟巷陌，马蹄达达，千里共团贷</p>
+    			<p>一手风控，玩赚社交金融圈</p>
+    			<p>三两分享，畅叙互联网金融</p>
+    			<p>品苏式闲情，纵观团贷新发展</p>
+    			<p>趁金色驰聘，挥霍一场十月天光</p>
+    		</div>
+    		<a class="act_btn" href="#">
+    			马上报名
+    		</a>
+    	</div>
+    	<div class="bg-box">
+    		<img src="/imgs/member/con03_bottom.png"/>
+    		<a class="yuyue" href="#">
+    			预约
+    		</a>
+    	</div>
+    	<div class="bg-box bg-box04">
+    		<img src="/imgs/member/con04_top.png"/>
+    		<div class="con04Wrap">
+    			<div class="con04">
+					<div class="notice">
+						<div class="userN">
+							用户名：<span>33个鸡翅膀</span>
+						</div>
+						<div class="lessChance">
+							<span class="chance">3</span>次机会
+						</div>
+					</div>
+		    		<div class="choujiang">
+		    			<div class="flx-row">
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj01.png"/>
+		    				</div>
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj02.png"/>
+		    				</div>
+		    				<div class="flx mb15">
+		    					<img src="/imgs/member/cj03.png"/>
+		    				</div>
+		    			</div>
+		    			<div class="flx-row">
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj04.png"/>
+		    				</div>
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj_btn.png"/>
+		    				</div>
+		    				<div class="flx mb15">
+		    					<img src="/imgs/member/cj05.png"/>
+		    				</div>
+		    				
+		    			</div>
+		    			<div class="flx-row">
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj06.png"/>
+		    				</div>
+		    				<div class="flx mr15">
+		    					<img src="/imgs/member/cj07.png"/>
+		    				</div>
+		    				<div class="flx mb15">
+		    					<img src="/imgs/member/cj08.png"/>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="activity_rule">
+		    			<p>登录并完成问卷调查，您将获得一次幸运抽奖机会（同一个ID用户，仅限参与一次）</p>
+		    			<p>中奖礼品请前往团贷网-个人中心-团宝箱领取；</p>
+		    			<p>红包使用说明：</p>
+		    			<p>5元-需单笔投资满50元及以上使用；10元-需单笔投资满100及以上使用；50元-需单笔投资满500元及以上使用；100元-需单笔投资满1000元及以上使用。</p>
+		    			<p>红包使用期限为一个月</p>
+		    			<p>本次活动最终解释权归团贷网所有。</p>
+		    			<p>登录并完成问卷调查，您将获得一次幸运抽奖机会（同一个ID用户，仅限参与一次）</p>
+		    		</div>
+		    		<a class="con04_btn" href="survey.html">
+		    			答题获抽奖机会
+		    		</a>
+		    	</div>
+	    	</div>
+		</div>
+    	<div class="bg-box">
+    		<img src="/imgs/member/con05.png"/>
+    	</div>
+    	<div class="slide">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide">
+			        	<img src="/imgs/member/slide01.png"/>
+			        	<div class="slideTxt">
+			        		团粉见面会·深圳站1
+			        	</div>
+			        </div>
+			        <div class="swiper-slide">
+			        	<img src="/imgs/member/slide01.png"/>
+			        	<div class="slideTxt">
+			        		团粉见面会·深圳站2
+			        	</div>
+			        </div>
+			        <div class="swiper-slide">
+			        	<img src="/imgs/member/slide01.png"/>
+			        	<div class="slideTxt">
+			        		团粉见面会·深圳站3
+			        	</div>
+			        </div>
+			    </div>
+			</div>
+			<div class="mark clearfix"></div>
+			<div class="con04_btn" style="margin-top: 0;">
+				查看更多活动
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+			var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: true,
+			    // 如果需要分页器
+			    pagination: '.mark',
+			  }); 
+		})		  
+    </script>
+</body>
+</html>

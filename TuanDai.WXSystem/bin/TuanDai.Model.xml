@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.Model</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.Model.DProject.BorrowerResultStatus">
+             <summary>
+            申购后处理借款人资金的状态
+             </summary>
+        </member>
+        <member name="T:TuanDai.Model.SMS.ESendMessageMethod">
+            <summary>
+            发送信息方法
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESendMessageMethod.Tel">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESendMessageMethod.Email">
+            <summary>
+            邮件
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESendMessageMethod.Note">
+            <summary>
+            站内信
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESendMessageMethod.Push">
+            <summary>
+            推送
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESendMessageMethod.WeiXinPush">
+            <summary>
+            微信推送
+            </summary>
+        </member>
+        <member name="T:TuanDai.Model.SMS.ESmsTemplate">
+            <summary>
+            消息模板的枚举
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ResetLoginPasswordSuccess">
+            <summary>
+            重置登录密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RetrieveLoginPasswordSuccess">
+            <summary>
+            找回登录密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyBankAccount">
+            <summary>
+            修改银行账号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.UpgradeVip">
+            <summary>
+            升级会员
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RechargeSuccess">
+            <summary>
+            充值成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.WithdrawSuccess">
+            <summary>
+            (提现结果)提现成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.BorrowAuditSuccess">
+            <summary>
+            借款审核成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RegisterSuccess">
+            <summary>
+            注册成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.BorrowerBorrowSuccess">
+            <summary>
+            [借款成功]股票配资借款已满标(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.InvestorBorrowSuccess">
+            <summary>
+            股票配资借款已满标(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.FQBInvestorBorrowSuccess">
+            <summary>
+            [借款成功]分期宝借款成功(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.FQBBorrowerBorrowSuccess">
+            <summary>
+            分期宝借款成功(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.FQLBorrowerBorrowSuccess">
+            <summary>
+            [借款成功]分期乐借款成功(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.FQLInvestorBorrowSuccess">
+            <summary>
+            分期乐借款成功(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ResetSafeQuestion">
+            <summary>
+            重置安全问题
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyMobile">
+            <summary>
+            修改手机号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyEmail">
+            <summary>
+            修改邮箱地址
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyTradersPassword">
+            <summary>
+            修改交易密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyBankAccountSuccess">
+            <summary>
+            修改银行账号审核成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ModifyBankAccountFail">
+            <summary>
+            修改银行账号审核失败
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.WithdrawFail">
+            <summary>
+            (提现结果)提现失败
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ValidateCode">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.BindMobile">
+             <summary>
+            绑定手机号 
+             </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RepaymentBalancesNoEnough">
+            <summary>
+            [借款偿还]还款余额不足
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RepaymentBalancesEnough">
+            <summary>
+            [借款偿还]还款余额充足
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.ReturnedMoneyReminder">
+            <summary>
+            [投资回款]回款提醒(正常回款)(推送提前，客户端当天）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.BorrowerBorrowFail">
+            <summary>
+            [借款失败]借款已流标(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.InvestorBorrowFail">
+            <summary>
+            [投资失败]借款已流标(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.BorrowerOverdueReminder">
+            <summary>
+            [借款偿还]逾期提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.NewProjectPush">
+            <summary>
+            [新标上线]新标上线（邮件，短信都不需要做）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.AutoInvest">
+            <summary>
+            自动投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.MonthsOfBills">
+            <summary>
+            每月账单
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.UserFirstInvest">
+            <summary>
+            用户第一笔投资
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.UserBirthDayWish">
+            <summary>
+            用户生日祝福
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.LongTimeNoLogin">
+            <summary>
+            主动营销类_注册后x天未登陆
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.InterestProjectSuccess">
+            <summary>
+            投标成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.PrepaymentRemind">
+            <summary>
+            [投资回款]回款提醒（提前回款）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.RemindSignIn">
+            <summary>
+            签到提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.VirtualPrizeRemind">
+            <summary>
+            虚拟奖品过期提现
+            </summary>
+        </member>
+        <member name="F:TuanDai.Model.SMS.ESmsTemplate.LoginSuccess">
+            <summary>
+            登录账户
+            </summary>
+        </member>
+        <member name="T:TuanDai.Model.DProject.RechargeRequest">
+            <summary>
+            充值请求
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.Type">
+            <summary>
+            充值类型
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.Amount">
+            <summary>
+            充值金额
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.BackCode">
+            <summary>
+            银行编码
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.ClientIp">
+            <summary>
+            客户请求的Ip
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeRequest.From">
+            <summary>
+            来源
+            </summary>
+        </member>
+        <member name="T:TuanDai.Model.DProject.RechargeHandlerRequest">
+            <summary>
+            充值处理
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeHandlerRequest.TradeNo">
+            <summary>
+            我方交易号
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeHandlerRequest.Amount">
+            <summary>
+            交易金额
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeHandlerRequest.HandlerStatus">
+            <summary>
+            处理状态 2:成功 1:失败
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.RechargeHandlerRequest.TransactionId">
+            <summary>
+            第三方交易订单号
+            </summary>
+        </member>
+        <member name="T:TuanDai.Model.DProject.SubscribeReponse">
+            <summary>
+            申购响应
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.UserId">
+            <summary>
+            申购Id
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.OutStatus">
+            <summary>
+            申购状态
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.CompleteStatus">
+            <summary>
+            是否完成
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.Msg">
+            <summary>
+            还回信息
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.SubscirbeId">
+            <summary>
+            申购的ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeReponse.SubscribeType">
+            <summary>
+            申购的类型1:通过队列申购 2:直接申购
+            </summary>
+        </member>
+        <member name="T:TuanDai.Model.DProject.SubscribeRequest">
+            <summary>
+            申购的请求
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.ProjectId">
+            <summary>
+            申购的项目
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.UserId">
+            <summary>
+            申购的用户
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.TenderMoney">
+            <summary>
+            申购的金额
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.TenderMode">
+            <summary>
+            申购方式 1手动投标（PC）,2手动投标（IOS）,3手动投标（Android）,4自动投标,5We计划
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.SubscribeId">
+            <summary>
+            申购ID(前端调用不需要转入，在服务端填写的)
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.SubscribeType">
+            <summary>
+            申购的类型1:通过队列申购 2:直接申购 -99:根据配置参数选择
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.We_OrderId">
+            <summary>
+            We计划的Id
+            </summary>
+        </member>
+        <member name="P:TuanDai.Model.DProject.SubscribeRequest.ReservedAmout">
+            <summary>
+            预留金额
+            </summary>
+        </member>
+    </members>
+</doc>

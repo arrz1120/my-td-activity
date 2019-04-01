@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>邀请好友-规则</title>
+    <meta name="keywords" content="团贷网,你我金融,互联网金融,P2P网贷,P2P理财" />
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。" />
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=20150721" />
+    <script type="text/javascript" src="/scripts/base.js?v=1.0"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cn">
+            <h3><img src="imgs/i1.png" alt="" />享受好友  10%收益</h3>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>
+                    被邀请的用户注册30天内每完成一笔投资，邀请人可获得此笔投资一个月收益的10%；<br />若被邀请人投资A类私募宝，邀请人的奖金按年化利率10%计算，如：被邀请人投资A类私募宝20万元，邀请人获得的奖金为：<br />20万*10%*（1/12）*10%；<br />若被邀请人投资B类私募宝，邀请人的奖金按被邀请人所投标的实际利率计算。
+                </p>
+            </div>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>奖励将在投标次日（分期宝需满标）以现金红包形式发放；</p>
+            </div>
+        </div>
+
+        <div class="cn">
+            <h3><img src="imgs/i2.png" alt="" />1元拿走  iphone6</h3>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>邀请人每邀请一位好友自注册之日起30天内累计投资满1000元，邀请人可获得1-20个π币；</p>
+            </div>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>被邀请人投资分期宝，需所投标满标后，才计算投资额。</p>
+            </div>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>完成邀请活动后，请使用本账号到团贷网兑奖。<a href="http://www.tuandai.com/pages/activity/Invitation/index.aspx" class="f12 c-2993ff">《活动详情》</a></p>
+            </div>
+        </div>
+
+        <div class="cn">
+            <h3><img src="imgs/i3.png" alt="" />20月VIP  免费送</h3>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>邀请人每邀请五个实名且绑定银行卡的用户可获得1个月VIP超级会员；</p>
+            </div>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>VIP超级会员累计最高奖励20个月。</p>
+            </div>
+        </div>
+
+        <div class="cn mb30">
+            <h3><img src="imgs/i4.png" alt="" />388元  现金大奖</h3>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>被邀请人完成注册，即送5元，15元，20元，160元，188元，共计388元现金红包；</p>
+            </div>
+            <div class="pos-r">
+                <i class="dot"></i>
+                <p>现金红包注册之日起30天内有效。</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+</body>
+</html>

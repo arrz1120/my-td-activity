@@ -1,0 +1,46 @@
+﻿{
+     "button":[ 
+		{
+			"name":"团贷福利",
+			"sub_button":[
+			   {
+					"name": "新手红包", 
+					"type": "view", 
+					"url":"https://tg.tdw.cn/web/Register20170601/index.aspx?tdfrom=SNS-M1606-tdwfwh"
+				},
+				{
+					"name": "进入团贷", 
+					"type": "view", 
+					"url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9140fc0a0b9db917&redirect_uri=https://m.tuandai.com/Index.aspx&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+				}]
+		},
+	   {
+		   "name":"团贷公益",
+		   "type": "view", 
+		   "url":"https://m.tuandai.com/activity/index.aspx?type=mobileapp" 
+       },
+	  {	
+          "name":"服务中心",
+          "sub_button":[
+		  {
+			   "type":"view",
+               "name":"登录注册",
+			   "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9140fc0a0b9db917&redirect_uri=https://m.tuandai.com/user/Login.aspx?ischecklogin=1&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+			}, 
+		  {
+			   "type":"view",
+			   "name":"推送开关",
+			   "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9140fc0a0b9db917&redirect_uri=https://m.tuandai.com/pages/push_switch.aspx?response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+		  }, 
+		  {
+			   "type":"view",
+			   "name":"联系客服",
+			   "url":"http://www.sobot.com/chat/h5/index.html?sysNum=20ab7dce1e3346e8b90b649bd8baf591&source=1"
+		  },
+		  {
+			   "type":"view",
+			   "name":"下载APP",
+			   "url":"http://hd.tuandai.com/weixin/tuandaiAppNew/index.aspx"
+		  }]
+      }]
+ }

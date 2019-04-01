@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>招募团贷网合伙人</title>
+    <meta name="author" content="kevin" />
+    <meta name="Copyright" content="东莞团贷网互联网科技服务有限公司" />
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财" />
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。" />
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+</head>
+<body class="giftbg">
+    <section class="giftBox">
+        <div class="text-box">
+            <img src="imgs/text-box.png"/>
+        </div>
+
+        <div class="prompt">
+            <p><img src="imgs/ico.png"/>已为你备好红包，马上领取吧！</p>
+        </div>
+
+        <div class="gift-cn">
+            <div><img src="imgs/gift.png"/></div>
+        </div>
+
+        <div class="nub-inp">
+            <div class="code-box">
+                <!--
+         <input type="text" placeholder="输入手机号码"/>
+         <div class="code-cn pos-r">
+             <input type="text" class="pos-a" placeholder="请输入图形验证码"/>
+             <img src="imgs/code.png"/>
+         </div>
+         <a href="javascript:;">马上领取</a>
+  -->
+        <div class="code-cn pos-r">
+             <input type="text" class="pos-a pos-num" placeholder="请输入手机号"/>
+         </div>
+
+         <div class="yanzhengma">
+             <div class="code-cn pos-r">
+                 <input type="text" class="pos-a" placeholder="请输入图形验证码"/>
+                 <img src="imgs/code.png"/>
+             </div>
+             <div class="code-cn pos-r">
+                 <input type="text" class="pos-a" placeholder="请输入手机验证码"/>
+                 <a href="#" class="phone_btn">获取验证码</a>
+             </div>
+         </div>
+
+         <a href="javascript:;" class="btn">
+            <img src="imgs/gift-btn.png"/>
+         </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-text">
+            <img src="imgs/footer-text.png"/>
+        </div>
+
+    </section>
+
+    <!--已经领取-->
+    <section class="popup-wrap" id="loginWrap">
+        <div class="nologin animated pos-a">
+            <p class="fz12">您输入的号码已领取！</p>
+            <a href="javascript:;" class="pos-a close-but"></a>
+            <div class="confirm">
+                <a href="" class="c-fd5f61">确定</a>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(".close-but").click(function () {
+            $(".popup-wrap").fadeOut(400);
+            $('.nologin').addClass('fadeOutDown').removeClass('fadeInUp');
+        });
+
+       $(".pos-num").keyup(function(){
+        var tel = $(this).val();
+          if( /^13\d{9}$/g.test(tel)||(/^15[8,9]\d{8}$/g.test(tel))){
+                $(".yanzhengma").addClass('show_slide');
+           }
+        })
+    </script>
+
+</body>
+</html>

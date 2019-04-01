@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="QQSectionGroup">
+      <section name="QzoneSection" type="System.Configuration.NameValueSectionHandler,System, Version=4.0.0.0, Culture=neutral,PublicKeyToken=b77a5c561934e089" />
+    </sectionGroup>
+  </configSections>
+	<system.web> 
+		<authentication mode="Forms">
+			<forms cookieless="UseCookies" name=".MTUANDAIAUTH" domain="tuandai.com"  defaultUrl="~/pages/account/my_account.aspx" loginUrl="~/user/login.aspx" timeout="60"></forms>
+		</authentication>
+        <machineKey validation="3DES" validationKey="FB900E11DFA130FE1203CC0899ABE6738A5924C0" decryptionKey="FBD4D9485013FA194684998CFB4D0FD247E75278A08BBED8" decryption="3DES" />
+    
+		<customErrors mode="Off" defaultRedirect="~/ErrorPage.aspx">
+			<error statusCode="500" redirect="~/ErrorPage.aspx" />
+			<error statusCode="404" redirect="~/ErrorPage.aspx" />
+			<error statusCode="403" redirect="~/ErrorPage.aspx" />
+		</customErrors>
+		<compilation debug="true" targetFramework="4.0">
+			<buildProviders>
+				<add extension=".html" type="System.Web.Compilation.PageBuildProvider" />
+			</buildProviders>
+			<assemblies>
+				<add assembly="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+			</assemblies>
+		</compilation>
+        <httpRuntime requestValidationMode="2.0" maxRequestLength="1024000" executionTimeout="300" />
+	</system.web>
+	<system.webServer>
+		<modules runAllManagedModulesForAllRequests="true" />
+        <defaultDocument>
+            <files>
+                <add value="index.aspx" />
+            </files>
+        </defaultDocument>
+	</system.webServer>
+	<appSettings>
+	<!--样式版本号-->
+    <add key="Version" value="20170623001" />
+    <!--App是否停机 0：不停 1：停-->
+    <add key="AppIsStop" value="0" />
+	
+    <!--Cookie模式 Form:使用表单验证  Write:直接写入与读取-->
+    <add key="CookieMode" value="Write" />
+
+    <add key="CookieDomain" value="tuandai.com" />
+    <!--官网登录后触屏版自动登录-->
+    <add key="IsAutoLoginByTD" value="1"  />
+    <add key="ActivityWebsiteUrl" value="http://hd.tuandai.com" />
+    <add key="WebUrl" value="http://m.tuandai.com" />
+	<add key="DQWebUrl" value="http://mdq.tuandai.com" />
+	<add key="MTuanDaiURL" value="http://m.tuandai.com" />
+    <!--We计划启动地址-->
+    <add key="WePlanUrl" value="http://192.168.2.83:4523/api/Project/SubscribeProject/?projectid=" />
+    <!--加入We计划启动地址-->
+    <add key="JoinWePlanUrl" value="http://192.168.2.83:4523/api/Project/WeAutoSubscribeOfOrderId/?we_productid=" />
+    <!--写日志服务-->
+    <add key="logurl" value="http://192.168.2.9:9999/LogService.asmx" />
+    <!--每页显示笔数-->
+    <add key="PageSize" value="10" />
+    <!--是否开发模式-->
+    <add key="IsDebug" value="0" />
+    <!--是否记录错误日志-->
+    <add key="IsLogInFile" value="1" />
+    <!--是否强制跳转登录页面-->
+    <add key="IsLogin" value="0" />
+    <!-- 团贷网征信系统实名认证开关 1:验证 0：不验证 -->
+    <add key="IsValidateIdentity" value="1" />
+    <!--图片上传WCF-->
+    <add key="ImageWcf" value="http://10.100.11.126:4063/UploadFileService.asmx" />
+	<!--微信公共号的Token-->
+	<!--<add key="token" value="5910d0a1c8201a62" />
+	<add key="WXappid" value="wx9140fc0a0b9db917" />
+	<add key="WXappsecret" value="7e73607cc822c80edeb71996046cba08" />-->
+    <!--房宝宝-->
+    <add key="token" value="84502939095363dd" />
+    <add key="WXappid" value="wxb42e1fcad69b56eb" />
+    <add key="WXappsecret" value="92ce4ce07ddb2d998a6613b6bcc8a527" />
+    <!-- 新浪微博配置 -->
+    <add key="SinaAppKey" value="3974509715" />
+    <add key="SinaAppSecret" value="17fb60a72ba8418ec55c7cfbe1624a92" />
+    <add key="CallbackUrl" value="/user/ThirdLogin/AuthorizeSuccess.aspx" />
+    <!--是否开启Java申购We计划-->
+    <add key="IsOpenJavaSubscribe" value="1" />
+
+
+    <add key="VipWebUrl" value="http://vip.tdw.cn"/>
+    <!--正式:HS32K43W23LWR09D8WI;测试:A2F609DF1W3S06QRW2E-->
+    <add key="APIKey" value="HS32K43W23LWR09D8WI"/>
+	
+	<!--是否开启复投宝-->
+    <add key="IsOpenFTB" value="1"/>
+	
+	<!-- 是否是新的信息推送-->
+    <add key="IsNewSmsRequest" value="1"/>
+	
+	<!--是否开启新手标复投宝-->
+    <add key="IsOpenNewHandFTB" value="1"/>
+	<!-- 是否启用新的自动投标-->
+    <add key ="IsOpenNewAutoInvest" value="0"/>
+
+    <!--是否启用新项目框架,如果为0:旧 1:新-->
+    <add key="IsNewProjectFrame" value="0"/> 
+    <!--是否启用新方式We计划投资,如果为0:旧 1:新-->
+    <add key="IsNewWeInvestFrame" value="0"/>
+    <!--是否启用新申购框架,如果为0:旧 1:新-->
+    <add key="IsNewSubscribeFrame" value="0"/>
+	
+    <!--<add key="BalanceSystemAddress" value="http://192.168.2.83:4524/api/Balanced/BalancedUrl/?UrlName=" />--> 
+    
+   <add key="BalancedSysAddress" value="net.pipe://localhost/BalancedSystemService" />
+	
+   <!--微信支付回调URL--> 
+   <add key="WXNotifyUrl" value="https://www.tuandai.com/PaymentPlatform/Wx/ResultNotifyPage.aspx" /> 
+	
+   <!--清理缓存，多个IP用逗号分隔-->
+    <add key="ClearCacheAccessIp" value="121.13.249.210,192.168.1.126,192.168.1.125"/>
+    <!--是否开启连连支付-->
+    <add key="IsOpenLianLianPay" value="1" />
+    <!--是否开启易宝支付-->
+    <add key="IsOpenEBuyPay" value="0" />
+    <!--测试环境zk-->
+	  <add key="zookip" value="node.td-k8s.com:2181;20" />
+    <!--开发环境zk-->
+    <!--<add key="zookip" value="node.td-k8s.com:2184;20"/>-->
+    <!--是否开启Redis缓存服务-->
+    <add key="IsRedis" value="1" />
+    <add key="IsWePlanRedis" value="1"/>
+    <!--1218预览开关  0:不显示 1:显示预售 2:显示当天-->
+    <add key="IsPreView1218" value="0" />
+	<!--第三方渠道接口-->
+	<add key="OtherApiWebUrl" value="http://10.100.11.126:4047" />
+	  <!--团宝箱历史数据分开日期-->
+    <add key="UserPrizeHistory" value="2016-05-01" />
+	<!--数据库只读配置-->
+    <add key="Read" value="/BD/read" /> 
+    <!--是否开启红包数据统计维护-->
+    <add key="IsOpenIncomeWH" value="0" />
+    <!--开通存管通配置-->
+    <add key="IsOpenCGT" value="1" />
+    <!--是否开启存管通申购-->
+    <add key="isOpenCgtSub" value="1" />
+    <!--是否使用存管通申购We计划-->
+    <add key="isOpenCgtSubWe" value="1" />
+	<!-- 是否使用存管通申购债权转让 -->
+	<add key="IsOpenCgtTrans" value ="1" /> 
+    <add key="DQApiWebUrl" value="http://10.100.11.126:4026"/>
+    <add key="CgtApiUrl" value="" />
+    <!--<add key="CgtCallBackUrl" value="http://10.100.11.126:4013" />-->
+    <add key="CgtCallBackUrl" value="//ct.tuandai.com"/>
+    <add key="PayApi" value="http://10.100.11.126:4048" />
+	 <!--是否读MySQL历史库数据-->
+    <add key="IsReadMySQLHistory" value="1" />  
+	<add key="servicestack:license" value="4209-e1JlZjo0MjA5LE5hbWU6IkRvbmdndWFuIFR1YW5kYWkgbmV0d29yayBJbnRlcm5ldCB0ZWNobm9sb2d5IHNlcnZpY2UgY28uLCBMVEQiLFR5cGU6UmVkaXNCdXNpbmVzcyxIYXNoOllDbGV0YVN5aldIZExkNnRkYlIvMDFjMzJjZGFJNGFBcGxIL1ZRcWZIY0NyTE55MUpzeVoxK2Jqbkt2WVVrRng4MDZWKzJrY0ZvZzZpRWpPNnR2SEIzM2lMaWg0cXVVcUdwRXUrZTA1SHdKcU5uUkN3S2NrOFpkUFBwTWRtcjFWQVFwazlkSThtWEZ0bDhwZFl1eURCY25VcDdFT3d5Q2Y0UGRXRUFpTnpOMD0sRXhwaXJ5OjIwMTctMTAtMTF9" />
+	<!---是否使用支付模块回调页-->
+    <add key="IsCallBackPayment" value="1" />
+    <!--支付模块路由地址-->
+    <add key="PaymentUrl" value="https://jtp.tuandai.com" />
+	<!--单点登录站点-->
+    <add key="PassportWebUrl" value="//passport.tuandai.com" />
+	<!--Java单点登录接口对接公钥(线上)-->
+    <add key="JavaLoginPublicKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYH1w6w2RB8RtJHxFqaqSTRhT8KcDJJMSjNTSPvGJYy6TiFifmcZy+hNjjSYiYCsk+OvC9mpxaU64OBkhkjxlsw6s1xM1QwRFhgMbbcH7n8qwqKDklY4itdyENkZCaW4pStQ2VmHKn8s4zquqop7PaH8TmXZ2+94w7qUOCfnlsawIDAQAB"/>
+<!--活动加息开始时间-->
+    <add key="HDAddRateStartTime" value="2017/05/01 00:00:00"/>
+    <!--活动加息结束时间-->
+    <add key="HDAddRateEndTime" value="2017/07/18 23:59:59"/>
+    <!--活动加息文案-->
+    <add key="HDAddRateDesc" value="五周年庆加息"/>
+<!--合同预览Url-->
+    <add key="ContractViewUrl" value="http://contract.tuandai.com" />
+	<!--是否启用用户服务-->
+    <add key="IsUserService" value="1"/>
+<!--是否开启Hadoop大数据-->
+    <add key="IsHadoop" value="0"/>
+    <!--是否启用银行卡服务-->
+    <add key="IsBankService" value="1"/>
+    <!--短信api-->
+    <add key="msgapiurl" value="http://10.100.1.11:8055" />
+    <add key="SmsApiUrl" value="http://10.100.1.11:8055"/>
+    <!--NewsApi 首页公告请求地址(正式)-->
+    <add key="NewsApiUrl" value="https://newsapi.tuandai.com" />
+    <!--BannerApi 首页banner请求地址（测试）-->
+    <add key="BannerApiUrl" value="https://ad.tdw.cn" />
+    <!--申购相关聚合数据接口Url 开发环境-->
+    <!--<add key="SubApiUrl" value="http://10.100.14.62:9411"/>-->
+    <!--申购相关聚合数据接口Url 测试环境-->
+    <add key="SubApiUrl" value="http://10.100.12.105:9411"/>
+    <!--<add key="SubApiUrl" value="http://10.100.12.17:9411"/>-->
+    <!--是否开启申购接口-->
+    <add key="IsOpenSubscribeApi" value="1"/>
+    <!--获取首页投资人数大数据接口-->
+    <add key="TotalUserApiUrl" value="http://10.100.12.51:42003/"/>
+    <!--是否开启申购过或借过智享-->
+    <add key="IsZxInvestedOrBorrowed" value="0"/>
+    <!--获取复投转让记录Url-->
+    <add key ="GetFtbTranListServerUrl" value="http://10.100.13.10:42001"/>
+    <!--注意：是否是测试或开发环境，灰度和线上无需此配置-->
+    <add key="IsTestOrDev" value="1"/>
+	</appSettings>
+	
+	<connectionStrings>
+		<!--ReadOnly ,ReadWrite,ReadOnly15,ReadOnly28-->
+		<add name="DBConn" connectionString="DataRead" />
+	</connectionStrings>
+  <QQSectionGroup>
+    <QzoneSection>
+      <add key="AppKey" value="100296057" />
+      <add key="AppSecret" value="dc1cc7ccb6fd29e324c1d11a177b600a" />
+      <add key="CallBackURI" value="http://m.tuandai.com/user/ThirdLogin/AuthorizeSuccess.aspx" />
+      <add key="AuthorizeURL" value="https://graph.qq.com/oauth2.0/authorize" />
+    </QzoneSection>
+  </QQSectionGroup>
+	<system.serviceModel>
+		<bindings>
+			<wsHttpBinding>
+				<binding maxBufferPoolSize="52428800" maxReceivedMessageSize="655360000" sendTimeout="00:10:00" receiveTimeout="00:10:00">
+					<readerQuotas maxDepth="6553500" maxStringContentLength="2147483647" maxArrayLength="6553500" maxBytesPerRead="6553500" maxNameTableCharCount="6553500" />
+				</binding>
+				<binding name="WSHttpBinding_IHao8DService" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" bypassProxyOnLocal="false" transactionFlow="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="524288" maxReceivedMessageSize="65536" messageEncoding="Text" textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+					<readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384" maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+					<reliableSession ordered="true" inactivityTimeout="00:10:00" enabled="false" />
+					<security mode="None">
+						<transport clientCredentialType="Windows" proxyCredentialType="None" realm="" />
+						<message clientCredentialType="Windows" negotiateServiceCredential="true" />
+					</security>
+				</binding>
+			</wsHttpBinding>
+			<basicHttpBinding>
+				<binding maxBufferPoolSize="52428800" maxReceivedMessageSize="655360000" sendTimeout="00:10:00" receiveTimeout="00:10:00">
+					<readerQuotas maxDepth="6553500" maxStringContentLength="2147483647" maxArrayLength="6553500" maxBytesPerRead="6553500" maxNameTableCharCount="6553500" />
+				</binding>
+			</basicHttpBinding>
+			<netTcpBinding>
+				<binding maxBufferPoolSize="52428800" maxReceivedMessageSize="655360000" sendTimeout="00:10:00" receiveTimeout="00:10:00">
+					<readerQuotas maxDepth="6553500" maxStringContentLength="2147483647" maxArrayLength="6553500" maxBytesPerRead="6553500" maxNameTableCharCount="6553500" />
+					<security mode="None">
+						<transport clientCredentialType="Windows" protectionLevel="EncryptAndSign" />
+						<message clientCredentialType="Windows" />
+					</security>
+				</binding>
+			</netTcpBinding>
+		</bindings>
+		<client>
+			<endpoint address="http://192.168.2.9/Hao8DService.svc" binding="wsHttpBinding" bindingConfiguration="WSHttpBinding_IHao8DService" contract="TuanDai.RefServices.Hao8DService.IHao8DService">
+				<identity>
+					<dns value="localhost" />
+				</identity>
+			</endpoint>
+			<endpoint address="net.tcp://192.168.1.140:9300/Balanced" binding="netTcpBinding" contract="TuanDai.BalancedSystem.Contract.IBalanced" />
+			<endpoint name="PublicServiceWcf" binding="basicHttpBinding" contract="TuanDai.PublicService.Contract.IPublicService" />
+			<endpoint name="MessageWcf" binding="netTcpBinding" contract="TuanDai.MessageSystem.Contract.IMessage" />
+      <endpoint name="LogWcf" binding="netTcpBinding" contract="TuanDai.LogSystem.Contract.ILogService" />
+		</client>
+	</system.serviceModel>
+ <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="RabbitMQ.Client" publicKeyToken="89e7d7c5feba84ce" culture="neutral" /> 
+		<bindingRedirect oldVersion="0.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+      </dependentAssembly>
+	  <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+ <system.data>
+	<DbProviderFactories>
+	  <remove invariant="MySql.Data.MySqlClient" />
+	  <add name="MySQL Data Provider" invariant="MySql.Data.MySqlClient" description=".Net Framework Data Provider for MySQL" type="MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+	</DbProviderFactories>
+</system.data>
+</configuration>

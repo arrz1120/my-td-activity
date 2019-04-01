@@ -1,0 +1,56 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="concernWeChat.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.concernWeChat" %>
+
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>关注微信</title> 
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v=2016071001" />
+</head>
+<body class="bg-faeec3">
+        <div class="c-banner">
+			<img src="/imgs/App/concernwx1.png?v=20170303"/>
+		</div>
+		<div>
+			<img src="/imgs/App/concernwx2.png"/>
+		</div>
+		<div class="concernwx3 text-center">
+			<img src="/imgs/App/concernwx3.png"/>
+		</div>
+		<div class="mt50">
+			<img src="/imgs/App/concernwx4.png?v=20170321"/>
+		</div>
+	 
+    <% if (!isAppLink)
+       {
+           %>
+    <!-----底部跳转按钮---->
+	<div class="float-jump">
+		<a href="<%=TuanDai.WXApiWeb.GlobalUtils.IsWeiXinBrowser ? "/WeiXinIndex.aspx" : "/Index.aspx"%>"><img src="/imgs/images/icon/ico_toHome.png"/></a>
+		<a href="/Member/my_account.aspx"><img src="/imgs/images/icon/ico_toAccount.png"/></a>
+	</div>
+    <%
+       } %>
+    
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script> 
+<script type="text/javascript" src="/scripts/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/scripts/weixinapi.js?v=4.0"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+wxData.isWxJsSDK = true;
+wxData.debug = false;
+wxData.img_url = "http://m.tuandai.com/imgs/sharelogo.png?v=20160407";
+wxData.title = "团贷网微信端";
+wxData.desc = "关注团贷网公众号，迈出轻松投资第一步";
+wxData.url = "<%=GlobalUtils.WebURL%>/pages/concernWeChat.aspx";
+wxData.ShareCallBack = function (res) {}; 
+</script>
+</body>
+</html>

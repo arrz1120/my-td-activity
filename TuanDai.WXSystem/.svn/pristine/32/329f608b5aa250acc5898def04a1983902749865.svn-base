@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-itunes-app" content="app-id=796440356"/>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/imgs/images/AppIcon57x57.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/imgs/images/AppIcon57x57@2x.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/imgs/images/AppIcon72x72.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/imgs/images/AppIcon72x72@2x.png"/>
+<link rel="stylesheet" type="text/css" href="/css/aboutus.css?v=20150812" /><!--关于我们-->
+<title>帮助中心</title>
+<link rel="stylesheet" href="/css/base.css?v=20150907">
+<link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+
+
+<section  class="pl10 f14px c-000 help_tit">
+新手指南
+</section>
+<section class="weixin-nav help-nav">
+        <div class="nav-cn">
+            <a href="#">
+                <img src="/imgs/images/ico-n1.png">
+                <p class="f12px">注册登录</p>
+            </a>
+            
+            <a href="#">
+                <img src="/imgs/images/ico-n10.png">
+                <p class="f12px">实名认证</p>
+            </a>
+            <a href="#">
+                <img src="/imgs/images/ico-n2.png">
+                <p class="f12px">充值</p>
+            </a>
+        </div>
+        <div class="nav-cn">
+            <a href="#">
+                <img src="/imgs/images/ico-n11.png">
+                <p class="f12px">投资</p>
+            </a>
+            <a href="#">
+                <img src="/imgs/images/ico-n12.png">
+                <p class="f12px">回款</p>
+            </a>
+            <a href="#">
+                <img src="/imgs/images/ico-n13.png">
+                <p class="f12px">提现</p>
+            </a>
+        </div>
+</section>
+<section  class=" pl10 f14px c-000 help_tit">
+热门问题
+</section>
+<section class="aboutBox">
+  <a href="#"><div class="aboutTit"><b></b>了解团贷网</div></a>
+</section>
+<section class="aboutBox">
+  <a href="#"><div class="aboutTit"><b></b>团贷网会员</div></a>
+</section>
+<section class="aboutBox">
+  <a href="#"><div class="aboutTit"><b></b>团贷网活动</div></a>
+</section>
+<section class="aboutBox">
+  <a href="#"><div class="aboutTit"><b></b>我要借款</div></a>
+</section>
+<section class="aboutBox">
+  <a href="#"><div class="aboutTit"><b></b>短信通知</div></a>
+</section>
+<section class="aboutBox last">
+  <a href="#"><div class="aboutTit"><b></b>名词解释</div></a>
+</section>
+
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.flexslider.js"></script>
+<script type="text/javascript">
+$(function(){
+	//banner滑动
+	$('#bannerSlider').flexslider({
+	    animation: "slide",
+	    directionNav: false
+	 });
+
+//    //公告滚动显示
+    setInterval('AutoScroll("#scrollDiv")', 5000)
+});
+
+
+function AutoScroll(obj) {
+    $(obj).find("ul:first").animate({
+        marginTop: "-30px"
+    }, 500, function () {
+        $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+    });
+}
+
+
+//ios6以下加载后隐藏地址栏
+  window.onload=function(){  
+	  if(document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
+		  bodyTag = document.getElementsByTagName('body')[0];
+		  bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';
+	  }
+	  setTimeout(function(){
+		  window.scrollTo(0, 1)
+	  }, 0);
+  };
+
+</script>
+
+</body>
+</html>

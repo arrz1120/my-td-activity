@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+    />
+    <meta name="format-detection" content="telephone=no">
+    <title>续期规则说明</title>
+    <link rel="stylesheet" href="/pages/App/question/css/renewalRule-bad2a7958e.css">
+    <script src="/pages/App/question/js/adapt-64d176742c.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <section class="rules">
+            <p>（一）</p>
+            <p>服务续期后的参考年回报率与“续期后服务总期限”相关，总期限越长对应参考年回报率越高。服务总期限对应参考年回报率如下图：（参考年回报率不代表实际年回报率，请以实际年回报率为准）。</p>
+        </section>
+        <div class="chart-container" id="rateChart">
+        </div>
+        <section class="rules">
+            <p>（二）</p>
+            <p>We+自动服务续期成功后，该服务在原到期日不再发起债权转让，系统将协助用户继续投标；复投宝服务续期成功后，该服务在原到期日先按其到期结束服务收益结算规则进行结算，结算后的资金将由系统在续期生效后协助用户继续投标。</p>
+        </section>
+        <section class="rules">
+            <p>（三）</p>
+            <p>续期成功后，用户可自主选择申请结束服务或续期到期后授权系统协助用户结束服务，也可在续期到期前再次申请续期。</p>
+        </section>
+        <section class="rules">
+            <p>（四）</p>
+            <p>续期成功后实际可获收益以本次服务结束时其所投所有标的的收益总和为准，于服务结束时结算。</p>
+        </section>
+    </div>
+</body>
+<script src="/pages/App/question/js/fastclick-jquery-24cb46d72f.js"></script>
+<script src="/pages/App/question/js/echarts-7386220750.simple.min.js"></script>
+<script src="/pages/App/question/js/util.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    (function () {
+        FastClick.attach(document.body);
+        var myChart = echarts.init(document.getElementById('rateChart'));
+        var option = {
+            grid: {
+                //表格位置
+                left: 30,
+                right: 30,
+                top: 20,
+                bottom: 20
+            },
+            xAxis: {
+                //x轴设置
+                type: 'category',
+                boundaryGap: false,
+                // data: ['9月', '12月', '15月', '18月', '24月', '27月', '30月', '30月以上'],
+                data: [],
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    interval: 0,
+                    fontSize: 10
+                },
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {//y轴设置
+                type: 'value',
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                }
+            },
+            series: [{
+                // data: [10.3, 11.1, 11.5, 11.6, 11.9, 12.0, 12.3, 12.6], //数据
+                data: [], //数据
+                type: 'line',
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#fef5dd' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: '#fff' // 100% 处的颜色
+                        }],
+                        globalCoord: false // 缺省为 false
+                    }
+                },
+                symbol: 'circle',
+                label: {
+                    show: true,
+                    formatter: '{c}%'
+                },
+                itemStyle: {
+                    color: '#fab700'
+                }
+            }],
+            textStyle: {
+                color: '#333',
+                fontSize: 8
+            }
+        };
+        $.ajax({
+            url: '/ajaxCross/ajax_AppFind.ashx',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                id: Util.getParam('id'),
+                Cmd: 'GetWeFTBExtendRate',
+            },
+            success: function (data) {
+                console.info("data---charts-", data);
+
+                if (data && data.result == 1) {
+
+                    if (data.list && data.list.length > 0) {
+                        // data.list = data.list.reverse();
+                        // data.list.forEach(function (item) {
+                        //     xData.push(item.YearRate);
+                        //     yData.push(item.Deadline + "月");
+                        // });
+                        var xData = [],
+                            yData = [];
+
+                        data.list.forEach(function (item) {
+                            xData.push(item.Deadline + '月');
+                            yData.push(item.YearRate);
+                        });
+                        option.xAxis.data = xData;
+                        option.series[0].data = yData;
+                        // option.xAxis.data = ['9月', '12月', '15月', '18月', '24月', '27月', '30月', '30月以上']; //X轴数据
+                        // option.series[0].data = [10.3, 11.1, 11.5, 11.6, 11.9, 12.0, 12.3, 12.6]; //Y轴数据
+                        myChart.setOption(option);
+
+                    } else {
+                        Util.toast('暂无数据');
+                        $('#rateChart').hide();
+                    }
+                } else if (data && data.result == 0) {
+                    Util.toast('暂无数据');
+                    $('#rateChart').hide();
+
+                } else {
+                    Util.toast('服务器异常');
+                    $('#rateChart').hide();
+
+                }
+            }
+        })
+    })();
+</script>
+
+</html>

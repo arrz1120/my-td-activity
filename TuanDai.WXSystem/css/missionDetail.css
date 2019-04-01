@@ -1,0 +1,9 @@
+.missionDetail{padding-bottom: 15px;}
+.missionDetail section .title{padding-left: 30px;font-size: 1.6rem;color: #000;font-weight: bold;height: 60px;line-height: 60px;background: url('/imgs/member/table_tit_bg.png') 10px center no-repeat;background-size: 12px 12px;}
+.missionDetail section .table{padding: 0 10px;}
+.missionDetail section .table table{width: 100%;border: 1px solid #e5e5e5;} 
+.missionDetail section .table table tr td{width: 50%;font-size: 1.25rem;padding: 15px 0;border-bottom: 1px solid #e5e5e5;background: #fff;}
+.missionDetail section .table table tr.th td{text-align: center;background: #fffdf5;color: #694514;}
+.missionDetail section .table table tr.bgGray td{background: #fcfcfc;}
+.missionDetail section .table table tr td.tdL{padding-left: 20px;border-right: 1px solid #e5e5e5;padding-right: 5px;}
+.missionDetail section .table table tr td.tdR{text-align: center;}

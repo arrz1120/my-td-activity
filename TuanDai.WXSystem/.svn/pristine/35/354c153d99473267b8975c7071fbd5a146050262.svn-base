@@ -1,0 +1,33 @@
+html,body{width: 100%;overflow-x: hidden;}
+.bl-ababab{border-left: 2px solid #ababab;}
+.pb50{padding-bottom: 50px;}
+.bb-e6e6e6{border-bottom: 1px solid #e6e6e6;}
+.bg-fff-bb-d1d1d1{border-bottom: 1px solid #D1D1D1;background: #fff;}
+.lh14{line-height: 1.6rem;}
+.pt55{padding-top: 55px;}
+.mt-45{margin-top: -45px;}
+.ml8{margin-left: 8px !important;}
+	
+.progress{padding-top: 30px;padding-left: 15px;}
+.date-wp{padding-left: 20px;background: url('/imgs/images/yuan_gray.png') 3px 5px no-repeat;padding-right: 15px;}
+.date-wp .date,.date-wp .date span{font-size: 1.4rem;color: #666666;}
+.date-active{background: url('/imgs/images/yuan_active.png') left 5px no-repeat;background-size: 16px 16px;}
+.date-active .date{color: #fab600;}
+.con{padding-left: 20px;margin-left: 7px;overflow: hidden;padding-bottom: 18px;}
+.con h3{font-size: 1.5rem;color: #212121;}
+
+.swiper-container1{width: 100%;overflow: hidden;}
+.swiper-container1 .swiper-slide{width: 110px;border: 1px solid #d1d1d1;}
+.swiper-container1 .pics img{width: 110px;height: 115px;}
+
+.slide2{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 999;background: #212121;}
+.slide2 .slide-close{width: 50px;height: 50px;background: url('/imgs/images/slide-close.png') no-repeat;background-size: 50px 50px;position: absolute;top: 30px;right: 15px;z-index: 999;}
+.slide-big{width: 100%;height: 100%;position:absolute;top: 50px;left: 0;display: -webkit-box;-webkit-box-align:center;}
+.swiper-container2{width: 100%;}
+.swiper-container2 .swiper-slide{width: 100%;}
+.swiper-container2 .swiper-slide .pic{width: 100%;}
+.swiper-container2 .swiper-slide .pic img{width: 100%;}
+.mark{position: absolute;bottom: 15px;width: 100%;text-align: center;}
+.mark p{font-size: 1.2rem;color: #fff;}
+.mark p span{font-size: 2rem;color: #fff;font-weight: normal;}
+

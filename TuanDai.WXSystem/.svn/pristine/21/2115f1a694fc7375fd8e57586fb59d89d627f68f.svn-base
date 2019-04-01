@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>短信通知</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/aboutus.css?v=20150812" /><!--关于我们-->
+</head>
+<body class="bg-fbfbf9">
+<section class="aboutBox">
+  <a href="help_SmsSz.html"><div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>1.短信设置</div></a>
+</section>
+<section class="aboutBox last">
+  <a href="help_SmsYc.html"><div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>2.接收异常</div></a>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+<script type="text/javascript">
+  $(function () {
+    $(".aboutTit").on("click", function () {
+      if ($(this).parent(".aboutBox").hasClass("active")) {
+        $(".aboutBox").removeClass("active");
+      } else {
+        $(".aboutBox").removeClass("active");
+        $(this).parent(".aboutBox").addClass("active");
+      }
+    });
+
+  });
+
+</script>
+
+</body>
+</html>

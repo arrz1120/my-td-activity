@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>受限详情</title>
+</head>
+<style type="text/css">
+	@charset "utf-8";
+	html,body,h1,h2,h3,p,span,a,div,ol,ul,li,dl,dt,dd,table,tbody,tfoot,thead,tr,th,td,input,textarea, form,article,aside,details,figcaption,figure,footer,header,hgroup,nav,section { margin: 0; padding: 0; font-family: 'Microsoft Yahei', Arial, Verdana, Helvetica, sans-serif; -webkit-tap-highlight-color: rgba(0,0,0,0); color: #212121;box-sizing: border-box;font-size: 12px;line-height: 24px;}
+	body { background: #fff; -webkit-text-size-adjust: none; width: 100%;height:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none}
+	article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display: block;}
+	.gg-box{padding: 0 20px;}
+	.gg-box p{text-align: left; color: #000; font-size: 14px;line-height: 160%;}
+	.gg-box .title{margin-top: 20px; font-size: 16px;}
+	.gg-box .mt{margin-top: 20px;}
+	.gg-box .justify{text-align: justify; margin-top: 15px; padding-bottom: 5px;}
+</style>
+<body>
+	<section class="gg-box">
+		<p class="mt title">关于部分充值渠道功能受限公告</p>
+		<p class="justify">由于第三方支付系统维护，10月13日-10月17日将有部分充值渠道功能受限，具体列表如下：</p>
+		<p>1.宁波银行</p>
+		<p>2.长江商业银行</p>
+		<p>3.山东省农村信用社</p>
+		<p>4.太仓农村商业银行</p>
+		<p>5.吉林省农村信用社</p>
+		<p>6.甘肃农村信用社</p>
+		<p>7.黑龙江农村信用社</p>
+		<p>8.武汉农村商业银行</p>
+		<p>9.江南农村商业银行</p>
+		<p class="mt">东莞团贷网互联网科技服务有限公司</p>
+		<p>2016年10月13日</p>
+	</section>
+</body>
+</html>

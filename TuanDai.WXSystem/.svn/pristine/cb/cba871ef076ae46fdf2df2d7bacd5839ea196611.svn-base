@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="C#" CodeBehind="ajax.ashx.cs" Class="TuanDai.WXApiWeb.Activity.inviteGetgift.ajax" %> 

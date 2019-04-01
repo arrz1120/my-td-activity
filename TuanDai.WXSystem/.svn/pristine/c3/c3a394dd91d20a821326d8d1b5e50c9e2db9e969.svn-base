@@ -1,0 +1,201 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.pages.invest.WE
+{
+    /// <summary>
+    /// We计划分期宝详情页
+    /// Allen 2016-03-24
+    /// </summary>
+    public partial class WeFqb_detail :BasePage
+    {
+        protected Guid? projectId { get; set; }
+        private WeProductBLL bll = null;
+        protected WeProductDetailInfo model = null;
+        protected bool IsWeFinish = false;
+        protected bool IsApp = false;
+        /// <summary>
+        /// 是否是we计划4周年庆
+        /// </summary>
+        protected bool IsWeZnq = false;
+        /// <summary>
+        /// 加息利率
+        /// </summary>
+        protected decimal JxRate = 0; 
+        protected decimal FXRate = 0;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            projectId = WEBRequest.GetGuid("id");
+            var activityUrl = WEBRequest.GetString("Anniversary4");
+            var type = WEBRequest.GetString("type");
+            if (type == "mobileapp")
+            {
+                IsApp = true;
+                IsShowRightBar = false;
+            }
+            if (!string.IsNullOrEmpty(activityUrl))
+            {
+                CookieHelper.WriteCookie("Anniversary4", activityUrl);
+                //HttpContext.Current.Response.SetCookie(new HttpCookie("Anniversary4",activityUrl));//写入活动传过来的url
+            }
+            if (!IsPostBack)
+            {
+                bll = new WeProductBLL();
+                if (this.projectId!=null && this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData()) 
+                        return; 
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/pages/invest/WE/WE_list.aspx");
+                }
+            }
+        }
+        private bool GetData()
+        {
+            //model = bll.GetWeProductInfo(projectId.Value);
+            if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+            {
+                string err = string.Empty;
+                var weRedisInfo = TuanDai.RedisApi.Client.WePlanRedis.GetWePlanRedisByProductIdJson(projectId.Value,
+                    out err, TdConfig.ApplicationName);
+                if (weRedisInfo != null)
+                    model = JsonConvert.DeserializeObject<WeProductDetailInfo>(weRedisInfo);
+                if (model == null || !string.IsNullOrEmpty(err))
+                    model = new WeProductBLL().GetWeProductInfo(projectId.Value);
+            }
+            else
+            {
+                model = new WeProductBLL().GetWeProductInfo(projectId.Value);
+            }
+            if (model == null)
+                return false; 
+            //if (model.StartDate >= DateTime.Parse(SetModel1.Param1Value) &&
+            //    model.StartDate < DateTime.Parse(SetModel1.Param2Value))
+            //{
+            //    IsWeZnq = true;
+            //    JxRate = decimal.Parse(SetModel1.Param3Value);
+            //}
+            //if ((model.TypeWord.ToLower().Contains("p") || model.TypeWord.ToLower().Contains("r") ||
+            //     model.TypeWord.ToLower().Contains("q")) && model.StartDate >= DateTime.Parse(SetModel.Param1Value) &&
+            //    model.StartDate < DateTime.Parse(SetModel.Param2Value))
+            //{
+            //    IsWeZnq = true;
+            //    JxRate = decimal.Parse(SetModel.Param3Value);
+            //}
+            #region 判断满标
+            if (model.StartDate > DateTime.Now && model.StatusId == 1)
+            {
+                IsWeFinish = false;
+            }
+            else if (model.StartDate < DateTime.Now && model.OrderQty != model.TotalQty)
+            {
+                IsWeFinish = false;
+            } 
+            else
+            {
+                IsWeFinish = true;
+            }
+            #endregion
+
+            return true;
+        }
+
+        protected string GetWePlanYearRate()
+        {
+            string strFormat = "{0}<span>{1}%</span>";
+            return string.Format(strFormat, CommUtils.GetFloatDivideStr(model.YearRate ?? 0, 1), CommUtils.GetFloatDivideStr(model.YearRate ?? 0, 2));
+        }
+
+        protected string ProductTypes(string types, object MinYearRate)
+        {
+            var result = string.Empty;
+            types.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .ToList()
+                    .ForEach(x =>
+                    {
+                        if (x == "1")
+                        {
+                            result += "小微企业,";
+                        }
+                        if (x == "9")
+                        {
+                            result = result + "微团贷,";
+                        }
+                        if (x == "6")
+                        {
+                            result = result + "净值标,";
+                        }
+                        if (x == "17")
+                        {
+                            result = result + "证券宝,";
+                        }
+                        if (x == "15")
+                        {
+                            result = result + "分期宝,";
+                        }
+                        if (x == "22")
+                        {
+                            result = result + "项目宝B,";
+                        }
+                        if (x == "18")
+                        {
+                            if (Tool.SafeConvert.ToDecimal(MinYearRate, 0) > 0)
+                            {
+                                result = result + "私募宝A,";
+                            }
+                            else
+                            {
+                                result = result + "私募宝B,";
+                            }
+
+                        }
+                        if (x == "24")
+                        {
+                            result = result + "分期宝,";
+                        }
+                    });
+
+            return result;
+        }
+
+        #region 返现
+        /// <summary>
+        /// We返现标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWePubCach(WeProductDetailInfo model)
+        {
+            string pic = "";
+            //发标时就设置返现
+            if ((model.TuandaiCashRate ?? 0) > 0)
+            {
+                WebSettingBLL webSettingBll = new WebSettingBLL();
+                WebSettingInfo AllWeCachSet = webSettingBll.GetWebSettingInfo("421DBE8C-6435-4A9A-852A-EC51F0B0DDA8");
+
+                string cashFormat = AllWeCachSet.Param2Value;
+                if ((model.CashLimitAmount ?? 0) > 0)
+                    cashFormat = AllWeCachSet.Param1Value;
+                if (cashFormat.ToText() == "")
+                {
+                    cashFormat = ((model.CashLimitAmount ?? 0) > 0 ? "起投{Amount}元，" : "") + "返现{Rate}%";
+                }
+                decimal limitAmount = model.CashLimitAmount ?? 0;
+                string strLimitAmount = limitAmount >= 10000 ? ToolStatus.DeleteZero(limitAmount / 10000) + "万" : ToolStatus.DeleteZero(limitAmount / 1000) + "千";
+                pic += "<div class=\"rect_r f11px c-ffffff text-center\" style=\"width: auto;padding: 0px 10px;\">" + cashFormat.Replace("{Rate}", ToolStatus.DeleteZero(model.TuandaiCashRate)).Replace("{Amount}", strLimitAmount) + "</div>";
+            }
+            return pic;
+        }
+        #endregion
+    }
+}

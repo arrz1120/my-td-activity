@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>自动投标</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/auto-invest.css?v=20160824" />
+</head>
+<body class="bg-f1f3f5 pb15">
+	<!--<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+	        <h1 class="title">自动投标</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>-->
+	
+	<div class="tabBox clearfix bg-fff">
+		<div class="tabItem act w50p lf br-e6e6e6">理财计划</div>
+		<div class="tabItem lf w50p">优质项目</div>
+	</div>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	
+	<div class="selectBox selectBox1 bg-fff pl15 pb5">
+		<p class="pt10 pb10 f15px">投标类型</p>
+		<ul class="clearfix">
+			<li><div class="selected">复投保(24个月)</div></li>
+			<li><div class="selected">复投保(18个月)</div></li>
+			<li><div class="selected">We计划C(12个月)</div></li>
+			<li><div class="selected">We计划B(6个月)</div></li>
+			<li><div>We计划A(3个月)</div></li>
+			<li><div>We计划G(1个月)</div></li>
+		</ul>
+	</div>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	
+	<div class="pl15 bb-e6e6e6 bg-fff">
+		<div class="inputBox bb-e6e6e6">
+			<span class="ib_span1">预留金额</span>
+			<input type="text" placeholder="请输入账户需预留金额"/>
+			<span class="ib_span2">元</span>
+		</div>
+		<div class="checkBox pt10 pb21 pt10 pb10">
+			<span class="f15px">有效期</span>
+			<span class="f15px"><i class="checked"></i>长期有效</span>
+			<span class="f15px"><i></i>自定义</span>
+		</div>
+		<div class="dateBox hide clearfix">
+			<div class="w50p lf pr15 pos-r">
+				<input type="date" value="2016-08-24"/>
+				<i class="ico-arrow-r ico-arrow-rl"></i>
+			</div>
+			<div class="w50p lf pl15 pos-r">
+				<input type="date" />
+				<i class="ico-arrow-r"></i>
+			</div>
+		</div>
+	</div>
+	
+	<!--修改自动投标-->
+	<div class="hide">
+		<div class="pt10 pl10 pr10">
+			<div class="btn btnYellow">保存</div>
+		</div>
+		<div class="pt10 pl10 pr10">
+			<div class="btn bg-d1d1d1 c-212121">删除</div>
+		</div>
+	</div>
+	
+	<div class="btnWrap pl10 pb10 pr10 pt10">
+		<div class="btn btnYellow">保存</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+	(function(){
+		var iCheck = $(".checkBox").find('i');
+		var dateBox = $(".dateBox");
+		iCheck.each(function(i,item){
+			$(item).click(function(){
+				if(i == 0){
+					iCheck.eq(0).addClass('checked');
+					iCheck.eq(1).removeClass('checked');
+					dateBox.addClass('hide');
+				}else{
+					iCheck.eq(0).removeClass('checked');
+					iCheck.eq(1).addClass('checked');
+					dateBox.removeClass('hide');
+				}
+			})
+		})
+	})();
+	
+</script>
+
+</body>
+</html>

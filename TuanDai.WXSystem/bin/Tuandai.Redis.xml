@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuandai.Redis</name>
+    </assembly>
+    <members>
+        <member name="M:Tuandai.Redis.LogDao.RedisTrace(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            添加Redis跟踪
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="method"></param>
+            <param name="begindate"></param>
+            <param name="endDate"></param>
+        </member>
+        <member name="T:Tuandai.Redis.RedisConfig">
+            <summary>
+            Redis的配置文件
+            </summary>
+        </member>
+        <member name="P:Tuandai.Redis.RedisConfig.CurrentInstance">
+            <summary>
+            当前最大实例
+            </summary>
+        </member>
+        <member name="T:Tuandai.Redis.RedisManager">
+            <summary>
+            Redis管理
+            </summary>
+        </member>
+        <member name="M:Tuandai.Redis.RedisManager.GetRedisClient(System.String,System.String@)">
+            <summary>
+            获取Redis服务
+            </summary>
+            <param name="path">路径</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisManager.CreateCon(System.String,System.String@)">
+            <summary>
+            创建连接
+            </summary>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisManager.GetRandomSeed">
+            <summary>
+            生成随机数种子
+            </summary>
+            <returns>种子</returns>
+        </member>
+        <member name="T:Tuandai.Redis.RedisServer">
+            <summary>
+            RedisServer调用
+            </summary>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRightPush``1(System.String,System.String,``0,System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            从左边添加List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprtDate">到什么时间到期</param>
+            <param name="asy">是否是异步:true同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRightPush``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            从左边添加List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprtDate">到什么时间到期</param>
+            <param name="asy">是否是异步:true同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRightPush``1(System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            从左边添加List(添加一个列表)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="list">插入的列表</param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprtDate">到什么时间到期</param>
+            <param name="asy">是否是异步:true同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRightPush``1(System.String,System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            从左边添加List(添加一个列表)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="list">插入的列表</param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprtDate">到什么时间到期</param>
+            <param name="asy">是否是异步:true同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRange``1(System.String,System.String,System.Int32,System.String@)">
+            <summary>
+            获取List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="count">获取的数量</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRange``1(System.String,System.String,System.String,System.Int32,System.String@)">
+            <summary>
+            获取List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="count">获取的数量</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRemove(System.String,System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            List删除
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.ListRemove(System.String,System.String,System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            List删除
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringSet``1(System.String,System.String,``0,System.String@,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            字符串设置
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprt">有效期</param>
+            <param name="asy">是否异步:true异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringSet``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            字符串设置
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprt">有效期</param>
+            <param name="asy">是否异步:true异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringSetList``1(System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            字符串设置List
+            </summary>
+            <param name="path">路径</param>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprt">有效期</param>
+            <param name="asy">是否异步:true异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringSetList``1(System.String,System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            字符串设置List
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprt">有效期</param>
+            <param name="asy">是否异步:true异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringGet``1(System.String,System.String,System.String@)">
+            <summary>
+            通过字符串获取对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringGet``1(System.String,System.String,System.String,System.String@)">
+            <summary>
+            通过字符串获取对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringGetList``1(System.String,System.String,System.String@)">
+            <summary>
+            通过字符串获取对象List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringGetList``1(System.String,System.String,System.String,System.String@)">
+            <summary>
+            通过字符串获取对象List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringAppend(System.String,System.String,System.String,System.String@,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            sting 的添加值的后面
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringAppend(System.String,System.String,System.String,System.String,System.String@,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            sting 的添加值的后面
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringIncrement(System.String,System.String,System.String@,System.Double,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            String里面的值在原有的基础上增加
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value">默认是增长1</param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringIncrement(System.String,System.String,System.String,System.String@,System.Double,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            String里面的值在原有的基础上增加
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value">默认是增长1</param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringDecrement(System.String,System.String,System.String@,System.Double,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            string里面的值原有的基础上减少
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value"></param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.StringDecrement(System.String,System.String,System.String,System.String@,System.Double,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            string里面的值原有的基础上减少
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value"></param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashSet``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            哈希的使用
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+            <param name="key">键字</param>
+            <param name="field">字段</param>
+            <param name="model">值</param>
+            <param name="ErrorMessage"></param>
+            <param name="expirtDate">到期时间</param>
+            <param name="asy">同步:true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashSet``1(System.String,System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            哈希的使用
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key">键字</param>
+            <param name="field">字段</param>
+            <param name="model">值</param>
+            <param name="ErrorMessage"></param>
+            <param name="expirtDate">到期时间</param>
+            <param name="asy">同步:true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashGet``1(System.String,System.String,System.String,System.String@)">
+            <summary>
+            获取Hash的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashGet``1(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            获取Hash的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashGetAll``1(System.String,System.String,System.String@)">
+            <summary>
+            获取所有的hash值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashGetAll``1(System.String,System.String,System.String,System.String@)">
+            <summary>
+            获取所有的hash值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashIncrement(System.String,System.String@,System.String,System.String,System.Double,System.Boolean)">
+            <summary>
+            Hash值增长
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="value">增加的值，默认是1</param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashIncrement(System.String,System.String,System.String@,System.String,System.String,System.Double,System.Boolean)">
+            <summary>
+            Hash值增长
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="value">增加的值，默认是1</param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashDecrement(System.String,System.String@,System.String,System.String,System.Double,System.Boolean)">
+            <summary>
+            hash值自动减少
+            </summary>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="value">减少的值</param>
+            <param name="asy">同步:true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashDecrement(System.String,System.String,System.String@,System.String,System.String,System.Double,System.Boolean)">
+            <summary>
+            hash值自动减少
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="value">减少的值</param>
+            <param name="asy">同步:true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashDelete(System.String,System.String,StackExchange.Redis.RedisValue[],System.String@,System.Boolean)">
+            <summary>
+            Hash删除
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fields"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步：true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.HashDelete(System.String,System.String,System.String,StackExchange.Redis.RedisValue[],System.String@,System.Boolean)">
+            <summary>
+            Hash删除
+            </summary>
+            <param name="appname">程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fields"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步：true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.KeyDelete(System.String,StackExchange.Redis.RedisKey[],System.String@,System.Boolean)">
+            <summary>
+            删除多个Key
+            </summary>
+            <param name="path"></param>
+            <param name="key">RedisKey类型的数组</param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">ture:同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.KeyDelete(System.String,System.String,StackExchange.Redis.RedisKey[],System.String@,System.Boolean)">
+            <summary>
+            删除多个Key
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key">RedisKey类型的数组</param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">ture:同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.KeyDelete(System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            删除一个Key
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">ture:同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.KeyDelete(System.String,System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            删除一个Key
+            </summary>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">ture:同步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.RedisServer.KeyExpire(System.String,System.String,System.DateTime,System.String@)">
+            <summary>
+            设置Key过期
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="expirtDate"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.ZKConfig.GetRedisConfig(System.String,System.String@)">
+            <summary>
+            获取zk的值
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

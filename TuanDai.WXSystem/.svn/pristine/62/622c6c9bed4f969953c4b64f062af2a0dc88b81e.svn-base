@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160602" />
+<link rel="stylesheet" type="text/css" href="/css/log-alert.css?v=20160602" />
+<link rel="stylesheet" type="text/css" href="/css/login_hb.css" />
+</head>
+<body>
+	<div class="bg-fff log-alert">
+		<img src="/imgs/images/login_banner.png" alt="" class="login_banner">
+
+		<div class="text-center f17px pt15 pb15">登录</div>
+		<div class="contentWrap pt20">
+			<div class="input-box bb-e6e6e6">
+				<i class="block logSprite phone"></i>
+				<input type="text" placeholder="请输入手机号码/用户名" />
+			</div>
+			<div class="input-box bb-e6e6e6" id="psd">
+				<i class="block logSprite unlock"></i>
+				<input type="password" placeholder="请输入登录密码" />
+				<div class="btnsee webkit-box box-center" id="btnSee">
+					<b class="block logSprite eye-close"></b>
+				</div>
+			</div>
+			<div class="btn btnYellow mt50">确定</div>
+			<div class="clearfix pt8">
+				<a href="" class="lf c-ffcf1f f13px">注册</a>
+				<a href="" class="rf c-ffcf1f f13px">忘记密码</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 弹窗 -->
+	<div class="alert" id="alert" style="display:none">
+
+		<div class="con">
+		<div class="close">	</div>
+			<a href="#" class="link">马上领流量红包</a>
+		</div>
+	</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+	$("#btnSee").click(function (){
+		var $psd = $("#psd").find('input');
+		var eye = $(this).find('b');
+		if($psd.attr('type')=='password'){
+			eye.removeClass('eye-close').addClass('eye-open');
+	        $psd.attr('type', 'text');
+		}else{
+			eye.removeClass('eye-open').addClass('eye-close');
+			$psd.attr('type', 'password');
+		}
+    });
+
+	$('#alert').find('.close').on('click',function(e){
+		e.preventDefault();
+		$('#alert').hide();
+	});
+
+		
+</script>
+</body>
+</html>

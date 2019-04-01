@@ -1,0 +1,335 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="myTask.aspx.cs" MasterPageFile="~/MVipWebStite.Master" Inherits="TuanDai.WXApiWeb.pages.App.appVipCenter.myTask" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/myMerber.css?v=20161129a0a0a1" />
+    <title>我的任务</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="Server">
+    <body class="bg-fff">
+        <%=GetNavStr() %>
+        <div class="pageContainer">
+
+            <div class="ins_nav pt15 pb15 clearfix">
+                <div class="lf w50p text-center f17px br-e6e6e6 active">新手专享</div>
+                <div class="lf w50p text-center f17px">日常任务</div>
+            </div>
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="mission_box">
+
+                            <%--<div class="mission_item clearfix">
+								<div class="lf">
+									<div class="mission_ico mission_ico2"></div>
+									<p class="f15px c-333333">绑定邮箱</p>
+									<p class="mt4 c-fa7d00">团币+10</p>
+								</div>
+								<div class="rf"><a class="block f14px c-ffffff text-center">去绑定</a></div>
+							</div>--%>
+
+                            <% if (!IsRecharge)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico4"></div>
+                                    <p class="f15px c-333333">首次充值</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a <%=IsApp?"onclick='Jsbridge.toAppRecharge();'":"href='/Member/Bank/Recharge.aspx'" %> class="block f14px c-ffffff text-center">去充值</a></div>
+                            </div>
+                            <%
+                           }%>
+
+                            <% if (!IsFinishPersonal)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico8"></div>
+                                    <p class="f15px c-333333">完善个人账户资料</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a <%=IsApp?"onclick='Jsbridge.toAppDetails();'":"href='/Member/my_userdetailinfo.aspx'" %> class="block f14px c-ffffff text-center">去完善</a></div>
+                            </div>
+                            <%
+                           } %>
+                            <% if (!IsFocusWX)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico6"></div>
+                                    <p class="f15px c-333333">关注微信服务号</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center" id="showAlert1">去关注</a></div>
+                            </div>
+                            <%
+                           } %>
+                            <% if (!IsWXInvest)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico7"></div>
+                                    <p class="f15px c-333333">微信服务号首次投资</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center" id="showAlert2">去投资</a></div>
+                            </div>
+                            <%
+                           } %>
+
+                            <% if (!IsSetAuto)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico5"></div>
+                                    <p class="f15px c-333333">首次自动投标</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a <%=IsApp?"onclick='Jsbridge.toAppAutoBid();'":"href='/Member/setAuto/auto_invest.aspx'" %> class="block f14px c-ffffff text-center">去投资</a></div>
+                            </div>
+                            <%
+                           } %>
+
+                            <!--以下是完成认证的-->
+
+                            <%--<div class="mission_item clearfix">
+								<div class="lf">
+									<div class="mission_ico mission_ico2"></div>
+									<p class="f15px c-333333">绑定邮箱</p>
+									<p class="mt4 c-fa7d00">团币+10</p>
+								</div>
+								<div class="rf"><a class="block f14px c-ffffff text-center isFinish">已绑定</a></div>
+							</div>--%>
+
+                            <% if (IsRecharge)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico4"></div>
+                                    <p class="f15px c-333333">首次充值</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center isFinish">已完成</a></div>
+                            </div>
+                            <%
+                           } %>
+
+                            <% if (IsFinishPersonal)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico8"></div>
+                                    <p class="f15px c-333333">完善个人账户资料</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center isFinish">已完成</a></div>
+                            </div>
+                            <%
+                           } %>
+                            <% if (IsFocusWX)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico6"></div>
+                                    <p class="f15px c-333333">关注微信服务号</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center isFinish">已完成</a></div>
+                            </div>
+                            <%
+                           } %>
+                            <% if (IsWXInvest)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico7"></div>
+                                    <p class="f15px c-333333">微信服务号首次投资</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center isFinish">已完成</a></div>
+                            </div>
+                            <%
+                           }%>
+
+                            <% if (IsSetAuto)
+                               {
+                            %>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico5"></div>
+                                    <p class="f15px c-333333">首次自动投标</p>
+                                    <p class="mt4 c-fa7d00">团币+10</p>
+                                </div>
+                                <div class="rf"><a class="block f14px c-ffffff text-center isFinish">已完成</a></div>
+                            </div>
+                            <%
+                           } %>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mission_box">
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico7"></div>
+                                    <p class="f15px c-333333">投资赚团币</p>
+                                    <p class="mt4 c-fa7d00">团币+N</p>
+                                </div>
+                                <div class="rf"><a <%=IsApp?"onclick='Jsbridge.toAppRegularFi();'":"href='"+TuanDai.WXApiWeb.GlobalUtils.DQWebURL+"/pages/invest/WE/WE_list.aspx'" %> class="block f14px c-ffffff text-center">去投资</a></div>
+                            </div>
+                            <div class="mission_item clearfix">
+                                <div class="lf">
+                                    <div class="mission_ico mission_ico9"></div>
+                                    <p class="f15px c-333333">邀请好友投资</p>
+                                    <p class="mt4 c-fa7d00">团币+100/人</p>
+                                </div>
+                                <div class="rf"><a href="<%=TuanDai.WXApiWeb.GlobalUtils.ActivityWebsiteUrl %>/weixin/Invite/InviteIndex.aspx<%=IsApp?"?type=mobileapp&t="+Tool.WEBRequest.GetString("t"):"" %>" class="block f14px c-ffffff text-center">去邀请</a></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--弹窗-->
+        <div class="alert webkit-box box-center hide" id="alert1">
+            <div class="alert-select yi_alert pos-r">
+                <div class="yi_alertTit c-999999 text-center ml25 mr25 f15px">关注微信服务号</div>
+                <div class="yi_alertTxt pt3 pl25 pr15 pb18">
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r" id="a1_p1"><span class="p_number f17px">1.</span>长按下方文字复制<span class="f17px fb">【团贷网服务平台】</span>，点击<span class="f17px fb">【进入微信】</span>；</p>
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r"><span class="p_number f17px">2.</span>微信<span class="f17px fb">【添加朋友】</span>-选择<span class="f17px fb">【公众号】</span></p>
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r"><span class="p_number f17px">3.</span>在搜索栏黏贴微信号，找到<span class="f17px fb">【团贷网服务平台】</span>，关注即可。</p>
+                    <div class="copyArea">
+                        <div class="copyTit">长按下方文字复制</div>
+                    </div>
+                    <input class="copyInp" value="团贷网服务平台" disabled="disabled"></input>
+                </div>
+                <a href="weixin://http://weixin.qq.com" class="f17px text-center pt10 pb10 c-fab600 block bt-e6e6e6 btnWx">进入微信</a>
+                <div class="yi_close bgSize"></div>
+            </div>
+        </div>
+
+        <div class="alert webkit-box box-center hide" id="alert2">
+            <div class="alert-select yi_alert pos-r">
+                <div class="yi_alertTit c-999999 text-center ml25 mr25 f15px">微信服务号首次投资</div>
+                <div class="yi_alertTxt pt3 pl25 pr15 pb18">
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r" id="a2_p1"><span class="p_number f17px">1.</span>长按下方文字复制<span class="f17px fb">【团贷网服务平台】</span>，点击<span class="f17px fb">【进入微信】</span>；</p>
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r"><span class="p_number f17px">2.</span>微信<span class="f17px fb">【添加朋友】</span>-选择<span class="f17px fb">【公众号】</span></p>
+                    <p class="f17px pr20 text-justify pt13 c-333333 pos-r"><span class="p_number f17px">3.</span>在搜索栏黏贴微信号，找到<span class="f17px fb">【团贷网服务平台】</span>，关注并点击<span class="f17px fb">【进入团贷】</span>投资。</p>
+                    <div class="copyArea">
+                        <div class="copyTit">长按下方文字复制</div>
+                    </div>
+                    <input class="copyInp" value="团贷网服务平台" disabled="disabled"></input>
+                </div>
+                <a href="weixin://http://weixin.qq.com" class="f17px text-center pt10 pb10 c-fab600 block bt-e6e6e6 btnWx">进入微信</a>
+                <div class="yi_close bgSize"></div>
+            </div>
+        </div>
+    </body>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jsbridge-3.1.3.js?v=20170605001"></script>
+    <script type="text/javascript">
+
+        function dealPageHeight(index) {
+            var swiperHeight = $(window).height() - 62;
+            $(".swiper-slide").each(function (i, item) {
+                $(item).css('min-height', swiperHeight);
+            });
+            var nav = $('.ins_nav').find('div');
+            var swiper = new Swiper('.swiper-container', {
+                autoHeight: true,
+                initialSlide: index,
+                onSlideChangeStart: function (swiper) {
+                    nav.removeClass('active');
+                    nav.eq(swiper.activeIndex).addClass('active');
+                }
+            });
+            nav.each(function (i, item) {
+                $(item).click(function () {
+                    swiper.slideTo(i, 500, true);
+                });
+            });
+        }
+
+
+        //禁止弹窗滑动
+        $(".alert").each(function (i, item) {
+            $(item).on('touchmove', function (e) {
+                e.preventDefault();
+            });
+        });
+
+        //动画显示弹框
+        function alertShow(eleId, alertId) {
+            var $alert = $(alertId);
+            $(eleId).click(function () {
+                $alert.removeClass('hide').removeClass('aniFadeOut').addClass('aniFadeIn');
+                $alert.find('.yi_alert').removeClass('aniHide').addClass('aniShow');
+            });
+        }
+
+        //动画隐藏弹框
+        function alertHide(alertObj) {
+            alertObj.removeClass('aniFadeIn').addClass('aniFadeOut');
+            alertObj.find('.yi_alert').removeClass('aniShow').addClass('aniHide');
+            setTimeout(function () {
+                alertObj.addClass('hide');
+            }, 400);
+        }
+
+        alertShow('#showAlert1', '#alert1');
+        alertShow('#showAlert2', '#alert2');
+
+        $('.yi_close').click(function () {
+            alertHide($(this).parent().parent());
+        });
+
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return { //移动终端浏览器版本信息
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                };
+            }(),
+        }
+        if (browser.versions.android) {
+            $(".btnWx").hide();
+            $("#a1_p1,#a2_p1").html('<span class="p_number f17px">1.</span>长按下方文字复制<span class="f17px fb">【团贷网服务平台】</span>，进入微信</span>；');
+        }
+
+        $(function () {
+            //区分入口来源
+            var link = window.location.href;
+            var arr = link.split("#");
+            if (arr.length > 1) {
+                if (arr[1] == 1) {
+                    dealPageHeight(1);
+                }
+                else {
+                    dealPageHeight(0);
+                }
+            }
+            else {
+                dealPageHeight(0);
+            }
+        })
+    </script>
+</asp:Content>

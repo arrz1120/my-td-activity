@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+		<title>投资前准备</title>
+	</head>
+	<body class="bg-f2f2f0">
+		<div class="tzqBox pb20" id="tzqBox">
+			<div class="pt30 pb25 bg-fff">
+				<!--
+					已开通银行存管账户: imgTouZiQian2
+                	您的资料已提交: imgTouZiQian3
+                	你提交的资料未通过审核、您的证件为港澳台通行证或外籍证件: imgTouZiQian4
+                	您的预留手机号码有误: imgTouZiQian5
+                	您的身份信息或银行卡信息有误 : imgTouZiQian6
+                	银行卡未绑定:  imgTouZiQian7
+                -->
+				<div class="imgTouZiQian2 margin-auto"></div>
+				
+				
+				<p class="c-333333 f17px text-center mt20">您的资料已提交</p>
+				<p class="c-999999 f13px text-center mt10">请耐心等待银行审核，如有疑问，请联系客服</p>
+				<a href="javascript:void(0);" class="callKeFu">拔打客服电话</a>
+			</div>
+			
+			<div class="bg-fff mt15 pl15">
+				<div class="clearfix pt10 pb10 pr15 bt-e6e6e6">
+					<div class="lf f15px c-333333">实名认证</div>
+					<div class="rf f12px c-999999">*月如(441***********858)</div>
+				</div>
+				<a href="javascript:void(0);" class="block clearfix pt10 pb10 pr30 bt-e6e6e6">
+					<div class="lf f15px c-333333">银行预留手机号</div>
+					<div class="rf f12px c-fab600"><i class="ico_warn"></i>立即绑定</div>
+					<i class="ico-arrow-r"></i>
+				</a>
+			</div>
+			<div class="tzqBottom w100p c-808080 text-center"><i class="ico_shield"></i>个人资产由银行级别风控体系保障</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		//处理底部文字位置
+		function setBotPos(){
+			var winHeight = $(window).height();
+			var conHeight = $("#tzqBox").outerHeight();
+			if(winHeight - conHeight <= 15){
+				$(".tzqBottom").css('margin-top','20px');
+			}else{
+				$(".tzqBottom").css({
+					'position':'absolute',
+					'bottom':'15px'
+				});
+			}
+		}
+		$(function(){
+			setBotPos();
+		})
+	</script>
+</html>

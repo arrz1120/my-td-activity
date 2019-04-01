@@ -1,0 +1,52 @@
+﻿{
+     "button":[ 
+		{
+		   "name":"限时福利",
+			"sub_button":[
+		  {
+			   "name":"学习有奖",
+			   "type": "view", 
+			   "url":"https://at.tuandai.com/201805/soundfiscal/weixin.aspx "
+			},
+		  {
+			   "type":"view",
+			   "name":"新人福利",
+			   "url":"https://tg.tuandai.com/web/Register20170612_jd/index.aspx?tdfrom=SNSLCab1f63003"
+		  }]
+       },
+		{
+			"name":"我的资产",
+			"type": "view", 
+			"url":"https://m.tuandai.com/member/fundStatistics/incomeCount.aspx"
+		},
+	   
+	  {	
+          "name":"了解团贷",
+          "sub_button":[
+		  {
+			   "name":"关于团贷",
+			   "type": "view", 
+			   "url":"http://info.tuandai.com/touch.html"
+			},
+		  {
+			   "name":"团贷公益",
+			   "type": "view", 
+			   "url":"https://welfare.tdw.cn/project-weixin/index.html?type=mobileapp"
+			},
+			{
+			   "name":"进入团贷",
+			   "type": "view", 
+			   "url":"https://m.tuandai.com"
+			},
+		  {
+			   "type":"view",
+			   "name":"联系客服",
+			   "url":"http://www.sobot.com/chat/h5/index.html?sysNum=20ab7dce1e3346e8b90b649bd8baf591&source=1"
+		  },
+		  {
+			   "type":"view",
+			   "name":"下载APP",
+			   "url":"https://m.tuandai.com/pages/appdown.aspx?type=weixinapp"
+		  }]
+      }]
+ }

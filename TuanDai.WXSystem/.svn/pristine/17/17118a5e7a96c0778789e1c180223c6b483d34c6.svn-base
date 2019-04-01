@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>充值结果</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160603" />
+	<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160603" />
+</head>
+<body class="bg-fff">
+
+	<div class="text-center">
+		<div class="big-ico-box02 mt50">
+			<img src="/imgs/images/icon/ico_fail.png"/>
+		</div>
+		<p class="mt25 f17px c-212121">抱歉！充值失败</p>
+		<p class="mt5 f13px c-999999">这是错误信息这是错误信息这是错误信息</p>
+	</div>
+	
+	<div class="pl15 pr15 mt45">
+		<a class="btn btnYellow">确定</a>
+	</div>
+	
+	<div class="text-center mt25"><a href="" class="c-fd6040 f13px">联系客服</a></div>
+	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+
+
+</body>
+</html>

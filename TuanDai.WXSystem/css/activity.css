@@ -1,0 +1,5 @@
+.act-item{background: #fff;border-radius: 4px;box-shadow:0 0 0 rgba(0,0,0,0),3px 0 3px rgba(0,0,0,0.08),0 3px 3px rgba(0,0,0,0.08),-3px 0 3px rgba(0,0,0,0.08);}
+.act-item img{width: 100%;}
+.act-txt{height: 55px;padding: 5px 15px 9px 15px;}
+.act-none{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+.act-none img{display: block;width: 58.4%;}

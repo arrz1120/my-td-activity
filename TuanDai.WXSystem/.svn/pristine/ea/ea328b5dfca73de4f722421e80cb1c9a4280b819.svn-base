@@ -1,0 +1,126 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InvitationHistory_None.aspx.cs" Inherits="TuanDai.WXApiWeb.Activity.Invitation.InvitationHistory_None" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>邀请好友-暂无邀请记录</title>
+    <meta name="keywords" content="团贷网,你我金融,互联网金融,P2P网贷,P2P理财" />
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div class="wrapper">
+         <%if (SourceType != "app")
+          {%>
+        <header class="header-box pos-a">
+            <div class="headerMain">
+                <div class="header border-b0 bg-none">
+                    <div class="back Arrow2" onclick="javascript:history.go(-1);"></div>
+                    <h1 class="title c-212121">邀请记录</h1>
+                </div>
+                <div class="none"></div>
+            </div>
+        </header>
+        <%} %>
+
+        <section>
+            <div class="full-pos p2-bg"></div>
+            <div class="pic-box">
+                <img src="imgs/p31.png" alt="" />
+            </div>
+            <div class="pic-box p32">
+                <img src="imgs/p32.png" alt="" />
+            </div>
+        </section>
+        <section class="none-box pos-a">
+            <div class="none-cn">
+                <p class="c-f77e7e f26">暂无邀请记录</p>
+                <p class="c-ababab f12 mt10">速速邀请好友,四重大礼等着您</p>
+                <%if (SourceType == "app")
+                  {%>
+                <a href="ToAppInviteFriend" class="invite-now f14 mt10">马上邀请</a>
+                <%}
+                  else
+                  {%>
+                <a href="javascript:;" class="invite-now f14 mt10">马上邀请</a>
+                <%} %>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=1.0"></script>
+    <script type="text/javascript">
+        //复制分享
+        $(function () {
+            var initNavSuccess = false;
+            function show() {
+                if (initNavSuccess) {
+                    return;
+                }
+                var sourceType = '<%=SourceType%>'
+
+                var html =
+                                  '<div class="share-bg" ></div>' +
+                                  '<div class="share-url">' +
+                                  '<input type="text" id="d_clip_button" value="<%= this.inviteUrl %>"/>' +
+                '<p>请点击网址复制链接</p>'
+                    '</div>';
+
+
+                    if (sourceType != "app") {
+                        $('.invite-now').before(html);
+                    }
+
+                    var isOpen = false;
+
+                    $('.invite-now').click(function () {
+                        if (isOpen) {
+                            $('.share-url').animate({
+                                'bottom': '-150px'
+                            });
+                            $('.share-bg').hide();
+                            $('.share-bg').animate({
+                                opacity: 0
+                            });
+                            $('.share-bg').hide();
+                            isOpen = false;
+                        } else {
+                            $('.share-url').animate({
+                                'bottom': '0px'
+                            });
+
+                            $('.share-bg').show();
+                            $('.share-bg').css({
+                                opacity: 1
+                            });
+                            isOpen = true;
+                        }
+                    });
+
+                    $('.share-bg').bind('touchstart', function (e) {
+                        e.preventDefault();
+
+                        $('.share-url').animate({
+                            'bottom': '-150px'
+                        });
+
+                        $('.share-bg').hide();
+                        $('.share-bg').animate({
+                            opacity: 0
+                        });
+                        $('.share-bg').hide();
+                        isOpen = false;
+                    });
+                    initNavSuccess = true;
+                }
+            show();
+
+        });
+    </script>
+</body>
+</html>

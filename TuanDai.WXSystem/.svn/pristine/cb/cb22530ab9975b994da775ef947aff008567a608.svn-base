@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+
+namespace TuanDai.WXApiWeb.Member.Repayment
+{
+    /// <summary>
+    /// 我的账单
+    /// Allen 2015-06-29
+    /// </summary>
+    public partial class my_bills : UserPage
+    {
+        protected int pageCount { get; set; }
+        protected WXMyBillsInfo model { get; set; }
+        protected IList<ProjectAdImageInfo> BannerList;   //首页头部广告图
+
+        protected static WebSettingInfo webset = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            webset = new WebSettingBLL().GetWebSettingInfo("71E1B58D-449F-4C61-85A6-115C10630554");
+            if (webset == null)
+            {
+                webset = new WebSettingInfo();
+                webset.Param1Value = "2018-05-01";
+            }
+            if (!IsPostBack)
+            {
+                this.GetData();
+            }
+        }
+
+        private void GetData()
+        {
+            Guid userId = WebUserAuth.UserId.Value;
+            ProjectBLL bll = new ProjectBLL();
+            model = bll.WXGetMyBills(userId, 1, GlobalUtils.PageSize);
+            int recordCount = model.TotalCount;
+            double divide = recordCount / GlobalUtils.PageSize;
+            double floor = System.Math.Floor(divide);
+            if (recordCount % GlobalUtils.PageSize != 0)
+                floor++;
+            pageCount = Convert.ToInt32(floor);//总页数
+            BannerList = new AdImageBLL().GetTuanDaiHot((int)ConstString.AdImageType.WEBImage, 1);
+        } 
+
+        //获取标题
+        public static string GetBillTitle(WXMyBillDetialInfo item)
+        {
+            if (item.BillType == 4)
+            {
+                if (item.BillDesc == "申购借出")
+                {
+                    if (!item.Title.IsEmpty())
+                        return item.Title.ToText();
+                    else
+                        return item.BillDesc;
+                }
+                else
+                {
+                    return item.BillDesc; 
+                }
+            }
+            else if (item.BillType == 45)
+            {
+                if (item.PayOutAmount.HasValue && item.PayOutAmount.Value > 0)
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "投资智享转让";
+                    }
+                    return "投资智享计划";
+                }
+                else if (item.InAmount.HasValue && item.InAmount.Value > 0)
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "智享转让回款";
+                    }
+                    return "智享计划回款";
+                }
+                else
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "智享转让相关";
+                    }
+                    return "智享计划相关";
+                }
+            }
+            else if (item.BillType == 46)
+            {
+                if (item.PayOutAmount.HasValue && item.PayOutAmount.Value > 0)
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "智享转让回购";
+                    }
+                    return "智享计划回购";
+                }
+                else if (item.InAmount.HasValue && item.InAmount.Value > 0)
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "智享转让";
+                    }
+                    return "智享计划转让";
+                }
+                else
+                {
+                    if (item.BillDate > DateTime.Parse(webset.Param1Value))
+                    {
+                        return "智享转让相关";
+                    }
+                    return "智享计划相关";
+                }
+            }
+            else
+                return item.BillDesc;
+        }
+
+        //获取交易类型
+        public static string GetBillType(WXMyBillDetialInfo item)
+        {
+            
+            string billType = Tool.EnumHelper.GetDescriptionFromEnumValue(typeof (ConstString.FundDetailType1),
+                item.BillType);
+            if (item.BillDate > DateTime.Parse(webset.Param1Value))
+            {
+                if (billType.Contains("We计划相关"))
+                {
+                    billType = "We自动服务相关";
+                }
+                if (billType.Contains("复投宝"))
+                {
+                    billType = "We+自动服务";
+                }
+                if (billType.Contains("智享计划"))
+                {
+                    billType = "智享转让";
+                }
+            }
+            return billType;
+        }
+    }
+}

@@ -1,0 +1,393 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using System.Data;
+using Kamsoft.Data.Dapper;
+using TuanDai.PortalSystem.DAL;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.Member.Repayment
+{
+    public partial class my_return_details : UserPage
+    {
+        protected Guid UserId = WebUserAuth.UserId.Value;
+        protected Guid SubscribeId;//申购ID
+        protected Guid ProjectId;//项目ID
+        protected ProjectDetailInfo projectInfo;//项目实体
+        protected WXSubscribeInfo subscribeInfo;//申购实体
+        ProjectBLL projectBll = new ProjectBLL();
+        protected string TenderMode = string.Empty;//投标方法
+        protected string Status = string.Empty;//状态
+        protected List<SubscribeInfo> listtable = new List<SubscribeInfo>();
+        protected List<SubscribeInfo> hasBackList = new List<SubscribeInfo>(); //已回款记录
+        protected List<SubscribeInfo> dueBackList = new List<SubscribeInfo>();//待回款记录
+        protected WXFQUserApplyInfo FQUserApplyInfo;
+        protected SMBProjectInfo projectSmb;//私募宝
+        protected SimubaoCurve simubaoCurve;//用户购买了的私募宝
+        protected XMBDetailInfo_Return xmbReturn;
+        protected decimal xmbDSInterest = 0; //项目宝待收利息
+        protected int xmbHoldDay = 0;//项目宝持有天数
+        protected decimal xmbDeadRate = 0;//项目宝当前利率
+        protected DateTime? lastCycleDate;//最后一期回款日期
+
+        /// <summary>
+        /// 浮动利率对照信息
+        /// </summary>
+        protected List<ProjectRateContrastInfo> rateRangeList;
+
+        protected string tab;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            SubscribeId = WEBRequest.GetGuid("SubscribeId", "");
+            ProjectId = WEBRequest.GetGuid("ProjectId", "");
+            tab = WEBRequest.GetQueryString("tab");
+            if (!IsPostBack)
+            {
+                projectInfo = projectBll.GetProjectDetailInfo(ProjectId);
+                if (projectInfo.Type == 18)
+                {
+                    //私募宝
+                    ProjectSMBLL projectSmbll = new ProjectSMBLL();
+                    projectSmb = projectSmbll.GetProjectSMModel(projectInfo.Id);
+                    simubaoCurve = projectBll.GetSimubaoCurve(UserId, SubscribeId);
+                }
+                subscribeInfo = projectBll.WXGetSubscribeInfo(SubscribeId);
+                if (subscribeInfo == null)
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/Repayment/my_return_list.aspx");
+                    return;
+                }
+                TenderMode = WXConverter.GetTenderModeString(subscribeInfo.TenderMode);
+
+                if (projectInfo.Type == 23)
+                {
+                    ProjectXMBBLL xmbbll = new ProjectXMBBLL();
+                    if (subscribeInfo.Status.Value.ToString().IsIn("3", "4"))
+                    {
+                        xmbReturn = xmbbll.GetXMBReturnDetail(subscribeInfo.SubscribeId);
+                        xmbDSInterest = xmbReturn.ReturnAmount - xmbReturn.Amount;
+                        xmbHoldDay = xmbReturn.HoldDay;
+                        xmbDeadRate = xmbReturn.InterestRate;
+                    }
+                    else
+                    {
+                        Tuple<int, decimal, decimal, string> tupleObj = BusinessDll.Invest.GetXMBProjectFloatRate(ProjectId, subscribeInfo.AddDate.Value, subscribeInfo.Amount ?? 0);
+                        xmbHoldDay = tupleObj.Item1;
+                        xmbDeadRate = tupleObj.Item2;
+                        xmbDSInterest = tupleObj.Item3;
+                    }
+                    rateRangeList = xmbbll.GetXMBRateContrastInfo(ProjectId);  
+                }
+
+                Status = WXConverter.GetSubscribeStatusString(projectInfo.Type, subscribeInfo.Status, subscribeInfo.IsBorrow);
+                BindList();
+                //当为分期宝时
+                if (projectInfo != null && (projectInfo.Type ?? 0) == 15)
+                    FQUserApplyInfo = projectBll.WXGetFQUserApplyInfo(ProjectId.ToString());
+
+                if (this.listtable != null && this.listtable.Any())
+                {
+                    lastCycleDate = this.listtable.LastOrDefault().CycDate;
+                    hasBackList = this.listtable.Where(p => p.Desc == "已回款").ToList();
+                    dueBackList = this.listtable.Where(p => p.Desc == "待回款" || p.Desc == "已逾期").ToList();
+                } 
+            }
+        }
+        //加息利率显示
+        protected string GetProjectPlusRate() {
+            decimal plusRate = subscribeInfo.AddInterestRate ?? 0;   //(projectInfo.TuandaiRate ?? 0) + (projectInfo.PublisherRate ?? 0);
+            if (plusRate > 0) {
+                return string.Format("<span class=\"rect_o pos-a\">加息{0}%</span>",ToolStatus.DeleteZero(plusRate));
+            }
+            return "";
+        }
+        //加息金额
+        protected string GetPlusRateMoney() {  
+            decimal plusAmount = (subscribeInfo.TuandaiRedPacket ?? 0) + (subscribeInfo.PublisherRedPacket ?? 0);
+            if (plusAmount > 0)
+                return string.Format("<span class=\"f23px c-fd6040\">+ {0}</span>", ToolStatus.ConvertLowerMoney(plusAmount));
+            return "";
+        }
+       
+        /// <summary>
+        /// 项目详情
+        /// </summary>
+        /// <returns></returns>
+        public string GetUrl()
+        {
+            int SubTypeId = 0;
+            if ((projectInfo.Type ?? 0) == 15)
+            {
+                if (FQUserApplyInfo.OrgTypeId != null && FQUserApplyInfo.OrgTypeId != 5)
+                    SubTypeId = 1;
+                else
+                    SubTypeId = 2;
+            }
+            string strLinkUrl = GetClickUrl(projectInfo.Type ?? 0, SubTypeId, projectInfo.Id);
+            //string strLinkUrl = invest_list.GetClickUrl(projectInfo.Type ?? 0, SubTypeId, projectInfo.Id);
+            //if (strLinkUrl != "#" && strLinkUrl.IndexOf("backurl") == -1)
+            //{
+            //    strLinkUrl += "&backurl=" + BasePage.GetEncodeBackURL();
+            //}
+            return strLinkUrl;
+        }
+        //获取投标详情点击时URL
+        public static string GetClickUrl(int TypeId, int SubTypeId, Guid projectId)
+        {
+            //1:商友贷 3:零售贷 6:净值标 7:股权抵押标 9:车贷 11:房贷 15:分期宝 17:股票配资
+            switch (TypeId)
+            {
+                case 1:
+                case 3:
+                    return "/pages/invest/invest_detail.aspx?projectid=" + projectId.ToText();
+                case 6://净股标
+                case 7:
+                    return "/pages/invest/jing_detail.aspx?projectid=" + projectId.ToText();
+                case 10: //消费贷 
+                case 9:
+                case 11:
+                    return "/pages/invest/mini_detail.aspx?projectid=" + projectId.ToText();
+                case 15:
+                    if (SubTypeId == 1)
+                        return "/pages/invest/fqbao_detail.aspx?projectid=" + projectId.ToText();
+                    else
+                        return "/pages/invest/fqle_detail.aspx?projectid=" + projectId.ToText();
+                case 17:
+                    return "/pages/invest/bond_detail.aspx?projectid=" + projectId.ToText();
+                case 18:
+                    return "/pages/invest/simubao_detail.aspx?projectid=" + projectId.ToText();
+                case 19: //电商供应链标
+                    return "/pages/invest/gylds_detail.aspx?projectid=" + projectId.ToText();
+                case 20: //供应链标
+                    return "/pages/invest/gyl_detail.aspx?projectid=" + projectId.ToText();
+                case 22: //项目宝
+                case 23:
+                    return "/pages/invest/xmb_detail.aspx?projectid=" + projectId.ToText();
+                case 24://普惠分期宝
+                case 25:
+                    return "/pages/invest/puhui_detail.aspx?projectid=" + projectId.ToText();
+                case 27://话费分期
+                    return "/pages/invest/huafei_detail.aspx?projectid=" + projectId.ToText();
+                case 28:
+                    return "/pages/invest/kuailaidai_detail.aspx?projectid=" + projectId.ToText();
+                case 29:
+                    return "/pages/invest/mjn_detail.aspx?projectid=" + projectId.ToText();
+                case 30:
+                    return "/pages/invest/jisujie_detail.aspx?projectid=" + projectId.ToText();
+                case 40:
+                    return "/pages/invest/mini_detail.aspx?projectid=" + projectId.ToText();
+                case 99: //债权转让标
+                    return "/pages/invest/zqzr_detail.aspx?projectid=" + projectId.ToText();
+            }
+            return "#";
+        }
+        /// <summary>
+        /// 列表
+        /// </summary>
+        protected void BindList()
+        {
+            if (!(projectInfo.Status == 2 && (projectInfo.Type == 15 || projectInfo.Type == 17)))//分期宝，股票配资未满标
+            {
+                listtable = GetSubscribeDetailList(SubscribeId);
+
+                foreach (SubscribeInfo item in listtable)
+                {
+                    if (!item.IsBorrow)
+                    {
+                        DateTime tEnd = DateTime.Now.ToShortDate();
+                        DateTime tBegin = Convert.ToDateTime(item.CycDate).ToShortDate();
+                        item.OverDueDay = Math.Abs(((TimeSpan)(tEnd - tBegin)).Days);//逾期天数
+                        if (item.OverDueDay <= 0)
+                            item.OverDueDay = 1;
+                    }
+                    //if (item.IsBorrow)
+                    //{
+                    //   // item.Desc = "已逾期";
+                    //    DateTime tEnd = DateTime.Now.ToShortDate();
+                    //    DateTime tBegin = Convert.ToDateTime(item.OverDueDate).ToShortDate();
+                    //    item.OverDueDay = Math.Abs(((TimeSpan)(tEnd - tBegin)).Days + 1);//逾期天数
+                    //}
+                    //if (item.CycDate < DateTime.Now && item.Desc.IndexOf("待") >= 0)
+                    //{
+                    //  //  item.Desc = "已逾期";
+                    //    item.IsBorrow = true;
+                    //    DateTime tEnd = DateTime.Now.ToShortDate();
+                    //    DateTime tBegin = Convert.ToDateTime(item.CycDate).ToShortDate();
+                    //    item.OverDueDay = Math.Abs(((TimeSpan)(tEnd - tBegin)).Days + 1);//逾期天数
+                    //}
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取回款记录明细
+        /// </summary>
+        /// <param name="subscribeId">申购Id</param>
+        /// <returns></returns>
+        protected List<SubscribeInfo> GetSubscribeDetailList(Guid subscribeId)
+        {
+            List<SubscribeInfo> list = null;
+
+            string sqlText = @"SELECT ISNULL(Amount,0) Amount,ISNULL(InterestAmout,0) InterestAmout,ISNULL(InvestCommission,0) Commssion,
+                            ISNULL(TuandaiRedPacket,0) TuandaiRedPacket,Periods,CycDate,[Desc],PenaltyAmount,IsBorrow,AddDate as OverDueDate,isnull(PublisherRedPacket,0) as PublisherRedPacket,InvestDate,OverDueInterest
+                            FROM
+                            (
+                                SELECT a.Amount,a.InterestAmout,a.InvestCommission,a.BorrorCommission,a.TuandaiRedPacket,a.Periods,a.CycDate,'待回款' as [Desc],
+                                CASE c.IsVip WHEN 0 THEN 0 WHEN 1 THEN (b.PrePenalty/2+(b.PenaltyAmount-b.PrePenalty)*2/3) ELSE 0 END AS PenaltyAmount,isnull(b.IsBorrow,1) as IsBorrow,b.AddDate,
+                                a.PublisherRedPacket, c.AddDate as InvestDate,0 as OverDueInterest
+                                FROM SubscribeDetail a 
+                                LEFT JOIN OverDueRecord b ON a.SubscribeId=b.SubscribeId AND a.Periods=b.periods and  isnull(b.IsHide,0)=0
+                                INNER JOIN Subscribe c ON a.SubscribeId=c.Id
+                                WHERE a.SubscribeId=@SubscribeId
+                                UNION 
+                                SELECT a.RealAmount Amount,a.RealInterestAmout InterestAmout,a.InvestCommission,a.BorrorCommission,
+                                a.TuandaiRedPacket,a.Periods,ISNULL(a.RepayAdvanceDate,a.CycDate) CycDate,'已回款' as [Desc],
+                                CASE c.IsVip WHEN 0 THEN 0 WHEN 1 THEN (b.PrePenalty/2+(b.PenaltyAmount-b.PrePenalty)*2/3) ELSE 0 END AS PenaltyAmount,isnull(b.IsBorrow,1) as IsBorrow,b.AddDate,
+                                a.PublisherRedPacket, c.AddDate as InvestDate  ,0 as OverDueInterest
+                                FROM td_SubDetailHis.dbo.SubscribeDetailHistory_h1 a 
+                                LEFT JOIN OverDueRecord b ON a.SubscribeId=b.SubscribeId AND a.Periods=b.periods and  isnull(b.IsHide,0)=0
+                                INNER JOIN Subscribe c ON a.SubscribeId=c.Id
+                                WHERE a.SubscribeId=@SubscribeId AND ISNULL(b.IsBorrow,1) =1
+                                UNION 
+                                SELECT a.RealAmount Amount,a.RealInterestAmout InterestAmout,a.InvestCommission,a.BorrorCommission,
+                                a.TuandaiRedPacket,a.Periods,ISNULL(a.RepayAdvanceDate,a.CycDate) CycDate,'已逾期' as [Desc],
+                                CASE c.IsVip WHEN 0 THEN 0 WHEN 1 THEN (b.PrePenalty/2+(b.PenaltyAmount-b.PrePenalty)*2/3) ELSE 0 END AS PenaltyAmount,isnull(b.IsBorrow,1) as IsBorrow,b.AddDate,
+                                a.PublisherRedPacket, c.AddDate as InvestDate,b.OverDueInterest
+                                FROM td_SubDetailHis.dbo.SubscribeDetailHistory_h1 a 
+                                LEFT JOIN OverDueRecord b ON a.SubscribeId=b.SubscribeId AND a.Periods=b.periods  and  isnull(b.IsHide,0)=0
+                                INNER JOIN Subscribe c ON a.SubscribeId=c.Id
+                                WHERE a.SubscribeId=@SubscribeId AND ISNULL(b.IsBorrow,1) =0
+                            )t ORDER BY Periods ASC";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@SubscribeId", subscribeId);
+            list = PublicConn.QueryBySql<SubscribeInfo>(sqlText, ref para);
+            if (list == null)
+                list = new List<SubscribeInfo>();
+            return list;
+        }
+
+        protected decimal GetSumListAmount(List<SubscribeInfo> list)
+        {
+            decimal totalAmount = 0;
+            foreach (var item in list)
+            {
+                totalAmount += item.Amount + item.InterestAmout + item.TuandaiRedPacket + item.PublisherRedPacket;
+            }
+            return totalAmount;
+        }
+        protected string GetShowAmount(SubscribeInfo item)
+        {
+            string strResult = "";
+            if (item.Amount > 0)
+                strResult += "+ ￥"+ToolStatus.ConvertLowerMoney(item.Amount);
+            if (item.InterestAmout > 0)
+                strResult += "+ ￥" + ToolStatus.ConvertLowerMoney(item.InterestAmout);
+            if (item.TuandaiRedPacket > 0 || item.PublisherRedPacket > 0)
+                strResult += "+ ￥" + ToolStatus.ConvertLowerMoney(item.TuandaiRedPacket+item.PublisherRedPacket);
+            if (strResult.Length > 0)
+                strResult = strResult.Substring(2);
+            return strResult;
+        }
+        public string GetShowAmountDesc(SubscribeInfo item)
+        {
+            string strResult = "";
+            if (item.Amount > 0)
+                strResult += "+本金";
+            if (item.InterestAmout > 0)
+                strResult += "+利息";
+            if (item.TuandaiRedPacket > 0 || item.PublisherRedPacket > 0)
+                strResult += "+奖励";
+            if (strResult.Length > 0)
+                strResult = strResult.Substring(1);
+            return strResult;
+        }
+
+        /// <summary>
+        /// 回款明细
+        /// </summary>
+        public class SubscribeInfo
+        {
+            /// <summary>
+            /// 回款时间
+            /// </summary>
+            public DateTime CycDate { get; set; }
+            /// <summary>
+            /// 本金
+            /// </summary>
+            public decimal Amount { get; set; }
+            /// <summary>
+            /// 利息
+            /// </summary>
+            public decimal InterestAmout { get; set; }
+            /// <summary>
+            /// 投资佣金
+            /// </summary>
+            public decimal Commssion { get; set; }
+            /// <summary>
+            /// 当期期数
+            /// </summary>
+            public int Periods { get; set; }
+            /// <summary>
+            /// 说明
+            /// </summary>
+            public string Desc { get; set; }
+            /// <summary>
+            /// 团贷奖励
+            /// </summary>
+            public decimal TuandaiRedPacket { get; set; }
+            /// <summary>
+            /// 滞纳金
+            /// </summary>
+            public decimal PenaltyAmount { get; set; }
+            /// <summary>
+            /// 逾期利息
+            /// </summary>
+            public decimal OverDueInterest { get; set; }
+            /// <summary>
+            /// 逾期是否已支付 0逾期未支付 1逾期已支付
+            /// </summary>
+            public bool IsBorrow { get; set; }
+            /// <summary>
+            /// 逾期日期
+            /// </summary>
+            public DateTime? OverDueDate { get; set; }
+            /// <summary>
+            /// 逾期天数
+            /// </summary>
+            public int? OverDueDay { get; set; }
+            /// <summary>
+            /// 发标人红包
+            /// </summary>
+            public decimal PublisherRedPacket { get; set; }
+            /// <summary>
+            /// 申购日期
+            /// </summary>
+            public DateTime InvestDate { get; set; }
+            /// <summary>
+            /// 浮动项目宝持有天数
+            /// </summary>
+            public int HoldDay
+            {
+                get
+                {
+                    System.TimeSpan TS = new System.TimeSpan(DateTime.Today.Ticks - DateTime.Parse(InvestDate.ToString("yyyy-MM-dd")).Ticks);
+                    return TS.Days;
+                }
+            }
+            /// <summary>
+            /// 浮动项目宝当前利率
+            /// </summary>
+            public int HoldRate
+            {
+                get;
+                set;
+            }
+        }
+    }
+}

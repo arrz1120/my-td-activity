@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>需找我的梦中情人</title>
+    <meta name="keywords" content="团贷网,你我金融,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<section class="audio-btn" id="audio_btn">
+    <div id="music" class="play"></div>
+    <audio loop="" src="imgs/music.mp3" id="media" autoplay="" preload=""></audio>
+</section>
+<section class="wrapper" id="fullpage">
+    <!--首页-->
+    <section class="section active" id="section0">
+        <div class="full-pos bg1"></div>
+        <div class="pic-box p1_1"><img src="imgs/p1_1.png"/></div>
+        <div class="pic-box p1_2 animated bounceIn"><img src="imgs/p1_2.png"/></div>
+        <div class="pic-box p1_3 animated fadeIn1"><img src="imgs/p1_3.png" class="animated bounce p1_3cn"/></div>
+        <div class="pic-box p1_4"><img src="imgs/p1_4.png"/></div>
+        <div class="pic-box p1_5 animated fadeIn1"><img src="imgs/p1_5.png"/></div>
+        <a href="javascript:void(0);" class="butbg seek-but pos-a" id="seek-but">即刻上传你的靓照</a>
+        <a href="javascript:void(0);" class="next"></a>
+    </section>
+
+    <!--内容页-->
+    <section class="section" id="section1">
+
+        <!--上传页面-->
+        <div class="upload-wrap">
+            <div class="full-pos bg2"></div>
+            <div class="pic-box p2_1"><img src="imgs/p2_1.png"/></div>
+            <div class="pic-box p2_2"><img src="imgs/p2_2.png"/></div>
+            <div class="">
+                <form action="#">
+                    <div class="image-editor upload-box pos-a">
+                        <div class="upload-wrap pos-r">
+
+                            <img src="imgs/upload-bg.png" class="pos-a upload-bg"/>
+                            <img src="imgs/upload-but.png" class="pos-a upload-but"/>
+                            <!--<img src="imgs/shoushi.png" class="pos-a shoushi"/>-->
+                            <div class="cropit-image-preview pos-a"></div>
+                            <input type="file" class="cropit-image-input pos-a">
+
+                            <div class="control pos-a">
+                                <div class="image-size-label">放大缩小图片</div>
+                                <input type="range" class="cropit-image-zoom-input" >
+                                <input type="hidden" name="image-data" class="hidden-image-data" />
+                                <button type="submit" class="confirm pos-a">确定</button>
+                                <a href="javascript:void(0);" class="again pos-a">重新上传</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="result">
+                    <code>$form.serialize() =</code>
+                    <code id="result-data"></code>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--上传loding-->
+        <div class="load-box" style="display: none;">
+            <div class="full-pos bg3"></div>
+            <div class="pic-box p3_1"><img src="imgs/p3_1.png"/></div>
+            <div class="pic-box p3_2"><img src="imgs/p3_2.png"/></div>
+            <div class="pic-box p3_3"><img src="imgs/p3_3.png"/></div>
+            <div id="loading" class="loading">
+                <div class="loadbox">
+                    <div class="loadlogo"></div>
+                    <div class="loadbg"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--上传结果 修改-->
+        <div class="result-box" style="display: none;">
+            <div class="full-pos bg4"></div>
+            <div class="pic-box p4_1"><img src="imgs/p4_1.png"/></div>
+            <div class="pic-box p4_2"><img src="imgs/p4_2.png"/></div>
+            <div class="result-cn pos-a">
+
+                <div class="character">
+                    <div class="pic-box renwu-t"><img src="imgs/renwu/huangbo-t.png" class="renwu-t"/></div>
+                    <div class="pic-box renwu"><img src="imgs/renwu/huangbo.png" /></div>
+                    <div class="myself"><img src="imgs/me.png" class=""/></div>
+                </div>
+
+                <div class="index">
+                    <p class="p1">养颜指数<span class="xin1"></span><span class="xin1"></span><span class="xin1"></span><span class="xin2"></span><span class="xin3"></span></p>
+                    <p class="p1">般配指数<span class="xin1"></span><span class="xin1"></span><span class="xin1"></span><span class="xin1"></span><span class="xin3"></span></p>
+                    <p class="p2">待你腰缠万贯，再娶我可好</p>
+                    <a href="javascript:void(0);" class="link1">立即点击领取圆梦秘藉</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--秘籍-->
+        <div class="cheats-box" style="display: none;">
+            <div class="full-pos bg5"></div>
+            <div class="pic-box p5_1"><img src="imgs/p5_1.png"/></div>
+            <div class="pic-box p5_2"><img src="imgs/p5_2.png"/></div>
+            <div class="pic-box p5_3"><img src="imgs/p5_3.png"/></div>
+            <div class="pic-box p5_4"><img src="imgs/p5_4.png"/></div>
+            <div class="pic-box p5_5"><img src="imgs/p5_5.png"/></div>
+            <div class="pic-box p5_6"><img src="imgs/p5_6.png"/></div>
+            <a href="" class="butbg link2 pos-a">立即开启财富秘籍</a>
+        </div>
+    </section>
+</section>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="js/jquery.cropit.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+
+        //上下滑动
+        $('#fullpage').fullpage({});
+        $('#seek-but').click(function(e){
+            e.preventDefault();
+            $.fn.fullpage.moveSectionDown();
+        });
+
+        //音乐播放
+        var audio = $("#media");
+        document.addEventListener('touchstart', function() {
+            if ($("#music").hasClass("pause")) {
+                return;
+            }
+            audio.get(0).play();
+        });
+
+        $(".audio-btn").on('click', function(e) {
+            if (!audio) {
+                audio = $("#media");
+            }
+            if ($("#music").hasClass("play")) {
+                $("#music").removeClass("play").addClass("pause");
+                audio.get(0).pause();
+            } else {
+                $("#music").removeClass("pause").addClass("play");
+                audio.get(0).play();
+            }
+        });
+
+        // 上传图片
+        $('.image-editor').cropit();
+
+        $('form').submit(function() {
+            // Move cropped image data to hidden input
+            var imageData = $('.image-editor').cropit('export');
+            $('.hidden-image-data').val(imageData);
+
+            // Print HTTP request params
+            var formValue = $(this).serialize();
+            $('#result-data').text(formValue);
+
+            // Prevent the form from actually submitting
+            return false;
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

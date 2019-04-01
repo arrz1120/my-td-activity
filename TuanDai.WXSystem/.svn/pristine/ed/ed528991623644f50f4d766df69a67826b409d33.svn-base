@@ -1,0 +1,219 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="zqzr_detail.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.zqzr_detail" %>
+
+<%@ Import  Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>债权转让-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/invest.css?v=<%=GlobalUtils.Version %>" /><!--借款-->
+    <link rel="stylesheet" type="text/css" href="/css/investProcess.css?v=<%=GlobalUtils.Version %>" />
+    <!--借款-->
+    <script type="text/javascript">
+        var projectId = "<%=projectId %>";
+        var backurl = "<%= GetEncodeBackUrl()%>";
+    </script>
+    <style type="text/css">
+    .ico-666{display: block;width: 5px;height: 5px;background: #666;border-radius: 50%;left: 0;top: 15px;margin-left: 0 !important;}
+	.verifyInfo div.ico-loanbox{height: 26px;margin-bottom: 10px;}
+	.verifyInfo div img{width: 40%;}
+	.verifyInfo div img.ico-loan1{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan2{width: 20px;}
+	.verifyInfo div img.ico-loan3{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan4{width: 33px;}
+	.verifyInfo div img.ico-loan5{width: 22px;}
+	.bt-d1d1d1{border-top: 0;}
+	.bb-d1d1d1,.bb-e6e6e6{border-bottom: 0 !important;}
+	.ico-arrow-r{display: inline-block;width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) left center no-repeat;background-size:100% 100%;}
+    </style>
+</head>
+<body class="bg-fbfbf9">
+<div id="bigDiv">
+<%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header bb-c2c2c2">
+        <a class="back" href='<%= string.IsNullOrEmpty(GoBackUrl)?"/pages/invest/debt_list.aspx":GoBackUrl%>'>返回</a>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header>
+
+<section class="wrapper-loan assetsbid-cn">
+
+<!--下拉刷新 Start-->  
+   <div class="pd15 bb-e6e6e6 bg-fff">
+    	<p class="c-212121 f17px">【转】<span class="f17px c-808080 ml10"><%=model.Title%></span></p>
+   </div>
+
+ <!---借款资料 start --->
+ <div class="bg-fff">
+	    <div class="pl15 pt20">
+	        <p class="c-ababab f14px">转让总额：<span class="f24px c-ff6600 ml0"><%=ToolStatus.ConvertDetailWanMoney(model.CompleteAmount)%></span><span class="c-212121 f14px">元</span></p>
+	    </div>
+	    <div class="info-item clearfix">
+	        <div class="info-l lf">
+	            <p>预期年化利率:<span class="c-ff6600"><%=ToolStatus.DeleteZero(model.InterestRate)%>%</span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>还款期限:<span class="c-ff6600"><%=model.LastTime%></span><span class="c-212121">天(<%=model.ResidueDeadline%>期)</span></p>
+	        </div>
+	    </div>
+	    <div class="info-item clearfix">
+	        <div class="info-l lf">
+	            <p>出借单位:<span class="c-ff6600"><%=model.LowerUnit.ToString("0.00") %></span><span class="c-212121">元</span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>还款方式:<span class="c-ff6600"><%=ToolStatus.ConvertRepaymentType(model.RepaymentType)%></span></p>
+	        </div>
+	    </div>
+	    <div class="info-item clearfix">
+	        <div class="info-l lf">
+	            <p>已转份数:<span class="c-ff6600"><%=model.TotalShares-model.AviShares %></span><span class="c-212121">份</span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>剩余份数:<span class="c-ff6600"><%=model.AviShares%></span><span class="c-212121">份</span></p>
+	        </div>
+	    </div> 
+    </div>
+ <!---借款资料 end--->
+
+  <div class="bg-fff bb-d1d1d1 pb15 pt30">
+	    <div class="bb-dashed ml15 c-212121 f13px pb5">原始项目详情</div>
+	    <div class="pl15 pt15">
+	        <p class="c-ababab f14px">借款总额：<span class="f14px c-212121 ml0"><%= this.model.ProjectAmount >= 10000 ? ToolStatus.ConvertWanMoney(this.model.ProjectAmount) + "万" : ToolStatus.ConvertLowerMoney(this.model.ProjectAmount).Replace(".00", "")%></span><span class="c-212121 f14px">元</span></p>
+	    </div>
+	    <div class="info-item clearfix">
+	        <div class="info-l lf">
+	            <p>年化收益:<span class="c-212121"><%=ToolStatus.DeleteZero(this.model.ProjectRate)%>%</span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>还款期限:<span class="c-212121"><%=this.model.ProjectDeadline%> 个月</span></p>
+	        </div>
+	    </div>
+	</div> 
+
+   <div class="mt15 bg-fff bt-d1d1d1 bb-d1d1d1 pr15">
+	    <a href="/pages/invest/detail.aspx?id=<%=model.ProjectId %>&backurl=<%= GetEncodeBackUrl()%>">
+	        <div class="clearfix pl10 pt10 pb10">
+	            <h3 class="f17px lf c-212121">查看原始项目</h3>
+	            <div class="rf">
+	                <i class="ico-arrow-r"></i>
+	            </div>
+	        </div>
+	    </a>
+    </div>
+    
+ <!--借款人信息-->
+    <div class="pr15 pt15 pb15 bb-d1d1d1 bg-fff">
+        <div class="c-fab600 f15px pl15">借款人信息</div>
+        <div class="info-item clearfix mt6">
+	        <div class="info-l lf">
+	            <p>昵称:<span class="c-212121"><%=borrowUserInfo.NickName%></span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>年龄:<span class="c-212121"><%= TuanDai.WXApiWeb.CommUtils.GetAge(borrowUserInfo.Birthday)%></span></p>
+	        </div>
+	    </div>
+        <div class="info-item clearfix mt6">
+	        <div class="info-l lf">
+	            <p>性别:<span class="c-212121"><%=TuanDai.WXApiWeb.CommUtils.GetSex(borrowUserInfo.Birthday,borrowUserInfo.sex)%></span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>手机:<span class="c-212121"><%=string.IsNullOrEmpty(borrowUserInfo.TelNo) ? string.Empty : (borrowUserInfo.TelNo.Length != 11 ? "保密" : borrowUserInfo.TelNo.Replace(borrowUserInfo.TelNo.Substring(3, 5), "*****"))%></span></p>
+	        </div>
+	    </div>
+        <div class="info-item clearfix mt6">
+	        <div class="info-l lf">
+	            <p>注册时间:<span class="c-212121"><%=Tool.SafeConvert.ToDateTime(borrowUserInfo.AddDate).ToString("yyyy-MM-dd")%></span></p>
+	        </div>
+	        <div class="info-r rf">
+	            <p>所在地:<span class="c-212121"><%=borrowUserInfo.BankCity%></span></p>
+	        </div>
+	    </div>
+	    
+	    
+        <div class="verifyInfo pt20 ml15 bt-e6e6e6">
+            <div class="f12px c-212121">
+                <div class="ico-loanbox"><img class="ico-loan1" src="/imgs/images/ico-loan1_v1.7.png"></div>身份验证
+            </div>
+            <div class="f12px c-212121">
+                <div class="ico-loanbox"><img class="ico-loan2" src="/imgs/images/ico-loan2_v1.7.png"></div>手机验证
+            </div>
+            <div class="f12px c-212121">
+                <div class="ico-loanbox"><img class="ico-loan3" src="/imgs/images/ico-loan3_v1.7.png"></div>邮箱验证
+            </div> 
+            <div class="f12px c-212121">
+                <div class="ico-loanbox"><img class="ico-loan5" src="/imgs/images/ico-loan5_v1.7.png"></div>实地认证
+            </div>
+        </div>
+        <div class="f15px pl15">资金用途：用于资金周转。</div>
+    </div>
+    
+   <!--申购人数--> 
+    <div class="pl15 pr15 bt-d1d1d1 bb-d1d1d1 bg-fff mt15">
+	<div class="bb-e6e6e6">
+		<a href="/pages/invest/SubscribeUser.aspx?type=zqzr&id=<%=model.Id %>">
+		    <div class="clearfix pt10 pb10 pr30 pos-r">
+		        <h3 class="f17px lf c-212121">转让记录</h3>
+		        <div class="rf">
+                    <span class="c-ababab f13px"><%=SubscribeUserCount %>人</span>
+		        </div>
+	            <i class="ico-arrow-r"></i>
+		    </div>
+		</a>
+	</div>
+	    
+	<a href="/pages/invest/zhaiquan_question.aspx">
+	    <div class="clearfix pt10 pb10 pos-r">
+	        <h3 class="f17px lf c-212121">常见问题</h3>
+            <i class="ico-arrow-r"></i>
+	    </div>
+	</a>
+</div>    
+<div class="text-center c-ababab bt-e6e6e6 ftb_bot">
+		市场有风险，投资需谨慎。查看<a class="c-fab600" href="/Contract/P2PRisk.html">《风险揭示书》</a>
+</div>
+<div class="pb80 bg-fbfbf9"></div> 
+ 
+    
+<!--下拉刷新 End-->
+   
+</section>  
+</div>
+<footer>
+    <%--<% if (TuanDai.WXApiWeb.WebUserAuth.IsAuthenticated)
+       { %>--%>
+     <% if (model.AviShares == 0 || model.Status == 0 || model.EndTransferDate < DateTime.Now)
+        { %>
+    <a href="javascript:void(0)" class="loan-button-gray">已满标</a>
+    <% }
+        else
+        { %>
+     <a href="javascript:void(0)" class="loan-button">立即承接</a>
+    <% }%>
+       <%--}
+       else
+       {
+           %> 
+    <div class="pl10 pr5" style="width:46%; float: left;"><a href="/user/login.aspx?ReturnUrl=<%=HttpContext.Current.Request.Url %>" target="_self" class="userBtn btnRed ">登录</a></div>
+    <div class="pl10 pr5" style="width:46%; float: left;"><a href="/user/register.aspx?ReturnUrl=<%=HttpContext.Current.Request.Url %>" target="_self" class="userBtn btnYellow">注册</a></div> 
+    <%
+       } %>--%>
+</footer>
+  
+<script type="text/javascript" src="/scripts/jquery.min.js"></script> 
+<script type="text/javascript" src="/scripts/jquery.cookies.2.2.0.js"></script>  
+<script type="text/javascript" src="/scripts/TdStringHandler.js?v=2015101601"></script> 
+<script type="text/javascript" src="/scripts/Common.js"></script> 
+<script type="text/javascript" src="/scripts/investNew.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/noLoginInvest.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+     
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>净股标-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/invest.css" />
+</head>
+<body>
+<section class="wrapper-invest">
+    <h1>资金周转</h1>
+    <p class="ml10 c-ababab f12px">借款总额:</p>
+    <p class="ml10 c-ff6600 f16px">2,400,000<span class="c-424242 f16px">元</span></p>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span>14%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款期限:<span>3个月</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span>100</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款方式:<span>按月付息到期还本</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>借入份数:<span>20000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>剩余份数:<span>4000</span><span class="c-212121">份</span></p>
+        </div>
+    </div>
+    <div class="invest-info">
+        <div class="info-m">
+            <p>截止时间: <span>2014</span><span class="c-212121">年</span><span>12</span><span class="c-212121">月</span><span>11</span><span class="c-212121">日</span><span>23</span><span class="c-212121">时</span><span>30</span><span class="c-212121">分</span></p>
+        </div>
+    </div>
+
+    <div class="bg-fbfbf9"><h2><img src="/imgs/images/ico-title.png" alt=""/>借款详情</h2></div>
+    <h3>借款人信息</h3>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>昵称:<span class="c-212121">秀秀</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>年龄:<span class="c-212121">48</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>学历:<span class="c-212121">大专</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>学校:<span class="c-212121">100-500人</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>岗位职业:<span class="c-212121">董事长</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>婚姻状况:<span class="c-212121">已婚</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>收录范围:<span class="c-212121">5000-10000元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>工作城市:<span class="c-212121">南京</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix border-b1px">
+        <div class="info-l lf">
+            <p>房产:<span class="c-212121">无</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>车产:<span class="c-212121">无</span></p>
+        </div>
+    </div>
+
+    <h3>借款方信用档案</h3>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>申请借款(笔):<span class="c-212121">8</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>成功借款(笔):<span class="c-212121">6</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>还清笔数(笔):<span class="c-212121">27</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>借款额度(元):<span class="c-212121">11943560.00</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix">
+        <div class="info-l lf">
+            <p>借款总额(元):<span class="c-212121">648000.00</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>待还本息(元):<span class="c-212121">736638.49</span></p>
+        </div>
+    </div>
+    <div class="invest-info clearfix border-b1px">
+        <div class="info-l lf">
+            <p>逾期金额(元):<span class="c-212121">4638.26</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>逾期次数(次):<span class="c-212121">267</span></p>
+        </div>
+    </div>
+
+    <h3>保证金信息</h3>
+    <p class="des f12px">资金周转</p>
+    <h3>什么是净值担保标</h3>
+    <p class="des f12px">净值担保标是团贷网用户以其在团贷网投资净资产作为担保，发布的借款标，适用人群为团贷网所有用户。团贷网根据投资人综合信用状况，将用户分为“B”、“A”、“AA”与“AAA”四个信用等级。借款金额将根据借款人待收本金和个人信用等级综合授信。净值担保标借款时间以一个自然月为基本单位，借款期限最高为36个月。 请35万元借款用于短期资金周转，据银行征信系统显示，借款人信用记录良好。借款人 提供名下在东莞的1处房产作为本次团贷网授信的反担保物，该房屋位于东莞市南城区， 建筑面积在85.64平方米，评估价值在77万元。办理房屋抵押登记手续，签署相关借贷协 议、以物抵债协议、房屋租赁协议等。同时签署由团贷网代理借款人银行融资手续。综 合评估借款人基本工作收入情况及上述房产状态后，现借款人获得团贷网综合授信35万 元作为短期流动资金周转，如借款人违约，其房产在短期内变现足可覆盖团贷网授信额度。</p>
+</section>
+
+<footer>
+    <a href="javascript:void(0)" class="loan-button">马上出借</a>
+</footer>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/invest.js?v=20150901"></script>
+</body>
+</html>

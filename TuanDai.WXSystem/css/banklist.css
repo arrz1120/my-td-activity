@@ -1,0 +1,133 @@
+/*银行列表*/
+body {color:#212121;background-color: #f2f2f0;}
+
+
+.bank_list:before{
+	width: 100%;
+    border-bottom: 1px solid #d1d1d1;
+    transform: scale(1,0.5);
+    -webkit-transform: scale(1,0.5);
+    content: "";
+    display: block;
+}
+.bank_list:after{
+	width: 100%;
+    border-bottom: 1px solid #d1d1d1;
+    transform: scale(1,0.5);
+    -webkit-transform: scale(1,0.5);
+    content: "";
+    display: block;
+}
+.bank_list{
+	margin: 15px 0 0;
+	background: #fff;
+}
+
+
+.bank_list li:after{
+	width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+    transform: scale(1,0.5);
+    -webkit-transform: scale(1,0.5);
+    content: "";
+    display: block;
+}
+
+.bank_list li:last-child:after{
+	display: none;
+}
+.bank_list li:last-child{padding-bottom: 53px;}
+.bank_list li:first-child{padding: 12px 0 0 15px;}
+.bank_list li{
+	padding-left: 15px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 17px;
+}
+
+.bank_list .icon{
+	margin: 16px 12px 0 0;
+	float: left;
+	width: 23px;
+	height: 23px;
+	background:url('/imgs/images/bank-list.png') no-repeat;
+	background-size: 23px auto;
+}
+
+.bc .icon{
+	background-position: 0 -23px;}
+.cbc .icon{background-position: 0 -46px;}
+.yb .icon{background-position: 0 -69px;}
+.ccb .icon{background-position: 0 -92px;}
+.ceb .icon{background-position: 0 -115px;}
+.hb .icon{background-position: 0 -138px;}
+.cmbc .icon{background-position: 0 -161px;}
+.cib .icon{background-position: 0 -184px;}
+.pfb .icon{background-position: 0 -207px;}
+.gfb .icon{background-position: 0 -230px;}
+.msbc .icon{background-position: 0 -253px;}
+.abc  .icon{background-position: 0 -276px;}
+.bocm .icon{background-position: 0 -299px;}
+.bjb .icon{background-position: 0 -322px;}
+
+
+.pab .icon{
+	margin: 16px 7px 0 0;
+	float: left;
+	width: 30px;
+	height: 23px;
+	background:url('/imgs/images/bank-list-pa.png') no-repeat;
+	background-size: 23px auto;
+}
+
+.zf_list li{
+	height: 64px;
+	padding: 15px 0 0 15px;
+}
+
+.zf_list h3{
+	font-size: 17px;
+}
+.zf_list p{
+	font-size: 13px;
+	color: #ababab;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+.zf_list  .icon{
+	margin: 9px 12px 0 0;
+	float: left;
+	width: 28px;
+	height: 28px;
+	background:url('/imgs/images/bank-list-zf.png') no-repeat;
+	background-size: 27px 364px;
+}
+.zf_list .bc .icon{background-position: 0 -28px;}
+.zf_list  .cbc .icon{background-position: 0 -56px;}
+.zf_list  .yb .icon{background-position: 0 -84px;}
+.zf_list  .ccb .icon{background-position: 0 -112px;}
+.zf_list  .ceb .icon{background-position: 0 -140px;}
+.zf_list  .hb .icon{background-position: 0 -168px;}
+.zf_list  .msbc .icon{background-position: 0 -252px;}
+.zf_list  .cib .icon{background-position: 0 -196px;}
+.zf_list  .pfb .icon{background-position: 0 -224px;}
+.zf_list  .gfb .icon{background-position: 0 -280px;}
+.zf_list  .cmbc .icon{background-position: 0 -308px;}
+.zf_list  .abc  .icon{background-position: 0 -336px;}
+
+
+.zf_list  .pab .icon{
+	margin: 5px 3px 0 0;
+	float: left;
+	width: 38px;
+	height: 28px;
+	background:url('/imgs/images/bank-list-pa-zf.png') no-repeat;
+	background-size: 38px 28px;
+}
+
+.tips{
+	color: #ababab;
+	font-size:13px;
+	text-align: center;
+	line-height: 30px;
+}

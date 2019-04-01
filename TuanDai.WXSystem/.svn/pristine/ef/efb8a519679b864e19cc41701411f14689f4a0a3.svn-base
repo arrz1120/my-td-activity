@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>绑定银行卡 - 我的账户</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode bindingPhone pr0">
+            <div class="c-left">银行卡号</div>
+            <input type="text" name="" class="codeIpt" placeholder="持卡人须与实名认证相符">
+        </div>
+    </section>
+
+    <section class="bankCardCont clearfix">
+        <ul>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">开户银行</div>
+                <select name="bank-name" id="bank-name">
+                 <option value=""></option>
+                 <option value="财付通帐户">财付通帐户</option>
+                 <option value="中国银行">中国银行</option>
+                 <option value="建设银行">建设银行</option>
+                 <option value="财付通帐户">财付通帐户</option>
+                 <option value="中国银行">中国银行</option>
+                 <option value="建设银行">建设银行</option>
+              </select>
+            </li>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">银行地址</div>
+                <input type="text" name="" class="codeIpt" placeholder="请输入开户银行地址">
+            </li>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">支行名称</div>
+                <input type="text" name="" class="codeIpt" placeholder="请输入开户银行支行名称">
+            </li>
+        </ul>
+    </section>
+
+    <section class="pd15 mt5">
+        <a href="" target="_blank" class="btn btnYellow">下一步</a>
+        <p class="f12px c-ababab lh20 pt10 clearfix">用户充值、提现必须使用与实名信息一致的同一张银行借记卡。如需更换，可以提交改绑申请，经审核后方可更改。</p>
+        <p class="f12px c-ababab lh20 pt10 clearfix">目前支持的银行包括：工行、建行、中行、农行、招行、光大、华夏、浦发、平安银行。</p>
+    </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+
+</body>
+</html>

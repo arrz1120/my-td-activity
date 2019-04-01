@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>我的账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160620" />
+		<link rel="stylesheet" type="text/css" href="/css/account2_new.css?v=20171201" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pageContainer">
+			<div class="account_banner">
+				<div class="float_1218"></div>
+				<div class="pos-r account_banner_top">
+					<div class="user-header text-overflow">
+						<span class="touxiang">
+							<img src="/imgs/images/icon/user-head.png"/>
+						</span>
+						<span>
+							<p>达巴前 </p>
+							<p>超级会员Lv.7 </p>
+						</span>
+					</div>
+				</div>
+				<div class="c-ffffff f12px ab_r2">资产总额(元)<i class="ico_see"></i></div>
+				<div class="c-ffffff pl15 ab_r3">398,888.99<i class="s-arrow"></i></div>
+				<div class="pt20 pl15 pr15 clearfix">
+					<div class="lf">
+						<p class="c-ffffff line-h16">可用余额</p>
+						<p class="c-ffffff f17px mt4">45,345,321.12</p>
+					</div>
+					<div class="rf pt10">
+						<a href="" class="btn_recharge">充值</a>
+						<a href="" class="btn_withdraw">提现</a>
+					</div>
+				</div>
+			</div>
+			
+			<a href="javascript:void(0);" class="account_notice pl15 text-overflow"><i class="bgSize"></i>个人特殊通知...<span class="bgSize"></span></a>
+			
+			<a href="javascript:void(0);" class="licaiBox block bg-fff mt10 click-respond">
+				<div class="clearfix pt15 pb15">
+					<div class="lf ico_p2p account_ico"></div>
+					<div class="lf lcTxt">
+						<p>P2P理财</p>
+						<p>待收：1,000.00元</p>
+					</div>
+					<div class="rf">可用余额：<span>10,000,000.00</span>元</div>
+				</div>
+			</a>
+			<a href="javascript:void(0);" class="licaiBox block bg-fff click-respond">
+				<div class="clearfix pt15 pb15 bt-e6e6e6">
+					<div class="lf ico_lc account_ico"></div>
+					<div class="lf lcTxt">
+						<p>定期理财</p>
+						<p>待收：1,000.00元</p>
+					</div>
+					<div class="rf">可用余额：<span>10,000,000.00</span>元</div>
+				</div>
+			</a>
+	
+			<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6" id="a">
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a1"></i>
+					<a href="" class="bb-e6e6e6">团宝箱<i class="ico-arrow-r"></i><i class="redPoint"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a2"></i>
+					<a href="" class="bb-e6e6e6">自动投标<span>未设置</span><i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a3"></i>
+					<a href="" class="bb-e6e6e6">我的会员<span>会员特权，会员商城</span><i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a4">
+					<a href="" class="bb-e6e6e6"></i>我的邀请<i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a5">
+					<a href="" class="bb-e6e6e6"></i>安全中心<span>实名认证，绑定银行卡</span><i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a6">
+					<a href="" class="bb-e6e6e6"></i>设置<span>关于我们，版本信息</span><i class="ico-arrow-r"></i></a>
+				</div>
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a6">
+					<a href="" class="bb-e6e6e6"></i>积分商城<span>投奖，兑红包和提现券</span><i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+	
+			<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6" id="a">
+				<div class="click-respond linkBox">
+					<i class="account_ico ico_a8"></i>
+					<a href="" class="bb-e6e6e6">更多<span>帮助中心，退出登录等</span><i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+		</div>
+		
+		<!--底部-->
+		<div class="bt-e6e6e6 webkit-box box-center wx-footer">
+			<a class="block box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f1.png" /></p>
+				<p class="f10px line-h18 c-626262">团贷</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f2.png" /></p>
+				<p class="f10px line-h18 c-626262">投资</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f3_act.png" /></p>
+				<p class="f10px line-h18 c-ffc000">我的</p>
+			</a>
+		</div>
+		
+		<!--下载app弹框-->
+		<div class="alert webkit-box box-center hide">
+			<div class="account_alert comonAni">
+				<img src="/imgs/account/dlapp.png"/>
+				<div class="account_alert_close"></div>
+				<a href="javascript:void(0);" class="dlbtn">下载APP</a>
+			</div>
+		</div>
+		
+		<!--新手注册完成后进入个人中心显示的弹框-->
+		<div class="alert hide">
+			<div class="res_finish">
+				<div class="r_f_close"></div>
+				<img src="/imgs/account/res_finish.png"/>
+				<div class="r_f_bot pb15 pl15 pr15">
+					<a href="javascript:void(0);">查看新手福利</a>
+					<a href="javascript:void(0);">投资前准备</a>
+					<p class="c-ffffff f13px text-center mt3">完成投资前准备，马上投资赚收益</p>
+				</div>
+			</div>
+		</div>
+		
+		<!--加息特权弹框-->
+		<div class="alert webkit-box box-center hide">
+			<div class="account_alert jiaxi_alert">
+				<img src="/imgs/20171218/jiaxi_mask.png"/>
+				<div class="account_alert_close"></div>
+				<a href="javascript:void(0);" class="jiaxibtn">
+					<img src="/imgs/20171218/jiaxi_btn.png"/>
+				</a>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+	</script>
+
+</html>

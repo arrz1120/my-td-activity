@@ -1,0 +1,36 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StockSuccess.aspx.cs" Inherits="TuanDai.WXApiWeb.StockSuccess" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>借款结果</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/loan.css" /><!--借款-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:window.location='/Index.aspx';">返回</div>
+        <h1 class="title">借款结果</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<div class="loanSucBox">
+  <i class="ico-succeed-big"></i>
+  <div class="c-212121 f16px text-center pt15 pb15">发布成功！</div>
+  <div class="mt30">
+    <a  class="btn btnYellow h52" href="/pages/invest/bond_detail.aspx?projectid=<%=projectId %>">确定</a>
+  </div>
+  <div class="f12px pt10 c-ababab text-center">如有疑问，请联系客服：<i class="c-fd6040">1010-1218</i></div>
+</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>忘记交易密码</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" />
+<link rel="stylesheet" type="text/css" href="/css/safety.css" />
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">忘记交易密码</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+	<div class="pt15 pb5 f13px pl15 c-ababab">
+		您预留的手机号码为：<span class="c-fd6040 f13px">137******38</span>
+	</div>
+	<div class="bg-bdtopBom1-ccc pt10 pb10 pl15 pos-r">
+		<span class="f14px c-212121 pos-a txt_left pl15">验证码</span>
+		<div class="inp">
+			<input class="f14px c-666" type="text" placeholder="请输入短信验证码" />
+		</div>
+		<div class="btn_right c-fac502 pos-a pr10 pl10 f12px">发送验证码</div>
+	</div>
+	<div class="pt15 pb5 f13px pl15 c-ababab">
+		请不要设置和登录密码相同的交易密码
+	</div>
+	<div class="bg-bdtopBom1-ccc pl15">
+		<div class="pos-r bb-e6e6e6 pt10 pb10">
+			<span class="f14px c-212121 pos-a txt_left">交易密码</span>
+			<div class="inp">
+				<input class="f14px c-666" type="text" placeholder="含字母和数字的6-16个字符" />
+			</div>
+		</div>
+		<div class="pos-r pt10 pb10">
+			<span class="f14px c-212121 pos-a txt_left">确定密码</span>
+			<div class="inp">
+				<input class="f14px c-666" type="text" placeholder="请再输入一次您的新交易密码" />
+			</div>
+		</div>
+	</div>
+	<div class="pl15 pr15 mt20">
+		<div class="btn btnYellow">提交更新</div>
+	</div>
+</body>
+</html>

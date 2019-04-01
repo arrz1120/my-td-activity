@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    /// <summary>
+    /// 分期乐详情界面
+    /// Allen 2015-05-18
+    /// </summary>
+    public partial class fqle_detail : BasePage
+    {
+        protected ProjectDetailInfo model = null;
+        protected Guid? projectId = Guid.Empty;
+        private ProjectBLL bll = null; 
+        protected OrganizationInfo Organization = null;
+        protected List<ProjectImageInfo> imageList;
+        protected string finishProcess = "0%";
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+            WXFQUserApplyInfo userApply = bll.WXGetFQUserApplyInfo(projectId.Value.ToText());
+            if (userApply != null)
+                Organization = bll.WXGetOrganizationInfo(userApply.OrgId.HasValue ? userApply.OrgId.Value.ToText() : "");
+ 
+
+            //项目展示图
+            imageList = CommUtils.GetProjectImages(this.projectId.Value);
+            finishProcess = CommUtils.GetProjectProcess(model);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+
+            return true;
+        }
+       
+
+    }
+}

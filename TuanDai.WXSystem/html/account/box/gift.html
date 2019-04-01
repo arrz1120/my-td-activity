@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>精美礼品</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/giftBox.css" /><!--团宝箱-->
+</head>
+<body class="bg-f1f3f5">
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">精美礼品</h1>
+        <div class="text"><a href="/html/account/box/prizeLog.html">获奖记录</a></div>
+    </div>
+    <div class="none"></div>
+</header>
+
+<!--排序筛选-->
+<div class="sort clearfix bg-fff pl20 pr20 pt10 pb10 pos-r">
+    <div class="lf w33p text-center f16px c-ffcf1f">获得时间
+			<div class="inline-block left-triangle">
+				<p><i class="triangle triangle-up-gray"></i></p>
+				<p><i class="triangle triangle-down-orange"></i></p>
+			</div>
+    </div>
+    <div class="lf w33p text-center f16px c-808080">失效时间<i class="triangle triangle-down-gray"></i></div>
+    <div class="lf w33p text-center f16px c-808080" id="sort">可使用<i class="triangle triangle-down-gray"></i></div>
+</div>
+
+<!--2018.7.12 新增京东E卡star-->
+    <section class="ticket-con orange pos-r bg-fff">
+        <i class="circle-th c-top"></i>
+        <div class="get-wrap bg-fff pos-a animated">
+            <div class="git-gift-box git-gift-box">
+                <div class="git-gift">
+                    <p class="c-ffffff pos-a">20元京东E卡 <a href="javascript:;">（查看详情）</a><span class="block">2018-06-01获得（领取时间剩2天）</span></p>
+                </div>
+                <span class="bg-ffcf1f button but-g pos-a">领取</span>
+            </div>
+        </div>
+        <div class="ticket-d-wrap pt12">
+            <div class="gift-con pos-r">
+                <p class="c-212121">20元京东E卡<a href="javascript:;" class="c-fab600 f17px">（查看详情）</a></p>
+                <p>兑换密码：YDDD-1123-4444-JDDD</p>
+                <p>2018-07-04获得（6天后到期）</p>
+            </div>
+        </div>
+        <span class="bg-ffcf1f button but-y pos-a">查看</span>
+        <i class="circle-th c-bot"></i>
+    </section>
+    <section class="ticket-con orange pos-r bg-fff">
+        <div class="ticket-d-wrap pt12">
+            <div class="gift-con pos-r">
+                <p class="c-212121">20元京东E卡<a href="javascript:;" class="c-fab600 f17px">（查看详情）</a></p>
+                <p>兑换密码：YDDD-1123-4444-JDDD</p>
+                <p>2018-07-04获得（6天后到期）</p>
+            </div>
+        </div>
+        <span class="bg-ffcf1f button but-y pos-a">查看</span>
+        <i class="circle-th c-bot"></i>
+    </section>
+<section class="ticket-con gift-con gray pos-r bg-fff">
+    <i class="circle-th c-top"></i>
+    <div class="ticket-d-wrap pt12">
+        <div class="gift-con pos-r">
+            <p class="c-212121">20元京东E卡<a href="javascript:;" class="c-fab600 f17px">（查看详情）</a></p>
+            <p>2018-07-04获得（6天后到期）</p>
+        </div>
+    </div>
+    <span class="bg-d1d1d1 button but-n pos-a">已过期</span>
+    <i class="circle-th c-bot"></i>
+</section>
+<!--2018.7.12 新增京东E卡end-->
+
+<section class="ticket-con orange pos-r bg-fff">
+    <i class="circle-th c-top"></i>
+    <div class="get-wrap bg-fff pos-a animated">
+        <div class="git-gift-box git-gift-box">
+            <div class="git-gift">
+                <p class="c-ffffff pos-a">OPUS不锈钢保温杯<span class="block">（领取时间剩12天）</span></p>
+            </div>
+            <span class="bg-ffcf1f button but-g pos-a">领取</span>
+        </div>
+    </div>
+    <div class="ticket-d-wrap pt12">
+        <div class="gift-con pos-r">
+            <p class="c-fab600">OPUS不锈钢保温杯</p>
+            <p>来源：会员商城兑换商品</p>
+            <p>说明：领取后三天内发货</p>
+        </div>
+    </div>
+    <span class="bg-ffcf1f button but-y pos-a">查物流</span>
+    <i class="circle-th c-bot"></i>
+</section>
+
+<section class="ticket-con orange pos-r bg-fff">
+    <i class="circle-th c-top"></i>
+    <div class="ticket-d-wrap pt12">
+        <div class="gift-con pos-r">
+            <p class="c-fab600">OPUS不锈钢保温杯</p>
+            <p>来源：会员商城兑换商品</p>
+            <p>说明：领取后三天内发货</p>
+        </div>
+    </div>
+    <span class="bg-ffcf1f button but-y pos-a">查物流</span>
+    <i class="circle-th c-bot"></i>
+</section>
+
+<section class="ticket-con gift-con gray pos-r bg-fff">
+    <i class="circle-th c-top"></i>
+    <div class="ticket-d-wrap pt12">
+        <div class="gift-con pos-r">
+            <p class="c-ababab">OPUS不锈钢保温杯</p>
+            <p>来源：会员商城兑换商品</p>
+            <p>说明：领取后三天内发货</p>
+        </div>
+    </div>
+    <span class="bg-d1d1d1 button but-n pos-a">已使用</span>
+    <i class="circle-th c-bot"></i>
+</section>
+
+<div class="pt25">
+    <p class="text-center c-ababab f13px">如有疑问，请联系客服：<a href="tel:400-641-0888" class="f13px c-ff7357 inline-block">400-641-0888</a></p>
+</div>
+
+
+<!--2018.7.12 新增京东E卡弹窗 star-->
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <h3 class="c-212121 f17px text-center">京东E卡说明</h3>
+        <p>来源：市场推广注册新用户</p>
+        <div class="pos-r text-des">
+            <p class="pos-a">说明：</p>
+            <p>请至京东官网输入兑换密码使用</p>
+        </div>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <p class="alert-txt c-333333">正在领取，请稍候（10s）…</p>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <p class="alert-txt c-333333">暂时无法获取到卡密，小π正在为您拼命进货，请稍后再试</p>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <h3 class="c-212121 f17px text-center">京东E卡兑换密码</h3>
+        <p class="alert-code">【YDDD-1123-5643-JDDD】</p>
+        <p class="alert-txt">请妥善保管卡密，尽快前往京东商城绑定使用</p>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <h3 class="c-212121 f17px text-center">恭喜您领取京东E卡成功</h3>
+        <p class="alert-txt">京东E卡兑换密码</p>
+        <p class="alert-code-s">【YDDD-1123-5643-JDDD】</p>
+        <p class="alert-txt">请妥善保管卡密，尽快前往京东商城绑定使用</p>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+<!--2018.7.12 新增京东E卡弹窗 edn-->
+
+
+
+
+<!--弹出的筛选遮罩层-->
+<div class="masker z-index10 pos-a hide" id="alert">
+    <div class="alert-record pl15 bt-e6e6e6">
+        <ul>
+            <li class="active bt-e6e6e6">可使用</li>
+            <li class="bt-e6e6e6">已失效</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(".but-g").click(function(){
+        $(this).closest('.get-wrap').addClass('moveLeft');
+        $(this).hide();
+    });
+
+    function sort(){
+        var alert = $("#alert");
+        var box = alert.find('.alert-record');
+
+        $("#sort").click(function(){
+            alert.fadeIn(200);
+            box.slideDown(200);
+        });
+
+        box.find('li').click(function(){
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            alert.fadeOut(200);
+            box.slideUp(200);
+        })
+    }
+    sort();
+</script>
+</html>

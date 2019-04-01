@@ -1,0 +1,212 @@
+/*
+ *
+ * depand ： jquery,swiper
+  author : chenrunrong,
+  date ： 20160715，
+  version : 1.1
+ * 
+ * 
+ * */
+
+function monthSwiper(options){
+	var objDate = new Date();
+	var	startMonth = options==undefined ? objDate.getMonth()+1 : options.startMonth,
+		monthCount = options==undefined ? 6 : options.monthCount;
+	if(startMonth>12){
+		startMonth=12
+	}
+	if(startMonth<1){
+		startMonth=1
+	}
+	if(startMonth==undefined){
+		startMonth = objDate.getMonth()+1;
+	}
+	if(monthCount==undefined){
+		monthCount = 6;
+	}
+	this.callBack = options==undefined ? undefined : options.slideCallBack;
+	this.year = objDate.getFullYear();
+	this.startMonth = startMonth;
+	this.monthCount = monthCount;
+	this.init();
+}
+
+monthSwiper.prototype = {
+	//初始化调用
+	init:function(){
+		var monthIndex = this.startMonth-1;
+		var monthCount = this.monthCount;
+		for(var i=0;i<monthCount;i++){
+			monthIndex++;
+			if(monthIndex>12){
+				monthIndex = 1;
+				this.year += 1;
+			}
+			this.getDate(monthIndex);
+			
+		}
+		this.setCss();
+		this.addTodayStyle();
+		this.initSwiper();
+		this.addTipsEvent();
+		this.closeAlert();
+		this.tab();
+	},
+	
+	//获取指定月份有多少天、第一天是星期几
+	getDate:function(monthIndex){
+		var objDate = new Date();
+		objDate.setYear(this.year);
+		objDate.setMonth(monthIndex);
+	 	objDate.setDate(0);
+   	  	var days =  objDate.getDate();
+   	  	objDate.setDate(1);
+		var weekday =  objDate.getDay();
+		this.buildDom(monthIndex,days,weekday);
+	},
+	
+	//创建布局
+	buildDom:function(monthIndex,days,weekday){
+		var strDay = '';
+		var $ul = $('<ul class="date_row date_ul clearfix"></ul>');
+		var swiperSlide = $('<div class="swiper-slide"></div>');
+		if(weekday!=0){
+			for(var i=0;i<weekday;i++){
+				strDay += '<li></li>';
+			}
+		}
+		for(var i=1;i<=days;i++){
+			strDay += '<li>'+i+'</li>';
+		}
+		$ul.attr({'year':this.year,'month':monthIndex}).html(strDay);
+		swiperSlide.append($ul);
+		$(".swiper-wrapper").append(swiperSlide);
+	},
+	
+	//控制样式适配各种屏幕
+	setCss:function(){
+		var margin = ($(window).width()-280)/14 + 'px';
+	  	$('.date_row').find('li').css({
+	  		'margin-left':margin,
+	  		'margin-right':margin
+	  	});
+	},
+	
+	//给今天加样式
+	addTodayStyle:function(){
+	  	var firstMonthLi = $(".swiper-slide:first").find('li');
+	  	firstMonthLi.each(function(i){
+	  		var eqLi = firstMonthLi.eq(i);
+	  		if(eqLi.html()==(new Date()).getDate()){
+	  			eqLi.addClass('today');
+	  		}
+	  	})
+	},
+	
+	//初始化swiper
+	initSwiper:function(){
+		var _this = this;
+		var swiper = new Swiper ('#swiper', {
+		    direction: 'horizontal',
+		    pagination: '#date_mark',
+		    onSlideChangeStart:function(swiper){
+		    	if(_this.callBack!=undefined && typeof _this.callBack == 'function'){
+			    	_this.callBack(swiper.activeIndex);
+		    	}
+		    }
+	  	});
+	},
+	//绑定事件
+	addTipsEvent:function(){
+		var allLi = $("#swiper").find('li'),
+			_this = this;
+		allLi.click(function(e){
+	  		if($(this).hasClass('red')){
+	  			_this.openAlert($(this));
+	  		}
+		  		
+	  	})
+	},
+	
+	//显示弹框
+	openAlert:function(obj){
+		var parent = obj.parent();
+		var today = parent.attr('year')+'年'+parent.attr('month')+'月'+obj.text()+'日';
+		$("#alert_today").html(today);
+//	    LoadDetail(obj);
+		$("#dateAlert").removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+		setTimeout(function(){
+			$("#bigDiv").addClass('hide');
+		},300);
+	},
+	
+	//隐藏弹框
+	closeAlert:function(){
+		$("#closeAlert").click(function(){
+			$("#dateAlert").removeClass('moveToTop').addClass('moveToBottom');
+			$("#bigDiv").removeClass('hide');
+			setTimeout(function(){
+				$("#dateAlert").addClass('hide');
+			},300);
+		})
+	},
+	
+	//回款与还款切换
+	tab:function(){
+		var tab1 = $("#tab1"),
+			tab2 = $("#tab2"),
+			list1 = $("#list1"),
+			list2 = $("#list2");
+		tab1.click(function(){
+			tab1.addClass('cur');
+			tab2.removeClass('cur');
+			list2.hide();
+			list1.show();
+		})
+		tab2.click(function(){
+			tab2.addClass('cur');
+			tab1.removeClass('cur');
+			list1.hide();
+			list2.show();
+		})
+	},
+	
+	//添加回款借款提示
+	addTips:function(obj,returnMoney,repayMoney){
+		if(returnMoney == undefined){
+			returnMoney = 0;
+		}
+		if(repayMoney == undefined){
+			returnMoney = 0;
+		}
+		if(returnMoney != 0 && repayMoney==0){
+			obj.append('<div class="webkit-box box-center box-vertical"><i class="ico_return"></i></div>'); 
+		}
+		else if(returnMoney == 0 && repayMoney!=0){
+			obj.append('<div class="webkit-box box-center box-vertical"><i class="ico_repay"></i></div>'); 
+		}
+		else if(returnMoney != 0 && repayMoney !=0){
+			obj.append('<div class="webkit-box box-center box-vertical"><i class="ico_return"></i><i class="ico_repay"></i></div>'); 
+		}
+		
+	},
+	
+	//高亮显示还款日、回款日
+	lightDay:function(data){
+		var _this = this;
+		for(var i=0;i<data.length;i++){
+			var swiperSlide = $(".swiper-slide").eq(i);
+			for(var j=0;j<data[i].length;j++){
+				var day = data[i][j].day;
+				var li = swiperSlide.find('li');
+				li.each(function(m){
+					if(li.eq(m).html()==day){
+						li.eq(m).addClass('red').attr({'returnMoney':data[i][j].returnMoney,'repayMoney':data[i][j].repayMoney});
+						_this.addTips(li.eq(m),data[i][j].returnMoney,data[i][j].repayMoney);
+					}
+				})
+				
+			}
+		}
+	}
+}

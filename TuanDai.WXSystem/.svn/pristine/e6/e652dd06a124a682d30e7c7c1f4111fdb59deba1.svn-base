@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>忘记密码</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160328" />
+<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160328" />
+
+</head>
+<body class="bg-f1f3f5">
+	<div class="indexPage">
+	    <header class="headerMain">
+	        <div class="header bb-e6e6e6">
+	            <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+	            <h1 class="title">忘记密码</h1>
+	        </div>
+	        <a href="javascript:void(0);" class="header-list-icon">  <img src="/imgs/images/header-list-icon01.png"></a>
+	        <div class="none"></div>
+	    </header>
+		
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff pl15 mt15">
+			<div class="inpBox34">
+				<span class="f17px c-212121">手机号码</span>
+				<input type="text" placeholder="请输入手机号码">
+			</div>	
+		</div>
+		
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff pl15 mt15">
+			<div class="inpBox34">
+				<span class="f17px c-212121">验证码</span>
+				<input type="text" placeholder="请输入验证码">
+				<div class="sendCode">发送验证码</div>	
+			</div>	
+		</div>
+		
+		<div class="f13px c-999999 text-right pr15 mt5">收不到验证码 ? 使用<span class="f13px c-fd6040">语音验证码</span></div>
+		
+		<div class="pl15 pr15 mt25">
+			<a class="btn btnYellow" id="btn_mobile_ok" target="_blank">下一步</a>
+		</div>
+	</div>
+    	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+	
+</script>
+</html>

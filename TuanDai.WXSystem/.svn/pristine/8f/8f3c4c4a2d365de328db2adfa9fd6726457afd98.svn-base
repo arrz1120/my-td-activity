@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+using Dapper;
+using System.Data;
+
+namespace TuanDai.WXApiWeb.pages.App.find
+{
+    public partial class DailyCommission  :  AppActivityBasePage
+    {
+      //  protected List<ExtendEarnRecordInfo> ExtendEarnRecordList;
+     //    protected int recordCount = 0;
+     //   protected int pageCount = 0;
+     //   protected string userId;
+        protected string extendKey;
+        protected string t;
+        protected decimal TotalEranMoney;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            extendKey = WEBRequest.GetQueryString("extendKey");
+            t = WEBRequest.GetQueryString("t");
+            if (!IsPostBack)
+            {
+             //   this.IsShowRightBar = GlobalUtils.IsWeiXinBrowser ? false : true;
+               this.GetData();
+            }
+        }
+
+        private void GetData()
+        {
+            UserBasicInfoInfo user = null;
+            if (WebUserAuth.IsAuthenticated)
+            {
+                user = new UserBLL().GetUserBasicInfoModelById(WebUserAuth.UserId.Value);
+            }
+            else
+            {
+                user = new UserBLL().GetUserBasicInfoByExtendKey(extendKey);
+            }
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@UserId", user.Id);
+            string querySql = @"   SELECT  SUM([EarnMoney]) [EarnMoney] FROM dbo.ExtendEarnRecord   with(nolock)
+                             where UserID= @UserId ";
+            decimal? eranMoney = TuanDai.DB.TuanDaiDB.Query<decimal?>(TdConfig.ApplicationName, TdConfig.DBReportWrite, querySql, ref dyParams).FirstOrDefault();
+            TotalEranMoney = Math.Floor((eranMoney ?? 0) * 100) / 100; 
+        }
+
+        /// <summary>
+        /// 获取个人佣金排名
+        /// huangbinglai 2016/08/26
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public Tuple<Int32, decimal> WXGetExtendEarnRank(Guid userid)
+        {
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@UserId", userid);
+            string querySql = @" SELECT  AA.RowNum
+                                                from ( select ROW_NUMBER() OVER(ORDER BY TotalEranMoney DESC) AS RowNum  ,UserId
+                                                        from rp_ExtenderStatis with(nolock) )AA
+                                                 where AA.UserId=@UserId ";
+            int? rowNum = TuanDai.DB.TuanDaiDB.Query<int?>(TdConfig.ApplicationName, TdConfig.DBReportWrite, querySql, ref dyParams).FirstOrDefault(); 
+            querySql = @"   SELECT  SUM([EarnMoney]) [EarnMoney] FROM dbo.ExtendEarnRecord 
+                             where UserID= @UserId ";
+            decimal?  eranMoney = TuanDai.DB.TuanDaiDB.Query<decimal?>(TdConfig.ApplicationName, TdConfig.DBReportWrite, querySql, ref dyParams).FirstOrDefault(); 
+            Tuple<Int32, decimal> result = new Tuple<Int32, decimal>(rowNum ?? 0, eranMoney ?? 0);
+            return result;
+
+        }
+
+
+        //public static string GetDateData(ExtendEarnRecordInfo item)
+        //{
+        //    if (item.Adddate.Date == DateTime.Now.AddDays(-1).Date)
+        //    {
+        //        return "昨日佣金";
+        //    }
+        //    else
+        //        return item.Adddate.ToShortDateString();
+        //}
+
+        //public static string GetMonthData(ExtendEarnRecordInfo item)
+        //{
+        //    return string.Format("{0}年{1}月",item.Adddate.Year,item.Adddate.Month );  
+        //}
+    }
+}

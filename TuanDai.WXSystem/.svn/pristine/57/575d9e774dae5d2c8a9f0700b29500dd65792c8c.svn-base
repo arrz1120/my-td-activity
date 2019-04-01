@@ -1,0 +1,52 @@
+﻿{
+     "button":[ 
+		{
+		   "name":"限时福利",
+		   "type": "view", 
+		   "url":"https://tg.tdw.cn/phone/Register20170601/index.aspx?tdfrom=SNS-M1606-tdwfwh"
+       },
+		{
+			"name":"我的投资",
+			"sub_button":[
+			   {
+					"name": "我的资产", 
+					"type": "view", 
+					"url":"https://m.tdw.cn/member/fundStatistics/incomeCount.aspx"
+				},
+				{
+					"name": "投资精选", 
+					"type": "view", 
+					"url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9140fc0a0b9db917&redirect_uri=https://m.tuandai.com/pages/invest/WE/WE_list.aspx?response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+				}]
+		},
+	   
+	  {	
+          "name":"了解团贷",
+          "sub_button":[
+		  {
+			   "name":"关于团贷",
+			   "type": "view", 
+			   "url":"http://info.tuandai.com/touch.html"
+			},
+		  {
+			   "name":"团贷公益",
+			   "type": "view", 
+			   "url":"https://welfare.tdw.cn/project-weixin/index.html?type=mobileapp"
+			},
+			{
+			   "name":"进入团贷",
+			   "type": "view", 
+			   "url":"https://m.tdw.cn"
+			},
+		  {
+			   "type":"view",
+			   "name":"联系客服",
+			   "url":"http://www.sobot.com/chat/h5/index.html?sysNum=20ab7dce1e3346e8b90b649bd8baf591&source=1"
+		  },
+		  {
+			   "type":"view",
+			   "name":"下载APP",
+			   "url":"https://hd.tuandai.com/weixin/20170327APP/index.aspx"
+		  }]
+      }]
+ }

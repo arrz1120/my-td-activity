@@ -1,0 +1,282 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="my_account.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.my_account" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>我的账户</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/account2_new.css?v=<%=GlobalUtils.Version %>" />
+</head>
+
+<body class="bg-f1f3f5">
+    <div class="loading-box" id="cMloading">
+        <div class="loading-tips">
+            <img src="/imgs/images/icon/ico_loading.png" alt=""><span>加载中...</span>
+        </div>
+    </div>
+
+    <div class="pageContainer">
+        <div class="account_banner">
+        	<%if(IsHavaTQJiaXi)
+	            {
+	                %>
+            <div class="float_1218" id="float_1218" style="z-index: 9;"></div>
+            <%
+	            } %>
+            <div class="pos-r account_banner_top">
+                <div class="user-header text-overflow" onclick="javascript:window.location.href='/Member/my_userdetailinfo.aspx';">
+                    <span class="touxiang">
+                        <img src="<%=headImage%>" />
+                    </span>
+                    <span>
+                        <p class="text-overflow" style="width: 200px;"><%=userModel!=null?userModel.NickName:""%></p>
+                        <p><%=userModel!=null && userModel.Level ==2 ?"超级会员":"普通会员"%><%=UserVipModel!=null ?"V"+UserVipModel.Level:"" %></p>
+                    </span>
+                </div>
+                <% if (!IsHavaTQJiaXi)
+                   {
+                       %>
+                <div class="banner_t_right" id="showDownloadAlert"></div>
+                <%
+                   } %>
+            </div>
+            <div class="c-ffffff f12px ab_r2">资产总额(元)<i class="ico_see"></i></div>
+            <div class="c-ffffff pl15 ab_r3" onclick="window.location.href='/member/fundStatistics/incomeCount.aspx';" id="totalAmount">--<i class="s-arrow"></i></div>
+          <div class="pt20 pl15 pr15 clearfix">
+                <div class="lf">
+                    <p class="c-ffffff line-h16">可用余额</p>
+                    <p class="c-ffffff f17px" id="totalAviMoney">--</p>
+                </div>
+                <div class="rf pt10">
+                    <a href="javascript:checkCgtCommGoUrl('/Member/Bank/Recharge.aspx?backurl=<%=BasePage.GetEncodeBackURL()%>')" class="btn_recharge">充值</a>
+                    <a href="javascript:checkCgtCommGoUrl('/Member/withdrawal/drawmoney.aspx')" class="btn_withdraw">提现</a>
+                </div>
+            </div>
+        </div>
+        <% if (noticeModel != null)
+           { %>
+        <a href="<%=noticeModel.ActivityUrl%>" class="account_notice pl15 text-overflow"><i class="bgSize"></i><%=noticeModel.NoticesContent %><span class="bgSize"></span></a>
+        <%} %>
+        <a href="<%=GlobalUtils.MTuanDaiURL%>/Member/myaccount_p2pmore.aspx" class="licaiBox block bg-fff mt10 click-respond">
+            <div class="clearfix pt15 pb15 pos-r">
+                <div class="lf ico_p2p account_ico"></div>
+                <div class="lf lcTxt">
+                    <p>P2P</p>
+                    <p id="p2pDueIn">待收：<span id="p2pDueInMoney">--</span>元</p>
+                </div>
+                <i class="ico-arrow-r" style="right: 0px;"></i>
+            </div>
+        </a>
+        <div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6" id="a">
+            <div class="click-respond linkBox">
+                <i class="account_ico ico_a1"></i>
+                <a href="/Member/UserPrize/Index.aspx" class="bb-e6e6e6">团宝箱<i class="ico-arrow-r"></i><%=isShowPrizeBoxIco?"<i class='redPoint'></i>":"" %></a>
+            </div>
+            <% if (DateTime.Now > DateTime.Parse(xiajia.Param1Value))
+               {
+                   %>
+            <div class="click-respond linkBox">
+                <i class="account_ico ico_a2"></i>
+                <a id="autoBid" class="bb-e6e6e6">自动投标<span><%=MaxStatusString %></span><i class="ico-arrow-r"></i></a>
+            </div>
+            <%
+               } %>
+            
+            <%--<div class="click-respond linkBox">
+                <i class="account_ico ico_a3"></i>
+                <a  id="myVip" class="bb-e6e6e6">我的会员<span>V<%=UserVipModel != null?UserVipModel.Level:1 %></span><i class="ico-arrow-r"></i></a>
+            </div>
+            <div class="click-respond linkBox">
+                <i class="account_ico ico_a6"></i>
+                <a href="<%=GlobalUtils.MVipUrl %>/Member/Mall/mallIndex.aspx" class="bb-e6e6e6">积分商城<span>投奖，兑红包和提现券</span><i class="ico-arrow-r"></i></a>
+            </div>--%>
+        </div>
+
+        <div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6" id="a">
+            <div class="click-respond linkBox">
+                <i class="account_ico ico_a8"></i>
+                <a href="/Member/my_account_more.aspx" class="bb-e6e6e6">更多<span>帮助中心，退出登录等</span><i class="ico-arrow-r"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!--底部-->
+    <div class="bt-e6e6e6 webkit-box box-center wx-footer">
+        <%--<a class="block box-flex1 text-center" href="/Index.aspx">
+            <p>
+                <img src="/imgs/images/icon/ico_f1.png" /></p>
+            <p class="f10px line-h18 c-626262">团贷</p>
+        </a>--%>
+        <a class="webkit-box box-center box-vertical box-flex1 text-center" href="<%=GlobalUtils.MTuanDaiURL%>/pages/invest/WE/WE_list.aspx">
+            <p>
+                <img src="/imgs/images/icon/ico_f2.png" /></p>
+            <p class="f10px line-h18 c-626262">投资</p>
+        </a>
+        <a class="webkit-box box-center box-vertical box-flex1 text-center">
+            <p>
+                <img src="/imgs/images/icon/ico_f3_act.png" /></p>
+            <p class="f10px line-h18 c-ffc000">我的</p>
+        </a>
+    </div>
+    
+    <!--下载app弹框-->
+    <div class="alert webkit-box box-center" id="downApp" style="display: none;">
+		<div class="account_alert">
+			<img src="/imgs/account/dlapp.png?v=20171201"/>
+			<div class="account_alert_close"></div>
+			<a href="javascript:void(0);" class="dlbtn download">下载APP</a>
+		</div>
+	</div>
+
+    <!--新手注册完成后进入个人中心显示的弹框-->
+    <div class="alert" style="display: none;" id="newHandDiv">
+        <div class="res_finish comonAni">
+            <div class="r_f_close"></div>
+            <img src="/imgs/account/res_finish.png" />
+            <div class="r_f_bot pb15 pl15 pr15">
+                <a href="<%=GlobalUtils.MVipUrl %>/pages/invest/invest_newHand.aspx">查看新手福利</a>
+                <a href="/Member/ready/ready.aspx">投资前准备</a>
+                <p class="c-ffffff f13px text-center mt3">完成投资前准备，马上投资赚收益</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--加息特权弹框-->
+	<div class="alert webkit-box box-center" style="display: none;" id="jiaxi">
+		<div class="account_alert jiaxi_alert">
+			<img src="/imgs/20171218/jiaxi_mask.png"/>
+			<div class="account_alert_close"></div>
+			<a href="/Member/jiaxitequan/html/jiaxitequan.aspx" class="jiaxibtn">
+				<img src="/imgs/20171218/jiaxi_btn.png"/>
+			</a>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/Common.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+    var IsInWeiXin = "<%=IsInWeiXin %>";
+
+
+    function encryptAmount(seeType) {
+        if (seeType == "" || seeType == undefined)
+            seeType = "0";
+        var seeCtrl = $(".ab_r2 i");
+        if (seeType == "0") {
+            $("#totalAmount").html("--<i class=\"s-arrow\"></i>");
+            $("#totalAviMoney").text("--");
+
+            $("#p2pDueInMoney").text("--");
+            $("#p2pAviMoney").text("--");
+            $("#dqDueInMoney").text("--");
+            $("#dqAviMoney").text("--");
+            $("#zxDueInMoney").text("--");
+            seeCtrl.removeClass("ico_see").addClass("ico_unsee");
+        } else {
+            $("#totalAmount").html("<%=ToolStatus.ConvertLowerMoney(pageModel.TotalAmount)%><i class=\"s-arrow\"></i>");
+            $("#totalAviMoney").text("<%=ToolStatus.ConvertLowerMoney(pageModel.TotalAviAmount)%>");
+
+            $("#p2pDueInMoney").text("<%=ToolStatus.ConvertLowerMoney(pageModel.P2PDueIn)%>");
+            $("#p2pAviMoney").text("<%=ToolStatus.ConvertLowerMoney(pageModel.P2PAviAmount)%>");
+            $("#dqDueInMoney").text("<%=ToolStatus.ConvertLowerMoney(pageModel.DQDueIn)%>");
+            $("#dqAviMoney").text("<%=ToolStatus.ConvertLowerMoney(pageModel.DQAviAmount)%>");
+            $("#zxDueInMoney").text("<%=ToolStatus.ConvertLowerMoney(zxDueInMoney)%>");
+            seeCtrl.removeClass("ico_unsee").addClass("ico_see");
+        }
+    }
+
+    $(function () {
+        $("#showDownloadAlert").click(function () {
+            showAniFadeIn("#downApp");
+        });
+
+        $(".account_alert_close").click(function () {
+            hideAniFadeOut("#downApp");
+        });
+        var noSee = getCookie("noSee");
+        encryptAmount(noSee);
+
+        $(".ab_r2 i").click(function () {
+            if ($(this).hasClass("ico_see")) {
+                setCookie("noSee", "0");
+                encryptAmount("0");
+            } else {
+                setCookie("noSee", "1");
+                encryptAmount("1");
+            }
+        });
+
+        $("#autoBid").click(function () {
+            try {
+                //--------存管通验证----2016-12-21------
+                if (isOpenCGT == "1" && !checkIsOpen())
+                    return false;
+                //--------存管通验证结束------------
+                window.location.href = "<%= GlobalUtils.MTuanDaiURL%>/Member/setAuto/auto_invest.aspx";
+            } catch (e) {
+
+            }
+        });
+        $("#myVip").click(function () {
+            try {
+                //--------存管通验证----2016-12-21------
+                if (isOpenCGT == "1" && !checkIsOpen())
+                    return false;
+                //--------存管通验证结束------------
+                window.location.href = "<%=GlobalUtils.MVipUrl%>/Member/MemberCenter/memberCenter.aspx";
+            } catch (e) {
+
+            }
+        });
+    });
+    var browser = {
+        versions: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            return {
+                //移动终端浏览器版本信息
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+            };
+        }(),
+    };
+    $(".download").click(function () {
+        if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+            window.location.href = "http://www.tuandai.com/app/install.aspx";
+        }
+        else if (browser.versions.android) {
+            window.location.href = "http://image.tuandai.com/tuandaiapp/tuandai.apk";
+        } else {
+            window.location.href = "http://hd.tuandai.com/weixin/tuandaiAppNew/IndexApp.aspx?type=weixinapp";
+        }
+    });
+
+    var wxtype = GetQueryString("wxtype");
+    if (wxtype == "newhand")
+        showAniFadeIn("#newHandDiv");
+    $(".r_f_close").click(function () {
+        hideAniFadeOut("#newHandDiv");
+    });
+
+
+    $("#float_1218").click(function() {
+        $("#jiaxi").show();
+    });
+    $(".account_alert_close").click(function() {
+        $("#jiaxi").hide();
+    });
+</script>
+
+</html>

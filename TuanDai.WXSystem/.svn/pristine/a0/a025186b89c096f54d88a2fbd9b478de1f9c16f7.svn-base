@@ -1,0 +1,185 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common.CommandTrees;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using NetDimension.Json;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+using Tuandai.ServiceStackRedis;
+using TuanDai.WXApiWeb.Common;
+
+namespace TuanDai.WXApiWeb.Member
+{
+    public partial class account_manager : UserPage
+    {
+        protected TuanDai.WXApiWeb.Common.ThirdLoginSDK.WXOAuthUser wxUserInfo = null;
+        protected List<WeiXinUser> uList = new List<WeiXinUser>();
+        protected string CurrTel = "";
+        protected WeiXinUser firstUser = new WeiXinUser();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            CurrTel = new UserBLL().GetUserBasicInfoModelById(WebUserAuth.UserId.Value).TelNo;
+            if (string.IsNullOrEmpty(CurrTel))
+                CurrTel = "1********";
+            CookieHelper.WriteCookie("shellben4tel", Tool.Common.Utils.StringHandler.MaskTelNo(CurrTel));
+            string cmd = Request.QueryString["cmd"];
+            if (cmd == "notbind")
+            {
+                NotBind();
+                return;
+            }
+            if (GlobalUtils.IsWeiXinBrowser)
+            {
+                try
+                {
+                    string code = WEBRequest.GetQueryString("code");
+                    string openId = WEBRequest.GetQueryString("openid");
+                    if (openId.IsNotEmpty())
+                    {
+                        GlobalUtils.WriteOpenIdToCookie(openId);
+                    }
+
+                    ThirdLoginSDK sdk = new ThirdLoginSDK();
+                    sdk.InitSDK(ThirdLoginSDK.ThirdLoginType.WeiXin);
+                    //获取微信上用户信息
+                    wxUserInfo = sdk.GetWXUserSubscribeInfor(code, openId.ToText());
+                    if (wxUserInfo != null && !string.IsNullOrEmpty(wxUserInfo.nickname))
+                    {
+                        CookieHelper.WriteCookie("shellben4wxname", wxUserInfo.nickname);
+                        openId = wxUserInfo.openid;
+                    }
+                    TuanDai.LogSystem.LogClient.LogClients.TraceLog(TdConfig.ApplicationName, "GetWeiXinUserInfo","",JsonConvert.SerializeObject(wxUserInfo));
+
+                    var posturl = GlobalUtils.MsgApiUrl;
+                    string err = "";
+                    var descStr =
+                        TuanDai.WXSystem.Core.Common.MsgDesc.GetDescStr("{\"Data\":{\"WeiXinOpenId\":\"" + openId + "\"}}");
+                    TuanDai.LogSystem.LogClient.LogClients.TraceLog(TdConfig.ApplicationName, "GetWeiXinUserInfo123", "", descStr);
+                    string resp = HttpClient.HttpUtil.HttpPostJson(TdConfig.ApplicationName,
+                        posturl + "/4/GetUserIdsByWeixinOpenId", descStr,
+                        out err, null, 3);
+                    if (!string.IsNullOrEmpty(resp))
+                    {
+                        var returnmsg =
+                            JsonConvert
+                                .DeserializeObject<TuanDai.WXSystem.Core.Common.MsgApiResponseMessage<List<string>>>(
+                                    resp);
+                        if (returnmsg != null)
+                        {
+                            if (returnmsg.Data.Count > 0)
+                            {
+                                foreach (var item in returnmsg.Data)
+                                {
+                                    if (!uList.Exists(o => o.UserId == Guid.Parse(item)))
+                                    {
+                                        WeiXinUser user = new WeiXinUser();
+                                        user.UserId = Guid.Parse(item);
+                                        user.DescUserId = Tool.DESC.EncryptTripleDES(user.UserId.ToString());
+                                        var tduser = new UserBLL().GetUserBasicInfoModelById(user.UserId);
+                                        if (tduser != null && !string.IsNullOrEmpty(tduser.TelNo))
+                                            user.Tel = tduser.TelNo;
+                                        uList.Add(user);
+                                    }
+                                }
+                                uList = uList.Where(o => o.Tel.IsNotEmpty()).ToList();
+                                if (uList != null && uList.Count > 0)
+                                {
+                                    if (uList.Exists(o => o.UserId == WebUserAuth.UserId.Value))
+                                    {
+                                        firstUser =
+                                            uList.Where(o => o.UserId == WebUserAuth.UserId.Value).FirstOrDefault();
+                                    }
+                                    else
+                                    {
+                                        firstUser = uList[0];
+                                    }
+                                }
+                                
+                                string redisErr = "";
+                                RedisServerStack.StringSet(TdConfig.ApplicationName, "/redis/web", openId, uList,ref redisErr);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "GetWeiXinUserInfo",
+                        WebUserAuth.UserId.Value.ToString(), "获取用户微信信息失败");
+                    Response.Redirect("my_account.aspx", true);
+                    //Response.End();
+                }
+
+            }
+            else
+            {
+                Response.Redirect("my_account.aspx", true);
+                //Response.End();
+            }
+
+            if (wxUserInfo == null)
+            {
+                wxUserInfo = new ThirdLoginSDK.WXOAuthUser();
+            }
+        }
+
+        public void NotBind()
+        {
+            string descUserId = Request.Form["vaid"];
+            Guid userId = Guid.Parse(Tool.DESC.DecryptTripleDES(descUserId));
+            var posturl = GlobalUtils.MsgApiUrl;
+            string openId = GlobalUtils.OpenId;
+            if (openId.IsNotEmpty())
+            {
+                GlobalUtils.WriteOpenIdToCookie(openId);
+            }
+            else
+            {
+                Response.Write("{\"result\":\"0\"}");
+                Response.End();
+            }
+            string result = "0";
+            try
+            {
+                string err = "";
+                var descStr = TuanDai.WXSystem.Core.Common.MsgDesc.GetDescStr("{\"Data\":{\"WeiXinOpenId\":\"" + openId + "\",\"UserId\":\"" + userId.ToString() + "\"}}");
+                string resp = HttpClient.HttpUtil.HttpPostJson(TdConfig.ApplicationName, posturl + "/5/DeleteMsgSetInfoWeixinOpenId", descStr,
+                    out err, null, 3);
+                var returnmsg = JsonConvert.DeserializeObject<TuanDai.WXSystem.Core.Common.MsgApiResponseMessage<bool>>(resp);
+                if (returnmsg != null && returnmsg.Data == true)
+                {
+                    //Response.Write("{\"result\":\"1\"}");
+                    //Context.ApplicationInstance.CompleteRequest();
+                    //Response.End();
+                    result = "1";
+                }
+                else
+                {
+                    //Response.Write("{\"result\":\"0\"}");
+                    //Context.ApplicationInstance.CompleteRequest();
+                    //Response.End();
+                    result = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "用户解绑微信", userId.ToString(), ex.Message);
+                //Response.Write("{\"result\":\"0\"}");
+                //Response.End();
+                result = "0";
+            }
+            Response.Write("{\"result\":\"" + result + "\"}");
+            Response.End();
+        }
+
+        public class WeiXinUser
+        {
+            public Guid UserId { get; set; }//其实是userid
+
+            public string DescUserId { get; set; }
+            public string Tel { get; set; }
+        }
+    }
+}

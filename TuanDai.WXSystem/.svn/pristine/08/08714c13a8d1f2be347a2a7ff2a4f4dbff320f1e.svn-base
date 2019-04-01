@@ -1,0 +1,164 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    /// <summary>
+    /// 项目借款详情
+    /// Allen 2015-05-18
+    /// </summary>
+    public partial class invest_detail : BasePage
+    {
+        protected ProjectDetailInfo model = null; 
+        protected Guid? projectId = Guid.Empty; 
+        private ProjectBLL bll = null;
+        protected string rating = "<span style=\"color:Green;\">低</span>";  
+        protected string finishProcess = "0%";
+        //项目展示图
+        protected List<ProjectImageInfo> imageList;
+        //借款信用档案
+        protected BorrowUserCreditInfo creditInfo = null; 
+        protected string allMonthBadrate = "0";
+
+        protected decimal limitInvest = 10000;//新手标限制投资金额
+        protected string limitInvestStr = string.Empty;
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+        protected WebSettingInfo regulaSet = new WebSettingInfo();
+        protected int InterestModel = 1;//起息方式
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                GetLimitInvestMoney();
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                        return;
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null) {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            } 
+             
+            switch (model.Rating)
+            {
+                case 1:
+                    rating = "<span style=\"color:Green;\">低</span>";
+                    break;
+                case 2:
+                    rating = "<span style=\"color:Orange;\">中</span>";
+                    break;
+                case 3:
+                    rating = "<span style=\"color:Red;\">高</span>";
+                    break;
+            }
+            finishProcess = CommUtils.GetProjectProcess(model);
+            imageList = CommUtils.GetProjectImages(this.projectId.Value);
+            creditInfo = CommUtils.GetBorrowerCreditData(model.UserId.Value); 
+
+            allMonthBadrate = calcrate(model.TotalSumShares ?? 0, model.badShares ?? 0);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+
+            regulaSet = new WebSettingBLL().GetWebSettingInfo("293A1C07-1D90-4D22-ADD4-39E6735DAC06");
+            InterestModel = TuanDai.PortalSystem.Redis.ProjectRedis.GetProjectInterestMode(model.Type.Value, model.RepaymentType.Value);
+            //截标时间为NULL时候取审核时间  +5 天
+            if (model.TenderDate == null)
+            {
+                model.TenderDate = Convert.ToDateTime(model.AuditDate == null ? model.AddDate : model.AuditDate).AddDays(5);
+            }
+            else
+            {
+                model.TenderDate = model.TenderDate;
+            }
+
+            if (model.AuditDate == null)
+            {
+                model.TenderStartDate = model.AddDate;
+            }
+            else
+            {
+                model.TenderStartDate = model.AuditDate;
+            }  
+
+            return true;
+        }
+        /// <summary>
+        /// 获取新手标限制金额
+        /// </summary>
+        private void GetLimitInvestMoney()
+        {
+            string sql = "SELECT Param1Value FROM WebSetting with(nolock) where id='FC5BAE60-716E-4344-9C10-F1E808064FC7'";
+            var para =new Dapper.DynamicParameters();
+            limitInvest =  PublicConn.QuerySingle<decimal>(sql, ref para);
+            if (limitInvest >= 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest / 10000)) + "万";
+            }
+            else if (limitInvest >= 1000 && limitInvest < 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest/1000)) + "千";
+            }
+            else
+            {
+                limitInvestStr = Math.Floor(limitInvest).ToString();
+            }
+        }
+
+        #region 计算逾期还款率
+        /// <summary>
+        /// 计算逾期还款率
+        /// </summary>
+        /// <param name="successcount">成功记录数</param>
+        /// <param name="badcount">逾期记录数</param>
+        /// <returns></returns>
+        private string calcrate(int successcount, int badcount)
+        {
+            if (successcount != 0)
+            {
+                return ((double)(badcount) / (double)(successcount) * 100).ToString("0.00");
+            }
+            else
+            {
+                return "0";
+            }
+        }
+        #endregion
+       
+    }
+}

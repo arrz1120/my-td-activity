@@ -1,0 +1,72 @@
+﻿/*'=========================================================
+Author:ChenWeiZhi
+Update:2015-05-20  ChenWeiZhi
+=========================================================*/
+@charset "utf-8";
+/*图标*/
+.ico-up{ display: inline-block; width: 8px; height: 10px; background-image: url('/imgs/images/up.png'); background-size: 8px 10px; margin: -3px 0 0 5px; vertical-align: middle;}
+.ico-down{ display: inline-block; width: 8px; height: 10px; background-image: url('/imgs/images/up.png'); transform:rotate(180deg); -webkit-transform:rotate(180deg); background-size: 8px 10px; margin: -2px 0 0 5px; vertical-align: middle;}
+
+body{ background: #fbfbf9 !important;}
+.c-d3aa73{ color: #d3aa73;!important;}
+.bg-fbfbf9{ background: #fbfbf9 !important;}
+.pos-r{ position: relative;}
+.pos-a{ position: absolute;}
+.border-b1px{ border-bottom: 1px solid #ededed; padding-bottom: 20px;}
+
+.screen-invest{width: 100%;}
+.screen-nav-cn{width: 100%;}
+.invest_box .hd{overflow:hidden;}
+.screen-nav-cn ul{ width: 100%; height: 45px;background: #fff; border-bottom: solid 1px #d9d9d9;}
+.screen-nav-cn ul li{ float: left; width: 33.33%; height: 100%;text-align: center;color: #545454;height: 45px; padding: 15px 10px; position: relative; z-index: 20;}
+.screen-nav-cn ul li:last-child a{ border-right: none; padding-right: 0;}
+.screen-nav-cn ul li a{display: block;height: 15px; line-height: 15px; color: #626262; font-size: 1.2rem;border-right: 1px solid #e8e8e8; padding-right: 15px;}
+.screen-nav-cn ul li.on a{display:block;}
+.screen-nav-cn ul li.on a:after{content: " "; display: block; width: 64%; height: 2px; background-color: #f4c415; position: absolute; bottom: 0; left: 50%; margin-left: -36%;}
+/*.screen-nav-cn ul li.on a .ico-up,.screen-nav-cn ul li.on a .ico-down{background-image: url('/imgs/images/ico_up_w.png');}*/
+.not-invest-cn img{margin: 50px 0 45px 0;}
+.not-invest-cn .p-cl{display:inline-block; width: 100%;margin: 50px auto 45px auto;}
+.invest-text{width: 80%;margin: 0 auto;}
+.invest-text p{display: block;line-height1:150%;text-align: center; color: #9d7d53; font-size: 1.1em;}
+.invest-text img{ width: 15px; height: 12px; margin-right: 0.3em;vertical-align: 1px;}
+.invest-text a{ display:block;width: 80%;; height: 42px;line-height: 42px; margin: 3em auto 0 auto; color: #fff; font-size: 1.6rem;background: #fd6040;text-align: center;
+    -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+
+/*投资项目详情*/
+.investMain{}
+.investBox{ padding: 10px 15px; border-bottom: 1px solid #e5e5e5; background-color: #fff; position: relative; z-index: 50;}
+.investBox .investLeft{ float: left; width: 100px;}
+.investBox .investRight{ float: right; width: auto; text-align:right;}
+.investBox .btn-chargemoney{ display: inline-block; width: auto; height: 28px; line-height: 26px; padding: 0 15px; color: #ffcf1f; font-size: 1.2rem; margin-left: 15px; -moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;background-color: #fff; border:1px solid #ffcf1f;}
+.investBox .formBox{ width: 165px; height: 44px; background-color: #f7f7f7; border-radius: 6px;-webkit-border-radius: 6px; border: 1px solid #e5e5e5; position: relative; z-index: 20;}
+.investBox .formBox .Btn{ width: 44px; height: 44px; font-size: 1.4rem; border: 1px solid #ffcf1f; background-color: #fff; position: absolute; top: -1px;}
+.investBox .formBox .btn-left{ border-radius: 6px 0 0 6px;-webkit-border-radius: 6px 0 0 6px; background: #fff url(/imgs/images/reduce.png) center center no-repeat; background-size: 17px; left: -1px;}
+.investBox .formBox .disabled{background: #fff url(/imgs/images/disabled_reduce.png) center center no-repeat; background-size: 17px; border-color: #e5e5e5!important;}
+.investBox .formBox .btn-right{ border-radius: 0 6px 6px 0;-webkit-border-radius: 0 6px 6px 0; background: #fff url(/imgs/images/increase.png) center center no-repeat; background-size: 17px; right: -1px;}
+.investBox .formBox .middle{ width: 77px; height: 42px; font-size: 1.3rem; color: #ababab; text-align: center; border: 0; background: none; padding: 0 10px; position: absolute; top: 0; left: 44px;}
+.investMain .investBtn{ display: block; height: 52px; width: 100%; line-height: 52px; background-color: #ffcf1f; color: #fff; font-size: 1.8rem; text-align: center;}
+
+
+/*分期宝、分期乐*/
+.ul-box ul{margin: 10px;}
+.ul-box ul li{list-style: disc !important;line-height: 200%; font-size: 1.2rem;margin-left: 15px;color: #212121;}
+
+/**WE理财计划**********************/
+.weMain #wrapper{ top: 48px!important;}
+
+/*进度条样式*/
+.dataTables_processing {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -55px;
+	margin-top: -25px;
+	width: 110px;
+	height: 50px;
+	text-align: center; 
+	text-indent: 2em; 
+	color: #333;
+    background: url(/imgs/loading01.gif) 10px 10px no-repeat #fff; 
+	z-index:9999;
+	box-shadow: 0 0 10px #ccc; line-height: 50px; border-radius: 5px; 
+}

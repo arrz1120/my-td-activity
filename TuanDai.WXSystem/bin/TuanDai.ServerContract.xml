@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.ServerContract</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.ServerContract.IBalancedSystemService">
+            <summary>
+            获取所有ＵＲＬ
+            </summary>
+        </member>
+        <member name="T:TuanDai.ServerContract.IBase">
+            <summary>
+            接口基类
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IBase.Do">
+            <summary>
+            检测方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IBase.ClearMoney">
+            <summary>
+            清理内存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IBalancedSystemService.GetAppSettings(System.String,System.String@)">
+            <summary>
+            获取AppSetting数据
+            </summary>
+            <param name="key">关键字</param>
+            <param name="ErrorMessage">是否有异常信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IBalancedSystemService.GetDB(System.String,System.String@)">
+            <summary>
+            获取数据库的字符串
+            </summary>
+            <param name="key"></param>
+            <param name="ErrorMessage">是否有异常信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.IInfoService">
+            <summary>
+            信息系统
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IInfoService.usersign(System.String)">
+            <summary>
+            用户签到
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.ILogService">
+            <summary>
+            日志服务
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.ILogService.WriteErrorLog(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            写入异常日志
+            </summary>
+            <param name="applicationId"></param>
+            <param name="methodName"></param>
+            <param name="parameter"></param>
+            <param name="logText"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ILogService.WriteTraceLog(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            写入跟踪日志
+            </summary>
+            <param name="applicationId"></param>
+            <param name="methodName"></param>
+            <param name="parameter"></param>
+            <param name="logText"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ILogService.SqlTraceLogAsync(System.String,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            sql跟踪日志异步
+            </summary>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.ILogService.SqlTraceLog(System.String,System.String,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Sql跟踪日志
+            </summary>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+        </member>
+        <member name="T:TuanDai.ServerContract.IProjectCustomer">
+            <summary>
+            项目的消费者
+            </summary>
+        </member>
+        <member name="T:TuanDai.ServerContract.IProjectProducter">
+            <summary>
+            项目的生产者
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectProducter.Borrower_SetQueue(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置队列
+            </summary>
+            <param name="Exchange"></param>
+            <param name="QueueName"></param>
+            <param name="Msg"></param>
+            <param name="ExchangeType"> 交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.IProjectService">
+            <summary>
+            项目服务端
+            </summary>
+            <summary>
+             项目服务端
+            </summary>
+            <summary>
+             项目服务端
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.FundAccountRechargeRequest(System.String)">
+            <summary>
+            用户充值请求
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.FundAccountRechargeHanlder(System.String)">
+            <summary>
+            用户充值处理
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.SubscribeProject(System.String,System.Int32)">
+            <summary>
+            所有发标审核后自动处理的请求(we,自动投标)
+            </summary>
+            <param name="projectid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.ProjectSubmitOfAllByProducter">
+            <summary>
+            将重新提交所有符合项目到生产者
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.SubscribeProjectByNoMQ(System.String)">
+            <summary>
+            发标审核后自动处理请求(不经过队列)
+            </summary>
+            <param name="projectid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.AutoProject(System.String)">
+            <summary>
+            根据项目ID自动投标
+            </summary>
+            <param name="projectid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.AutoSubscribe">
+            <summary>
+             自动投标
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.ProjectAutoSubscribe(System.String)">
+            <summary>
+            从we计划开始自动投标,一直到自动投标(申购)
+            </summary>
+            <param name="projectid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.WeAutoSubscribeOfOrderId(System.String)">
+            <summary>
+             We计划满标时的自动投标的请求包括(we,自动)
+            </summary>
+            <param name="we_productid">we计划的产品ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.SubscribeInitByManually(System.String)">
+            <summary>
+            手动申购
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.BorrowerBySubscribe(System.String)">
+            <summary>
+            借款人的资金处理
+            </summary>
+            <param name="subscribeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.FQBSetsAudit(System.Guid)">
+            <summary>
+            分期宝集审核
+            </summary>
+            <param name="ItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.ProjectAgainAudit">
+            <summary>
+            项目再一次审核
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IProjectService.JoinWePlanSubscribe">
+            <summary>
+            中途加入We计划投资
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.IRedisService">
+            <summary>
+            Redis服务
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IRedisService.AddSubscribeStatus(System.String,System.Int32)">
+            <summary>
+            设置申购状态
+            </summary>
+            <param name="subscribeId">申购Id</param>
+            <param name="status">状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IRedisService.GetSubscribeStatus(System.String)">
+            <summary>
+            获取申购的状态
+            </summary>
+            <param name="subscribeId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.IRegesiterService">
+            <summary>
+            注册服务
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.IRegesiterService.GetAppSettings(System.String,System.String@)">
+            <summary>
+            获取AppSetting数据
+            </summary>
+            <param name="key">关键字</param>
+            <param name="ErrorMessage">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.IRegesiterService.GetDB(System.String,System.String@)">
+            <summary>
+            获取数据库的字符串
+            </summary>
+            <param name="key"></param>
+            <param name="ErrorMessage">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.ISMSCustomer">
+            <summary>
+            发送信息消费者
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSCustomer.SendEmail(System.String)">
+            <summary>
+            发送邮箱
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSCustomer.SendSms(System.String)">
+            <summary>
+            发送短信
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSCustomer.SendPush(System.String)">
+            <summary>
+            发送推送
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSCustomer.SendSmsByVideo(System.String)">
+            <summary>
+            发送语音验证码
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:TuanDai.ServerContract.ISMSProducter">
+            <summary>
+            发送信息
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSProducter.SendMessage(System.String,System.String)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="BusinessId">业务ID</param>      
+            <param name="TemplateNo">模板编号</param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSProducter.SendNote(System.String)">
+            <summary>
+            直接发送短信
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSProducter.SendEmail(System.String)">
+            <summary>
+            直接发送邮箱
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSProducter.SendPush(System.String)">
+            <summary>
+            直接发送推送
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.ISMSProducter.ReturnResult(System.String,System.String,System.Int32)">
+            <summary>
+            返回结果
+            </summary>
+            <param name="Id"></param>
+            <param name="Msg"></param>
+            <param name="BusinessType">业务类型(短信 1，邮箱 2，推送 3)</param>
+        </member>
+        <member name="T:TuanDai.ServerContract.ISystemGuard">
+            <summary>
+            系统应用守护者
+            </summary>
+        </member>
+        <member name="M:TuanDai.ServerContract.LogService.SqlTraceLog(System.String,System.String,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            sql跟踪日志
+            </summary>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.LogService.SqlTraceLogAsync(System.String,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            sql跟踪日志异步
+            </summary>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.ProjectProducter.Borrower_SetQueue(System.String,System.String,System.String,System.String)">
+            <summary>
+            发送队列生产者
+            </summary>
+            <param name="Exchange">ExchangeType名称</param>
+            <param name="QueueName">队列名</param>
+            <param name="Msg">内容</param>
+            <param name="ExchangeType"> <param name="ExchangeType"> 交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.ProjectService.Do">
+            <summary>
+            检测端口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.RedisService.AddSubscribeStatus(System.String,System.Int32)">
+            <summary>
+            添加申购的状态
+            </summary>
+            <param name="subscribeId"></param>
+            <param name="status"></param>
+        </member>
+        <member name="M:TuanDai.ServerContract.RedisService.GetSubscribeStatus(System.String)">
+            <summary>
+            获取申购状态
+            </summary>
+            <param name="subscribeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.RedisService.Do">
+            <summary>
+            测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ServerContract.RedisService.ClearMoney">
+            <summary>
+            清理客户端缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ServerContract.SystemGuardService">
+            <summary>
+            应用程序守护者
+            </summary>
+        </member>
+    </members>
+</doc>

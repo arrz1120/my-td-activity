@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>提现</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160519" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160519" />
+
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="clearfix pl15 pr15 pt10 pb10">
+			<div class="lf f12px c-808080">
+				可用资金<span class="c-212121 f15px ml15">￥10,000.00</span>
+			</div>
+			<div class="rf f12px c-1fcafb">提现记录&nbsp;></div>
+		</div>
+		<div class="inputBox bg-fff bt-e6e6e6 bb-e6e6e6">
+			<span class="c-212121 f17px">提现到</span>
+			<p class="f17px pt10">招商银行（0908）</p>
+		</div>
+		<div class="inputBox bg-fff bb-e6e6e6">
+			<span class="c-212121 f17px">金额</span>
+			<input type="text" placeholder="提现金额不能低于100元" />
+		</div>
+		<div class="poundage c-ababab f13px pl15 bg-fff bb-e6e6e6">
+			手续费<span class="f13px c-fab600 ml5">￥10.00</span><i class="ico-doubt" id="poundageIns"></i>
+		</div>
+
+		<div class="pl15 pr15 pt10 pb10 mt15 bg-fff" id="ticket-box">
+			<div class="clearfix">
+				<div class="lf f17px">提现券</div>
+				<div class="rf"><span class="c-ababab f15px" id="ticket-name">不使用</span><i class="ico-a-r"></i></div>
+			</div>
+		</div>
+
+		<div class="mt30 pl15 pr15">
+			<div class="btn btnYellow">下一步</div>
+			<p class="f12px c-ababab text-center mt10">预计北京时间2016.03.03, 24:00前到账</p>
+			<p class="f12px c-ababab text-center">充值资金不投标需等<span class="c-fd6040 f12px">15天</span>后才能提现,
+				<a href="" class="f12px c-1fcafb">更多常见问题>
+					<a>
+			</p>
+		</div>
+
+		<!--弹框-->
+		<!--选择提现券 -->
+		<section class="alert webkit-box box-center" id="ticket-alert" style="display: none;">
+			<div class="ticket-con">
+				<div class="ticket-top">选择提现券</div>
+				<div class="ticket-mid">
+					<ul id="ticket-select">
+						<li>
+							<div class="lf">不使用提现券</div>
+						</li>
+						<li class="clearfix bt-e6e6e6 selected">
+							<div class="lf">5元提现券</div>
+							<div class="rf">20天后到期</div>
+						</li>
+						<li class="clearfix bt-e6e6e6">
+							<div class="lf">10元提现券</div>
+							<div class="rf">20天后到期</div>
+						</li>
+						<li class="clearfix bt-e6e6e6">
+							<div class="lf">15元提现券</div>
+							<div class="rf">20天后到期</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!--输入交易密码 -->
+		<div class="alert webkit-box box-center" style="display: none;">
+			<div class="alert-select">
+				<div class="pt30 pb20 f17px text-center">请输入交易密码</div>
+				<div class="alert-inp ml15 mr15">
+					<input type="password" placeholder="交易密码" / id="psd">
+					<div class="psdEye webkit-box box-center" id="psdEye"><i class="eye-close"></i></div>
+				</div>
+				<p class="c-ff6040 pl15 f13px mt3"><i class="ico-warn"></i>交易密码错误</p>
+				<div class="clearfix pr15 mt3">
+					<p class="rf f13px c-fab600">忘记密码</p>
+				</div>
+				<div class="clearfix bt-e6e6e6 mt10">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6" id="btnPopCancel">取消</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-ffc61a f17px" id="btnPopOK">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--获取验证码 -->
+		<div class="alert webkit-box box-center" style="display: none;">
+			<div class="alert-select">
+				<div class="pt30 pb20 f15px text-center">验证码已发送至<span class="f15px ml5">1852320561</span></div>
+				<div class="alert-inp ml15 mr15">
+					<input type="password" placeholder="验证码" / id="psd">
+					<div class="getTelCode">获取验证码</div>
+				</div>
+				<p class="c-ff6040 pl15 f13px mt3"><i class="ico-warn"></i>验证码错误</p>
+				<div class="clearfix pr15 mt3">
+					<p class="rf f13px c-808080">收不到短信？使用<span class="f13px c-fab600">电话验证码</span></p>
+				</div>
+				<div class="clearfix bt-e6e6e6 mt10">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6" id="btnPopCancel">取消</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-ffc61a f17px" id="btnPopOK">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--手续费说明 -->
+		<div class="alert webkit-box box-center" id="alert-poundage" style="display: none;">
+			<div class="alert-select">
+				<div class="clearfix mt25">
+					<div class="lf w50p text-center br-dashed-d1d1d1">
+						<p class="f17px">普通会员</p>
+						<p class="f14px mt7 c-808080">提现金额的0.3%</p>
+						<p class="f14px c-808080">不封顶</p>
+					</div>
+					<div class="rf w50p text-center">
+						<p class="f17px">超级会员</p>
+						<p class="f14px mt7 c-808080">提现金额的0.1%</p>
+						<p class="f14px c-808080">200元封顶</p>
+					</div>
+				</div>
+				<p class="f12px c-c5c5c5 pl15 pr15 mt20 line-h20">手续费从可用资金中扣除，如可用资金不足，则从提现金额中扣除</p>
+				<div class="bt-e6e6e6 mt25">
+					<div class="c-fcb700 text-center f17px pt10 pb10">如何成为超级会员？</div>
+				</div>
+			</div>
+		</div>
+
+		<!--提现金额-->
+		<div class="alert webkit-box box-center">
+			<div class="wd_amo">
+				<div class="pl20 pr20">
+					<div class="wd_tit f15px c-999 text-center bb-dashed-d1d1d1">提现金额</div>
+					<p class="wd_p1 text-center f17px c-333 mt25">实际提现金额</p>
+					<p class="wd_p2 text-center c-fab600 f30px mt15"><span class="c-fab600 f19px">￥</span>1000<span class="c-fab600 f19px">.00</span></p>
+					<div class="mt20">
+						<p class="wd_p3 pl20 pr20 c-999">确认提现后您的资金将会被冻结，并跳转至银行页面进行交易密码验证。若验证未完成，冻结资金将会在10分钟后解冻并退回至您的账户。</p>
+						<p class="wd_p3 pl20 pr20 c-fd6040">申请提现金额100元，收取提现手续费1元（已使用25元优惠券）</p>
+					</div>
+				</div>
+				<div class="clearfix bt-e6e6e6 mt25">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6" id="btnPopCancel">取消</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-ffc61a f17px" id="btnPopOK">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/fastclick.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//提现券弹框
+				(function() {
+					var box = $("#ticket-box");
+					var alert = $("#ticket-alert");
+					box.click(function() {
+						alert.fadeIn(300);
+					})
+					$("#ticket-select").find('li').click(function() {
+						var $this = $(this);
+						$this.siblings().removeClass('selected');
+						$this.addClass('selected');
+						var name = $this.find('.lf').html();
+						if(name == '不使用提现券') {
+							name = '不使用';
+						}
+						$("#ticket-name").html(name)
+						alert.fadeOut(300);
+					})
+				})();
+
+				//输入交易密码弹框
+				(function() {
+					$("#psdEye").click(function() {
+						var eyeBg = $(this).find('i');
+						var psdInp = $("#psd");
+						if(eyeBg.hasClass('eye-close')) {
+							eyeBg.removeClass('eye-close').addClass('eye-open');
+							psdInp.attr('type', 'text');
+						} else {
+							eyeBg.removeClass('eye-open').addClass('eye-close');
+							psdInp.attr('type', 'password');
+						}
+					})
+				})();
+
+				//手续费说明弹框
+				(function() {
+					var poundage = $("#alert-poundage");
+					$("#poundageIns").click(function() {
+						poundage.fadeIn();
+					});
+					poundage.click(function() {
+						$(this).fadeOut();
+					});
+					poundage.find('.alert-select').click(function() {
+						return false;
+					})
+				})();
+			})
+		</script>
+	</body>
+
+</html>

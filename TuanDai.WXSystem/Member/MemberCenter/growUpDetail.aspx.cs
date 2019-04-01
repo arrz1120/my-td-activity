@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.VipSystem.Model;
+using TuanDai.VipSystem.BLL;
+using BusinessDll;
+using System.Configuration;
+using TuanDai.WXApiWeb;
+
+namespace TuanDai.WXApiWeb.Member.MemberCenter
+{
+    public partial class growUpDetail : UserPage
+    {
+        protected Guid UserId = Guid.Empty;//用户ID
+        protected UserBLL bll = new UserBLL();
+        protected int pageCount = 0; //页数
+        protected string DateType = "0"; //数据类型
+        protected int totalCount = 0;//记录总数
+        protected int pageSize = 8;//分页大小
+        protected List<UserGrowthDetailInfo> listGrowthInfo = null;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string url = "//mvip.tdw.cn" + Request.RawUrl;
+            Context.Response.Redirect(url);
+            return;
+            if (!WebUserAuth.IsAuthenticated)
+            {
+                Response.Redirect("/weixinindex.aspx");
+            }
+            if (!IsPostBack)
+            {
+                UserId = WebUserAuth.UserId.Value;
+                GetBind();
+            }
+        }
+
+        protected void GetBind()
+        {
+            listGrowthInfo = bll.GetGrowthDetail(UserId, DateType, 1, pageSize, out totalCount).ToList();
+            double divide = totalCount / (pageSize * 1.0);
+            double floor = System.Math.Ceiling(divide);
+            pageCount = Convert.ToInt32(floor);//总页数
+        }
+    }
+}

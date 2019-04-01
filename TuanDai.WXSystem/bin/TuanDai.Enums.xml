@@ -1,0 +1,1124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.Enums</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.Enums.Api.ApiReturnStatus">
+            <summary>
+            API接口请求返回状态
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Api.ApiReturnStatus.NotParameter">
+            <summary>
+            接收参数异常
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Api.ApiReturnStatus.SystemError">
+            <summary>
+            系统异常
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Api.ApiReturnStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Api.ApiReturnStatus.SystemError1">
+            <summary>
+            异常1
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.EnumExtensions">
+            <summary>
+            枚举<see cref="T:System.Enum"/>的扩展辅助操作方法
+            </summary>
+        </member>
+        <member name="M:TuanDai.Enums.EnumExtensions.GetEnumDescription``1(System.Int32)">
+            <summary>
+            获取枚举项上的 DescriptionAttribute 特性的文字描述
+            int.ToEnumDescription《TuanDai.Enums.UserType》();
+            </summary>
+            <param name="enumIntValue">枚举的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Enums.EnumExtensions.GetDescription(System.Enum)">
+            <summary>
+            获取枚举项上的<see cref="T:System.ComponentModel.DescriptionAttribute"/>特性的文字描述
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.Enums.Project.RepaymentType">
+            <summary>
+            项目还款方式
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Dqbx">
+            <summary>
+            到期本息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Myfx">
+            <summary>
+            每月付息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Dbdx">
+            <summary>
+            等本等息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Xxhb">
+            <summary>
+            先息后本
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Debx">
+            <summary>
+            等额本息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Mbfx">
+            <summary>
+            满标付息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.DqbxSmb">
+            <summary>
+            到期本息
+            私募宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.RepaymentType.Mrfx">
+            <summary>
+            每日付息
+            活期宝
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Project.TenderModeType">
+            <summary>
+            投标方式
+            1：网站投标 2：移动版投标 3：移动版投标 4：自动投标
+            5：We计划 6：触屏版 7：IOS投标 8：Android投标 9：微信服务号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.PcWeb">
+            <summary>
+            网站投标2
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.MobileTenderOne">
+            <summary>
+            移动版投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.MobileTenderTwo">
+            <summary>
+            移动版投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.AutoTender">
+            <summary>
+            自动投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.WeTender">
+            <summary>
+            We计划
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.MobileWebTender">
+            <summary>
+            触屏版
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.AppIos">
+            <summary>
+            IOS投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.AppAndroid">
+            <summary>
+            Android投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.TenderModeType.WeiXinService">
+            <summary>
+            微信服务号
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Project.ProjectTypes">
+            <summary>
+            项目类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.ShangYou">
+            <summary>
+            商友贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.ShangMao">
+            <summary>
+            商贸联保贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.LingShou">
+            <summary>
+            零售贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.DanBao">
+            <summary>
+            特殊担保贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.TDBao">
+            <summary>
+            团贷宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.JingZhiBiao">
+            <summary>
+            资产标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.GuQuanDiYa">
+            <summary>
+            资产标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.CreditLoan">
+            <summary>
+            信用贷款
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.Car">
+            <summary>
+            车贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.XiaoFei">
+            <summary>
+            消费贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.House">
+            <summary>
+            房贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.FangBaoBao">
+            <summary>
+            房宝宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.Novice">
+            <summary>
+            新手标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.Guarantee">
+            <summary>
+            担保贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.FQB">
+            <summary>
+            分期宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.GPZY">
+            <summary>
+            股票质押
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.GPPZ">
+            <summary>
+            股票配资
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.SMB">
+            <summary>
+            私募宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.GYL_ds">
+            <summary>
+            供应链
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.GYL">
+            <summary>
+            供应链
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.HQB">
+            <summary>
+            活期宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.XMB_GD">
+            <summary>
+            项目宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.XMB_FD">
+            <summary>
+            项目宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.Fqb_phkx">
+            <summary>
+            分期宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.XMB_zhph">
+            <summary>
+            分期宝
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.NiWo_hffq">
+            <summary>
+            话费分期
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Project.ProjectTypes.NiWo_kuailaidai">
+            <summary>
+            快来贷
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.InvestType">
+            <summary>
+            投资类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.P2P">
+            <summary>
+            P2P理财
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.Dq">
+            <summary>
+            定期理财
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.Znlc">
+            <summary>
+            智能理财
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.AnYingPlan">
+            <summary>
+            安盈计划
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.WePlan">
+            <summary>
+            We计划
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.InvestType.FtbWePlan">
+            <summary>
+            复投宝
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.MsgSetOperationType">
+            <summary>
+            消息设置操作类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.UpdateMsgSetInfoCategoryNotices">
+            <summary>
+            更新设置
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.UpdateMsgSetInfoRegistrationId">
+            <summary>
+            更新设备ID
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.DeleteMsgSetInfoRegistrationId">
+            <summary>
+            删除设备ID
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.UpdateMsgSetInfoWeixinOpenId">
+            <summary>
+            添加微信ID
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.DeleteMsgSetInfoWeixinOpenId">
+            <summary>
+            删除微信ID
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.AddRegistrationsWeixinOpenIdWithoutUserId">
+            <summary>
+            添加未注册设备ID，微信号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSetOperationType.DelteRegistrationsWeixinOpenIdWithoutUserId">
+            <summary>
+            删除未注册设备ID，微信号
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.MsgTemplatesType">
+            <summary>
+            消息模板类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.UserDefined">
+            <summary>
+            用户自定义
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ResetLoginPasswordSuccess">
+            <summary>
+            重置登录密码(管理员重置(暂无)).
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RetrieveLoginPasswordSuccess">
+            <summary>
+            找回登录密码.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyBankAccount">
+            <summary>
+            修改银行账号（使用修改银行卡成功模板）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.UpgradeVip">
+             <summary>
+            升级会员 
+             </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RechargeSuccess">
+            <summary>
+            充值成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WithdrawSuccess">
+            <summary>
+            提现成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BorrowAuditSuccess">
+            <summary>
+            借款审核成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RegisterSuccess">
+            <summary>
+            注册成功.短信内容
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BorrowerBorrowSuccess">
+            <summary>
+            借款已满标(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorBorrowSuccess">
+            <summary>
+            借款已满标(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.FQBBorrowerBorrowSuccess">
+            <summary>
+            分期宝借款成功(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.FQBInvestorBorrowSuccess">
+            <summary>
+            分期宝借款成功(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.FQLBorrowerBorrowSuccess">
+            <summary>
+            分期乐借款成功(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.FQLInvestorBorrowSuccess">
+            <summary>
+            分期乐借款成功(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ResetSafeQuestion">
+            <summary>
+            重置安全问题
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyMobile">
+            <summary>
+            修改手机号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyEmail">
+            <summary>
+            修改邮箱地址
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.LoginSuccess">
+            <summary>
+            登录成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyTradersPassword">
+            <summary>
+            修改交易密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyBankAccountSuccess">
+            <summary>
+            修改银行账号成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyBankAccountFail">
+            <summary>
+            修改银行账号审核失败(现在修改银行卡通过客服,此模板不使用)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WithdrawFail">
+            <summary>
+            提现失败
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ValidateCode">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BindMobile">
+            <summary>
+            绑定手机号
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RepaymentBalancesNoEnough">
+            <summary>
+            需要还款，账号余额不足
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RepaymentBalancesEnough">
+            <summary>
+            需要还款，账号余额充足
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ReturnedMoneyReminder">
+            <summary>
+            回款提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BorrowerBorrowFail">
+            <summary>
+            借款失败流标(借款人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorBorrowFail">
+            <summary>
+             借款失败流标(投资人)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BorrowerOverdueReminder">
+            <summary>
+            借款人逾期提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.NewProjectPush">
+            <summary>
+            新标上线
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.AutoInvest">
+            <summary>
+            自动投标(不要使用这个了,请使用AutoInvestNew)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.MonthsOfBills">
+            <summary>
+            每月账单
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.UserFirstInvest">
+            <summary>
+            新用户完成第一笔投资
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.UserBirthDayWish">
+            <summary>
+            用户生日祝福
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.LongTimeNoLogin">
+            <summary>
+            主动营销类_注册后x天未登陆
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InterestProjectSuccess">
+            <summary>
+            投资成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.PrepaymentRemind">
+            <summary>
+            回款提示（提前回款）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RemindSignIn">
+            <summary>
+            提醒签到
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.VirtualPrizeRemind">
+            <summary>
+            虚拟奖品过期提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.NewProjectPush_18">
+            <summary>
+            私募宝新标上线
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.NewProjectPush_22">
+            <summary>
+            项目宝新标上线
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ZQZRProjectFull">
+            <summary>
+            债权转让满标通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.AutoInvestWe">
+            <summary>
+            we计划投标
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.VipSendOutRemind">
+            <summary>
+            会员发货通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.AutoInvestNew">
+            <summary>
+            自动投标消息模板（一直找不到从哪里发送邮件，屏蔽旧的，使用新的）
+            Add by Keith 20160425
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InviteFriendsInvestSuccess">
+            <summary>
+            邀请好友注册后投资成功
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WeFqbAdvanceRedeem">
+            <summary>
+            We计划分期宝提前赎回
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WeFqbExpireExit">
+            <summary>
+            We计划分期宝到期退出
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorOverdueReminder">
+            <summary>
+            投资人逾期提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorBaddebt30DayReminderVip">
+            <summary>
+            投资项目坏账(特权会员)逾期30天
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorBaddebt30DayReminderNormal">
+            <summary>
+            投资项目坏账(普通会员)逾期30天
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.InvestorBaddebt30DayFinishReminderNormal">
+            <summary>
+            投资项目坏账（普通会员[催收完结]）（逾期30天）
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ModifyUserLoginPassword">
+            <summary>
+            修改用户登录密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.SendUserPrizeNotice">
+            <summary>
+            奖品发送到账号通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.RechargeFail">
+            <summary>
+            充值失败提现
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.LoginAnomaly">
+            <summary>
+            登录异常
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.EmaiRegValidateCode">
+            <summary>
+            邮箱注册用户
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.ProjectFullNote">
+            <summary>
+            项目满标发送通知
+            服务端处理不同的类型
+            分期宝,分期乐满标推送给投资人
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.SendNewpPoductNote">
+            <summary>
+            新产品上线，发送活动通知，复投宝上线通知推送
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WeReFundNotify">
+            <summary>
+            复投宝/we计划退款通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.DqReturnedMoneyReminder">
+            <summary>
+            定期理财回款提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.DqWeInvestCompleted">
+            <summary>
+            定期we计划投资成功提醒
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.FirstChoiceTuanDai">
+            <summary>
+            首选团贷
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category0">
+            <summary>
+            BI运营系统通用系统模板
+            Category=0
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category1">
+            <summary>
+            BI运营系统通用系统模板
+            Category=1
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category2">
+            <summary>
+            BI运营系统通用系统模板
+            Category=2
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category3">
+            <summary>
+            BI运营系统通用系统模板
+            Category=3
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category4">
+            <summary>
+            BI运营系统通用系统模板
+            Category=4
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BISystemCommonTemplate_Category5">
+            <summary>
+            BI运营系统通用系统模板
+            Category=5
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BankCardUnbundlingSucceed">
+            <summary>
+            银行卡解绑申请已审核通过
+            Category=5
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.BankCardUnbundlingFailure">
+            <summary>
+            银行卡解绑申请已审核失败
+            Category=5
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.WePartReFundNotify">
+            <summary>
+            复投宝/we计划部分退款
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.AyWePartReFundNotify">
+            <summary>
+            安盈宝部分退款
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgTemplatesType.AyWeReFundNotify">
+            <summary>
+            安盈宝退款
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.MessageInfoType">
+            <summary>
+            系统通知类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.TuanDaiOtherNotice">
+            <summary>
+            团贷网
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.SystemNotice">
+            <summary>
+            系统消息
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.InvestNotice">
+            <summary>
+            投资通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.BorrowNotice">
+            <summary>
+            借款通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.PrizeNotice">
+            <summary>
+            奖品通知
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MessageInfoType.NewProductOnline">
+            <summary>
+            活动通知
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.MsgSendOption">
+            <summary>
+            发送选项(采用位运算).
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.Sms">
+            <summary>
+            短信.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.Email">
+            <summary>
+            邮件.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.Sys">
+            <summary>
+            系统消息.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.Push">
+            <summary>
+            推送.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.Voice">
+            <summary>
+            语音.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.WeiXin">
+            <summary>
+            微信推送
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.PushAllUser">
+            <summary>
+            推送给所有用户
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.PushAllUnRegisterUser">
+            <summary>
+            推送给所有未注册APP用户
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.MsgSendOption.PushWxAllUnRegisterUser">
+            <summary>
+            推送给所有未注册微信用户
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.SendChannelType">
+            <summary>
+            短信发送的渠道
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.SendChannelType.Normal">
+            <summary>
+            正常渠道
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.SendChannelType.Marketing">
+            <summary>
+            营销渠道
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.SmsRequestType">
+            <summary>
+            消息设置方式
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.SmsRequestType.Thrift">
+            <summary>
+            走Thrift
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.SmsRequestType.Api">
+            <summary>
+            走API
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.SmsRequestType.Mq">
+            <summary>
+            走MQ
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.VerifyCodeSendType">
+            <summary>
+            验证码发送的方式枚举
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeSendType.Sms">
+            <summary>
+            通过短信发送
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeSendType.Voice">
+            <summary>
+            通过语音发送
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeSendType.Email">
+            <summary>
+            通过邮件
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.VerifyCodeStatus">
+            <summary>
+            验证码的状态
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeStatus.Unused">
+            <summary>
+            未使用
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeStatus.Used">
+            <summary>
+            已使用
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.VerifyCodeType">
+            <summary>
+            获取验证码的类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType.EmailCode">
+            <summary>
+            邮箱验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType.PhoneCode">
+            <summary>
+            手机验证码
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.Sms.VerifyCodeType2">
+            <summary>
+            获取验证码的触发类型
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ForgotPassword">
+            <summary>
+            找回密码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ValidEmail">
+            <summary>
+            邮箱验证
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.RegPhoneValid">
+            <summary>
+            手机注册
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.RegEmailValid">
+            <summary>
+            邮箱注册
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ValidPhone">
+            <summary>
+            手机验证,Value=5
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.DrawMoney">
+            <summary>
+            提现短信接收,Value=8
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.PersonalCenterTransfer">
+            <summary>
+            个人中心转账
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ModifyBankAccount">
+             <summary>
+            修改银行账号,Value=10
+             </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ModifyInvestorAwardAndProjectStatus">
+            <summary>
+            修改投资人奖励与项目状态,Value=11
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.ForgotTradePassword">
+            <summary>
+            找回交易密码,Value=12
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.SafeQuestion">
+            <summary>
+            重置安全问题手机验证码.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.TradePassword">
+            <summary>
+            重置交易密码手机验证码.
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.AppDrawMoney">
+            <summary>
+            APP提现手机验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.AppRechargeMoney">
+            <summary>
+            APP充值手机验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.AppUpdateBankCode">
+            <summary>
+            APP更换银行卡手机验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.AppAddBankCode">
+            <summary>
+            APP添加银行卡手机验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.PcAssignmentClaimsCode">
+            <summary>
+            PC申请债权转让手机或语音验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.PcStopTransferCode">
+            <summary>
+            PC终止债权转让手机或语音验证码
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.Sms.VerifyCodeType2.APPZHApplyLoan">
+            <summary>
+            APP正合普惠借款申请
+            </summary>
+        </member>
+        <member name="T:TuanDai.Enums.PlatformSource">
+            <summary>
+            操作平台来源
+            (各种操作带上这个类型方便找问题,统计操作)
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.None">
+            <summary>
+            未知平台
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.Pc">
+            <summary>
+            PC端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.WeiXin">
+            <summary>
+            触屏版
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.AppIos">
+            <summary>
+            AppIos端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.AppAndroid">
+            <summary>
+            APPAndroid端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.Api">
+            <summary>
+            API端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.OhterApi">
+            <summary>
+            OtherAPI
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.Hd">
+            <summary>
+            活动站点
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.TdClient">
+            <summary>
+            定时客户端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.TdManager">
+            <summary>
+            团贷网后台
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.AppServer">
+            <summary>
+            App服务端
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.DqTdApi">
+             <summary>
+            团贷网DQAPI 
+             </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.DqApi">
+            <summary>
+            Dq数据的API
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.DqWeb">
+            <summary>
+            定期站点
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.DqManagerWeb">
+            <summary>
+            定期后台
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.SmsTask">
+            <summary>
+            短信定时任务
+            </summary>
+        </member>
+        <member name="F:TuanDai.Enums.PlatformSource.BISystem">
+            <summary>
+            BI运营系统
+            </summary>
+        </member>
+    </members>
+</doc>

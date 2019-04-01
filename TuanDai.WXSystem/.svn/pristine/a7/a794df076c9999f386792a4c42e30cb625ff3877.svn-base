@@ -1,0 +1,310 @@
+﻿using BusinessDll;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool; 
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.usercontrol
+{
+    public partial class NewBorrowerUserPages : System.Web.UI.UserControl
+    {
+        protected BorrowUserInfo borrowerUserInfo = null;
+        public Guid ProjectId { get; set; } 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.ProjectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                GetBorrowUserInfo();
+            }
+        }
+
+        protected void GetBorrowUserInfo()
+        {
+            if (ProjectId!=null && ProjectId!=Guid.Empty)
+            {
+
+                string sql = @"select b.Id as UserId, b.Birthday, b.TelNo, b.sex, b.AddDate, b.NickName, b.BankCity, b.CreditRatingName,b.UserTypeId,b.RealName, a.Type as ProjectType from Project a
+                               inner join UserBasicInfo b with(nolock)  on b.Id=a.UserId
+                               where a.Id=@projectId ";
+                Dapper.DynamicParameters dyParams = new Dapper.DynamicParameters();
+                dyParams.Add("@projectId", ProjectId);
+                borrowerUserInfo = PublicConn.QuerySingle<BorrowUserInfo>(sql, ref dyParams);
+                if (borrowerUserInfo == null)
+                    borrowerUserInfo = new BorrowUserInfo();
+
+
+              
+                SimpleUserExt userBasicInfo_Ext = null;
+                dyParams = new Dapper.DynamicParameters();
+                dyParams.Add("@userid", borrowerUserInfo.UserId); 
+                sql = @"select Marriage,Graduation,IsHasChildren, IsHaveHouse,IsHaveCar,Address from t_UserBasicInfo_Ext with(nolock) where UserId=@userid";
+                userBasicInfo_Ext = PublicConn.QuerySingle<SimpleUserExt>(sql, ref dyParams);
+
+                if (userBasicInfo_Ext != null)
+                {
+                    borrowerUserInfo.Marriage = userBasicInfo_Ext.Marriage;
+                    borrowerUserInfo.Graduation = userBasicInfo_Ext.Graduation; 
+                    if (userBasicInfo_Ext.IsHasChildren == true)
+                        borrowerUserInfo.IsHasChildren = "有";
+                    else
+                        borrowerUserInfo.IsHasChildren = "否"; 
+                    borrowerUserInfo.IsHasHouse = userBasicInfo_Ext.IsHaveHouse ? "有" : "无";
+                    if (borrowerUserInfo.BankCity.IsEmpty())
+                    {
+                        borrowerUserInfo.BankCity = StringHandler.MaskStarPre3(userBasicInfo_Ext.Address);
+                    }
+                }
+                //是否项目集标的   
+                if (borrowerUserInfo.ProjectType.ToString().IsIn("24", "25", "27", "28", "29", "31", "33"))
+                {
+                    Fq_ItemSetsProjectInfo fq_ItemSetsProjectInfo = new fq_ItemSetsProjectBLL().GetFqItemSetsProjectInfoByPorjectId(ProjectId);
+                    if (fq_ItemSetsProjectInfo != null)
+                    {
+                        borrowerUserInfo.BankCity = StringHandler.MaskStartPre(Tool.WebFormHandler.CutString(fq_ItemSetsProjectInfo.Address, 6), 3);
+                        borrowerUserInfo.Industry = StringHandler.MaskStartPre(fq_ItemSetsProjectInfo.CompanyIndustryTypeId, 6);
+                        borrowerUserInfo.Salary = fq_ItemSetsProjectInfo.MonthlyIncome + "元";
+                        borrowerUserInfo.IsHasHouse = fq_ItemSetsProjectInfo.IsHaveHouse ? "有" : "无";
+                        borrowerUserInfo.Graduation = fq_ItemSetsProjectInfo.Education;
+                        borrowerUserInfo.Marriage = fq_ItemSetsProjectInfo.MarrayStatus ? "已婚" : "未婚";
+                    }
+                }
+                if (borrowerUserInfo.ProjectType >= 39)
+                {
+                    sql = "select ext from dbo.Project_Common where ProjectId=@ProjectId";
+                    dyParams = new Dapper.DynamicParameters();
+                    dyParams.Add("@ProjectId", ProjectId);
+                    string ext = PublicConn.QuerySingle<string>(sql, ref dyParams);
+                    if (ext.IsNotEmpty())
+                    {
+                        var borrowExtInfo = JsonConvert.DeserializeObject<BorrowExtInfo>(ext);
+                        if (borrowExtInfo != null)
+                        {
+                            borrowerUserInfo.Marriage = borrowExtInfo.marriage;
+                            borrowerUserInfo.Graduation = borrowExtInfo.education;
+                            borrowerUserInfo.IsHasHouse = borrowExtInfo.housingSituation.IsEmpty() ? "无" : borrowExtInfo.housingSituation;
+                            borrowerUserInfo.BankCity = borrowExtInfo.city;
+                        }
+                    }
+                }
+
+                //查询借款人合规表信息
+                string strSQL = "select * from BorrowerComplianceInfo with(nolock) where ProjectId=@projectId";
+                dyParams = new Dapper.DynamicParameters();
+                dyParams.Add("@projectId", ProjectId);
+                PageBorrowerComplianceInfo compInfo = PublicConn.QuerySingle<PageBorrowerComplianceInfo>(strSQL, ref dyParams);
+                if (compInfo != null)
+                {
+                    borrowerUserInfo.IsShowExt = "1";
+                    borrowerUserInfo.Industry = compInfo.Trade;
+                    if (compInfo.CompanyName.IsNotEmpty())
+                        borrowerUserInfo.RealName = StringHandler.MaskStartPre(compInfo.CompanyName, 1);
+                    borrowerUserInfo.Salary = compInfo.IncomePerMonth.ToText() == "" ? "无" : compInfo.IncomePerMonth;
+                    borrowerUserInfo.CurrentDebts = compInfo.CurrentDebt.IsEmpty() ? "无" : compInfo.CurrentDebt;
+                    borrowerUserInfo.OtherBorrow = compInfo.OtherPlatformsBorrow.IsEmpty() ? "无" : compInfo.OverdueSituation;
+                    borrowerUserInfo.CreditOverDue = compInfo.OverdueSituation.IsEmpty() ? "无" : compInfo.OtherPlatformsBorrow;
+                    borrowerUserInfo.RegAmount = compInfo.RegisteredCapital.IsEmpty() ? "无" : compInfo.RegisteredCapital;
+                    borrowerUserInfo.RegAddress = compInfo.RegisteredAddress.IsEmpty() ? "无" : StringHandler.MaskStartPre(compInfo.RegisteredAddress, 6);
+                    borrowerUserInfo.RegDate = compInfo.EstablishedTime.ToString("yyyy年MM月dd日");
+                    borrowerUserInfo.LegalName = compInfo.LegalPerson.IsEmpty() ? "无" : StringHandler.MaskStartPre(compInfo.LegalPerson, 1);
+                }
+            }
+            else {
+                borrowerUserInfo = new BorrowUserInfo();
+            }
+        }
+
+
+        #region 内部Model
+        public class BorrowUserInfo
+        {
+            public int ProjectType { get; set; }
+            public Guid UserId { get; set; }
+            public DateTime? Birthday { get; set; }
+            public string TelNo { get; set; }
+            public int? sex { get; set; }
+            public DateTime AddDate { get; set; }
+            public string NickName { get; set; }
+            public string BankCity { get; set; }
+            public string CreditRatingName { get; set; }
+            public string RealName { get; set; }
+            public string Age
+            {
+                get
+                {
+                    if (!Birthday.HasValue)
+                    {
+                        return "保密";
+                    }
+
+                    else
+                    {
+                        int tempAge = DateTime.Today.Year - Birthday.Value.Year;
+                        if (tempAge <= 0)
+                            tempAge = 1;
+
+                        if (UserTypeId.HasValue && UserTypeId.Value != 1)
+                            return tempAge.ToString();
+
+                        if (tempAge < 18 || tempAge > 60)
+                            return "保密";
+                        return tempAge.ToString();
+                    }
+                }
+            }
+
+            public string Sex
+            {
+                get
+                {
+                    if (Age == "保密")
+                        return "保密";
+                    return sex.HasValue ? (sex == 1 ? "男" : "女") : "保密";
+                }
+            }
+
+            public string AddDateStr
+            {
+                get { return Tool.SafeConvert.ToDateTime(AddDate).ToString("yyyy-MM-dd"); }
+            }
+            /// <summary>
+            /// 是否显示用户扩展信息
+            /// </summary>
+            public string IsShowExt { get; set; }
+
+            public int? UserTypeId { get; set; }
+            /// <summary>
+            /// 最高学历描述
+            /// </summary>
+            public string Graduation { get; set; }
+            /// <summary>
+            /// 婚姻状况描述
+            /// </summary>
+            public string Marriage { get; set; }
+            /// <summary>
+            /// 是否有小孩描述
+            /// </summary>
+            public string IsHasChildren { get; set; }
+            /// <summary>
+            /// 借款人所属行业
+            /// </summary>
+            public string Industry { get; set; }
+            /// <summary>
+            /// 月均收入
+            /// </summary>
+            public string Salary { get; set; }
+            /// <summary>
+            /// 住房情况:有无
+            /// </summary>
+            public string IsHasHouse { get; set; }
+            /// <summary>
+            /// 当前负债
+            /// </summary>
+            public string CurrentDebts { get; set; }
+            /// <summary>
+            /// 在其他网络借贷平台借款情况
+            /// </summary>
+            public string OtherBorrow { get; set; }
+            /// <summary>
+            /// 近6个月征信报告中的逾期情况
+            /// </summary>
+            public string CreditOverDue { get; set; }
+            /// <summary>
+            /// 注册资本
+            /// </summary>
+            public string RegAmount { get; set; }
+            /// <summary>
+            /// 注册地址
+            /// </summary>
+            public string RegAddress { get; set; }
+            /// <summary>
+            /// 企业成立日期
+            /// </summary>
+            public string RegDate { get; set; }
+            /// <summary>
+            /// 法定代表人
+            /// </summary>
+            public string LegalName { get; set; }
+        }
+        public class PageBorrowerComplianceInfo
+        {
+          
+            public Guid ProjectId { get; set; }
+            //主体性质:1、自然人 2、法人/组织
+            public int MainNature { get; set; }
+            //所属行业
+            public string Trade { get; set; }
+            //月均收入
+            public string IncomePerMonth { get; set; }
+            /// <summary>
+            /// 当前负债
+            /// </summary>
+            public string CurrentDebt { get; set; }
+            /// <summary>
+            /// 其它平台借款情况
+            /// </summary>
+            public string OtherPlatformsBorrow { get; set; }
+            /// <summary>
+            /// 逾期情况
+            /// </summary>
+            public string OverdueSituation { get; set; }
+            /// <summary>
+            /// 企业全称或简称
+            /// </summary>
+            public string CompanyName { get; set; }
+            /// <summary>
+            /// 注册资本
+            /// </summary>
+            public string RegisteredCapital { get; set; }
+            /// <summary>
+            /// 注册地址
+            /// </summary>
+            public string RegisteredAddress { get; set; }
+            /// <summary>
+            /// 成立时间
+            /// </summary>
+            public DateTime EstablishedTime { get; set; }
+            /// <summary>
+            /// 法定代表人
+            /// </summary>
+            public string LegalPerson { get; set; }
+        }
+        public class SimpleUserExt
+        {
+            /// <summary>
+            /// 最高学历描述
+            /// </summary>
+            public string Graduation { get; set; }
+            /// <summary>
+            /// 婚姻状况描述
+            /// </summary>
+            public string Marriage { get; set; }
+            /// <summary>
+            /// 是否有小孩描述
+            /// </summary>
+            public bool IsHasChildren { get; set; }
+            public bool IsHaveHouse { get; set; }
+            public bool IsHaveCar { get; set; }
+            public string Address { get; set; }
+        }
+        public class BorrowExtInfo
+        {
+            public string name { get; set; }
+            public string city { get; set; }
+            public string mobile { get; set; }
+            public string age { get; set; }
+            public string housingSituation { get; set; }
+            public string sex { get; set; }
+            public string education { get; set; }
+            public string marriage { get; set; }
+        }
+        #endregion
+
+    }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>昨日收益</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160926" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160926" />
+	</head>
+	<body class="bg-f2f2f0">
+		<div class="yesterdayIncome pb30 bb-e6e6e6">
+			<p class="f17px c-a55200 text-center">昨日收益<i class="ico_doubt bgSize" id="incomeDetail"></i></p>
+			<div class="amo text-center fb c-f96f00">28.85</div>
+			<div class="yi_tit c-999999 f13px text-center pos-r">
+				<span class="yi_tit_l"></span>
+				<span class="yi_tit_r"></span>
+				如何赚取更多收益
+			</div>
+			<div class="pr15 mt25">
+				<div class="clearfix">
+					<div class="pl15 lf w50p">
+						<div class="yi_nav">
+							<div class="ico_nav ico_nav1"></div>
+							<p class="f14px">邀请有礼</p>
+							<p class="c-ababab line-h20">邀请有礼</p>
+						</div>
+					</div>
+					<div class="pl15 lf w50p">
+						<div class="yi_nav">
+							<div class="ico_nav ico_nav2"></div>
+							<p class="f14px">热门活动</p>
+							<p class="c-ababab line-h20">更多惊喜留给你</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mt10 pl15 pr15 pb10 bg-fff bt-e6e6e6">
+			<div class="champion clearfix pt10 pb12">
+				<div class="champion_img lf">
+					<img src="/imgs/account/yesterdayIncome/champion_temp.png"/>
+					<div class="champion_bgImg bgSize"></div>
+				</div>
+				<div class="champion_txt lf pt6">
+					<p class="f13px">来自广东省的<span class="f13px c-fa7d00">哇*****</span></p>
+					<p class="f13px mt3">待收收益<span class="f13px c-fa7d00">188.60</span>元</p>
+				</div>
+			</div>
+			<p class="c-999999">该用户青睐的理财项目</p>
+			<div class="yi_invest">
+				<p>We计划复投宝</p>
+				<div class="webkit-box yi_row">
+					<div class="f15px c-f77b00"><span class="f22px c-f77b00">15.</span>00%</div>
+					<div class="f15px"><span class="f18px">18</span>个月</div>
+					<a class="f15px c-ffffff text-center block">抢购</a>
+				</div>
+			</div>
+		</div>
+		
+		<!--弹窗-->
+		<div class="alert webkit-box box-center hide" id="alert">
+			<div class="alert-select pl25 pr15 yi_alert pos-r">
+				<div class="yi_alertTit c-999999 text-center f15px">昨日收益怎么计算？</div>
+				<div class="yi_alertTxt pt15 pl10 pr20">
+					<p class="f17px text-justify pt11 c-333333">1.昨日收益=所投每个标的待收益/投资期限（日为单位）+红包+合伙人+返现等（除充值、回款外的所有收益）</p>
+					<p class="f17px text-justify pt11 c-333333">2.该收益数据仅供参考</p>
+				</div>
+				<div class="yi_close bgSize"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script src="/scripts/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			//禁止弹窗滑动
+			$(".alert").each(function(i,item){
+				$(item).on('touchmove',function(e){
+					e.preventDefault();
+				})
+			})
+			
+			//动画显示弹框
+			function alertShow(eleId,alertId){
+				var $alert = $(alertId);
+				$(eleId).click(function(){
+					$alert.removeClass('hide').removeClass('aniFadeOut').addClass('aniFadeIn');
+					$alert.find('.yi_alert').removeClass('aniHide').addClass('aniShow');
+				})
+			}
+			
+			//动画隐藏弹框
+			function alertHide(alertObj){
+				alertObj.removeClass('aniFadeIn').addClass('aniFadeOut');
+				alertObj.find('.yi_alert').removeClass('aniShow').addClass('aniHide');
+				setTimeout(function(){
+					alertObj.addClass('hide');
+				},400)
+			}
+			
+			alertShow('#incomeDetail','#alert');
+			
+			$('.yi_close').click(function(){
+				alertHide($(this).parent().parent());
+			})
+		</script>
+	</body>
+</html>

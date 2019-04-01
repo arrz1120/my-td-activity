@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>问题详情</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=2016071" />
+		<link rel="stylesheet" type="text/css" href="/css/helpCenter.css?v=2016071" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pl15 bb-e6e6e6 bg-fff">
+			<div class="ans_tit bb-e6e6e6">什么时候可以提前还款？</div>
+			<div class="ans_con">
+				借款期限1个月以内(含一个月)的借款，需持有14天以上才可以提前还款；借款期限1个月以上的借款，可随时提前还款。
+			</div>
+		</div>
+		<div class="ans_select clearfix bg-fff">
+			<div class="w50p lf br-e6e6e6 pt10 pb10 text-center f15px hasHelp"><i></i>有帮助</div>
+			<div class="w50p lf br-e6e6e6 pt10 pb10 text-center f15px notHelp"><i></i>没帮助</div>
+		</div>
+		<div class="pt8 pb8 c-ababab text-center">客服电话：400-641-0888</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+		var helpSelect = $(".ans_select").find('div');
+		helpSelect.click(function(){
+			var $this = $(this);
+			if($this.hasClass('act')){
+				helpSelect.removeClass('act');
+				$this.removeClass('act');
+			}else{
+				helpSelect.removeClass('act');
+				$this.addClass('act');
+			}
+		})
+	</script>
+
+</html>

@@ -1,0 +1,895 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel.Channels;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.DQSystemAPI.Client;
+using TuanDai.DQSystemAPI.Contract;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;  
+using System.Data.SqlClient;
+using Dapper;
+using TuanDai.WXSystem.Core;
+using TuanDai.RedisApi.Client; 
+
+namespace TuanDai.WXApiWeb
+{
+    /// <summary>
+    /// 微信平台首页
+    /// Allen 2015-05-19
+    /// </summary>
+    public partial class Index : BasePage
+    {
+
+        protected decimal TotalAmount { get; set; }//累计融资
+        protected decimal UserInterestAmount { get; set; }
+        protected decimal UserEarnAmount { get; set; }//用户收益 
+        protected IList<ProjectAdImageInfo> BannerList;   //首页头部广告图
+        protected WeProductDetailInfo weInfo;
+        protected ShowModel showModel;
+        protected bool showNewHand = false; 
+        protected ProjectBLL projectBll = null; 
+        protected List<NewsInfo> noticelist; //公告     
+        protected bool Is360Weishi = false; //是否在360卫士推广进来的 
+         
+        protected string limitInvestStr = "";//新手标限投提示
+        protected int limitInvestNum = 3;//新手标限投次数
+        protected bool IsNewHandNewRule = false; //是否走新手标最新规则
+        protected WebSettingInfo curSellSet; //1218当天配置
+        protected WebSettingInfo preSellSet; //1218预售项目 
+        protected WebSettingInfo sellSet518;//518活动加息
+        protected List<WeProductDetailInfo> RedisWeList; //缓存We计划所有类型最新的数据
+        protected bool IsDay1218 = false;//是否在1218活动期间内
+        protected bool IsDayYR = false; //是否在1218预热期
+        protected string IsPreView1218 = "0";//可预览1218配置 
+        protected bool IsShowZhiBo = false;//是否显示直播弹框
+
+        protected FundAccountInfoInfo FundAccountInfo = null;
+        protected WXFundStatistModel DQFundAccountInfo = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                Response.Redirect(GlobalUtils.WebURL);
+                //this.InitData();
+                //if (DateTime.Now >= DateTime.Parse("2016-12-18") && DateTime.Now < DateTime.Parse("2016-12-19"))
+                //{
+                //    IsShowZhiBo = true;
+                //}
+            }
+        }
+
+        #region 获取数据
+        private void InitData()
+        {
+            WebSettingBLL setbll = new WebSettingBLL();
+            preSellSet = setbll.GetWebSettingInfo("6F9D3B77-C15C-4A5A-B883-21004E10BE29");
+            curSellSet = setbll.GetWebSettingInfo("B11558CB-3C6B-4DAD-9D2F-D6D2DE13CCF7");
+            sellSet518 = setbll.GetWebSettingInfo("5E02F517-E6FC-4451-8232-378377837EC1");
+            IsPreView1218 = System.Configuration.ConfigurationManager.AppSettings["IsPreView1218"];
+            if (IsPreView1218 == "1")
+            {
+                preSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+            else if (IsPreView1218 == "2")
+            {
+                preSellSet.Param1Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd 23:59:59");
+
+                curSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                curSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+
+            if (DateTime.Parse(curSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(curSellSet.Param2Value))
+            {
+                IsDay1218 = true;
+            }
+            if (DateTime.Parse(preSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(preSellSet.Param2Value))
+            {
+                IsDayYR = true;
+            }
+            
+            projectBll = new ProjectBLL();
+            GetStatistics();
+            GetBannerList();
+
+            if (WebUserAuth.IsAuthenticated)
+            {
+                //获取用户收益
+                //UserBLL userbll = new UserBLL();
+                //WXProfitStatistics profitModel = userbll.WXGetProfitStatistics(WebUserAuth.UserId.Value);
+                //UserEarnAmount = 0;
+                //if (profitModel != null)
+                //    UserEarnAmount = profitModel.recAmount;
+                getFundAccountInfoInfo(WebUserAuth.UserId.Value);
+            }  
+            GetNoticelist();
+            GetWeInfo(); 
+            string tdFrom = Tool.CookieHelper.GetCookie("tdfrom");
+            if (tdFrom.ToText().Trim().ToLower() == "360sjwsyyy-m1605-01" || tdFrom.ToText().Trim().ToLower() == "360sjwsyyy-m1605-xldy")
+            {
+                Is360Weishi = true;
+            }
+        }
+
+        private void getFundAccountInfoInfo(Guid userId)
+        {
+            var commandText = @"SELECT DueComeInterest,NetEarningsInterest from dbo.FundAccountInfo with(nolock) WHERE UserId =@UserId"; ;
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@UserId", userId);
+            FundAccountInfo = PublicConn.QuerySingle<FundAccountInfoInfo>(commandText, ref para);
+            if(FundAccountInfo == null)
+                FundAccountInfo = new FundAccountInfoInfo();
+
+            string strSQL = "select DueComeInterest,NetEarningsInterest from We_FundAccountInfo with(nolock) where UserId=@UserId";
+
+            var we_FundAccountInfo = PublicConn.QuerySingle<We_FundAccountInfo>(strSQL, ref para);
+            if (we_FundAccountInfo == null)
+                we_FundAccountInfo = new We_FundAccountInfo();
+
+            FundAccountInfo.DueComeInterest = (FundAccountInfo.DueComeInterest ?? 0) + (we_FundAccountInfo.DueComeInterest ?? 0);
+            FundAccountInfo.NetEarningsInterest += (we_FundAccountInfo.NetEarningsInterest ?? 0);
+            DQFundAccountInfo = WXFundClient.GetFundStatistData(userId);
+            if(DQFundAccountInfo == null)
+                DQFundAccountInfo = new WXFundStatistModel();
+
+            UserEarnAmount = (FundAccountInfo.DueComeInterest ?? 0) + (FundAccountInfo.NetEarningsInterest ?? 0) +
+                             DQFundAccountInfo.DueComeInterest + DQFundAccountInfo.TotaltEarnInterest;
+        }
+
+        //获取亲新团贷网公告
+        private void GetNoticelist() {
+            NewsBLL bll = new NewsBLL();
+            int recordCount = 0;
+            noticelist = bll.GetNewsList(33, 1, 1, out recordCount);
+        }
+
+        //获取头部广告图
+        private void GetBannerList() {
+            int type = (int)ConstString.AdImageType.WEBImage;
+            int count = 8; 
+            BannerList = new AdImageBLL().GetTuanDaiHot(type, count);
+        } 
+        /// <summary>
+        /// 获取统计数据
+        /// </summary>
+        private void GetStatistics()
+        {
+            try
+            {
+                WebSiteDataInfo websitedatemodel = new WebSiteDataBLL().GetWebSiteData();
+                if (websitedatemodel != null)
+                {
+                    this.TotalAmount = websitedatemodel.TotalAmount ?? 0;
+                    this.UserInterestAmount = websitedatemodel.TotalInterest.HasValue == false ? 0 : websitedatemodel.TotalInterest.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        protected void GetWeInfo()
+        {
+            if (!WebUserAuth.IsAuthenticated || (WebUserAuth.IsAuthenticated && IsNewHand(WebUserAuth.UserId.Value)))
+            {
+                showModel = GetNewHandModel();
+                if (showModel != null)
+                {
+                    GetLimitInvestMoney();
+                    showNewHand = true;
+                }
+                if (showModel == null)
+                    showModel = GetWeModel();
+                if (showModel == null)
+                    showModel = GetModel();
+            }
+            else
+            {
+                showModel = GetWeModel();
+                if (showModel == null)
+                    showModel = GetModel();
+            } 
+        }
+        //获取新手标限制金额
+        private void GetLimitInvestMoney()
+        {
+
+            WebSettingInfo setInfo = new WebSettingBLL().GetWebSettingInfo("28ED2C47-C151-47AA-9D58-63277C0483C1");
+           decimal  limitInvest = decimal.Parse(setInfo.Param1Value); 
+            limitInvestNum = setInfo.Param4Value.ToInt(3);
+            IsNewHandNewRule = setInfo.Param5Value == "1";
+            if (limitInvest >= 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest / 10000)) + "万";
+            }
+            else if (limitInvest >= 1000 && limitInvest < 10000)
+            {
+                limitInvestStr = ToolStatus.DeleteZero(Math.Floor(limitInvest / 1000)) + "千";
+            }
+            else
+            {
+                limitInvestStr = Math.Floor(limitInvest).ToString();
+            }
+        }
+        /// <summary>
+        /// 是否新手
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        private bool IsNewHand(Guid userId)
+        {
+            //判断是否投资新手首次 
+            if (userId != Guid.Empty)
+            {
+                UserBasicInfoInfo userBasicInfo = new UserBLL().GetUserBasicInfoModelById(userId);
+                WebSettingInfo setInfo = new WebSettingBLL().GetWebSettingInfo("20B98405-633B-4559-95C9-C0E96DD3BD2C");
+                int limitRegDay = setInfo.Param1Value.ToInt(30);
+
+                if (userBasicInfo.AddDate.Value.Date.AddDays(limitRegDay) < DateTime.Today)
+                {
+                    return false;
+                }
+                else
+                {
+                    WebSettingInfo NewHandSetInfo = new WebSettingBLL().GetWebSettingInfo("28ED2C47-C151-47AA-9D58-63277C0483C1");
+                    //取新手标最大限额
+                    int NewHandMax = Tool.SafeConvert.ToInt32(NewHandSetInfo.Param1Value);
+                    int NewHandLimitNum = Tool.SafeConvert.ToInt32(NewHandSetInfo.Param4Value);
+
+                    SubscribeBLL _SubscribeBll = new SubscribeBLL();
+                    int BuyNewHandNum = _SubscribeBll.GetUserBuyWeNewHandCount(userId);
+                    if (BuyNewHandNum >= NewHandLimitNum)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        decimal buyedAmount = _SubscribeBll.GetUserBuyWeNewHandAmount(userId);
+                        if (buyedAmount >= Convert.ToDecimal(NewHandMax))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        /// 新手标
+        /// </summary>
+        /// <returns></returns>
+        private ShowModel GetNewHandModel()
+        {
+            ShowModel model = null;
+            if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+            {
+                if (RedisWeList == null)
+                {
+                    List<string> typeWordArrary = new List<string>() { "NEW02", "NEW03", "C", "B", "A", "G", "36", "24", "18" };
+                    RedisWeList = new WeProductBLL().GetWePlanListByRedis(typeWordArrary, TdConfig.ApplicationName);  
+                }
+                if (RedisWeList != null && RedisWeList.Any())
+                {
+                    WeProductDetailInfo wemodel = RedisWeList.Where(p => p.IsNewHand && p.IsFTB && p.StatusId == 1 && p.TotalQty> p.OrderQty).OrderByDescending(p => p.DeadType).ThenBy(p => p.Deadline).FirstOrDefault();
+                    if (wemodel != null)
+                    {
+                        model = CopyAttr(wemodel);
+                        model.OrderCount = GetWeOrderCount(wemodel.ProductId);
+                    }
+                }
+            }
+            if (model == null)
+            {
+                model = GetNewHandModel_DB();
+            }
+            if (model != null)
+            {
+                model.ProductName = "新手专享";
+                model.DetailUrl = "/pages/invest/WE/WeFtb_detail.aspx?id=" + model.Id + "&typeId=" + model.ProductTypeId + "&IsPreSell=0";
+            }
+            return model;
+        }
+        private ShowModel GetNewHandModel_DB() {
+            var para = new Dapper.DynamicParameters();
+            string sql = string.Empty;
+            sql = @"SELECT TOP 1 wp.Id, wp.ProductName,wp.IsWeFQB,0 as IsFTB, wp.YearRate,wp.Deadline,wp.PlanAmount AS Amount,
+                        wpd.RealOrderQty AS CastedShares,LowerUnit,wpd.TotalQty AS TotalShares,wpd.OrderCount,isnull(wp.TuandaiRedRate,0) as TuandaiRedRate,
+                        isnull(wp.DeadType,1) as DeadType,isnull(wp.CashLimitAmount,0) as CashLimitAmount,isnull(wp.TuandaiCashRate,0) as TuandaiCashRate
+                    FROM dbo.We_Product wp WITH(NOLOCK) 
+                    INNER JOIN dbo.We_ProductDetail wpd WITH(NOLOCK) ON wp.Id = wpd.ProductId 
+                    INNER JOIN dbo.We_ProductType wpt WITH(NOLOCK) ON wp.ProductTypeId = wpt.Id 
+                    WHERE wp.StartDate<=getdate() and  wp.StatusId=1 and wp.IsFTB =1 AND wp.IsNewHand =1
+                     ORDER BY  wp.StatusId, wp.DeadType desc, wp.Deadline ";
+            ShowModel model = PublicConn.QuerySingle<ShowModel>(sql, ref para); 
+            return model;
+        }
+        /// <summary>
+        /// We计划已购人数
+        /// </summary>
+        /// <param name="productid"></param>
+        /// <returns></returns>
+        private int GetWeOrderCount(Guid productid)
+        {
+            string sql = "select isnull(OrderCount,0) from dbo.We_ProductDetail with(nolock) where ProductId=@ProductId";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@ProductId",productid);
+
+            return PublicConn.QuerySingle<int>(sql, ref para);
+        }
+        /// <summary>
+        /// We计划
+        /// </summary>
+        /// <returns></returns>
+        private ShowModel GetWeModel()
+        {
+            ShowModel model = null;
+            #region 优先读取定期
+            List<TuanDai.DQSystemAPI.Contract.DqWeProductModel> dqweList = DQSystemAPI.Client.DqWeProductClient.GetWeProductList(); 
+            if (dqweList != null)
+            {
+                TuanDai.DQSystemAPI.Contract.DqWeProductModel dqModel = dqweList.OrderByDescending(p => p.IsPreSell).ThenByDescending(p => p.Deadline).FirstOrDefault();
+                if (dqModel != null)
+                {
+                    model = new ShowModel();
+                    model.IsWeAYB = true;
+                    model.ProductName = dqModel.ProductName;
+                    model.YearRate = dqModel.YearRate ?? 0;
+                    model.Deadline = dqModel.Deadline ?? 0;
+                    model.DeadType = 1;
+                    model.Amount = dqModel.PlanAmount ?? 0;
+                    model.CastedShares = dqModel.OrderQty ?? 0;
+                    model.LowerUnit = dqModel.UnitAmount ?? 0;
+                    model.TotalShares = dqModel.TotalQty ?? 0;
+                    model.OrderCount = dqModel.OrderCount ?? 0;
+                    model.Id = dqModel.ProductId;
+                    model.IsPreSell = dqModel.IsPreSell;
+                    model.PreSellInvestDate = dqModel.PreSellInvestDate;
+                    model.ProductTypeId = dqModel.ProductTypeId;
+                    model.StartDate = dqModel.StartDate.Value;
+                    model.TuandaiRedRate = dqModel.TuandaiRedRate??0;
+                    model.TuandaiCashRate = dqModel.TuandaiCashRate;
+                    model.CashLimitAmount=dqModel.CashLimitAmount??0;
+                }
+            }
+            #endregion
+
+            if (model == null)
+            {
+                if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+                {
+                    if (RedisWeList == null)
+                    {
+                        List<string> typeWordArrary = new List<string>() { "NEW02", "NEW03", "C", "B", "A", "G", "36", "24", "18" };
+                        RedisWeList = new WeProductBLL().GetWePlanListByRedis(typeWordArrary, TdConfig.ApplicationName);
+                        //RedisWeList = FilterPreSellWe(RedisWeList);
+                    }
+                    if (RedisWeList != null && RedisWeList.Any())
+                    {
+                        WeProductDetailInfo wemodel = RedisWeList.Where(p => p.StatusId == 1 && p.IsNewHand == false).OrderByDescending(p => p.IsPreSell).ThenByDescending(p => p.Deadline).FirstOrDefault();
+                        if (wemodel != null)
+                        {
+                            model = CopyAttr(wemodel);
+                            model.OrderCount = GetWeOrderCount(wemodel.ProductId);
+                        }
+                    }
+                }
+                if (model == null)
+                {
+                    model = GetWeModel_DB();
+                }
+            }
+
+            if (model != null)
+            {
+                model.ProductName = model.ProductName.GetCharLeft("(");
+
+                if (model.IsWeFQB)
+                    model.DetailUrl = "/pages/invest/WE/WeFqb_detail.aspx?id=" + model.Id;
+                else if (model.IsFTB)
+                    model.DetailUrl = "/pages/invest/WE/WeFtb_detail.aspx?id=" + model.Id;
+                else if (model.IsWeAYB)
+                    model.DetailUrl = GlobalUtils.DQWebURL + "/pages/invest/WE/WeAYB_Detail.aspx?id=" + model.Id;
+                else
+                    model.DetailUrl = "/pages/invest/WE/WE_detail.aspx?id=" + model.Id;
+
+                model.DetailUrl += "&typeId=" + model.ProductTypeId + "&IsPreSell=" + (model.IsPreSell ? 1 : 0).ToString();
+            }
+            return model;
+        }
+
+        private ShowModel GetWeModel_DB()
+        {
+            var para = new Dapper.DynamicParameters();
+            string sql = string.Empty;
+
+            string strOrderBy = "ORDER BY isnull(wp.IsPreSell,0), wp.Deadline DESC";
+            if (DateTime.Parse(preSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(preSellSet.Param2Value))
+            {
+                strOrderBy = "ORDER BY isnull(wp.IsPreSell,0) desc, wp.Deadline DESC";
+            }
+            //We计划
+            sql = @"SELECT TOP 1 wp.Id, wp.ProductName,wp.IsWeFQB,isnull(wp.IsFTB,0) as IsFTB, wp.YearRate,wp.Deadline,wp.PlanAmount AS Amount,
+                        wpd.RealOrderQty AS CastedShares,LowerUnit,wpd.TotalQty AS TotalShares,wpd.OrderCount,isnull(wp.TuandaiRedRate,0) as TuandaiRedRate,
+                        isnull(wp.DeadType,1) as DeadType,isnull(wp.CashLimitAmount,0) as CashLimitAmount,isnull(wp.TuandaiCashRate,0) as TuandaiCashRate,
+                        isnull(wp.IsPreSell,0) as IsPreSell, wp.PreSellInvestDate, wp.ProductTypeId,wp.StartDate
+                    FROM dbo.We_Product wp WITH(NOLOCK) 
+                    INNER JOIN dbo.We_ProductDetail wpd WITH(NOLOCK) ON wp.Id = wpd.ProductId 
+                    INNER JOIN dbo.We_ProductType wpt WITH(NOLOCK) ON wp.ProductTypeId = wpt.Id 
+                    WHERE wp.StartDate<=getdate() and  wp.StatusId=1 and isnull(wp.IsNewHand,0)!=1 
+                          and  wpd.TotalQty > wpd.RealOrderQty  AND wpt.TypeWord IN('C','B','A','G','36','24','18')";
+            sql = sql + strOrderBy;
+
+            ShowModel model = PublicConn.QuerySingle<ShowModel>(sql, ref para);
+
+            return model;
+        }
+        /// <summary>
+        /// 普通标
+        /// </summary>
+        /// <returns></returns>
+        private ShowModel GetModel()
+        {
+            var para = new Dapper.DynamicParameters();
+            string sql = string.Empty;
+            //普通标
+            sql = @"select top 1 Id,0 AS IsWeFQB,InterestRate AS YearRate,Deadline,DeadType,Amount,CastedShares,LowerUnit,TotalShares,Type as TypeId from project with(nolock) where IsNewHand!=1 and (type =6 or DeadType=2)  AND AddDate>dateadd(day,-15,getdate()) and Status IN(2,3) order by Status,InterestRate desc";
+            ShowModel model = PublicConn.QuerySingle<ShowModel>(sql, ref para);
+            if (model != null)
+            {
+                model.ProductName = invest_list.GetTypeName(model.TypeId, 1);
+                model.DetailUrl = "/pages/invest/detail.aspx?id=" + model.Id;
+                model.OrderCount = CommUtils.GetSubscribeUserCount(model.Id);
+            }
+            return model;
+        }       
+        #endregion
+
+
+        #region 返现加息标签
+        /// <summary>
+        /// We返现标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWePubCach(ShowModel model)
+        {
+            string pic = "";
+            //发标时就设置返现
+            if ((model.TuandaiCashRate ?? 0) > 0)
+            {
+                WebSettingBLL webSettingBll = new WebSettingBLL();
+                WebSettingInfo AllWeCachSet = webSettingBll.GetWebSettingInfo("421DBE8C-6435-4A9A-852A-EC51F0B0DDA8");
+
+                string cashFormat = AllWeCachSet.Param2Value;
+                if ((model.CashLimitAmount ?? 0) > 0)
+                    cashFormat = AllWeCachSet.Param1Value;
+                if (cashFormat.ToText() == "")
+                {
+                    cashFormat = ((model.CashLimitAmount ?? 0) > 0 ? "起投{Amount}元，" : "") + "返现{Rate}%";
+                }
+                decimal limitAmount = model.CashLimitAmount ?? 0;
+                string strLimitAmount = limitAmount >= 10000 ? ToolStatus.DeleteZero(limitAmount / 10000) + "万" : ToolStatus.DeleteZero(limitAmount / 1000) + "千";
+                //<i class="ia_r3_i2">迎中秋返现2%</i> 
+                pic += "<i class=\"ia_r3_i2\">" + cashFormat.Replace("{Rate}", ToolStatus.DeleteZero(model.TuandaiCashRate)).Replace("{Amount}", strLimitAmount) + "</i>";
+            }
+            return pic;
+        }
+        //加息显示
+        protected string ShowWeRank(ShowModel model)
+        {
+            if (showNewHand)
+                return "";
+            string pic = "";
+            // <i class="ia_r3_i2">加息<%=ToolStatus.DeleteZero(showModel.TuandaiRedRate)%>%</i>
+            //1218当天标识
+            if (DateTime.Parse(curSellSet.Param1Value) <= model.StartDate && model.StartDate < DateTime.Parse(curSellSet.Param2Value) && model.IsPreSell)
+            {
+                pic += "<i class=\"ia_r3_i2\">" + curSellSet.Param3Value + "</i>";
+                return pic;
+            }
+            if (DateTime.Parse(preSellSet.Param1Value) <= model.StartDate && model.StartDate < DateTime.Parse(preSellSet.Param2Value) && model.IsPreSell)
+            {
+                pic += "<i class=\"ia_r3_i2\">" + preSellSet.Param3Value + "</i>";
+                return pic;
+            }
+
+            if (model.TuandaiRedRate > 0)
+            {
+                if (model.ProductTypeId.HasValue && model.ProductTypeId.Value == 18)
+                {
+                    pic += "<i class=\"ia_r3_i2\">限量秒杀加息" + ToolStatus.DeleteZero(showModel.TuandaiRedRate) + "%</i>";
+                }
+                else
+                {
+                    string jiaxiDesc = string.Format(GlobalUtils.JiaXiDesc, ToolStatus.DeleteZero(model.TuandaiRedRate));
+                    pic += "<i class=\"ia_r3_i2\">" + jiaxiDesc + "</i>";
+                }
+            }
+            return pic;
+        }
+
+        #endregion
+
+
+        #region 前台显示格式化函数
+
+        protected string GetWeMoney(decimal amount)
+        {
+            if (amount < 10000)
+            {
+                return ToolStatus.DeleteZero(amount) + "元";
+            }
+            else
+            {
+                return ToolStatus.DeleteZero(amount / 10000 )+ "万元";
+            }
+        }
+        protected string GetChineseAmount(decimal amount)
+        {
+            string strFormat = "<span class=\"f14px c-fd6040\">{0}</span>{1}";
+            string res = "";
+            if (amount == 0)
+            {
+                return string.Format(strFormat, "0", "元");
+            }
+            else if (amount < 100000000)
+            {
+                return string.Format(strFormat, Math.Round(amount / 100000000, 1).ToString(), "亿");
+            }
+            long bilion = Convert.ToInt64(amount) / 100000000;
+            if (bilion > 0)
+            {
+                res = bilion.ToString();
+            }
+            return string.Format(strFormat, res, "亿");
+        } 
+        protected string GetShownNewsImg(string headImg)
+        {
+            if (headImg.ToText().IsEmpty())
+            {
+                return "/imgs/bav_head.gif";
+            }
+            else
+            {
+                return headImg;
+            }
+        }
+        //利率显示
+        protected string ShowProjectYearRate(ShowModel model)
+        {
+            string pic="";
+
+            string addRateStr = "";
+            if (!showNewHand)
+            {
+                //1218当天标识
+                if (DateTime.Parse(preSellSet.Param1Value) <= model.StartDate && model.StartDate < DateTime.Parse(curSellSet.Param2Value) && model.IsPreSell)
+                {
+                    addRateStr += "<span style=\"font-size:16px!important;\">+至少1.5</span>";
+                }
+            }
+            pic = ToolStatus.DeleteZero(showModel.YearRate) + addRateStr;
+            return pic;
+        }
+        #endregion
+
+
+        #region We计划
+        protected string GetWePlanYearRate(WeProductDetailInfo item)
+        {
+
+            string formatStr = "<p class=\"c-ff881f {1} pb5\">{0}<span class='c-ff881f f18px'>%</span></p>";
+            string fontSize = "f60px";
+            if (item.ProductName.ToUpper().Contains("计划D") || item.ProductName.ToUpper().Contains("计划E") || item.ProductName.ToUpper().Contains("计划F"))
+            {
+                fontSize = "f16px";
+            }
+
+            string yearRate = "";
+            if (item.MinYearRate > 0 && !item.IsWeFQB)
+                yearRate = ToolStatus.DeleteZero(item.MinYearRate) + "-";
+            yearRate += ToolStatus.DeleteZero(item.YearRate);
+            if (item.ProductName.ToUpper().IndexOf("计划D") > -1 || item.ProductName.ToUpper().IndexOf("计划E") > -1)
+            {
+                yearRate += "+至少1.5";
+            }
+            if (yearRate.IndexOf("+") != -1 || yearRate.IndexOf("-") != -1)
+            {
+                return string.Format(formatStr, yearRate, fontSize);
+            }
+            else
+            {
+                return string.Format(formatStr, ToolStatus.DeleteZero(decimal.Parse(yearRate.Trim())), HasFloatDigt(decimal.Parse(yearRate)) ? "f50px" : "f60px");
+            }
+        }
+
+        protected string GetWePlanSurplusMoney(WeProductDetailInfo weInfo)
+        {
+            decimal o = (weInfo.PlanAmount ?? 0) - (weInfo.OrderQty ?? 0) * (weInfo.UnitAmount ?? 0);
+            return string.Format("<span class=\"c-212121 f13px\">{0}{1}</span>", (o >= 10000) ? ToolStatus.ConvertWanMoney(o) : ToolStatus.ConvertLowerMoney(o), (o >= 10000) ? "万" : "元");
+        }
+        #endregion
+
+        #region 优质标区
+        protected bool HasFloatDigt(decimal yearRate)
+        {
+            if (yearRate == 0)
+                return false;
+            else
+            {
+                return yearRate % 1 != 0;
+            }
+        }
+        protected string GetProjectYearRate(WXProjectListInfo temp)
+        {
+            string strFormat = "<p class=\"c-ff881f {1}\">{0}<span class=\"c-ff881f f18px\">%</span></p>";
+            if (temp.TypeId == 18 || temp.TypeId == 23)
+            {
+                if (temp.ProfitTypeId == 1)
+                    return string.Format(strFormat, ToolStatus.DeleteZero(temp.PreProfitRate_S) + "~" + ToolStatus.DeleteZero(temp.PreProfitRate_E), "f30px");
+                else
+                    return string.Format(strFormat, ToolStatus.DeleteZero(temp.PreProfitRate_S), HasFloatDigt(temp.PreProfitRate_S) ? "f50px" : "f60px");
+            }
+            else
+            {
+                string strRate = ToolStatus.DeleteZero(temp.YearRate);
+                if (strRate.GetCharRight(".").Length >= 2) //判断是否有两位小数
+                {
+                    return string.Format(strFormat, ToolStatus.DeleteZero(temp.YearRate), "f38px");
+                }
+                else
+                {
+                    return string.Format(strFormat, ToolStatus.DeleteZero(temp.YearRate), HasFloatDigt(temp.YearRate ?? 0) ? "f50px" : "f60px");
+                }
+            }
+        }
+        protected string GetTypeName(int typeId, int subTypeId)
+        {
+            switch (typeId)
+            {
+                case 1:
+                    return "商";
+                case 3:
+                    return "零";
+                case 6:
+                case 7:
+                    return "资";
+                case 9:
+                    return "车";
+                case 10:
+                    return "消";
+                case 11:
+                    return "房";
+                case 15:
+                    if (subTypeId == 1)
+                        return "分";
+                    else
+                        return "乐";
+                case 17:
+                    return "配";
+                case 18:
+                    return "私";
+                case 20:
+                    return "供";
+                case 22:
+                case 23:
+                    return "项";
+                case 24:
+                case 25:
+                    return "分";
+                case 99:
+                    return "债";
+            }
+            return "未知";
+        }
+        protected string GetProjectSurplusMoney(WXProjectListInfo project)
+        {
+            decimal num = ((project.TotalShares ?? 0) - (project.CastedShares ?? 0)) * project.LowerUnit;
+            return string.Format("<span class=\"c-212121 f13px\">{0}{1}</span>", (num >= 10000) ? ToolStatus.ConvertWanMoney(num) : ToolStatus.ConvertLowerMoney(num), (num >= 10000) ? "万" : "元");
+        }
+
+        protected string GetProjectShowDeadline(WXProjectListInfo project)
+        {
+            string strTemplate = "<span class=\"c-212121 f13px\">{0}{1}</span>";
+            if (project.TypeId == 17 || (project.TypeId == 6 && project.DeadType == 2) || project.TypeId == 99)
+            {
+                return string.Format(strTemplate, project.Deadline, "天");
+            }
+            else
+            {
+                if (project.TypeId == 23)
+                {
+                    return string.Format(strTemplate, project.MinDeadLine + "-" + project.MaxDeadLine, "个月");
+                }
+                else
+                {
+                    return string.Format(strTemplate, project.Deadline, project.DeadType.Value == 1 ? "个月" : "天");
+                }
+            }
+        }
+        #endregion
+
+        #region Redis读取We计划 
+        protected List<WeProductDetailInfo> FilterPreSellWe(List<WeProductDetailInfo> welist)
+        {
+            List<WeProductDetailInfo> resultList = new List<WeProductDetailInfo>();
+            if (welist != null && welist.Any())
+            {
+                //預售期,相同类型的删除正式的
+                if (DateTime.Parse(preSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(preSellSet.Param2Value))
+                {
+                    //同一种类型的，有预售时优先显示这个
+                    List<string> typeWordList = new List<string>() { "A", "B", "C", "G", "18", "24", "36", "NEW02", "NEW03" };
+                    foreach (string typeword in typeWordList)
+                    {
+                        WeProductDetailInfo temp = welist.Where(p => p.TypeWord == typeword && p.IsPreSell && p.StatusId == 1).FirstOrDefault();
+                        if (temp != null)
+                        {
+                            resultList.Add(temp);
+                        }
+                        else
+                        {
+                            temp = welist.Where(p => p.TypeWord == typeword && p.IsPreSell == false).FirstOrDefault();
+                            if (temp != null)
+                                resultList.Add(temp);
+                        }
+                    }
+                    resultList = resultList.OrderBy(p => p.SortOrder).ToList();
+                }
+                else
+                {
+                    //1218当天标识及預售前期  删除所有预售的项目
+                    resultList = welist;
+                    List<WeProductDetailInfo> tmpList = resultList.Where(p => p.IsPreSell).ToList();
+                    if (tmpList != null && tmpList.Any())
+                    {
+                        tmpList.ForEach(p => resultList.Remove(p));
+                    }
+                }
+            }
+            return resultList;
+        }
+        protected ShowModel CopyAttr(WeProductDetailInfo weModel) {
+            ShowModel model = new ShowModel(); 
+            model.IsWeAYB = false;
+            model.ProductName = weModel.ProductName;
+            model.YearRate = weModel.YearRate ?? 0;
+            model.Deadline = weModel.Deadline ?? 0;
+            model.DeadType = weModel.DeadType??1;
+            model.Amount = weModel.PlanAmount ?? 0;
+            model.CastedShares = weModel.OrderQty ?? 0;
+            model.LowerUnit = weModel.UnitAmount ?? 0;
+            model.TotalShares = weModel.TotalQty ?? 0;
+            model.OrderCount = weModel.OrderCount ?? 0;
+            model.Id = weModel.ProductId;
+            model.IsPreSell = weModel.IsPreSell;
+            model.PreSellInvestDate = weModel.PreSellInvestDate;
+            model.ProductTypeId = weModel.ProductTypeId;
+            model.IsWeFQB = weModel.IsWeFQB;
+            model.IsFTB = weModel.IsFTB;
+            model.StartDate = weModel.StartDate ?? DateTime.Now.AddDays(1);
+            return model;
+        }
+        #endregion
+
+        #region 实体对象
+        /// <summary>
+        /// 首页推荐标实体
+        /// </summary>
+        protected class ShowModel
+        {
+            /// <summary>
+            /// 产品名称
+            /// </summary>
+            public string ProductName { get; set; }
+            /// <summary>
+            /// 是否分期宝
+            /// </summary>
+            public bool IsWeFQB { get; set; }
+            /// <summary>
+            /// 年化利率
+            /// </summary>
+            public decimal YearRate { get; set; }
+            /// <summary>
+            /// 期限
+            /// </summary>
+            public int Deadline { get; set; }
+            /// <summary>
+            /// 期限类型1月2天
+            /// </summary>
+            public int DeadType { get; set; }
+            /// <summary>
+            /// 总金额
+            /// </summary>
+            public decimal Amount { get; set; }
+            /// <summary>
+            /// 已投资份数
+            /// </summary>
+            public int CastedShares { get; set; }
+            /// <summary>
+            /// 投资单位
+            /// </summary>
+            public decimal LowerUnit { get; set; }
+            /// <summary>
+            /// 详情链接
+            /// </summary>
+            public string DetailUrl { get; set; }
+            /// <summary>
+            /// 总份数
+            /// </summary>
+            public int TotalShares { get; set; }
+            /// <summary>
+            /// 已加入人数
+            /// </summary>
+            public int OrderCount { get; set; }
+
+            public Guid Id { get; set; }
+
+            public int TypeId { get; set; }
+            public bool IsFTB { get; set; }
+            /// <summary>
+            /// 团贷加息利率
+            /// </summary>
+            public decimal TuandaiRedRate { get; set; }
+            /// <summary>
+            /// 返现起投金额
+            /// </summary>
+            public decimal? CashLimitAmount { get; set; }
+            /// <summary>
+            /// 团贷网返现利率
+            /// </summary>
+            public decimal? TuandaiCashRate { get; set; }
+            /// <summary>
+            /// 是否安盈计划
+            /// </summary>
+            public bool IsWeAYB { get; set; }
+            /// <summary>
+            /// 是否预售项目
+            /// </summary>
+            public bool IsPreSell { get; set; }
+            /// <summary>
+            /// 预售开始投资日期
+            /// </summary>
+            public DateTime? PreSellInvestDate { get; set; }
+            
+            /// <summary>
+            /// We产品类型Id
+            /// </summary>
+            public int? ProductTypeId { get; set; }
+            /// <summary>
+            /// We计划开始时间
+            /// </summary>
+            public DateTime StartDate { get; set; }
+        }
+        protected class We_FundAccountInfo
+        {
+            /// <summary>
+            /// 待收本金
+            /// </summary>
+            public decimal? RecoverBorrowOut { get; set; }
+            /// <summary>
+            /// 待收利息
+            /// </summary>
+            public decimal? DueComeInterest { get; set; }
+            /// <summary>
+            /// 投资总额
+            /// </summary>
+            public decimal? TotalInvest { get; set; }
+            /// <summary>
+            /// 投资收益
+            /// </summary>
+            public decimal? NetEarningsInterest { get; set; }
+        }
+        #endregion
+
+    }
+}

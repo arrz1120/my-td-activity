@@ -1,0 +1,195 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="invest_newHand.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.invest_newHand" %>
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="keywords" content="新手投资理财" />
+    <meta name="description" content="团贷网是中国P2P理财领军企业,首家注册资本一亿元股份制网贷平台,注册团贷网即送投资红包,高息福利、新手专享、自动投标、理财神器." />
+    <title>新手投资福利 - 团贷网</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/newUser.css?v=20170911001" />
+    <link rel="stylesheet" type="text/css" href="/css/baikedaohang.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</head>
+
+<body class="bg-fff">
+	<div id="bigDiv">
+    <%=GetNavStr() %>
+    <!--
+    <div class="bkTop bb-e6e6e6 <%=IsInApp || TuanDai.WXApiWeb.GlobalUtils.IsWeiXinBrowser ? "hide":"" %>">
+		<a href="https://m.tuandai.com" class="logo"><img src="/imgs/baikedaohang/logo.png" alt="团贷网"></a>
+		<div class="top_right clearfix">
+			<a href="javascript:void(0);" class="top_a2 rf webkit-box box-center box-vertical">
+				<span></span><span></span><span></span>
+			</a>
+		</div>
+	</div>
+	-->
+    <div class="banner">
+        <img src="/imgs/images/pic/newuser_banner.png" alt="" /></div>
+    <div class="pt4 pr15 top-nav">
+        <div class="clearfix nu_pro">
+            <div class="lf w50p">
+                <a href="<%=TuanDai.WXApiWeb.GlobalUtils.ActivityWebsiteUrl %>/weixin/newhand/welfare/page2888.aspx?tdsource=wxnewhand2888<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>&t=<%=Tool.WEBRequest.GetString("t") %>">
+                    <div class="nu_i nu_i1"></div>
+                    <p>2888体验金</p>
+                </a>
+            </div>
+            <div class="lf w50p">
+                <a href="<%= TuanDai.WXApiWeb.GlobalUtils.ActivityWebsiteUrl%>/weixin/newhand/welfare/page518.aspx?tdsource=wxnewhand518<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>&t=<%=Tool.WEBRequest.GetString("t") %>">
+                    <div class="nu_i nu_i2"></div>
+                    <p>518红包任性送</p>
+                </a>
+            </div>
+        </div>
+        <div class="clearfix nu_pro">
+            <div class="lf w50p">
+                <a href="<%= TuanDai.WXApiWeb.GlobalUtils.ActivityWebsiteUrl%>/weixin/newhand/welfare/pageVip.aspx?tdsource=wxnewhandhuiyuan<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>&t=<%=Tool.WEBRequest.GetString("t") %>">
+                    <div class="nu_i nu_i3"></div>
+                    <p>充值送超级会员</p>
+                </a>
+            </div>
+            <div class="lf w50p">
+                <a href="<%= TuanDai.WXApiWeb.GlobalUtils.ActivityWebsiteUrl%>/weixin/newhand/welfare/giftDetail.aspx<%=!string.IsNullOrEmpty(type)?"?type="+type:"" %>">
+                    <div class="nu_i nu_i4"></div>
+                    <p>APP签到礼包</p>
+                </a>
+            </div>
+        </div>
+        <div class="video-container">
+            <p class="video-title"><span class="line"></span>团贷网大讲堂<span class="line after"></span></p>
+            <p>带你快速了解团贷网投资</p>
+            <div class="video-content">
+                <div class="video-box">
+                    <img src="/imgs/images/bg/video_bg.png">
+                    <div id="video" class="video"></div>
+                    <div class="video-bg">
+                        <div class="mask"></div>
+                        <i id="video_play_btn" class="video-play-btn"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="video-txt">《新手投资必看》</p>
+            <a class="video-link" href="https://mvip.tdw.cn/pages/aboutus/ClassRoom.aspx?tdsource=XSZQ">查看更多<i class="icon-arrow-right-orange"></i></a>
+        </div>
+    </div>
+    
+    <a href="https://at.tuandai.com/201709/newuserschool/weixin/index.aspx?type=mobileapp&tdsource=XSZQ" class="block classRoomLink mt5"><img src="/imgs/images/pic/classRoomLink2.png?v=2017091101"/></a>
+    
+    <div class="nu_biao">
+        <div class="nu_tit">
+            <span class="line_l"></span>
+            新手专享复投宝
+				<i class="nu_i5" id="newHandTips"></i>
+            <span class="line_r"></span>
+        </div>
+        <p class="nu_subtit">不定期上线，手慢无！</p>
+        <div class="pl15 pr15">
+            <% if (NewHandProjectList != null && NewHandProjectList.Count > 0)
+               {
+                   var i = 0;
+                   foreach (var item in NewHandProjectList)
+                   {
+            %>
+            <div class="nu_invest projectLink <%=i>0?"mt15":"" %>" <%= type != "mobileapp"?"onclick='javascript:window.location.href=\""+GetDetailLink(item)+"\"';":"" %> dataId="<%=item.ProductId %>">
+                <div class="webkit-box pt15 pl20 pr20">
+                    <div class="box-flex1 text-center">
+                        <p class="f15px c-ababab">预期年化利率</p>
+                        <p class="f20px c-fa7d00 pt16 pb15"><%=GetProjectDetailShowRate(item) %></p>
+                    </div>
+                    <div class="box-flex1 text-center">
+                        <p class="f15px c-ababab">期限</p>
+                        <p class="f17px pt16 pb15"><%=GetDeadlineString(item) %></p>
+                    </div>
+                </div>
+                <div class="mt19 pl25 pr25 pb12">
+                    
+                        <% if (item.StatusId != 2)
+                           {
+                        %>
+                    <div class="btn btnYellow">
+                        <p class="f15px c-ffffff">抢购</p>
+                        <p class="c-ffffff line-h14">剩余 <%=GetLostMoneyString(item) %></p>
+                    </div>
+                        <%
+                           }
+                           else
+                           {
+                               %>
+                    <div class="btn btnYellow" style="background-color: #ccc !important;">
+                        <p class="f15px c-ffffff" style="line-height: 42px;">售罄</p>
+                    </div>
+                        <%
+                           } %>
+                    
+                </div>
+            </div>
+            <%
+                i++;
+                   }
+           } %>
+        </div>
+    </div>
+
+    <div class="nu_bg3">
+        <div class="nu_tit">
+            <span class="line_l"></span>
+            常见问题
+				<span class="line_r"></span>
+        </div>
+        <div class="question-wrap">
+            <div class="question-box">
+                <div class="question-item f15px bb-e6e6e6" onclick="javascript:window.location.href='https://info.tdw.cn/wap/help/help-detail.html?id=11<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>';">
+                    在团贷网投资有哪些保障？
+						<i class="ico-arrow-r"></i>
+                </div>
+                <%--<div class="question-item f15px bb-e6e6e6" onclick="javascript:window.location.href='https://info.tdw.cn/wap/help/help-detail.html?id=12<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>';">
+                  “第三方担保专款”有什么用？
+						<i class="ico-arrow-r"></i>
+                </div>--%>
+                <div class="question-item f15px bb-e6e6e6" onclick="javascript:window.location.href='https://info.tdw.cn/wap/help/help-detail.html?id=15<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>';">
+                    投资的收益怎么计算？
+						<i class="ico-arrow-r"></i>
+                </div>
+                <div class="question-item f15px bb-e6e6e6" onclick="javascript:window.location.href='https://info.tdw.cn/wap/help/help-detail.html?id=72<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>';">
+                    银行存管后有什么优势？
+						<i class="ico-arrow-r"></i>
+                </div>
+                <div class="question-item f15px pos-r" onclick="javascript:window.location.href='https://info.tdw.cn/wap/help/help-detail.html?id=74<%=!string.IsNullOrEmpty(type)?"&type="+type:"" %>';">
+                    银行存管上线以后对我们的资金有什么影响？
+						<i class="ico-arrow-r"></i>
+                </div>
+            </div>
+        </div>
+        <a href="https://info.tdw.cn/wap/help/index.html<%=!string.IsNullOrEmpty(type)?"?type="+type:"" %>" class="nu_bot">查看更多问题&gt;</a>
+    </div>	
+	</div>
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jsbridge-3.0.0.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/seo.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="//player.youku.com/jsapi"></script>
+<script type="text/javascript" src="/scripts/invest_newuser.js"></script>
+<script type="text/javascript">
+    $(".projectLink").click(function () {
+        var id = $(this).attr("dataId");
+        var typeId = $(this).attr("dataTypeId"); 
+        Jsbridge.toAppWePlanDetail(id, "100", "1", "3", "新手专享");
+        
+    });
+    $("#newHandTips").bind("click", function () {
+        $("body").showMessage({  
+            message: "<%=NewHandTips%>", okString: "我知道了", showCancel: false, okbtnEvent: function () {
+            }
+        });
+    });
+</script>
+</html>

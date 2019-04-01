@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+
+namespace TuanDai.WXApiWeb.Member.safety
+{
+    public partial class reset_LoginPassword : UserPage
+    {
+        protected string IsUpdatePayPwd = "0";
+        protected UserBasicInfoInfo UserInfo;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                Response.Redirect("//m.tuandai.com/pages/downOpenApp.aspx", true);
+                return;
+                //Response.Redirect(GlobalUtils.WebURL + "/Member/safety/reset_LoginPassword.aspx");
+                UserBLL bll = new UserBLL();
+                Guid userid = WebUserAuth.UserId.Value;
+                UserInfo = bll.GetUserBasicInfoModelById(userid);
+                if (UserInfo != null)
+                {
+                    if (UserInfo.Pwd != UserInfo.PayPwd)
+                    {
+                        IsUpdatePayPwd = "1";
+                    }
+                }
+            }
+        }
+    }
+}

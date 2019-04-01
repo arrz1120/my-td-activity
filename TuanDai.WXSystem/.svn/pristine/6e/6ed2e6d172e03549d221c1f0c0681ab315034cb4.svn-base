@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace TuanDai.WXApiWeb.Member.withdrawal
+{
+    public partial class withdrawal_question : BasePage
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            var type = Tool.WEBRequest.GetQueryString("type");
+            Response.Redirect("//m.tdw.cn/Member/withdrawal/withdrawal_question.aspx?type="+type);
+            //if (type == "mobileapp")
+            //{
+            //    IsShowRightBar = false;
+            //}
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+		<title>成功</title>
+	</head>
+	<body class="bg-fff">
+		<div class="sucBox">
+			<div class="result-success margin-auto"></div>
+			<p class="suc_p1 text-center">您的存管账户开通成功</p>
+			<p class="suc_p2 text-center">已成功开通厦门银行资产存管服务</p>
+			<div class="suc-main">
+				<p class="p1">完成投资偏好评测，即可开始投资</p>
+				<p class="p2">——&nbsp;&nbsp;&nbsp;评估结果为您带来更好的投资服务&nbsp;&nbsp;&nbsp;——</p>
+				<div class="icon-pd"></div>
+				<a href="" class="block">去评测</a>
+			</div>
+			<p class="text-center c-999999 mt15">如有疑问，请联系客服
+				<a href="javascript:void(0);" class="f13px c-fab600">1010-1218</a>
+			</p>
+		</div>
+	</body>
+</html>

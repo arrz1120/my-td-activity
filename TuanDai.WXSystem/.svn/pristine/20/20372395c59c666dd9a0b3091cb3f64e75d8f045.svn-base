@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目宝介绍</title>
+    <link rel="stylesheet" type="text/css" href="css/Xmb_intro.css" />
+</head>
+<body>
+<header class="top_bannar">
+  <img src="images/top_bannar.png">
+</header>
+
+<div class="content">
+  <section class="intro">
+    <h2 class="tit_h2">什么是项目宝？</h2>
+    <p>项目宝，是团贷网为在股权投资、房地产投资等领域有较大资金需求的企业特别推出的一款新产品，旨在为其融资借款提供更灵活、更可靠的渠道服务。而为保障投资者权益，借款方须提供足额抵押物（如：房产、股权、信托产品、私募基金等），经由平台风控团队审核估值并授予相应的借款额度，方可完成发标借款。同时，平台风控团队亦将对借款方投资项目进行专业评估，确保其在借款期限内有较大盈利空间或可套利退出，以最大限度确保回款安全。</p>
+  </section>
+
+  <section class="yield clearfix">
+    <div class="kind">
+      <img src="images/big_icon_1.png">
+    </div>
+    <div class="yield_detail">
+        <h3> <img src="images/tit_2.png"></h3>
+        <p class="rate">10% - 30% 年化收益</p>  
+        <p class="fir_line">借款期限，以资金实际使用时间为准，最长不超过24个月。</p>
+        <p class="sed_line">例如，某一期项目宝A类约定利率范围为：6个月以内（含6个月）14%，第7-9个月14.5%，第10-12个月15%，第13-18个月16%，第19-24个月18%。张三投资20000元成功后，借款人在9个月零8天还款（即第10个月），则他的收益=20000 * ( 15 % / 12 *9 ) + 20000 * ( 15 % / 365 * 8  ) =  2315.75 元。</p>
+    </div>
+  </section>
+
+
+  <section class="yield clearfix">
+    <div class="kind">
+      <img src="images/big_icon_2.png">
+    </div>
+    <div class="yield_detail">
+        <h3> <img src="images/tit_3.png"></h3>
+        <p class="rate">18% 年化收益</p>
+        <p class="fir_line">固定借款期限（1-24个月），以发标约定期限为准。</p>
+        <p class="sed_line">例如，某一期项目宝B类，约定期限为12个月，年化利率为18%。张三投资10000元成功后，借款人到期还款，则他的收益= 10000 * 18 % = 1800元。</p>
+    </div>
+  </section>
+
+
+  <h2 class="tit_h2">产品属性</h2>
+  <section class="pro_attr clearfix odd" >
+    <div class="icon">
+      <img src="images/icon_1.png">
+    </div>
+    <div class="classify">
+        <dl class="kind_a kind_text clearfix">
+          <dt>A类：</dt>
+          <dd>发标时约定利率范围，按资金实际使用时间匹配利
+         率，时间越长利率越高。</dd>
+        </dl>
+        <dl class="kind_b kind_text clearfix">
+          <dt>B类：</dt>
+          <dd>发标时约定利率</dd>
+        </dl>
+    </div>
+  </section>
+
+
+  <section class="pro_attr clearfix even" >
+    <div class="icon">
+      <img src="images/icon_2.png">
+    </div>
+    <div class="classify">
+        <dl class="kind_a kind_text clearfix">
+          <dt>A类：</dt>
+          <dd>到期还本付息，按月计息，不足一个月按实际天数
+         算。</dd>
+        </dl>
+        <dl class="kind_b kind_text clearfix">
+          <dt>B类：</dt>
+          <dd>每月付息到期还本。</dd>
+        </dl>
+    </div>
+  </section>
+
+
+  <section class="pro_attr clearfix odd" >
+    <div class="icon">
+      <img src="images/icon_3.png">
+    </div>
+    <div class="classify">
+        <dl class="kind_a kind_text clearfix">
+          <dt>A类：</dt>
+          <dd>不固定期限，以资金实际使用时间为准，最长不超
+         过24个月。</dd>
+        </dl>
+        <dl class="kind_b kind_text clearfix">
+          <dt>B类：</dt>
+          <dd>发标时约定期限。</dd>
+        </dl>
+    </div>
+  </section>
+
+
+  <section class="pro_attr clearfix even" >
+    <div class="icon">
+      <img src="images/icon_4.png">
+    </div>
+    <div class="classify">
+        <dl class="kind_a kind_text clearfix">
+          <dt>A类：</dt>
+          <dd>即投即计息</dd>
+        </dl>
+        <dl class="kind_b kind_text clearfix">
+          <dt>B类：</dt>
+          <dd>即投即计息</dd>
+        </dl>
+    </div>
+  </section>
+
+
+  <section class="pro_attr clearfix odd" >
+    <div class="icon">
+      <img src="images/icon_5.png">
+    </div>
+    <div class="classify">
+        <dl class="kind_a kind_text clearfix">
+          <dt>A类：</dt>
+          <dd>无</dd>
+        </dl>
+        <dl class="kind_b kind_text clearfix">
+          <dt>B类：</dt>
+          <dd>无</dd>
+        </dl>
+    </div>
+  </section>
+
+
+  <section class="pro_attr clearfix even" >
+    <div class="icon">
+      <img src="images/icon_6.png">
+    </div>
+    <div class="classify">
+        <p>AB类：</p>
+        <p>1、担保机构担保。   2、适用团贷网 100%本息保障计划。   3、阳光保险承保交易</p>
+    </div>
+  </section>
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>余额不足</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160309" />
+	<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160309" />
+</head>
+<body class="bg-fff">
+	<div class="text-center">
+		<p class="pt33 f15px c-808080">投资金额</p>
+		<p class="mt5 f36px pt10 pb15">￥100,000.00</p>
+		<p class="mt10 f13px c-212121">使用<span class="c-212121 ml15">0.1%加息券</span></p>
+		<p class="c-ababab f13px mt30">（账户余额：10,000.00）</p>
+	</div>
+	<div class="noMoney_tips">账户余额不足，需要充值￥400</div>
+	<div class="pl15 pr15 pt40 mt30">
+		<div class="btn btnYellow">确定</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	$("#btnSee").click(function (){
+		var $psd = $("#psdBox").find('input');
+		var eye = $(this).find('i');
+		if($psd.attr('type')=='password'){
+			eye.removeClass('i_close').addClass('i_open');
+	        $psd.attr('type', 'text');
+		}else{
+			eye.removeClass('i_open').addClass('i_close');
+			$psd.attr('type', 'password');
+		}
+    });
+</script>
+
+</body>
+</html>

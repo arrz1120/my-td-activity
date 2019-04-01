@@ -1,0 +1,333 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="my_return_list.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Repayment.my_return_list" %>
+
+<%@ Import  Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>投资记录</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/list2.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</head>
+<body class="bg-f1f3f5">
+    <%=GetNavStr() %>
+    <div class="z-top">
+		<div class="pro-top bb-e6e6e6 bg-fff">
+			<div class="pro-top-item w33p f17px text-center top-item-cur" id="WePlan">自动投标服务</div>
+			<div class="pro-top-item w33p f17px text-center" id="ZxPlan">智享转让服务</div>
+			<div class="pro-top-item w33p f17px text-center" id="Disperse">优质项目</div>
+			<div class="pro-top-line pro-top-line1"></div>
+			<div class="pro-top-line pro-top-line2"></div>
+		</div>
+		<div class="clearfix bg-fff pl20 pr20 pt6 pb6 pos-r z-index100">
+			<div class="lf w50p text-center f16px c-ffcf1f" id="orderbyTime">投资时间
+				<span class="inline-block">
+					<p style="line-height: 5px;"><i class="triangle triangle-up-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+					<p style="line-height: 5px;"><i class="triangle triangle-down-orange" style="vertical-align: 0;margin-left: 0;"></i></p>
+				</span>
+			</div>
+			<div class="lf w50p text-center f16px c-808080" id="sort">状态<i class="triangle triangle-down-gray"></i></div>
+		</div>
+	</div>
+    <% if (IsAct1248)
+       { %>
+    <div class="newUserTips">
+    	<p class="f13px">加息特权会在12月20日后5个工作日内添加到相应的投资项目。</p>
+    </div>
+    <%} %>
+
+    <div class="bt-e6e6e6 bb-e6e6e6 pt5">
+        <div class="clearfix bg-f1f3f5 pl15 pr15">
+            <div class="lf c-808080">标的名称</div>
+            <div class="rf c-808080">投资金额</div>
+        </div>
+    </div>
+
+    <div id="wrapper" class="pb20" style="top: 110px;">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <div class="pb20">
+                <div class="record_list" id="thelist">
+                    
+                </div>
+            </div>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert z-index10 pos-a" style="display: none;" id="alert">
+        <div class="alert-record pl15 bt-e6e6e6" style="display:none;top:<%=IsAct1248?"112":"82"%>px;">
+            <ul>
+                <li id="StatusAll">所有状态</li>
+                <li id="Inprogress" class="active bt-e6e6e6">进行中</li>
+                <li id="CompletedAndFlow" class="bt-e6e6e6">已完成</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/fastclick.js"></script>
+    <script type="text/javascript" src="/scripts/iscroll.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/scrollUpdate.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        function sort() {
+            var alert = $("#alert");
+            var box = alert.find('.alert-record');
+
+            $("#sort").click(function () {
+                alert.fadeIn(200);
+                box.slideDown(200);
+            });
+
+            box.find('li').click(function () {
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+                alert.fadeOut(200);
+                box.slideUp(200);
+            });
+        }
+        sort();
+
+
+        var status = "<%= StatusTab%>";
+        var searchType = "<%= TypeTab%>";
+        var orderBy = "<%= OrderTab%>";
+        $(function () {
+            $('#StatusAll').bind("click", function () {
+                TabClick("#StatusAll", "StatusAll", "");
+                $("#sort").html('全部<i class="triangle triangle-down-gray"></i>');
+            });
+
+            $('#Inprogress').bind("click", function () {
+                TabClick("#Inprogress", "Inprogress", "");
+                $("#sort").html('进行中<i class="triangle triangle-down-gray"></i>');
+            });
+
+            $('#CompletedAndFlow').bind("click", function () {
+                TabClick("#CompletedAndFlow", "CompletedAndFlow", "");
+                $("#sort").html('已完成<i class="triangle triangle-down-gray"></i>');
+            });
+
+
+            $('#Disperse').bind("click", function () {
+                TabClick("#Disperse", "", "Disperse");
+                $('#WePlan').removeClass("top-item-cur");
+                $('#ZxPlan').removeClass("top-item-cur");
+                $(this).addClass("top-item-cur");
+            });
+
+            $('#WePlan').bind("click", function () {
+                TabClick("#WePlan", "", "WePlan");
+                $('#Disperse').removeClass("top-item-cur");
+                $('#ZxPlan').removeClass("top-item-cur");
+                $(this).addClass("top-item-cur");
+            });
+            $('#ZxPlan').bind("click", function () {
+                TabClick("#ZxPlan", "", "ZxPlan");
+                $('#Disperse').removeClass("top-item-cur");
+                $('#WePlan').removeClass("top-item-cur");
+                $(this).addClass("top-item-cur");
+            });
+            $("#orderbyTime").bind("click", function () {
+                if (orderBy == "1") {
+                    $(this).find(".triangle-down-orange").removeClass("triangle-down-orange").addClass("triangle-down-gray");
+                    $(this).find(".triangle-up-gray").removeClass("triangle-up-gray").addClass("triangle-up-orange");
+                } else {
+                    $(this).find(".triangle-down-gray").removeClass("triangle-down-gray").addClass("triangle-down-orange");
+                    $(this).find(".triangle-up-orange").removeClass("triangle-up-orange").addClass("triangle-up-gray");
+                }
+
+                if (orderBy == "1") {
+                    orderBy = "0";
+                }
+                else {
+                    orderBy = "1";
+                }
+
+                pageIndex = 1;
+                LoadReturnList("empty");
+            });
+            iScroll.onLoadData = LoadReturnList;
+            LoadReturnList('empty');
+        });
+
+
+
+        //加载投资记录
+        function LoadReturnList(flag) {
+            if (flag == "empty") {
+                $("#thelist").children().remove();
+            }
+            jQuery.ajax({
+                async: false,
+                type: "post",
+                url: "/ajaxCross/ajax_autoLoan.ashx",
+                dataType: "json",
+                data: { Cmd: "GetReturnList", pageIndex: pageIndex, status: status, searchType: searchType, orderBy: orderBy },
+                success: function (jsonstr) {
+                    if (flag == "empty") {
+                        $("#thelist").html("");
+                    }
+
+                    pageCount = jsonstr.pageCount;
+                    if (pageCount <= 1)
+                        $("#pullUp").hide();
+                    else
+                        $("#pullUp").show();
+                    if (jsonstr.result == "1") {
+                        var $Invest = "";
+                        for (var i = 0; i < jsonstr.list.length; i++) {
+                            if (jsonstr.list[i].Type.indexOf("We计划") != -1 || jsonstr.list[i].Type.indexOf("We自动服务") != -1) {
+                                var weStatusHtml = "";
+                                switch (jsonstr.list[i].WeStatus) {
+                                    case "0":
+                                        weStatusHtml = GetStatusHtml("c-ffbb45", "项目匹配中");
+                                        break;
+                                    default:
+                                        weStatusHtml = GetStatusHtml("c-ffbb45", "投标￥" + jsonstr.list[i].Amount);
+                                        break;
+                                }
+
+                                var weProjectUrl = jsonstr.list[i].IsWeFQB == "1" ? "/Member/Repayment/Wefqb_project.aspx" : "/Member/Repayment/We_project.aspx";
+                                var url = weProjectUrl + "?weorderid=" + jsonstr.list[i].SubscribeId + "&tab=" + status;
+                                $Invest += GetReturnHtml(url, jsonstr.list[i], status, weStatusHtml);
+                            } else if (jsonstr.list[i].Type.indexOf("复投宝") != -1 || jsonstr.list[i].Type.indexOf("速盈宝") != -1 || jsonstr.list[i].Type.indexOf("We+自动服务") != -1) {
+                                var weStatusHtml = "";
+                                switch (jsonstr.list[i].WeStatus) {
+                                    case "0":
+                                        weStatusHtml = GetStatusHtml("c-ffbb45", "项目匹配中");
+                                        break;
+                                    default:
+                                        weStatusHtml = GetStatusHtml("c-ffbb45", "投标￥" + jsonstr.list[i].Amount);
+                                        break;
+                                }
+                                var url = "/Member/Repayment/Weftb_project.aspx?weorderid=" + jsonstr.list[i].SubscribeId + "&tab=" + status;
+                                $Invest += GetReturnHtml(url, jsonstr.list[i], status, weStatusHtml);
+                            }
+                            else {
+                                if (jsonstr.list[i].Status == "逾期") {
+                                    weStatusHtml = GetStatusHtml("c-ababab", "已逾期");
+                                }
+                                else if (jsonstr.list[i].Status == "已完成") {
+                                    weStatusHtml = GetStatusHtml("c-ababab", jsonstr.list[i].PreCycDate + " 已完成");
+                                }
+                                else if (jsonstr.list[i].Status == "等待满标") {
+                                    weStatusHtml = GetStatusHtml("c-ababab", "等待满标");
+                                } else if (jsonstr.list[i].Status == "已流标") {
+                                    weStatusHtml = GetStatusHtml("c-ababab", jsonstr.list[i].StatusDate1 + " 已流标");
+                                } else if (jsonstr.list[i].Status == "回款中") {
+                                    weStatusHtml = GetStatusHtml("c-ffbb45", jsonstr.list[i].PreCycDate + " 回款(" + jsonstr.list[i].RefundedMonths + "/" + jsonstr.list[i].TotalRefundMonths + ")");
+                                }
+                                else if (jsonstr.list[i].Status == "持有中") {
+                                    weStatusHtml = GetStatusHtml("c-ffbb45", "持有中");
+                                }
+                                else if (jsonstr.list[i].Status == "已赎回") {
+                                    weStatusHtml = GetStatusHtml("c-ababab", "持有中");
+                                }
+                                var url = "/Member/Repayment/my_return_details.aspx";
+                                if (searchType == "ZxPlan" && "<%=GlobalUtils.IsOpenSubscribeApi%>" =="False") {
+                                    url = "//m.tdw.cn" + url;
+                                }
+                                if (jsonstr.list[i].Type == "私募宝" || jsonstr.list[i].Type == "项目宝A" || jsonstr.list[i].Type == "项目宝B")
+                                    url = "/Member/Repayment/my_return_smbdetail.aspx";
+                                url += "?SubscribeId=" + jsonstr.list[i].SubscribeId + "&ProjectId=" + jsonstr.list[i].ProjectId + "&tab=" + status;
+                                $Invest += GetReturnHtml(url, jsonstr.list[i], status, weStatusHtml);
+                            }
+                        }
+                        $("#thelist").append($Invest);
+                    }
+                    else {
+                        $("#thelist").html("<div class='debt-empty mt50 bg-f1f3f5'><div class='img-debt-empty text-center'><img style='width: 60%;' src='/imgs/images/debt-empty.png'/></div><div class='text-center f14px c-212121 mt20'>无投资记录...</div></div></div>");
+                        $("#pullUp").hide();
+                    }
+                    if (myScroll != undefined)
+                        myScroll.refresh();
+                },
+                error: function (a, b, c) {
+                    $("#thelist").html("<div class='debt-empty mt50 bg-f1f3f5'><div class='img-debt-empty text-center'><img style='width: 60%;' src='/imgs/images/debt-empty.png'/></div><div class='text-center f14px c-212121 mt20'>网络不给力...</div></div></div>");
+                    $("#pullUp").hide();
+                }
+            });
+        }
+
+        function GetStatusHtml(css_class, text) {
+            return "<p class=\"f13px " + css_class + "\">" + text + "</p>";
+        }
+
+        function GetReturnHtml(projectUrl, invest, status, statusHtml) {
+            var iStr = "";
+            var $Invest = "";
+            $Invest += "<div class=\"clearfix record_item bt-e6e6e6\">";
+            $Invest += "<a href='" + projectUrl + "'>";
+            $Invest += "<div class=\"w50p lf\">";
+            $Invest += "<p class=\"f17px text-overflow\">" + iStr + invest.Title + "</p>";
+            $Invest += "<p class=\"f13px c-ababab\">" + invest.SubscribeDate + " " + invest.TenderMode + "</p>";
+            $Invest += "</div>";
+            $Invest += "<div class=\"w50p rf text-right\">";
+            $Invest += "<p class=\"f17px\">¥" + ((invest.Type.indexOf("We计划") != -1 || invest.Type.indexOf("复投宝") != -1) ? invest.PurchaseAmount : invest.Amount) + "</p>";
+            $Invest += statusHtml;
+            $Invest += "</div>";
+            $Invest += "</a>";
+            $Invest += "</div>";
+            
+            var html ='<div class="record_item bt-e6e6e6 bb-e6e6e6 mb10 bg-fff" onclick="javasript:window.location.href=\''+projectUrl+'\'">'+
+				'<div class="clearfix">'+
+					'<div class="w50p lf">'+
+						'<p class="f17px text-overflow">' + invest.Title + '</p>' +
+					'</div>'+
+					'<div class="w50p rf text-right">'+
+						'<p class="f17px">￥' + ((invest.Type.indexOf("We计划") != -1 || invest.Type.indexOf("复投宝") != -1) ? invest.PurchaseAmount : invest.Amount) + '</p>' +
+					'</div>'+
+				'</div>'+
+				'<div class="clearfix bt-e6e6e6">'+
+					'<div class="w50p lf">'+
+						'<p class="f13px c-ababab">' + invest.SubscribeDate + " " + invest.TenderMode + '</p>' +
+					'</div>'+
+					'<div class="w50p rf text-right">'+
+						statusHtml+
+					'</div>'+
+				'</div>' +
+			'</div>';
+            return html;
+        }
+
+        function TabClick(addClassId, tempStatus, type) {
+            $("body").showLoading("正在加载中...");
+            $(addClassId).siblings("li").removeClass("active");
+            $(addClassId).addClass("active");
+            if (tempStatus) {
+                status = tempStatus;
+            } else
+                searchType = type;
+            setTimeout(function () {
+                //重新加载数据
+                pageIndex = 1;
+                LoadReturnList('empty');
+                myScroll.refresh();
+                $("body").hideLoading();
+            }, 500);
+        }
+        //点遮罩层隐藏框
+        $("#alert, #investType").on("click", function () {
+            moveToTop($(this));
+        });
+        //隐藏弹框
+        function moveToTop(object) {
+            var box = object.find('.alert-record');
+            object.fadeOut(200);
+            box.slideUp(200);
+        }
+    </script>
+
+</body>
+</html>

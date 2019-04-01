@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750, user-scalable=no, target-densityDpi=device-dpi">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=20161123"/>
+		<title>即将前往存管页面</title>
+	</head>
+	<body>
+		<div class="jumpPage webkit-box box-center box-vertical">
+			<div class="jump_loading"></div>
+			<p>即将前往存管页面</p>
+		</div>
+	</body>
+</html>

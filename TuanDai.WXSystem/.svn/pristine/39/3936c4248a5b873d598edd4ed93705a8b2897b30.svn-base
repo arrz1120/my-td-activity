@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>净值担保标合同</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css?v=2016061600001"/>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+        document.oncontextmenu = function (e) { return false; }
+
+        var omitformtags = ["input", "textarea", "select"]
+        omitformtags = omitformtags.join("|")
+        function disableselect(e) {
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+                return false
+        }
+        function reEnable() {
+            return true
+        }
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function("return false")
+        else {
+            document.onmousedown = disableselect
+            document.onmouseup = reEnable
+        }
+    </script>
+
+</head>
+<body>
+    <header class="headerMain" id="header">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">借款合同</h1>
+        </div>
+    </header>
+    <!--第1页>-->
+    <div class="Contract">
+        <h3>借款合同</h3>
+        <div class="Number">合同编号：*********</div>
+        <div class="Contract_t">
+            <ul>
+                <li>
+                    <div>甲方（投资方）：<span>***</span></div>
+                    <div>证件号码：<span>******************</span></div>
+                </li>
+                <li>
+                    <div>乙方（借款方）：<span>***</span></div>
+                    <div>证件号码：<span>******************</span></div>
+                </li>
+                <li>
+                    <div>居间方：<span>***</span></div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="Contract_c">
+                <p>特别提示：<p>
+                <p class="text-ind">甲、乙双方请认真仔细阅读本合同项下的全部条款。甲、乙双方一旦签订本合同，即视为甲、乙双方已充分理解并完全同意本合同项下的所有条款及内容。</p>
+                <p class="text-ind">居间方为甲、乙方的借款相关事宜提供融资平台，各方在平等自愿的基础上达成如下借款合同，以兹共同遵守执行。</p>
+               <p> 一、借款条款<br />
+                1、借款金额：乙方因资金周转需要，现向甲方借款￥<span>*****</span>元（大写人民币：<span>**圆整</span>）<br />
+                2、借款期限：<span>*</span>个月，自甲方出借之日（甲方在居间方平台投资乙方发布的借款标之日）起计算。<br />
+                3、借款利息：在本合同规定的借款期内，年利率为<span>*%</span>。<br />
+                4、逾期利息：乙方如未按期、足额归还本息，则逾期部分的利息（以下简称“逾期利息”）按自逾期之日起的<span>*%</span>/日计算。 <br />
+                5、还款方式：***。 <br />
+                6、提前还款：本次借款期间，乙方有权提前一次性结清本次债务。若乙方选择等额本息的还款方式，利息应按照实际借款期间足月计算(即不足一个月的按一个月计算)。 若乙方选择每月付息且到期本金的还款方式，在乙方提前结清本次借款时侯，应向甲方支付实际已产生的利息（即按照实际用款天数折比365个自然日计算）。
+               </p>
+              <p>
+                二、债的担保<br />
+                乙方在居间方平台上有已出借且待收回的本息款项（以下简称“待收款项），乙方授权居间方在其待收款项回款后将回款资金中的￥<span>*****</span>元（大写：人民币<span>**圆整</span>）划转至甲方在居间方平台开立的账户（以下简称”甲方平台账户“），若待收款项回款日期早于本借款合同约定的借款期限，乙方同意居间方对该回款资金进行冻结，乙方在本合同借款期限届满前不得提现，并于借款期限届满之日将￥<span>*****</span>元（大写：<span>**圆整</span>）自动划转至甲方平台账户。若乙方因本合同借款出现逾期而产生逾期利息或违约金的，逾期利息与违约金一并由代收款项中扣除，代收款项不足以支付的，居间方自使用其友情垫付应急基金（以下简称“应急基金”)垫付后有权向乙方进行追讨。
+              </p>
+        </div>
+    </div>
+    <!--第2页>-->
+    <div class="Contract">
+        <div class="Contract_c">
+            <p>三、居间服务</p>
+            <p>1、居间方提供融资平台，甲、乙双方在融资平台注册用户进行借贷活动，借贷活动中的资金投入和提现均托管于第三方支付平台。 </p>
+            <p>2、乙方在借入成功后，乙方应向居间方交付成交管理费，甲方在收回借款时，甲方应向居间方交付成交管理费，具体以居间方在融资平台公布的收费标准执行。</p>
+            <p>四、逾期</p>
+            <p> 1、本金逾期未超过30天情形（含第30天）</p>
+            <p>自逾期之日起，乙方应向投资时为超级会员的甲方按日缴纳剩余未还款项（包括乙方应还未还的本息）0.2%的违约金；乙方应向居间方平台的应急基金按日缴纳其对超级会员甲方的剩余未还款项0.1%和其对普通会员甲方的剩余未还款项0.3%，作为应急基金的补充。</p>
+            <p>2、本金逾期超过30天情形</p>
+            <p class="text-ind">（1）居间方会根据甲方投资时的会员等级，在乙方本金逾期的第31日使用其应急基金进行流动性垫付：若甲方为超级会员，则垫付甲方应收未收的本息、逾期利息和违约金；若甲方为普通会员，则垫付甲方应收未收的本金；自居间方使用其应急基金进行垫付后，乙方对甲方（普通会员）借款本金自逾期之日产生的逾期利息与违约金归居间方应急基金所有，居间方有权向乙方进行追讨。</p>
+            <p>3、自应急基金垫付符合垫付条件的逾期股权担保标之日起，乙方应立即向应急基金归还已垫付的所有款项，否则应向应急基金支付其所垫付款项0.4%/日的违约金。</p>
+            <p>五、追索费用 </p>
+            <p>如果乙方到期未归还借款本金及利息从而引致甲方或居间方向乙方追索的，则甲方或居间方因行使追索权而产生的包括但不限于诉讼费用、仲裁费用、诉前/诉讼保全费/诉讼保全担保费/担保费、律师费用等在内的一切费用和开支，一概均由乙方负责承担。</p>
+            <p>六、违约责任 </p>
+            <p>本合同签定后，甲、乙双方必须全面适当地履行本合同项下各自的义务及责任。任何一方对本合同项下任一条款之违反，即被视为违约，违约方须向对方承担相应之违约责任，赔偿对方因违约而遭致的一切经济损失。如果乙方违约，甲方或居间方有权向有关个人征信系统予以披露，有权通过社会公告等形式追究其违约责任。</p>
+            <p>七、争议解决方式 </p>
+            <p> 因本合同发生的任何争议，由各方协商解决，协商不成的，任何一方可提交湛江仲裁委员会在东莞仲裁，并按其当时有效的仲裁规则适用简易程序进行仲裁。仲裁裁决是终局的，对各方均有约束力。</p>
+            <p>八、生效及其他 </p>
+            <p>本电子合同适用《中华人民共和国电子签名法》的规定，本合同对各方均有约束力。本合同自甲、乙双方在居间方平台以电子签名或盖章的形式确认后生效。 </p> 
+        </div>
+        <div class="Contract_b">
+            <p><br /><strong>各方签署：</strong></p>
+            <p>甲方：<span>***</span></p>
+            <p>乙方：<span>***</span></p>
+            <p>协议签署日期：<em>****</em>年<em>**</em>月<em>**</em>日</p>
+            <!--盖章-->
+            <!--<div class="seal-con pos-a">
+                <img src="images/hnstrz.png" alt=""/>
+            </div>-->
+        </div>
+    </div>
+    <div class="clearfix mt20"></div>
+    <script type="text/javascript">
+        var url = window.location.href;
+        if (url.indexOf("type=mobileapp") >= 0) {
+            document.getElementById("header").style.display = "none";
+        }
+    </script>
+</body>
+</html>

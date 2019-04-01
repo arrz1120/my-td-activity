@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    public partial class simubao_detail : BasePage
+    {
+        protected ProjectDetailInfo model = null;
+        protected Guid? projectId = Guid.Empty;
+        private ProjectBLL bll = null;
+        protected SMBProjectInfo smbProjectEntity = null;
+        protected int SubscribeUserCount = 0;//申购人数
+        protected string EnterpriseName = "";//担保机构
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                        return;
+
+
+                    GetSMBProjectModel();
+                    if (smbProjectEntity == null)
+                    {
+                        Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                    }
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+
+            this.SubscribeUserCount = TuanDai.WXApiWeb.Common.WXInvest.WXGetSubscribeUserCount(this.projectId.Value);
+
+
+            #region 获取担保公司
+            UserEnterpriseInfo userEnterprise = GetBorrowerGuaranteeEnterprise(this.model.UserId.Value, model.AddDate.Value);
+            if (userEnterprise != null)
+            {
+                string sql = "select NickName from UserBasicInfo with(nolock) where id=@enterpriseuserid"; 
+                DynamicParameters args = new DynamicParameters();
+                args.Add("@enterpriseuserid", userEnterprise.UserId);
+                this.EnterpriseName = PublicConn.QuerySingle<string>(sql, ref args);
+            }
+            else
+            {
+                if (model.Guarantors != null && model.Guarantors != "")
+                {
+                    this.EnterpriseName = BusinessDll.business.GetAssureNameById(int.Parse(model.Guarantors.ToString()));
+                }
+            }
+            #endregion
+
+            return true;
+        }
+
+        protected string GetInvestFeeRate(decimal investFeeRate, int ProfitTypeId)
+        {
+            if (investFeeRate == 0)
+            {
+                return "0%";
+            }
+            if (ProfitTypeId == 1)//浮动
+            {
+
+                return "收益超过年化10%，收取超出部分的" + investFeeRate.ToString("0.0") + "%";
+            }
+            else
+            {
+                return "收益部分的" + investFeeRate.ToString("0.0") + "%";
+            }
+        }
+
+        protected string GetSubscribeRate(decimal subscribeRate)
+        {
+            if (subscribeRate == 0)
+            {
+                return "0%";
+            }
+            return subscribeRate.ToString("0.0") + "%";
+        }
+        #region 获取项目发标人的担保公司
+
+        public static UserEnterpriseInfo GetBorrowerGuaranteeEnterprise(Guid borrowerUserId, DateTime AddDate)
+        {
+            string strSQL = "select * from UserInEnterprise where BorrowerUserId=@BorrowerUserId";
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@BorrowerUserId", borrowerUserId);
+            List<UserInEnterpriseInfo> UserInEnterpriseList = PublicConn.QueryBySql<UserInEnterpriseInfo>(strSQL, ref dyParams);
+
+            UserInEnterpriseInfo userInEnterprise;
+            if (UserInEnterpriseList.Count() > 1)
+            {
+                userInEnterprise = UserInEnterpriseList.Where(p => p.CreateDate < AddDate).OrderByDescending(p => p.CreateDate).FirstOrDefault();
+            }
+            else
+            {
+                userInEnterprise = UserInEnterpriseList.FirstOrDefault();
+            }
+            if (userInEnterprise != null)
+            {
+                Guid EnterpriseUserId = userInEnterprise.EnterpriseUserId;
+                strSQL = "select * from UserEnterprise where UserId=@EnterpriseUserId";
+                dyParams = new DynamicParameters();
+                dyParams.Add("@EnterpriseUserId", EnterpriseUserId);
+
+                UserEnterpriseInfo userenter = PublicConn.QuerySingle<UserEnterpriseInfo>(strSQL, ref dyParams);
+                return userenter;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        private void GetSMBProjectModel()
+        {
+            string sql = "SELECT *  FROM Project_SM(NOLOCK) WHERE ProjectId=@ProjectId";
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@ProjectId", projectId.Value);
+            smbProjectEntity = PublicConn.QuerySingle<SMBProjectInfo>(sql, ref dyParams); 
+        }
+    }
+}

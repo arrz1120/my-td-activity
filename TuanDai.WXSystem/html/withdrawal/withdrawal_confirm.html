@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>确认提现</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">确认提现</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix">
+        <div class="phoneCode  pr0">
+            <div class="c-left">密码</div>
+            <input type="text" name="" class="codeIpt" placeholder="请输入交易密码">
+        </div>
+    </section>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix">
+        <div class="phoneCode ">
+            <div class="c-left">验证码</div>
+            <input type="text" name="" class="codeIpt" placeholder="请输入短信验证码">
+            <input type="button" id="btnCode" class="btncode" value="发送验证码" />
+        </div>
+    </section>
+
+    <section class="pd15 mt5">
+      <a href="" class="btn btnYellow">确定</a>
+    </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //重新发送验证码倒计时
+        $("#btnCode").click(function(){
+            var step = 59;
+            $('#btnCode').val('重新发送60');
+            var _res = setInterval(function()
+            {   
+                $("#btnCode").attr("disabled", true);//设置disabled属性
+                $('#btnCode').val('重新发送'+step);
+                $('#btnCode').addClass("disabled");
+                step-=1;
+                if(step <= 0){
+                $("#btnCode").removeAttr("disabled"); //移除disabled属性
+                $('#btnCode').val('获取验证码');
+                $('#btnCode').removeClass("disabled");
+                clearInterval(_res);//清除setInterval
+                }
+            },1000);
+        });
+    })
+</script>
+</body>
+</html>

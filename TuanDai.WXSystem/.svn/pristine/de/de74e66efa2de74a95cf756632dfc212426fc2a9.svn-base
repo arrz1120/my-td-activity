@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>身份验证 - 我的账户</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode pr0">
+            <div class="c-left">姓名</div>
+            <input type="text" name="" class="codeIpt" placeholder="请输入真实姓名">
+        </div>
+    </section>
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode pr0">
+            <div class="c-left">身份证</div>
+            <input type="text" name="" class="codeIpt" placeholder="通过身份证验证，提高资金的安全性">
+        </div>
+    </section>
+
+    <section class="pd15 mt5">
+      <a href="" target="_blank" class="btn btnYellow">提交</a>
+    </section>
+
+    <section class="pd15 mt60 text-center">
+        <p class="c-ababab f14px">如有疑问，请联系客服：<a href="tel:400-641-088" class="inline-block c-f86420 txt-uline f14px">400-641-0888</a></p>
+    </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

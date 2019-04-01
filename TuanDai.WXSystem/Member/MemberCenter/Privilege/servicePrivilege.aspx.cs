@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.VipSystem.BLL;
+using TuanDai.VipSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.MemberCenter.Privilege
+{
+    public partial class servicePrivilege : UserPage
+    {
+        public MUserVipInfo vipInfo = null;//会员信息
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string url = "//mvip.tdw.cn" + Request.RawUrl;
+            Context.Response.Redirect(url);
+            return;
+            if (!IsPostBack && WebUserAuth.UserId.Value != null && WebUserAuth.UserId.Value != Guid.Empty)
+            {
+                vipInfo = MUserVipInfoBLL.GetUserVipInfoById(WebUserAuth.UserId.Value);
+            }
+
+        }
+    }
+}

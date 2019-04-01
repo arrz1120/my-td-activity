@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>投资红包兑换</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+<section class="wrapper">
+    <div class="main pos-r">
+        <img src="imgs/logo.png" alt="" class="logo"/>
+        <img src="imgs/p1.png" alt="" class="p1"/>
+        <div class="form-box">
+            <p>用户名:<span>tuandai888</span></p>
+            <input type="text" placeholder="请输入兑换密码" class="exch-code"/>
+            <input type="submit" value="确定兑换" class="sub-but"/>
+        </div>
+        <img src="imgs/p0.png" class="png-b pos-a"/>
+    </div>
+</section>
+
+</body>
+</html>

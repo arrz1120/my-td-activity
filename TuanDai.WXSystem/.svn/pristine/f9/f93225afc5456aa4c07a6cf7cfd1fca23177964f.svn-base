@@ -1,0 +1,387 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="my_return_date.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Repayment.my_return_date" %>
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>财富日历</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+		<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+		<link rel="stylesheet" type="text/css" href="/css/date.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+	</head>
+
+	<body class="bg-f1f3f5">
+	    <%= this.GetNavStr()%>
+		<div id="bigDiv">
+			<a href="javascript:void(0);" class="data-tips">因数据同步问题，新产生的回款及结清记录存在延时情况</a>
+			<div class="pl15 pr15 date-header">
+				<div class="clearfix pos-r">
+					<div class="lf clearfix date-header-month pt18 pos-r">
+						<p><span class="f23px c-694514 fb" id="nowMon"><%=DateTime.Now.ToString("MM") %></span><b></b><span class="f13px c-694514" id="nowY"><%=DateTime.Now.ToString("yyyy") %></span></p>
+					</div>
+					<a href="return_pay_list.aspx" class="rf date-header-btn">列表模式</a>
+				</div>
+			</div>
+
+			<div class="week date_row">
+				<ul class="clearfix">
+					<li>日</li>
+					<li>一</li>
+					<li>二</li>
+					<li>三</li>
+					<li>四</li>
+					<li>五</li>
+					<li>六</li>
+				</ul>
+			</div>
+
+			<div class="swiper-container bb-e6e6e6 pb10 bg-fff" id="swiper">
+				<div class="swiper-wrapper"></div>
+				<div class="date_mark" id="date_mark"></div>
+			</div>
+            <div class="bb-e6e6e6 bt-e6e6e6 pl15 bg-fff mt10">
+				<%--<div class="pb10" id="dvReturn">
+					<div class="clearfix pt15">
+						<div class="lf f15px c-212121 mt8">待回款</div>
+						<div class="rf pr15">
+							<p class="c-fd6040 pt5 f18px text-right" id="dueRecTotal">0.00</p>
+						</div>
+					</div>
+					<div class="moneyInfo clearfix">
+						<span class="lf c-ababab" id="dueRecBenJin">本金:0.00</span>
+						<span class="rf c-ababab" id="dueRecShouYi">收益:0.00</span>
+					</div>
+				</div>--%>
+                <div class="pt15 pb8" id="dvReturn">
+					<p class="sam-p1 f18px"><i class="sam-icon sam-yellow"></i>待回款<span class="c-fd6040 f18px ml15" id="dueRecTotal">0.00</span></p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px" id="dueRecBenJin">本金：0.00</div>
+						<div class="rf w50p c-ababab f12px" id="dueRecShouYi">收益：0.00</div>
+					</div>
+				</div>
+                <div class="pt15 pb8 pos-r" id="dvJieQing">
+                	<div class="zx-item">智享计划</div>
+					<p class="sam-p1 f18px"><i class="sam-icon sam-green"></i>待结清<span class="c-fd6040 f18px ml15" id="dueOutZxTotal">0.00</span></p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px" id="dueOutZxBenJin">本金：0.00</div>
+						<div class="rf w50p c-ababab f12px" id="dueOutZxLiXi">利息：0.00</div>
+					</div>
+				</div>
+                <div class="pt15 pb8 pos-r" id="dvRepay">
+                	<div class="zcb-item">资产标</div>
+					<p class="sam-p1 f18px"><i class="sam-icon sam-blue"></i>待结清<span class="c-fd6040 f18px ml15" id="dueOutTotal">0.00</span></p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px" id="dueOutBenJin">本金：0.00</div>
+						<div class="rf w50p c-ababab f12px" id="dueOutLiXi">利息：0.00</div>
+					</div>
+				</div>
+				<%--<div class="bt-e6e6e6 pb10" id="dvRepay">
+					<div class="clearfix pt15">
+						<div class="lf f15px c-212121 mt8">待还款</div>
+						<div class="rf pr15">
+							<p class="c-fd6040 pt5 f18px text-right" id="dueOutTotal">0.00</p>
+						</div>
+					</div>
+					<div class="moneyInfo clearfix">
+						<span class="lf c-ababab" id="dueOutBenJin">本金:0.00</span>
+						<span class="rf c-ababab" id="dueOutLiXi">利息:0.00</span>
+					</div>
+				</div>--%>
+			</div>
+			<div class="c-ababab pl15 pt4" id="dvReturnDesc">待回款中不包含We计划[分期宝]复投金额</div>
+		</div>
+
+		<!--弹框-->
+		<div class="dateAlert hide" id="dateAlert">
+			<div class="d_top"><span id="alert_today">2016年7月11日</span><i id="closeAlert"></i></div>
+			<div class="d_tab clearfix bg-fff">
+				<div class="lf w33p text-center pt8 pb10 cur" id="tab1">
+					<p class="f15px">待回款</p>
+					<%--<p class="f13px line-h18 c-808080" id="dueInAmount">2000.00</p>--%>
+                    <p class="f24rem  nav-pt">　</p>     
+				</div>
+				<div class="lf w33p text-center pt8 pb10" id="tab3">
+					<p class="f15px">待结清</p>
+                    <p class="f24rem  nav-pt">（智享计划）</p>
+					<%--<p class="f13px line-h18 c-808080" id="dueOutZxAmount">0.00</p>--%>
+				</div>
+				<div class="lf w33p text-center pt8 pb10" id="tab2">
+					<p class="f15px">待结清</p>
+                    <p class="f24rem nav-pt">（资产标）</p>
+					<%--<p class="f13px line-h18 c-808080" id="dueOutAmount">3000.00</p>--%>
+				</div>
+			</div>
+			<!--待回款-->
+			<div id="list1">
+				<div class="d_list pb10" id="d1">
+					
+				</div>
+			</div>
+            <!--待结清-->
+			<div id="list3" style="display: none;">
+				<div class="d_list pb10" id="d3">
+					
+				</div>
+			</div>
+			<!--待还款-->
+			<div id="list2" style="display: none;">
+				<div class="d_list pb10" id="d2">
+					
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/monthSwiper.js"></script> 
+        <script type="text/javascript" src="/scripts/Common.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+        <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+        <script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+		<script type="text/javascript">
+		    $(function () {
+
+		        //初始化调用
+		        var mSwiper = new monthSwiper({
+		            slideCallBack: slideChange
+		        });
+
+		        //自定义滑动回调函数，接受activeIndex参数
+
+		        function slideChange(activeIndex) {
+		            var ul = $('.swiper-slide').eq(activeIndex).find('ul');
+		            var nowMon = ul.attr('month');
+		            var nowY = ul.attr('year');
+		            if (nowMon < 10) {
+		                nowMon = '0' + nowMon;
+		            }
+		            $("#nowMon").html(nowMon);
+		            $("#nowY").html(nowY);
+
+		            LoadData(activeIndex);
+		        }
+
+		        LoadData(0);
+		    });
+
+		    function LoadData(actIndex) {
+		        $("body").showLoading("加载中...");
+		        var date = new Date();
+		        var y = date.getFullYear();
+		        var m = date.getMonth() + 1;
+		        $.ajax({
+		            url: "/ajaxCross/ajax_autoLoan.ashx",
+		            type: "post",
+		            dataType: "json",
+		            async: true,
+		            data: {
+		                Cmd: "GetFundPlan",
+		                Date: y + "-" + m,
+		                ActiveIndex: actIndex
+		            },
+		            success: function (json) {
+		                $("body").hideLoading();
+		                var data = json.list;
+		                if (json && json.cycDate) {
+		                    if ((parseFloat(json.dueRecBenJin) + parseFloat(json.dueRecShouYi) + parseFloat(json.dueRecJiangLi)) <= 0) {
+		                        $("#dvReturn").hide();
+		                        $("#dvReturnDesc").hide();
+		                    } else {
+		                        $("#dueRecTotal").html(fmoney2(parseFloat(json.dueRecBenJin) + parseFloat(json.dueRecShouYi) + parseFloat(json.dueRecJiangLi)));
+		                        $("#dueRecBenJin").html("本金：" + fmoney2(json.dueRecBenJin));
+		                        $("#dueRecShouYi").html("收益：" + fmoney2(parseFloat(json.dueRecShouYi) + parseFloat(json.dueRecJiangLi)));
+		                        
+		                        $("#dvReturn").show();
+		                        $("#dvReturnDesc").show();
+		                    }
+		                    
+		                    if ((parseFloat(json.dueOutBenJin) + parseFloat(json.dueOutLiXi) + parseFloat(json.dueOutJiangLi)) <= 0) {
+		                        $("#dvRepay").hide();
+		                    } else {
+		                        $("#dueOutTotal").html(fmoney1(parseFloat(json.dueOutBenJin) + parseFloat(json.dueOutLiXi) + parseFloat(json.dueOutJiangLi)));
+		                        $("#dueOutBenJin").html("本金：" + fmoney2(json.dueOutBenJin));
+		                        $("#dueOutLiXi").html("利息：" + fmoney1(parseFloat(json.dueOutLiXi) + parseFloat(json.dueOutJiangLi)));
+		                        $("#dvRepay").show();
+		                    }
+		                    
+		                    if ((parseFloat(json.dueOutZxBenJin) + parseFloat(json.dueOutZxLiXi)) <= 0) {
+		                        $("#dvJieQing").hide();
+		                    } else {
+		                        $("#dueOutZxTotal").html(fmoney1(parseFloat(json.dueOutZxBenJin) + parseFloat(json.dueOutZxLiXi)));
+		                        $("#dueOutZxBenJin").html("本金：" + fmoney2(json.dueOutZxBenJin));
+		                        $("#dueOutZxLiXi").html("利息：" + fmoney1(parseFloat(json.dueOutZxLiXi)));
+
+		                        $("#dvJieQing").show();
+		                    }
+		                    
+		                }
+		                var MonthLi = $(".swiper-slide").eq(actIndex).find('li');
+		                if (data != null && data.length > 0) {
+		                    MonthLi.each(function (i, li) {
+		                        //加有回款日样式
+		                        $(data).each(function (index, item) {
+		                            if (parseFloat(item.inAmount) > 0 || parseFloat(item.outAmount) > 0 || parseFloat(item.dueOutZxBenJin) + parseFloat(item.dueOutZxLiXi) > 0) {
+		                                if (item.day == $(li).html()) {
+		                                    $(li).addClass('red').attr({ 'returnMoney': item.inAmount, 'repayMoney': item.outAmount, 'repayZxMoney': parseFloat(item.dueOutZxBenJin) + parseFloat(item.dueOutZxLiXi), 'date': item.cycDate });
+		                                    AddTips($(li), item.inAmount, item.outAmount, parseFloat(item.dueOutZxBenJin) + parseFloat(item.dueOutZxLiXi));
+		                                }
+		                            }
+		                        });
+		                    });
+		                } else {
+		                    //该月没有还款日
+		                }
+		                
+		            },
+		            error: function () {
+		                $("body").hideLoading();
+		            }
+		        });
+		    }
+
+		    //金额格式化(无四舍五入)
+		    function fmoney2(s) {
+		        s = parseFloat(Round2((s + "").replace(/[^\d\.-]/g, ""))).toFixed(2) + "";
+		        var l = s.split(".")[0].split("").reverse(),
+                    r = s.split(".")[1];
+		        t = "";
+		        for (i = 0; i < l.length; i++) {
+		            t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+		        }
+		        return t.split("").reverse().join("") + "." + r;
+		    }
+		    function fmoney1(s) {
+		        return parseFloat(s) > 0 ? fmoney2(parseFloat(s) + 0.01) : 0.00;
+		    }
+		    //添加回款借款提示
+		    function AddTips(obj, returnMoney, repayMoney,repayZxMoney) {
+		        if (returnMoney == undefined) {
+		            returnMoney = 0;
+		        }
+		        if (repayMoney == undefined) {
+		            repayMoney = 0;
+		        }
+		        if (repayZxMoney == undefined) {
+		            repayZxMoney = 0;
+		        }
+		        var html = "<div class=\"webkit-box box-center box-vertical\">";
+		        if (parseFloat(returnMoney) > 0) {
+		            html+="<i class=\"ico_return\"></i>";
+		        }
+		        if (parseFloat(repayZxMoney) > 0) {
+		            html += "<i class=\"ico_notready\"></i>";
+		        }
+		        if (parseFloat(repayMoney) > 0) {
+		            html += "<i class=\"ico_repay\"></i>";
+		        }
+		        
+		        html += "</div>";
+		        obj.append(html);
+		        
+		    }
+
+		    //加载弹框信息
+
+		    function LoadDetail(li) {
+		        $("body").showLoading("加载中...");
+		        var date = $(li).attr("date"); 
+		        var returnMoney = $(li).attr("returnmoney");
+		        var repayMoney = $(li).attr("repaymoney");
+		        var repayZxMoney = $(li).attr("repayZxmoney");
+		        $.ajax({
+		            url: "/ajaxCross/ajax_autoLoan.ashx",
+		            type: "post",
+		            dataType: "json",
+		            async: false,
+		            data: {
+		                Cmd: "GetReturnAndPayByDay",
+		                Date: date
+		            },
+		            success: function (json) {
+		                $("#d1").html("");
+		                $("#d2").html("");
+		                $("#d3").html("");
+		                $("body").hideLoading();
+		                $("#dueInAmount").html(fmoney2(returnMoney));
+		                $("#dueOutAmount").html(fmoney1(repayMoney));
+		                $("#dueOutZxAmount").html(fmoney1(repayZxMoney));
+		                if (json.length > 0) {
+		                    var jlStr = "";
+		                    var row = "";
+		                    var hkStr = "";
+		                    $(json).each(function (index, item) {
+		                        if (parseFloat(item.Amount) + parseFloat(item.InterestAmout) + parseFloat(item.JiangLi) > 0) {
+		                             if (item.IsReturn == "1") {
+		                                if (parseFloat(item.JiangLi) > 0) {
+		                                    jlStr = '<span class="d_itemTips">奖励:' + fmoney2(item.JiangLi) + '</span>';
+		                                } else {
+		                                    jlStr = '';
+		                                }
+		                                if (parseInt(item.RepeatInvestType) == 2) {
+		                                    hkStr = "本金复投";
+		                                } else {
+		                                    hkStr = '待回款（' + item.Periods + '/' + item.Deadline + ')';
+		                                }
+		                                row = '<div class="pl10 pt10 pr10">' +
+		                                    '<div class="d_item">' +
+		                                    '<p>回款金额:<span class="c-fd6040 r_money">' + fmoney2(parseFloat(item.Amount) + parseFloat(item.InterestAmout) + parseFloat(item.JiangLi)) + '</span>' + jlStr + '</p>' +
+		                                    '<p class="c-ababab pt7">(<span class="c-ababab">本金:' + fmoney2(item.Amount) + '</span><span class="c-ababab ml15">利息:' + fmoney2(item.InterestAmout) + '</span>)</p>' +
+		                                    '<div class="clearfix proName pt8">' +
+		                                    '<div class="lf text-overflow">[' + item.TypeName + ']' + item.Title + '</div>' +
+		                                    '<div class="rf c-ababab">'+hkStr+'</div>' +
+		                                    '</div>' +
+		                                    '</div>' +
+		                                    '</div>';
+		                                $("#d1").append(row);
+		                             } else if (item.Type == "37" || item.Type == "38") {
+		                                 if (parseFloat(item.JiangLi) > 0) {
+		                                     jlStr = '<span class="d_itemTips">奖励:' + fmoney1(item.JiangLi) + '</span>';
+		                                 } else {
+		                                     jlStr = '';
+		                                 }
+		                                 row = '<div class="pl10 pt10 pr10">' +
+		                                     '<div class="d_item">' +
+		                                     '<p>结清金额:<span class="c-fd6040 r_money">' + fmoney1(parseFloat(item.Amount) + parseFloat(item.InterestAmout) + parseFloat(item.JiangLi)) + '</span>' + jlStr + '</p>' +
+		                                     '<p class="c-ababab pt7">(<span class="c-ababab">本金:' + fmoney2(item.Amount) + '</span><span class="c-ababab ml15">利息:' + fmoney1(item.InterestAmout) + '</span>)</p>' +
+		                                     '<div class="clearfix proName pt8">' +
+		                                     '<div class="lf text-overflow">[' + item.TypeName + ']' + item.Title + '</div>' +
+		                                     '<div class="rf c-ababab">待结清（' + item.Periods + '/' + item.Deadline + ')</div>' +
+		                                     '</div>' +
+		                                     '</div>' +
+		                                     '</div>';
+		                                 $("#d3").append(row);
+		                             } else {
+		                                 if (parseFloat(item.JiangLi) > 0) {
+		                                     jlStr = '<span class="d_itemTips">奖励:' + fmoney1(item.JiangLi) + '</span>';
+		                                 } else {
+		                                     jlStr = '';
+		                                 }
+		                                 row = '<div class="pl10 pt10 pr10">' +
+		                                     '<div class="d_item">' +
+		                                     '<p>结清金额:<span class="c-fd6040 r_money">' + fmoney1(parseFloat(item.Amount) + parseFloat(item.InterestAmout) + parseFloat(item.JiangLi)) + '</span>' + jlStr + '</p>' +
+		                                     '<p class="c-ababab pt7">(<span class="c-ababab">本金:' + fmoney2(item.Amount) + '</span><span class="c-ababab ml15">利息:' + fmoney1(item.InterestAmout) + '</span>)</p>' +
+		                                     '<div class="clearfix proName pt8">' +
+		                                     '<div class="lf text-overflow">[' + item.TypeName + ']' + item.Title + '</div>' +
+		                                     '<div class="rf c-ababab">待结清（' + item.Periods + '/' + item.Deadline + ')</div>' +
+		                                     '</div>' +
+		                                     '</div>' +
+		                                     '</div>';
+		                                 $("#d2").append(row);
+		                             }
+		                        }
+		                    });
+		                }
+		            },
+		            error: function () {
+		                $("body").hideLoading();
+		            }
+		        });
+		    }
+		</script>
+
+	</body>
+
+</html>

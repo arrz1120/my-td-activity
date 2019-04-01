@@ -1,0 +1,715 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="autoSet.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.setAuto.autoSet" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>自动投标-散标方案</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160623" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=20160623" />
+	<link rel="stylesheet" type="text/css" href="/css/auto-invest.css?v=20160623" />
+</head>
+<body class="bg-f1f3f5 pb15">
+	<%=GetNavStr() %>
+    <% if (ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0")
+       { %>
+	<div class="tabBox clearfix bg-fff">
+		<div class="tabItem lf w50p br-e6e6e6" onclick="JAVASCRIPT:window.location.href='autoWeSet.aspx?type=0';">智能投资</div>
+		<div class="tabItem act lf w50p">散标方案</div>
+	</div>
+    <% } %>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	<input type="hidden" value="<%= this.type %>" id="type"/>
+    <input type="hidden" value="<%= this.id %>" id="id"/>
+	<div class="bg-fff pt25">
+		<div class="pl15 pr15">
+			<p class="f15px c-212121"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%<i class="ico-edit" id="income-edit"></i></p>
+			<div class="range-slider">
+				<span class="c-ababab f12px span_from pos-a">5%</span>
+			    <input type="text" class="js-range-slider1" value="" tabindex="-1"/ style="border: none;">
+		    	<span class="c-ababab f12px span_to pos-a">20%</span>
+		    </div>
+		    <p class="f15px c-212121 mt40">
+				<span class="f15px c-ababab">回款期限：</span>
+				<span class="f23px c-212121" id="count3"><%=ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0"?"7":"1" %></span><small class="f15px c-212121 s1"><%=ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0"?"天":"个月" %></small> ~
+				<span class="f23px c-212121" id="count4">18</span><small class="f15px c-212121 s2">个月</small>
+				<i class="ico-edit" id="time-edit"></i>
+			</p>
+			<div class="range-slider" style="<%=ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") == "0" ?"display:none;":""%>">
+				<span class="c-ababab f12px span_from pos-a">7天</span>
+				<input type="text" class="js-range-slider2" value="" tabindex="-1" / style="border: none;">
+				<span class="c-ababab f12px span_to pos-a">18个月</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg-fff pl15 pb10">
+		<div class="selectBox selectBox2 bg-fff pt30">
+			<p class="pb10 f15px c-ababab">投标类型</p>
+			<ul class="clearfix" id="projectType">
+				<li><div class="selected" data="1">小微企业</div></li>
+				<li><div class="selected" data="9">微团贷</div></li>
+				<li><div class="selected" data="6">资产标</div></li>
+				<li><div class="selected" data="15">分期宝</div></li>
+                <% if (ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0")
+                   { %>
+				<li><div class="selected" data="20">供应链</div></li>
+                <% } %>
+			</ul>
+		</div>
+		
+		<div class="selectBox selectBox1 bg-fff pt25 pb5">
+			<p class="pb10 f15px c-ababab">还款方式</p>
+			<ul class="clearfix" id="repaymentType">
+				<li><div class="selected" data="1">一次性还本付息</div></li>
+				<li><div class="selected" data="2">每月付息到期还本</div></li>
+				<li><div class="selected" data="5">等额本息</div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="pt10 bt-e6e6e6 bb-e6e6e6"></div>
+	
+	<div class="pl15 bg-fff">
+		<div class="inputBox bb-e6e6e6">
+			<span class="ib_span1">预留金额</span>
+			<input type="text" placeholder="请输入预留金额，默认0" id="txtReservedAmount" maxlength="12"/>
+			<span class="ib_span2">元</span>
+		</div>
+		<div class="checkBox pt10 pb21 pt10 pb10">
+			<span class="f15px">有效期</span>
+			<span class="f15px"><i class="checked" id="longTime"></i>长期有效</span>
+			<span class="f15px"><i id="self"></i>自定义</span>
+		</div>
+		<div class="dateBox hide clearfix">
+			<div class="w50p lf pr15 pos-r">
+				<input type="date" id="txtStartDate"/>
+				<i class="ico-arrow-r ico-arrow-rl"></i>
+			</div>
+			<div class="w50p lf pl15 pos-r">
+				<input type="date" id="txtEndDate" placeholder="请选择时间" />
+				<i class="ico-arrow-r"></i>
+			</div>
+		</div>
+        <div class="checkBox pt10 pb21 pt10 pb10 bt-e6e6e6">
+            <span class="f15px"><i id="rule" class="checked"></i>我已同意<a href="auto_rule.aspx" class="f15px c-1fcafb">《自动投标规则》</a></span>
+		</div>
+	</div>
+	
+	<div class="pt10 pl10 pr10">
+		<div class="btn btnYellow" id="btnSave">保存</div>
+	</div>
+	<% if (!string.IsNullOrEmpty(id))
+	   {
+	       %>
+	<div class="pt10 pl10 pr10">
+		<div class="btn bg-d1d1d1 c-212121" id="btnDelete">删除</div>
+	</div>
+	<%
+	   } %>
+	<!--输入年化利率弹框 -->
+	<div class="alert webkit-box box-center hide" id="alert-income">
+		<div class="alert-con alert-income-inp bg-fff text-center pt30">
+			<p class="f17px">请输入年化利率</p>
+			<div class="mt30 f15px">
+				<input type="number" id="inp1" />%
+				<span class="c-212121 f15px">~</span>
+				<input type="number" id="inp2"/>%
+			</div>
+			<div class="webkit-box mt30 bt-e6e6e6">
+				<div class="box-flex1 c-808080 f17px text-center pt10 pb10 br-e6e6e6" id="income-cancel">取消</div>
+				<div class="box-flex1 c-fcb700 f17px text-center pt10 pb10" id="income-confirm">确定</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--输入回款期限弹框 -->
+	<div class="alert webkit-box box-center hide" id="alert-time">
+		<div class="bg-fff text-center alert-con">
+			<p class="f17px pt25 pb12 c-212121">请输入回款期限</p>
+			<div class="alert-input pt15 pl30">
+				<div class="inp">
+					<span class="f15px mr15">从</span>
+					<input type="number" id="from_inp" placeholder="输入期限"/>
+					<i class="i_month" id="from_month">月</i>
+                    <% if (ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0")
+                       { %>
+					<i class="i_day" id="from_day">日</i>
+                    <% } %>
+				</div>
+			</div>
+			<div class="alert-input pt15 pl30">
+				<div class="inp">
+					<span class="f15px mr15">到</span>
+					<input type="number" id="to_inp" placeholder="输入期限"/>
+					<i class="i_month" id="to_month">月</i>
+                    <% if (ConfigHelper.getConfigString("IsOpenNewAutoInvest", "0") != "0")
+                       { %>
+					<i class="i_day" id="to_day">日</i>
+                    <% } %>
+				</div>
+			</div>
+			<div class="webkit-box mt30 bt-e6e6e6">
+				<div class="box-flex1 c-808080 f17px text-center pt10 pb10 br-e6e6e6" id="time-cancel">取消</div>
+				<div class="box-flex1 c-fcb700 f17px text-center pt10 pb10" id="time-confirm">确定</div>
+			</div>
+		</div>
+	</div>
+
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+
+    //滑块
+    range1(5, 20, 5, 20);
+    range2(7, 47, 7, 47);
+    var from1 = 5,
+        to1 = 20,
+        from2 = {
+            from: 7,
+            dateType: '天'
+        },
+        to2 = {
+            to: 18,
+            dateType: '个月'
+        };
+
+    function range1(min, max, from, to) {
+        var $range = $(".js-range-slider1");
+        $range.ionRangeSlider({
+            type: "double",
+            min: min,
+            max: max,
+            from: from,
+            to: to,
+            onChange: function (data) {
+                from1 = data.from;
+                to1 = data.to;
+                updateValues(from1, to1);
+            }
+        });
+        var slider = $range.data("ionRangeSlider");
+        var updateRange = function (from, to) {
+            slider.update({
+                from: from,
+                to: to
+            });
+        };
+        var updateValues = function (from, to) {
+            $("#count1").html(from);
+            $("#count2").html(to);
+        };
+        $("#reset").click(function () {
+            from1 = 5;
+            to1 = 20;
+            updateRange(5, 20);
+            updateValues(5, 20);
+        });
+
+
+        $("#inp1").on('blur', function () {
+            var val1 = parseInt($("#inp1").val());
+            var val2 = parseInt($("#inp2").val());
+            if (val1 < 5) {
+                //console.log(val1);
+                val1 = 5;
+            }
+            if (val1 > 20) {
+                val1 = 20;
+            }
+            if (val2 < val1) {
+                val2 = val1;
+            }
+            $("#inp1").val(val1);
+        });
+
+        $("#inp2").on('blur', function () {
+            var val1 = parseInt($("#inp1").val());
+            var val2 = parseInt($("#inp2").val());
+            if (val2 < 5) {
+                val2 = 5;
+            }
+            if (val2 > 20) {
+                val2 = 20;
+            }
+            if (val2 < val1) {
+                val2 = val1;
+            }
+            $("#inp2").val(val2);
+        });
+
+        $("#income-confirm").click(function () {
+            var val1 = parseInt($("#inp1").val());
+            var val2 = parseInt($("#inp2").val());
+            if (val1 == '' || val1 < 5) {
+                val1 = 5;
+            }
+            if (val2 == '' || val1 > 20) {
+                val2 = 20;
+            }
+            if (val2 < val1) {
+                val2 = val1;
+            }
+            updateRange(val1, val2);
+            updateValues(val1, val2);
+            $("#alert-income").addClass('hide');
+        });
+    }
+
+    function range2(min, max, from, to) {
+        var $range = $(".js-range-slider2");
+        $range.ionRangeSlider({
+            type: "double",
+            min: min,
+            max: max,
+            from: from,
+            to: to,
+            onChange: function (data) {
+                updateValues(data.from, data.to);
+            }
+        });
+        var slider = $range.data("ionRangeSlider");
+        var updateRange = function (from, to) {
+            slider.update({
+                from: from,
+                to: to
+            });
+        };
+        var updateValues = function (f, t) {
+            var smalls = $("small");
+            $(smalls).each(function (ind, sm) {
+                $(sm).remove();
+            });
+            var objFrom = {};
+            var objTo = {};
+            t = t - 29;
+            if (f > 29) {
+                f = f - 29;
+                objFrom = {
+                    from: f,
+                    dateType: '个月'
+                };
+            } else {
+                objFrom = {
+                    from: f,
+                    dateType: '天'
+                };
+            }
+            if (t < 1) {
+                t = t + 29;
+                objTo = {
+                    to: t,
+                    dateType: '天'
+                };
+            } else {
+                objTo = {
+                    to: t,
+                    dateType: '个月'
+                };
+            }
+            from2 = objFrom;
+            to2 = objTo;
+            $("#count3").html(objFrom.from).after('<small class="f15px c-212121 s1">' + objFrom.dateType + '</small>');
+            $("#count4").html(objTo.to).after('<small class="f15px c-212121 s2">' + objTo.dateType + '</small>');
+        };
+
+        $("#reset").click(function () {
+            from2 = 7;
+            to2 = 47;
+            updateRange(7, 47);
+            updateValues(7, 47);
+        });
+
+        var from_month = $("#from_month");
+        var from_day = $("#from_day");
+        var to_month = $("#to_month");
+        var to_day = $("#to_day");
+        var from_inp = $("#from_inp");
+        var to_inp = $("#to_inp");
+        var from_val;
+        var to_val;
+
+        from_month.click(function () {
+            if (to_day.hasClass('cur')) {
+                to_month.addClass('cur');
+                to_day.removeClass('cur');
+            }
+            from_month.addClass('cur');
+            from_day.removeClass('cur');
+            dealMonthVal(from_inp);
+        });
+        from_day.click(function () {
+            from_month.removeClass('cur');
+            from_day.addClass('cur');
+            dealDayVal(from_inp);
+        });
+        to_month.click(function () {
+            to_day.removeClass('cur');
+            to_month.addClass('cur');
+            dealMonthVal(to_inp);
+        });
+        to_day.click(function () {
+            if (from_day.hasClass('cur')) {
+                to_month.removeClass('cur');
+                to_day.addClass('cur');
+            }
+            dealDayVal(to_inp);
+        });
+
+        function dealMonthVal($this) {
+            var val = parseInt($this.val());
+            if (val < 1) val = 1;
+            if (val > 18) val = 18;
+            $this.val(val);
+        }
+
+        function dealDayVal($this) {
+            var val = parseInt($this.val());
+            if (val < 7) val = 7;
+            if (val > 29) val = 29;
+            $this.val(val);
+        }
+
+        from_inp.on('blur', function () {
+            if (from_month.hasClass('cur')) {
+                dealMonthVal($(this));
+            } else {
+                dealDayVal($(this));
+            }
+        });
+
+
+        to_inp.on('blur', function () {
+            if (to_month.hasClass('cur')) {
+                dealMonthVal($(this));
+            } else {
+                dealDayVal($(this));
+            }
+        });
+
+        $("#time-confirm").click(function () {
+            var fi_val = from_inp.val();
+            var ti_val = to_inp.val();
+            if (from_month.hasClass('cur')) {
+                from_val = parseInt(fi_val) + 29;
+            } else {
+                from_val = parseInt(fi_val);
+            }
+            if (to_month.hasClass('cur')) {
+                to_val = parseInt(ti_val) + 29;
+            } else {
+                to_val = parseInt(ti_val);
+            }
+            if (to_val < from_val) {
+                to_val = from_val;
+            }
+            if (isNaN(from_val)) {
+                from_val = 7;
+            }
+            if (isNaN(to_val)) {
+                to_val = 47;
+            }
+            $("#alert-time").addClass('hide');
+            updateRange(from_val, to_val);
+            updateValues(from_val, to_val);
+        });
+
+    }
+
+    function dealInputValue() {
+    }
+    dealInputValue();
+    //输入利率弹框事件
+    $("#income-edit").click(function () {
+        $("#inp1").val($("#count1").html());
+        $("#inp2").val($("#count2").html());
+        $("#alert-income").removeClass('hide');
+    });
+    $("#income-cancel").click(function () {
+        $("#alert-income").addClass('hide');
+    });
+    //输入期限弹框事件
+    $("#time-edit").click(function () {
+        $("#from_inp").val($("#count3").html());
+        $("#to_inp").val($("#count4").html());
+        if ($(".s1").html() == "天") {
+            $("#from_day").addClass("cur");
+        } else {
+            $("#from_month").addClass("cur");
+        }
+        if ($(".s2").html() == "天") {
+            $("#to_day").addClass("cur");
+        } else {
+            $("#to_month").addClass("cur");
+        }
+        $("#alert-time").removeClass('hide');
+    });
+    $("#time-cancel").click(function () {
+        $("#alert-time").addClass('hide');
+    });
+
+    $(function () {
+        //投标类型 还款方式
+        $("li div").click(function () {
+            if ($(this).hasClass("selected")) {
+                $(this).removeClass("selected");
+            } else {
+                $(this).addClass("selected");
+            }
+        });
+        //有效期
+        var iCheck = $(".checkBox").find('i');
+        var dateBox = $(".dateBox");
+        iCheck.each(function (i, item) {
+            $(item).click(function () {
+                if (i == 0) {
+                    iCheck.eq(0).addClass('checked');
+                    iCheck.eq(1).removeClass('checked');
+                    dateBox.addClass('hide');
+                } else if (i == 1) {
+                    iCheck.eq(0).removeClass('checked');
+                    iCheck.eq(1).addClass('checked');
+                    dateBox.removeClass('hide');
+                    $("#txtStartDate").val("<%=DateTime.Now.ToString("yyyy-MM-dd")%>");
+                } else {
+                    if ($(item).hasClass("checked")) {
+                        $(item).removeClass("checked");
+                    } else {
+                        $(item).addClass("checked");
+                    }
+                }
+            });
+        });
+        //保存
+        $("#btnSave").click(function () {
+            var startRate = $("#count1").html();
+            var endRate = $("#count2").html();
+            var startDeadline = $("#count3").html();
+            var startDeadType = $(".s1").html() == "天" ? "2" : "1";
+            var endDeadline = $("#count4").html();
+            var endDeadType = $(".s2").html() == "天" ? "2" : "1";
+            var investType = "";
+            $("#projectType li div").each(function (ind, div) {
+                if ($(div).hasClass("selected")) {
+                    if (investType == "") {
+                        investType = $(div).attr("data");
+                    } else {
+                        investType += "," + $(div).attr("data");
+                    }
+                }
+            });
+            if (investType == "") {
+                $("body").showMessage({ message: "未选择投标类型", showCancel: false });
+                return false;
+            }
+            investType = investType.replace("1", "1,3");
+            investType = investType.replace("6", "6,7");
+            investType = investType.replace("9", "9,10,11");
+            investType = investType.replace("15", "15,24,25,26,27,28");
+            investType = investType.replace("20", "19,20");
+            var repaymentType = "";
+            $("#repaymentType li div").each(function (ind, div) {
+                if ($(div).hasClass("selected")) {
+                    if (repaymentType == "") {
+                        repaymentType = $(div).attr("data");
+                    } else {
+                        repaymentType += "," + $(div).attr("data");
+                    }
+                }
+            });
+            if (repaymentType == "") {
+                $("body").showMessage({ message: "未选择还款方式", showCancel: false });
+                return false;
+            }
+            var reservedAmount = $("#txtReservedAmount").val();
+            if (reservedAmount == "") {
+                reservedAmount = "0";
+            }
+            if (parseFloat(reservedAmount) < 0) {
+                $("body").showMessage({ message: "预留金额不能小于0", showCancel: false });
+                return false;
+            }
+            var startDate = "";
+            var endDate = "";
+            if ($("#self").hasClass("checked")) {
+                startDate = $("#txtStartDate").val();
+                if (startDate == "") {
+                    $("body").showMessage({ message: "起始时间不能为空", showCancel: false });
+                    return false;
+                }
+                endDate = $("#txtEndDate").val();
+                if (endDate == "") {
+                    $("body").showMessage({ message: "结束时间不能为空", showCancel: false });
+                    return false;
+                }
+                if (startDate > endDate) {
+                    $("body").showMessage({ message: "起始时间不能大于结束时间", showCancel: false });
+                    return false;
+                }
+            }
+            
+            if (!$("#rule").hasClass("checked")) {
+                $("body").showMessage({ message: "请认真阅读并同意规则", showCancel: false });
+                return false;
+            }
+
+            var id = $("#id").val();
+            var cmd = "addAuto";
+            if (id != "") {
+                cmd = "updateAuto";
+            }
+            $("body").showLoading("正在提交中...");
+            $.ajax({
+                url: "/ajaxCross/ajax_autoLoan.ashx",
+                type: "post",
+                async: true,
+                dataType: "json",
+                data: { Cmd: cmd, ProjectType: investType, beginRate: startRate, endRate: endRate, beginDeadline: startDeadline, StartDeadType: startDeadType, endDeadline: endDeadline, EndDeadType: endDeadType, RepaymentType: repaymentType, ReservedAmout: reservedAmount, beginDate: startDate, endDate: endDate, id: id, pattern: 1 },
+                success: function (json) {
+                    $("body").hideLoading();
+                    var d = json.result;
+                    if (parseInt(d) == 1) {
+                        window.location.href = 'set_suc.aspx';
+                    }
+                    else if (parseInt(d) == -2) {
+                        $("body").showMessage({ message: "自动投标只能设置3条", showCancel: false });
+                        return false;
+                    }
+                    else {
+                        $("body").showMessage({ message: json.msg, showCancel: false });
+                    }
+                },
+                error: function () {
+                    $("body").hideLoading();
+                    showMessage("保存失败");
+                }
+            });
+        });
+        loadDetail();
+        //修改时加载数据
+        function loadDetail() {
+            var type = $("#type").val();
+            var id = $("#id").val();
+            if (type == 1 && id != "") {//修改
+                $.ajax({
+                    url: "/ajaxCross/ajax_autoLoan.ashx",
+                    type: "post",
+                    dataType: "json",
+                    async: false,
+                    data: { Cmd: "getSingleAuto", id: id },
+                    success: function (json) {
+                        var d = json.result;
+                        if (d == "1") {
+                            var item = JSON.parse(json.msg);
+                            $("#count1").html(item.StartRate);
+                            $("#count2").html(item.EndRate);
+                            //移动滑块
+                            var $range = $(".js-range-slider1");
+                            var slider = $range.data("ionRangeSlider");
+                            slider.update({
+                                from: item.StartRate,
+                                to: item.EndRate
+                            });
+                            $("#count3").html(item.StartDeadLine);
+                            $("#count4").html(item.EndDeadLine);
+                            var from = item.StartDeadLine;
+                            var to = item.EndDeadLine;
+                            if (item.StartDeadType == 2) {
+                                $(".s1").html("天");
+                            } else {
+                                $(".s1").html("个月");
+                                from += 29;
+                            }
+                            if (item.EndDeadType == 2) {
+                                $(".s2").html("天");
+                            } else {
+                                $(".s2").html("个月");
+                                to += 29;
+                            }
+                            //移动滑块
+                            var $range2 = $(".js-range-slider2");
+                            var slider2 = $range2.data("ionRangeSlider");
+                            slider2.update({
+                                from: from,
+                                to: to
+                            });
+                            if (item.ProjectType.indexOf("1,3") == -1)
+                                $($("#projectType li div")[0]).removeClass("selected");
+                            if (item.ProjectType.indexOf("9,10,11") == -1)
+                                $($("#projectType li div")[1]).removeClass("selected");
+                            if (item.ProjectType.indexOf("6,7") == -1)
+                                $($("#projectType li div")[2]).removeClass("selected");
+                            if (item.ProjectType.indexOf("15,24") == -1)
+                                $($("#projectType li div")[3]).removeClass("selected");
+                            if (item.ProjectType.indexOf("19,20") == -1)
+                                $($("#projectType li div")[4]).removeClass("selected");
+                            if (item.RepaymentType.indexOf("1") == -1)
+                                $($("#repaymentType li div")[0]).removeClass("selected");
+                            if (item.RepaymentType.indexOf("2") == -1)
+                                $($("#repaymentType li div")[1]).removeClass("selected");
+                            if (item.RepaymentType.indexOf("5") == -1)
+                                $($("#repaymentType li div")[2]).removeClass("selected");
+
+
+                            $("#txtReservedAmount").val(item.ReservedAmout);
+                            if (item.StartDate != null || item.EndDate != null) {
+                                $("#longTime").removeClass("checked");
+                                $("#self").addClass("checked");
+                                $("#txtStartDate").val(item.StartDate.substr(0, 10));
+                                $("#txtEndDate").val(item.EndDate.substr(0, 10)).attr("placeholder","");
+                                $(".dateBox").removeClass("hide");
+                            }
+
+                        }
+                    }
+                });
+            }
+        }
+        //删除
+        $("#btnDelete").click(function () {
+            $("body").showMessage({
+                message: "确定要删除吗？", okString: "删除", cancelString: "取消", okbtnEvent: function () {
+                    var type = $("#type").val();
+                    var id = $("#id").val();
+                    if (type == 1 && id != "") {//修改
+                        $.ajax({
+                            url: "/ajaxCross/ajax_autoLoan.ashx",
+                            type: "post",
+                            dataType: "json",
+                            async: false,
+                            data: { Cmd: "deleteAuto", id: id, pattern: 1 },
+                            success: function (json) {
+                                var d = json.result;
+                                if (d == "1") {
+                                    window.location.href = 'auto_invest.aspx';
+                                } else {
+                                    $("body").showMessage({ message: json.msg, showCancel: false });
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    });
+    
+	//模拟placeholder属性
+    function datePlaceholder(){
+        var o = document.getElementById('txtEndDate');
+		o.onfocus = function(){
+		    this.removeAttribute('placeholder');
+		};
+		o.onblur = function(){
+		    if(this.value == '') this.setAttribute('placeholder','请选择时间');
+		};
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Text;
+using Newtonsoft.Json;
+using TuanDai.Enums;
+using TuanDai.Enums.Sms;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using TuanDai.SMS.Client;
+using TuanDai.WXApiWeb.Member.Repayment;
+using Tool;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.ajaxCross
+{
+    /// <summary>
+    /// BorrowAjax 的摘要说明
+    /// </summary>
+    public class BorrowAjax : SafeHandlerBase
+    {
+
+        #region 我的借款记录
+        /// <summary>
+        /// 获取我的借款记录列表
+        /// </summary>
+        public void GetMyLoanShowList()
+        {
+            int pagesize = GlobalUtils.PageSize;
+            int pageindex = Tool.SafeConvert.ToInt32(Context.Request.Form["pageIndex"], 1);
+            int status = Tool.SafeConvert.ToInt32(Context.Request.Form["statusStr"], 0);
+            string userId = Tool.SafeConvert.ToString(Context.Request.Form["userId"]);
+            Guid uId = WebUserAuth.UserId.Value;
+            if (uId == Guid.Empty)
+            {
+                if (string.IsNullOrEmpty(userId))
+                    uId = Guid.NewGuid();
+                else
+                    uId = Guid.Parse(userId);
+            }
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            int totalcount = 0;
+            ProjectBLL bll = new ProjectBLL();
+            WXMyLoanList_Info myLoanModel = bll.WXGetMyLoanList(uId, status, pageindex, pagesize, out totalcount);
+
+            if (myLoanModel != null && myLoanModel.List.Count() > 0)
+            {
+                int index = 1;
+                int pageCount = GetPageCount(totalcount, pagesize);//总页数
+
+                sb.Append("{\"result\":\"1\",\"totalcount\":\"" + totalcount + "\",\"pagecount\":\"" + pageCount + "\",\"list\":[");
+                foreach (WXSubMyLoanList_Info temp in myLoanModel.List)
+                {
+                    sb.Append("{\"Id\":\"" + temp.ProjectId + "\",\"Title\":\"" + temp.Title + "\",\"ProjectType\":\"" + ToolStatus.ConvertProjectType(temp.Type)
+                           + "\",\"Amount\":\"" + Tool.MoneyHelper.ConvertDetailWanMoney(temp.Amount) + "\",\"HaveBorrowedAmount\":\"" + Tool.MoneyHelper.ConvertDetailWanMoney(temp.HaveBorrowedAmount)
+                           + "\",\"ProcessStr\":\"" + borrowLog.GetProcessStr(temp) + "\",\"MonthsStr\":\"" + borrowLog.GetMonthsStr(temp)
+                           + "\",\"PrincipalInterest\":\"" + Tool.MoneyHelper.ConvertDetailWanMoney(myLoanModel.PrincipalInterest)
+                           + "\",\"LinkUrl\":\"" + borrowLog.GetLinkUrl(temp)
+                           + "\",\"CircleCss\":\"" + borrowLog.GetCircleCss(temp)
+                           + "\",\"AddDate\":\"" + Convert.ToDateTime(temp.AddDate).ToString("yyyy-MM-dd")
+                           + "\",\"DeadlineStr\":\"" + borrowLog.GetDeadlineStr(temp)
+                           + "\",\"InterestRate\":\"" + ToolStatus.DeleteZero(temp.InterestRate));
+
+                    if (index == myLoanModel.List.Count())
+                    {
+                        sb.Append("\"}]}");
+                    }
+                    else
+                    {
+                        sb.Append("\"},");
+                    }
+                    index++;
+                }
+            }
+            else
+            {
+                sb.Append("{\"result\":\"0\",\"totalcount\":\"" + totalcount + "\",\"pagecount\":\"0\"}");
+            }
+            this.Context.Response.Write(sb.ToString());
+            this.Context.Response.End();
+        }
+        #endregion
+
+        #region 我的账单
+        /// <summary>
+        /// 获取我的账单记录
+        /// </summary>
+        public void GetMyBillsShowList()
+        {
+            int pagesize = GlobalUtils.PageSize;
+            int pageindex = Tool.SafeConvert.ToInt32(Context.Request.Form["pageIndex"], 1);
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            int totalcount = 0;
+            ProjectBLL bll = new ProjectBLL();
+            WXMyBillsInfo myBillModel = bll.WXGetMyBills(WebUserAuth.UserId.Value, pageindex, GlobalUtils.PageSize);
+
+            if (myBillModel != null && myBillModel.List.Count() > 0)
+            {
+                totalcount = myBillModel.TotalCount;
+                int index = 1;
+                int pageCount = GetPageCount(totalcount, pagesize);//总页数
+
+                sb.Append("{\"result\":\"1\",\"totalcount\":\"" + totalcount + "\",\"pagecount\":\"" + pageCount + "\",\"list\":[");
+                foreach (WXMyBillDetialInfo temp in myBillModel.List)
+                {
+                    if (index == myBillModel.List.Count())
+                    {
+                        sb.Append("{\"Title\":\"" + my_bills.GetBillTitle(temp) + "\",\"BillDate\":\"" + Convert.ToDateTime(temp.BillDate).ToString("yyyyMM") + "\",\"OperateStr\":\"" + (temp.PayOutAmount > 0 ? "-" : "+")
+                            + "\",\"Amount\":\"" + Tool.MoneyHelper.ConvertDetailWanMoney((temp.PayOutAmount ?? 0) > 0 ? temp.PayOutAmount : (temp.InAmount ?? 0))
+                            + "\",\"BillType\":\"" + my_bills.GetBillType(temp)
+                            + "\",\"Day\":\"" + temp.BillDate.ToString("MM-dd")
+                            + "\",\"Hour\":\"" + temp.BillDate.ToString("HH:mm:ss")
+                            + "\",\"Year\":\"" + temp.BillDate.ToString("yyyy")
+                            + "\",\"Month\":\"" + temp.BillDate.ToString("MM")
+                            + "\",\"Id\":\"" + temp.Id
+                            + "\"}]}");
+                    }
+                    else
+                    {
+                        sb.Append("{\"Title\":\"" + my_bills.GetBillTitle(temp) + "\",\"BillDate\":\"" + Convert.ToDateTime(temp.BillDate).ToString("yyyyMM") + "\",\"OperateStr\":\"" + (temp.PayOutAmount > 0 ? "-" : "+")
+                            + "\",\"Amount\":\"" + Tool.MoneyHelper.ConvertDetailWanMoney((temp.PayOutAmount ?? 0) > 0 ? temp.PayOutAmount : (temp.InAmount ?? 0))
+                            + "\",\"BillType\":\"" + my_bills.GetBillType(temp)
+                            + "\",\"Day\":\"" + temp.BillDate.ToString("MM-dd")
+                            + "\",\"Hour\":\"" + temp.BillDate.ToString("HH:mm:ss")
+                            + "\",\"Year\":\"" + temp.BillDate.ToString("yyyy")
+                            + "\",\"Month\":\"" + temp.BillDate.ToString("MM")
+                            + "\",\"Id\":\"" + temp.Id
+                            + "\"},");
+                    }
+                    index++;
+                }
+            }
+            else
+            {
+                sb.Append("{\"result\":\"0\",\"totalcount\":\"" + totalcount + "\",\"pagecount\":\"0\"}");
+            }
+            this.Context.Response.Write(sb.ToString());
+            this.Context.Response.End();
+        }
+
+        /// <summary>
+        /// 获取投资记录
+        /// </summary>
+        public void GetInvestmentsRecordsList()
+        {
+
+        }
+        /// <summary>
+        /// 获取借款记录
+        /// </summary>
+        public void LoadBorrowingRecordsList()
+        {
+        }
+        /// <summary>
+        /// 获取充值记录
+        /// </summary>
+        public void LoadRechargeRecordsList()
+        {
+        }
+        /// <summary>
+        /// 获取提现记录
+        /// </summary>
+        public void LoadWithdrawRecordsList()
+        {
+        }
+
+        #endregion
+
+        #region 股票配资--补仓
+        public void AddGPMargin()
+        {
+            Guid projectId = WEBRequest.GetFormGuid("ProjectId");
+            decimal amount = Decimal.Parse(WEBRequest.GetFormString("Amount"));
+            string payPwd = WEBRequest.GetFormString("PayPwd");
+            Guid userId = WebUserAuth.UserId.Value;
+            if (userId == null)
+            {
+                this.PrintJson("-3", "对不起，您还未登录!");
+                return;
+            }
+            ProjectBLL bll = new ProjectBLL();
+            string strResult = bll.WXGPAddMargin(userId, projectId, payPwd, amount);
+            if (strResult.ToText() == "")
+            {
+                this.PrintJson("1", "补仓成功!");
+                return;
+            }
+            else
+            {
+                this.PrintJson("0", strResult);
+            }
+        }
+        #endregion
+
+        #region 提前还款
+        public void PrepaymentSubmit()
+        {
+            Guid projectId = WEBRequest.GetFormGuid("ProjectId");
+            string payPwd = WEBRequest.GetFormString("TranPwd");
+            Guid userId = WebUserAuth.UserId.Value;
+            if (userId == null || userId == Guid.Empty)
+            {
+                this.PrintJson("-3", "对不起，您还未登录!");
+                return;
+            }
+
+            if (GlobalUtils.IsOpenCGT)
+            {
+                TuanDai.CgtCallbackUrl.Model.ModelRequest.PreReturnMoney reqMode = new TuanDai.CgtCallbackUrl.Model.ModelRequest.PreReturnMoney();
+                reqMode.UserId = userId.ToString();
+                List<Guid> listProject = new List<Guid>();
+                listProject.Add(projectId);
+                reqMode.ProjectIds = listProject;
+                string url = CgtCallBackConfig.GetCgtTradePwdUrl(reqMode, CgtCallBackConfig.CgtCallBackType.Prepayment);
+                PrintJson("8888", url);
+            }
+            else
+            {
+                ProjectBLL bll = new ProjectBLL();
+                string errorMsg = bll.PrepaymentSubmit(projectId, userId, payPwd);
+                if (errorMsg != "")
+                {
+                    this.PrintJson("-2", errorMsg);
+                    return;
+                }
+
+                //TuanDai.WXApiWeb.Common.SubscribeMsgHelper msghelper = new Common.SubscribeMsgHelper();
+                //推送提前还款信息到App
+                //msghelper.AsyncSubscribeUserToMsg(projectId);
+
+                //向所有投资者发送短信通知用户提前还款
+                //msghelper.SyncSendPhoneMsgToSubcribeUsers(projectId);
+                SyncSendPhoneMsgToSubcribeUsers(projectId);
+
+                SysLogHelper.WriteTraceLog("提前还款", "用户Id:" + userId.ToText() + " ProjectId:" + projectId.ToText());
+
+                this.PrintJson("1", "");
+                return;
+            }
+            
+        }
+        private delegate void SubscribeFullHandler(Guid projectId);
+        /// <summary>
+        /// 异步向所有投资者发送短信通知用户提前还款
+        /// </summary>
+        /// <param name="projectId"></param>
+        public void SyncSendPhoneMsgToSubcribeUsers(Guid projectId)
+        {
+            SubscribeFullHandler handler = new SubscribeFullHandler(DoSyncSendPhoneMsgToSubcribeUsers);
+            handler.BeginInvoke(projectId, null, null);
+        }
+        /// <summary>
+        /// 异步向所有投资者发送短信通知用户提前还款
+        /// </summary>
+        /// <param name="projectId"></param>
+        private void DoSyncSendPhoneMsgToSubcribeUsers(Guid projectId)
+        {
+            var smsRequestPrepaymentRemind = new SmsRequest();
+            smsRequestPrepaymentRemind.EventCode = MsgTemplatesType.PrepaymentRemind;
+            smsRequestPrepaymentRemind.PlatformSource = PlatformSource.WeiXin;
+            smsRequestPrepaymentRemind.Parameters = new Dictionary<string, object>();
+            smsRequestPrepaymentRemind.Parameters.Add("ProjectId", projectId.ToString());
+            string errorString = string.Empty;
+            SmsClient.SendMessage(smsRequestPrepaymentRemind, ref errorString);
+
+            if (!string.IsNullOrEmpty(errorString))
+            {
+                TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName,
+                    "WXInvest/DoSyncSendPhoneMsgToSubcribeUsers",
+                    JsonConvert.SerializeObject(smsRequestPrepaymentRemind), errorString);
+            }
+        }
+
+        #endregion
+
+        #region 私有方法
+        private int GetPageCount(int totalcount, int pageSize)
+        {
+            double divide = totalcount / pageSize;
+            double floor = System.Math.Floor(divide);
+            if (totalcount % pageSize != 0)
+                floor++;
+            int pageCount = Convert.ToInt32(floor);//总页数
+            return pageCount;
+        }
+        #endregion
+
+    }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>商品列表页</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160406" />
+	<link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160406001" />
+	<link rel="stylesheet" type="text/css" href="/css/mall.css?v=2016110101" />
+</head>
+<body class="bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-e6e6e6">
+	        <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">商品列表页</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	<div class="sml-banner pos-r">
+		<div class="my-tb pos-a">
+			<p>我的团币</p>
+			<p>298</p>
+		</div>
+		<img src="/imgs/member/mall/banner.png" alt="">
+	</div>
+	<div class="tab-nav" id="tab_nav">
+		<div class="webkit-box bg-fff pt10 pb10 pos-r z-index100 bb-e6e6e6">
+			<div class="box-flex1 text-center f16px c-fab600">团币数量
+				<span class="inline-block">
+				<p style="line-height: 5px;"><i class="triangle triangle-up-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+				<p style="line-height: 5px;"><i class="triangle triangle-down-orange" style="vertical-align: 0;margin-left: 0;"></i></p>
+			</span>
+			</div>
+			<div class="box-flex1 text-center f16px c-808080">兑换数量</div>
+			<div class="box-flex1 text-center f16px c-808080">上架时间</div>
+		</div>
+	</div>
+
+	
+	<div class="mt10 bg-fff">
+		<ul class="goodsList clearfix w100p c-212121">
+			<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+				<div class="zhuanxiang">V5以上专享</div>
+				<div class="webkit-box box-center goodsBox">
+					<div class="goodsItem bg_txj">1000<span>元</span></div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">1000元提现券</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem bg_hb">10</div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">投资红包</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/iphone.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">苹果6splus金色</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/mouse.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">微软蓝影M4000无线鼠标</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/mouse2.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">微软蓝影M4000无线鼠标</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/upmove.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">卓棒智能穿戴（UP-MOVE）</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/power.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">移动电源（彩色版）</p>
+				<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>
+			</li>
+			<li class="w50p lf bt-e6e6e6">
+				<div class="webkit-box box-center">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem"><img src="/imgs/member/mall/logo.png"/></div>
+					</div>
+				</div>
+				<p class="f14px pt5 pl12 pr5 text-overflow">更多精彩，敬请期待！</p>
+			</li>
+		</ul>
+	</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<!--<script type="text/javascript" src="/scripts/stickUp.min.js"></script>-->
+<!--<script type="text/javascript">-->
+	<!--jQuery(function($) {-->
+		<!--$(document).ready( function() {-->
+			<!--$('#tab_nav').stickUp();-->
+		<!--});-->
+	<!--});-->
+<!--</script>-->
+</body>
+</html>

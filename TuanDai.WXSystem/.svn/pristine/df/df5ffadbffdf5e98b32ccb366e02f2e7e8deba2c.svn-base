@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>会员体系常见问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/myMerber.css" />
+</head>
+<body class="bg-f6f7f8">
+<header class="headerMain">
+    <div class="header bb-e6e6e6">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">会员体系常见问题</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<div class="questionWrap bg-fff">
+    <ul>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+                <p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>团贷网会员体系简介？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+                <p class="c-808080 f15px text-justify">团贷网会员体系是为更好地服务、回馈团贷网用户而建立的，系统依据用户上月日均净资产公正合理地将团贷网用户划分为8个会员等级，并赋予不同等级的用户不同的特权； 同时引入激励性货币——团币，用户完成相关团币任务即可获赠团币，团币可用于商品免费兑换、免费抽奖等活动。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">什么是日净资产、月日均净资产？</p>
+            </div>
+            <div class="question-txt bg-f6f7f8 bb-e6e6e6 pd15 hide">
+                <p class="c-808080 f15px text-justify">用户账户的日净资产包括账户余额、待收本息等，具体的计算公式为：日净资产(A)=账户余额+待收本息+待投资金+冻结资金-待还本息。 取一个自然月所有日净资产的平均值，即为月日均净资产，具体的计算公式为：月日均净资产=【A1+ A2 + A3 + ... + Am】/m（m为自然月天数）。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">团贷网的会员等级是如何计算的，等级有哪些？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify pb15">团贷网每月1号3点根据上月日均净资产计算用户的会员等级，用户上月日均净资产越高会员等级越高。根据上月日均净资产的不同，团贷的会员一共分为8个等级：</p>
+                <div class="ques-table">
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th class="bb-e6e6e6 br-e6e6e6-before">用户等级</th>
+                            <th class="bb-e6e6e6">上月日均净资产</th>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V1.png"/></td>
+                            <td class="bb-e6e6e6">0≤上月日均净资产＜10,000</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V2.png"/></td>
+                            <td class="bb-e6e6e6">10,000≤上月日均净资产＜50,000</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V3.png"/></td>
+                            <td class="bb-e6e6e6">50,000≤上月日均净资产＜100,000</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V4.png"/></td>
+                            <td class="bb-e6e6e6">100,000≤上月日均净资产＜200,000</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V5.png"/></td>
+                            <td class="bb-e6e6e6">200,000≤上月日均净资产＜500,000</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V6.png"/></td>
+                            <td class="bb-e6e6e6">500,000≤上月日均净资产＜1,000,000</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V7.png"/></td>
+                            <td class="bb-e6e6e6">1,000,000≤上月日均净资产＜3,000,000</td>
+                        </tr>
+                        <tr>
+                            <td class="br-e6e6e6-before"><img src="/imgs/images/V8.png"/></td>
+                            <td class="">上月日均净资产≥3,000,000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </li>
+
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">为什么我当月的日均净资产变化了，会员等级还没有变化？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">团贷网每月1号3点根据上月日均净资产来调整用户的会员等级，用户当月的日均净资产会只影响下月的会员等级，不会影响本月会员等级 。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+                <p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>团贷会员可以享受哪些特权？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15" id="table-box">
+                <p class="c-808080 f15px text-justify pb15">团贷网会员可以享受团币系数、提现优惠券、借款费用减免、生日投资红包、节日礼物赠送、贵宾客服专线、高端专属服务7项特权，会员等级与会员特权关系如下：</p>
+                <!--表格-->
+                <div class="table-wrap pos-r bl-e6e6e6 br-e6e6e6">
+                    <div class="pos-a shadow"></div>
+                    <div class="table-left pos-a br-e6e6e6">
+                        <P class="bt-e6e6e6 bb-e6e6e6"></P>
+                        <P class="bb-e6e6e6">团币系数</P>
+                        <P class="bb-e6e6e6">提现优惠券</P>
+                        <P class="bb-e6e6e6">借款费用减免</P>
+                        <P class="bb-e6e6e6">生日投资红包</P>
+                        <P class="bb-e6e6e6">节日礼物赠送</P>
+                        <P class="bb-e6e6e6">贵宾客服专线</P>
+                        <p class="bb-e6e6e6">高级专属服务</p>
+                    </div>
+                    <div class="swiper-container table-right" id="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" >
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V1.png"/></P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V2.png"/></P>
+                                <P class="bb-e6e6e6">1.05</P>
+                                <P class="bb-e6e6e6">5元优惠券x1</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V3.png"/></P>
+                                <P class="bb-e6e6e6">1.10</P>
+                                <P class="bb-e6e6e6">10元优惠券x1</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">18元投资红包</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V4.png"/></P>
+                                <P class="bb-e6e6e6">1.15</P>
+                                <P class="bb-e6e6e6">15元优惠券x1</P>
+                                <P class="bb-e6e6e6">7折</P>
+                                <P class="bb-e6e6e6">28元投资红包</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <P class="bb-e6e6e6">-</P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V5.png"/></P>
+                                <P class="bb-e6e6e6">1.20</P>
+                                <P class="bb-e6e6e6">25元优惠券x1</P>
+                                <P class="bb-e6e6e6">6.5折</P>
+                                <P class="bb-e6e6e6">48元投资红包</P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V6.png"/></P>
+                                <P class="bb-e6e6e6">1.25</P>
+                                <P class="bb-e6e6e6">40元优惠券x1</P>
+                                <P class="bb-e6e6e6">5.5折</P>
+                                <P class="bb-e6e6e6">68元投资红包</P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <p class="bb-e6e6e6">-</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V7.png"/></P>
+                                <P class="bb-e6e6e6">1.3</P>
+                                <P class="bb-e6e6e6">60元优惠券x1</P>
+                                <P class="bb-e6e6e6">4.5折</P>
+                                <P class="bb-e6e6e6">98元投资红包</P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <P class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V8.png"/></P>
+                                <P class="bb-e6e6e6">1.35</P>
+                                <P class="bb-e6e6e6">100元优惠券x1</P>
+                                <P class="bb-e6e6e6">3.5折</P>
+                                <P class="bb-e6e6e6">128元投资红包</P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <P class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></P>
+                                <p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">什么是团币系数？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify pb15">用户可通过完成投资任务赚取团币，团币可用于兑换商品或抽奖，不同会员等级的用户享有不同的团币系数，投资赚团币的计算公式为： 团币= 投资金额×年化收益率×投资期限×团币系数。</p>
+                <div class="bm-table">
+                    <table class="">
+                        <tbody>
+                        <tr>
+                            <th class="bb-e6e6e6 br-e6e6e6-before">用户等级</th>
+                            <th class="bb-e6e6e6">团币系数</th>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V1.png"/></td>
+                            <td class="bb-e6e6e6">1.00</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V2.png"/></td>
+                            <td class="bb-e6e6e6">1.05</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V3.png"/></td>
+                            <td class="bb-e6e6e6">1.10</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V4.png"/></td>
+                            <td class="bb-e6e6e6">1.15</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V5.png"/></td>
+                            <td class="bb-e6e6e6">1.20</td>
+                        </tr>
+                        <tr>
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V6.png"/></td>
+                            <td class="bb-e6e6e6">1.25</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V7.png"/></td>
+                            <td class="bb-e6e6e6">1.30</td>
+                        </tr>
+                        <tr>
+                            <td class="br-e6e6e6-before"><img src="/imgs/images/V8.png"/></td>
+                            <td class="">1.35</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">提现优惠券如何使用？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">符合等级条件的用户，系统每月1号会往团宝箱自动发送提现优惠券，提现优惠券可在提现页面使用，每次限使用一张，不设找零；提现优惠券有效期为一个月。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15  pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">每月1号，在会员等级未更新前发布资产标的，管理费如何收取？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">每月1号零点后，由于系统需要一段时间去计算用户当月的会员等级，用户在当月会员等级未更新的情况下发布资产标的，按上月会员等级对应的折扣优惠收取管理费。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15  pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">生日投资红包何时发送，如何使用？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">用户生日当天（以身份证登记为准）系统会往团宝箱自动发送生日投资红包，请用户及时前往团宝箱领取使用。 生日投资红包须在系统发放后一个月内领取，领取后一个月内使用；生日投资红包的杠杆为1：100，如98元的生日投资红包，须投资9800元以上方可使用。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">节日礼物是什么，何时发放？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">节日礼物是团贷网回赠高等级会员而准备的精美礼物，一般在传统佳节前提前通知并发放，如端午节、中秋节等，高等级会员收到相关提醒后， 应及时提交收货地址信息，以便我们为您及时配送。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">高端专属服务是什么样的服务？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">高端专属服务是团贷网针对高等级会员不定期提供的线下专属服务，如组团旅游、专车接送、酒店招待等，具体以实际营运状况为准。</p>
+            </div>
+        </li>
+
+        <div class="pt15 bg-f6f7f8"></div>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $(".questionWrap").find('li').click(function(){
+            var box = $(this).find('.question-txt');
+            var ico = $(this).find('.icon-triagle-r');
+            if(box.hasClass('hide')){
+                if(ico.hasClass('rotateZ90')){
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                }else{
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.removeClass('hide');
+            }else{
+                if(ico.hasClass('rotateZ90')){
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                }else{
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.addClass('hide');
+            }
+        });
+
+        //特权滚动
+        var swiper = new Swiper('#swiper-container', {
+            initialSlide : 0,
+            slidesPerView: 'auto',
+        });
+
+        $('#table-box').addClass('hide');
+
+    });
+
+</script>
+</body>
+</html>

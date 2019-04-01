@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.LogSystem.LogClient</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.LogSystem.LogClient.ComputerInfo">
+            <summary>
+            获取计算机的信息
+            </summary>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.ComputerInfo.GetHostOfIP">
+            <summary>
+            获取当前计算机主机名和IP   例如:计算机名:aaa,IP:10.10.10.10
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogBusiness.AddNLogger(NLogger.LoggingLevel,System.String,System.String)">
+            <summary>
+            添加Logger日志
+            </summary>
+            <param name="_level"></param>
+            <param name="message"></param>
+            <param name="appname"></param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogBusiness.AddWindowsLog(System.String,System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            添加日志
+            </summary>
+            <param name="source">标题</param>
+            <param name="message">具体的错误</param>
+            <param name="type">错误类型</param>
+        </member>
+        <member name="T:TuanDai.LogSystem.LogClient.LogClients">
+            <summary>
+            调用日志文件的类
+            </summary>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.ErrorLog(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="applicationId"></param>
+            <param name="methodName"></param>
+            <param name="parameter"></param>
+            <param name="logText"></param>
+            <param name="asy"></param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteErrorLog(System.String,System.String,System.String,System.String)">
+             <summary>
+            错误日志 已过时，请使用静态方法 
+             </summary>
+             <param name="applicationId"></param>
+             <param name="methodName"></param>
+             <param name="parameter"></param>
+             <param name="logText"></param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteErrorLog(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            写入错误信息-请使用静态方法
+            </summary>
+            <param name="applicationId">错误的应用ID</param>
+            <param name="methodName">调用的方法</param>
+            <param name="parameter">参数</param>
+            <param name="logText">错误内容</param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.TraceLog(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            静态写入跟踪的信息
+            </summary>
+            <param name="applicationId">跟踪的应用ID</param>
+            <param name="methodName">调用的方法</param>
+            <param name="parameter">调用的参数</param>
+            <param name="logText">跟踪的内容</param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteTraceLog(System.String,System.String,System.String,System.String)">
+            <summary>
+            跟踪日志－请使用静态方法
+            </summary>
+            <param name="applicationId"></param>
+            <param name="methodName"></param>
+            <param name="parameter"></param>
+            <param name="logText"></param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteTraceLog(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            写入跟踪的信息
+            </summary>
+            <param name="applicationId">跟踪的应用ID</param>
+            <param name="methodName">调用的方法</param>
+            <param name="parameter">调用的参数</param>
+            <param name="logText">跟踪的内容</param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.SqlTrace(System.String,System.String,System.String,System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            写Sql跟踪日志
+            </summary>
+            <param name="appname">app的名称</param>
+            <param name="databasetype">字符串类型</param>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.SqlTrace(System.String,System.String,System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            写Sql跟踪日志
+            </summary>
+            <param name="databasetype">字符串类型</param>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteSqlTrace(System.String,System.String,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            写Sql跟踪日志-使用静态
+            </summary>
+            <param name="databasetype"></param>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WriteSqlTrace(System.String,System.String,System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            写Sql跟踪日志
+            </summary>
+            <param name="databasetype"></param>
+            <param name="sqltxt"></param>
+            <param name="begindate"></param>
+            <param name="enddate"></param>
+            <param name="executedate"></param>
+            <param name="asy">是否异步：默认true异步</param>
+        </member>
+        <member name="M:TuanDai.LogSystem.LogClient.LogClients.WindowsLog(System.String,System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            添加Windows日志
+            </summary>
+            <param name="source"></param>
+            <param name="message"></param>
+            <param name="type"></param>
+        </member>
+    </members>
+</doc>

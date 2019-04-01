@@ -1,0 +1,205 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="investShare.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.investShare" %>
+
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>分享页面</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=2016033101" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160405002" />
+</head>
+<body class="bg-f1f3f5 is-bg">
+    <header class="headerMain">
+        <div class="header bb-e6e6e6">
+            <div class="pageReturn" onclick="javascript:window.location.href='/pages/invest/WE/WE_list.aspx'"></div>
+            <h1 class="title">We计划</h1>
+        </div>
+        <div class="none"></div>
+    </header>  
+
+	<div class="bg-fff">
+				<div class="ml15 mr15 is-top">
+					<h3 class="text-center pos-r f17px"><%=model.ProductName %></h3>
+					<div class="webkit-box pt18 pb18">
+						<div class="box-flex1 text-center">
+							<p class="c-fd6040 f27px"><%=GetWePlanYearRate() %></p>
+							<p class="c-ababab f12px">预期年化利率</p>
+						</div>
+						<div class="box-flex1 text-center">
+							<p class="c-212121 f14px"><%=model.Deadline %><%=model.DeadType==1?"个月":"天" %></p>
+							<p class="c-ababab f12px">计划期限</p>
+						</div>
+					</div>
+					<div class="figure pos-r">
+							<div class="circle1 pos-a bg-d1d1d1"></div>
+							<div class="circle2 pos-a"></div>
+							<div class="trapezoid pos-a"></div>
+					</div>
+				</div>
+			</div>
+		
+	<div class="is-mid-box" >
+				<div class="is-mid bg-fff">
+					<div class="bg-fff pl15 pr15 pb15">
+						<p class="c-ababab f12px pt5">预计到期总收益</p>
+						<p class="c-fd6040 f36px mt20">￥<span class="c-fd6040 f36px" id="count1">0.00</span></p>
+						<p class="c-808080 f14px mt20">投资金额：<span class="c-808080 f14px" id="count2">1,000.00</span>元</p>
+		
+						<div class="range-slider range1">
+							<span class="c-ababab f12px span_from pos-a">0</span>
+							<input type="text" class="js-range-slider1" value="" tabindex="-1" style="border: none;" />
+							<span class="c-ababab f12px span_to pos-a">20,000</span>
+						</div>
+						<div class="btn-box">
+							<a href="/pages/invest/WE/WE_list.aspx" class="btn btnYellow mt30">去团贷网投资</a>
+						</div>
+					</div>
+				</div>
+				<div class="bg-by">
+					<div class="bg-by-con"></div>
+				</div>
+			</div>
+		  <%if(model.IsWeFQB){ %>
+	        <div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+				<div class="ml15 pt10 pb10 c-212121 f17px bb-e6e6e6">产品特点</div>
+				<div class="round-box pt20 pb20 pos-r">
+					<div class="round01 webkit-box box-center box-vertical pos-a round-l">
+						<p class="c-fab600">自动投标</p>
+						<p class="c-fab600">自动复投</p>
+					</div>
+					<div class="round01 margin-auto webkit-box box-center box-vertical">
+						<p class="c-fab600">持有3个月</p>
+						<p class="c-fab600">可提前退出</p>
+					</div>
+					<div class="round01 webkit-box box-center box-vertical pos-a round-r">
+						<p class="c-fab600">适用于会员</p>
+						<p class="c-fab600">保障体系</p>
+					</div>
+				</div>
+			</div>
+     <%} %>
+	<div class="text-center mt15 bg-fff is-b" id="btnLearnMore">
+		<a href="javascript:void(0);" class="f17px c-fab600">了解更多</a>
+	</div>
+
+	<!--弹框--> 
+    <div style="display:none;" id="dvServiceCode">
+	    <div class="alert webkit-box box-center" >
+		    <div class="bg-fff code-popup moveTop text-center pos-r">
+			    <a href="javascript:;" class="close pos-a" id="close"><i></i></a>
+			    <p class="c-212121 f17px">微信关注“团贷网服务平台”</p>
+			    <img src="/imgs/images/pic/code1.png" class="code mt10">
+			    <p class="c-ababab f13px">（长按或扫描识别）</p>
+			    <%--<p class="c-212121 f15px mt25">团贷首席体验官“王宝强”强力推荐</p>--%>
+			    <img src="/imgs/images/pic/pic1.png" class="pic mt20">
+		    </div>
+	    </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script type="text/javascript" src="/scripts/Common.js?v=20160329"></script>
+<script type="text/javascript" src="/scripts/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/scripts/weixinapi.js?v=4.0"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20160329"></script>
+<script type="text/javascript"> 
+    wxData.isWxJsSDK = true;
+    wxData.debug = false;  
+    wxData.title = '预期年化收益<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！'; 
+    wxData.img_url = "http://m.tuandai.com/imgs/sharelogo.png?v=20160407";
+    wxData.ShareCallBack = function (res) { 
+    };
+    wxData.BeforeShareCall = function (res) {
+        wxData.desc = "<%=model.ProductName%>";
+        var tdfrom = "WeWX160329";
+        try {
+            if (res == "wxfriend") {
+                tdfrom = "WeWX160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeWX', 'wx分享', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "wxtimeline") {
+                tdfrom = "WeWXFriendster160329";
+                wxData.desc = '预期年化收益<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！';
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeWXFriendster', 'wx朋友圈', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "qq") {
+                tdfrom = "Weqq160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'Weqq', 'QQ分享', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "qqzone") {
+                tdfrom = "WeQzone160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeQzone', 'QQ空间分享', '160329', 1, '', '', 'TDW_WX');
+            }
+        } catch (ex) {  }
+        wxData.url = "<%=GlobalUtils.MTuanDaiURL%>/pages/invest/investShare.aspx?tdForm=" + tdfrom + "&id=<%=productId%>";
+    }
+</script>
+<script type="text/javascript">
+ 
+    function range1(min, max, from, to) {
+        var $range = $(".js-range-slider1");
+        $range.ionRangeSlider({
+            type: "single",
+            min: min,
+            max: max,
+            from: from,
+            to: to,
+            step: 100,
+            prettify_enabled: true,
+            prettify_separator: ",",
+            onChange: function (data) {
+                var f = data.from;
+                var t = data.to;
+                updateValues(f, t);
+            }
+        });
+        var slider= $range.data("ionRangeSlider");
+        var updateRange = function (from, to) {
+            slider.update({
+                from: from,
+                to: to
+            });
+        };
+        var updateValues = function (from, to) { 
+            $("#count2").html(from);
+            var expectedMoney = CalcChangesNew(from);
+            $("#count1").html(fmoney(expectedMoney, 2));
+        }; 
+    }
+    //最新的计算收益
+    function CalcChangesNew(investMoney) { 
+        var InterestAmount = 0;
+        if (investMoney == "") {
+            investMoney = 0;
+        }
+        var deadLine = "<%=model.Deadline%>";
+        var deadType = <%=model.DeadType==1?12:365%>;
+        var yearRate = "<%=model.YearRate%>";
+        var profit = 0; 
+        profit = parseFloat(parseFloat(investMoney) * parseInt(deadLine) * parseFloat(yearRate) / 100 /  deadType);
+
+        
+        var expectedM = Math.floor(Number(profit) * 100) / 100; 
+        return expectedM;
+    }
+    $(function () {
+        $("#btnLearnMore").click(function () {
+            $("#dvServiceCode").fadeIn(100);
+        });
+        //滑块
+        range1(0, 20000,1000, 20000);
+        // 关闭弹窗
+        $("#close").click(function () { 
+            $("#dvServiceCode").fadeOut(100);
+        });
+        var expectedMoney = CalcChangesNew(1000);
+        $("#count1").html(fmoney(expectedMoney, 2));
+    });
+  
+
+</script>
+</html>

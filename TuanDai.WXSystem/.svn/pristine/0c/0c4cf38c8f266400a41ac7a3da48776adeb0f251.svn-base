@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>确认支付</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=20151214" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">确认支付</h1>
+            <div class="text"><a href="recharge_record.html"></a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="recordingBox clearfix pd0">
+		
+        <div class="pl15 pr15 bg-fff">
+        	<div class="investAmo f14px">
+        		投资金额
+        		<span class="c-ababab f14px ml20">￥2000.00</span>
+        	</div>
+        </div>
+        
+         <div class="pl15 pr15 bg-fff">
+         	<div class="elseMoney c-212121 f14px pt20 bg-fff">
+	        	余额支付
+	        	<span class="c-fd6040 f14px ml20">￥1,000,990.00</span>
+	        </div>
+         		<div class="f14px c-ababab ml25">+</div>
+         	<div class="elseMoney c-212121 f14px bg-fff">
+	        	微信支付
+	        	<span class="c-fd6040 f14px ml20">￥1,000,990.00</span>
+	        </div>
+	        <div class=" bg-fff pb15 mt10">
+	        	<img class="ico-red-suc" src="/imgs/images/ico-red-suc.png"/><p class="c-fd6040 f12px">已使用10元投资红包</p>
+	        </div>
+         </div>
+        
+        
+        <div class="wave_bg"></div>
+		
+		<div class="bg-bdtopBom1-ccc payWay mt10">
+			<div class="item">
+				<div class="itemRow1 clearfix">
+					<div class="selectBox lf selected"></div>
+					<img class="lf" src="/imgs/images/ico-elseMoney.png"/>
+					<div class="lf f14px c-212121">账户余额</div>
+				</div>
+				<div class="itemRow2 c-ababab f12px">账户余额：<span class="ml5 c-ababab f12px">￥500.00</span></div>
+			</div>
+			<div class="item">
+				<div class="itemRow1 clearfix">
+					<div class="selectBox lf"></div>
+					<img class="lf" src="/imgs/images/ico-weixin.png"/>
+					<div class="lf f14px c-212121">微信支付</div>
+				</div>
+				<div class="itemRow2 c-ababab f12px">单笔限额最高5万元<img id="showTable" src="/imgs/images/ico_exclamation.png" alt="" /></div>
+			</div>
+			<div class="item">
+				<div class="itemRow1 clearfix">
+					<div class="selectBox lf"></div>
+					<img class="lf" src="/imgs/images/ico-yinhangka.png"/>
+					<div class="lf f14px c-212121">快捷支付（招商银行）</div>
+					<div class="changeCard rf"><a href="">换卡须知</a></div>
+				</div>
+				<div class="itemRow2 c-ababab f12px">每笔最高额度5000元，每日最高额度500元</div>
+			</div>
+        </div>
+
+        <!--<div class="ml15 mr15 rech-hint">
+            <p class="f11px"><img src="/imgs/images/ico_warn.png" alt=""/>每笔最高额度*万元，每日最高额度*万元。</p>
+        </div>-->
+
+        <div class="pd15 mt5">
+            <a href="javascript:;" class="btn btnYellow" id="pay">确认支付</a>
+            <div class="f12px c-ababab lh20 mt10 listIcon">更换银行卡，请联系客服：<span class="c-fd6040 f12px">400-641-0888</span></div>
+        </div>
+
+
+    </section>
+
+    <!--弹出层(不知道会不会用到) S-->
+        <section class="popup" style="display: none;">
+            <div class="popupCont clearfix">
+                <div class="title">确认付款</div>
+                <div class="contBox">本次交易需要短信确认，校证码已经发送至您手机185****0523</div>
+                <div class="inputBox bg-bdtopBom1-ccc">
+                    <input type="text" class="ipt" name="" placeholder="请输入短信验证码">
+                    <input type="button" id="btnCode" class="btncode" value="发送验证码" />
+                </div>
+            </div>
+            <div class="mask"></div>
+        </section>
+        
+         <!-- 限额说明弹框 -->
+        <section class="popup hide" id="popupTable">
+        	<div class="popupCon">
+        		 <h2>限额说明</h2>
+	            <div class="table">
+		            <table border="0" cellspacing="0" cellpadding="0">
+		            	<tr><th class="br-e6e6e6">单笔/单日限额</th><th>银行</th></tr>
+		            	<tr><td class="br-e6e6e6">5万/5万</td><td>交通、中信、平安、浦发、上海</td></tr>
+		            	<tr class="bg-fcfcfc"><td class="br-e6e6e6">3万/3万</td><td>招行、广发</td></tr>
+		            	<tr><td class="br-e6e6e6">2万/2万</td><td>民生、光大、包商、宁波</td></tr>
+		            	<tr class="bg-fcfcfc"><td class="br-e6e6e6">1万/5万</td><td>工商、兴业</td></tr>
+		            	<tr><td class="br-e6e6e6">1万/1万</td><td>中国、农业、建设、华夏</td></tr>
+		            	<tr class="bg-fcfcfc"><td class="br-e6e6e6" style="border-bottom: 0;">5千/5千</td><td style="border-bottom: 0;">邮政、北京、杭州、渤海</td></tr>
+		            </table>
+	            </div>
+	            <div class="iKnow mt20">我知道了</div>
+        	</div>
+        </section>
+        
+        <!-- 输入交易密码弹框 -->
+        <section class="popup hide" id="code">
+        	<div class="per30"></div>
+        	<div class="password-wp">
+	    		<h3 class="f14px text-center c-212121">交易密码</h3>
+	        	<div class="passwordInp">
+	        		<input type="password" placeholder="请输入交易密码" />
+	        	</div>
+	        	<div class="clearfix pl15 pr15">
+	        		<div class="error1">
+	        			<!--密码错误，今天还剩4次机会（这里根据程序改文字就可以了）-->
+	        			密码错误，再输错1次密码账户将被锁定24个小时
+	        		</div>
+	        		<a class="rf c-fd6040 f12px mt15" href="">忘记密码</a>
+	        	</div>
+	        	<div class="pd15">
+		            <a href="" class="btn btnYellow">确认支付</a>
+		        </div>
+	        </div> 
+        </section>
+        
+        <!-- 绑定银行卡弹框 -->
+         <section class="popup hide">
+        	<div class="popupCon">
+        		<h2>请绑定您本人持有的银行卡</h2>
+	            <div class="clearfix pt10 pb15 pr15 pl15">
+	            	<a class="lf bindCardBtn bindCardBtn_cancel" href="javascript:">取消</a>
+	            	<a class="rf bindCardBtn bindCardBtn_confirm" href="javascript:">马上绑卡</a>
+	            </div> 
+        	</div>
+        </section>
+    <!--弹出层 E-->
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+   $("#showTable").click(function(){
+    	$("#popupTable").removeClass('hide');
+    });
+    $(".iKnow").click(function(){
+    	$("#popupTable").addClass('hide');
+    });
+    $("#pay").click(function(){
+    	$("#code").removeClass('hide');
+    });
+    $(".per30").click(function(){
+    	$("#code").addClass('hide');
+    })
+</script>
+</body>
+</html>

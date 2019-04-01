@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>新人福利</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160725" />
+		<link rel="stylesheet" type="text/css" href="/css/newUser.css?v=20160830" />
+	</head>
+
+	<body class="bg-fff">
+		<div class="banner"><img src="/imgs/images/pic/newuser_banner.png" alt="" /></div>
+		<div class="pt4 pr15">
+			<div class="clearfix nu_pro">
+				<div class="lf w50p">
+					<a href="javascript:void(0);">
+						<div class="nu_i nu_i1"></div>
+						<p>2888体验金</p>
+					</a>
+				</div>
+				<div class="lf w50p">
+					<a href="javascript:void(0);">
+						<div class="nu_i nu_i2"></div>
+						<p>518红包任性送</p>
+					</a>
+				</div>
+			</div>
+			<div class="clearfix nu_pro">
+				<div class="lf w50p">
+					<a href="javascript:void(0);">
+						<div class="nu_i nu_i3"></div>
+						<p>充值送超级会员</p>
+					</a>
+				</div>
+				<div class="lf w50p">
+					<a href="javascript:void(0);">
+						<div class="nu_i nu_i4"></div>
+						<p>团贷网大讲堂</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="nu_biao">
+			<div class="nu_tit">
+				<span class="line_l"></span>
+				新手专享标
+				<i class="nu_i5"></i>
+				<span class="line_r"></span>
+			</div>
+			<p class="c-c48125 text-center pt2 f11px">不定期上线，二选一快来抢！</p>
+			<div class="pt25 pl15 pr15">
+				<div class="nu_invest">
+					<div class="webkit-box pt15 pl20 pr20">
+						<div class="box-flex1 text-center">
+							<p class="f15px c-ababab">预期年化利率</p>
+							<p class="f20px c-fa7d00 pt16 pb15"><span class="f36px c-fa7d00">11.</span>60%+2%</p>
+						</div>
+						<div class="box-flex1 text-center">
+							<p class="f15px c-ababab">期限</p>
+							<p class="f17px pt16 pb15">1个月</p>
+						</div>
+					</div>
+					<div class="mt19 pl25 pr25 pb12">
+						<div class="btn btnYellow">
+							<p class="f15px c-ffffff">抢购</p>
+							<p class="c-ffffff line-h14">剩余 9544元</p>
+						</div>
+					</div>
+				</div>
+				<div class="nu_invest mt15">
+					<div class="webkit-box pt15 pl20 pr20">
+						<div class="box-flex1 text-center">
+							<p class="f15px c-ababab">预期年化利率</p>
+							<p class="f20px c-fa7d00 pt16 pb15"><span class="f36px c-fa7d00">11.</span>60%+2%</p>
+						</div>
+						<div class="box-flex1 text-center">
+							<p class="f15px c-ababab">期限</p>
+							<p class="f17px pt16 pb15">1个月</p>
+						</div>
+					</div>
+					<div class="mt19 pl25 pr25 pb12">
+						<div class="btn btnYellow">
+							<p class="f15px c-ffffff">抢购</p>
+							<p class="c-ffffff line-h14">剩余 9544元</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="nu_bg3">
+			<div class="nu_tit">
+				<span class="line_l"></span>
+				常见问题
+				<span class="line_r"></span>
+			</div>
+			<div class="question-wrap">
+				<div class="question-box">
+					<div class="question-item f15px bb-e6e6e6">
+						投资团贷网有哪些费用？
+						<i class="ico-arrow-r"></i>
+					</div>
+					<div class="question-item f15px bb-e6e6e6">
+						投资团贷网有哪些安全保障？
+						<i class="ico-arrow-r"></i>
+					</div>
+					<div class="question-item f15px bb-e6e6e6">
+						团贷网提现要多久？提现收费吗？
+						<i class="ico-arrow-r"></i>
+					</div>
+					<div class="question-item f15px pos-r">
+						投资红包如何使用？
+						<i class="ico-arrow-r"></i>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="nu_bot">查看更多问题&gt;</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+	</script>
+
+</html>

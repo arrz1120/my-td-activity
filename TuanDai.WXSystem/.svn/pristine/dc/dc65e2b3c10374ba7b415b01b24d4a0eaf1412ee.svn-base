@@ -1,0 +1,367 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="my_debt_detail.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Repayment.my_debt_detail" %>
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>转让详情</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+<link rel="stylesheet" type="text/css" href="/css/debt.css?v=20160419" />
+
+<style type="text/css">
+	.ico-666{display: block;width: 5px;height: 5px;background: #666;border-radius: 50%;left: 0;top: 15px;margin-left: 0 !important;}
+	.verifyInfo div.ico-loanbox{height: 26px;margin-bottom: 10px;}
+	.verifyInfo div img{width: 40%;}
+	.verifyInfo div img.ico-loan1{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan2{width: 20px;}
+	.verifyInfo div img.ico-loan3{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan4{width: 33px;}
+	.verifyInfo div img.ico-loan5{width: 22px;}
+    .disabled {background-color: #d1d1d1!important;}
+</style>
+
+</head>
+<body class="pb15 bg-f1f3f5"> 
+    <%= this.GetNavStr()%>
+    <header class="headerMain">
+        <div class="header bb-d1d1d1">
+            <div class="back"  onclick="window.location.href='/Member/Repayment/my_debt_transferlist.aspx?tab=<%=CurTabName %>'">返回</div>
+            <h1 class="title">转让详情</h1>
+        </div>
+        <%= this.GetNavIcon()%>
+        <div class="none"></div>
+    </header>
+
+<div id="wrapper" class="pr0">
+    <div id="scroller">
+        <div id="pullDown">
+            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+        </div>
+         <div id="report_detail_processing" class="dataTables_processing" style="display:none">正在加载...</div>
+      <!--下拉数据 start-->   
+
+
+	<div class="debt-detail-top bg-fff"> 
+		<p class="f17px c-808080"><%=mTransferRecord.TransferTitle %></p>
+	</div>
+	<div class="clearfix bg-fff pl15 pr15 pt13 pb18">
+		<div class="lf"><p class="c-ababab f13px">发布时间：<%=mTransferRecord.AddDate.ToString("yyyy-MM-dd") %></p></div>
+		<div class="rf">
+            <a href="/pages/invest/detail.aspx?id=<%= mTransferRecord.ProjectId%>&backurl=<%=GetEncodeBackUrl()%>"><p class="c-fd6040 f13px"><i class="ico ico-biao"></i>原始标的</p></a> 
+		</div>
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 pl15 pb18 bg-fff">
+		<div class="clearfix pt15">
+			<div class="lf w50p"><p class="f14px c-ababab">年化收益:<span class="f14px c-ff6600 ml7"><%=ToolStatus.DeleteZero(mTransferRecord.InterestRate)%>%</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">剩余期限:<span class="f14px c-ff6600 ml7"><%=mTransferRecord.LastTime %></span><span class="f14px c-212121">天</span></p></div>
+		</div>
+		<div class="clearfix pt15">
+			<div class="lf w50p"><p class="f14px c-ababab">转让本金:<span class="f14px c-ff6600 ml7"><%=ToolStatus.ConvertLowertwo(mTransferRecord.TransferAmount)%></span><span class="f14px c-212121">元</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">转让价:<span class="f14px c-ff6600 ml7"><%=ToolStatus.ConvertLowertwo(mTransferRecord.TransterTotalAmount)%></span><span class="f14px c-212121">元</span></p></div>
+		</div>
+		<div class="clearfix pt15">
+			<div class="lf w50p"><p class="f14px c-ababab">转让单价:<span class="f14px c-ff6600 ml7"><%=ToolStatus.ConvertLowertwo(mTransferRecord.TransferLowerUnit)%></span><span class="f14px c-212121">元/份</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">未结算利息:<span class="f14px c-ff6600 ml7"><%=ToolStatus.ConvertLowertwo(mTransferRecord.CompleteInterest)%></span><span class="f14px c-212121">元</span></p></div>
+		</div>
+		<div class="clearfix pt15">
+			<div class="lf w50p"><p class="f14px c-ababab">已转让:<span class="f14px c-ff6600 ml7"><%=mTransferRecord.ComplateShares%></span><span class="f14px c-212121">份</span></p></div>
+			<div class="rf w50p"><p class="f14px c-ababab">剩余份数:<span class="f14px c-ff6600 ml7"><%=mTransferRecord.AviShares%></span><span class="f14px c-212121">份</span></p></div>
+		</div>
+	</div>
+	
+    <div class="bb-e6e6e6 pl15 pr15 pt13 pb13 bg-fff"> 
+		<p class="f17px c-212121"><i class="ico ico-deal7"></i>
+            <% if(mTransferRecord.Status==0 ){%>
+             已终止（<%=ProcessBar(mTransferRecord.ComplateShares,mTransferRecord.TransterTotalShares,1)%>%）
+            <%}else if(mTransferRecord.Status==1){ %>
+            转让中... <span class="f13px c-808080 ml10 timeSet" count="<%=LastSecond %>">(剩余时间 00:00:00)</span> 
+            <%}else{ %>
+            已完成（<%=ProcessBar(mTransferRecord.ComplateShares,mTransferRecord.TransterTotalShares,1)%>%）
+            <%} %>            
+		</p>
+        <% if(mTransferRecord.Status==1){ %>
+		<div class="absBtn-right f13px c-ffffff pos-a" style="top:15px;" id="btnStopTran">终止转让</div>
+        <%} %>
+	</div>
+	
+	 <div class="bg-fff bt-e6e6e6">
+		<div class="mt15 pd15 bb-e6e6e6 webkit-box">
+			<div class="box-flex1 f13px c-808080 text-left">承接人</div>
+			<div class="box-flex1 f13px c-808080 text-center">承接金额</div> 
+			<div class="box-flex1 f13px c-808080 text-right">合同</div> 
+		</div>
+		<% if( mTransferRecord.listTranster.Any()){
+         foreach (var item in mTransferRecord.listTranster) 
+         { 
+         %> 
+        <div class="pd15 bb-e6e6e6 webkit-box">
+			<div class="box-flex1 f15px c-212121 text-left text-overflow"><%=BusinessDll.StringHandler.MaskStartPre(item.UserName,1)%></div>
+			<div class="box-flex1 f15px c-212121 text-left text-overflow">￥<%=ToolStatus.ConvertLowerMoney(item.Amount)%>(<%=item.TotalShares %>份)</div> 
+            <a class="box-flex1 f15px c-fab600 text-right text-overflow" href="/Contract/contractZqzr.aspx?key=<%=item.ContractNo %>">查看合同</a>
+		</div>
+        <%  }
+          }else{ %>
+       <div class="pd15 bb-e6e6e6 webkit-box">
+			<div style="text-align:center">暂无承接记录!</div> 
+		</div>
+        <%} %>
+	</div>
+
+	  <!--下拉数据 end-->   
+     <div id="pullUp">
+         <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+     </div>
+  </div>
+</div>
+ 
+<div class="alert z-index1000 webkit-box box-center" id="dvPopStop" style="display: none;">
+	<div class="alert-stop-assignment bg-fff pos-r">
+		<div class="text-center c-212121 f17px pt25 pb20 fb">终止转让</div>
+		<div class="alert-inp ml10 mr10">
+			<input  type="text" placeholder="请输入验证码" id="txtValCode" maxlength="6"  />
+			<div class="absBtn-right f13px c-ffffff pos-a" id="btnSendMsgCode">获取验证码</div>
+		</div>
+		<div class="pl10"><p class="c-fd6040 f13px pos-a" style="display:none;left:10px;top: 115px;" id="dvErrTip"><i class="ico ico-warn"></i>验证码错误</p></div>
+		<div class="clearfix bt-e6e6e6 mt30">
+			<div class="lf w50p br-e6e6e6">
+				<div class="btn c-808080 f17px" style="border-right: 1px solid #f0f0f0;"  id="btnPopCancel">取消</div>
+			</div>
+			<div class="rf w50p">
+				<div class="btn c-ffc61a f17px" id="btnPopConfirm">确定</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+ <!--中止转让成功提示-->
+<div class="webkit-box box-center successTipsWrap" style="display:none;">
+	<div class="successTips text-center f15px c-ffffff">
+		<i class="ico ico-success"></i>终止转让成功
+	</div>
+</div>
+
+	
+<script type="text/javascript" src="/scripts/jquery.min.js"></script> 
+<script type="text/javascript" src="/scripts/iscroll.js"></script>
+<script type="text/javascript" src="/scripts/scrollUpdate.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+
+   <script type="text/javascript">
+       pageIndex = 1; 
+       pageCount=<%=pageCount %>; 
+       var TransterId="<%=TransterId%>";
+       //文档首次加载
+       $(function () {
+           if (isNaN(pageCount) || pageCount <= 1)
+               $("#pullUp").hide();
+           else
+               $("#pullUp").show();
+           iScroll.onLoadData = LoadDataList; 
+           fnTimeCountDown();
+           $("#btnStopTran").click(function(){
+               $("#dvPopStop").show();
+           });
+           $("#btnSendMsgCode").click(function(){ 
+               sendMobileValidSMSCode();
+           });
+           $("#btnPopConfirm").click(function(){
+               StopTransfer();
+           });
+           $("#btnPopCancel").click(function(){
+               //StopTransfer();
+               $("#dvPopStop").hide();
+           });
+       });
+       function LoadDataList(flag) {
+           if (flag == "empty") {
+               $("#thelist").nextAll().remove();
+           } 
+           $("#report_detail_processing").show();
+           jQuery.ajax({
+               async: true,
+               type: "post",
+               url: "/ajaxCross/ZQZRAjax.ashx", 
+               dataType: "json",
+               data: { Cmd: "GetZQZRTransferRecord", pageIndex: pageIndex, transferId: TransterId },
+               success: function (jsonstr) { 
+                   $("#report_detail_processing").hide();
+                   if (jsonstr.result == "1") { 
+                       var html = new Array();
+                       var str = "";
+                       for (var i = 0; i < jsonstr.list.length; i++) { 
+                           var item = jsonstr.list[i]; 
+                           str=  " <div class='pd15 bb-e6e6e6 webkit-box'>"+
+			                     "<div class='box-flex1 f15px c-212121 text-left text-overflow'>"+item.NickName+"</div>"+
+			                     "<div class='box-flex1 f15px c-212121 text-center text-overflow'>￥"+item.Amount+"("+item.TotalShares+"份)</div>"+ 
+                                 "<a class='box-flex1 f15px c-fab600 text-right text-overflow' href='/Contract/contractZqzr.aspx?key="+item.ContractNo+"'>查看合同</a>"+
+                                 "</div>";
+                           html.push(str);
+                       }
+                       $("#thelist").parent().append(html.join("")); 
+                   } else {
+                       var str="<div class='pd15 bb-e6e6e6 webkit-box'>"+
+			                    "<div style='text-align:center'>暂无承接记录!</div> "+
+		                        "</div>";
+                       ("#thelist").parent().append(str);
+                   }
+               },
+               error:function(){
+                   $("#report_detail_processing").hide();
+                   var str="<div class='clearfix pd15 bt-e6e6e6'>"+
+                             "<div style='text-align:center'>数据加载异常!</div> "+
+                             "</div>";
+                   ("#thelist").parent().append(str);
+               }
+           });
+       }
+       /*倒计时  start*/
+       function zero(n) {
+           var n = parseInt(n, 10);
+           if (n > 0) {
+               if (n <= 9) {
+                   n = "0" + n;
+               }
+               return String(n);
+           } else {
+               return "00";
+           }
+       }
+       function dv(tcount) {
+           var sec = zero(tcount % 60);
+           var mini = Math.floor((tcount / 60)) > 0 ? zero(Math.floor((tcount / 60)) % 60) : "00";
+           var hour = Math.floor((tcount / 3600)) > 0 ? zero(parseInt(tcount / 3600) % 24) : "00";
+           var day = Math.floor((tcount / 86400)) > 0 ? parseInt(Math.floor((tcount / 86400))) : "0"; 
+           return "<span style='color: #FA7256;'>" + hour + "</span>时<span style='color: #FA7256;'>" + mini+ "</span>分<span style='color: #FA7256;'>" + sec + "</span>秒";
+       }
+
+       function fnTimeCountDown() {
+           $(".timeSet").each(function () {
+               var timecount = parseInt($(this).attr("count"));
+               if (timecount >= 0) {
+                   $(this).html(dv(timecount));
+                   if (timecount == 0) { 
+                       $(this).html("已结束");
+                   }
+                   timecount = timecount - 1;
+                   $(this).attr("count", timecount);
+               }
+           });
+           setTimeout("fnTimeCountDown()", 1000);
+       }
+       /*倒计时  end*/
+
+
+       //获取手机验证码 
+       var leftsecond = 60; 
+       var timer = null; 
+       function sendMobileValidSMSCode() {    
+           $("#btnSendMsgCode").unbind("click");
+           $("#dvErrTip").hide();
+           $("#btnSendMsgCode").html("短信发送中...");
+           $("#btnSendMsgCode").attr('disabled', true); 
+           $("#btnSendMsgCode").addClass("disabled");
+           jQuery.ajax({
+               url: "/ajaxCross/ZQZRAjax.ashx",
+               type: "post",
+               dataType: "json",
+               data: { Cmd: "GetStopTranCode"},
+               success: function (json) {
+                   var result = json.result;
+                   leftsecond = 60;
+                   if (parseInt(result) == -100) { alert("系统繁忙，请刷新页面重试！"); }
+                   else if (parseInt(result) == -99) { window.location.href = "/user/login.aspx?ReturnUrl=" + window.location.href; }
+                   if (result == "1") {
+                       leftsecond = 60; 
+                       clearInterval(timer);
+                       timer = setInterval(setLeftTime, 1000, "1");   
+                   }
+                   else {
+                       leftsecond = 60; 
+                       clearInterval(timer);
+                       timer = setInterval(setLeftTime, 1000, "1");   
+                       $("#dvErrTip").show();
+                       $("#dvErrTip").html("<i class='ico ico-warn'></i>发送失败,60秒后可重发");
+                       $("#btnSendMsgCode").html("60秒后重发");
+                       $("#btnSendMsgCode").bind("click",function(){ sendMobileValidSMSCode();});
+                   }
+               },
+               error: function () {
+                   $("#btnSendMsgCode").bind("click",function(){ sendMobileValidSMSCode();});
+                   $("#btnSendMsgCode").attr('disabled', false);
+                   $("#btnSendMsgCode").removeClass("disabled"); 
+
+                   $("#dvErrTip").show();
+                   $("#dvErrTip").html("<i class='ico ico-warn'></i>网络异常，请重试。"); 
+                   return false;
+               }
+           });
+       } 
+
+       function setLeftTime() {
+           var second = Math.floor(leftsecond);
+           $("#btnSendMsgCode").html(second + "秒后可重发"); 
+           leftsecond--;
+           if (leftsecond < 1) { 
+               $("#btnSendMsgCode").html("发送验证码");
+               $("#btnSendMsgCode").attr('disabled', false);
+               $("#btnSendMsgCode").removeClass("disabled"); 
+               clearInterval(timer);  
+               $("#dvErrTip").hide();
+               return;
+           }
+       }
+       //中止转让
+       function StopTransfer(){ 
+           var code=$("#txtValCode").val();
+           if(code==""){
+               $("#dvErrTip").show();
+               $("#dvErrTip").html("<i class='ico ico-warn'></i>请输入验证码!"); 
+               return false; 
+           } 
+           if(code.length!=6){
+               $("#dvErrTip").show();
+               $("#dvErrTip").html("<i class='ico ico-warn'></i>验证码录入格式不正确!"); 
+               return false; 
+           }
+           $(".btnYellow").unbind("click");
+           $.ajax({
+               url: "/ajaxCross/ZQZRAjax.ashx",
+               type: "post",
+               dataType: "json",
+               data: {
+                   Cmd: "StopTransfer",
+                   transferid: TransterId,
+                   code: code
+               },
+               success: function (data2) {
+                   if (data2.result == "1") { 
+                       $(".successTips").html("<i class='ico ico-success'></i>"+data2.msg);
+                       $(".successTipsWrap").show();
+                       $("#dvPopStop").hide();
+                       setTimeout(function(){
+                           window.location.href= window.location.href; 
+                       },2000); 
+                       return;
+                   }
+                   else {
+                       alert(data2.msg);
+                       clearInterval(timer); 
+                       $(".btnYellow").bind("click",function(){StopTransfer(); });
+                       return false;
+                   }
+               },
+               error: function (XMLHttpRequest, textStatus, errorThrown) {
+                   $(".btnYellow").bind("click",function(){StopTransfer(); });
+                   $("#dvErrTip").show();
+                   $("#dvErrTip").html("<i class='ico ico-warn'></i>终止转让失败!");  
+                   clearInterval(timer); 
+                   return false;
+               }
+           });
+       }
+   </script>
+</body>
+</html>

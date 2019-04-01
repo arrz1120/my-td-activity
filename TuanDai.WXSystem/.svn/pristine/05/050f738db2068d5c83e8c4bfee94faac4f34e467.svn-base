@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>团贷网触屏版</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160305001" />
+</head>
+<body class="bg-f1f3f5">
+	
+	<div class="pro_tab bb-e6e6e6">
+		<div class="pro_tab_box clearfix">
+			<div class="w50p lf f17px act">理财计划</div>
+			<div class="w50p lf f17px">优质项目</div>
+		</div>
+	</div>
+	
+	<div class="clearfix bg-fff pl20 pr20 pt6 pb6 pos-r z-index100">
+		<div class="lf w50p text-center f16px c-ffcf1f">投资时间
+			<span class="inline-block">
+				<p style="line-height: 5px;"><i class="triangle triangle-up-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+				<p style="line-height: 5px;"><i class="triangle triangle-down-orange" style="vertical-align: 0;margin-left: 0;"></i></p>
+			</span>
+		</div>
+		<div class="lf w50p text-center f16px c-808080">期限<i class="triangle triangle-down-gray"></i></div>
+		<!--<div class="lf w33p text-center f16px c-808080" id="sort">筛选<i class="triangle triangle-down-gray"></i></div>-->
+	</div>
+	
+	<div class="bt-e6e6e6 bb-e6e6e6 pt5">
+		<div class="clearfix bg-f1f3f5 pl15 pr15">
+			<div class="lf c-808080">标的名称</div>
+			<div class="rf c-808080">投资金额</div>
+		</div>
+	</div>
+	
+	<div class="pb20">
+		<div class="record_list bg-fff">
+			<div class="clearfix record_item">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="red_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">￥1,000,000,000.00</p>
+					<p class="f13px c-ffcf1f">2016.06.03 回款（36/36）</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="red_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ffcf1f">2016.06.03 回款（1/1）</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="red_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ababab">等待满标</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ababab">2016.04.03 已流标</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ababab">2016.04.03 已完成</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ffcf1f">投标￥1000000 回款中</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ffcf1f">项目匹配中</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ffcf1f">投标￥1000000 持有中</p>
+				</div>
+			</div>
+			<div class="clearfix record_item bt-e6e6e6">
+				<div class="w50p lf">
+					<p class="f17px text-overflow"><i class="white_mark"></i>世界第一标世界第一标世界第一标世界第一标世界第一标</p>
+					<p class="f13px c-ababab pl15">2014-05-16 手动投标</p>
+				</div>
+				<div class="w50p rf text-right">
+					<p class="f17px">¥150.00</p>
+					<p class="f13px c-ffcf1f">项目匹配中</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="alert z-index10 pos-a" style="display: none;" id="alert">
+		<div class="alert-record pl15 bt-e6e6e6" style="display: none;">
+			<ul>
+				<li>所有状态</li>
+				<li class="active bt-e6e6e6">回收中</li>
+				<li class="bt-e6e6e6">已完成</li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+	function sort(){
+		var alert = $("#alert");
+		var box = alert.find('.alert-record');
+		
+		$("#sort").click(function(){
+			alert.fadeIn(200);
+			box.slideDown(200);
+		});
+		
+		box.find('li').click(function(){
+			$(this).siblings().removeClass('active');
+			$(this).addClass('active');
+			alert.fadeOut(200);
+			box.slideUp(200);
+		})
+	}
+	sort();
+		
+</script>
+
+</body>
+</html>

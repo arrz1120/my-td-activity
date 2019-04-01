@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>公告详情</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=2016071" />
+		<link rel="stylesheet" type="text/css" href="/css/helpCenter.css?v=2016071" />
+	</head>
+	<body class="bg-fff">
+		
+		<div class="pt17 pb18 ml15 pr15 bb-e6e6e6">
+			<p class="f17px fb text-overflow">团贷网机房升级公告团贷网机房升级公告团贷网机房升级公告团贷网机房升级公告团贷网机房升级公告</p>
+			<p class="c-ababab line-h16 2016-06-15 mt3">2016-06-15</p>
+		</div>
+		
+		<div class="noticeDetail pl15 pr15">
+			<p class="pt15 pb18 f15px">亲爱的团贷网用户：</p>
+			<p class="nTxt">为了优化网站，令您享受更好的服务，我平台技术部将于2016年6月16日凌晨00:00至06:00，对机房网络进行升级，期间网络会发生中断，届时您将可能遇上有小段时间不能访问团贷网的情况，不便之处敬请谅解！我们将继续努力，一如既往的为您提供优质的服务！</p>
+		</div>
+		
+		<div class="bt-d1d1d1-dash pt25 ml15 mr15 text-right">
+			<p class="f15px">东莞团贷网互联网科技服务有限公司</p>
+			<p class="f15px mt6">2016年6月15日</p>
+		</div>
+		
+	</body>
+</html>

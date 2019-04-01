@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>填写开户行</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160519" />
+<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160519" />
+</head>
+<body class="bg-f1f3f5">
+	
+	<div class="pt25 pb25 pl15 pr15 c-ababab f13px text-justify">
+		为保证提现能快速准确到账，请填写<span class="c-fab600 f13px">招商银行储蓄卡（0969）</span>的开户行。
+	</div>
+	
+	<div class="pt10 pb10 bt-e6e6e6 bb-e6e6e6 bg-fff pl15" id="placeSelect">
+		<div class="clearfix pos-r">
+			<div class="lf f17px c-212121">银行地址<span class="c-ababab f17px pl28" id="selectedPlace">请选择银行地址</span></div>
+			<div class="ico-arrow-r"></div>	
+		</div>	
+	</div>
+	
+	<div class="inputBox bg-fff mt15 bt-e6e6e6 bb-e6e6e6">
+    	<span class="c-212121 f17px">金额</span>
+    	<input type="text" placeholder="请填写充值金额">
+    </div>
+    
+    <div class="clearfix mt23">
+	    <p class="rf c-1fcafb f13px pr10" id="forgetBank">忘记开户行?</p>
+    </div>	
+    
+    <div class="pl10 pr10 mt10">
+    	<div class="btn btnYellow">下一步</div>
+    </div>
+    
+    <!--银行弹框 -->
+    <div class="alert webkit-box box-center" id="alert-poundage" style="display: none;">
+    	<div class="alert-select pos-r">
+    		<div class="alert-close" id="poundage-close"></div>
+    		<div class="pt25 pb25 text-center f17px"><i class="ico-phone"></i>招商银行客服:95555</div>
+    		<div class="c-ababab f13px pl20 pr20 text-justify">您可以拨打招商银行客服电话，向客服咨询开户行信息，或者网上银行进行查询。<span class="c-fd6040 f13px">请填写准确的开户行信息，开户行信息错误会导致提现失效。</span></div>
+    		<div class="bt-e6e6e6 mt25">
+			    <div class="c-fcb700 text-center f17px pt10 pb10">马上拨打</div>
+		    </div>
+		</div>
+    </div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+	//开户行弹框
+	(function(){
+		var poundage = $("#alert-poundage");
+		$("#forgetBank").click(function(){
+			poundage.fadeIn();
+		});
+		poundage.click(function(){
+			$(this).fadeOut();
+		});
+		$('#poundage-close').click(function(){
+			poundage.fadeOut();
+		});
+		poundage.find('.alert-select').click(function(){
+			return false;
+		})
+	})();
+</script>
+</html>

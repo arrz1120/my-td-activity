@@ -1,0 +1,16 @@
+﻿ /*登录进度条样式*/
+.loadAlert{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9999;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.loadTips{position:relative;width: 80%;height: 80px;padding: 10px 0;background: rgba(0,0,0,0.5);-webkit-box-align:center;z-index: 9999;border-radius: 6px;}
+.loadTips .loadingCirle{width: 40px;height: 40px;background: url('/imgs/images/loadingPic.png') no-repeat;background-size: 40px 40px;float: left;margin: 10px 15px 0 15px;-webkit-animation: loading .5s linear infinite;}
+.loadTips .yan{position: absolute;left: 15px;top: 20px;width:40px;height: 40px;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.loadTips .yan img{height: 40%;display: block;-webkit-animation: loadingRotate 1s linear infinite;}
+.loadTips .loadTips_txt h3{color: #fff;font-size: 1.4rem;margin-top: 15px;}
+.loadTips .loadTips_txt p{font-size: 1rem;color: #dbdbdb;}
+@-webkit-keyframes loading {
+    from {-webkit-transform:rotate(0deg) translateZ(0); }
+    to {-webkit-transform:rotate(360deg) translateZ(0); }
+}
+@-webkit-keyframes loadingRotate {
+    from { -webkit-transform:rotateY(0deg) translateZ(0); }
+    to { -webkit-transform:rotateY(360deg) translateZ(0); }
+}

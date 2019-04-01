@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>奖品详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/app-prize.css" />
+</head>
+<body>
+<header><a href="#" class="back"></a>奖品详情</header>
+<div class="prizeDetail">
+
+<section class="flexslider" id="prizeimgSlider">
+  <ul class="slides">
+    <li><img src="/imgs/prize/bigimg01.jpg"></li>
+  </ul>
+</section>
+
+<section class="prize_infobox pl20">
+    <div class="prize_info pt10">
+        <div class="c-212121 f16px pb10">索尼 ILCE-5100L微单相机</div>
+        <div class="c-fd6040 f20px pb5">￥3099.00</div>
+        <div class="pb10 c-ababab f12px">备注：ILCE系列5100L、白色</div>
+    </div>
+    <p><a href="#">活动：1218网贷爱心日<i><img src="/imgs/App/smb-que-ico.png" /></i></a></p>
+</section>
+
+<section class="prize_title c-212121 f13px">奖品信息</section>
+
+<section class="prize_detailbox">
+    <img src="/imgs/prize/prize_detail_01.jpg">
+    <img src="/imgs/prize/prize_detail_02.jpg">
+    <img src="/imgs/prize/prize_detail_03.jpg">
+</section>
+<section class="prize_title c-212121 f13px">1218活动其他奖品</section>
+
+<section class="prize_otherbox clearfix">
+  <div class="prize_other clearfix">
+      <div class="prizesliderbox">
+          <div class="flexslider prizeSlider">
+              <ul class="slides" id="slides_img">
+                <li>
+                    <div class="prizebox clearfix">
+                        <dl><dt><img src="/imgs/prize/prize_img.jpg"></dt><dd>iPhone6s plus (64G)</dd></dl>
+                        <dl><dt><img src="/imgs/prize/prize_detail_01.jpg"></dt><dd>iPhone6s plus (64G)</dd></dl>
+                        <dl class="lastprize"><dt><img src="/imgs/prize/prize_detail_01.jpg"></dt><dd>iPhone6s plus</dd></dl>
+                    </div>
+                </li>
+                <li>
+                    <div class="prizebox clearfix">
+                        <dl><dt><img src="/imgs/prize/prize_detail_01.jpg"></dt><dd>iPhone6s plus</dd></dl>
+                        <dl><dt><img src="/imgs/prize/prize_img.jpg"></dt><dd>iPhone6s plus (64G)</dd></dl>
+                        <dl class="lastprize"><dt><img src="/imgs/prize/prize_detail_01.jpg"></dt><dd>iPhone6s plus (64G)</dd></dl>
+                    </div>
+                </li>
+              </ul>
+            </div>
+      </div>
+  </div>
+</section>
+</div>
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.flexslider.js"></script>
+<script type="text/javascript">
+$(function(){
+    //banner滑动
+    $('#prizeimgSlider').flexslider({
+        animation: "slide",
+        directionNav: false,
+     });
+    //理财滑动
+    $('.prizeSlider').flexslider({
+        animation: "slide",
+        directionNav: false,
+        slideshow: false,
+        itemMargin: 10,
+        animationLoop: false,
+     });
+
+    setTimeout(function(){
+        var imgWindth = $('#slides_img li img').eq(0).width();
+        $('#slides_img li img').css('height',imgWindth+'px');
+    },100)
+
+});
+  
+</script>
+
+</html>

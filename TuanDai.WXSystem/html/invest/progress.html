@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>供应链-项目详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v=20151221" /><!--base-->
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/progress.css?v=20151221" /><!--借款-->
+	
+	</head>
+	<body>
+		<header class="headerMain">
+		    <div class="header">
+		        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+		        <h1 class="title">项目进展</h1>
+		    </div>
+		    <div class="none"></div>
+		</header>
+		<div class="progress">
+			<section>
+				<div class="date-wp date-active">
+					<div class="date">
+						项目已开工，图为现场图片
+					</div>
+				</div>
+				<div class="con bl-ababab">
+					<div class="swiper-container1 mt10" id="swiper1">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img1.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img2.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img3.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img1.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img2.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pics">
+									<img src="/imgs/images/img3.png"  alt="" class="img tc"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>
+			</section>
+			
+			<section>
+				<div class="date-wp">
+					<div class="date">
+						已签署并购协议
+					</div>
+				</div>
+				<div class="con bl-ababab pb50">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>
+			
+			<section>
+				<div class="date-wp">
+					<div class="date">
+						满标
+					</div>
+				</div>
+				<div class="con pb50">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>	
+		</div>
+		<div class="slide2 hide">
+			<div class="slide-close">
+				
+			</div>
+			<div class="slide-big">
+				<div class="swiper-container2" id="swiper2">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img1.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img2.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img3.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img1.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img2.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="pics">
+								<img src="/imgs/images/img3.png"  alt="" class="img tc"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mark"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+    <script type="text/javascript">
+    	
+	    $(function(){
+			var swiper1 = new Swiper('#swiper1', {
+				direction: 'horizontal',
+		        slidesPerView: 'auto',
+		        spaceBetween: 5,
+		        preventLinksPropagation:false
+			});
+			
+			var len = $("#swiper2").find('.swiper-slide').length;
+			$(".mark").html("<p><span id='nowMark'>01/</span>0"+ len +"</p>");
+			
+			var swiper2 = undefined;
+			swiper1.on('tap',function(){
+    			$(".slide2").removeClass('hide');
+    			var idx = swiper1.clickedIndex;
+    			if(idx == 0){
+		        	$("#nowMark").html('01/');
+				}
+    			swiper2 = new Swiper('.swiper-container2', {
+    				initialSlide : idx,
+					direction: 'horizontal',
+			        slidesPerView: '1',
+			        spaceBetween: 1,
+			        onSlideChangeStart:function(swiper2){
+			        	$("#nowMark").html('0'+(swiper2.activeIndex+1)+'/');
+			        }
+				});
+			});
+			$('.slide-close').click(function(){
+				$('.slide2').addClass('hide'); 
+				swiper2.destroy(true,true);
+				swiper2 = undefined;
+			})
+		})		  
+    </script>
+</html>

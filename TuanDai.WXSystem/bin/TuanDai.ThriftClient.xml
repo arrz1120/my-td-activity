@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.ThriftClient</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.ThriftClient.ClientPoolInfo">
+            <summary>
+            获取客户端池的信息
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ClientPoolInfo.GetServerInfo">
+            <summary>
+            获取服务器列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ClientPoolInfo.GetTransfortWrapper">
+            <summary>
+            获取Socket的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ClientPoolInfo.GetPoolProperty">
+            <summary>
+            获取运行池的属性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.ThriftClient.PoolProperty">
+            <summary>
+            连接池的属性
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.PoolProperty.MaxAvailable">
+            <summary>
+            最大连接数
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.PoolProperty.MaxIdle">
+            <summary>
+            最大空闲数
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.PoolProperty.MinIdle">
+            <summary>
+            最小空闲数
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.PoolProperty.Path">
+            <summary>
+            并发事件
+            </summary>
+        </member>
+        <member name="T:TuanDai.ThriftClient.ServerInfo">
+            <summary>
+            服务信息
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ServerInfo.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ServerInfo.Host">
+            <summary>
+            主机Ip
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ServerInfo.Port">
+            <summary>
+            主机端口
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ServerInfo.TimeOut">
+            <summary>
+            thrift超时时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ThriftConfig.Host">
+            <summary>
+            服务器地址
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ThriftConfig.Port">
+            <summary>
+            服务端口
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ThriftConfig.TimeOut">
+            <summary>
+            连接超时
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ThriftConfig.MaxActive">
+            <summary>
+            可以从缓存池中分配对象的最大数量
+            </summary>
+        </member>
+        <member name="P:TuanDai.ThriftClient.ThriftConfig.MaxIdle">
+            <summary>
+            最大空闲数量
+            </summary>
+        </member>
+        <member name="F:TuanDai.ThriftClient.ThriftExtend.resetEvent">
+            <summary>
+            同步对象
+            </summary>
+        </member>
+        <member name="F:TuanDai.ThriftClient.ThriftExtend.activedCount">
+            <summary>
+            每取走一例，表示激活对象加1，此属性可控制对象池容量
+            </summary>
+        </member>
+        <member name="F:TuanDai.ThriftClient.ThriftExtend.locker">
+            <summary>
+            同步对象锁
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.BorrowInstance">
+            <summary>
+            从对象池取出一个对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.ReturnInstance(Thrift.Transport.TTransport)">
+            <summary>
+            归还一个对象
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.CreateResetEvent">
+            <summary>
+            创建线程同步对象
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.CreateThriftPool">
+            <summary>
+            创建对象池
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.PushObject(Thrift.Transport.TTransport)">
+            <summary>
+            添加对象到对象池
+            </summary>
+            <param name="transport"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.CreateInstance">
+            <summary>
+            创建一个对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.ValidateOnBorrow(Thrift.Transport.TTransport)">
+            <summary>
+            取出对象时校验对象
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.ValidateOnReturn(Thrift.Transport.TTransport)">
+            <summary>
+            归还对象时校验对象
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftExtend.DestoryInstance(Thrift.Transport.TTransport)">
+            <summary>
+            销毁对象
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="F:TuanDai.ThriftClient.ThriftPool.activedCount">
+            <summary>
+            每取走一例，表示激活对象加1，此属性可控制对象池容量
+            </summary>       
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.BorrowInstance">
+            <summary>
+            从对象池取出一个对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.PushObject(TuanDai.ThriftClient.TransfortWrapper)">
+            <summary>
+            添加对象到对象池
+            </summary>
+            <param name="transport"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.ReturnInstance(TuanDai.ThriftClient.TransfortWrapper)">
+            <summary>
+            归还一个对象
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.CreateInstance(System.String)">
+            <summary>
+            创建一个对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.DestoryInstance(TuanDai.ThriftClient.TransfortWrapper)">
+            <summary>
+            销毁对象
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.ValidateOnBorrow(TuanDai.ThriftClient.TransfortWrapper)">
+            <summary>
+            取出对象时校验对象
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.CreateResetEvent">
+            <summary>
+            创建线程同步对象
+            </summary>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftPool.GetRandomSeed">
+            <summary>
+            生成随机数种子
+            </summary>
+            <returns>种子</returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftServerByZk.CreateServerTempNode(System.String,TuanDai.ThriftClient.ServerInfo,System.String@)">
+            <summary>
+            创建服务的临时节点
+            </summary>
+            <param name="path"></param>
+            <param name="serverInfo"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftServerByZk.DeleteServerTempNode(System.String,TuanDai.ThriftClient.ServerInfo,System.String@)">
+            <summary>
+            删除服务的时行节点
+            </summary>
+            <param name="path"></param>
+            <param name="serverInfo"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ThriftServerByZk.GetPath(System.String,TuanDai.ThriftClient.ServerInfo)">
+            <summary>
+            获取路径
+            </summary>
+            <param name="path"></param>
+            <param name="serverInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.TransfortWrapper.GetWrapperCount(System.String)">
+            **
+        </member>
+        <member name="M:TuanDai.ThriftClient.TransfortWrapper.GetTransfortWrapper(System.String)">
+            <summary>
+            获取TransfortWrapper
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ZKConfig.GetServerInfos(System.String)">
+            <summary>
+            获取服务的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ZKConfig.UpdateServerInfos(System.String)">
+            <summary>
+            获取服务的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.ThriftClient.ZKConfig.GetPoolProperty(System.String,System.Boolean)">
+            <summary>
+            获取连接池的信息属性
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

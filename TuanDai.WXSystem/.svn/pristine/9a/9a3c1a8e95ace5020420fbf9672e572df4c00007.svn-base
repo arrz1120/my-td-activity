@@ -1,0 +1,321 @@
+﻿using Dapper;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using TuanDai.UserPrizeNew.Client;
+using ZooKeeperNet;
+using NewPrizeModel = TuanDai.UserPrizeNew.ServiceClient.Models;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    public partial class invest_success : UserPage
+    {
+        protected Guid projectId;
+        /// <summary>
+        /// 支付金额
+        /// </summary>
+        protected decimal PayMoney;
+        /// <summary>
+        /// 预期收益
+        /// </summary>
+        protected string ProfitMoney;
+        /// <summary>
+        /// 预期所获团币
+        /// </summary>
+        protected string TuanBi="0";
+        /// <summary>
+        /// 投资类型 project:投资普通标   weplan:投资we计划   
+        /// </summary>
+        protected string InvestType;
+        /// <summary>
+        /// 点击完成的url
+        /// </summary>
+        protected string FinishUrl;
+        /// <summary>
+        /// 查看投资详情url
+        /// </summary>
+        protected string InvestUrl;
+        /// <summary>
+        /// 继续投资url
+        /// </summary>
+        protected string GoOnUrl;
+        /// <summary>
+        /// 是否为WE计划分期宝
+        /// </summary>
+        protected bool IsWeFQB;
+        /// <summary>
+        /// we计划实体
+        /// </summary>
+        protected WeProductDetailInfo product = null;
+        protected ProjectDetailInfo projectInfo = null;
+        /// <summary>
+        /// 实际返现金额
+        /// </summary>
+        protected decimal FXAmount = 0;
+        protected string activityUrl = string.Empty;//we计划4周年庆活动页地址
+
+        protected Guid? PrizeId { get; set; }
+        protected string PrizeDesc { get; set; }
+        //红包使用状态1:成功 0:失败
+        protected int PrizeStatus { get; set; }
+        /// <summary>
+        /// 加息券带来利息
+        /// </summary>
+        protected decimal PrizeAddInterest { get; set; }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            var idStr = WEBRequest.GetString("projectid");
+            if (!string.IsNullOrEmpty(idStr))
+                projectId = Guid.Parse(idStr);
+            else
+                Response.Redirect("/pages/invest/invest_list.aspx");
+
+            InvestType = WEBRequest.GetString("investType");
+
+            var payMoneyStr = WEBRequest.GetString("payMoney");
+            if (!string.IsNullOrEmpty(payMoneyStr))
+                PayMoney = decimal.Parse(payMoneyStr);
+            else
+                Response.Redirect("/pages/invest/invest_list.aspx");
+
+            ProfitMoney = WEBRequest.GetString("profitMoney");
+            ProfitMoney = ProfitMoney.Replace("￥", ""); 
+            try
+            {
+                if (ProfitMoney.ToText() != "" && !ProfitMoney.Contains("~"))
+                {
+                    //获取团币系数
+                    NewVipUserInfo UserVipModel = GetNewVipUserInfo(WebUserAuth.UserId.Value);
+                    decimal tuanBiXiShu = 0;
+                    if (UserVipModel != null)
+                        tuanBiXiShu = UserVipModel.TuanBiCoefficient;
+                    TuanBi = Math.Floor(tuanBiXiShu * decimal.Parse(ProfitMoney)).ToString();
+                }
+            }
+            catch
+            {
+                TuanBi = "0";
+            }
+
+            IsWeFQB = false;
+
+            if (InvestType == "project")
+            {
+                #region 散标投资
+                string sql = "select count(0) from Project with(nolock) where id=@id";
+                Dapper.DynamicParameters para = new Dapper.DynamicParameters();
+                para.Add("@id", projectId);
+                var count = PublicConn.QuerySingle<int>(sql, ref para);
+                if (count > 0)
+                {
+                    FinishUrl = "/pages/invest/detail.aspx?id=" + projectId;
+                    sql = "SELECT top 1 s.Id FROM dbo.Project p WITH(NOLOCK) INNER JOIN dbo.Subscribe s WITH(NOLOCK) ON p.Id = s.ProjectId WHERE p.Id=@id AND s.SubscribeUserId=@userid ORDER BY s.AddDate DESC";
+                    para = new Dapper.DynamicParameters();
+                    para.Add("@id", projectId);
+                    para.Add("@userid", WebUserAuth.UserId.Value);
+                    var subscribeId = PublicConn.QuerySingleWrite<Guid>(sql, ref para);
+                    InvestUrl =
+                        "/Member/Repayment/my_return_details.aspx?SubscribeId=" + subscribeId + "&ProjectId=" + projectId + "&tab=Inprogress";
+                    GoOnUrl = "/pages/invest/invest_list.aspx";
+
+                    projectInfo = new ProjectBLL().GetProjectDetailInfo(projectId);
+                    if (projectInfo.Type == 6 || projectInfo.Type == 19 || projectInfo.Type == 20 || projectInfo.Type == 21 || projectInfo.Type == 17)
+                    {
+                        TuanBi = TuanBi;
+                    }
+                    else
+                    {
+                        TuanBi = Math.Floor(decimal.Parse(TuanBi) / projectInfo.Deadline ?? 1).ToString();
+                    }
+                }
+                else
+                {
+                    FinishUrl = "/pages/invest/zqzr_detail.aspx?projectid=" + projectId;
+                    sql = "SELECT top 1 t.m_Title,s.Id FROM dbo.t_SubScribeTransfer t WITH(NOLOCK) INNER JOIN dbo.Subscribe s WITH(NOLOCK) ON t.m_Id = s.TranId WHERE t.m_Id=@id AND s.SubscribeUserId=@userid  ORDER BY s.TranDate DESC";
+                    para = new Dapper.DynamicParameters();
+                    para.Add("@id", projectId);
+                    para.Add("@userid", WebUserAuth.UserId.Value);
+                    var tModel = PublicConn.QuerySingleWrite<TranModel>(sql, ref para);
+                    if (tModel != null)
+                    {
+                        InvestUrl =
+                           "/Member/Repayment/my_debt_carry_detail.aspx?SubscribeId=" + tModel.Id + "&Title=" + tModel.m_Title + "&projectid=78ab9bb8-1b12-4574-9326-cbba119956d4&tab=Inprogress";
+                    }
+                    else
+                    {
+                        InvestUrl = "/Member/Repayment/my_return_list.aspx";
+                    }
+                    GoOnUrl = "/pages/invest/debt_list.aspx";
+
+                    TuanBi = "0";
+                }
+                #endregion
+            }
+            else
+            {
+                #region We计划
+                //product = new WeProductBLL().GetWeProductInfo(projectId);
+                if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+                {
+                    string err = string.Empty;
+                    var weRedisInfo = TuanDai.RedisApi.Client.WePlanRedis.GetWePlanRedisByProductIdJson(projectId,
+                    out err, TdConfig.ApplicationName);
+                    if (weRedisInfo != null)
+                        product = JsonConvert.DeserializeObject<WeProductDetailInfo>(weRedisInfo);
+                    if (product == null || !string.IsNullOrEmpty(err))
+                        product = new WeProductBLL().GetWeProductInfo(projectId);
+                }
+                else
+                {
+                    product = new WeProductBLL().GetWeProductInfo(projectId);
+                }
+                var cookieUrl = CookieHelper.GetCookie("Anniversary4"); //HttpContext.Current.Request.Cookies["Anniversary4"];
+                if (!string.IsNullOrEmpty(cookieUrl))
+                {
+                    activityUrl = cookieUrl;
+                    //删除cookie Anniversary4
+                    if (product.TypeWord.ToLower().Contains("p") || product.TypeWord.ToLower().Contains("q") || product.TypeWord.ToLower().Contains("r"))
+                        CookieHelper.ClearCookie("Anniversary4");
+                }
+                string sql = "select count(0) from we_product with(nolock) where id=@id and iswefqb = 1";
+                Dapper.DynamicParameters para = new Dapper.DynamicParameters();
+                para.Add("@id", projectId);
+                var count = PublicConn.QuerySingle<int>(sql, ref para);
+
+                sql = "select top 1 o.id from we_product p with(nolock) inner join we_order o with(nolock) on p.id=o.productid where p.id=@id and o.userid=@userid order by OrderDate desc";
+                para = new Dapper.DynamicParameters();
+                para.Add("@id", projectId);
+                para.Add("@userid", WebUserAuth.UserId.Value);
+                var orderId = PublicConn.QuerySingleWrite<Guid>(sql, ref para);
+                if (count > 0)
+                {
+                    IsWeFQB = true;
+                    FinishUrl = "/pages/invest/WE/WeFqb_detail.aspx?id=" + projectId;
+                    InvestUrl = "/Member/Repayment/Wefqb_project.aspx?weorderid=" + orderId + "&tab=Inprogress";
+                }
+                else
+                {
+
+                    FinishUrl = "/pages/invest/WE/WE_detail.aspx?id=" + projectId;
+                    InvestUrl =
+                        "/Member/Repayment/We_project.aspx?weorderid=" + orderId + "&tab=Inprogress";
+                }
+                GoOnUrl = "/pages/invest/WE/WE_list.aspx";
+
+                if (product != null && (product.TuandaiCashRate ?? 0) > 0)
+                {
+                    if (product.CashLimitAmount == 0 || PayMoney >= product.CashLimitAmount)
+                    {
+                        FXAmount = PayMoney * product.TuandaiCashRate.Value / 100;
+                    }
+                }
+                if (product != null)
+                {
+                    if (product.DeadType == 1)
+                        TuanBi = Math.Floor(decimal.Parse(TuanBi) / product.Deadline ?? 1).ToString();
+                    else
+                        TuanBi = Math.Floor(decimal.Parse(TuanBi)).ToString();
+                }
+                #endregion
+            }
+            //计算红包状态
+            QueryPrizeUseStatus();
+        }
+        private NewVipUserInfo GetNewVipUserInfo(Guid userId)
+        {
+            //p_GetUserLevelInfo
+
+            string strSQL = @"SELECT a.[Level], a.LevelName,b.TuanBiCoefficient FROM dbo.MUserVipInfo  a  with(nolock)
+                                 left join MVipLevel b with(nolock) on b.Level=a.Level
+                                 where UserId=@UserId ";
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@UserId", userId);
+            NewVipUserInfo vipUserInfo = PublicConn.QueryVipSingle<NewVipUserInfo>(strSQL, ref dyParams);
+            if (vipUserInfo == null)
+            {
+                vipUserInfo = new NewVipUserInfo();
+                vipUserInfo.Level = 1;
+                vipUserInfo.LevelName = "投资学徒";
+            }
+            return vipUserInfo;
+        }
+        /// <summary>
+        /// Url Cookie解析
+        /// </summary>
+        /// <param name="codeUrl"></param>
+        /// <returns></returns>
+        private string UnCodeCookieUrl(string codeUrl)
+        {
+            var url = codeUrl.Replace("%3A", ":");//替换:
+            url = url.Replace("%2f", "/");//替换/
+            url = url.Replace("%3F", "?");//替换?
+            url = url.Replace("%3D", "=");//替换=
+            return url;
+        }
+
+        protected void QueryPrizeUseStatus() { 
+            if (WEBRequest.GetQueryString("prizeid") != "")
+            {
+                PrizeId = Guid.Parse(WEBRequest.GetQueryString("prizeid"));
+            }
+            if (!PrizeId.HasValue || PrizeId == Guid.Empty)
+                return;
+            UserPrizeQueryClient prizeClient = new UserPrizeQueryClient(TdConfig.ApplicationName);
+            string errorMsg = "";
+            NewPrizeModel.UserPrizeInfo prizeInfo = prizeClient.GetUserPrizeById(PrizeId.Value, WebUserAuth.UserId.Value, out errorMsg);
+            if (prizeInfo != null)
+            {
+                PrizeStatus= prizeInfo.IsUsed?1:0;
+                if (prizeInfo.TypeId == 3)
+                {
+                    PrizeDesc = ToolStatus.DeleteZero(prizeInfo.PrizeValue) + "投资红包";
+                }
+                else if (prizeInfo.TypeId == 18)
+                {
+                    PrizeDesc = ToolStatus.DeleteZero(prizeInfo.PrizeValue) + "加息券";
+                    if (InvestType == "project")
+                    {
+                        if (projectInfo != null)
+                        {
+                            PrizeAddInterest = CommUtils.GetInterestAmount(PayMoney, projectInfo.RepaymentType.Value, projectInfo.DeadType.Value, projectInfo.Deadline.Value, prizeInfo.PrizeValue);
+                        }
+                    }
+                    else if(InvestType=="weplan") {
+                        if (product != null) {
+                            PrizeAddInterest = CommUtils.GetInterestAmount(PayMoney, 1, product.DeadType.Value, product.Deadline.Value, prizeInfo.PrizeValue);
+                        }
+                    } 
+                }
+            }
+        }
+
+    }
+
+    #region 内部Model
+    public class TranModel
+    {
+        public string m_Title { get; set; }
+
+        public Guid Id { get; set; }
+    }
+    public class NewVipUserInfo
+    {
+        public int Level { get; set; }
+        public string LevelName { get; set; }
+        /// <summary>
+        /// 加团币系数
+        /// </summary>
+        public decimal TuanBiCoefficient { get; set; }
+    }
+    #endregion
+
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>专属兑换特权</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=adada" /> <!--初始化样式改用global.css-->
+    <link rel="stylesheet" type="text/css" href="/css/myMerber.css" />
+
+</head>
+<body class="bg-f1f3f5">
+<header class="headerMain">
+    <div class="header bb-e6e6e6">
+        <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+        <h1 class="title">专属兑换特权</h1>
+    </div>
+    <a href="javascript:void(0);" class="header-list-icon"><img src="/imgs/images/header-list-icon01.png"></a>
+    <div class="none"></div>
+</header>
+<section class="privMain">
+    <div class="imgBox"><img src="/imgs/member/priv10.png"></div>
+    <div class="bt-e6e6e6 bb-e6e6e6 nav-box">
+        <div class="clearfix nav ">
+            <div class="lf">
+                <p class="f17px c-808080 p-pri">未获得特权</p>
+            </div>
+            <a href="" class="rf btn-pri c-ababab f13px">我的等级<span class="ml5 c-212121 f17px">Lv.2</span><i></i></a>
+        </div>
+    </div>
+
+    <div class="pl15 pr15 mt10 bg-fff pb20 bb-e6e6e6 bt-e6e6e6">
+        <p class="f17px c-212121 pt15">特权说明</p>
+        <p class="f13px c-808080 pt10">在会员商城兑商品时，享有专属商品兑换特权。</p>
+        <div class="bm-table mt10">
+            <table class="">
+                <tbody>
+                <tr>
+                    <th class="bb-e6e6e6 br-e6e6e6-before">会员等级</th>
+                    <th class="bb-e6e6e6">特权</th>
+                </tr>
+                <tr class="bg-fff">
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V1.png"/></td>
+                    <td class="bb-e6e6e6">无</td>
+                </tr>
+                <tr>
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V2.png"/></td>
+                    <td class="bb-e6e6e6">无</td>
+                </tr>
+                <tr class="bg-fff">
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V3.png"/></td>
+                    <td class="bb-e6e6e6">无</td>
+                </tr>
+                <tr>
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V4.png"/></td>
+                    <td class="bb-e6e6e6">无</td>
+                </tr>
+                <tr class="bg-fff">
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V5.png"/></td>
+                    <td class="bb-e6e6e6">有</td>
+                </tr>
+                <tr>
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V6.png"/></td>
+                    <td class="bb-e6e6e6">有</td>
+                </tr>
+                <tr class="bg-fff">
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V7.png"/></td>
+                    <td class="bb-e6e6e6">有</td>
+                </tr>
+                <tr>
+                    <td class="bb-e6e6e6 br-e6e6e6-before"><img src="/imgs/images/V8.png"/></td>
+                    <td class="bb-e6e6e6">有</td>
+                </tr>
+                <tr class="bg-fff">
+                    <td class="br-e6e6e6-before"><img src="/imgs/images/V9.png"/></td>
+                    <td class="">有</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

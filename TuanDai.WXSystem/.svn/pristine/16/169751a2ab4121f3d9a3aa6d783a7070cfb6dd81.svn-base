@@ -1,0 +1,203 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.pages.invest.WE
+{
+    /// <summary>
+    /// We计划详情--新版
+    /// Allen 2015-06-05
+    /// </summary>
+    public partial class WE_detail :BasePage
+    {
+
+        protected Guid? projectId { get; set; }
+        private WeProductBLL bll = null;
+        protected WeProductDetailInfo model = null;
+        protected bool IsWeFinish = false;
+        protected bool IsWeZnq = false;//是否是we计划4周年庆
+        protected bool IsApp = false;
+        protected decimal JxRate = 0; 
+        protected decimal FXRate = 0;
+        protected WebSettingInfo curSellSet; //1218当天配置
+        protected WebSettingInfo preSellSet; //1218预售项目 
+        protected WebSettingInfo sellSet518;//518活动加息
+        protected int TypeId = 0;
+        protected bool IsPreSell = false;
+        protected string IsPreView1218 = "0";//可预览1218配置 
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            projectId = WEBRequest.GetGuid("id");
+            var activityUrl = WEBRequest.GetString("Anniversary4");
+            var type = WEBRequest.GetString("type");
+            this.TypeId = WEBRequest.GetInt("typeId", 0);
+            this.IsPreSell = WEBRequest.GetInt("IsPreSell", 0) == 1;
+
+            if (type == "mobileapp")
+            {
+                IsApp = true;
+                IsShowRightBar = false;
+            }
+            if (!string.IsNullOrEmpty(activityUrl))
+            {
+                CookieHelper.WriteCookie("Anniversary4", activityUrl);
+                //HttpContext.Current.Response.SetCookie(new HttpCookie("Anniversary4", activityUrl));//写入活动传过来的url
+            }
+            
+            if (!IsPostBack)
+            {
+                bll = new WeProductBLL();
+                if (this.projectId != null && this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                        return;
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.MTuanDaiURL + "/pages/invest/WE/WE_list.aspx");
+                }
+            }
+        }
+
+        private bool GetData()
+        { 
+            //获取项目信息
+            if (GlobalUtils.IsRedis && GlobalUtils.IsWePlanRedis)
+            {
+                this.model = new WeProductBLL().GetWePlanByRedis(TypeId, projectId.Value, IsPreSell,TdConfig.ApplicationName);
+            }
+            else
+            {
+                this.model = bll.GetWeProductInfo(projectId.Value);
+            } 
+
+            if (model == null)
+            {
+                Response.Redirect("/pages/invest/we/WE_list.aspx",true);
+                return false;
+            }
+                
+            if (model.IsWeFQB)
+            {
+                Response.Redirect(GlobalUtils.MTuanDaiURL + "/pages/invest/WE/WeFqb_detail.aspx?id=" + model.ProductId+(IsApp?"&type=mobileapp":"") );
+                return false;
+            }
+            if (model.IsFTB) {
+                Response.Redirect(GlobalUtils.MTuanDaiURL + "/pages/invest/WE/WeFtb_detail.aspx?id=" + model.ProductId + (IsApp ? "&type=mobileapp" : ""));
+                return false;
+            } 
+           
+            #region 判断满标
+            if (model.StartDate > DateTime.Now && model.StatusId == 1)
+            {
+                IsWeFinish = false;
+            }
+            else if (model.StartDate < DateTime.Now && model.OrderQty != model.TotalQty)
+            {
+                IsWeFinish = false;
+            }
+            else if (((model.OrderQty == model.TotalQty && model.InvestCompleteDate.HasValue) || (model.OrderCompleteDate.HasValue && model.OrderCompleteDate.Value.AddDays(5) <= DateTime.Now)) && !model.IsWeFQB)
+            {
+                IsWeFinish = true;
+            }
+            else
+            {
+                IsWeFinish = true;
+            }
+            #endregion
+
+            WebSettingBLL webSettingBll = new WebSettingBLL();
+            preSellSet = webSettingBll.GetWebSettingInfo("6F9D3B77-C15C-4A5A-B883-21004E10BE29");
+            curSellSet = webSettingBll.GetWebSettingInfo("B11558CB-3C6B-4DAD-9D2F-D6D2DE13CCF7");
+            sellSet518 = webSettingBll.GetWebSettingInfo("5E02F517-E6FC-4451-8232-378377837EC1");
+            IsPreView1218 = System.Configuration.ConfigurationManager.AppSettings["IsPreView1218"];
+            if (IsPreView1218 == "1")
+            {
+                preSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+            else if (IsPreView1218 == "2")
+            {
+                preSellSet.Param1Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
+                preSellSet.Param2Value = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd 23:59:59");
+                curSellSet.Param1Value = DateTime.Today.ToString("yyyy-MM-dd");
+                curSellSet.Param2Value = DateTime.Today.ToString("yyyy-MM-dd 23:59:59");
+            }
+            return true;
+        }
+
+        protected string GetWePlanYearRate()
+        {
+            string strFormat = "{0}<span>{1}%</span>";
+            string addRateStr = "";
+            if (DateTime.Parse(preSellSet.Param1Value) <= DateTime.Now && DateTime.Now < DateTime.Parse(curSellSet.Param2Value) && model.IsPreSell)
+            {
+                strFormat = "{0}<span style='font-size:18px;'>{1}%</span>";
+                addRateStr = "+至少1.5";
+            }
+
+            return string.Format(strFormat, CommUtils.GetFloatDivideStr(model.YearRate ?? 0, 1), CommUtils.GetFloatDivideStr(model.YearRate ?? 0, 2) + addRateStr);
+        } 
+
+        #region 加息，返现标签
+        /// <summary>
+        /// We返现标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWePubCach(WeProductDetailInfo model)
+        {
+            string pic = "";
+            //发标时就设置返现
+            if ((model.TuandaiCashRate ?? 0) > 0)
+            {
+                WebSettingBLL webSettingBll = new WebSettingBLL();
+                WebSettingInfo AllWeCachSet = webSettingBll.GetWebSettingInfo("421DBE8C-6435-4A9A-852A-EC51F0B0DDA8");
+
+                string cashFormat = AllWeCachSet.Param2Value;
+                if ((model.CashLimitAmount ?? 0) > 0)
+                    cashFormat = AllWeCachSet.Param1Value;
+                if (cashFormat.ToText() == "")
+                {
+                    cashFormat = ((model.CashLimitAmount ?? 0) > 0 ? "起投{Amount}元，" : "") + "返现{Rate}%";
+                }
+                decimal limitAmount = model.CashLimitAmount ?? 0;
+                string strLimitAmount = limitAmount >= 10000 ? ToolStatus.DeleteZero(limitAmount / 10000) + "万" : ToolStatus.DeleteZero(limitAmount / 1000) + "千";
+                pic += "<div class=\"rect_r f11px c-ffffff text-center\" style=\"width: auto;padding: 0px 10px;\">" + cashFormat.Replace("{Rate}", ToolStatus.DeleteZero(model.TuandaiCashRate)).Replace("{Amount}", strLimitAmount) + "</div>";
+            }
+            return pic;
+        }
+        /// <summary>
+        /// 显示加息标签
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        protected string ShowWeRank(WeProductDetailInfo model)
+        {
+            string pic = "";
+            //发标时就设置奖励
+            if ((model.TuandaiRedRate ?? 0) > 0)
+            {
+                if (string.IsNullOrEmpty(model.TuanDaiRedTitle))
+                {
+                    model.TuanDaiRedTitle = "加息";
+                }
+
+                pic = "<div class=\"rect_r f11px c-ffffff text-center\" style=\"width: auto;padding: 0px 10px;\">" + model.TuanDaiRedTitle + ToolStatus.DeleteZero(model.TuandaiRedRate) + "%</div>";  
+            } 
+            return pic;
+        }
+        #endregion
+
+
+    } 
+   
+}

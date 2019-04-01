@@ -1,0 +1,78 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/help/HelpMaster.Master" AutoEventWireup="true" CodeBehind="help_withdrawal.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.help.help_withdrawal" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <title>提现</title> 
+<link rel="stylesheet" type="text/css" href="/css/aboutus.css?v=20150812" /><!--关于我们-->
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>1.如何提现？</div>
+  <div class="aboutCont">
+    <p class="text text_answer">(1) 登陆后，在首页点击“我的账户”→点击“提现”。</p>
+    <p class="text text_answer">(2) 确认提现银行帐号、用户真实姓名、联系电话等信息；</p>
+    <p class="text text_answer">(3) 输入提现金额和交易密码；</p>
+    <p class="text text_answer">(4) 点击“手机验证码”按钮获取手机验证码，并在获取后输入手机验证码；</p>
+    <p class="text text_answer">(5) 确认所有信息无误后，点击“确认提现”，完成提现；</p>
+  </div>
+</section>
+<section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>2.提现费用问题？</div>
+  <div class="aboutCont">
+    <p class="text text_answer ti0">具体提现费用规定如下：</p>
+    <p class="text text_answer">(1) 普通用户收取提现金额的千分之三（0.3%）；上不封顶</p>
+    <p class="text text_answer">(2) 特权用户收取提现金额的千分之一（0.1%），且单笔提现费用封顶为200元。</p>
+  </div>
+</section>
+<section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>3.提现券怎么用？</div>
+  <div class="aboutCont">
+    <p class="text text_answer ti0">提现券只能用于提现使用，每次提现限用一张提现券</p>
+  </div>
+</section>
+<section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>4.提现后多久到账？</div>
+  <div class="aboutCont">
+    <p class="text text_answer ti0">为保障用户资金流转符合国家法律，用户提现资金需在团贷网处理提现后才能到账。</p>
+    <p class="text text_answer">(1) 团贷网处理提现时间为：周一至周六上午11:00和下午15:00；周日及其他国家法定假日下午15:00；</p>
+    <p class="text text_answer">(2) 提现处理成功后的第二天24：00前到账；</p>
+    <p class="text text_answer">注：若有特殊情况，最终由该银行解释为准。</p>
+    <p class="text text_answer">(3) 如果用户因为某些特殊问题没有通过团贷网的提现审核，用户可致电4006-410-888进行人工咨询；</p>
+    <p class="text text_answer">(4) 特别提示：为响应国家政策，避免洗钱、套现等违法违规行为的发生，若用户在团贷网没有发生任何投资行为，储蓄卡充值用户需在充值的15天后（不含充值当天）才可申请提现。</p>
+  </div>
+</section>
+<section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>5.可以提现至别人的银行账户中么？</div>
+  <div class="aboutCont">
+    <p class="text text_answer ti0">为了保障团贷网用户的资金安全，用户在团贷网充值和提现必须使用同一张银行借记卡（即只能是用户注册时绑定的银行卡），不可以提现至别人的银行账户的。 </p>
+  </div>
+</section>
+<section class="aboutBox">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>6.何种情况会造成提现失败？</div>
+  <div class="aboutCont">
+    <p class="text text_answer">(1) 提现的银行卡与注册时绑定的银行卡不一致；</p>
+    <p class="text text_answer">(2) 充值未投资未满15天，团贷网系统默认不能提现。</p>
+  </div>
+</section>
+<section class="aboutBox last">
+  <div class="aboutTit aboutTit_nonebg aboutTit_r"><b></b>7.提现失败会造成提现券的浪费吗？</div>
+  <div class="aboutCont">
+    <p class="text text_answer ti0">团贷网提现券只有在提现成功才算真正使用，如果提现失败，提现券将返还可以再次使用。</p>
+  </div>
+</section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script> 
+<script type="text/javascript">
+    $(function () {
+        $(".aboutTit").on("click", function () {
+            if ($(this).parent(".aboutBox").hasClass("active")) {
+                $(".aboutBox").removeClass("active");
+            } else {
+                $(".aboutBox").removeClass("active");
+                $(this).parent(".aboutBox").addClass("active");
+            }
+        });
+
+    });
+
+</script>
+</asp:Content> 

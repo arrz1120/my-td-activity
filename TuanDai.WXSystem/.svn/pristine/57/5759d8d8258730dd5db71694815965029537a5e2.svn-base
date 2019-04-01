@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>脑洞全开 - 测你财“经”有多大？</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="css/question.css?v=001" />
+</head>
+<body>
+<section class="con">
+    <section class="start-con">
+        <div class="full-pos bg1"></div>
+        <div class="full-pos p11"></div>
+        <div class="full-pos p12"></div>
+        <div class="full-pos p13"></div>
+        <div class="full-pos p14"></div>
+        <div class="full-pos p15"></div>
+        <div class="full-pos p16"></div>
+        <a id="start" class="start-but" href="javascript:;"></a>
+    </section>
+    <section class="card-con second-con here">
+        <div class="full-pos bg2"></div>
+        <div class="full-pos p21"></div>
+        <div class="full-pos p22"></div>
+        <div class="full-pos p23 animated fadeIn"></div>
+    </section>
+    <section class="card-con bg3">
+        <div class="card">
+            <div class="description">
+               <div class="avatar-box">
+                   <img src="imgs/tx1.png" alt=""/>
+               </div>
+               <h3>1.请找出关于图中人物的错误信息</h3>
+            </div>
+            <div class="check-con">
+                <div class="button"><span>A.</span>来自星星的他</div>
+                <div class="button"><span>B.</span>Jack Ma</div>
+                <div class="button"><span>C.</span>败家娘们的创始人</div>
+                <div class="button"><span>D.</span>败家娘们的创始人</div>
+            </div>
+        </div>
+    </section>
+    <section class="card-con bg4">
+        <div class="card">
+            <div class="description">
+                <h3>2.小明（对，又是小明）投资8万元到一个项目标，年收益18%，投资期限1年，请问，他的心理阴影有多大？</h3>
+            </div>
+            <div class="check-con">
+                <div class="button"><span>A.</span>1.44万元</div>
+                <div class="button"><span>B.</span>1.22万元</div>
+                <div class="button"><span>C.</span>9999元</div>
+                <div class="button"><span>D.</span>你在逗我吗？</div>
+            </div>
+        </div>
+    </section>
+    <div class="card-con bg5">
+        <div class="card">
+            <div class="description">
+                <h3>3.以下哪个logo姿势正确？</h3>
+            </div>
+            <div class="topic3">
+                <div class="topic3-cn clearfix">
+                    <div class="button left"><img src="imgs/logo1-a.png" alt=""/></div>
+                    <div class="button right"><img src="imgs/logo1-b.png" alt=""/></div>
+                </div>
+                <div class="topic3-cn clearfix">
+                    <div class="button left"><img src="imgs/logo1-c.png" alt=""/></div>
+                    <div class="button right"><img src="imgs/logo1-d.png" alt=""/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-con">
+        <div class="full-pos result-a"></div>
+
+    </div>
+</section>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        (function readyStyle() {
+            inner_height = window.innerHeight;
+            margin_top = Math.floor(((innerHeight - 200) / 2) + 10);
+            full_margin_top = margin_top + 'px';
+            $('.start-con').css({
+                height: inner_height
+            });
+
+            $('.description').each(function() {
+                $(this).css({
+                    marginTop: full_margin_top
+                })
+            });
+            $('.card-con').each(function() {
+                $(this).css({
+                    height: inner_height
+                })
+            });
+        }())
+
+        function hideStart() {
+            $('.start-con').fadeOut(500);
+        }
+
+        $('#start').click(function() {
+            setTimeout(hideStart, 1200);
+            $('.second-con').addClass('animate-show');
+        });
+
+        $('.second-con').bind('touchstart', function(e) {
+            e.preventDefault();
+            $(this).fadeOut(500);
+            $(this).next('.card-con').addClass('here');
+        });
+
+        $('.button').click(function() {
+            $(this).addClass('checked');
+            $(this).parents('.card-con').fadeOut(200);
+            $(this).parents('.card-con').next().addClass('here');
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20161123"/>
+		<title>开通存管引导</title>
+	</head>
+	<style type="text/css">
+		/*引导开通弹窗*/
+		.cgGuide{width: 84%;border-radius: 8px;}
+		.protectTips{width: 200px;margin: 10px auto 0;}
+		.ico_suc3{width: 13px;height: 13px;background: url(/imgs/cunguan/ico_suc3.png) no-repeat;background-size: 100% 100%;display: inline-block;margin-right: 8px;vertical-align: -1px;}
+	</style>
+	<body>
+		<div class="alert webkit-box box-center">
+			<div class="bg-fff cgGuide">
+				<div class="cg_top">
+					<img class="w100p" src="/imgs/cunguan/cgGuide.png"/>
+				</div>
+				<div class="cg_bottom text-center">
+					<p class="f13px c-999999 pt15 pb15">——&nbsp;&nbsp;&nbsp;为积极响应国家政策&nbsp;&nbsp;&nbsp;——</p>
+					<p class="f17px">团贷网个人账户全面升级为<br />银行存管账户</p>
+					<!-- 20180112 修改文案 -->
+					<div class="clearfix protectTips">
+						<div class="lf f13px c-999999">
+							<i class="ico_suc3"></i>资金有保障          
+						</div>
+						<div class="rf f13px c-999999">
+							<i class="ico_suc3"></i>投资更放心
+						</div>
+					</div>
+					<div class="clearfix bt-e6e6e6 mt20">
+						<a href="javascript:void(0);" class="block lf w50p br-e6e6e6 pt10 pb10 f17px text-center c-808080">取消</a>
+						<a href="javascript:void(0);" class="block lf w50p pt10 pb10 f17px text-center c-fab600">立即升级</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

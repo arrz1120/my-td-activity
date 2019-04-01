@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="C#" CodeBehind="ajax_userPrize.ashx.cs" Class="TuanDai.WXApiWeb.ajaxCross.ajax_userPrize" %>

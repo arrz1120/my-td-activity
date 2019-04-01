@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>物流信息</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v=20151222" />
+	<link rel="stylesheet" type="text/css" href="/css/progress.css?v=20151224" />
+	
+	</head>
+	<body>
+		<header class="headerMain">
+		    <div class="header">
+		        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+		        <h1 class="title">物流信息</h1>
+		    </div>
+		    <div class="none"></div>
+		</header>
+		<section class="bg-fff-bb-d1d1d1 pl15 pb20 pt20">
+			<p class="f14px c-212121">运单号码：320000697706</p>
+			<p class="f14px c-212121 mt10">物流公司：顺丰速运</p>
+		</section>
+		<div class="progress mt15 bg-bdTop-ccc">
+			<section>
+				<div class="date-wp date-active">
+					<div class="date ml8 f13px">【东莞市】东莞南城派件员：李喜田正在为你派件</div>
+				</div>
+				<div class="con bl-ababab">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>
+			<section>
+				<div class="date-wp">
+					<div class="date ml8 f13px">【东莞市】  快件已到东莞南城</div>
+				</div>
+				<div class="con bl-ababab">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>
+			<section>
+				<div class="date-wp">
+					<div class="date ml8 f13px">【东莞市】  东莞中心<span class="ml15">已发出</span></div>
+				</div>
+				<div class="con bl-ababab">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>
+			<section>
+				<div class="date-wp">
+					<div class="date ml8 f13px">【广州市】  广州中转站<span class="ml15">已发出</span></div>
+				</div>
+				<div class="con bl-ababab">
+					<div class="c-ababab pt10 pb20 bb-e6e6e6 f12px">
+						2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00
+					</div>
+				</div>	
+			</section>
+			<section>
+				<div class="date-wp">
+					<div class="date ml8 f13px">
+						已发货，请耐心等待收货。
+						<br>	
+						运单号码：320000697706
+						<br>
+						物流公司：顺丰速运
+						<br>
+					</div>
+				</div>
+				<div class="con bl-ababab pt55 mt-45">
+					<p class="c-ababab f12px lh14 bb-e6e6e6 pb20">2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00</p>	
+					<!--<p class="c-ababab pt10 f12px lh14">运单号码：320000697706</p>
+					<p class="c-ababab f12px lh14">物流公司：顺丰速运</p>
+					<p class="c-ababab f12px lh14">2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00</p>-->
+				</div>	
+			</section>
+			<section>
+				<div class="date-wp">
+					<div class="date ml8 f13px">
+						您已确认了收货信息<span class="ml15">备货中</span>
+						<br>
+						收件人：姚莉      18909090988	
+						<br>
+						地址：广东省深证市南山区科技园北区122号苍松大厦2楼
+					</div>
+				</div>
+				<div class="con pr15 pt10">
+					<!--<p class="c-ababab pt10 f12px lh14">收件人：姚莉&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18909090988</p>
+					<p class="c-ababab f12px lh14">地址：广东省深证市南山区科技园北区122号苍松大厦2楼</p>-->
+					<p class="c-ababab f12px lh14">2015-12-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00</p>
+				</div>	
+			</section>	
+		</div>
+	</body>
+</html>

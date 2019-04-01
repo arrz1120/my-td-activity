@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.BuyWePlan.Client</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.BuyWePlan.Client.BuyWePlanClient">
+            <summary>
+            购买we计划客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.BuyWePlan.Client.BuyWePlanClient.BuyTdWeplan(TuanDai.BuyWePlan.Client.BuyWeplanRequest,System.String@)">
+            <summary>
+            购买团贷网we计划
+            </summary>
+            <param name="buyWeplanRequest">购买we计划请求</param>
+            <param name="errorString">错误消息</param>
+            <returns>如果成功成功放到队列</returns>
+        </member>
+        <member name="M:TuanDai.BuyWePlan.Client.BuyWePlanClient.BuyDqWeplan(TuanDai.BuyWePlan.Client.BuyWeplanRequest,System.String@)">
+            <summary>
+            购买定期理财we计划
+            </summary>
+            <param name="buyWeplanRequest">购买we计划请求</param>
+            <param name="errorString">错误消息</param>
+            <returns>如果成功成功放到队列 </returns>
+        </member>
+        <member name="M:TuanDai.BuyWePlan.Client.BuyWePlanClient.ValidData(TuanDai.BuyWePlan.Client.BuyWeplanRequest,System.String@)">
+            <summary>
+            检验数据是否准确
+            </summary>
+            <param name="buyWeplanRequest"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.BuyWePlan.Client.BuyWeplanRequest">
+            <summary>
+            购买we计划请求
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.ProductId">
+            <summary>
+            项目ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.BuyQty">
+            <summary>
+            购买分数
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.OrderQty">
+            <summary>
+            订单分数
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.IsVip">
+            <summary>
+            是否vip（定期理财需要）
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.DeviceType">
+            <summary>
+            --1表示PC,2 安卓，3 苹果 4触屏版 5微信
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.RepeatInvestType">
+            <summary>
+            复投方式 1:本息复投 2：本金复投 0:非分期宝
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.WeOrderId">
+            <summary>
+            We计划订单
+            </summary>
+        </member>
+        <member name="P:TuanDai.BuyWePlan.Client.BuyWeplanRequest.MqQueueName">
+            <summary>
+            队列名称
+            </summary>
+        </member>
+        <member name="T:TuanDai.BuyWePlan.Client.MqDao">
+            <summary>
+            写到队列
+            </summary>
+        </member>
+        <member name="M:TuanDai.BuyWePlan.Client.MqDao.PushBuyTdWePlanQueue(TuanDai.BuyWePlan.Client.BuyWeplanRequest,System.String@)">
+            <summary>
+            把购买团贷网we计划请求放到队列去
+            </summary> 
+            <param name="buyWeplanRequest"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BuyWePlan.Client.MqDao.PushBuyDqWePlanQueue(TuanDai.BuyWePlan.Client.BuyWeplanRequest,System.String@)">
+            <summary>
+            推送购买定期理财we计划请求到队列
+            </summary> 
+            <param name="buyWeplanRequest"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="T:TuanDai.BuyWePlan.Client.TdConfig">
+            <summary>
+            配置
+            </summary>
+        </member>
+        <member name="F:TuanDai.BuyWePlan.Client.TdConfig.ApplicationName">
+            <summary>
+            应用程序名称
+            </summary>
+        </member>
+    </members>
+</doc>

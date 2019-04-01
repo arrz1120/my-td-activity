@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>充值结果</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160309" />
+	<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160309" />
+</head>
+<body class="bg-f1f3f5 pos-r" style="width: 100%;overflow-x: hidden;">
+	<header class="headerMain">
+	    <div class="header bb-e6e6e6">
+	        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+	        <h1 class="title">申请资产借款</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	<div class="pb80">
+		<div class="mt10 pl15 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="abs-inpBox">
+				<span>标题</span>
+				<input class="oInp" type="text" placeholder="请输入借款标题"/>
+			</div>
+			<div class="abs-inpBox bt-e6e6e6">
+				<span>借款理由</span>
+				<input class="oInp" type="text" placeholder="请输入借款理由"/>
+			</div>
+		</div>
+		
+		<div class="c-fd6040 f13px pt20 pb10 pl15">您的可用授信为:  ￥18800.6元</div>
+		
+		<div class="pl15 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="abs-inpBox">
+				<span>借款金额</span>
+				<input class="oInp" type="text" placeholder="请输入借款金额"/>
+				<i>元</i>
+			</div>
+		</div>
+		
+		<div class="c-fd6040 f13px pt20 pb10 pl15">15天~1个月免管理费，4天未满标则自动下架</div>
+		
+		<div class="pl15 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<a class="abs-inpBox">
+				<span>还款期限</span>
+				<input class="oInp" type="text" placeholder="请选择还款期限"/>
+				<img src="/imgs/images/ico_arrow_r3.png"/>
+			</a>
+			<div class="abs-inpBox bt-e6e6e6">
+				<span>最小单位</span>
+				<input class="oInp" type="text" placeholder="请输入最小投资单位"/>
+				<i>元</i>
+			</div>
+			<div class="abs-inpBox bt-e6e6e6">
+				<span>年化利率</span>
+				<input class="oInp" type="text" placeholder="请输入年化利率"/>
+				<i>%</i>
+			</div>
+			<a class="abs-inpBox bt-e6e6e6 repayType">
+				<span>还款方式</span>
+				<div class="repayType-select">
+					<span class="active">到期本息</span>
+					<span>每月付息</span>
+				</div>
+			</a>
+			<div class="abs-inpBox bt-e6e6e6">
+				<span>交易密码</span>
+				<input class="oInp" type="text" placeholder="请输入交易密码"/>
+			</div>
+		</div>
+	</div>
+	<div class="bg-ffcf1f bottom-btn c-ffffff f17px text-center" id="borrow-now">马上借款</div>
+	
+	<!--确认借款弹框-->
+	<div class="alert hide" id="alert">
+		<div class="pos-a bg-fff w100p" id="borrow-alert">
+			<div class="clearfix ml15 pt15 pb15 pr15">
+				<div class="lf f17px c-212121">总利息</div>
+				<div class="rf f17px c-ababab"><span class="c-fd6040 f17px">100.00</span>元</div>
+			</div>
+			<div class="clearfix ml15 bt-e6e6e6 pt15 pb15 pr15">
+				<div class="lf">
+					<p class="f17px c-212121">管理费</p>
+					<p class="c-ababab f13px">V4会员7折优惠，已优惠<span class="c-fd6040 f13px">45.00</span>元</p>
+				</div>
+				<div class="rf f17px c-ababab mt10"><span class="c-fd6040 f17px">30.00</span>元</div>
+			</div>
+			<div class="bg-ffcf1f c-ffffff f17px text-center pt15 pb15" id="borrow-confirm">确认借款</div>
+		</div>
+	</div>
+	
+	<!--校验提示语-->
+	<div class="error-tips" style="display: none;"></div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	//确认借款弹框
+    function moveToTop(ele){
+    	$("#alert").removeClass('hide');
+    	$(ele).removeClass('moveToBottom').addClass('moveToTop');	
+    }
+    function moveToBottom(ele){
+    	$(ele).removeClass('moveToTop').addClass('moveToBottom');
+    	setTimeout(function(){
+    		$("#alert").addClass('hide');
+    	},400);
+    }
+    function showTips(placeholder){
+    	$('.error-tips').html(placeholder).fadeIn(function(){
+		    setTimeout(function(){
+		    	$('.error-tips').fadeOut();
+		    },1000);
+		});
+    }
+    
+	//校验input是否为空，如果为空，显示提示，不为空，显示弹框
+    $("#borrow-now").click(function(){
+    	var aInput = $('.oInp');
+    	var placeholder = '';
+    	aInput.each(function(i){
+    		var eq = aInput.eq(i);
+	    	if(eq.val() == ''){
+	    		placeholder = eq.attr('placeholder');
+	    		return false;
+	    	}
+    	});
+    	if(placeholder==''){
+    		moveToTop("#borrow-alert");
+    	}else{
+    		showTips(placeholder);
+    	}
+    });
+    
+    $("#alert").click(function(){
+    	moveToBottom("#borrow-alert");
+    });
+    $("#borrow-confirm").click(function(){
+    	moveToBottom("#borrow-alert");
+    })
+    $("#borrow-alert").click(function(){
+    	return false;
+    });
+    
+    
+</script>
+
+</body>
+</html>

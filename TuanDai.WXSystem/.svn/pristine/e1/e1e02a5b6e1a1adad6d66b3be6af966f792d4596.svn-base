@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>赎回规则</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=2016012101" />
+</head>
+<style type="text/css">
+	.fb{font-weight: bold !important;}
+	.l0{left: 0;}
+	.table table{width: 100%;border: 1px solid #cccccc;}
+	.table table tr td{font-size: 1.3rem;text-align: center;padding: 15px 0;width: 50%;background: #fff;border-bottom: 1px solid #e6e6e6;}
+	.table table tr td:first-child{border-right: 1px solid #e6e6e6;}
+	.table table tr:last-child td{border-bottom: 0;}
+	.table table tr td.th{background: #fffdf5;color: #694514;font-size: 1.4rem;}
+	.table table tr.bg-fcfcfc td{background: #fcfcfc;}
+</style>
+
+<body>
+	<div class="pl15 pr15">
+		<div class="c-212121 f14px pt30 pb30 text-center fb">《转让规则说明》</div>
+		<div class="pos-r pl20"><span class="pos-a c-212121 f12px l0">1.</span><p class="f12px c-434343">持有满3个月，即第4个月开始才可以申请全额转让；</p></div>
+		<div class="pos-r pl20"><span class="pos-a c-212121 f12px l0">2.</span><p class="f12px c-434343">提前退出，平台需收取转让本金一定比例的管理费，管理费在到账金额中扣除，收费标准如下：</p></div>
+		<div class="table mt30">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td class="th">转让时间</td><td class="th">收费比例</td></tr>
+				<tr><td>第4-6个月</td><td>1%</td></tr>
+				<tr class="bg-fcfcfc"><td>第7-9个月</td><td>0.80%</td></tr>
+				<tr><td>计划到期退出</td><td>0.00%</td></tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

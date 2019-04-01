@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>银行列表</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20160312001" />
+    <link rel="stylesheet" type="text/css" href="/css/banklist.css?v=2016091201" />
+</head>
+<body> 
+<header class="headerMain" id="header" style="display:none;">
+    <div class="header">
+        <div class="back" onclick="javascript: history.go(-1);">返回</div>
+        <h1 class="title">银行列表</h1>
+    </div> 
+    <div class="none"></div>
+</header>
+
+  <ul class="bank_list">
+    <li class="icbc"><span class='icon'></span>中国工商银行</li>
+    <li class="bc"><span class='icon'></span>中国银行</li>
+    <li class="cbc"><span class='icon'></span>中国建设银行</li>
+    <li class="yb"><span class='icon'></span>中国邮政</li>
+    <li class="ccb"><span class='icon'></span>中信银行</li>
+    <li class="ceb"><span class='icon'></span>中国光大银行</li>
+    <li class="hb"><span class='icon'></span>华夏银行</li>
+    <li class="cmbc"><span class='icon'></span>招商银行</li>
+    <li class="cib"><span class='icon'></span>兴业银行</li>
+    <li class="pfb"><span class='icon'></span>上海浦东发展银行</li>
+    <li class="pab"><span class='icon'></span>平安银行</li>
+    <li class="gfb"><span class='icon'></span>广发银行</li>
+    <li class="msbc"><span class='icon'></span>中国民生银行</li>
+    <li class="abc"><span class='icon'></span>中国农业银行</li>
+    <li class="bocm"><span class='icon'></span>交通银行</li>
+    <li class="bjb"><span class='icon'></span>北京银行</li>
+  </ul>
+  <script type="text/javascript">
+    var url = window.location.href;
+    if (url.indexOf("type=weixinapp") >= 0) {
+        document.getElementById("header").style.display = "block";
+    }
+  </script>
+</body>
+</html>

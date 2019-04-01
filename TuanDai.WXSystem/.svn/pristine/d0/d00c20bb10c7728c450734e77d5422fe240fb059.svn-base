@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>债权转让</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160725" />
+		<link rel="stylesheet" type="text/css" href="/css/list.css?v=20160725" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pageContainer">
+			<div class="list_nav clearfix">
+				<a href="javascript:void(0);" class="br-e6e6e6">理财计划</a>
+				<a href="javascript:void(0);" class="br-e6e6e6">优质项目</a>
+				<a href="javascript:void(0);" class="cur">债权转让</a>
+			</div>
+
+			<!--加入iscroll后，style="position: absolute;top: 55px;"需要去掉 ! 此处加绝对定位是为了模拟iscroll加入后的情况-->
+			<div class="invest-list bt-e6e6e6" style="position: absolute;top: 55px;">
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%+2%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+				<div class="list-item bb-e6e6e6">
+					<div class="item_r2 text-overflow">债权转让_15641894798164</div>
+					<div class="item_r3">
+						<div class="list-box-left">
+							<p class="f12px c-ababab">预期年化利率</p>
+							<p class="rate">11.<span>60%</span></p>
+						</div>
+						<div class="list-box-center text-center">
+							<p class="f12px c-ababab">到期本息</p>
+							<p class="f15px c-212121 mt15">308天</p>
+						</div>
+						<div class="list-box-right">
+							<p class="f12px c-ababab">剩余<span>9544</span>元</p>
+							<p class="f14px c-212121">
+								<a href="javascript:void(0);" class="toBuy">抢购</a>
+							</p>
+						</div>
+					</div>
+					<div class="item_r4 mt8">
+						<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--筛选-->
+		<div class="alert pos-a hide" id="alert" style="padding-top: 80px;">
+			<div class="bg-f7f7f5 pt25" id="sort-move">
+				<div class="pl15 pr15">
+					<p class="f15px c-212121"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%</p>
+					<div class="range-slider">
+						<span class="c-ababab f12px span_from pos-a">5%</span>
+						<input type="text" class="js-range-slider1" value="" tabindex="-1" / style="border: none;">
+						<span class="c-ababab f12px span_to pos-a">20%</span>
+					</div>
+					<p class="f15px c-212121 mt40">
+						<span class="f15px c-ababab">回款期限：</span>
+						<span class="f23px c-212121" id="count3">7<small class="f15px c-212121">天</small></span> ~
+						<span class="f23px c-212121" id="count4">18<small class="f15px c-212121">个月</small></span>
+						<i class="ico-edit" id="time-edit"></i>
+					</p>
+					<div class="range-slider">
+						<span class="c-ababab f12px span_from pos-a">7天</span>
+						<input type="text" class="js-range-slider2" value="" tabindex="-1" / style="border: none;">
+						<span class="c-ababab f12px span_to pos-a">18个月</span>
+					</div>
+				</div>
+				<div class="webkit-box bt-e6e6e6 mt30">
+					<div class="box-flex1 text-center f17px c-808080 pt13 pb13 br-e6e6e6" id="reset">重置</div>
+					<div class="box-flex1 text-center f17px c-fab600 pt13 pb13" id="confirm">确定</div>
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="bt-e6e6e6 webkit-box box-center wx-footer">
+			<a class="block box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f2.png" /></p>
+				<p class="f10px line-h18 c-626262">团贷</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f2_act.png" /></p>
+				<p class="f10px line-h18 c-ffc000">投资</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f3.png" /></p>
+				<p class="f10px line-h18 c-626262">我的</p>
+			</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript">
+
+		//设置pageContainer高度才能使底部不被list遮盖,加入iscroll之后，需要重置的高度如下：
+		//container.height(container.height() +  $('#wrapper').height() + 10);
+		(function() {
+			var container = $(".pageContainer");
+			container.height(container.height() + $(".invest-list").height() + 10);
+		})();
+	</script>
+
+</html>

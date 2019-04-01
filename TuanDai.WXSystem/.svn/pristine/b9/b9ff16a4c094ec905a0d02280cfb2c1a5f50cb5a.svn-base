@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>关于我们</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v=20160201" /><!--base-->
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/aboutUs_v1.7.css?v=2016102601"/>
+	
+</head>
+<body class="bg-fbfbf9">
+	<header class="headerMain">
+	  <div class="header">
+	    <div class="back" onClick="javascript:history.go(-1);">返回</div>
+	    <h1 class="title">关于我们</h1>
+	  </div>
+	  <div class="none"></div>
+	</header>
+	
+	<div class="swiper-container1 border-bottom" id="swiperNav">
+        <div class="swiper-wrapper">
+            <a href="aboutUs_v1.7.html" class="swiper-slide f13px c-626262">
+            	团贷简介
+			</a>
+            <a href="shareholder_v1.7.html" class="swiper-slide f13px c-626262">
+            	股东机构
+			</a>
+            <a href="javascript:" class="swiper-slide f13px c-626262 active">
+            	合作伙伴
+			</a>
+            <a href="safety_v1.7.html" class="swiper-slide f13px c-626262">
+            	安全保障
+			</a>
+            <a href="history_v1.7.html" class="swiper-slide f13px c-626262">
+            	发展历程
+			</a>
+            <a href="certificate_v1.7.html" class="swiper-slide f13px c-626262">
+            	资质证书
+			</a>
+            <a href="honor_v1.7.html" class="swiper-slide f13px c-626262">
+            	公司荣誉
+			</a>
+		</div>	
+		<div class="opacityL pos-a"></div>
+		<div class="opacityR pos-a"></div>
+	</div>
+	
+	<!--合作伙伴-->
+	<div class="bg-fbfbf9 pb40">
+		<div class="partnerBox pl15 pr15">
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner1.png"/></div>
+				<p class="c-212121 f13px mt10">巨人投资</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner2.png"/></div>
+				<p class="c-212121 f13px mt10">九鼎投资</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner3.png"/></div>
+				<p class="c-212121 f13px mt10">久奕投资</p>
+			</a>
+		</div>
+		<div class="partnerBox pl15 pr15">
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner12.png"/></div>
+				<p class="c-212121 f13px mt10">达商小贷</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner6.png"/></div>
+				<p class="c-212121 f13px mt10">百度</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner15.png"/></div>
+				<p class="c-212121 f13px mt10">正合普惠金融</p>
+			</a>
+
+		</div>
+		<div class="partnerBox pl15 pr15">
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner7.png"/></div>
+				<p class="c-212121 f13px mt10">芝麻信用</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner5.png"/></div>
+				<p class="c-212121 f13px mt10">分众传媒</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner7.png"/></div>
+				<p class="c-212121 f13px mt10">财付通</p>
+			</a>
+		</div>
+
+		<div class="partnerBox pl15 pr15">
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner16.png"/></div>
+				<p class="c-212121 f13px mt10">俊拓金融</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner10.png"/></div>
+				<p class="c-212121 f13px mt10">宝付支付</p>
+			</a>
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner9.png"/></div>
+				<p class="c-212121 f13px mt10">连连支付</p>
+			</a>
+		</div>
+
+		<div class="partnerBox dif pl15 pr15">
+			<a href="#">
+				<div class="partnerImgBox"><img src="/imgs/partner/partner14.png"/></div>
+				<p class="c-212121 f13px mt10">厦门银行</p>
+			</a>
+		</div>
+	</div>
+			
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+<script type="text/javascript">
+  $(function () {
+	var swiperNav = new Swiper('#swiperNav', {
+			slidesPerView: 'auto',
+	        initialSlide:'1'
+   	});
+  })	
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>超级会员常见问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/myMerber.css" />
+</head>
+<body class="bg-f6f7f8">
+<header class="headerMain">
+    <div class="header bb-e6e6e6">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">超级会员常见问题</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<div class="questionWrap bg-fff">
+    <ul>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+                <p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>超级会员与普通会员有什么区别？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+                <p class="c-808080 f15px text-justify">超级会员可享受普通会员无法享受到权利，如0.1%提现手续费率，提现手续费200元封顶、自动投标比普通会员优先、投资项目逾期时当天垫付本息（资产标除外）等。详见：<a href="http://www.tuandai.com/pages/news/tuandaiSchool/member.aspx" class="f15px">查看详情</a></p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">如何成为超级会员？</p>
+            </div>
+            <div class="question-txt bg-f6f7f8 bb-e6e6e6 pd15 hide">
+                <p class="c-808080 f15px text-justify">目前成为团贷网超级会员有两种方式，第一种：使用团贷余额直接购买超级会员；第二种：使用团币兑换超级会员。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+                <p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>如何查询自己的超级会员记录？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">登录后用户可以前往团贷网个人中心>超级会员查询相关记录。</p>
+            </div>
+        </li>
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">超级会员提现手续费是多少？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">用户提现时是超级会员的，每笔提现的手续费为提现金额的0.1%,200元封顶；提现时是普通会员每笔提现的手续费为提现金额的0.3%，不封顶。</p>
+            </div>
+        </li>
+
+        <li>
+            <div class="question-tit bb-e6e6e6 pl15 pb18 pt18">
+                <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+                <p class="c-212121 f17px pl20 pr15 text-justify">投标时是超级会员，会员到期后该标还能享有超级会员权利吗？</p>
+            </div>
+            <div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+                <p class="c-808080 f15px text-justify">如您在投标时会员状态为超级会员，则在您投的这个标存续期间，您在这个标上都享受特权会员待遇，包括逾期保利，优先赔付等。 即使您的超级会员已经到期，您依旧可以享受如上的特权会员待遇（提现优惠除外）。当然，如您在投标时的状态为普通会员，您无法享受特权会员的待遇。</p>
+            </div>
+        </li>
+
+        <div class="pt15 bg-f6f7f8"></div>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $(".questionWrap").find('li').click(function(){
+            var box = $(this).find('.question-txt');
+            var ico = $(this).find('.icon-triagle-r');
+            if(box.hasClass('hide')){
+                if(ico.hasClass('rotateZ90')){
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                }else{
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.removeClass('hide');
+            }else{
+                if(ico.hasClass('rotateZ90')){
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                }else{
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.addClass('hide');
+            }
+        })
+    });
+</script>
+</body>
+</html>

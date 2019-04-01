@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>计划详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160413" />
+</head>
+<body class="bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">计划详情</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="detail-top-bg pro-notFinish">
+		<div class="pl15 pos-r pt15 detail_tit">
+			<p class="f14px c-808080 text-overflow">WE计划A    (201603110011111111111111111)</p>
+			<div class="round-btn"><i class="ico-record"></i>加入记录</div>
+		</div>
+		<div class="pt15 text-center">
+			<p><span class="f13px c-ababab">预期年化收益率</span></p>
+		</div>
+		<div class="rateIncome mt10">
+			<p>13<span>.30%</span></p>
+		</div>
+		<div class="clearfix bg005 pt10 mt25 bb-e6e6e6">
+			<div class="lf w33p text-center">
+				<p class="f17px c-212121">200,000.00</p>
+				<p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+			</div>
+			<div class="lf w33p text-center">
+				<p class="f17px c-212121">3个月</p>
+				<p class="line-h20 f12px c-ababab">计划期限</p>
+			</div>
+			<div class="lf w33p text-center">
+				<p class="f17px c-212121">100元/份</p>
+				<p class="line-h20 f12px c-ababab">投资单位</p>
+			</div>
+		</div>
+		<div class="finishImg"><img src="/imgs/images/bg/pro-finish.png"/></div>
+	</div>
+	
+	<!--计划介绍-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle"></i>计划介绍</div>
+		<div class="dropdownCon">
+			<div class="c-808080 f14px pt15 pb15 bt-e6e6e6 bb-e6e6e6 text-justify pr15">We计划[分期宝]是团贷网为方便用户投资推出的标准化智能投标工具，用户加入We计划[分期宝]后，平台立即启动优先匹配投标，按用户认可的标的范围内，对符合要求的标的进行优先自动投标。We计划[分期宝]具有自动复投、灵活退出的特点，保障资金利用率，让用户享受收益最大化，更好的满足用户多样化的理财需求。此外，该计划所投资项目还适用于团贷会员保障体系。</div>
+			<div class="pt10 pb10 clearfix pr15">
+				<span class="lf c-808080 f14px">计划总额</span>
+				<span class="rf c-808080 f14px">3,000,000元</span>
+			</div>
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">We计划服务协议</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+				</a>
+			</div>
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">合同范本</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<!--投标范围-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>投标范围</div>
+		<div class="dropdownCon hide">
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">小微企业</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">微团贷</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>	
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">资产标</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>	
+			<div class="bt-e6e6e6">
+				<a href="" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">项目宝B类</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>	
+		</div>
+	</div>
+	
+	<!--规则说明-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>规则说明</div>
+		<div class="dropdownCon hide">
+			<div class="bt-e6e6e6 ml15 pb15 pr15">
+				<p class="pt13 f14px c-212121">退出计划</p>
+				<p class="pt10 c-808080 f14px text-justify">自用户加入当期We计划起，加入计划的资金将被冻结在用户的团贷网个人资金账户中；若5天内系统未将用户加入计划的资金全额投完，未投资出去的资金将解除冻结由用户自由支配。</p>
+			</div>
+			<div class="bt-e6e6e6 ml15 pb15 pr15">
+				<p class="pt13 f14px c-212121">保障方式</p>
+				<p class="pt10 c-808080 f14px text-justify">小微企业,微团贷,资产标,项目宝B适用于团贷会员保障体系，普通会员本金保障，VIP会员本息保障；资产标有借款人平台待收资金保障和借款人逾期罚息赔付保障。</p>
+			</div>
+			<div class="bt-e6e6e6 ml15 pb15 pr15">
+				<p class="pt13 f14px c-212121">备注</p>
+				<p class="pt10 c-808080 f14px text-justify">We计划投标时系统会自动使用合适的红包。</p>
+			</div>
+		</div>
+	</div>
+	
+	<!--常见问题-->
+	<div class="mt15 bt-e6e6e6 bb-e6e6e6 bg-fff pl15 pr15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>常见问题</div>
+		<div class="dropdownCon hide">
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划什么时候启动优先投标？</p>
+				<p class="f14px c-808080 pt12 text-justify">加入We计划后（不需满额）即可立即启动优先匹配投标。</p>
+			</div>
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划还款方式有哪些？</p>
+				<p class="f14px c-808080 pt12 text-justify">We计划还款方式主要根据投资标的还款方式而定，包括到期还本付息和每月付息到期还本。</p>
+			</div>
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划安全吗？</p>
+				<p class="f14px c-808080 pt12 text-justify">团贷网以严谨负责的态度对每笔借款进行严格筛选。同时，We计划所投资项目适用于团贷会员保障体系，普通会员本金保障，VIP会员本息保障。</p>
+			</div>
+			<div class="bg-fff bt-e6e6e6">
+				<a href="" class="block text-center c-fab600 f17px pt10 pb10">查看更多</a>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="pos-f btn-joinNow">
+		<div class="btn btnYellow">马上加入</div>
+		<a href="javascript:;" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a>
+	</div>
+
+	<!--分享滑出层-->
+	<div class="share-popup pos-f">
+		<div class="ml15 mr15 top bg-fff mt40 pos-r">
+			<span class="by-l pos-a"></span>
+			<span class="by-r pos-a"></span>
+			<h3 class="text-center pos-r f17px">We计划X<span class="f17px ml15">分期宝</span></h3>
+			<div class="webkit-box pt13 pb15">
+				<div class="box-flex1 text-center">
+					<p class="c-fd6040 f27px">14<span class="c-fd6040 f14px">.40%</span></p>
+					<p class="c-ababab f12px">预期年化收益率</p>
+				</div>
+				<div class="box-flex1 text-center">
+					<p class="c-212121 f14px">9个月</p>
+					<p class="c-ababab f12px">计划期限</p>
+				</div>
+			</div>
+		</div>
+		<div class="mid text-center">
+			<span class="bb-d1d1d1"></span>
+			<span class="c-212121 f15px">分享到</span>
+			<span class="bb-d1d1d1"></span>
+		</div>
+		<div class="share-links webkit-box ml15 mr15">
+			<a href="javascript:;" class="wechat box-flex1 wxShare animated" style="display: none"><span><i></i></span>微信好友</a>
+			<a href="javascript:;" class="moments box-flex1 wxShare animated" style="display: none"><span><i></i></span>朋友圈</a>
+			<a href="javascript:;" class="weibo box-flex1 webShare animated"><span><i></i></span>新浪微博</a>
+			<a href="javascript:;" class="qq box-flex1 animated"><span><i></i></span>QQ</a>
+			<a href="javascript:;" class="qzone box-flex1 animated"><span><i></i></span>QQ空间</a>
+		</div>
+		<a href="javascript:;" class="close-share animated"><i></i></a>
+	</div>
+
+    <!--二维码弹出层-->
+	<!--<div class="alert webkit-box box-center codeBox" style="display: none">-->
+		<!--<div class="bg-fff code-popup  text-center pos-r">-->
+			<!--<a href="javascript:;" class="close pos-a" id="close"><i></i></a>-->
+			<!--<img src="/imgs/images/pic/code1.png" class="code mt10">-->
+			<!--<p class="c-ababab f13px">（长按或扫描识别）</p>-->
+		<!--</div>-->
+	<!--</div>-->
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	//收益切换
+	$("#ruleTab1").click(function(){
+		if($(this).hasClass('active') == false){
+			$(this).addClass('active');
+			$("#ruleTab2").removeClass('active');
+			$("#ruleCon2").addClass('hide');
+			$("#ruleCon1").removeClass('hide');
+		}
+	})
+	$("#ruleTab2").click(function(){
+		if($(this).hasClass('active') == false){
+			$(this).addClass('active');
+			$("#ruleTab1").removeClass('active');
+			$("#ruleCon1").addClass('hide');
+			$("#ruleCon2").removeClass('hide');
+		}
+	});
+	
+	//
+	$(".dropdownTit").click(function(){
+		var next = $(this).next();
+		var triangle = $(this).find('i');
+		if(next.hasClass('hide')){
+			triangle.removeClass('rotate0');
+			next.removeClass('hide');
+		}else{
+			triangle.addClass('rotate0');
+			next.addClass('hide');
+		}
+	});
+
+	//	分享层交互
+	$(".btn-share").click(function() {
+		$('.share-popup').addClass('current').bind("touchmove", function(e) {
+			e.preventDefault();
+		});
+		$('.share-links a').addClass('bounceInUp');
+		$('.close-share').addClass('bounceInUp');
+	});
+	$('.close-share').click(function() {
+		$('.share-popup').removeClass('current');
+		$('.share-links a').removeClass('bounceInUp');
+		$('.close-share').removeClass('bounceInUp');
+	});
+
+	//	点击分享按钮
+	var isWeiXin = navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1;
+	var bd = document.body;
+
+	$(function(){
+		if (isWeiXin) {
+			$(".wxShare").show();
+			$(".webShare").hide();
+		}
+	});
+
+	function sharePopup() {
+		if (isWeiXin) {
+			if (!document.getElementById("shareTip")) {
+				window.scrollTo(0, 0);
+				var dom = document.createElement("div");
+				dom.className = "modal-backdrop";
+				dom.id = "shareTip";
+				dom.innerHTML = '<div class="shareTip-box"><div class="shareTip"></div></div>';
+				bd.appendChild(dom);
+				dom.addEventListener("touchstart", clearShareTip, false);
+			}
+			$(".webShare").hide();
+			return false;
+		}
+//		else {
+//			$(".wxShare").hide();
+//			$(".code-popup").addClass('moveTop').removeClass('moveDown');
+//			$(".codeBox").fadeIn(500);
+//		}
+	}
+
+//	sharePopup();
+
+	function clearShareTip() {
+		var hintTip = document.getElementById("shareTip");
+		hintTip.removeEventListener("touchstart", clearShareTip, false);
+		bd.removeChild(hintTip);
+	}
+
+	$('.wxShare').click(function() {
+		sharePopup();
+	});
+
+	//   关闭弹窗
+	$("#close").click(function(){
+		$(".code-popup").removeClass('moveTop').addClass('moveDown');
+		$(".codeBox").fadeOut(500);
+	})
+
+</script>
+
+</html>

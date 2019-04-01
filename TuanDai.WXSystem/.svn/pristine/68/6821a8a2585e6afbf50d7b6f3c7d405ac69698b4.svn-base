@@ -1,0 +1,111 @@
+.list_top{position: relative;z-index: 20002;}
+.header { background-color: #fed636; border-bottom: 0; position: absolute;}
+.header .logo{display: block; float: left; width: 70px;height: 22px;margin:12px 0 10px 0;background: url(/imgs/images/logo.png?v=20161024) no-repeat;background-size:100% 100%;}
+.top_right{width: 81px;height: 48px;position: absolute;right: 5px;top: 0;}
+.top_right a.top_a1{display: block;width: 32px;height: 48px;background: url(/imgs/images/icon/ico_pc.png) center center no-repeat;background-size: 21px 18px;}
+.top_right a.top_a2{width: 32px;height: 48px;}
+.top_right a.top_a2 span{display: block;width: 19px;height: 2px;background: #835310;margin-bottom: 5px;}
+.top_right a.top_a2 span:last-child{margin-bottom: 0;}
+
+.list_nav{height: 45px;background: #fff;position: relative;z-index: 20002;}
+.list_nav a{display: block;height: 45px;line-height: 45px;width: 50%;float: left;text-align: center;color: #666;font-size: 17px;}
+.list_nav a.cur{color: #fab600;}
+.list_nav .ico_nav{background:url(/imgs/invest/ico_nav.png) no-repeat;background-size:20px 80px;display: inline-block;margin-right: 5px;vertical-align: -3px;}
+.list_nav .ico_p2p{height:20px;width:19px;background-position:0 0;}
+.list_nav .ico_p2p_active{height:20px;width:19px;background-position:0 -20px;display: none;}
+.list_nav .ico_dqlc{height:20px;width:20px;background-position:0 -40px;}
+.list_nav .ico_dqlc_active{height:20px;width:20px;background-position:0 -60px;display: none;}
+.list_nav a.cur .ico_p2p_active{display: inline-block;}
+.list_nav a.cur .ico_dqlc_active{display: inline-block;}
+.list_nav .nav_line{width: 1px;height: 17px;background: #e6e6e6;position: absolute;left: 50%;top: 14px;}
+
+.list_sort{position: relative;z-index: 20002;}
+.list_sort div{height: 35px;line-height: 35px;color: #ababab;}
+.list_sort div.cur{color: #fab600;}
+.list_sort div span p{line-height: 5px;}
+
+.list_select a{height: 45px;line-height: 45px;color: #666;}
+
+.triangle{display: inline-block;margin-left: 5px;}
+.triangle-down-orange{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #fab600;
+}
+.triangle-up-orange{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #fab600;
+}
+.triangle-down-gray{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+     border-top: 4px solid #d1d1d1;
+}
+.triangle-up-gray{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #d1d1d1;
+}
+
+.ico-con{display: inline-block;vertical-align:4px;margin-left: 5px;width: 9px;height: 5px;}
+.ico-down-gray{ background: url("/imgs/images/icon/down-gray.png");background-size: 9px 5px;vertical-align: 2px;}
+.ico-up-gray{ background: url("/imgs/images/icon/up-gray.png");background-size: 9px 5px;}
+.ico-up-orange{background: url("/imgs/invest/up_orange.png");background-size: 9px 5px;vertical-align: 3px;-webkit-transition: all 0.4s linear;}
+
+.invest-list{width: 100%;}
+.list-item{padding: 13px 15px 4px 15px;position: relative;background: #fff;width: 100%;}
+.list-item .item_r1{height: 13px;line-height: 13px;color: #fff;font-size: 10px;padding: 0 9px;background: #ffa200;position: absolute;top: 0;right: 15px;}
+.item_r3{position: relative;margin-top: 3px;}
+.list-box-left{position: absolute;left: 0;top: 0;}
+.list-box-left .rate{font-size: 30px;line-height: 30px;color: #f77b00;margin-top: 8px;}
+.list-box-left .rate span{font-size: 18px;color: #f77b00;}
+.list-box-center{width: 60px;margin: 0 auto;}
+.list-box-center p{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.list-box-right{position: absolute;right: 0;top: 0;text-align: center;}
+.list-box-right a.toBuy{display: inline-block;height: 30px;line-height: 30px;text-align: center;width: 84px;border-radius: 4px;background: #ffcf1f;color: #fff;margin-top: 11px;font-size: 15px;}
+.list-box-right a.finished{background: #ababab;}
+.item_r4{position: relative;padding-left: 15px;height: 24px;}
+.item_r4 span{color: #ababab;display: block;}
+.item_r4 span.span1{position: absolute;left: 1px;top: 0;}
+.item_r4 span.span2{width: 74px;margin: 0 auto;}
+.item_r4 i.ico_Shield2{display: inline-block;width: 10px;height: 12px;background: url(/imgs/images/icon/ico_Shield2.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -2px;}
+.item_r4 i.ico_quitTips{display: inline-block;width: 9px;height: 11px;background: url(/imgs/images/icon/ico_quitTips.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -1px;}
+
+.moveFromTop{-webkit-animation: moveFromTop .4s ease-out;}
+.moveToTop{-webkit-animation: moveToTop .4s ease-out;}
+
+@-webkit-keyframes moveFromTop{
+	0%{-webkit-transform: translate3d(0,-100%,0);}
+	100%{-webkit-transform: translate3d(0,0,0);}
+}
+
+@-webkit-keyframes moveToTop{
+	0%{-webkit-transform: translate3d(0,0,0);}
+	100%{-webkit-transform: translate3d(0,-100%,0);}
+}
+
+/*WE计划投资列表*/
+.welist_banner img{width: 100%;}
+
+/*新手体验标*/
+.pl0{padding-left: 0 !important;}
+.nu_banner img{width: 100%;}
+.nu_tit{height: 30px;line-height: 30px;}
+.nu_tit i{display: inline-block;width: 2px;height: 14px;margin-right: 8px;background: url(/imgs/images/icon/ico_nu_tit.png) no-repeat;background-size: 100% 100%;vertical-align: -2px;}
+.nu_welfare{display: block;height: 70px;padding: 11px 0 15px 50px;}
+.nu_welfare span{display: block;width: 23px;height: 24px;position: absolute;left: 15px;top: 17px;background: url(/imgs/images/icon/ico_nu_welfare.png) no-repeat;background-size: 100% 100%;}
+
+.sortAlert{background: rgba(241,243,245,0.95);}
+
+
+
+

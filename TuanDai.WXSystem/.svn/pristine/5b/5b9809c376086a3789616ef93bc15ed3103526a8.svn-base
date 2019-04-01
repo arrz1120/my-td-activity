@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>We计划-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/invest.css" />
+</head>
+<body class="bg-fff">
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="wrapper-loan assetsbid-cn">
+    <div class="pos-r gyl-tit pt15 pb15 pr15 bb-e6e6e6"> <!--有修改20160118-->
+    	<span class="c-212121 f14px pos-a">WE计划</span>
+    	<p class="c-808080 f14px">【分期宝】(A15041819138)</p>
+    </div>
+    <div class="info-item clearfix"> <!--有修改20160118-->
+        <div class="info-l">
+            <p>借款总额: <span class="f16px c-ff6600">20,000.00</span>元</p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span class="c-ff6600">6.8%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>投资期限:<span class="c-ff6600">7天</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>加入份数:<span class="c-ff6600">200</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>出借单位:<span class="c-ff6600">100</span><span class="c-212121">元/份</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>剩余份数:<span class="c-ff6600">4000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>投资范围:<span class="c-212121">分期宝</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>开放时间:<span class="c-212121">2015/05/12</span><span class="c-212121">17:00</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15 pr20">
+        <p class="pos-r pb20">还款方式:<span class="c-212121 pos-a">到期还本付息（本息复投）/每月付息，到期还本（本金复投）</span></p>
+    </div>
+
+    <div class="bg-fbfbf9 bb-e6e6e6 bt-d1d1d1"><h2 class="c-212121">计划详情</h2></div> <!--有修改20160118-->
+    
+    <div class="info-item simubao-d gyl-bd">
+        <!--计划表现-->
+        <div class="files border-b">
+            <h3 class="f14px c-fab600">计划表现</h3><!--有修改20160118-->
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">已加入人次<span class="c-212121 f13px">61人</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">已投资次数<span class="c-212121 f13px">65次</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">投标完成率<span class="c-212121 f13px">98.9%</span></p>
+                </div>
+            </div>
+        </div>
+        <!--计划说明-->
+		<div class="border-b pb15">
+            <!--有修改20160118-->
+            <h3 class="f14px c-fab600">计划说明</h3>
+            <p class="f13px c-212121 pr10">We计划[分期宝]是团贷网为方便用户投资推出的标准化投资理财产品，用户加入We计划[分期宝]后，平台立即启动优先匹配投标，按用户认可的标的范围内，对符合要求的标的进行优先自动投标，We计划[分期宝]具有“回款本息自动复投”及“可通过债权转让提前退出”的特点，保障资金利用率，让用户享受收益最大化，更好的满足用户多样化的理财需求。此外，该计划所投资项目还适用于团贷会员保障体系，详情请查看<span class="c-fd6040 f13px ml0">会员详情</span>。</p>
+        </div>
+        
+        <!--退出计划-->
+		<div class="border-b pb15">
+            <h3 class="f14px c-fab600">退出计划</h3>
+            <p class="f13px c-212121 pr10">1. 加入本期We计划[分期宝]且持有满3个月后，可申请债权转让提前全额（包括本金+收益）退出计划，您所持债权转让成交的具体时间，视市场交易情况而定；</p>
+            <p class="f13px c-212121 pr10">2. 计划到期当日，系统将自动帮投资者转让债权，并在T+3个自然日内完成退出。</p>
+        </div>
+        
+        <!--费用-->
+		<div>
+            <h3 class="f14px c-fab600">费用</h3>
+            <p class="f13px c-212121 pr10">管理费，提前退出We计划[分期宝]需支付投资本金一定比例的管理费，管理费在到账金额中扣除，收费比例以申请转让时间所对应比例为准，收费比例标准如下：</p>
+            <p class="f13px c-212121 pr10">第4-6个月：1%；</p>
+            <p class="f13px c-212121 pr10">第7-9个月：0.8%；</p>
+            <p class="f13px c-212121 pr10">计划到期退出：0.0%；</p>
+        </div>
+        
+        <!--保障方式-->
+		<div>
+            <h3 class="f14px c-fab600">保障方式</h3>
+            <p class="f13px c-212121 pr10">本计划适用团贷网100%本息保障计划。</p>
+        </div>
+        
+        <!--备注-->
+		<div class="pb10">
+            <h3 class="f14px c-fab600">备注</h3>
+            <p class="f13px c-212121 pr10">We计划不能使用红包！</p>
+        </div>
+
+    </div>
+
+    <!--申购人数--><!--有修改20160118-->
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    <a href="">
+        <div class="clearfix bb-e6e6e6 ml10 pt10 pb10 pr10">
+            <h3 class="f14px lf c-212121">申购人数</h3>
+            <div class="rf">
+                <span class="c-ababab f13px">150人</span>
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <a href="">
+        <div class="clearfix bb-e6e6e6 pd10">
+            <h3 class="f14px lf c-212121">常见问题</h3>
+            <div class="rf">
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    
+    <div class="footer-join f14px loan-button">确认加入</div>
+    <div class="ml15 mr15 pb20 hide">
+	    <div class="footer-end btn bg-ebebeb c-c7c7c7">计划已结束</div>
+    </div>
+
+<!--<footer>
+    <a href="javascript:void(0)" class="loan-button">确定加入</a>
+</footer>-->
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/WePlanDetail.js?v=20160119"></script>
+</body>
+</html>

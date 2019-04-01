@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>开通存管账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+	</head>
+
+	<body class="bg-f1f3f5">
+
+		<div class="tips">
+			<p>厦门银行为团贷网提供资金存管服务，为保障资金安全，请绑定本人持有的银行卡，资金充值和提现必须使用同一张银行卡。</p>
+		</div>
+
+		<div class="bg-fff">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">真实姓名</div>
+				<div class="inp"><input type="text" placeholder="请输入姓名" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">证件类型</div>
+				<div class="inp selectDiv">
+					<select class="c-ababab f15px">
+						<option value="身份证">身份证</option>
+						<option value="港澳通行证">港澳通行证</option>
+						<option value="护照">护照</option>
+						<option value="外国人永久居住证">外国人永久居住证</option>
+					</select>
+				</div>
+				<div class="ico-arrow-r"></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">证件号码</div>
+				<div class="inp"><input type="text" placeholder="请输入身份证号码" /></div>
+			</div>
+		</div>
+
+		<!-- 2018.1.12修改 -->
+		<div class="f12px pr10 pt10 line-h16 info-tips"><i class="icon-warn"></i>请确认您的姓名和证件信息真实有效，开通存管账户之后无法修改。</div>
+
+		<div class="bg-fff mt10">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">银行卡号</div>
+				<div class="inp"><input type="text" placeholder="请输入银行卡号码" /></div>
+			</div>
+			<!-- <div class="inputBox webkit-box bb-e6e6e6" id="bankContainer">
+				<div class="inpName">选择银行</div>
+				<div class="inp inpDiv">
+					<p id="bankBox"><span class="c-ababab f15px" id="bankName">请选择银行</span><span class="bankImg" id="bankImg" style="display: none;"><img src="/imgs/cunguan/bank/gongshang.png"/></span></p>
+				</div>
+				<i class="arrow2"></i>
+			</div> -->
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">预留手机</div>
+				<div class="inp"><input type="text" placeholder="请输入银行预留手机号" /></div>
+			</div>
+			<div class="a-Box">
+				<a href="javascript:void(0);" class="supportBank f12px" id="bankSelect">支持银行<i></i></a>
+			</div>
+		</div>
+
+		<div class="pl15 pr15 pt20">
+			<!--橙色按钮将 bg-cecfd0 改成 btnYellow-->
+			<a href="javasript:void(0);" class="btn bg-cecfd0">前往存管页面绑定</a>
+		</div>
+		<p class="text-center c-999999 mt15">如有疑问，请联系客服
+			<a href="javascript:void(0);" class="f13px c-fab600">1010-1218</a>
+		</p>
+		
+		<!--银行弹窗-->
+        <div id="bankAlert" style="display: none;">
+	        <div class="tips bg-f1f3f5">
+				<p>银行渠道可能随时调整支付限额，下表仅供参考，请以银行公告为准。</p>
+			</div>
+			<div class="pb15">
+				<div class="bankList pl15 bg-fff">
+					<ul>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/gongshang.png" class="gongshang" />
+							<p class="f17px">中国工商银行</p>
+							<p class="c-ababab line-h20">单日限额50,000元，单笔限额10,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/nongye.png" class="nongye" />
+							<p class="f17px">中国农业银行</p>
+							<p class="c-ababab line-h20">单日限额5,000元，单笔限额5,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/zhaoshang.png" class="zhaoshang" />
+							<p class="f17px">招商银行</p>
+							<p class="c-ababab line-h20">单日限额30,000元，单笔限额30,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/jianshe.png" class="jianshe" />
+							<p class="f17px">建设银行</p>
+							<p class="c-ababab line-h20">单日限额10,000元，单笔限额10,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/zhongguo.png" class="zhongguo" />
+							<p class="f17px">中国银行</p>
+							<p class="c-ababab line-h20">单日限额10,000元，单笔限额10,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/guangda.png" class="guangda" />
+							<p class="f17px">光大银行</p>
+							<p class="c-ababab line-h20">单日限额40,000元，单笔限额40,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/guangfa.png" class="guangfa" />
+							<p class="f17px">广发银行</p>
+							<p class="c-ababab line-h20">单日限额30,000元，单笔限额30,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/pingan.png" class="pingan" />
+							<p class="f17px">平安银行</p>
+							<p class="c-ababab line-h20">单日限额50,000元，单笔限额50,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/zhongxin.png" class="zhongxin" />
+							<p class="f17px">中信银行</p>
+							<p class="c-ababab line-h20">单日限额50,000元，单笔限额50,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/zhongxin.png" class="zhongxin" />
+							<p class="f17px">中信银行</p>
+							<p class="c-ababab line-h20">单日限额50,000元，单笔限额50,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/zhongxin.png" class="zhongxin" />
+							<p class="f17px">兴业银行</p>
+							<p class="c-ababab line-h20">单日限额5,000元，单笔限额10,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/minsheng.png" class="minsheng" />
+							<p class="f17px">民生银行</p>
+							<p class="c-ababab line-h20">单日限额20,000元，单笔限额20,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/pufa.png" class="pufa" />
+							<p class="f17px">浦发银行</p>
+							<p class="c-ababab line-h20">单日限额50,000元，单笔限额50,000元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/youzheng.png" class="youzheng" />
+							<p class="f17px">邮政储蓄银行</p>
+							<p class="c-ababab line-h20">单日限额50,00元，单笔限额50,00元</p>
+						</li>
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/jiaotong.png" class="jiaotong" />
+							<p class="f17px">交通银行</p>
+							<p class="c-ababab line-h20">单日限额10,000元，单笔限额10,000元</p>
+						</li>
+	
+						<!--默认银行图标-->
+						<li class="bb-e6e6e6">
+							<img src="/imgs/cunguan/bank/moren.png" class="moren" />
+							<p class="f17px">默认银行</p>
+							<p class="c-ababab line-h20">单日限额10,000元，单笔限额10,000元</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--激活存管账户遇到问题-->
+		<div class="alert webkit-box box-center hide">
+			<div class="alert-select">
+				<div class="text-center c-212121 f17px pt25 pb10 pl15 pr15">激活存管账户遇到问题？</div>
+				<div class="c-999999 f15px text-center pb25">联系客服：<a href="javascript:void(0);" class="f15px c-fab600">400-641-0888></a></div>
+				<div class="clearfix bt-e6e6e6">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6">稍后再激活</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-ffc61a f17px">继续激活</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 2018.1.12修改 -->
+
+		<!--alert 请先完善存管账户信息-->
+		<div class="alert webkit-box box-center hide">
+			<div class="alert-select">
+				<div class="text-center c-212121 f17px pt25 pb25 pl15 pr15">请先完善存管账户信息</div>
+				<div class="clearfix bt-e6e6e6">
+					<div class="lf w50p br-e6e6e6">
+						<div class="btn c-808080 f17px br-e6e6e6">取消</div>
+					</div>
+					<div class="rf w50p">
+						<div class="btn c-fab600 f17px">马上完善</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--alert 提示前往派生财富升级存管-->
+		<div class="alert webkit-box box-center">
+			<div class="alert-select">
+				<div class="text-center c-212121 f17px pt25 pb25 pl45 pr45">为保证转账顺利进行，请先前往派生财富升级存管。</div>
+				<div class="bt-e6e6e6">
+					<div class="br-e6e6e6">
+						<div class="btn c-fab600 f17px">知道了</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+		function bankSelect(){
+			var bankAlert =  $("#bankAlert");
+			var bankName = $("#bankName");
+			var bankImg = $("#bankImg");
+			$("#bankSelect,#bankContainer").click(function(){
+				$("#bankAlert").show();
+			})
+			
+			bankAlert.find('li').click(function(){
+				var imgSrc = $(this).find('img').attr('src');
+				var selectedName = $(this).find('p:first').html();
+				bankImg.find('img').attr('src',imgSrc);
+				bankName.html(selectedName);
+				bankImg.show();
+				bankAlert.hide();
+			})
+		}
+		bankSelect();
+		
+	</script>
+
+</html>

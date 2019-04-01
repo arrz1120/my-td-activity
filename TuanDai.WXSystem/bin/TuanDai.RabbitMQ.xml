@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.RabbitMQ</name>
+    </assembly>
+    <members>
+        <member name="M:TuanDai.RabbitMQ.ComputerInfo.GetHostOfIP">
+            <summary>
+            获取当前计算机主机名和IP   例如:计算机名:aaa,IP:10.10.10.10
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.RabbitMQ.MQParameter">
+            <summary>
+            MQ参数
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.Path">
+            <summary>
+            MQ的路径
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.Message">
+            <summary>
+            传送消息
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.Body">
+            <summary>
+            传输的内容是数组
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.QueueName">
+            <summary>
+            队列名
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.ExchangeName">
+            <summary>
+            路由名称
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.ExchargeType">
+            <summary>
+            路由类型-默认是:direct(交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式) 
+            </summary>
+        </member>
+        <member name="P:TuanDai.RabbitMQ.MQRequest.DeliveryMode">
+            <summary>
+            是否持久化(默认是持久)(是否持久化1:不持久 2:持久)
+            </summary>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitManager.GetMQParameter(System.String,System.String@)">
+            <summary>
+            获取MQ的参数
+            </summary>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitManager.GetConnectionFactory(TuanDai.RabbitMQ.MQParameter)">
+            <summary>
+            MQ的服务
+            </summary>
+            <param name="queuename"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.RabbitMQ.RoleEnum">
+            <summary>
+            Rabbit角色
+            </summary>
+        </member>
+        <member name="F:TuanDai.RabbitMQ.RoleEnum.Producter">
+            <summary>
+            生产者
+            </summary>
+        </member>
+        <member name="F:TuanDai.RabbitMQ.RoleEnum.Customer">
+            <summary>
+            消费者
+            </summary>
+        </member>
+        <member name="T:TuanDai.RabbitMQ.RabbitMQSerivce">
+            <summary>
+            RabbitMQ服务
+            </summary>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.PublisherMessage(TuanDai.RabbitMQ.MQRequest,System.String@,System.Int32,System.Boolean)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="request">信息内容</param>
+            <param name="ErrorMessage">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <param name="BodyType">选择MQRequest传输内容格式 1:传输的是String-Message,2:传输的是byte[]-body</param>
+            <param name="IsQueue">direct是否创建队列(默认是不需要的，但前提是消费者开启时创建，不然是写不进去的),其它类型都不能创建队列</param>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.SetMessage(TuanDai.RabbitMQ.MQRequest,System.String@,System.Int32)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="request">信息内容</param>
+            <param name="ErrorMessage">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <param name="BodyType">选择MQRequest传输内容格式 1:传输的是String-Message,2:传输的是byte[]-body</param>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.PandC(System.Action{System.String},TuanDai.RabbitMQ.MQRequest,System.Int32,System.String@)">
+            <summary>
+            创建消费者（阻塞时间）
+            </summary>
+            <param name="exec">执行的方法</param>
+            <param name="request">请求参数</param>
+            <param name="WaitDestroyOfTime">等待时间</param>
+            <param name="ErrorMessage">不为空，表示异常</param>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.PandCByAlways(System.Action{System.String},TuanDai.RabbitMQ.MQRequest,System.String@)">
+            <summary>
+            创建消费者一直阻塞
+            </summary>
+            <param name="exec">执行方法</param>
+            <param name="request">请求参数</param>
+            <param name="ErrorMessage">异常</param>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.CreateCustomer(System.Action{System.String},TuanDai.RabbitMQ.MQRequest,System.String@)">
+            <summary>
+            创建消费者一直阻塞
+            </summary>
+            <param name="exec">执行方法</param>
+            <param name="request">请求参数</param>
+            <param name="ErrorMessage">异常</param>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitMQSerivce.CancelCutomer(System.String@)">
+            <summary>
+            取消消费者（只适用于CreateCustomer创建的消费者）
+            </summary>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="T:TuanDai.RabbitMQ.RabbitSingleton">
+            <summary>
+            rabbit单例
+            </summary>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitSingleton.CreateRabbitConn(System.String,System.String@)">
+            <summary>
+            创建连接
+            </summary>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <param name="isHa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.RabbitSingleton.Close(RabbitMQ.Client.IConnection)">
+            <summary>
+            关闭连接
+            </summary>
+            <param name="con"></param>
+        </member>
+        <member name="T:TuanDai.RabbitMQ.Telnet">
+            <summary>
+            模拟telnet检测
+            </summary>
+        </member>
+        <member name="M:TuanDai.RabbitMQ.Telnet.Connect(System.String,System.String@)">
+            <summary>
+             启动socket 进行telnet操作    
+            </summary>
+            <param name="s_address">是在配置文件进行配置kay,并且value值是Ip:Port</param>
+            <param name="ErrorMessage">如果不空表示有异常连接失败</param>
+            <returns>true:表示成功 false:表示失败</returns>
+        </member>
+    </members>
+</doc>

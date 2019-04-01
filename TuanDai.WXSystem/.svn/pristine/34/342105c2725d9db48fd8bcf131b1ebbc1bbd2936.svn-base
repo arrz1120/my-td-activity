@@ -1,0 +1,19 @@
+.top_bg{ width:100%; background:url(../images/top_bg.jpg) center no-repeat; height:281px; background-size:100%;}
+/***手机验证码*****************************************/
+.phoneCode{ padding-left: 40px; padding-right: 95px; position: relative;}
+.phoneCode i{ display:inline-block; vertical-align:middle; background:url(../images/reg_ico.png) no-repeat; width:17px; height:32px; background-size: 16px ;}
+.phoneCode i.phone_num{ background-position:0 0;}
+.phoneCode i.password{ background-position:0 -44px;}
+.phoneCode .c-left{ width: 20px; color: #212121; font-size: 1.4rem; position: absolute; top: 2px; left: 0; text-align:center; padding-left:10px;}
+.phoneCode .codeIpt{ width: 100%; height: 28px; line-height: 28px; font-size: 1.4rem; border: 0; background: none;}
+.phoneCode .btncode{ display: block; width: 70%; height: 50px; line-height: 28px; color: #fac502; font-size: 1.4rem; text-align: center; box-shadow: none; border-style: none;  -webkit-border-radius: 4px;border-radius: 4px; position: absolute; top: -11px; right: -83%; background-color:#63b9ff; color:#fff;}
+.phoneCode .disabled{ color: #797979; background: #d0d0d0;}
+.width60{ width:53%;}
+.security_1{ width:15%;}
+.security_1 img{ width:100%;}
+
+.security_txt{ font-size:1rem; color:#a3a3a3; line-height:1.9rem; width:85%; padding:1%;  padding-left:10x; }
+.security_txt span{ font-size:1.6rem; color:#ffa019;}
+.error{ height:10px; font-size:1rem; color:#FF0000;}
+
+

@@ -1,0 +1,261 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BindCardComplete.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.cgt.BindCardComplete" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>完善银行卡</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/cunguan.css?v=<%=GlobalUtils.Version %>" />
+</head>
+<body class="bg-f1f3f5">
+<%=GetNavStr() %>
+    	<div class="tips">
+			<p>为了保证您的提现能够快速准确到账，请完善您的开户行信息</p>
+		</div>
+
+		<div class="bg-fff">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">银行卡号</div>
+				<div class="inp"><input type="text" value="<%=bankNo %>" placeholder="请输入银行卡号"  readonly="readonly" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">开户银行</div>
+				<div class="inp"><input type="text" value="<%=BankName %>" readonly="readonly"/></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">预留手机号</div>
+				<div class="inp"><input type="text" value="<%=PreTelNo %>" placeholder="请输入预留手机号"  readonly="readonly"/></div>
+			</div>
+		</div>
+
+		<div class="bg-fff mt10">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">开户行所在省</div>
+				<div class="inp inpDiv selectDiv">
+					<select class="c-ababab f15px"  id="sel_city1"> 
+                        <option value="">请选择省份</option>
+                        <% foreach (var item in provincelist) { %>
+                           <option value="<%=item.ProName %>"><%=item.ProName %></option>
+                        <%} %>
+					</select>
+				</div>
+				<div class="ico-arrow-r"></div>
+			</div>
+            <div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">开户行所在市</div>
+				<div class="inp inpDiv selectDiv">
+					<select class="c-ababab f15px" id="sel_city2"> 
+                        <option value="">请选择城市</option> 
+                         <% foreach (var item in citylist) { %>
+                        <option value="<%=item.CityName %>"><%=item.CityName %></option>
+                        <%} %>
+					</select>
+				</div>
+				<div class="ico-arrow-r"></div>
+			</div>
+
+			<div class="inputBox webkit-box bb-e6e6e6" id="bankContainer">
+				<div class="inpName">开户行名称</div>
+				<div class="inp"><input type="text" id="txtOpenBankName" placeholder="请输入开户银行支行名称" /></div>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">验证码</div>
+				<div class="inp"><input id="txtCode" type="text" placeholder="请输入验证码" /></div>
+				<a id="btnSendCode" href="javascript:void(0);" class="supportBank f12px" onclick="sendcode(0)">发送验证码</a>
+			</div>
+		</div>
+
+		<div class="pl15 pr15 pt20">
+			<a href="javascript:void(0);" class="btn btnYellow">提交</a>
+		</div>
+		<p class="txtBot text-center">遇到问题？请
+			<a href="tel:10101218" class="f13px c-1fcafb">联系客服:1010-1218</a>
+		</p>
+
+    <div class="hide" id="dvPopConfirm">
+	    <div class="alert webkit-box box-center">
+		    <div class="alert-select">
+			    <div class="pl18 pr18">
+				    <div class="c-999999 f15px text-center pt10 pb10 bb-dashed">请确认信息</div>
+			    </div>
+			    <div class="c-333333 f17px pt25 pb10 pl40 provice">银行地址：广东省东莞市</div>
+			    <div class="c-333333 f17px pb25 pl15 pl40 bankaddress">支行名称：东莞宏伟路支行</div>
+			    <div class="clearfix bt-e6e6e6">
+				    <div class="lf w50p br-e6e6e6">
+					    <div class="btn c-808080 f17px br-e6e6e6" id="btnBinkCancel">取消</div>
+				    </div>
+				    <div class="rf w50p">
+					    <div class="btn c-ffc61a f17px" id="btnBinkConfirm">确定</div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </div>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+    var _codeTimeLeft = 60;
+    var _codeInterval;
+    //发送验证码
+    function sendcode(sendType) {
+        $("#btnSendCode").attr("onclick", "");
+        $.ajax({
+            url: "/ajaxCross/ajax_s1a2fe.ashx",
+            type: "post",
+            dataType: "json",
+            data: { Cmd: "SendMobileValidateCode", sendType: sendType, eventType: 10 },
+            success: function (json) {
+                $("#btnSendCode").attr("onclick", "sendcode(0)");
+                var statusCode = json.result;
+
+                if (statusCode == -100) {
+                    $("body").showMessage({ message: "发送失败，系统错误！", showCancel: false });
+                    return;
+                }
+                if (statusCode == -99) {
+                    $("body").showMessage({
+                        message: "发送失败，登陆失效，请重新登陆！",
+                        showCancel: false,
+                        okbtnEvent: function () {
+                            location.href = "/user/Login.aspx";
+                        }
+                    });
+                    return;
+                }
+
+                if (statusCode == -180) {
+                    $("body").showMessage({ message: "发送失败，发送验证码间隔需180秒！", showCancel: false });
+                    return;
+                }
+
+                if (statusCode == -190) {
+                    $("body").showMessage({ message: "发送失败，验证码一天最多发送5次！", showCancel: false });
+                    return;
+                }
+
+                if (statusCode > 0) {
+                    $("body").showTips("验证码发送成功！");
+                    _codeTimeLeft = 180;
+                    $("#btnSendCode").attr("onclick", "");
+                    _codeInterval = setInterval(function () {
+                        if (_codeTimeLeft <= 0) {
+                            clearInterval(_codeInterval);
+                            $("#btnSendCode").attr("onclick", "sendcode(0)").text("重新发送");
+                            return;
+                        }
+
+                        $("#btnSendCode").text(_codeTimeLeft + "s重新发送");
+                        _codeTimeLeft--;
+                    }, 1000);
+                } else {
+                    $("body").showMessage({ message: json.msg, showCancel: false });
+                }
+            },
+            error: function () {
+                $("#btnSendCode").attr("onclick", "sendcode(0)");
+            }
+        });
+    }
+
+    function addErr(strmsg) {
+        $("body").showMessage({ message: strmsg, showCancel: false });
+    }
+    $(function () { 
+        $("#" + 'sel_city1').change(function () {
+            var thisDom = $(this);
+            $.ajax({
+                url: "/ajaxCross/ajax_s1a2fe.ashx",
+                type: "post",
+                dataType: "json",
+                data: { Cmd: "getcity", province: thisDom.val() },
+                success: function (d) {
+                    if (d.result == "1") {
+                        $('#sel_city2').html("");
+                        for (var i = 0; i < d.list.length; i++) {
+                            $('#sel_city2').append("<option value='" + d.list[i].CityName + "'>" + d.list[i].CityName + "</option>");
+                        }
+                        $('#sel_city2').change();
+                    }
+                }
+            });
+        });
+        $(".btnYellow").click(function () {
+            if ($("#sel_city1").val() == "") {
+                addErr("* 请选择省份");
+                return;
+            }
+            if ($("#sel_city2").val() == "") {
+                addErr("* 请选择所在城市");
+                return;
+            }
+            if ($("#txtOpenBankName").val().length < 1) {
+                addErr("* 请输入开户支行名称");
+                return false;
+            }
+            var province = $("#sel_city1 :selected").val();
+            var cityName = $("#sel_city2 :selected").val();
+            $("#dvPopConfirm .provice").text("银行地址：" + province + cityName);
+            $("#dvPopConfirm .bankaddress").text("支行名称：" + $("#txtOpenBankName").val());
+            $("#dvPopConfirm").show(); 
+        });
+        $("#btnBinkConfirm").click(function () {
+            submitAddCard();
+        });
+        $("#btnBinkCancel").click(function () {
+            $("#dvPopConfirm").hide();
+        });
+    });
+    function submitAddCard() {
+        var province = $("#sel_city1 :selected").val();
+        var cityName = $("#sel_city2 :selected").val();
+        var bankName = $("#txtOpenBankName").val();
+        $("#dvPopConfirm").hide();
+        $("body").showLoading("处理中...");
+        $.ajax({
+            url: "/ajaxCross/ajax_cgt.ashx",
+            type: "post",
+            dataType: "json",
+            data: {
+                Cmd: "CompleteBankInfo", province: province, cityName: cityName,bankName: bankName 
+            },
+            success: function (json) {
+                $("body").hideLoading();
+                var d = json.result;
+                var msg = json.msg;
+                if (parseInt(d) == 1) {
+                    $("body").showMessage({
+                        message: "操作成功", okString: "确定", showCancel: false, okbtnEvent: function () {
+                            window.location.href = "/Member/safety/pre_invest.aspx";
+                        }
+                    });
+                    //window.location.href = "/Member/withdrawal/drawmoney.aspx";
+                }
+                else if (parseInt(d) == -1) {
+                    addErr("添加失败：用户不存在！");
+                    return false;
+                } else if (parseInt(d) == -2) {
+                    addErr("添加失败：" + msg);
+                    return false;
+                } else if (parseInt(d) == -3) {
+                    addErr("添加失败：该银行账号已经绑定另一用户，不能再绑定！");
+                    return false;
+                }
+                else if (parseInt(d) == -4) {
+                    addErr("添加失败：每个用户最多添加1张银行卡！");
+                    return false;
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

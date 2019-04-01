@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>计划详情</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+		<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160413" />
+	</head>
+
+	<body class="bg-f1f3f5 pb20">
+		<header class="headerMain">
+			<div class="header bb-c2c2c2">
+				<div class="back" onclick="javascript:history.go(-1);"></div>
+				<h1 class="title">计划详情</h1>
+				<div class="text">
+					<a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a>
+				</div>
+			</div>
+			<div class="none"></div>
+		</header>
+
+		<div class="detail-top-bg bb-e6e6e6 pt10">
+			<div class="pl15 pos-r detail_tit">
+				<p class="f14px c-808080 text-overflow">东莞某电商企业短期借款</p>
+				<div class="lookProject c-ababab f13px">标的详情<i class="ico-right"></i></div>
+			</div>
+			<div class="pt25 text-center f13px c-ababab pos-r">预期总收益<span class="rect_o pos-a">加息1%</span></div>
+			<div class="f37px c-fd6040 text-center pt10">10,000.00<span class="f23px c-fd6040">+ 100.00</span></div>
+			<div class="pt10 text-center f13px c-ababab"><span class="f13px c-ababab mr10">12个月</span>年化利率10%<span class="f13px c-ababab ml10">每月付息</span></div>
+			<div class="bg005 mt30">
+				<div class="pl15 pt10 pb11 pos-r">
+					<p class="f17px c-212121">投资金额：100,000.00</p>
+					<p class="line-h19 f13px c-ababab">2016-03-03&nbsp;10:00&nbsp;超级会员&nbsp;自动投标</p>
+					<div class="lookProject c-ababab f13px">标的详情<i class="ico-right"></i></div>
+				</div>
+			</div>
+		</div>
+
+		<!-------------------------回款中--------------- -->
+		<div class="bg-fff mt20">
+			<div class="bt-e6e6e6 bb-e6e6e6">
+				<div class="pt10 pb10 pl15 pr15 clearfix">
+					<div class="lf f17px">回款中（1/4）</div>
+					<div class="rf f13px c-ababab">2016-07-03到期</div>
+				</div>
+			</div>
+			<div class="pl15">
+				<div class="bb-e6e6e6">
+					<div class="pt8 pb8 f17px return_tit"><i class="icon-triagle-r rotateZ90"></i>已回款:<span class="f17px ml8">￥2,500.00</span></div>
+					<div class="return_txt">
+						<div class="mt2 f17px pl15">￥2,500.00</div>
+						<div class="clearfix mt1 pl20 pr15 pb10">
+							<div class="lf f13px c-ababab">利息</div>
+							<div class="rf f13px c-ababab">2016-03-03&nbsp;已回款</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="bb-e6e6e6">
+					<div class="pt8 pb8 f17px return_tit"><i class="icon-triagle-r rotateZ90"></i>待回款:<span class="f17px c-ababab ml8">￥107,500.00</span></div>
+					<div class="return_txt pb20 bb-e6e6e6">
+						<div class="mt2 f17px pl15 pt8 c-ababab">￥2,500.00</div>
+						<div class="clearfix mt1 pl20 pr15">
+							<div class="lf f13px c-ababab">利息</div>
+							<div class="rf f13px c-ababab">2016-03-03&nbsp;已回款</div>
+						</div>
+						<!--<div class="c-fd6040 f13px pl15 pb10">已逾期x天 滞纳金￥1.00 ＋ 逾期利息￥1.00</div>-->
+						<div class="row-jiaxi clearfix">
+							<div class="lf">
+								<i></i>加息奖励
+							</div>
+							<div class="rf">
+								1.00元
+							</div>
+						</div>
+						<div class="row-yuqi clearfix">
+							<div class="lf">
+								<i></i>逾期3天
+							</div>
+							<div class="rf">
+								逾期利息 1.00元 + 违约金 1.00元
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-------------------------等待满标--------------- -->
+		<div class="bg-fff mt20 hide">
+			<div class="pl15 pt10 pb11">
+				<p class="f17px c-212121">等待满标</p>
+				<p class="line-h19 f13px c-ababab">2016-07-03前未满标，投资金额将退回</p>
+			</div>
+		</div>
+		
+		<!-------------------------已流标--------------- -->
+		<div class="bg-fff mt20 hide">
+			<div class="pl15 pt10 pb11">
+				<p class="f17px c-212121">已流标</p>
+				<p class="line-h19 f13px c-ababab">投资金额</p>
+			</div>
+		</div>
+
+		<!-------------------------加息未回款--------------- -->
+		<!--<div class="bg-fff mt20">
+			<div class="bt-e6e6e6 bb-e6e6e6">
+				<div class="pt10 pb10 pl15 pr15 clearfix">
+					<div class="lf f17px">回款中（0/2）</div>
+					<div class="rf f13px c-ababab">2016-07-03到期</div>
+				</div>
+			</div>
+			<div class="pl15">
+				<div class="bb-e6e6e6">
+					<div class="pt8 pb8 f17px return_tit"><i class="icon-triagle-r rotateZ90"></i>待回款:<span class="f17px c-ababab ml8">￥107,500.00</span></div>
+					<div class="return_txt">
+						<div class="bb-e6e6e6">
+							<div class="mt2 f17px pl15 pt8">￥2,500.00</div>
+							<div class="clearfix mt1 pl20 pr15 pb10">
+								<div class="lf f13px c-ababab">利息</div>
+								<div class="rf f13px c-ababab">2016-03-03&nbsp;已回款</div>
+							</div>
+						</div>
+						<div class="bb-e6e6e6">
+							<div class="mt2 f17px pl15 pt8">￥100,000.00 + ￥2,500.00 + ￥100.00</div>
+							<div class="clearfix mt1 pl20 pr15 pb10">
+								<div class="lf f13px c-ababab">本金+利息+奖励</div>
+								<div class="rf f13px c-ababab">2016-03-03&nbsp;已回款</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$('.return_tit').click(function() {
+				var box = $(this).next();
+				var ico = $(this).find('.icon-triagle-r');
+				if(box.hasClass('hide')) {
+					if(ico.hasClass('rotateZ90')) {
+						ico.removeClass('rotateZ90').addClass('rotateZ0');
+					} else {
+						ico.removeClass('rotateZ0').addClass('rotateZ90');
+					}
+					box.removeClass('hide');
+				} else {
+					if(ico.hasClass('rotateZ90')) {
+						ico.removeClass('rotateZ90').addClass('rotateZ0');
+					} else {
+						ico.removeClass('rotateZ0').addClass('rotateZ90');
+					}
+					box.addClass('hide');
+				}
+			})
+		});
+	</script>
+
+</html>

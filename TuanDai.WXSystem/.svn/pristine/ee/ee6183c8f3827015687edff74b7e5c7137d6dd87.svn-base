@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>充值</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160517" />
+<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160517" />
+
+</head>
+<body class="bg-f1f3f5">
+    
+    <div class="clearfix pl15 pr15 pt10 pb10">
+    	<div class="lf f12px c-808080">
+    		可用资金<span class="c-212121 f15px ml15">￥10,000.00</span>
+    	</div>
+    	<div class="rf f12px c-1fcafb">充值记录&nbsp;></div>
+    </div>
+    <div class="inputBox bg-fff bt-e6e6e6 bb-e6e6e6">
+    	<span class="c-212121 f17px">金额</span>
+    	<input type="text" placeholder="请填写充值金额" />
+    </div>
+    <div class="mt15 bt-e6e6e6 bb-e6e6e6 bg-fff pl15 pr15">
+    	<!--<div class="clearfix pt15 pb15">
+    		<div class="lf payType f15px"><span class="selected"><i></i></span>微信支付</div>
+    		<div class="rf f12px c-1fcafb">限额说明&nbsp;></div>
+    	</div>-->
+    	<div class="pt15 pb15 bt-e6e6e6">
+    		<p class="payType f15px"><span><i></i></span>招商银行招商银行（0392）</p>
+    		<p class="f12px c-ababab pl12 ml20">(限额：5万/ 笔，10万/天)</p>
+    	</div>
+    </div>
+    
+    <div class="mt30 pl15 pr15">
+    	<div class="btn btnYellow">下一步</div>
+    	
+    	<p class="f12px c-ababab text-justify rc-tips mt5">充值资金不投标需等<span class="c-fd6040 f12px">15天</span>后才能提现，<span class="c-fd6040 f12px">23:45</span>分至次日<span class="c-fd6040 f12px">00:45</span>分为银行对账时间，建议避开该时段充值，以免出现到账延迟。 <a href="http://info.tuandai.com/wap/help/second-question.html?cid=17" class="f12px c-1fcafb">更多常见问题&gt;</a></p>
+    </div>
+    
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

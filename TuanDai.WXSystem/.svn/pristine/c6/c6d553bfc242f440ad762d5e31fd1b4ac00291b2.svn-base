@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20160123" /><!--base-->
+</head>
+<body>
+	<header class="headerMain">
+	    <div class="header">
+	        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+	        <h1 class="title">交易记录</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<section class="bg-bdtopBom1-ccc mt15 pl15 bg-fff pt10 pb15">
+		<div class="c-212121 f13px pt5">内容: <span class="c-212121 f13px ml5">We计划【分期宝】（15120119942）</span></div>
+		<div class="c-212121 f13px pt5">时间: <span class="c-212121 f13px ml5">2015-06-14  00:17:28</span></div>
+		<div class="c-212121 f13px pt5">金额: <span class="c-212121 f13px ml5">-<span class="c-f86420 f13px">￥505.83</span></span></div>
+		<div class="c-212121 f13px pt5">We计划余额: <span class="c-212121 f13px ml5">￥505.83</span></div>
+		<div class="c-212121 f13px pt5">交易类型: <span class="c-212121 f13px ml5">到期回款</span></div>
+	</section>
+	
+	<section class="bg-bdtopBom1-ccc mt15 pl15 bg-fff pt10 pb15">
+		<div class="c-212121 f13px pt5">内容: <span class="c-212121 f13px ml5">We计划【分期宝】（15120119942）</span></div>
+		<div class="c-212121 f13px pt5">时间: <span class="c-212121 f13px ml5">2015-06-14  00:17:28</span></div>
+		<div class="c-212121 f13px pt5">金额: <span class="c-212121 f13px ml5">-<span class="c-f86420 f13px">￥505.83</span></span></div>
+		<div class="c-212121 f13px pt5">We计划余额: <span class="c-212121 f13px ml5">￥505.83</span></div>
+		<div class="c-212121 f13px pt5">交易类型: <span class="c-212121 f13px ml5">到期回款</span></div>
+	</section>
+	
+	<section class="bg-bdtopBom1-ccc mt15 pl15 bg-fff pt10 pb15">
+		<div class="c-212121 f13px pt5">内容: <span class="c-212121 f13px ml5">We计划【分期宝】（15120119942）</span></div>
+		<div class="c-212121 f13px pt5">时间: <span class="c-212121 f13px ml5">2015-06-14  00:17:28</span></div>
+		<div class="c-212121 f13px pt5">金额: <span class="c-212121 f13px ml5">+<span class="c-9bc84a f13px">￥505.83</span></span></div>
+		<div class="c-212121 f13px pt5">We计划余额: <span class="c-212121 f13px ml5">￥505.83</span></div>
+		<div class="c-212121 f13px pt5">交易类型: <span class="c-212121 f13px ml5">到期回款</span></div>
+	</section>
+	
+	<section class="bg-bdtopBom1-ccc mt15 pl15 bg-fff pt10 pb15">
+		<div class="c-212121 f13px pt5">内容: <span class="c-212121 f13px ml5">We计划【分期宝】（15120119942）</span></div>
+		<div class="c-212121 f13px pt5">时间: <span class="c-212121 f13px ml5">2015-06-14  00:17:28</span></div>
+		<div class="c-212121 f13px pt5">金额: <span class="c-212121 f13px ml5">-<span class="c-f86420 f13px">￥505.83</span></span></div>
+		<div class="c-212121 f13px pt5">We计划余额: <span class="c-212121 f13px ml5">￥505.83</span></div>
+		<div class="c-212121 f13px pt5">交易类型: <span class="c-212121 f13px ml5">到期回款</span></div>
+	</section>
+</body>
+</html>

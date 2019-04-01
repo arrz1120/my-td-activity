@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>升级会员</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">升级会员</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="member-cn-t">
+        <div class="clearfix pl10 pr10 pb20 pt20">
+            <div class="lf">
+                <p class="f13px">你是<span class="f15px ml5">普通会员</span></p>
+                <p class="f12px">到期日期：<span>2016-04-21</span></p>
+            </div>
+            <div class="rf">
+                <p class="f13px">账户余额：<span class="c-ff6600 f15px">947.08</span></p>
+                <p class="f13px">积分：<span class="c-ff6600 f15px">50</span></p>
+            </div>
+        </div>
+        <div class="ico-b-bg"></div>
+    </section>
+    <section class="pl10 pr10">
+        <div class="member-title clearfix mt15 mb5">
+            <h3 class="c-212121 f15px lf"><i></i>会员套餐</h3>
+            <a href="" class="rf">使用VIP会员兑换券 <img src="/imgs/images/ico_arrow_r.png" alt=""/></a>
+        </div>
+        <div class="member-price">
+            <ul>
+                <li>
+                    <div class="price-cn clearfix">
+                        <p class="lf f12px">会员1个月：<span  class="c-ff6600 f13px">￥30元（或100积分）</span></p>
+                        <a href="" class="rf f12px">开通</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="price-cn clearfix">
+                        <p class="lf f12px">会员6个月：<span  class="c-ff6600 f13px">￥150元（或600积分）</span></p>
+                        <a href="" class="rf f12px">开通</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="price-cn clearfix">
+                        <p class="lf f12px">会员12个月：<span  class="c-ff6600 f13px">￥220元（或2800积分）</span></p>
+                        <a href="" class="rf f12px">开通</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="member-title clearfix mt15 mb5">
+            <h3 class="c-212121 f15px"><i></i>会员套餐</h3>
+        </div>
+
+        <div class="member-privilege">
+            <table>
+                <tr>
+                    <th>特权名称</th>
+                    <th>普通会员</th>
+                    <th class="c-ff6600">超级会员</th>
+                </tr>
+                <tr>
+                    <td>利息管理费</td>
+                    <td>免收</td>
+                    <td>免收</td>
+                </tr>
+                <tr>
+                    <td>提现费用</td>
+                    <td>0.3%,不封顶</td>
+                    <td>0.1%,200元封顶</td>
+                </tr>
+                <tr>
+                    <td>单次提现金额上限</td>
+                    <td>30W</td>
+                    <td>80W</td>
+                </tr>
+                <tr>
+                    <td>发生逾期</td>
+                    <td>本金保障</td>
+                    <td>本金+利息保障</td>
+                </tr>
+
+                <tr>
+                    <td>资金操作短信提醒</td>
+                    <td>免费</td>
+                    <td>免费</td>
+                </tr>
+                <tr>
+                    <td>月末邮件对账单</td>
+                    <td>有</td>
+                    <td>有</td>
+                </tr>
+                <tr>
+                    <td>自动投标优先级</td>
+                    <td>一般</td>
+                    <td>优先</td>
+                </tr>
+            </table>
+        </div>
+
+        <p class="mt20 c-ababab f12px pb30">如您在投标时会员状态为超级会员，则在您投的这个标存续期间，您在这个标上都享受超级会员待遇，包括逾期保利，有限赔付等。即使您的超级会员已经到期，您依旧可享受如上的超级会员待遇。当然，如果您在投标时的状态未普通会员，您无法享受超级会员的待遇
+        </p>
+    </section>
+
+    <!--弹出层显示选择计分或者现金购买vip-->
+    <!--start-->
+    <section class="popup-wrap">
+        <div class="popup-box">
+            <div class="popup-content clearfix">
+                <div class="vip-price">
+                    <p class="f14px">需支付: <span class="c-ff6600 f15px">￥30</span></p>
+                    <p class="c-ababab f12px">(一个月VIP会员)</p>
+                </div>
+                <div class="radio-box">
+                    <div>
+                        <input tabindex="11" type="radio" id="square-radio-1" name="square-radio" checked>
+                        <label for="square-radio-1">使用余额</label>
+                    </div>
+                    <div>
+                        <input tabindex="12" type="radio" id="square-radio-2" name="square-radio">
+                        <label for="square-radio-2">使用积分</label>
+                    </div>
+                </div>
+            </div>
+            <div class="pop-control">
+                <a href="javascript:;" class="f15px c-ababab">取消</a>
+                <a href="javascript:;" class="f15px c-ffcf1f">确定</a>
+            </div>
+        </div>
+        <div class="mask"></div>
+    </section>
+    <!--end-->
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/icheck.min.js"></script>
+    <script type="text/javascript">
+
+        $('.radio-box input').iCheck({
+            checkboxClass: 'icheckbox_square-yellow',
+            radioClass: 'iradio_square-yellow',
+            increaseArea: '20%'
+        });
+    </script>
+
+</body>
+</html>

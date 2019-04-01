@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>项目详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20160127" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css?v=20160127" /><!--借款-->
+
+<style type="text/css">
+	.ico-666{display: block;width: 5px;height: 5px;background: #666;border-radius: 50%;left: 0;top: 15px;margin-left: 0 !important;}
+	.verifyInfo div.ico-loanbox{height: 26px;margin-bottom: 10px;}
+	.verifyInfo div img{width: 40%;}
+	.verifyInfo div img.ico-loan1{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan2{width: 20px;}
+	.verifyInfo div img.ico-loan3{width: 25px;padding-top: 4px;}
+	.verifyInfo div img.ico-loan4{width: 33px;}
+	.verifyInfo div img.ico-loan5{width: 22px;}
+</style>
+
+</head>
+<body class="bg-fff">
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="wrapper-loan assetsbid-cn">
+    <div class="pos-r gyl-tit pt15 pb15 pr15 bb-e6e6e6">
+    	<span class="c-212121 f14px pos-a">分期宝</span>
+    	<p class="c-808080 f14px">正合普惠会员借款16012618-1</p>
+    </div>
+    <div class="info-item clearfix"> <!--有修改20160118-->
+        <div class="info-l">
+            <p>借款总额: <span class="f16px c-ff6600">81,600.00</span>元</p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span class="c-ff6600">13.8%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>借款期限:<span class="c-ff6600">12</span><span class="c-212121">个月</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span class="c-ff6600">1</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款方式:<span class="c-ff6600">等额本息</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>借入份数:<span class="c-ff6600">4000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>剩余份数:<span class="c-ff6600">1578</span><span class="c-212121">份</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>剩余时间:
+            	<span class="c-ff6600">0</span><span class="c-212121">天</span>
+            	<span class="c-ff6600">8</span><span class="c-212121">时</span>
+            	<span class="c-ff6600">47</span><span class="c-212121">分</span>
+            	<span class="c-ff6600">34</span><span class="c-212121">秒</span>
+            </p>
+        </div>
+    </div>
+    <!--<div class="newUserTeQuan">
+    	新用户首次投资，立享2%的加息
+    </div>-->
+
+    <div class="bg-fbfbf9 bb-e6e6e6 bt-e5e5e5"><h2 class="c-212121">借款详情</h2></div>
+    <div class="info-item simubao-d gyl-bd">
+        <div class="border-b pb20">
+            <h3 class="f14px c-fab600">项目介绍</h3>
+            <p class="f12px c-212121 pr10">本项目由正合普惠推介，正合普惠致力于为个人提供专业、快捷、贴心的小额借款咨询服务。正合普惠专注金融咨询服务， 为所有有资金需求难题的社会群众提供快捷、适合的借款解决服务方案，帮助顺利实现资金借贷，协助解决资金需求难题。</p>
+        </div>
+        
+        <!--借款人信息-->
+        <div class="files border-b">
+            <h3 class="f14px c-fab600">借款人信息</h3>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">昵称<span class="c-212121 f13px">TD_9a******</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">工作城市<span class="c-212121 f13px">四川省泸</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">性别<span class="c-212121 f13px">男</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">所属行业<span class="c-212121 f13px">金融业</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">年龄<span class="c-212121 f13px">42</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">职位<span class="c-212121 f13px">一般员工</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">学历<span class="c-212121 f13px">大学本科</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">婚姻状况<span class="c-212121 f13px">已婚</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">手机号码<span class="c-212121 f13px">13*******55</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">月均收入<span class="c-212121 f13px">8000元</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">住房情况<span class="c-212121 f13px">无</span></p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--审核信息-->
+        <div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-fab600">借款人信息</h3>
+            <div class="verifyInfo pr10">
+                <div class="f12px c-212121">
+                    <div class="ico-loanbox"><img class="ico-loan1" src="/imgs/images/ico-loan1_v1.7.png"></div>身份验证
+                </div>
+                <div class="f12px c-212121">
+                    <div class="ico-loanbox"><img class="ico-loan2" src="/imgs/images/ico-loan2_v1.7.png"></div>手机验证
+                </div>
+                <div class="f12px c-212121">
+                    <div class="ico-loanbox"><img class="ico-loan3" src="/imgs/images/ico-loan3_v1.7.png"></div>邮箱验证
+                </div>
+                <!--<div class="f12px c-212121">
+                    <div class="ico-loanbox"><img class="ico-loan4" src="/imgs/images/ico-loan4_v1.7.png"></div>培训机构验证
+                </div>-->
+                <div class="f12px c-212121">
+                    <div class="ico-loanbox"><img class="ico-loan5" src="/imgs/images/ico-loan5_v1.7.png"></div>实地认证
+                </div>
+            </div>
+        </div>
+        
+         <!--借款人信用档案-->
+        <div class="files border-b">
+            <h3 class="f14px c-fab600">借款人信用档案</h3>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">申请借款<span class="c-212121 f13px">1笔</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">成功借款<span class="c-212121 f13px">100笔</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">借款总额<span class="c-212121 f13px">81000.00元</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">逾期金额<span class="c-212121 f13px">0元</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">逾期期数<span class="c-212121 f13px">0期</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">还清笔数<span class="c-212121 f13px">0笔</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">待还本息<span class="c-212121 f13px">0元</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!--风控及还款保障措施-->
+        <div class="border-b pb20">
+            <h3 class="f14px c-fab600">风控及还款保障措施</h3>
+            <p class="c-212121 f13px pl10 pr5 pos-r"><span class="pos-a ico-666"></span>项目经多重审核机制复查——初审，由正合普惠工作人员线下审核借款人资料真实性，再由正合普惠总部风控中心复审；正合普惠推介项目至团贷网时，团贷网再次对借款人信息进行第三轮抽查。</p>
+            <p class="c-212121 f13px pl10 pr5 pos-r"><span class="pos-a ico-666"></span>作为项目推介方的正合普惠，公司本身运转良好，拥有优秀的风控团队和风控措施。</p>
+            <p class="c-212121 f13px pl10 pr5 pos-r"><span class="pos-a ico-666"></span>本项目适用团贷网100%本息保障计划，由第三方担保公司连带担保。</p>
+        </div>
+        
+        <!--风险评估-->
+        <div class="pb20">
+            <h3 class="f14px c-fab600">风险评估</h3>
+            <p class="c-212121 f13px">经团贷网评估，此标风险系数为：<span class="f13px c-9bc84a">低</span></p>
+        </div>
+	</div>
+	
+    <!--申购人数-->
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    <a href="">
+        <div class="clearfix border-b pl10 sg-people">
+            <h3 class="f14px lf c-212121">申购人数</h3>
+            <div class="rf">
+                <span class="c-ababab f13px">150人</span>
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    <div class="footer-join f14px">确认加入</div>
+    <div class="ml15 mr15 pb20 hide">
+	    <div class="footer-end btn bg-ebebeb c-c7c7c7">计划已结束</div>
+    </div>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	$(".spread-control").click(function(){
+		var $spread = $("#spread");
+		if($spread.hasClass('spread')){
+			$spread.removeClass('spread');
+			$(this).find('img').css('transform','rotateZ(180deg)');
+		}
+		else{
+			$spread.addClass('spread');
+			$(this).find('img').css('transform','rotateZ(0)');
+		}
+	})
+</script>
+</body>
+</html>

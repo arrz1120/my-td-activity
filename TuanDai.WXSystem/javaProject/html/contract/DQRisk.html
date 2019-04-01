@@ -1,0 +1,104 @@
+<html style="font-size: 48px;">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>风险揭示书(定期)</title>
+		<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+		<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+		<link rel="stylesheet" href="/javaProject/css/contract.css">
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+
+			document.oncontextmenu = function(e) {
+				return false;
+			}
+
+			var omitformtags = ["input", "textarea", "select"]
+			omitformtags = omitformtags.join("|")
+
+			function disableselect(e) {
+				if(omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+					return false
+			}
+
+			function reEnable() {
+				return true
+			}
+			if(typeof document.onselectstart != "undefined")
+				document.onselectstart = new Function("return false")
+			else {
+				document.onmousedown = disableselect
+				document.onmouseup = reEnable
+			}
+		</script>
+		<style>
+			.suojin {
+				text-indent: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="headerMain" id="header">
+			<div class="header">
+				<div class="back" onclick="javascript:history.go(-1);">返回</div>
+				<h1 class="title">风险揭示书</h1>
+			</div>
+		</header>
+		<!--第1页>-->
+		<div class="Contract">
+			<h3>JJS2金交所</h3>
+			<h3>    -    号金融资产收益权</h3>
+			<h3>风险揭示书</h3>
+			<div class="Contract_c">
+				<p>尊敬的投资者：</p>
+				<p class="suojin">感谢您认购JJS2金交所备案发行的“JJS2金交所 - 号金融资产收益权”产品（以下简称“本产品”）。在您签署本认购风险揭示书前，请仔细阅读本风险揭示书及《JJS2金交所 - 号金融资产收益权认购协议》（以下简称“《认购协议》”）、《JJS2金交所 - 号金融资产收益权产品说明书》（以下简称“《产品说明书》”）的具体内容。凡同意并签署本认购风险揭示书的客户，将视为已了解并认可上述文件内容，对本产品可能发生的风险有足够的了解和认识并愿意自行承担认购本产品可能带来的财产损益和法律责任。</p>
+				<p class="suojin">本产品投资可能面临下列各项风险，包括但不限于： </p>
+				<p class="suojin">1、提前/延期终止风险：投资期内若市场发生重大变动或突发性事件或其他JJS2金交所认为需要提前/延期终止本产品的情形时，JJS2金交所有权提前/延期终止本产品。投资者可能面临不能按预期期限取得预期收益的风险。</p>
+				<p class="suojin">2、政策风险。因财政政策、货币政策、产业政策、区域发展政策等国家宏观政策发生变化，可能导致市场价格波动，从而影响本产品收益。</p>
+				<p class="suojin">3、行业风险：因行业易受政策及市场环境影响，可能给投资者投资收益实现带来无法足额收回本息的影响，以及挂牌方/管理人未能及时足额兑付本息，投资者面临本金及收益的损失、甚至为零的风险。</p>
+				<p class="suojin">4、经济周期风险。随着经济运行的周期性变化，市场的收益水平也呈周期性变化，投资收益水平也会随之发生变化，从而产生风险。</p>
+				<p class="suojin">5、利率风险。利率风险是指由于利率变动而导致的资产价格和资产利息的损益。利率波动会直接影响企业的融资成本和利润水平，导致证券市场的价格和收益率的变动，使投资收益水平随之发生变化，从而产生风险。 </p>
+				<p class="suojin">6、购买力风险。投资的利润将主要通过现金形式来分配，而现金可能因为通货膨胀的影响而导致购买力下降，从而使投资的实际收益下降。</p>
+				<p class="suojin">7、信息传递风险。投资者应根据《产品说明书》所载明的公告方式及时查询本产品的相关信息。如果投资者未及时查询，或由于通讯故障、系统故障以及其他不可抗力等因素的影响使得投资者无法及时了解产品信息，并由此影响投资者的投资决策，因此而产生的责任和风险由投资者自行承担。</p>
+			</div>
+		</div>
+		<!--第2页>-->
+		<div class="Contract">
+			<div class="Contract_c">
+				<p class="suojin"> 8、使用电子签名合同的风险。本产品采用电子签名方式签署，所以在本产品的交易过程当中，由于互联网和移动通讯网络数据传输等原因，数据传输可能会出现中断、停顿、延迟，传输数据可能出现错误；委托人账号及密码信息泄露或客户身份可能被仿冒；委托人的网络终端设备及软件系统可能会受到非法攻击或病毒感染，导致电子签名合同数据无法传输或传输失败。</p>
+				<p class="suojin"> 9、不可抗力风险：指由于自然灾害、战争等不可抗力因素的出现，将严重影响金融市场的正常运行，可能影响产品的认购、投资、偿还等的正常进行，甚至导致本产品收益降低乃至本金损失。对于由不可抗力风险所导致的任何损失，由投资者自行承担。</p>
+				<p style="margin-top: 10px;margin-left: 12%;">风险揭示方：JJS2金交所</p>
+				<h3 style="margin-top: 150px;">投资者承诺</h3>
+				<p>JJS2金交所：</p>
+				<p class="suojin">本人已经认真阅读理解并接受《JJS2金交所 - 号金融资产收益权认购协议》、《JJS2金交所 - 号金融资产收益权产品说明书》以及《JJS2金交所 - 号金融资产收益权风险揭示书》的全部内容，理解投资本产品的所有风险，愿意依法承担本产品可能带来的财产损失和法律责任。产品挂牌方/管理人仅以标的资产收益情况和自身回购能力为限向投资者支付本产品本金及收益，本产品的任何关于收益率的表述均属不具有法律约束力的用语，不代表投资者可能获得的实际收益，亦不构成JJS2金交所对本产品的任何承诺。 </p>
+				<p class="suojin">本人明确知悉本产品的风险，了解JJS2金交所和指定销售机构在推介过程中的责任，且本人风险承受能力满足JJS2金交所认定的合格投资者标准，自愿成为JJS2金交所会员，自愿购买“ - 号金融资产收益权”产品，自行享有本产品的全部收益及承担本产品的全部风险损失。</p>
+				<p style="margin-top: 10px; margin-left: 12%;">投资者：</p>
+			</div>
+		</div>
+		<div class="clearfix mt20"></div>
+		<script type="text/javascript">
+			var url = window.location.href;
+			if(url.indexOf("type=mobileapp") >= 0) {
+				document.getElementById("header").style.display = "none";
+			}
+		</script>
+
+	</body>
+
+</html>

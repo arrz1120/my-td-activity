@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>自动投标</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160428" />
+		<link rel="stylesheet" type="text/css" href="/css/auto-invest.css?v=20160428" />
+	</head>
+
+	<body class="bg-f6f7f8">
+		<div class="pl15">
+			<div class="clearfix">
+				<p class="f13px lf ranking">排名：<span class="c-fd6040 f13px">1732</span>名</p>
+				<a href="auto_invest_rule.html" class="rf j-rule c-fd6040 f13px ranking pr15">规则</a>
+			</div>
+		</div>
+		<div class="auto-item pl15 bb-e6e6e6 bt-e6e6e6 bg-fff">
+			<div class="clearfix bb-dashed top-con">
+				<p class="lf">一：投资优质项目</p>
+				<div class="states mt8 rf mr15">
+					<input type="checkbox" class="switch" name="time1" id="time1">
+					<label for="time1"></label>
+				</div>
+			</div>
+			<div class="autoList webkit-box">
+				<div>
+					<p class="f13px c-ababab">年化利率</p>
+					<p class="f15px c-fd6040 pt5">8% - 12%</p>
+				</div>
+				<div>
+					<p class="f13px c-ababab">回购时间</p>
+					<p class="f15px pt5">1-12个月</p>
+				</div>
+				<div>
+					<p class="f13px c-ababab">有效期限</p>
+					<p class="f15px pt5">16.05.20－16.05.25</p>
+				</div>
+			</div>
+			<i class="pos-a ico-arrow-d-ccc"></i>
+		</div>
+
+		<div class="auto-item pl15 bb-e6e6e6 bt-e6e6e6 bg-fff">
+			<div class="clearfix bb-dashed top-con">
+				<p class="lf">二：投资理财计划</p>
+				<div class="states mt8 rf mr15">
+					<input type="checkbox" class="switch" name="time2" id="time2">
+					<label for="time2"></label>
+				</div>
+			</div>
+			<div class="autoList webkit-box">
+				<div>
+					<p class="f13px c-ababab">年化利率</p>
+					<p class="f15px c-fd6040 pt5">8% - 12%</p>
+				</div>
+				<div>
+					<p class="f13px c-ababab">回购时间</p>
+					<p class="f15px pt5">1-12个月</p>
+				</div>
+				<div>
+					<p class="f13px c-ababab">有效期限</p>
+					<p class="f15px pt5">长期有效</p>
+				</div>
+			</div>
+			<i class="pos-a ico-arrow-d-ccc"></i>
+		</div>
+
+		<div class="mt30 pl15 pr15">
+			<a href="" class="btn btnYellow"><i class="ico-plus mr10"></i>添加</a>
+			<p class="f13px c-999999 pt10 text-center">您最多可以保存3条自动投标设置</p>
+		</div>
+		<div class="bot f13px c-999999 w100p text-center mt8">启用自动投标即表示您同意<a class="f13px">《自动投标授权书》</a></div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	</body>
+</html>

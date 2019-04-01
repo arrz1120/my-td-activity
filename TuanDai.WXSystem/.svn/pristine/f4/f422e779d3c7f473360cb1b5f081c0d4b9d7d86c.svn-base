@@ -1,0 +1,313 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+
+namespace TuanDai.WXApiWeb.Member.UserPrize
+{
+    public partial class Index : UserPage
+    {
+        protected decimal Prize1 = 0;//现金红包
+        protected decimal Prize2 = 0;//投资红包
+        protected int Prize3 = 0;//提现劵
+        protected int Prize4 = 0;//签到卡
+        protected int Prize5 = 0;//彩票
+        protected int Prize7 = 0;//加息券
+        protected string Prize6 = string.Empty;//精美礼品
+        protected decimal Prize8 = 0;//体验金
+        /// <summary>
+        /// 体现劵
+        /// </summary>
+        protected int PrizeReflect = 0;//体现劵
+        /// <summary>
+        /// 最快过期的一张体现劵过期时间
+        /// </summary>
+        protected DateTime? NearPrizeReflectExpirationDate = null;
+        protected IList<WXUserPrizeListInfo> UserPrizeList;
+        UserBLL bll = new UserBLL();
+        Guid UserId = WebUserAuth.UserId.Value;
+        protected bool isNeedViewGift = false;//是否未看过实物奖品
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                //执行发送团宝箱操作 
+                Action doSend = new Action(delegate()
+                {
+                    new TuanDai.PortalSystem.BLL.UserPrizeBll().UserActivationPrize(UserId, "weixin");
+                });
+                System.Threading.Tasks.Task.Run(doSend);
+
+                Prize1 = GetPrize1();
+                Prize2 = GetPrize2();
+                Prize3 = GetPrize3();
+                Prize4 = GetPrize4();
+                Prize5 = GetPrize5();
+                Prize6 = GetPrize6();
+                Prize7 = GetPrize7();
+                Prize8 = GetPrize8();
+                PrizeReflect = GetPrizeReflect();
+            }
+        }
+        /// <summary>
+        /// 得到签到卡
+        /// </summary>
+        /// <returns></returns>
+        private int GetPrizeReflect()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "7").ToList();
+            List<WXUserPrizeListInfo> temp;
+            //体验金过期
+            temp = UserPrizeList.Where(p => p.TypeId == 16 && p.IsUsed == 0 && p.ExpirationDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //移除未领取已过期的
+            temp = UserPrizeList.Where(p => p.TypeId == 16 && p.IsReceive == false && p.ReceiveEndDate != null && DateTime.Now > p.ReceiveEndDate).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+
+            List<WXUserPrizeListInfo> tempList;
+            tempList = UserPrizeList.Where(x => x.IsUsed == 0 && x.ExpirationDate != null).OrderBy(x => x.ExpirationDate).ToList();
+            if (tempList.Count > 0)
+            {
+                NearPrizeReflectExpirationDate = tempList.FirstOrDefault().ExpirationDate;
+            }
+
+            return UserPrizeList.Count;
+        }
+
+        /// <summary>
+        /// 得到现金红包
+        /// </summary>
+        /// <returns></returns>
+        private decimal GetPrize1()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "1").ToList();
+            List<WXUserPrizeListInfo> temp;
+            temp = UserPrizeList.Where(p => p.ActivityCode == "20141016" && p.IsReceive == false).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+
+            //注册红包过期
+            DateTime addTime = bll.WXGetAddDate(UserId);//注册日期
+            temp = UserPrizeList.Where(p => p.TypeId == 14 && p.SubTypeId != 19 && p.ExpirationDate == null && p.IsReceive == false && addTime < DateTime.Now.AddMonths(-1)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            temp = UserPrizeList.Where(p => p.TypeId == 14 && p.SubTypeId != 19 && p.ExpirationDate != null && p.IsReceive == false && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+
+            //体验金利息
+            temp = UserPrizeList.Where(p => p.TypeId == 14 && p.SubTypeId == 19 && p.ReceiveDate == null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //现金红包【推荐奖励】
+            temp = UserPrizeList.Where(p => (p.TypeId == 11 || p.TypeId == 13) && (p.IsReceive || p.IsReceive == false && p.ReceiveEndDate.HasValue && p.ReceiveEndDate.Value < DateTime.Now)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            UserPrizeList = UserPrizeList.Where(p => p.IsReceive == false).ToList();
+            return UserPrizeList.Sum(p => p.PrizeValue);
+        }
+        /// <summary>
+        /// 得到投资红包
+        /// </summary>
+        /// <returns></returns>
+        private decimal GetPrize2()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "2").ToList();
+            List<WXUserPrizeListInfo> temp;
+            temp = UserPrizeList.Where(p => p.ActivityCode == "20141016" && p.IsReceive == false).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //愚人节活动过期
+            temp = UserPrizeList.Where(p => p.TypeId == 3 && p.SubTypeId == 10 && p.IsReceive == false && DateTime.Now > DateTime.Parse("2015-04-30 23:59:59")).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //投资金币过期
+            temp = UserPrizeList.Where(p => p.TypeId == 12 && p.IsUsed == 0 && DateTime.Now > DateTime.Parse("2014-12-19")).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //投资红包使用过期
+            temp = UserPrizeList.Where(p => p.TypeId == 3 && p.IsReceive && (p.IsUsed ?? 0) == 0 && p.ExpirationDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //投资红包领取过期
+            temp = UserPrizeList.Where(p => p.TypeId == 3 && p.IsReceive == false && p.ReceiveEndDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ReceiveEndDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+
+            UserPrizeList = UserPrizeList.Where(p => p.IsUsed == 0).ToList();
+            return UserPrizeList.Sum(p => p.PrizeValue);
+        }
+        /// <summary>
+        /// 得到提现劵
+        /// </summary>
+        /// <returns></returns>
+        private int GetPrize3()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "3").ToList();
+            List<WXUserPrizeListInfo> temp = UserPrizeList.Where(p => p.ActivityCode == "20141016" && p.IsReceive == false).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            foreach (WXUserPrizeListInfo item in UserPrizeList)
+            {
+                if (item.IsUsed == 1)
+                {
+                    item.IsUsed = 1;//已使用
+                }
+                else
+                {
+                    if (item.IsReceive == false && item.ReceiveEndDate.HasValue && item.ReceiveEndDate < DateTime.Now)
+                    {
+                        item.IsUsed = 2; //领取已过期
+                    }
+                    if (item.IsReceive == true && item.ExpirationDate.HasValue && item.ExpirationDate < DateTime.Now)
+                        item.IsUsed = 2;//使用已过期
+                    if (item.IsUsed != 2 && item.ReceiveDate == null)
+                        item.IsUsed = 0; //未使用 
+                }
+            }
+            UserPrizeList = UserPrizeList.Where(p => p.IsUsed == 0 || p.IsUsed == null).ToList();
+            return UserPrizeList.Count();
+        }
+        /// <summary>
+        /// 签到卡
+        /// </summary>
+        /// <returns></returns>
+        private int GetPrize4()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "4").Where(p => p.IsUsed == 0).ToList();
+            //UserPrizeList.Any(p => p.IsUsed == 0);
+            return UserPrizeList.Count();
+        }
+        /// <summary>
+        /// 彩票
+        /// </summary>
+        /// <returns></returns>
+        private int GetPrize5()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "5").Where(p => p.IsUsed == 0).ToList();
+            return UserPrizeList.Count();
+        }
+        /// <summary>
+        /// 精美礼品
+        /// </summary>
+        /// <returns></returns>
+        private string GetPrize6()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "6").ToList();
+            string viewGiftStatus = Tool.CookieHelper.GetCookie("ViewGiftStatus"); //0:未看过 1:已看过
+            if (UserPrizeList.Count > 0)
+            {
+                //只显示未领取的礼品  Allen 2015-10-26
+                WXUserPrizeListInfo prizeInfo = UserPrizeList.Where(p => p.IsReceive == false && (p.ReceiveEndDate == null || p.ReceiveEndDate.HasValue && p.ReceiveEndDate > DateTime.Now)).FirstOrDefault();
+                if (prizeInfo != null)
+                {
+                    string name = prizeInfo.PrizeName;
+                    if (name.Length > 8)
+                        name = name.Substring(0, 8) + "...";
+
+                    if (viewGiftStatus == "0" || viewGiftStatus == "")
+                    {
+                        isNeedViewGift = true;
+                        Tool.CookieHelper.WriteCookie("ViewGiftStatus", "0", 3 * 24 * 60);
+                    }
+                    return name;
+                }
+                isNeedViewGift = false;
+                return string.Empty;
+            }
+            else
+            {
+                isNeedViewGift = false;
+                return string.Empty;
+            }
+        }
+        //加息券
+        private int GetPrize7()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "8").ToList();
+
+            List<WXUserPrizeListInfo> temp;
+            //移除掉已使用的
+            temp = UserPrizeList.Where(p => (p.IsUsed ?? 1) == 1).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+
+            //投资红包使用过期
+            temp = UserPrizeList.Where(p => p.TypeId == 18 && p.IsReceive && (p.IsUsed ?? 0) == 0 && p.ExpirationDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            //投资红包领取过期
+            temp = UserPrizeList.Where(p => p.TypeId == 18 && p.IsReceive == false && p.ReceiveEndDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(p.ReceiveEndDate)).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfo item in temp)
+                    UserPrizeList.Remove(item);
+            }
+            UserPrizeList = UserPrizeList.Where(p => p.IsUsed == 0).ToList();
+
+            return UserPrizeList.Count();
+        }
+        /// <summary>
+        /// 得到现金红包
+        /// </summary>
+        /// <returns></returns>
+        private decimal GetPrize8()
+        {
+            UserPrizeList = bll.WXGetUserPrize(UserId, "7").ToList();
+            UserPrizeList = UserPrizeList.Where(p => p.IsUsed == 0 && DateTime.Now <= Tool.SafeConvert.ToDateTime(p.ExpirationDate)).ToList();
+            return UserPrizeList.Sum(p => p.PrizeValue);
+        }
+    }
+}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>团贷网触屏版</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160305001" />
+</head>
+<style type="text/css">
+	.tabs-box{ height: 44px; padding-top: 7px;}
+.tabs{width: 100%;border: 1px solid #eee;border-radius: 6px; height: 30px;}
+.tabs a{display: block;text-align: center; height: 28px;line-height: 28px;border-right:1px solid #eee; color: #808080; font-size: 18px;}
+.tabs a:first-child{border-left: none;border-radius: 6px 0 0 6px;}
+.tabs a:last-child{border-right: none;border-radius: 0 6px 6px 0;}
+.sp-con{position: relative;}
+.sp-con:after{content: "";position: absolute;left: 0;bottom: 0;right: 0;border-bottom: 1px solid #e6e6e6;transform: scaleY(.5);transform-origin: 0 100%;}
+.sp-con:last-child:after{border-bottom: none;}
+.tabs .active{ color: #fff; background: #ffc61a;}
+.tabs .active.bb-d3d3d3:after{border-bottom: 1px solid #2b85ec;}
+</style>
+<body class="bg-f1f3f5">
+	<!--<header class="headerMain">
+	    <div class="header bb-e6e6e6">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <div class="list_nav webkit-box">
+	        	<div class="box-flex1 text-center f16px">We</div>
+				<div class="box-flex1 text-center f16px active">散标</div>
+				<div class="box-flex1 text-center f16px">转让</div>
+	        </div>
+	    </div>
+	    <div class="none"></div>
+	</header>-->
+	
+	<div class="pl15 pr15 bg-fff tabs-box pos-r z-index100">
+        <div class="tabs webkit-box" style="position: fixed;z-index: 10000;top: 0;left: 0;background: #fff;">
+            <a href="javascript:;" class="active box-flex1" id="value">全部</a>
+            <a href="javascript:;" class="box-flex1">未领取</a>
+            <a href="javascript:;" class="box-flex1">已领取</a>
+        </div>
+    </div>
+	
+	<div class="webkit-box bg-fff pl20 pr20 pt10 pb10 pos-r z-index100 bb-e6e6e6">
+		<div class="box-flex1 text-center f16px c-808080 pr10">利率</div>
+		<div class="box-flex1 text-center f16px c-808080 pl30">期限
+			<span class="inline-block">
+				<p style="line-height: 5px;"><i class="triangle triangle-up-gray" style="vertical-align: 0;margin-left: 0;"></i></p>
+				<p style="line-height: 5px;"><i class="triangle triangle-down-orange" style="vertical-align: 0;margin-left: 0;"></i></p>
+			</span>
+		</div>
+		<div class="box-flex1 text-center f16px c-808080" id="sort" style="padding-left: 40px;">筛选<i class="triangle triangle-down-gray" id="sort-ico"></i></div>
+	</div>
+	
+	<style type="text/css">
+		.page-refresh {
+				position: absolute;
+				left: 50%;
+				margin-left: -20px;
+				top: -46px;
+				width: 40px;
+				height: 40px;
+				background-color: #FFF;
+				border-radius: 50%;
+				box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .2);
+				z-index: 10000;
+			}
+			
+			.page-refresh svg {
+				width: 20px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -10px;
+				margin-left: -10px;
+				-webkit-transform-origin: 10px 10px;
+			}
+	</style>
+	
+	<div class="page-refresh">
+		<svg viewBox="0 0 60 70.1">
+			<g>
+				<circle stroke-dasharray="0 163.36281798666926" cx="30" cy="30" r="26" stroke-width="8" stroke="#ff2e4b" fill="none">
+					<animate attributeName="stroke-dasharray" values="127.0599695451872 163.36281798666926;4.537856055185257 163.36281798666926;127.0599695451872 163.36281798666926" dur="1.3125s" begin="indefinite" repeatCount="indefinite" calcMode="spline" keySplines=".35 0 .25 1; .35 0 .25 1"
+					/>
+					<animateTransform attributeName="transform" values="0 30 30;270 30 30;270 30 30;540 30 30;540 30 30;810 30 30;810 30 30;1080 30 30;1080 30 30" dur="5.25s" type="rotate" begin="indefinite" repeatCount="indefinite" calcMode="spline" keySplines=".35 0 .25 1; .35 0 .25 1; .35 0 .25 1; .35 0 .25 1; .35 0 .25 1; .35 0 .25 1; .35 0 .25 1; .35 0 .25 1"
+					/>
+				</circle>
+				<polygon style="-webkit-transform-origin: 100% 50%;-webkit-transform: scale(0);" fill="#FF2E4B" points="30,70.1 14.7,56.3 30,42.4 " />
+				<animateTransform attributeName="transform" from="0 30 30" to="360 30 30" dur="2.91667s" type="rotate" begin="indefinite" repeatCount="indefinite" />
+			</g>
+		</svg>
+	</div>
+	
+	<div id="thelist">
+		<div class="pt20 pb15 mt10 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="list-box">
+				<div class="list-box-left">
+					<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+					<p class="f12px c-ababab mt5">年化利率</p>
+				</div>
+				<div class="list-box-center text-center">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+					<p class="f12px c-ababab mt5">投资期限</p>
+				</div>
+				<div class="list-box-right">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+		    			<p class="f12px c-ababab mt5">剩余金额</p>
+				</div>
+			</div>
+			<div class="pt10 pl15 pr15 clearfix itemWrap">
+				<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">【四川】某商贸有限公司短期借款</p></div>
+				<div class="rf clearfix itemTipsBox">
+					<div class="lf itemTips itemTips1">加息1%</div>
+					<div class="rf itemTips itemTips2">可提前退出</div>
+				</div>
+			</div>
+		</div>
+		<div class="pt20 pb15 mt10 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="list-box">
+				<div class="list-box-left">
+					<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+					<p class="f12px c-ababab mt5">年化利率</p>
+				</div>
+				<div class="list-box-center text-center">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+					<p class="f12px c-ababab mt5">投资期限</p>
+				</div>
+				<div class="list-box-right">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+		    			<p class="f12px c-ababab mt5">剩余金额</p>
+				</div>
+			</div>
+			<div class="pt10 pl15 pr15 clearfix itemWrap">
+				<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">【四川】某商贸有限公司短期借款</p></div>
+				<div class="rf clearfix itemTipsBox">
+					<div class="lf itemTips itemTips1">加息1%</div>
+					<div class="rf itemTips itemTips2">可提前退出</div>
+				</div>
+			</div>
+		</div>
+		<div class="pt20 pb15 mt10 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="list-box">
+				<div class="list-box-left">
+					<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+					<p class="f12px c-ababab mt5">年化利率</p>
+				</div>
+				<div class="list-box-center text-center">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+					<p class="f12px c-ababab mt5">投资期限</p>
+				</div>
+				<div class="list-box-right">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+		    			<p class="f12px c-ababab mt5">剩余金额</p>
+				</div>
+			</div>
+			<div class="pt10 pl15 pr15 clearfix itemWrap">
+				<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">【四川】某商贸有限公司短期借款</p></div>
+				<div class="rf clearfix itemTipsBox">
+					<div class="lf itemTips itemTips1">加息1%</div>
+					<div class="rf itemTips itemTips2">可提前退出</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="pt20 pb15 mt10 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="list-box">
+				<div class="list-box-left">
+					<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+					<p class="f12px c-ababab mt5">年化利率</p>
+				</div>
+				<div class="list-box-center text-center">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+					<p class="f12px c-ababab mt5">投资期限</p>
+				</div>
+				<div class="list-box-right">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+		    			<p class="f12px c-ababab mt5">剩余金额</p>
+				</div>
+			</div>
+			<div class="pt10 pl15 pr15 clearfix itemWrap">
+				<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">【四川】某商贸有限公司短期借款</p></div>
+				<div class="rf clearfix itemTipsBox">
+					<div class="lf itemTips itemTips1">加息1%</div>
+					<div class="rf itemTips itemTips2">可提前退出</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="pt20 pb15 mt10 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="list-box">
+				<div class="list-box-left">
+					<p class="f14px c-fd6040"><span class="f27px c-fd6040">14</span>.40%</p>
+					<p class="f12px c-ababab mt5">年化利率</p>
+				</div>
+				<div class="list-box-center text-center">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">9</span>个月</p>
+					<p class="f12px c-ababab mt5">投资期限</p>
+				</div>
+				<div class="list-box-right">
+					<p class="f14px c-212121"><span class="f17px c-212121 inline-block" style="vertical-align:-1px;">300</span>万</p>
+		    			<p class="f12px c-ababab mt5">剩余金额</p>
+				</div>
+			</div>
+			<div class="pt10 pl15 pr15 clearfix itemWrap">
+				<div class="lf itemTxtBox"><p class="f13px c-808080 text-overflow">【四川】某商贸有限公司短期借款</p></div>
+				<div class="rf clearfix itemTipsBox">
+					<div class="lf itemTips itemTips1">加息1%</div>
+					<div class="rf itemTips itemTips2">可提前退出</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="alert z-index10 pos-a hide" id="alert" style="padding-top: 87px;">
+		<div class="bg-f7f7f5 pt25 bt-d1d1d1" id="sort-move">
+			<div class="pl15 pr15">
+				<p class="f15px c-212121"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%</p>
+				<div class="range-slider">
+					<span class="c-ababab f12px span_from pos-a">5%</span>
+				    <input type="text" class="js-range-slider1" value="" tabindex="-1"/ style="border: none;">
+				    <span class="c-ababab f12px span_to pos-a">20%</span>
+			    </div>
+			    <p class="f15px c-212121 mt40">
+			    	<span class="f15px c-ababab">回款期限：</span>
+			    	<span class="f23px c-212121" id="count3">7<small class="f15px c-212121">天</small></span>
+			    	~
+			    	<span class="f23px c-212121" id="count4">18<small class="f15px c-212121">个月</small></span>
+			    	<i class="ico-edit" id="time-edit"></i>
+			    </p>
+				<div class="range-slider">
+					<span class="c-ababab f12px span_from pos-a">7天</span>
+				    <input type="text" class="js-range-slider2" value="" tabindex="-1"/ style="border: none;">
+			    	<span class="c-ababab f12px span_to pos-a">18个月</span>
+			    </div>
+			</div>
+		    <div class="webkit-box bt-e6e6e6 mt30">
+		    	<div class="box-flex1 text-center f17px c-808080 pt13 pb13 br-e6e6e6" id="reset">重置</div>
+		    	<div class="box-flex1 text-center f17px c-fab600 pt13 pb13" id="confirm">确定</div>
+		    </div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script src="refresh.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//循环计算投资专区下标题宽度
+		$(".itemWrap").each(function(i){
+			var parent = $(".itemWrap").eq(i);
+			var itemTipsBox = parent.find('.itemTipsBox');
+			var itemTxtBox = parent.find('.itemTxtBox');
+			if(itemTipsBox.length!=0){
+				itemTxtBox.width(parent.width() - itemTipsBox.width());
+			}else{
+				itemTxtBox.width(parent.width());
+			}
+		});
+		
+		//筛选显示隐藏
+		function moveFromTop(){
+			$('#alert').removeClass('hide');
+			$('#sort-move').removeClass('moveToTop').addClass('moveFromTop');
+			$('#sort-ico').removeClass('triangle-down-gray').addClass('triangle-up-gray');
+		}
+		function moveToTop(){
+			$('#sort-move').removeClass('moveFromTop').addClass('moveToTop');
+			$('#sort-ico').removeClass('triangle-up-gray').addClass('triangle-down-gray');
+			setTimeout(function(){
+				$('#alert').addClass('hide');
+			},400);
+		}
+		$("#sort").click(function(){
+			if($('#alert').hasClass('hide')){
+				moveFromTop();
+			}else{
+				moveToTop();
+			}
+		});
+		$("#alert").click(function(){
+			moveToTop();
+		});
+		$("#sort-move").click(function(){
+			return false;
+		});
+		$("#confirm").click(function(){
+			moveToTop();
+		});
+		
+		
+		//滑块
+		range1( 5, 20, 5, 20);
+		range2( 7, 47, 7, 47);
+		var from1 =5,
+			to1 = 20,
+			from2 = {from : 7,dateType:'天'},
+			to2 = {to : 18,dateType:'个月'}
+		function range1(min, max, from, to){
+			var $range = $(".js-range-slider1");
+			$range.ionRangeSlider({
+		      type: "double",
+		      min: min,
+		      max: max,
+		      from: from,
+		      to: to,
+		      onChange: function (data) {
+		      	from1 = data.from;
+		      	to1 = data.to;
+		        updateValues(from1,to1);
+		      }
+		    });
+		    var slider = $range.data("ionRangeSlider");
+		    var updateRange = function (from,to) {
+	    		slider.update({
+			        from: from,
+			        to: to
+		      	});
+		    };
+		    var updateValues = function (from,to) {
+			    $("#count1").html(from);
+			    $("#count2").html(to);
+		    };
+		    $("#reset").click(function(){
+		    	from1 = 5;
+		    	to1 = 20;
+		    	updateRange(5,20);
+		    	updateValues(5,20);
+		    })
+		}
+			
+		function range2(min, max, from, to){
+			var $range = $(".js-range-slider2");
+			$range.ionRangeSlider({
+		      	type: "double",
+		     	 min: min,
+		     	 max: max,
+		      	from: from,
+		      	to: to,
+		      	onChange: function (data) {
+			        updateValues(data.from,data.to);
+		      	}
+		    });
+		    var slider = $range.data("ionRangeSlider");
+		    var updateRange = function (from,to) {
+	    		slider.update({
+			        from: from,
+			        to: to
+		      	});
+		    };
+		    var updateValues = function (f,t) {
+		    	var objFrom = {};
+		      	var objTo = {};
+		      	t = t-29;
+		      	if(f>29){
+		      		f = f-29;
+		      		objFrom = {from : f,dateType:'个月'}
+		      	}else{
+		      		objFrom = {from : f,dateType:'天'}
+		      	}
+		      	if(t<1){
+		      		t = t+29;
+		      		objTo = {to : t,dateType:'天'}
+		      	}else{
+		      		objTo = {to : t,dateType:'个月'}
+		      	}
+		      	from2 = objFrom;
+		      	to2 = objTo;
+			    $("#count3").html(objFrom.from+'<small class="f15px c-212121">'+objFrom.dateType+'</small>');
+			    $("#count4").html(objTo.to+'<small class="f15px c-212121">'+objTo.dateType+'</small>');
+		    };
+			$("#reset").click(function(){
+				from2 = 7;
+	      		to2 = 47;
+		    	updateRange(7,47);
+		    	updateValues(7,47);
+		    })
+		}
+		//确定事件----------
+		$("#confirm").click(function(){
+			alert(from1+','+to1+','+JSON.stringify(from2)+','+JSON.stringify(to2)+'');
+		})
+		
+		var header = $(".headerMain");
+		if(header.find('.list_nav').html()==undefined && header.find('.header-tab').html()==undefined){
+			header.hide();
+		};
+</script>
+
+</body>
+</html>

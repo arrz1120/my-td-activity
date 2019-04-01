@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="../../css/lib/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index/index.css"/>
+		<script>window.mobileUtils=function(e,t){var i=navigator.userAgent,n=/android|adr/gi.test(i),a=/iphone|ipod|ipad/gi.test(i)&&!n;return{isAndroid:n,isIos:a,isMobile:n||a,isWeixin:/MicroMessenger/gi.test(i),isQQ:/QQ\/\d/gi.test(i),dpr:a?Math.min(e.devicePixelRatio,3):1,rem:null,fixScreen:function(){var i=this,n=t.querySelector('meta[name="viewport"]'),r=n?n.content:"";if(r.match(/initial\-scale=([\d\.]+)/),r.match(/width=([^,\s]+)/),!n){var o,s=t.documentElement,d=s.dataset.mw||750,m=a?Math.min(e.devicePixelRatio,3):1;t.getElementsByTagName("body")[0],s.removeAttribute("data-mw"),s.dataset.dpr=m,n=t.createElement("meta"),n.name="viewport",n.content=function(e){return"initial-scale="+e+",maximum-scale="+e+",minimum-scale="+e}(1),s.firstElementChild.appendChild(n);var c=function(){var e=s.getBoundingClientRect().width;e=e>d?d:e;var t=e/16;i.rem=t,s.style.fontSize=t+"px"};e.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(c,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(o),o=setTimeout(c,300))},!1),c()}}}}(window,document),mobileUtils.fixScreen();</script>
+	</head>
+	<body>
+		<div class="index" id="bigDiv">
+			<header>
+				<h1 class="logo"></h1>
+				<a href="www.tdw.cn" class="ico-pc"></a>
+			</header>
+			<div class="banner">
+				<div class="swiper-container" id="swiper-banner">
+					<div class="swiper-wrapper">
+						<a href="javascript:void(0);" class="swiper-slide">
+							<img src="../../images/index/img1.jpg"/>
+						</a>
+						<a href="javascript:void(0);" class="swiper-slide">
+							<img src="../../images/index/img2.jpg"/>
+						</a>
+					</div>
+					<!-- 如果需要分页器 -->
+					<div class="swiper-pagination" id="nav-mark"></div>
+				</div>
+			</div>
+			<div class="notice">
+				<div class="comment-list" id="notice-list">
+					<div class="comment comment-list-item">
+						<a href="javascript:void(0);" class="n-link">（3月16日）关于团贷会员成长体系升级公告1</a>
+						<a href="javascript:void(0);" class="n-more">更多</a>
+					</div>
+					<div class="comment comment-list-item">
+						<a href="javascript:void(0);" class="n-link">（3月16日）关于团贷会员成长体系升级公告2</a>
+						<a href="javascript:void(0);" class="n-more">更多</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="nav">
+				<a href="javascript:void(0);" class="nav-item">
+					<img src="../../images/index/ico-nav1.png"/>
+					<p>了解团贷</p>
+				</a>
+				<a href="javascript:void(0);" class="nav-item">
+					<img src="../../images/index/ico-nav2.png"/>
+					<p>团贷数据</p>
+				</a>
+				<a href="javascript:void(0);" class="nav-item">
+					<img src="../../images/index/ico-nav3.png"/>
+					<p>下载APP</p>
+				</a>
+				<a href="javascript:void(0);" class="nav-item">
+					<img src="../../images/index/ico-nav4.png"/>
+					<p>微信公众号</p>
+				</a>
+			</div>
+			
+			<div class="con">
+				<div class="ad">
+					<img src="../../images/index/pic-ad.png"/>
+					<a href="javascript:void(0);" class="btn-download">下载APP</a>
+				</div>
+				<a href="javascript:void(0);" class="pic-con1">
+					<img src="../../images/index/pic-con1.png"/>
+				</a>
+				<a href="javascript:void(0);" class="pic-con2">
+					<img src="../../images/index/pic-con2.png"/>
+				</a>
+			</div>
+			
+			<div class="bot">
+				<p class="bot-p1">超<span>10</span>万人加入投资</p>
+				<p class="bot-p2">智能投资，退出灵活，无需满额，<br />加入即可开启优先投标特权 !</p>
+				<div class="footer">
+					<div class="f-link">
+						<a href="">登录</a>
+						<a href="">资讯</a>
+						<a href="">百科</a>
+						<a href="">问答</a>
+					</div>
+					<p class="cp">
+						2010-2018 版权所有 © 团贷网 粤ICP备12043601号-1 <br />
+						东莞团贷网互联网科技服务有限公司 <br />
+						服务热线：1010 1218
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<a href="javascript:void(0);" class="newuser-hb"></a>
+		
+		<div class="pageBottom">
+			<a class="bottom-item bottom-index-cur">首页</a>
+			<a class="bottom-item bottom-my">我</a>
+		</div>
+	</body>
+	<script src="../../js/lib/fastclick-jquery.js"></script>
+	<script src="../../js/lib/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/components/comment.bundle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/index/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

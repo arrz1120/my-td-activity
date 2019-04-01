@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>个人资料</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20150907" />
+		<!--base-->
+		<link rel="stylesheet" type="text/css" href="/css/account.css?v=20180112" />
+		<!--账户中心-->
+	</head>
+
+	<body>
+		<header class="headerMain">
+			<div class="header">
+				<div class="back" onclick="javascript:history.go(-1);">返回</div>
+				<h1 class="title">详细资料</h1>
+			</div>
+			<div class="none"></div>
+		</header>
+		<div class="MyInfoBox">
+			<div class="bg-fff">
+				<section class="hbody">
+					<div class="headPic pos-r">
+						<img class="defaultHead" src="/imgs/images/headerPic.jpg">
+						<div class="upload-box pos-a">
+							<div class="uploader pos-r">
+								<input type="file" accept="image/*" />
+								<img src="/imgs/images/ico-camera.png" class="ico-camera pos-a" />
+							</div>
+						</div>
+					</div>
+					<div class="infoBox">
+						<p>
+							<img class="icon_v7" src="/imgs/images/V7.png" />
+							<span>投资大鳄</span>
+						</p>
+						<a href="/html/member/upqradeAccount.html" class="f12px c-fff up-member mt5">升级VIP会员</a>
+					</div>
+
+				</section>
+
+				<section class="pl15 bb-e6e6e6 bg-fff mt20">
+					<div class="infoMain bb-e6e6e6">
+						<div class="leftBox">昵称</div>
+						<div class="rightBox pr30">
+							<div class="contBox">
+								<input type="text" name="" class="ipt" value="萌萌哒" placeholder="请输入昵称">
+							</div>
+						</div>
+					</div>
+					<div class="infoMain bb-e6e6e6">
+						<div class="leftBox">注册手机号</div>
+						<div class="rightBox pr30">
+							<div class="contBox">
+								<input type="text" name="" class="ipt" value="" placeholder="注册手机号">
+							</div>
+						</div>
+					</div>
+					<div class="infoMain">
+						<div class="leftBox">详细资料</div>
+						<div class="rightBox pr15">
+							<div class="contBox c-fa7d00">未完善<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png" /></div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+
+			<div class="bg-fff mt10">
+				<section class="pl15 bb-e6e6e6 bg-fff">
+					<div class="infoMain bb-e6e6e6">
+						<div class="leftBox">投资前准备</div>
+						<div class="rightBox pr15">
+							<div class="contBox c-d1d1d1">存管账户、银行卡等<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png" /></div>
+						</div>
+					</div>
+					<div class="infoMain bb-e6e6e6">
+						<div class="leftBox">登录密码</div>
+						<div class="rightBox pr15">
+							<div class="contBox c-d1d1d1">修改<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png" /></div>
+						</div>
+					</div>
+					<div class="infoMain">
+						<div class="leftBox">交易密码</div>
+						<div class="rightBox pr15">
+							<div class="contBox c-d1d1d1">已开启<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png" /></div>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	</body>
+
+</html>

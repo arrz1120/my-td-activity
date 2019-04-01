@@ -1,0 +1,141 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="change_msg.aspx.cs" Inherits="TuanDai.WXApiWeb.user.user.change_msg" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>借款注册页</title>
+		<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+		<meta name="description" content="">
+		<!--动态计算rem-->
+		<script>
+		    (function (doc, win) {
+		        var dpr, rem, scale = 1;
+		        var docEl = document.documentElement;
+		        var metaEl = document.querySelector('meta[name="viewport"]');
+		        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+		        metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no,shrink-to-fit=no');
+		        docEl.setAttribute('data-dpr', dpr);
+		        var recalc = function () {
+		            clientWidth = docEl.clientWidth;
+		            if (!clientWidth) return;
+		            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+		            if (document.body) {
+		                document.body.style.fontSize = docEl.style.fontSize;
+		            }
+
+		        };
+		        recalc();
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+
+    
+    <script src="js/zepto.min.js"></script>
+        <link rel="stylesheet" href="css/reg.css?v=20160830" />
+	  </head>
+  <body class="change_msg">
+
+    <h1 class="welcome">欢迎您</h1>
+    <p class="phone_num">15947584125</p>
+
+    
+    <a href="#" class="reg_btn btn_1 change_btn" id="cpn_btn">修改手机号</a>
+    <a href="#" class="reg_btn btn_1 change_btn" id="cbc_btn">修改银行卡信息</a>
+    <div class="change_phone_num" id="cpn">
+          <h2 class="cpn_tit">修改手机号</h2>
+          <div class="input_wraper">  
+          <input type="text" name="phone" class="codeIpt" id="phone" placeholder="新手机号" maxlength="11" />
+            <div class="verification_wraper"> 
+                <input type="text" name="verification" class="codeIpt verification" id="verification" placeholder="手机验证码" />
+                <input type="button" id="btnSendMsg" class=" btnSendMsg" value="获取验证码"/>
+            </div>
+          </div>
+      <a href="#" class="btn-reg btn-reg-2" id="change_btn_phone">确认修改</a>
+      <span class="close"></span>
+    </div>
+      <div class="change_bankcard change_phone_num" id="cbc">
+            <h2 class="cpn_tit">修改银行卡信息</h2>
+            <p>抱歉，目前暂不支持个人自主更换银行卡信
+息，如您确实需要更换，请联系客服进行办
+理，客服热线：400-6410-888   </p>
+            
+      <span class="close">  </span>
+    </div>
+ 
+      <p class="error" id="error">请填写正确的手机号码</p>
+
+ 
+	</body>
+   <script type="text/javascript">
+
+
+       $('.change_btn').on('touchstart', function () {
+           $(this).addClass('reg_btn_click');
+       });
+
+       $('.change_btn').on('touchend', function () {
+           $(this).removeClass('reg_btn_click');
+       });
+
+       $('#change_btn_phone').on('touchstart', function () {
+           $(this).addClass('btn-click');
+       });
+
+       $('#change_btn_phone').on('touchend', function () {
+           $(this).removeClass('btn-click');
+       });
+
+
+       $('.close').on('click', function () {
+           $(this).parent().hide();
+           $('#error').hide();
+
+       });
+
+
+       $('.change_btn').on('touchstart', function () {
+           $(this).addClass('btn-click');
+       });
+
+       $('.change_btn').on('touchend', function () {
+           $(this).removeClass('btn-click');
+       });
+
+       $('#cpn_btn').on('click', function () {
+           $('#cpn').show();
+       });
+
+       $('#cbc_btn').on('click', function () {
+           $('#cbc').show();
+       });
+
+
+       var phoneReg = new RegExp("^(13|14|15|17|18)[0-9]{9}$", "i");
+
+
+       $('#phone').blur(function () {
+           var Val = $(this).val();
+           if (!phoneReg.test(Val) && Val != '') {
+               $('#error').html('请填写正确的手机号码');
+               $('#error').show();
+           } else {
+               $('#error').hide();
+           }
+       });
+
+       var win_h = $(window).height();
+       $('.change_phone_num').css('height', win_h + 'px');
+
+
+       $('.codeIpt').on('focus', function () {
+           $('#error').hide();
+       });
+   </script>
+
+</html>

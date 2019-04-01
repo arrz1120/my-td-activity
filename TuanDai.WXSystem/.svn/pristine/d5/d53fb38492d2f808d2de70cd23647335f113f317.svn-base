@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>普通We计划常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+        <p class="title">We计划的投资期限有几种？</p>
+        <p>目前，团贷网推出的We计划期限分别为1、3、6和12个月，后期会根据实际情况推出更多期限产品供投资者选择。</p>
+        <p class="title">We计划的投资标的可能投资到的产品有哪些？</p> 
+        <p>We计划主要投资于团贷平台产品组合，可能投资到的产品有小微企业、微团贷、资产标、项目宝B和供应链。</p>
+        <p class="title">We计划什么时候启动优先投标？</p>
+        <p> 加入We计划后（不需满额）即可立即启动优先匹配投标。</p>
+        <p class="title">We计划起息日怎么计算？</p>
+        <p>We计划起息日自资金实际投资标的完成当日起算。</p>
+        <p class="title">We计划结清期限怎么计算？</p>
+        <p>WE计划结清期限为所投资标的到期当日。</p>
+        <p class="title">We计划还款方式有哪些？</p>
+        <p>We计划还款方式主要根据投资标的还款方式而定，包括到期还本付息和每月付息到期还本。</p>
+        <p class="title">We计划安全吗？</p>
+        <p>团贷网以严谨负责的态度对每笔借款进行严格筛选。同时，We计划所对应借款100%适用团贷网安全保障计划。</p>
+        <p class="title">加入We计划的资金未全部投完怎么办？</p>
+        <p>自用户加入当期We计划起，5天内平台未将用户所加入计划的资金全额投完，平台将返还用户加入We计划的剩余未投资出去的那部分资金，此时用户可选择加入下期We计划或自由选择。</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>供应链-项目详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20160118" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css?v=20160118" /><!--借款-->
+
+</head>
+<body class="bg-fff">
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="wrapper-loan assetsbid-cn">
+    <div class="pos-r gyl-tit pt15 pb15 pr15 bb-e6e6e6"> <!--有修改20160118-->
+    	<span class="c-212121 f14px pos-a">供应链</span>
+    	<p class="c-808080 f14px">某投资有限公司短期借款平台优质老用户</p>
+    </div>
+    <div class="info-item clearfix"> <!--有修改20160118-->
+        <div class="info-l">
+            <p>借款总额: <span class="f16px c-ff6600">20,000.00</span>元</p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span class="c-ff6600">6.8%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>借款期限:<span class="c-ff6600">7天</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span class="c-ff6600">200</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>还款方式:<span class="c-ff6600">到期本息</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>借出份数:<span class="c-ff6600">4000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>剩余分数:<span class="c-ff6600">1578</span><span class="c-212121">份</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>开放时间:<span class="c-212121">2015/05/12</span><span class="c-212121">17:00</span></p>
+        </div>
+    </div>
+    <div class="newUserTeQuan"> <!--有修改20160118-->
+    	新用户首次投资，立享2%的加息
+    </div>
+
+    <div class="bg-fbfbf9 bb-e6e6e6"><h2 class="c-212121">借款详情</h2></div> <!--有修改20160118-->
+    <div class="info-item simubao-d gyl-bd">
+        <div class="border-b pb20">
+            <!--有修改20160118-->
+            <h3 class="f14px c-fab600">项目介绍</h3>
+            <p class="f12px c-212121 pr10">本项目由深圳前海俊拓金融服务股份有限公司（下称“俊拓金融”）推介并提供本息担保。俊拓金融专注国内电商供应链的 金融咨询服务公司，以大数据为基础，以金融为手段，深度切入电商完整供应链，打造服务电商的开放性综合服务平台。通过 整合产业链，将电商供应链交易环节整体透明化、阳光化，全盘掌控电商供应链，深度捆绑电商的供应链的全流程，从而达到 对风险控制的审核标准.</p>
+        </div>
+
+        <!--业务模型-->
+        <div class="pr10 border-b pb20">
+            <!--有修改20160118-->
+            <h3 class="f14px c-fab600">业务模型</h3>
+            <div class="business-model pb10 pl15">
+                <p class="f14px line c-212121"><img src="/imgs/images/ico-ywmx1.png"/>发起借款</p>
+                <p class="f14px line c-212121"><img src="/imgs/images/ico-ywmx2.png"/>俊拓金融审核通过并100%担保</p>
+                <p class="f14px line c-212121"><img src="/imgs/images/ico-ywmx3.png"/>向团贷借款通过</p>
+                <p class="f14px line c-212121"><img src="/imgs/images/ico-ywmx4.png"/>发标融资</p>
+                <p class="f14px c-212121"><img src="/imgs/images/ico-ywmx5.png"/>满标后到期结算</p>
+            </div>
+        </div>
+
+        <a href="">
+            <div class="clearfix border-b link">
+            	<!--有修改20160118-->
+                <h3 class="f13px lf c-fab600">深圳前海俊拓金融服务股份有限公司</h3>
+                <div class="rf">
+                    <i class="ico-arrow-r"></i>
+                </div>
+            </div>
+        </a>
+
+        <!--借款人信息-->
+        <div class="pr10 border-b pb20 company-info">
+        	<!--有修改20160118-->
+            <h3 class="f14px c-fab600">借款人信息</h3>
+            <p class="f13px c-ababab mt5">公司名称<span class="f13px c-212121">东莞市数额疏风有限公司</span></p>
+            <p class="f13px c-ababab mt5">注册时间<span class="f13px c-212121">2014-09-09</span></p>
+            <p class="f13px c-ababab mt5">注册号码<span class="f13px c-212121">441******************</span></p>
+            <p class="f13px c-ababab mt5">注册资本<span class="f13px c-212121">￥1000万</span></p>
+            <p class="f13px c-ababab mt5">登记机关<span class="f13px c-212121">深圳市市场监督管理局</span></p>
+            <p class="f13px c-ababab mt5">经营范围</p>
+            <div class="spread f13px c-212121 lh24 pl20 pr20" id="spread">
+            	供应链管理及相关配套服务；数据库服务、数据库管理；国内、国际货运代理；从事装卸、搬运业务；会务策划、公关策划；投资资询；财务资询（以上均不含限制项目）；在网上从事商贸活动（不含限制项目）；物流方案设计、物流信息咨询；矿产品及矿物质品、金属材料的销售；非金属矿及制品的销售；计算机软硬件开发与销售；电子及周边产品的研发与销售；国内贸易（不含专营、专卖、专控商品）；经营进出口业务（法律、行政法规、国务院决定禁止的项目除外，限制的项目须取得许可后方可经营）。（以上各项涉及法律、行政法规、国务院决定禁止的项目除外，限制的项目须取得许可后方可经营）
+            </div>
+            <div class="spread-control c-fab600 f12px spread"><img src="/imgs/images/triangle-down.png"/>点击展开</div>
+        </div>
+
+        <!--审核信息-->
+        <div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-fab600">借款人信息</h3>
+            <div class="verifyInfo pr10"><!--有修改20160118-->
+                <div class="f12px c-212121">
+                    <img src="/imgs/images/ico-loan1.png">身份认证
+                </div>
+                <div class="f12px c-212121">
+                    <img src="/imgs/images/ico-loan2.png">手机认证
+                </div>
+                <div class="f12px c-212121">
+                    <img src="/imgs/images/ico-loan3.png">实地认证
+                </div>
+                <div class="f12px c-212121">
+                    <img src="/imgs/images/ico-loan4.png">邮箱认证
+                </div>
+            </div>
+        </div>
+
+
+        <!--借款人信用档案-->
+        <div class="files border-b">
+            <h3 class="f14px c-fab600">借款人信用档案</h3><!--有修改20160118-->
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">申请借款<span class="c-212121 f13px">266笔</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">借款总额<span class="c-212121 f13px">198,980.00元</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">成功借款<span class="c-212121 f13px">236笔</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">待还本息<span class="c-212121 f13px">34,487.00元</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf w50p">
+                    <p class="c-ababab f13px">还清笔数<span class="c-212121 f13px">236笔</span></p>
+                </div>
+                <div class="info-r rf w50p">
+                    <p class="c-ababab f13px">逾期金额<span class="c-212121 f13px">250.00元</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p class="c-ababab f13px">逾期期数<span class="c-212121 f13px">3期</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!--风控及还款保障措施--><!--有修改20160118-->
+        <div class="border-b pb20">
+            <h3 class="f14px c-fab600">风控及还款保障措施</h3>
+            <p class="c-212121 f13px">1.本项目由俊拓金融审核推介并提供100%本金担保（超级会员享本息担保）；</p>
+            <p class="c-212121 f13px">2.本项目适用团贷网100%本息保障计划。</p>
+        </div>
+
+        <!--风险评估-->
+        <div class="pb20">
+            <h3 class="f14px c-fab600">风险评估</h3>
+            <p class="c-212121 f13px">经多方面严格评估，俊拓金融对本次电商业的评级为：<span class="f13px c-ff0000">优</span></p>
+        </div>
+
+    </div>
+
+    <!--申购人数--><!--有修改20160118-->
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    <a href="">
+        <div class="clearfix border-b pl10 sg-people">
+            <h3 class="f14px lf c-212121">申购人数</h3>
+            <div class="rf">
+                <span class="c-ababab f13px">150人</span>
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <div class="bg-fbfbf9 pt10 pb5"></div>
+    <div class="footer-join f14px">确认加入</div>
+    <div class="ml15 mr15 pb20 hide">
+	    <div class="footer-end btn bg-ebebeb c-c7c7c7">计划已结束</div>
+    </div>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	$(".spread-control").click(function(){
+		var $spread = $("#spread");
+		if($spread.hasClass('spread')){
+			$spread.removeClass('spread');
+			$(this).find('img').css('transform','rotateZ(180deg)');
+		}
+		else{
+			$spread.addClass('spread');
+			$(this).find('img').css('transform','rotateZ(0)');
+		}
+	})
+</script>
+</body>
+</html>

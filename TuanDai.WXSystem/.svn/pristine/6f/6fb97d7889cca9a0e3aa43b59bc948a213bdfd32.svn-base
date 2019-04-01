@@ -1,0 +1,240 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+using TuanDai.WXSystem.Core; 
+using System.Data;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    public partial class jing_detail : BasePage
+    {
+        protected ProjectDetailInfo model = null;
+        protected Guid? projectId = Guid.Empty;
+        private ProjectBLL bll = null;
+        protected UserBasicInfoInfo borrowerUserInfo = null;
+        protected UserBasicInfoExtInfo borrowerUserInfoExt;
+        protected WXUserCreditInfo userCreditInfo = null;
+        protected string VipLevel;//会员等级
+        protected string InterestRateNum1;   //年化利率整数部分
+        protected string InterestRateNum2 = string.Empty;   //年化利率小数部分
+        protected string RemainMoney;    //剩余金额
+        protected int PrepaymentTime;//提前还款
+        protected int OnTimepayTime;//准时还款
+        protected int OverdueAdvanceTime;//逾期垫付
+        protected decimal overdueAmount = 0; //逾期金额
+        protected int overdueNum = 0;//逾期期数
+        protected decimal TotalOverdue;//逾期未还 
+        protected string finishProcess = "0%";
+        protected int SubscribeUserCount = 0;//投资人数
+        protected AssureOrganizationInfo assureModel;//担保机构
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+        protected decimal repayedAmount = 0;//已还金额
+        protected decimal duerepayAmount = 0;//待还金额
+        protected decimal monthJZ = 0;//净资产
+        protected WebSettingInfo regulaSet = new WebSettingInfo();
+        protected int InterestModel = 1;//起息方式
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+            borrowerUserInfo = userbll.GetUserBasicInfoModelById(model.UserId.Value);
+            borrowerUserInfoExt = userbll.GetUserBasicInfoExtInfo(model.UserId.Value);
+
+            this.GetBorrowerData(); 
+
+            InterestRateNum1 = ToolStatus.DeleteZero(model.InterestRate.Value).Split('.')[0];
+            InterestRateNum2 = ToolStatus.DeleteZero(model.InterestRate.Value).Contains(".") ? ToolStatus.DeleteZero(model.InterestRate.Value).Split('.')[1] : string.Empty;
+            if (model.Status != 3 && model.Status != 6)
+            {
+                RemainMoney = (int.Parse(ToolStatus.diff(model.TotalShares ?? 0, model.CastedShares ?? 0)) * decimal.Parse(ToolStatus.DeleteZero(model.LowerUnit.Value))).ToString("N2");
+            }
+            else
+            {
+                RemainMoney = "0";
+            }
+            finishProcess = CommUtils.GetProjectProcess(model);
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+
+            List<SubscribeTotalInfo> repaylist = new SubscribeBLL().GetRepaymentInfo(this.projectId.Value);
+            if (repaylist != null && repaylist.Count > 0)
+            {
+                foreach (SubscribeTotalInfo item in repaylist)
+                {
+                    switch (item.status)
+                    {
+                        case 1:
+                            repayedAmount = SafeConvert.ToDecimal(item.Amount) + SafeConvert.ToDecimal(item.InterestAmount);
+                            break;
+                        case 2:
+                            overdueAmount = SafeConvert.ToDecimal(item.Amount) + SafeConvert.ToDecimal(item.InterestAmount);
+                            break;
+                        case 3:
+                            duerepayAmount = SafeConvert.ToDecimal(item.Amount) + SafeConvert.ToDecimal(item.InterestAmount);
+                            break;
+                    }
+                }
+            }
+
+            string jzsql = "select isnull(AvgNetAssets,0) from VipMonthlyNetAssets with(nolock) where UserId=@UserId and ReportDate=@ReportDate";
+            var dyParamJZ = new Dapper.DynamicParameters();
+            dyParamJZ.Add("@UserId", model.UserId.Value);
+            dyParamJZ.Add("@ReportDate", DateTime.Now.AddMonths(-1).ToString("yyyy-MM-01"));
+            this.monthJZ = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal>(TdConfig.ApplicationName, TdConfig.DBReportWrite, jzsql, ref dyParamJZ);
+
+            regulaSet = new WebSettingBLL().GetWebSettingInfo("293A1C07-1D90-4D22-ADD4-39E6735DAC06");
+            InterestModel = TuanDai.PortalSystem.Redis.ProjectRedis.GetProjectInterestMode(model.Type.Value, model.RepaymentType.Value);
+            //截标时间为NULL时候取审核时间  +5 天
+            if (model.TenderDate == null)
+            {
+                model.TenderDate = Convert.ToDateTime(model.AuditDate == null ? model.AddDate : model.AuditDate).AddDays(5);
+            }
+            else
+            {
+                model.TenderDate = model.TenderDate;
+            }
+
+            if (model.AuditDate == null)
+            {
+                model.TenderStartDate = model.AddDate;
+            }
+            else
+            {
+                model.TenderStartDate = model.AuditDate;
+            }  
+			
+            return true;
+        }
+        //获取用户信用档案
+        private void GetBorrowerData()
+        {
+            userCreditInfo = bll.WXGetUserCreditInfo(model.UserId.Value);
+
+            //特殊处理
+            Guid tempBorrowUserId = Guid.Parse("73810E55-E2D4-4F40-8FF9-F0A23F909A75");
+            if (borrowerUserInfo.Id == tempBorrowUserId)
+            {
+                Guid tempProjectId = Guid.Parse("EA7A69C1-38B4-4073-A69D-CFBE2944B4E3");
+                ProjectDetailInfo tempProjectModel = bll.GetProjectDetailInfo(tempProjectId);
+                userCreditInfo.DueOutPAndI = userCreditInfo.DueOutPAndI - ((tempProjectModel.TotalAmount ?? 0) + (tempProjectModel.TotalInterest ?? 0) - (tempProjectModel.RefundInterest ?? 0) - (tempProjectModel.RefundCaptital ?? 0));
+
+                //LogHelper.WriteLog("待还本息特殊处理", "", tempProjectModel.TotalAmount.Value.ToString());
+               // SysLogHelper.WriteTraceLog("待还本息特殊处理", tempProjectModel.TotalAmount.Value.ToString());
+            }
+
+            string sql = @" SELECT @prepaymentTime=count(CASE WHEN  IsRepayAdvance=1   THEN 1 ELSE NULL END ),  
+                                   @sumTime=count(CASE WHEN  Status=6    THEN 1 ELSE NULL END ) 
+                            FROM Project (NOLOCK)    where   Type=6 and UserId=@userId ;
+                        SELECT @OverdueCount=COUNT(0) FROM (SELECT  ProjectId,periods FROM dbo.OverDueRecord with(nolock) WHERE PublisherUserId=@userId and isnull(IsHide,0)=0 GROUP BY ProjectId,periods)t;
+                        select @OverdueAdvanceTime=COUNT(0)  from (SELECT DISTINCT m_Period,m_ProjectId  FROM dbo.t_AdvanceDetail(NOLOCK)   where m_BorrowUserid=@UserId ) A;
+                        SELECT @TotalOverdue=(ISNULL(SUM(ActualCost),0)+ISNULL(SUM(ActualInterest),0)) FROM dbo.OverDueRecord(NOLOCK) WHERE PublisherUserId=@userId  AND IsBorrow=0 and isnull(IsHide,0)=0  ";
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@userId", model.UserId);
+            dyParams.Add("@prepaymentTime", 0, DbType.Int32, ParameterDirection.Output, 20);
+            dyParams.Add("@sumTime", 0, DbType.Int32, ParameterDirection.Output, 20);
+            dyParams.Add("@OverdueCount", 0, DbType.Int32, ParameterDirection.Output, 20);
+            dyParams.Add("@OverdueAdvanceTime", 0, DbType.Int32, ParameterDirection.Output, 20);
+            dyParams.Add("@TotalOverdue", 0, DbType.Decimal, ParameterDirection.Output, 20);
+
+            PublicConn.ExecuteTD(PublicConn.DBWriteType.Read, sql, ref dyParams);
+            PrepaymentTime = dyParams.Get<int>("@prepaymentTime");
+            int sumTime = dyParams.Get<int>("@sumTime");
+            OnTimepayTime = sumTime - PrepaymentTime;
+            overdueNum = dyParams.Get<int>("@OverdueCount");
+            OverdueAdvanceTime = dyParams.Get<int>("@OverdueAdvanceTime");
+            TotalOverdue = dyParams.Get<decimal>("@TotalOverdue");
+
+            //垫付次数大于逾期次数，显示逾期次数，否则是逾期垫付次数。
+            if (overdueNum < OverdueAdvanceTime) OverdueAdvanceTime = overdueNum;
+
+            #region 会员等级 2016-04-16
+            string strSQL = @"declare @PreNetWorth numeric(18, 2)=0
+                              SELECT @PreNetWorth=ISNULL(PreNetWorth,0) FROM dbo.MUserVipInfo WITH(NOLOCK) WHERE UserId=@UserId
+                              SELECT Level FROM dbo.MVipLevel WITH(NOLOCK) WHERE MinNetWorth<=@PreNetWorth AND MaxNetWorth>@PreNetWorth ";
+            string level = string.Empty;
+            DynamicParameters whereParams = new DynamicParameters();
+            whereParams.Add("@UserId", this.model.UserId);
+            level = PublicConn.QueryVipSingle<string>(strSQL, ref  whereParams);
+            VipLevel = "V" + (level ?? "1");//会员等级 
+            #endregion
+
+
+            string sqlText = @"select a.FullName,a.image from UserInEnterpriseProject_ZC u left join AssureOrganization a 
+                      on u.EnterpriseUserId=a.UserId where ProjectId=@projectId";
+            var para = new DynamicParameters();
+            para.Add("@projectId", model.Id);
+            assureModel = PublicConn.QuerySingle<AssureOrganizationInfo>(sqlText, ref para);
+        }
+       
+
+        #region 前台显示时调用
+        protected string GetBorrowAge()
+        {
+            if (borrowerUserInfo != null)
+            {
+                if (borrowerUserInfo.Birthday.HasValue)
+                {
+                    int tempAge = DateTime.Today.Year - borrowerUserInfo.Birthday.Value.Year;
+                    if (tempAge <= 0)
+                        tempAge = 1;
+                    return tempAge.ToString();
+                }
+            }
+            return "";
+        }
+        public int GetAge(string IdentityCard)
+        {
+            int age = 0;
+            if (IdentityCard.Length >= 15)
+            {
+                string ageTemp = IdentityCard.Substring(6, 8);
+                DateTime dt = Convert.ToDateTime(ageTemp.Substring(0, 4) + "-" + ageTemp.Substring(4, 2) + "-" + ageTemp.Substring(6, 2));
+                age = DateTime.Now.Year - dt.Year;
+            }
+            return age;
+        }
+        #endregion
+         
+    }
+}

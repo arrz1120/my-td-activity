@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>常见问题</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<style type="text/css">
+    .questionMain{ padding: 15px; margin-bottom: 10px;}
+    .questionMain .tit{ color: #212121; font-size: 1.4rem; line-height: 150%; margin-bottom: 5px;}
+    .questionMain .tit:before{ content: " "; display: inline-block; width: 4px; height: 4px; border-radius: 50%; -webkit-border-radius: 50%; background-color: #212121; vertical-align: middle; margin-right: 5px; margin-top: -2px;}
+    .questionMain p{ font-size: 1.2rem; line-height: 150%; margin-bottom: 10px;}
+</style>
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">常见问题</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="questionMain">
+    <div class="tit">什么是风险保证金？</div>
+    <p>风险保证金就是您的本金，团贷网根据您选择的配资比例授予您保证金2-5倍的借款额度。风险保证金最低
+1万元，最高100万元，且必须是1000的整倍数。</p>
+</section>
+<section class="questionMain">
+    <div class="tit">风险预警规则</div>
+    <p>警戒线：账户总额=配资金额+本金*50%平仓线：账户总额=配资金额+本金*30%例：本金10W，配资5W，账户总额6W，即账户总额=55000时为警戒线，团贷网提醒客户补充保证金，使账户总额≥6W，即恢复期初金额。账户总额=53000时为平仓线，团贷网有权立即卖出借款人所有证券。</p>
+</section>
+<section class="questionMain">
+    <div class="tit">证券投资规则</div>
+    <p>a.不得投资首日上市新股、复牌当日股票等当日不受涨跌停限制的证券</p>
+    <p>b.不得投资ST、*ST类、大宗交易类股票</p>
+    <p>c.单只股票投资比例不得超过该账户总资产的70%</p>
+    <p>d.创业板单只股票投资比例不得超过该账户总资产的50%</p>
+    <p>e.单只股票投资比例不得超过该公司总股本的5%</p>
+    <p>f.单只股票投资比例不得超过该公司流通股本的10%</p>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+</body>
+</html>

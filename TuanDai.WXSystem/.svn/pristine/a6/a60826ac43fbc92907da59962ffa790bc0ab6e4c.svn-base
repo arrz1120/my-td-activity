@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>充值记录</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160328" />
+<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160328" />
+
+</head>
+<body class="bg-f1f3f5">
+	<div class="indexPage">
+	    <header class="headerMain">
+	        <div class="header bb-e6e6e6">
+	            <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+	            <h1 class="title">申请公务员方案</h1>
+	        </div>
+	        <a href="javascript:void(0);" class="header-list-icon">  <img src="/imgs/images/header-list-icon01.png"></a>
+	        <div class="none"></div>
+	    </header>
+		<div class="pt10 pb10 bt-e6e6e6 bb-e6e6e6 bg-fff pl15 mt15" id="placeSelect">
+			<div class="clearfix inpBox4 pos-r">
+				<div class="lf f17px c-212121">所在城市<span class="c-ababab f17px ml35" id="selectedPlace">请选择</span></div>
+				<div class="ico_arrow_r3 pos-a" style="top: 6px;"></div>	
+			</div>	
+		</div>
+		
+		<div class="pt10 pb10 bt-e6e6e6 bb-e6e6e6 bg-fff pl15 mt15">
+			<div class="clearfix inpBox4">
+				<div class="lf f17px c-212121">真实姓名</div>
+				<input type="text" class="lf f17px" placeholder="请输入您的姓名">
+			</div>	
+		</div>
+		
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 pl15 clearfix inpBox4">
+				<div class="lf f17px c-212121">手机号码</div>
+				<input type="text" class="lf f17px" placeholder="请输入手机号码">
+			</div>	
+			<div class="inpBox34 bt-e6e6e6 pl118">
+				<span class="f17px c-212121">验证码</span>
+				<input type="text" class="f17px" placeholder="短信验证码">
+				<div class="sendCode r15">免费获取</div>	
+			</div>	
+		</div>
+		
+		
+		<div class="pl15 pr15 mt30">
+			<div class="btn btnYellow">提交申请</div>
+		</div>
+	</div>
+	
+	<!--申请成功弹框-->
+	<div class="apply-suc-tips">
+		<img src="/imgs/images/ico-success.png"/>
+		申请成功!
+	</div>
+	
+	<!--省选择-->
+	<div class="z-index1000 provinceBox hide">
+		 <div class="header bb-e6e6e6 pos-r">
+            <div class="pageReturn" id="province-close"></div>
+            <h1 class="title">选择省份</h1>
+        </div>
+        <div class="placelist-box pos-r">
+		   <div class="provinceList">
+		   		<ul>
+		   			<li class="bb-e6e6e6">广西</li>
+		   			<li class="bb-e6e6e6">广东</li>
+		   			<li class="bb-e6e6e6">天津</li>
+		   			<li class="bb-e6e6e6">江苏</li>
+		   			<li class="bb-e6e6e6">甘肃</li>
+		   			<li class="bb-e6e6e6">四川</li>
+		   			<li class="bb-e6e6e6">重庆</li>
+		   			<li class="bb-e6e6e6">贵州</li>
+		   			<li class="bb-e6e6e6">云南</li>
+		   			<li class="bb-e6e6e6">河南</li>
+		   			<li class="bb-e6e6e6">山西</li>
+		   			<li class="bb-e6e6e6">河北</li>
+		   		</ul>
+		   </div>
+        </div>
+	</div>
+	<!--市选择-->
+	<div class="z-index1000 cityBox hide">
+		 <div class="header bb-e6e6e6 pos-r">
+            <div class="pageReturn" id="city-close"></div>
+            <h1 class="title">选择城市</h1>
+        </div>
+        <div class="placelist-box pos-r">
+		   <div class="cityList">
+		   		<ul>
+		   			<li class="bb-e6e6e6">广州市</li>
+		   			<li class="bb-e6e6e6">东莞市</li>
+		   			<li class="bb-e6e6e6">韶关市</li>
+		   			<li class="bb-e6e6e6">佛山市</li>
+		   			<li class="bb-e6e6e6">云浮市</li>
+		   			<li class="bb-e6e6e6">阳江市</li>
+		   			<li class="bb-e6e6e6">湛江市</li>
+		   			<li class="bb-e6e6e6">汕头市</li>
+		   			<li class="bb-e6e6e6">惠州市</li>
+		   			<li class="bb-e6e6e6">汕尾市</li>
+		   			<li class="bb-e6e6e6">深圳市</li>
+		   		</ul>
+		   </div>
+        </div>
+	</div>
+    	
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+	//省市选择弹框
+    function moveToLeft(ele){
+    	$(ele).removeClass('moveToRight').removeClass('hide').addClass('moveToLeft');	
+    }
+    function moveToRight(ele){
+    	$(ele).removeClass('moveToLeft').addClass('moveToRight');
+    	setTimeout(function(){
+    		$(ele).addClass('hide');
+    	},300);
+    }
+    
+	var place = "";
+    function setPlace(){
+    	if(place!=""){
+	    	$("#selectedPlace").removeClass('c-ababab').addClass('c-212121').html(place);
+	    	place = "";
+    	}
+    }
+    
+    //显示省的选择
+    $("#placeSelect").click(function(){
+		moveToLeft(".provinceBox");
+		setTimeout(function(){
+    		$(".indexPage").addClass('hide');
+    	},300);
+    });
+    //隐藏省的选择
+    $("#province-close").click(function(){
+    	$(".indexPage").removeClass('hide');
+    	moveToRight(".provinceBox");
+    });
+    
+    //显示市的选择
+    $(".provinceBox").find('li').click(function(){
+    	place += $(this).html();
+    	moveToLeft(".cityBox");
+    	setTimeout(function(){
+    		$(".provinceBox").addClass('hide');
+    	},300);
+    });
+    
+    //隐藏市的选择
+    $(".cityBox").find('li').click(function(){
+    	place += $(this).html();
+    	$(".indexPage").removeClass('hide');
+    	moveToRight(".cityBox");
+    	setPlace();
+    });
+    $('#city-close').click(function(){
+    	$(".indexPage").removeClass('hide');
+    	moveToRight(".cityBox");
+    });
+    
+    //2秒后提示消失
+    setTimeout(function(){
+		$(".apply-suc-tips").fadeOut();;
+	},2000);
+</script>
+</html>

@@ -1,0 +1,58 @@
+﻿@charset "utf-8"; 
+
+ .liubiao{ color:#DF6450 !important;} 
+ 
+.circlecss {width: 100px; height: 100px; position: absolute;right:0; top:5px;border-radius: 50%;-webkit-border-radius: 50%;background-color: #fd5f3f;background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZiYzcyZiIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZjNmI0ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
+background-image: -webkit-linear-gradient(bottom, #fbc72f 0%, #fc6b4e 100%);
+background-image: linear-gradient(bottom, #fbc72f 0%, #fc6b4e 100%);}
+         
+ /*逾期*/
+.borrowShowMain .hbody .tipBox1{ width: auto; height: 20px; line-height: 20px; color: #FD7255; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox1:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/state1.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;}
+/*已完成*/
+.borrowShowMain .hbody .tipBox2{ width: auto; height: 20px; line-height: 20px; color: #94D94F; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox2:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/state2.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;}
+/*投标中*/
+.borrowShowMain .hbody .tipBox3{ width: auto; height: 20px; line-height: 20px; color: #ffcf1f; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox3:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/state3.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;}
+/*已流标*/
+.borrowShowMain .hbody .tipBox4{ width: auto; height: 20px; line-height: 20px; color: #9D9D9D; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox4:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/state6.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;}
+/*还款中*/
+.borrowShowMain .hbody .tipBox5{ width: auto; height: 20px; line-height: 20px; color: #93D94E; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox5:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/state5.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;}
+/*进行中*/
+.borrowShowMain .hbody .tipBox6{ width: auto; height: 20px; line-height: 20px; color: #5E5A5A; font-size: 1.2rem; position: absolute; top: 50%; right: 30px; z-index: 10; margin-top: -10px;}
+.borrowShowMain .hbody .tipBox6:before{ display: inline-block; content:" "; width: 11px; height: 11px; background: url(/imgs/images/clock.png) no-repeat; background-size: 11px; vertical-align: middle; margin-right: 3px; margin-top: -1px;} 
+
+
+/*环形统计*/
+/*进行中*/
+.borrowShowMain .mbody .hbd .rightMain .circle1 { width: 100px; height: 100px; background-color: #5E5A5A; background-image: none;} 
+.borrowShowMain .mbody .hbd .rightMain .circle1 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size: 1.4rem;color: #5E5A5A;}
+.borrowShowMain .mbody .hbd .rightMain .circle1 .mask{ display: none;}
+
+/*已完成*/
+.borrowShowMain .mbody .hbd .rightMain .circle2 { width: 100px; height: 100px; background-color: #94D94F; background-image: none;}
+.borrowShowMain .mbody .hbd .rightMain .circle2 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size: 1.4rem;color: #94D94F;}
+.borrowShowMain .mbody .hbd .rightMain .circle2 .mask{ display: none;}
+
+/*已流标*/
+.borrowShowMain .mbody .hbd .rightMain .circle3 { width: 100px; height: 100px; background-color: #ABABAB; background-image: none;}
+.borrowShowMain .mbody .hbd .rightMain .circle3 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size:1.4rem;color: #9D9D9D;}
+.borrowShowMain .mbody .hbd .rightMain .circle3 .mask{ display: none;}
+
+/*还款中*/
+.borrowShowMain .mbody .hbd .rightMain .circle4 { width: 100px; height: 100px; background-color: #93d94e; background-image: none;}
+.borrowShowMain .mbody .hbd .rightMain .circle4 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size: 1.4rem;color: #93d94e;}
+.borrowShowMain .mbody .hbd .rightMain .circle4 .mask{ display: none;}
+
+/*投标中*/
+.borrowShowMain .mbody .hbd .rightMain .circle5 { width: 100px; height: 100px; background-color: #F95C14; background-image: none;}
+.borrowShowMain .mbody .hbd .rightMain .circle5 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size: 1.4rem;color: #F95C14;}
+.borrowShowMain .mbody .hbd .rightMain .circle5 .mask{ display: none;}
+
+/*逾期*/
+.borrowShowMain .mbody .hbd .rightMain .circle6{ width: 100px; height: 100px; background-color: #fd6040; background-image: none;}
+.borrowShowMain .mbody .hbd .rightMain .circle6 .periods{width: 92px;height: 92px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 92px;font-size: 1.1rem;color: #FD7255;}
+.borrowShowMain .mbody .hbd .rightMain .circle6 .mask{ display: none;}

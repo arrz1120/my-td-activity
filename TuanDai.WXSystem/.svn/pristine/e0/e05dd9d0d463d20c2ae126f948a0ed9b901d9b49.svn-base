@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>填写预约信息</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">填写预约信息</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+
+    <!--连动地址选择器-->
+    <section class="bg-fff ml15 mr15 mt20 clearfix">
+        <!--<div class="addressBox input-border">
+            <div class="leftBox">所在地区</div>
+            <div class="address-cn">
+                <select name="province" class="select">
+                    <option value="广东">广东</option>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="四川">四川</option>
+                    <option value="天津">天津</option>
+                </select>
+            </div>
+        </div>-->
+        <div class="addressBox">
+            <div class="address-cn mb5">
+                <div class="contBox bg-fff">
+                    <select name="city" class="select">
+                        <option value="选择城市">选择城市</option>
+                        <option value="东莞">东莞</option>
+                        <option value="深圳">深圳</option>
+                        <option value="佛山">佛山</option>
+                        <option value="中山">中山</option>
+                        <option value="惠州">惠州</option>
+                    </select>
+                </div>
+                <div class="contBox bg-fff">
+                    <select name="county" class="select">
+                        <option value="选择城市">选择区/县</option>
+                        <option value="南城区">南城区</option>
+                        <option value="东城区">东城区</option>
+                        <option value="管城区">莞城区</option>
+                        <option value="厚街">厚街</option>
+                        <option value="常平">常平</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+            <div class="addressBox input-border pl10">
+                <input type="text" placeholder="请填写您的详细地址"/>
+            </div>
+            <div class="error">
+                <div class="hint-text">
+                    <p class="f12px"><img src="/imgs/images/ico_warn.png" class="mr5">请填写完整的收货地址</p>
+                </div>
+            </div>
+            <div class="addressBox input-border pl10">
+                <input type="text" placeholder="请填写您的收货人姓名"/>
+            </div>
+            <div class="error">
+                <div class="hint-text">
+                    <p class="f12px"><img src="/imgs/images/ico_warn.png" class="mr5">收货人不能为空</p>
+                </div>
+            </div>
+            <div class="addressBox input-border pl10">
+                <input type="text" placeholder="请输入您的手机号码"/>
+            </div>
+            <div class="error">
+                <div class="hint-text">
+                    <p class="f12px"><img src="/imgs/images/ico_warn.png" class="mr5">手机号码格式不正确</p>
+                </div>
+            </div>
+            <div class="addressBox input-border pl10">
+                <input type="text" placeholder="请输入您的邮箱地址"/>
+            </div>
+            <div class="error">
+                <div class="hint-text">
+                    <p class="f12px"><img src="/imgs/images/ico_warn.png" class="mr5">邮箱地址格式不正确</p>
+                </div>
+            </div>
+            <div class="addressBox">
+                <input type="submit" value="提交预约" class="btn btnYellow"/>
+            </div>
+    </section>
+
+    <!--成功领取奖品-->
+    <!--start-->
+    <section class="popup-wrap" style="display: none;">
+        <div class="popup-box pb15">
+            <div class="popup-content clearfix text-center mt15">
+                <p class="c-212121 f15px">恭喜您！成功领取奖品</p>
+            </div>
+            <div class="control-but pb15">
+                <a href="javascript:;" class="f14px cancel">取消</a>
+                <a href="javascript:;" class="f14px check">查看订单状态</a>
+            </div>
+        </div>
+        <div class="mask"></div>
+    </section>
+    <!--end-->
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+
+</body>
+</html>

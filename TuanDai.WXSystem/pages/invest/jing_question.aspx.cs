@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    /// <summary>
+    /// 净值标--常见问题
+    /// Allen 2015-07-22
+    /// </summary>
+    public partial class jing_question : BasePage
+    {
+        protected DateTime proTime = DateTime.Now;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                proTime = DateTime.Parse(Request.QueryString["proTime"]);
+            }
+            catch
+            {
+                proTime = DateTime.Now;
+            }
+            
+        }
+    }
+}

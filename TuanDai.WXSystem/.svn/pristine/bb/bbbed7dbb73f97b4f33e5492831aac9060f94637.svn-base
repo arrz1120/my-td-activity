@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>申购人数</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css" /><!--借款-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">申购人数</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<div class="subscribe-bg">
+<section class="subscribe-peo">
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">手动</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">WE计划</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">手动</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">WE计划</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">手动</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+    <div class="people-cn clearfix">
+        <div class="lf">
+            <span class="f16px c-000">李*******</span>
+            <span class="type f13px">WE计划</span>
+        </div>
+        <div class="rf">
+            <span class="c-fd6040 f16px">￥1000</span>
+            <span class="f13px">2015-05-25 16:56:02</span>
+        </div>
+    </div>
+
+</section>
+</div>
+</body>
+</html>

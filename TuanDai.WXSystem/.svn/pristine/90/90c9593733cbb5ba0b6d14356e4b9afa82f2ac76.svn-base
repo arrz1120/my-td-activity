@@ -1,0 +1,340 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="We_Question.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.WE.We_Question" %>
+<%@ Import Namespace="System.Net" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>常见问题</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+<style type="text/css">
+.rotateZ0{-webkit-transform: rotateZ(0);}
+.rotateZ90{-webkit-transform: rotateZ(90deg);}
+.questionWrap ul li:last-child{border-bottom: 0;}
+.questionWrap ul li i{display: inline-block;width: 7px;height: 9px;background: url(/imgs/images/ico-triangle-r.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;transition: transform 0.2s linear;}
+.questionWrap ul li i.icon-round{width: 7px;height: 7px;background: url(/imgs/images/yuan_gray.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;}
+.questionWrap ul li .arrow-right{width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) no-repeat;background-size: 100% 100%;position: absolute;right: 15px;top: 23px;}
+</style>
+
+</head>
+<body>
+<%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header bb-e6e6e6">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">常见问题</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header>
+ <% if (IsWeFQB) {  %> 
+<div class="questionWrap bg-fff">
+	<ul>
+		<!--1--> 
+        <li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>加入We计划[分期宝]有何要求？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+				<p class="c-808080 f15px text-justify">加入We计划[分期宝]金额需满足加入金额100元起，且为100元的整数倍递增。</p>
+			</div>
+	    </li>
+		<!--2-->
+		<li> 
+            <div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>We计划[分期宝]的投资标的范围有哪些？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划[分期宝]主要投资于团贷平台的微团贷,分期宝标的。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>We计划[分期宝]复投方式有哪些？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划[分期宝]的复投方式有：本息复投、本金复投两种。本息复投为每月回款的本金和参考回报全部用于复投；本金复投为每月回款本金用于复投，参考回报提取至账户可用余额。投资者在加入We计划[分期宝]时可选择复投方式，加入成功后暂不支持修改</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划[分期宝]什么时候启动优先投标？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">加入We计划[分期宝]后（不需满额），如有符合计划要求的标即可立即启动优先匹配投标。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是We计划[分期宝]资金锁定期？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">资金锁定期限：T(加入计划当日)+5个自然日内，加入计划的资金将被锁定，由系统对符合要求的标的进行优先自动投标。锁定期内所投标的满标计息。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划[分期宝]的计划期限从哪一日开始？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划[分期宝]的计划期限自资金锁定期结束次日起算。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划[分期宝]采用怎样的还款方式？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划[分期宝]还款方式依据复投方式而不同：本息复投，还款方式为到期还本付息；本金复投，还款方式为每月付息，到期还本。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">为什么We计划<%=model.TypeWord %>的计划期限是<%=model.Deadline %>个月，投资标的借款期限不一定是<%=model.Deadline %>个月呢？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划<%=model.TypeWord %>所投标的借款期限与计划期限无关，如所投标的借款期限比<%=model.Deadline %>个月长，系统会在计划到期时自动帮您通过债权转让退出计划。如所投的期限比<%=model.Deadline %>个月短，系统会在标的到期后自动帮您匹配新的标的。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划[分期宝]可以提前退出吗？提前退出是否收取管理费？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">持有满3个月（自资金锁定期结束次日起算）即可申请转让提前退出计划，转让完成时间视市场交易情况而定。目前仅支持全额（本金+已获参考回报）提前退出，不支持部分退出。</p>
+				<p class="c-808080 f15px text-justify">提前退出We计划[分期宝]需支付成交金额0.5%的管理费，每成功转让一笔从到账金额中扣除，计划到期退出无需管理费。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划[分期宝]的退出规则是怎样的？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">① 到期退出：计划到期次日，系统将自动帮投资者转让债权，并在T+3个自然日内完成退出，到期退出至转让成功前一日仍然计息。</p>
+				<p class="c-808080 f15px text-justify">② 提前退出：持有满3个月（自资金锁定期结束次日起算）即可申请转让提前退出计划，转让完成时间视市场交易情况而定。目前仅支持全额（本金+已获参考回报）提前退出，不支持部分退出。申请提前退出至转让成功前一日仍然计息；若同一笔资金分多次转让成功，则转让期间未转让部分资金计息，已转让部分资金不再计息。</p>
+				<p class="c-808080 f15px text-justify">③ 退出方式：债权转让</p>
+				<p class="c-808080 f15px text-justify">④ 退出资金处理方式：转让成功后，资金将自动实时提取至投资者存管账户可用余额。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">为什么实际参考回报与预期参考回报可能有上下小许浮动？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">实际参考回报会因投资时间、投资标的期限、满标情况的不同可能与预期参考回报存在上下小许浮动；在实际参考回报有上下浮动的情况下，以实际参考回报为准。</p>
+			</div>
+		</li>
+		<li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>We计划[分期宝]安全吗？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">团贷网以严谨负责的态度对每笔借款进行严格筛选。同时，We计划所投资项目适用于安全保障体系。</p>
+			</div>
+		</li>
+		<div class="pt15 bg-f6f7f8 bt-e6e6e6"></div> 
+	</ul> 
+</div>
+  <%  }else if (IsWeNewHand)
+      {
+          %>
+    <div class="questionWrap bg-fff">
+	<ul>
+		<!--1--> 
+        <li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>投资者加入新手专享复投宝后，如何计算持续享有新手专享复投宝服务的参考回报？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+				<p class="c-808080 f15px text-justify">投资者享有新手专享复投宝服务的参考回报按照：加入金额 * 参考年回报率 * 持续服务期/12（持续服务期以月为单位）或加入金额 * 参考年回报率 * 持续服务期/365（持续服务期以天为单位）计算。</p>
+                <p>举例说明：</p>
+                <p>加入3个月的新手专享复投宝10000元，对应参考回报：10000*13%*3/12=325；</p>
+                <p>加入15天的新手专享复投宝10000元，对应参考回报：10000*11%*15/365=45.20。</p>
+			</div>
+		</li>
+		<!--2-->
+        <li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">新手专享复投宝智能投资服务安全吗？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">加入新手专享复投宝智能投资服务后，其所投标的适用于安全保障计划。</p>
+			</div>
+		</li> 
+		<!--3--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">如何结束新手专享复投宝服务？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">投资者持续享有新手专享复投宝服务3个月后可结束服务，结束服务完成时间视市场交易情况而定，结束服务时以参考年回报率计算参考回报。</p>
+		    </div>
+		</li> 
+		<!--4--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">新手专享复投宝是否收取服务费？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">结束新手专享复投宝服务时如实际收益高于参考回报，超出部分作为平台服务费由平台收取。</p>
+		    </div>
+		</li> 
+		<!--5--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">为什么新手专享复投宝的持续服务期是3个月，投资标的借款期限不一定是3个月呢？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">新手专享复投宝所投标的借款期限与持续服务期无关，如所投标的借款期限比3个月长，系统会在持续服务期到期时帮您退出债权；如所投标的借款期限比3个月短，系统会在标的到期后自动帮您匹配新的标的。</p>
+		    </div>
+		</li> 
+		<!--6--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">新手专享复投宝的持续服务期从哪一日开始？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">新手专享复投宝的持续服务期自加入之日起算。</p>
+		    </div>
+		</li> 
+		<!--7--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">加入新手专享复投宝后，相应的待收和智享额度什么时候会增加？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">投资者加入新手专享复投宝后，相应的待收和智享额度按参考年回报率计算，系统会在投资者加入新手专享复投宝后即增加相应的待收和智享额度。</p>
+		    </div>
+		</li> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">加入新手专享复投宝后，团币是如何发放的？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">投资者加入新手专享复投宝后，相应的团币会在投资者加入后按加入金额计算并发放。</p>
+		    </div>
+		</li> 
+        <div class="pt15 bg-f6f7f8 bt-e6e6e6"></div>
+	</ul>
+</div>
+    <%
+      } else{   %>
+<div class="questionWrap bg-fff">
+	<ul>
+		<!--1--> 
+        <li>
+			<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+				<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>We计划的投资期限有几种？</p>
+			</div>
+			<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+				<p class="c-808080 f15px text-justify">目前，团贷网推出的We计划期限分别为3、6、12和24个月，后期会根据实际情况推出更多期限产品供投资者选择。</p>
+			</div>
+		</li>
+		<!--2-->
+        <li>
+			<div class="question-tit pl15 clearfix pb18 pt18" style="">
+				<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+				<p class="c-212121 f17px pl20 pr15 text-justify">We计划的投资标的范围有哪些？</p>
+			</div>
+			<div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+				<p class="c-808080 f15px text-justify">We计划主要投资于团贷平台产品组合，包括小微企业、微团贷<%=Tool.WEBRequest.GetQueryString("typeword")=="g"?"、供应链":"、资产标、分期宝" %>。</p>
+			</div>
+		</li> 
+		<!--3--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">We计划什么时候启动优先投标？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">加入We计划后（不需满额）即可立即启动优先匹配投标。</p>
+		    </div>
+		</li> 
+		<!--4--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">We计划起息日怎么计算？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">We计划起息日自资金实际投资标的完成当日起算。</p>
+		    </div>
+		</li> 
+		<!--5--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">We计划结清期限怎么计算？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">WE计划结清期限为所投资标的到期当日。</p>
+		    </div>
+		</li> 
+		<!--6--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">We计划还款方式有哪些？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">We计划还款方式主要根据投资标的还款方式而定，包括到期还本付息和每月付息到期还本。</p>
+		    </div>
+		</li> 
+		<!--7--> 
+        <li>
+		    <div class="question-tit pl15 clearfix pb18 pt18" style="">
+			    <i class="icon-triagle-r rotateZ0 lf mt6"></i>
+			    <p class="c-212121 f17px pl20 pr15 text-justify">We计划安全吗？</p>
+		    </div>
+		    <div class="question-txt bt-e6e6e6 bg-f6f7f8 pd15 hide">
+			    <p class="c-808080 f15px text-justify">团贷网以严谨负责的态度对每笔借款进行严格筛选。同时，We计划所投资项目适用于安全保障体系。</p>
+		    </div>
+		</li> 
+        <div class="pt15 bg-f6f7f8 bt-e6e6e6"></div>
+	</ul>
+</div>
+ <%  } %>
+ <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+ <script type="text/javascript" src="/scripts/base.js?v=1.0"></script>
+<script type="text/javascript">
+ 	$(function () {
+	   	$(".questionWrap").find('li').click(function(){
+			var box = $(this).find('.question-txt');
+			var ico = $(this).find('.icon-triagle-r');
+			if(box.hasClass('hide')){
+				if(ico.hasClass('rotateZ90')){
+					ico.removeClass('rotateZ90').addClass('rotateZ0');
+				}else{
+					ico.removeClass('rotateZ0').addClass('rotateZ90');
+				}
+				box.removeClass('hide');
+			}else{
+				if(ico.hasClass('rotateZ90')){
+					ico.removeClass('rotateZ90').addClass('rotateZ0');
+				}else{
+					ico.removeClass('rotateZ0').addClass('rotateZ90');
+				}
+				box.addClass('hide');
+			}
+		})
+    });
+ </script>
+</body>
+</html>

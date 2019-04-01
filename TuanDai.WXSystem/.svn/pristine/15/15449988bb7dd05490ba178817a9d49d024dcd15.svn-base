@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace TuanDai.WXApiWeb.pages.news
+{
+    public partial class sysmsgdetails : AppActivityBasePage
+    {
+        protected string strTitle = "", strContent = "", strAddDate = "";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //t,s为登录用的参数
+            //string t = string.IsNullOrWhiteSpace(Request["t"]) ? "" : Request["t"];
+            //string s = string.IsNullOrWhiteSpace(Request["s"]) ? "" : Request["s"];
+            Guid id = string.IsNullOrWhiteSpace(Request["id"]) ? Guid.Empty : new Guid(Request["id"]);
+
+            string errorString = string.Empty;
+            if (id != Guid.Empty)
+            {
+                var infoModel = TuanDai.SMS.Client.MessageInfoClient.GetMessageInfoById(id, ref errorString);
+                if (infoModel != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(infoModel.Content))
+                    {
+                        strContent = infoModel.Content;
+                        //strContent = strContent.Replace("{$}", "?t=" + t + "&s=" + s);
+                        strTitle = infoModel.Title;
+                        strAddDate = (infoModel.AddDate).ToString("yyyy－MM－dd HH:mm");
+                    }
+                }
+            }
+
+            
+        }
+    }
+}

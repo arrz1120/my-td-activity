@@ -1,0 +1,162 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/help/HelpMasterNew.Master" AutoEventWireup="true" CodeBehind="help_investment.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.help.help_investment" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>投资相关</title> 
+<style type="text/css">
+.rotateZ0{-webkit-transform: rotateZ(0);}
+.rotateZ90{-webkit-transform: rotateZ(90deg);}
+.questionWrap ul li:last-child{border-bottom: 0;}
+.questionWrap ul li i{display: inline-block;width: 7px;height: 9px;background: url(/imgs/images/ico-triangle-r.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;transition: transform 0.2s linear;}
+.questionWrap ul li i.icon-round{width: 7px;height: 7px;background: url(/imgs/images/yuan_gray.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;}
+.questionWrap ul li .arrow-right{width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) no-repeat;background-size: 100% 100%;position: absolute;right: 15px;top: 23px;}
+</style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <div class="questionWrap bg-fff">
+		<ul>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>投标前需要注意什么？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15">
+					<p class="c-808080 f15px text-justify">(1) 投标前请认真阅读所投资的项目详细信息（包括借款金额，年化利率，借款期限等），以确定您所要投的标符合您的风险承受能力和所要求的投资回报率。</p>
+					<p class="c-808080 f15px text-justify">(2) 投标前请认真阅读借款协议（范本），了解其中信息，并确知若发生逾期或毁约，自己所获得的保障：普通会员保障本金，超级会员保障本息；</p>
+					<p class="c-808080 f15px text-justify">(3) 投标前请确认债权单位（X元/份）和认购份数，确认无误后，再进行出借。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>如何投标？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px text-justify">(1) 打开团贷网的首页，点击“投资专区”→点击“投资项目”选择“项目借款”、“微团贷”、“资产标区”等合适的借款项目。</p>
+					<p class="c-808080 f15px text-justify">(2) 在借款项目的底部弹框中选择要认购的份数，并点击“马上投资”，完成投标。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>投资是否需要收取费用？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px text-justify">(1) 团贷网的投资用户除了投资私募宝需收取服务费（详见标的详情页），其他标的只需要支付平台提现费用（团贷网为第三方支付平台代收）外，不需要缴纳任何平台投资佣金！<br>注：在2014年3月31日前普通会员投资项目会收取佣金，收取的佣金为利息的10%。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>投标后什么时候开始计息？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) 团贷网目前计息方式有满标付息、满标计息、投即计息这三种计息方式。满标付息是满标即支付当月利息；满标计息是满标当天开始计息；投即计息是投资当天开始计息。
+其中“私募宝A”是满标付息“分期宝”是满标计息，“项目借款”、“微团贷”、“资产标区”利息都是当天投标当天计息。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>投标后能否提前赎回？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) 目前所有用户在投标后不能提前赎回，如果您累计投资两万待收本金高于两千，可以发布待收本金80%额度的资产标借款。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>新标上线时间？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) 项目借款新标上线时间：每周二、四、五（上午11点，下午15点）,节假日随机！微团贷新标上线时间：每周一至周五工作时间内随机！</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是自动投标？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">投资用户可通过设置启用自动投标，更快抢到优质的借款项目，如设置自动投标，当有新的借款项目上线时，团贷网系统会智能地第一时间帮用户进行投标，无需手动操作。自动投标规则：</p>
+					<p class="c-808080 f15px">(1) 用户的存管账户需保证充足的金额；</p>
+					<p class="c-808080 f15px">(2) 当有新的借款项目上线时，自动投标会同步启动；</p>
+					<p class="c-808080 f15px">(3) 单笔投标金额上限为借款项目总借款额的20%，并向下取该标最小出借单位的整数倍进行投标。</p>
+					<p class="c-808080 f15px">(4) 投标顺序按照各个用户开启自动投标的时间先后进行排序；</p>
+					<p class="c-808080 f15px">(5) 每个用户投标后，将回到队尾，依次循环进行投标，直至借款项目结束；</p>
+					<p class="c-808080 f15px">(6) 轮到用户投标时，若同时有多个标符合自动投标设置，则按照优先级根据用户第一条设置进行投标。</p>
+					<p class="c-808080 f15px">注：自动投标功能设置中若没有设置预留金额，系统将默认用户账户内全部资金用于自动投标。自动投标设置之后，系统将按照用户的设置严格执行，请谨慎操作。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit pl15 clearfix pb18 pt18" style="">
+					<i class="icon-triagle-r rotateZ0 lf mt6"></i>
+					<p class="c-212121 f17px pl20 pr15">借款人逾期了怎么办？投资人资金安全如何保障？</p>
+				</div>
+				<div class="question-txt bt-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) 团贷网有完善的催收机制，有效防止借款人逾期还款或发生毁约产生坏账。若借款人没能在指定期限内按时还款，团贷网会启动安全保障体系。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bt-e6e6e6 bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是WE计划？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) We计划是团贷网为方便用户投资推出的标准化投资产品，用户加入We计划后，平台将在用户认可的标的范围内，对符合要求的标的进行优先自动投标，提高了用户投资的灵活度，及时盘活用户资金，更好的满足用户多样化的理财需求。此外该计划还适用于团贷安全保障体系，降低投资风险。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>如何加入WE计划？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) 在首页的“WE计划”菜单，进入WE计划标区，在标的详情页面底部弹框中选择要加入的份数，并点击“马上加入”，系统将为您优先投资符合条件的标的。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是WE计划？</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">(1) We计划是团贷网为方便用户投资推出的标准化投资产品，用户加入We计划后，平台将在用户认可的标的范围内，对符合要求的标的进行优先自动投标，提高了用户投资的灵活度，及时盘活用户资金，更好的满足用户多样化的理财需求。此外该计划还适用于团贷安全保障体系，降低投资风险。</p>
+				</div>
+			</li>
+			<li>
+				<div class="question-tit bb-e6e6e6 pl15 pt18 pb18">
+					<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是债权转让?</p>
+				</div>
+				<div class="question-txt bb-e6e6e6 bg-fbfbf9 pd15 hide">
+					<p class="c-808080 f15px">团贷网债权转让服务是为解决用户投资流动性的需求而设立，旨在帮助广大团贷网的用户解决投资资金流动性，增加用户的投资体验而设计，用户可以通过团贷网出售所拥有的符合相应条件的债权项目给其他投资人，从而完成债权转让，获得流动资金。</p>
+				</div>
+			</li>
+			<li>
+				<a href="/pages/invest/zhaiquan_question.aspx">
+					<div class="question-tit pl15 pt18 pb18 pos-r">
+						<p class="c-212121 f17px"><i class="icon-round rotateZ0"></i>如何进行债权转让?</p>
+						<div class="arrow-right"></div>
+					</div>
+				</a>
+			</li>
+			<div class="pt15 bg-fbfbf9 bt-e6e6e6"></div>
+		</ul>
+	</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script> 
+<script type="text/javascript">
+    $(function () {
+
+        $(".questionWrap").find('li').click(function() {
+            var box = $(this).find('.question-txt');
+            var ico = $(this).find('.icon-triagle-r');
+            if (box.hasClass('hide')) {
+                if (ico.hasClass('rotateZ90')) {
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                } else {
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.removeClass('hide');
+            } else {
+                if (ico.hasClass('rotateZ90')) {
+                    ico.removeClass('rotateZ90').addClass('rotateZ0');
+                } else {
+                    ico.removeClass('rotateZ0').addClass('rotateZ90');
+                }
+                box.addClass('hide');
+            }
+        });
+    });
+</script>
+</asp:Content> 

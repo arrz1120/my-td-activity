@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/app-xiangmubao.css" />
+</head>
+<body>
+<header><a href="#" class="back"></a>项目详情</header>
+<div class="smbDetail">
+
+<section class="smb_sec mt20 mb20">
+  <p class="tit_txt"><i></i>借款详情</p>
+    <div class="md_wraper">
+        <h4 class="tit_black">投资范围：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+    <div class="md_wraper">
+        <h4 class="tit_black">投资亮点：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+    <div class="md_wraper">
+        <h4 class="tit_black">盈利预期：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+    <div class="md_wraper last-md">
+        <h4 class="tit_black">还款保障：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+</section>
+
+<section class="smb_sec mb20">
+  <p class="tit_txt"><i></i>管理机构</p>
+    <div class="md_wraper">
+        <h4 class="tit_black">管理机构：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+    <div class="md_wraper last-md">
+        <h4 class="tit_black">管理团队：</h4>
+        <p>用于短期流动资金周转。</p>
+    </div>
+</section>
+
+<section class="smb_sec mb20 pb0 timeline">
+  <p class="tit_txt"><i></i>项目进展</p>
+  <div class="time_cur">
+      <div class="time_bg"></div>
+      <div class="time-con">
+          <p class="time">2015-10-16</p>
+          <p  class="detail">项目已开工，图为现场照片</p>
+          <div class="wrap">
+                <div class="nav swipable">
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                    <a href="myapp://imgurl?url=url/imgs/App-xiangmubao/big_img.jpg">
+                    <span><img src="/imgs/App-xiangmubao/slide-img.png" /></span>
+                    </a>
+                </div>
+           </div>
+       </div>
+  </div>
+
+    <div class="time_normal">
+      <div class="time_bg"></div>
+      <div class="time-con">
+          <p class="time">2015-11-01</p>
+          <p  class="detail">已签署并购协议</p>
+
+       </div>
+    </div>
+    <div class="time_normal">
+      <div class="time_bg"></div>
+      <div class="time-con">
+          <p class="time">2015-11-12</p>
+          <p  class="detail">满标</p>
+
+    </div>
+    </div>
+    <div class="time_normal last-time">
+      <div class="time_bg"></div>
+      <div class="time-con">
+          <p class="time">2015-11-12</p>
+          <p  class="detail">发标融资</p>
+       </div>
+    </div>
+
+</section>
+
+<section class="smb_que pl20">
+<p><a href="#">什么是项目宝<i><img src="/imgs/App/smb-que-ico.png" /></i></a></p>
+<p><a href="#">常见问题<i><img src="/imgs/App/smb-que-ico.png" /></i></a></p>
+<p class="que_last"><a href="#">投资记录<i><img src="/imgs/App/smb-que-ico.png" /></i></a></p>
+</section>
+
+<section class="smb_btn mt20">
+<a href="javascript:void(0)" class="invest_btn">马上投资</a>
+</section>
+
+</div> 
+
+<!--大图显示层-->
+<div id="img_wraper">
+    <img src="" id="big-img">
+</div>
+
+</body>
+<script src="/scripts/zepto.js"></script>
+<script src="/scripts/widget.1.0.2.js"></script>
+<script src="/scripts/swipable.1.0.0.js"></script>
+<script type="text/javascript">
+
+
+
+
+      var  allWrap = $('.wrap');
+
+      for(var i=0;i<allWrap.length;i++){
+        if($(allWrap[i]).find('span').length>4){
+          $(allWrap[i]).attr('id','wrap_'+i);
+          var swipable = new Swipable({
+              element: '#wrap_'+i,
+              dir: 'horizontal'
+          });
+        }
+      }
+
+
+
+</script>
+</html>

@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.CunGuanTong.Client</name>
+    </assembly>
+    <members>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetCode(System.String)">
+            <summary>
+            返回通过返回码描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetBankcode(System.String)">
+            <summary>
+            通过银行编号获取描述
+            </summary>
+            <param name="bankcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetUserDevice(System.String)">
+            <summary>
+            获取终端烦类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetIdCardType(System.String)">
+            <summary>
+            获取证件类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetUserType(System.String)">
+            <summary>
+            获取用户类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetUserRole(System.String)">
+            <summary>
+            获取用户角色描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetActiveStatus(System.String)">
+            <summary>
+            获取用户状态描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetAuditStatus(System.String)">
+            <summary>
+            获取审核状态描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetBizType(System.String)">
+            <summary>
+            获取预处理业务类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetWithdrawType(System.String)">
+            <summary>
+            获取提现方式描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetRechargeWay(System.String)">
+            <summary>
+            获取支付方式描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetProjectType(System.String)">
+            <summary>
+            获取标的产品类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetProStatus(System.String)">
+            <summary>
+            获取标的状态描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetRepaymentWay(System.String)">
+            <summary>
+            获取还款方式描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetTransactionType(System.String)">
+            <summary>
+            获取交易类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetFileType(System.String)">
+            <summary>
+            获取对账文件类型描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetExpectPayCompany(System.String)">
+            <summary>
+            获取支付公司描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.AnalyticEnum.GetWithStatus(System.String)">
+            <summary>
+            获取提现交易状态描述
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.AsynClient">
+            <summary>
+            异步回高处理接口
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.CheckSignClient.CheckSign(TuanDai.CunGuanTong.Model.CallBackWay_Res)">
+            <summary>
+            单独验签
+            </summary>
+            <param name="mCallBackWay"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.Cgt_HttpPost">
+            <summary>
+            共用Post请求
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_HttpPost.Post(System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="methodName"></param>
+            <param name="Data"></param>
+            <param name="ErrorMessage"></param>
+            <param name="isInsideUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TuanDai.CunGuanTong.Client.RequestHanld`1.Data">
+            <summary>
+            组成Data数据实体
+            </summary>
+        </member>
+        <member name="P:TuanDai.CunGuanTong.Client.RequestHanld`1.MethodName">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.HttpHelper.DoPost(System.Object,System.String,System.String@,System.Boolean)">
+            <summary>
+            POST请求到Info
+            </summary>
+            <param name="data">Post数据内容</param>
+            <param name="methodName">请求方法</param>
+            <param name="ErrorMessage">返回错误信息</param>
+            <param name="isInsideUrl">是否内部请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.HttpHelper.DoPostHandler(System.String,System.Object,System.String,System.String@,System.Boolean)">
+            <summary>
+            POST请求到Info
+            </summary>
+            <param name="data">Post数据内容</param>
+            <param name="methodName">请求方法</param>
+            <param name="ErrorMessage">返回错误信息</param>
+            <param name="isInsideUrl">是否内部请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_DESC.TripleDESDecrypt(System.String,System.String)">
+            <summary>
+            3DES解密 TripleDESDecrypt
+            </summary>
+            <param name="originalString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_DESC.TripleDESEncrypt(System.String,System.String)">
+            <summary>
+            3DES加密 TripleDESEncrypt
+            </summary>
+            <param name="originalString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_DESC.GetMd5(System.String)">
+            <summary>
+            GetMd5
+            </summary>
+            <param name="originalString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_DESC.SetUrlSign(System.String,System.String)">
+            <summary>
+            根据参数与时间戳生成UrlSign签名
+            </summary>
+            <param name="param1"></param>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_DESC.GetUrlSign(System.String,System.String,System.String)">
+            <summary>
+            验证UrlSign是否正确
+            </summary>
+            <param name="urlSign"></param>
+            <param name="param1"></param>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.RouteUrl.GetDomain(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="callBackUrl"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.DataCheckClient">
+            <summary>
+            对账操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.DataCheckClient.GetAllData(System.DateTime,System.DateTime)">
+            <summary>
+            获取汇总数据
+            </summary>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.FileClient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FileClient.DOWNLOAD_CHECKFILE_API(System.DateTime,System.String@)">
+            <summary>
+            对账文件下载
+            </summary>
+            <param name="fileDate">下载文件日期</param>
+            <param name="errorMessage">异常信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FileClient.CONFIRM_CHECKFILE_API(System.DateTime,System.String@)">
+            <summary>
+            对账文件确认
+            </summary>
+            <param name="fileDate"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FileClient.GetCheckFileRecord(System.DateTime,System.String@)">
+            <summary>
+            通过对账日期获取对账记录
+            </summary>
+            <param name="fileDate"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FileClient.UpdateCheckFileRecord(TuanDai.CunGuanTong.Model.cgt_fund_CheckFileRecord_Info,System.String@)">
+            <summary>
+            根据时间修改下载对账记录表【checkFileStatus、responseCount只修改这两个参数】
+            </summary>
+            <param name="mCheckFileRecord"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.FundClient">
+            <summary>
+            资金操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.RECHARGE_Req(TuanDai.CunGuanTong.Model.RECHARGE_Request)">
+            <summary>
+            充值(个人充值)
+            </summary>
+            <param name="dataJson"></param>
+            <param name="_userDevice"></param>
+            <returns></returns>        
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.RECHARGE_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.RECHARGE_Response@,System.String@)">
+            <summary>
+            充值(个人充值)
+            </summary>
+            <param name="table"></param>
+            <param name="dataJson"></param>
+            <param name="strError"></param>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.GenerationRECHARGE_Req(TuanDai.CunGuanTong.Model.GenerationRECHARGE_Request)">
+            <summary>
+            给代充值账户充值
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.GenerationRECHARGE_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.RECHARGE_Response@,System.String@)">
+            <summary>
+            充值(平台充值)
+            </summary>
+            <param name="table"></param>
+            <param name="dataJson"></param>
+            <param name="strError"></param>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.WITHDRAW_Req(TuanDai.CunGuanTong.Model.WITHDRAW_Request)">
+            <summary>
+            提现申请
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.WITHDRAW_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.WITHDRAW_Response@,System.String@)">
+            <summary>
+            提现回调
+            </summary>
+            <param name="dataJson"></param>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.VERIFY_DEDUCT_Req(TuanDai.CunGuanTong.Model.VERIFY_DEDUCT_Request)">
+            <summary>
+            验密扣费
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.VERIFY_DEDUCT_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.VERIFY_DEDUCT_Response@,System.String@)">
+            <summary>
+            验密扣费
+            </summary>
+            <param name="table"></param>
+            <param name="dataJson"></param>
+            <param name="strError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.AUTO_WITHDRAW_API(TuanDai.CunGuanTong.Model.cgt_fund_AutoWithdraw_Info,System.String@)">
+            <summary>
+            自动提现
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.FREEZE_API(TuanDai.CunGuanTong.Model.cgt_fund_Freeze_Info,System.String@)">
+            <summary>
+            资金冻结
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.BACKROLL_RECHARGE_API(TuanDai.CunGuanTong.Model.cgt_fund_RechargeBackroll_Info,System.String@)">
+            <summary>
+            资金回退充值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.UNFREEZE_API(TuanDai.CunGuanTong.Model.cgt_fund_Unfreeze_Info,System.String@)">
+            <summary>
+            资金解冻
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.CONFIRM_WITHDRAW_API(TuanDai.CunGuanTong.Model.cgt_fund_Withdraw_Info,System.String@)">
+            <summary>
+            提现确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.CANCEL_WITHDRAW_API(TuanDai.CunGuanTong.Model.cgt_fund_Withdraw_Info,System.String@)">
+            <summary>
+            取消提现
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.DIRECT_RECHARGE_API(TuanDai.CunGuanTong.Model.cgt_direct_Recharge_Info,System.String@,System.String@)">
+            <summary>
+            自动充值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.INTERCEPT_WITHDRAW_API(TuanDai.CunGuanTong.Model.cgt_fund_InterceptWithdraw_Info,System.String@)">
+            <summary>
+            提现拦截
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.FundClient.SYNC_TRANSACTION_API(TuanDai.CunGuanTong.Model.cgt_Transaction_Info,System.String@)">
+            <summary>
+            同步交易接口(外部调用)
+            </summary>
+            <param name="info"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.LogClient.GetListByDateTime(System.DateTime,System.DateTime,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            获取错误日志列表
+            </summary>
+            <param name="StartDateTime"></param>
+            <param name="EndDateTime"></param>
+            <param name="IsContainCarryOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.LogClient.Update_Error(System.Guid,System.Boolean)">
+            <summary>
+            修改错误日志状态
+            </summary>
+            <param name="ErrorLogId"></param>
+            <param name="IsRestart"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.QueryClient">
+            <summary>
+            公共查询类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_USER_INFORMATION_API(System.Guid,System.String@,System.String@)">
+            <summary>
+            用户信息查询
+            </summary>
+            <param name="platformUserNo"></param>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_USER_INFORMATION_API(System.String,System.String@,System.String@)">
+            <summary>
+            用户信息查询
+            </summary>
+            <param name="platformUserNo"></param>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_PLATFORM_INFORMATION_API(System.String@,System.String@)">
+            <summary>
+            平台信息查询
+            </summary>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_TRANSACTION_API(TuanDai.CunGuanTong.Model.Query_Info,System.String@,System.String@,System.Boolean@)">
+            <summary>
+            单笔交易查询
+            </summary>
+            <param name="info"></param>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_WITHDREWFUND_API(System.String,TuanDai.CunGuanTong.Model.WITHDRAW_Records@,System.String@,System.Boolean@)">
+            <summary>
+            单笔提现交易查询
+            </summary>
+            <param name="requestNo"></param>
+            <param name="dataJson"></param>
+            <param name="errorMessage"></param>
+            <param name="isNetError">是否网络异常</param> 
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_RECHARGE_API(System.String,TuanDai.CunGuanTong.Model.RECHARGE_Records@,System.String@,System.Boolean@)">
+            <summary>
+            单笔充值交易查询
+            </summary>
+            <param name="requestNo"></param>
+            <param name="dataJson"></param>
+            <param name="errorMessage"></param>
+            <param name="isNetError">是否网络异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_PROJECT_INFORMATION_API(System.Guid,System.String@,System.String@)">
+            <summary>
+            标的信息查询
+            </summary>
+            <param name="projectNo"></param>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.QUERY_INTELLIGENT_PROJECT_ORDER_API(System.Guid,System.String@,System.String@)">
+            <summary>
+            批量投标请求流水查询
+            </summary>
+            <param name="requestNo">We计划OrderID</param>
+            <param name="errorMessage"></param>
+            <param name="respData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetUserByPlatformUserNo(System.Guid)">
+            <summary>
+            根据userId获取存管用户实体(查不到返回null)
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetFundAccountByUserID(System.Guid)">
+            <summary>
+            根据userId获取资金表实体(查不到返回null)
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetAssetPlatformPersonal(TuanDai.CunGuanTong.Model.cgt_AssetPlatformModel)">
+            <summary>
+            通过资产端用户唯一标识获取信息
+            </summary>
+            <param name="platformUserId"></param>
+            <returns></returns>      
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetAssetPlatformEnterprise(TuanDai.CunGuanTong.Model.cgt_AssetPlatformModel)">
+            <summary>
+            通过资产端用户唯一标识获取信息
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetGenerationRechargeUserByUserId(System.Guid)">
+            <summary>
+            根据userid查询可以代充值的用户查询
+            </summary>
+            <param name="platformUserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.Getcgt_GenerationRechargeUser">
+            <summary>
+            获取可以代充值的用户信息
+            </summary> 
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetUnAuditUser(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取未提交证件的用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueryClient.GetUpdateEnterpriseList(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+             获取可修改信息的企业用户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.QueueClient">
+            <summary>
+            加入队列操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueueClient.AddSubscribe(System.String,System.String@)">
+            <summary>
+            发送到申购预处理队列
+            </summary>
+            <param name="requestNo">申购ID</param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.QueueClient.AddWeOrder(System.String,System.String@)">
+            <summary>
+            发送到加入We计划队列
+            </summary>
+            <param name="requestNo">订单ID</param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.TransactionClient">
+            <summary>
+            异步交易接口回调操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.TransactionClient.AddAsyncRes(System.Collections.SortedList,System.String@)">
+            <summary>
+            异步接口回调加入队列(回调)
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.UserClient">
+            <summary>
+            用户操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ACTIVATE_IMPORT_USER_Req(TuanDai.CunGuanTong.Model.ACTIVATE_IMPORT_USER_Request)">
+            <summary>
+            会员激活(请求)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ACTIVATE_IMPORT_USER_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.ACTIVATE_IMPORT_USER_Response@,System.String@)">
+            <summary>
+            会员激活(回调)
+            </summary>
+            <returns>0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.请求错误</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.CHECK_PASSWORD_Req(TuanDai.CunGuanTong.Model.CHECK_PASSWORD_Request)">
+            <summary>
+            验证密码(请求)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.CHECK_PASSWORD_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.CHECK_PASSWORD_Response@,System.String@)">
+            <summary>
+            验证密码(回调)
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.CHECK_PASSWORD_Req_Td(TuanDai.CunGuanTong.Model.CHECK_PASSWORD_Req_Td)">
+            <summary>
+            验证密码带团贷业务处理(请求)
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.CHECK_PASSWORD_Res_Td(TuanDai.CunGuanTong.Model.CHECK_PASSWORD_Res_Td,TuanDai.CunGuanTong.Model.CHECK_PASSWORD_Response@,TuanDai.CunGuanTong.Model.cgt_CallbackBusinessProcess_Info@,System.String@)">
+            <summary>
+            验证密码(回调)
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.MODIFY_MOBILE_Req(TuanDai.CunGuanTong.Model.MODIFY_MOBILE_Request)">
+            <summary>
+            预留手机号更新(请求)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.MODIFY_MOBILE_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.MODIFY_MOBILE_Response@,System.String@)">
+            <summary>
+            预留手机号更新(回调)
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_INFORMATION_UPDATE_Req(TuanDai.CunGuanTong.Model.ENTERPRISE_INFORMATION_UPDATE_Request)">
+            <summary>
+            企业信息修改（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_INFORMATION_UPDATE_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.ENTERPRISE_INFORMATION_UPDATE_Response@,System.String@)">
+            <summary>
+            企业信息修改（回调）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.RESET_PASSWORD_Req(TuanDai.CunGuanTong.Model.RESET_PASSWORD_Request)">
+            <summary>
+            修改密码（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.RESET_PASSWORD_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.RESET_PASSWORD_Response@,System.String@)">
+            <summary>
+            修改密码（回调）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.PERSONAL_BIND_BANKCARD_Req(TuanDai.CunGuanTong.Model.PERSONAL_BIND_BANKCARD_Request)">
+            <summary>
+            个人绑卡（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.PERSONAL_BIND_BANKCARD_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.PERSONAL_BIND_BANKCARD_Response@,System.String@)">
+            <summary>
+            个人绑卡（回调）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_BIND_BANKCARD_Req(TuanDai.CunGuanTong.Model.ENTERPRISE_BIND_BANKCARD_Request)">
+            <summary>
+            企业绑卡（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_BIND_BANKCARD_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.ENTERPRISE_BIND_BANKCARD_Response@,System.String@)">
+            <summary>
+            企业绑卡（回调）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.PERSONAL_REGISTER_Req(TuanDai.CunGuanTong.Model.PERSONAL_REGISTER_Request)">
+            <summary>
+            个人绑卡注册（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.PERSONAL_REGISTER_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.PERSONAL_REGISTER_Response@,System.String@)">
+            <summary>
+            个人绑卡注册（回调）（激活状态为激活）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_REGISTER_Req(TuanDai.CunGuanTong.Model.ENTERPRISE_REGISTER_Request)">
+            <summary>
+            企业绑卡注册（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.ENTERPRISE_REGISTER_Res(TuanDai.CunGuanTong.Model.CallBackWay_Res,TuanDai.CunGuanTong.Model.ENTERPRISE_REGISTER_Response@,System.String@)">
+            <summary>
+            企业绑卡注册（回调）（激活状态为未激活）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.USER_AUTHORIZATION_Req(TuanDai.CunGuanTong.Model.USER_AUTHORIZATION_Request)">
+            <summary>
+            用户授权（请求）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.USER_AUTHORIZATION_Res(System.Collections.SortedList,TuanDai.CunGuanTong.Model.USER_AUTHORIZATION_Response@,System.String@)">
+            <summary>
+            用户授权（回调）
+            </summary>
+            <returns> 0.处理成功 1.签名错误 2.已处理过 3.本地处理失败 4.存管处理失败 5.API请求失败</returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.UNBIND_BANKCARD_DIRECT_API(TuanDai.CunGuanTong.Model.cgt_fund_UnbindBankcard_Info,System.String@)">
+            <summary>
+            解绑银行卡(直连)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.CHANGE_USER_BANKCARD_API(TuanDai.CunGuanTong.Model.cgt_fund_Change_User_Bankcard_Info,System.String@)">
+            <summary>
+            未激活换卡
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.UpdateUnAuditUser(System.Guid,System.String@)">
+            <summary>
+            修改未提交证件的用户，审核状态改为审核中
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.UserClient.USER_INFORMATION_CHECK(System.Guid,System.String@)">
+            <summary>
+            用户检测校验信息
+            </summary>
+            <param name="platformUserNo"></param>
+            <param name="errorMessage"></param> 
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.CunGuanTong.Client.Cgt_WebPost">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.CunGuanTong.Client.Cgt_WebPost.Param(System.IO.Stream)">
+            <summary>
+            获取Post返回数据
+            </summary>
+            <param name="InputStream">Request.InputStream</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

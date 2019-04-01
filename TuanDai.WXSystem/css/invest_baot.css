@@ -1,0 +1,52 @@
+﻿/*'=========================================================
+'   Web: http://m.tuandai.com
+    Author:Xiaoyan chen
+    Update:Xiaoyan chen 20150916
+'=========================================================*/
+@charset "utf-8";
+/*团宝箱跳转页面*/
+.header{ background-color: #ffd84b; border-bottom:none;}
+.Cont{ width: 100%; padding: 10px 15px 5px;}
+.titBox{ height: 28px; line-height: 28px; font-size: 1.5rem;}
+.Cont .titBox .more{ float: right; display: inline-block; width: auto; height: 20px; line-height: 20px; font-size: 1.2rem; color: #ffcc00; position: relative; z-index: 110; margin-top:5px;}
+.Cont .td_describe{ color:#666; font-size:1.15rem; line-height:22px; padding:5px 0px 30px;}
+.invest-baot{width: 100%;}
+.invest-baot .investSlider .slides li{border-top: 1px solid #d9d9d9; border-bottom:1px solid #d9d9d9;}
+.invest-baot .flexslider{ position:relative;}
+.invest-baot .flexslider .flex-control-nav{ position:absolute; bottom: 3px; right:15px; text-align: center;}
+.invest-baot .flexslider .flex-control-nav li{ display: inline-block; width: 8px; height: 8px; margin-left: 5px; text-indent: -9999px; overflow: hidden;}
+.invest-baot .flexslider .flex-control-nav li a{ display: block;width: 7px; height: 7px;background:#fff; border-radius: 50%;-webkit-border-radius: 50%; border:1px solid #cecece;}
+.invest-baot .flexslider .flex-control-nav li .flex-active{background:#ffd641; border-color: #ffd641;}
+.pb30{ padding-bottom:30px !important;}
+
+/*冒泡提示*/
+.littleTit{width: 98px;height: 18px;line-height: 18px;color: #fff;background: url('/imgs/images/littleTit.png');position: absolute;left: 15px;top: -5px;background-size: 100% 100%;text-align: center;font-size: 1rem;z-index: 9999999;}
+    
+/**投资列表*****************************/
+.contBox{ padding: 15px 80px 15px 15px; min-height: 100px; margin-bottom: 15px; position: relative; z-index: 20;}
+.contBox .contLeft{ width: 100%; height: auto;}
+.contBox .contLeft .c-bd{display: -moz-box;display: -webkit-box;display:box; margin-top: 5px;}
+.contBox .contLeft .c-bd div{-webkit-box-flex: 1;-ms-flex: 1;box-flex: 1;}
+.contBox .contRight{ width: 80px; height: 80px; position: absolute; top: 20px; right: 20px;}
+/*环形统计*/
+.circle {width: 60px;height: 60px;position: absolute;right:0; top:0;border-radius: 50%;-webkit-border-radius: 50%;background-color: #fd5f3f;background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZiYzcyZiIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZjNmI0ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
+background-image: -webkit-linear-gradient(bottom, #fbc72f 0%, #fc6b4e 100%);
+background-image: linear-gradient(bottom, #fbc72f 0%, #fc6b4e 100%);}
+.pie_left, .pie_right {width:60px;height:60px;position: absolute;top: 0;left: 0;}
+.left, .right {width:60px;height:60px;background:#ebebeb;border-radius: 50%;-webkit-border-radius: 50%;position: absolute;top: 0;left: 0;}
+.pie_right, .right {clip:rect(0,auto,auto,30px);}
+.pie_left, .left {clip:rect(0,30px,auto,0);}
+.mask{width: 52px;height: 52px;border-radius: 50%;-webkit-border-radius: 50%;left: 4px;top: 4px;background: #FFF;position: absolute;text-align: center;line-height: 52px;font-size: 1.4rem;color: #fd6040;}
+.mask span{font-size: 1.4rem;color: #fd6040;}
+.finish{ background-color: #93d94e!important; background-image: none!important;}
+.finish .mask,.finish .mask span{ color: #93d94e!important;}
+
+
+
+  .pd13 {padding: 13px;}
+.video-box {height: 220px;padding: 3px 0;background: #FFFFFF;top: 75px;}
+#v2 {display: none;}
+.video_img img {cursor: pointer;}
+.video-box #video {z-index: 100;height: 220px;width: 100%;float: left;position: relative;}
+
+

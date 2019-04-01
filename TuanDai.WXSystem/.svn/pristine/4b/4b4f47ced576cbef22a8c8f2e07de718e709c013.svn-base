@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>私募宝-项目详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css" /><!--借款-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="wrapper-loan assetsbid-cn">
+    <div class="bg-f2f2f2"><h2>【私】 私募宝第四期A</h2></div>
+    <div class="info-item clearfix border-b1">
+        <div class="info-l lf">
+            <p>借款总额:</p>
+            <p class="f16px"> <span class="f16px c-ff6600">20,000.00</span>元</p>
+        </div>
+    </div>
+    <div class="info-item clearfix border-b1">
+        <div class="info-l lf">
+            <p>预期收益:<span class="c-ff6600">30%~200%</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>项目期限:<span class="c-ff6600">12个月</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix border-b1">
+        <div class="info-l lf">
+            <p>出借单位:<span class="c-ff6600">1万</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>收益方式:<span class="c-ff6600">保本浮动收益</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix border-b1">
+        <div class="info-l lf">
+            <p>剩余份数:<span class="c-ff6600">2000</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>担保机构:<span class="c-ff6600">联胜担保</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>剩余时间：<span class="c-212121">9天8时47分</span></p>
+        </div>
+    </div>
+    <div class="bg-f2f2f2"><h2>项目详情</h2></div>
+    <div class="info-item simubao-d">
+        <h3 class="f13px c-ffcf1f">项目概述</h3>
+        <p class="f12px c-545454">产品名称：泽熙4期</p>
+        <p class="f12px c-545454">历史业绩：收益率341.49%，近3年收益率1088.99%</p>
+        <p class="f12px c-545454">基金经理：徐翔</p>
+        <p class="f12px c-545454">发行机构：西藏同信证券股份有限公司</p>
+        <p class="f12px c-545454">资管公司：上海泽熙投资管理有限公司</p>
+        <p class="f12px c-545454">托管银行：兴业银行</p>
+        <p class="f12px c-545454">认购费：无</p>
+        <p class="f12px c-545454">服务费：收益部分收取30%管理费</p>
+        <p class="f12px c-545454">计算净值：0</p>
+        <p class="f12px c-545454 border-b pb20">结算净值：0</p>
+        <p class="mt10 mb15 f13px fx-text">风险提示：私募基金为浮动收益理财产品，有一定亏损风险，投资请谨慎。</p>
+        <div class="pic-cn pr10 border-b pb20">
+            <img src="/imgs/images/pic1.png" alt=""/>
+        </div>
+        <a href="income_trend.html">
+            <div class="clearfix border-b link">
+                <h3 class="f13px lf c-ffcf1f">收益走势</h3>
+                <div class="rf">
+                    <i class="ico-arrow-r"></i>
+                </div>
+            </div>
+        </a>
+        <a href="subscribe_people.html">
+            <div class="clearfix border-b link">
+                    <h3 class="f13px lf c-ffcf1f">申购人数</h3>
+                    <div class="rf">
+                        <span class="c-212121 f13px">150人</span>
+                        <i class="ico-arrow-r"></i>
+                    </div>
+            </div>
+        </a>
+        <a href="simubao_question.html">
+            <div class="clearfix link">
+                     <h3 class="f13px lf c-ffcf1f">常见问题</h3>
+                     <div class="rf">
+                        <i class="ico-arrow-r"></i>
+                     </div>
+            </div>
+        </a>
+    </div>
+    <div class="bg1 pb75"></div>
+    <footer>
+        <a href="javascript:void(0)" class="loan-button">确定加入</a>
+    </footer>
+
+</section>
+</body>
+</html>

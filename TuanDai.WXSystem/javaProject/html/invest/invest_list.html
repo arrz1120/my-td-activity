@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!--<meta name="viewport" content="width=375, user-scalable=no, target-densityDpi=device-dpi">-->
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>定期项目</title>
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/range.css" />
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/invest/list.css" />
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/baikedaohang.css" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="loading-box" id="cMloading">
+			<div class="loading-tips">
+				<img src="/imgs/images/icon/ico_loading.png" alt=""><span>加载中...</span>
+			</div>
+		</div>
+		<div class="pageContainer">
+			<div class="list_top">
+				<header class="headerMain2">
+					<div class="header">
+						<a href="https://m.tuandai.com/" class="logo"></a>
+						<div class="top_right clearfix">
+							<a href="javascript:void(0);" class="top_a2 rf webkit-box box-center box-vertical">
+								<span></span>
+								<span></span>
+								<span></span>
+							</a>
+						</div>
+					</div>
+				</header>
+
+				<div class="list_nav clearfix">
+					<a href="javascript:void(0);" class="cur"><i class="ico_nav ico_nav ico_dqlc_active"></i>定期</a>
+					<a href="javascript:void(0);"><i class="ico_nav ico_nav ico_p2p"></i>P2P</a>
+					<div class="nav_line"></div>
+				</div>
+
+				<div class="list_select clearfix bg-fff bt-e6e6e6">
+					<a href="we_list.html" class="block w33p lf f17px text-center">智能投资</a>
+					<a href="javascript:void(0);" class="block w33p lf f17px text-center c-fab600">定期项目</a>
+					<a href="debt_list.html" class="block w33p lf f17px text-center">定期转让</a>
+				</div>
+
+				<div class="webkit-box w100p bg-fff bt-e6e6e6 bb-e6e6e6 list_sort">
+					<div class="w25p f15px text-center cur" onclick="OrderByFun('queryByDefault',0)" id="dvDefault">默认</div>
+					<div class="w25p f15px text-center c-808080" onclick="OrderByFun('queryByRate',2)" id="dvRate">
+						利率
+
+						<span class="inline-block">
+	                    <p><i class="triangle triangle-up-gray" id="RateOrderBy"  orderby=""></i></p>
+	                    <p><i class="triangle triangle-down-gray" id="dRateOrderBy"></i></p>
+	                </span>
+					</div>
+					<div class="w25p f15px text-center c-808080" onclick="OrderByFun('queryByDeadline',1)" id="dvDeadline">
+						期限
+
+						<span class="inline-block">
+	                    <p><i class="triangle triangle-up-gray" id="DeadlineOrderBy" orderby=""></i></p>
+	                    <p><i class="triangle triangle-down-gray" id="dDeadlineOrderBy"></i></p>
+	                </span>
+					</div>
+					<div class="w25p f15px text-center" id="dvfilter" onclick="OrderByFun('filter',0)">筛选<i class="ico-con ico-down-gray" id="sort-ico"></i></div>
+				</div>
+			</div>
+
+			<div id="wrapper" class="bt-e6e6e6" style="top: 170px; margin-bottom: 49px; overflow: hidden; left: 0px; background: none;">
+				<div id="scroller">
+					<div id="pullDown" style="background: #f1f3f5;">
+						<div class="centerBox-wp">
+							<div class="pullDownTips">
+								<span class="pullDownIcon"></span>
+								<span class="pullDownLabel"></span>
+							</div>
+						</div>
+					</div>
+					<div class="pt10 bg-f1f3f5"></div>
+					<div class="" id="thelist">
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=803b1684-c1f6-4d37-a6cd-07c49259b79e">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-20170602-1</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=803b1684-c1f6-4d37-a6cd-07c49259b79e">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">13<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">6个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=803b1684-c1f6-4d37-a6cd-07c49259b79e">
+										<p class="f12px c-ababab">剩余<span>2.87</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=803b1684-c1f6-4d37-a6cd-07c49259b79e">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=803b1684-c1f6-4d37-a6cd-07c49259b79e')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=b2c7e5c7-9aa5-46c3-a128-03c80c9d8ef9">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-NF201705J81W001号...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=b2c7e5c7-9aa5-46c3-a128-03c80c9d8ef9">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">12个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=b2c7e5c7-9aa5-46c3-a128-03c80c9d8ef9">
+										<p class="f12px c-ababab">剩余<span>48</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=b2c7e5c7-9aa5-46c3-a128-03c80c9d8ef9">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=b2c7e5c7-9aa5-46c3-a128-03c80c9d8ef9')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=e8e1c1d0-1361-4ba9-9d0f-5478dbfd54af">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-NF201705J81W001号...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=e8e1c1d0-1361-4ba9-9d0f-5478dbfd54af">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">3个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=e8e1c1d0-1361-4ba9-9d0f-5478dbfd54af">
+										<p class="f12px c-ababab">剩余<span>30</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=e8e1c1d0-1361-4ba9-9d0f-5478dbfd54af">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=e8e1c1d0-1361-4ba9-9d0f-5478dbfd54af')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=5ba57a73-4a33-4384-9016-5790cfd95a54">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-NF201705J81W号-1</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=5ba57a73-4a33-4384-9016-5790cfd95a54">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">36个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=5ba57a73-4a33-4384-9016-5790cfd95a54">
+										<p class="f12px c-ababab">剩余<span>3</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=5ba57a73-4a33-4384-9016-5790cfd95a54">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=5ba57a73-4a33-4384-9016-5790cfd95a54')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=f79f48a5-af15-4ade-b5dc-742cf594933c">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-NF201705J81W001号...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=f79f48a5-af15-4ade-b5dc-742cf594933c">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">36个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=f79f48a5-af15-4ade-b5dc-742cf594933c">
+										<p class="f12px c-ababab">剩余<span>5</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=f79f48a5-af15-4ade-b5dc-742cf594933c">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=f79f48a5-af15-4ade-b5dc-742cf594933c')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=aca63973-287f-4a59-acdb-1ed8dd0f38ee">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-20170605-5</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=aca63973-287f-4a59-acdb-1ed8dd0f38ee">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">36个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=aca63973-287f-4a59-acdb-1ed8dd0f38ee">
+										<p class="f12px c-ababab">剩余<span>5</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=aca63973-287f-4a59-acdb-1ed8dd0f38ee">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=aca63973-287f-4a59-acdb-1ed8dd0f38ee')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=8f4ee74b-5674-4591-ab3d-d1252d0ba6f2">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-zisu201705J81W号-...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=8f4ee74b-5674-4591-ab3d-d1252d0ba6f2">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">6个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=8f4ee74b-5674-4591-ab3d-d1252d0ba6f2">
+										<p class="f12px c-ababab">剩余<span>40</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=8f4ee74b-5674-4591-ab3d-d1252d0ba6f2">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=8f4ee74b-5674-4591-ab3d-d1252d0ba6f2')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=e47a389b-3517-4026-aafd-aa2a27e38a3d">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-zisu201705J81W号-...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=e47a389b-3517-4026-aafd-aa2a27e38a3d">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">6个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=e47a389b-3517-4026-aafd-aa2a27e38a3d">
+										<p class="f12px c-ababab">剩余<span>200</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=e47a389b-3517-4026-aafd-aa2a27e38a3d">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=e47a389b-3517-4026-aafd-aa2a27e38a3d')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=f4e7a11c-021d-461e-b17d-1b702631b560">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-zisu201705J81W号-...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=f4e7a11c-021d-461e-b17d-1b702631b560">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">6个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=f4e7a11c-021d-461e-b17d-1b702631b560">
+										<p class="f12px c-ababab">剩余<span>200</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=f4e7a11c-021d-461e-b17d-1b702631b560">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=f4e7a11c-021d-461e-b17d-1b702631b560')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=8926682b-0515-4c87-910c-c376264bde0f">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-zisu201705J81W号-...</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=8926682b-0515-4c87-910c-c376264bde0f">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">12个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=8926682b-0515-4c87-910c-c376264bde0f">
+										<p class="f12px c-ababab">剩余<span>10</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=8926682b-0515-4c87-910c-c376264bde0f">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=8926682b-0515-4c87-910c-c376264bde0f')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=136a5640-2389-450f-a9db-b2da34928ed1">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-skywww号-1</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=136a5640-2389-450f-a9db-b2da34928ed1">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">3个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=136a5640-2389-450f-a9db-b2da34928ed1">
+										<p class="f12px c-ababab">剩余<span>25</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=136a5640-2389-450f-a9db-b2da34928ed1">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=136a5640-2389-450f-a9db-b2da34928ed1')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=6a0ecbcd-e201-4200-88de-0e5560a72bf5">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-zisu002号-1</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=6a0ecbcd-e201-4200-88de-0e5560a72bf5">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">12个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=6a0ecbcd-e201-4200-88de-0e5560a72bf5">
+										<p class="f12px c-ababab">剩余<span>21</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=6a0ecbcd-e201-4200-88de-0e5560a72bf5">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=6a0ecbcd-e201-4200-88de-0e5560a72bf5')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=d5ddb52f-f742-454f-b5b1-59164a8cd926">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-20170605-13</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=d5ddb52f-f742-454f-b5b1-59164a8cd926">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">11<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">每月付息</p>
+										<p class="f15px c-212121 mt15">12个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=d5ddb52f-f742-454f-b5b1-59164a8cd926">
+										<p class="f12px c-ababab">剩余<span>200</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=d5ddb52f-f742-454f-b5b1-59164a8cd926">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=d5ddb52f-f742-454f-b5b1-59164a8cd926')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=cf100978-dd32-428c-84b7-4c5856edf783">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-20170601-3</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=cf100978-dd32-428c-84b7-4c5856edf783">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">10<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">到期本息</p>
+										<p class="f15px c-212121 mt15">3个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=cf100978-dd32-428c-84b7-4c5856edf783">
+										<p class="f12px c-ababab">剩余<span>8,800.00</span>元</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=cf100978-dd32-428c-84b7-4c5856edf783">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=cf100978-dd32-428c-84b7-4c5856edf783')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+						<div class="list-item bb-e6e6e6">
+							<a href="/pages/invest/dqlc_detail.aspx?id=d5af45bb-66ce-4b75-a820-c536a59c05c4">
+								<div class="item_r1">即投即计息</div>
+								<div class="item_r2 text-overflow">安盈宝-20170605-6</div>
+							</a>
+							<div class="item_r3">
+								<a href="/pages/invest/dqlc_detail.aspx?id=d5af45bb-66ce-4b75-a820-c536a59c05c4">
+									<div class="list-box-left">
+										<p class="f12px c-ababab">预期年化利率</p>
+										<p class="rate">10<span>%</span></p>
+									</div>
+									<div class="list-box-center text-center">
+										<p class="f12px c-ababab">到期本息</p>
+										<p class="f15px c-212121 mt15">10个月</p>
+									</div>
+								</a>
+								<div class="list-box-right">
+									<a href="/pages/invest/dqlc_detail.aspx?id=d5af45bb-66ce-4b75-a820-c536a59c05c4">
+										<p class="f12px c-ababab">剩余<span>880</span>万</p>
+									</a>
+									<p class="f14px c-212121">
+										<a href="/pages/invest/dqlc_detail.aspx?id=d5af45bb-66ce-4b75-a820-c536a59c05c4">
+										</a>
+										<a href="javascript:checkCgtSubWeGoUrl('/pages/invest/dqlc_detail.aspx?id=d5af45bb-66ce-4b75-a820-c536a59c05c4')" class="toBuy">抢购</a>
+									</p>
+								</div>
+							</div>
+							<div class="item_r4 mt8">
+								<span class="span1"><i class="ico_Shield2"></i>安全保障计划</span>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div id="pullUp">
+						<span class="pullUpIcon"></span><span class="pullUpLabel"></span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--筛选-->
+		<div class="alert pos-a hide" id="alert" style="padding-top: 173px;">
+			<div class="sortAlert pt25" id="sort-move">
+				<div class="pl15 pr15">
+					<p class="f15px c-212121"><span class="f15px c-ababab">年化利率：</span><span class="f23px c-212121" id="count1">5</span>%~<span class="f23px c-212121" id="count2">20</span>%</p>
+					<div class="range-slider">
+						<span class="c-ababab f12px span_from pos-a">5%</span>
+						<input type="text" class="js-range-slider1" value="" tabindex="-1" / style="border: none;">
+						<span class="c-ababab f12px span_to pos-a">20%</span>
+					</div>
+					<p class="f15px c-212121 mt40">
+						<span class="f15px c-ababab">回款期限：</span>
+						<span class="f23px c-212121" id="count3">7<small class="f15px c-212121">天</small></span> ~
+						<span class="f23px c-212121" id="count4">18<small class="f15px c-212121">个月</small></span>
+						<i class="ico-edit" id="time-edit"></i>
+					</p>
+					<div class="range-slider">
+						<span class="c-ababab f12px span_from pos-a">7天</span>
+						<input type="text" class="js-range-slider2" value="" tabindex="-1" / style="border: none;">
+						<span class="c-ababab f12px span_to pos-a">18个月</span>
+					</div>
+				</div>
+				<div class="webkit-box bt-e6e6e6 mt30">
+					<div class="box-flex1 text-center f17px c-808080 pt13 pb13 br-e6e6e6" id="reset">重置</div>
+					<div class="box-flex1 text-center f17px c-fab600 pt13 pb13" id="confirm">确定</div>
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="bt-e6e6e6 webkit-box box-center wx-footer">
+			<a class="block box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f2.png" /></p>
+				<p class="f10px line-h18 c-626262">团贷</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f2_act.png" /></p>
+				<p class="f10px line-h18 c-ffc000">投资</p>
+			</a>
+			<a class="webkit-box box-center box-vertical box-flex1 text-center">
+				<p><img src="/imgs/images/icon/ico_f3.png" /></p>
+				<p class="f10px line-h18 c-626262">我的</p>
+			</a>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="/javaProject/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/ion.rangeSlider.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/iscroll.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/scrollUpdate.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/InvestList.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/seo.js"></script>
+	<script type="text/javascript" src="/javaProject/scripts/base.js"></script>
+
+</html>

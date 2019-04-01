@@ -1,0 +1,61 @@
+/*'=========================================================
+'   Web: http://m.tuandai.com
+    Author:Aaron Nie
+    Update:ZhuYuQin 20150825
+'=========================================================*/
+@charset "utf-8";
+.proMain{ padding:0 14px;}
+.proMain h1{ color:#212121; font-size:1.7rem; margin-bottom:10px; margin-top:30px;}
+.proMain h1 i{ width:8px; height:8px;border-radius: 50%;-webkit-border-radius: 50%; background-color:#ffcf1f; display:inline-block; vertical-align:middle;}
+.proMain h1 i.b-fd6040{background-color: #fd6040;}
+.proMain p{ color:#ababab; font-size:1.4rem; line-height:26px;}
+.proMain p span{ color:#fd6040;font-size:1.4rem;}
+
+
+.smbMain .p1{ font-size:1.5rem; color:#434343;}
+.smbMain h2{ font-size:1.5rem; color:#ffb31f;}
+.smbMain p{ color:#ababab; font-size:1.4rem; line-height:26px;}
+.smbMain ul li{ height:100px; position:relative; padding:15px 15px 15px 110px;}
+.smbMain ul li img{ width:60px;  position:absolute; left:30px; top:15px;}
+.smbMain ul li.b-color{ background-color:#f5f5f5;}
+.smbMain table{border-collapse:collapse;border:none;border-radius: 20px;-webkit-border-radius: 20px;}
+.smbMain table td{border:solid #d9d9d9 1px; padding:8px 10px; vertical-align:top; line-height:18px;}
+.b-e1e1e1{ background-color: #e1e1e1!important;}/*灰色*/
+.b-f7f7f7{ background-color: #f7f7f7!important;}/*灰色*/
+.c-c5c5c5{ color: #c5c5c5!important;}/*灰色*/
+.b-6eb6fa{ background-color: #6eb6fa!important;}/*蓝色*/
+.b-f5faff{ background-color: #f5faff!important;}/*蓝色*/
+.c-6eb6fa{ color: #6eb6fa!important;}/*蓝色*/
+
+.smb_borrower{ background-color:#fff; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; padding:20px; padding-bottom:10px;}
+.smb_borrower .tit_txt{ color:#f6c618; font-size:1.7rem;}
+.smb_borrower .tit_txt i{ width:3px; height:16px; display:inline-block; vertical-align:middle; background-color:#ffd641; margin-top:-4px; margin-right:5px;}
+.borrower_mess{ position:relative; padding-left:23%; border-bottom:1px solid #ededed;}
+.borrower_mess table{border-collapse:collapse;border:none;}
+.borrower_mess table td{border:none; line-height:18px; font-size:1.0rem; height:32px;}
+.borrower_mess table td font{ color:#9aca40; font-weight:bold; margin-left:5px; font-size:1.7rem;}
+.borrower_mess img{ width:60px;border-radius: 10px;-webkit-border-radius: 10px; position:absolute; left:0; top:0;}
+.borrower_mess i{ display:inline-block; vertical-align:middle; background:url(/imgs/App/ico-detail.png) no-repeat center; width:18px; height:26px; background-size:18px; margin-right:3px;}
+.borrower_mess i.id{ background-position: 0 1px;}
+.borrower_mess i.email{ background-position:0 -22px;}
+.borrower_mess i.phone{ background-position: 0 -45px;}
+.borrower_mess i.artificial{ background-position:0 -66px;}
+.borrower_mess i.certification{ background-position: 0 -90px;}
+.borrower_detail table{border-collapse:collapse;border:none;}
+.borrower_detail table td{border:none; color:#ababab; font-size:1.2rem; height:30px;}
+.borrower_detail table td font{ color:#212121;}
+.borrower_detail table td p{ text-align:right;color:#ababab; font-size:1.2rem; height:30px; line-height:30px;}
+.smb_sec{ border-bottom:2px solid #e5e5e4; border-top:1px solid #cccccc;}
+.smb_sec img{ width:100%;}
+.smb_que{ border-bottom:1px solid #cccccc; border-top:1px solid #cccccc; background:#fff;}
+.smb_que p{ height:50px; border-bottom:1px solid #e6e6e6; position:relative;}
+.smb_que p a{font-size:1.6rem; color:#212121; display:inline-block; vertical-align:middle; width:100%; height:100%; line-height:50px;}
+.smb_que p i{ position:absolute; width:20px; height:49px; right:0; top:0;  font-size:2.4rem; color:#cccccc;}
+.smb_que p i img{    width: 10px;vertical-align: top;margin-top: 16px;}
+.smb_but .but{ display:inline-block; vertical-align:middle; width:100%; height:50px; line-height:50px; text-align:center; color:#fff; background:#ffcf1f; font-size:1.9rem;}
+
+/*关注微信*/
+.bg-faeec3{background: #faeec3 !important;}
+.c-banner{padding: 34px 0 14px 0;background: #fb755c;text-align: center;}
+.c-banner img{width: 88.1%;}
+.concernwx3 img{width: 93.6%;}

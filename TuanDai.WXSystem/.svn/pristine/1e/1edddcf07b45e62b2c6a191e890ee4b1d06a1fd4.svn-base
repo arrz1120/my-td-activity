@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>我的账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pageContainer">
+
+			<!--分拆去掉我要借款-->
+			<!--<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6">-->
+                <!--<div class="click-respond">-->
+					<!--<a href="https://m.tuandai.com/pages/downloadGuide.aspx" class="bb-e6e6e6"><i class="ico_account ico_a7"></i>我要借款<i class="ico-arrow-r"></i></a>-->
+				<!--</div>  -->
+			<!--</div>-->
+	
+			<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6"> 
+                <div class="click-respond">
+					<a href="account_guanli.html" class="bb-e6e6e6"><i class="ico_account ico_a13"></i>账户管理<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+	
+			<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6"> 
+                <div class="click-respond">
+					<a href="" class="bb-e6e6e6"><i class="ico_account ico_a14"></i>推送开关<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+	
+			<div class="mt10 bg-fff acount-link bt-e6e6e6 bb-e6e6e6"> 
+                <div class="click-respond">
+					<a href="http://info.tdw.cn/wap/help/index.html" class="bb-e6e6e6"><i class="ico_account ico_a11"></i>帮助中心<i class="ico-arrow-r"></i></a>
+				</div>
+			</div>
+	
+			<div class="quit click-respond bt-e6e6e6 bb-e6e6e6 mt10 logout_submit2" id="quit">退出登录</div>
+			<div class="sever_tel text-center c-ababab f13px">客服电话：<a href="tel:10101218" class="sever_tel text-center c-ababab f13px">1010-1218</a></div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+	</script>
+
+</html>

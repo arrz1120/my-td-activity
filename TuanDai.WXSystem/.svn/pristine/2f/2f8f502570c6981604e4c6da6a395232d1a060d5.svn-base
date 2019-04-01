@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>私募宝回款详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">回款详情</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="return-top-cn">
+        <a href="">
+        <div class="clearfix">
+            <div class="lf">
+                <p class="f11px c-434343">证券宝  私募宝A【A15041819138】</p>
+                <p class="f10px c-ababab mt5">投标时间：2014-05-11 13:42 (手动投标) </p>
+            </div>
+            <div class="rf">
+                <i class="icoBox11 state7"></i><span class="f13px c-fd6040">持有中</span><i class="ico_arrow_r3"></i>
+                <!--下面注释的不同状态 逾期-->
+                <!--<i class="icoBox11 state1"></i><span class="f13px c-9aca40">逾期</span><i class="ico_arrow_r3"></i>-->
+            </div>
+        </div>
+        </a>
+    </section>
+
+    <section class="fundPreview">
+        <div class="c-694514 f12px">待收本息（元）</div>
+        <div class="c-fff f30px pt15 pb15">¥ 1,100,100.52</div>
+        <div class="warningMain clearfix">
+            <div>
+                <p class="c-212121 f12px lh20">投资金额（元）</p>
+                <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+            </div>
+            <div>
+                <p class="c-212121 f12px lh20">可获利息（元）</p>
+                <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="returned-box simubao-returned clearfix">
+        <div class="hint-text">
+            <p class="mr15 f12px mt10">收益部分收取10%管理费</p>
+        </div>
+        <div class="bg-fbfbf9 pt15"></div>
+
+        <!--显示回款列表 start-->
+        <section class="clearfix">
+            <div class="returned-nav clearfix">
+                <div class="p-left">时间（0/1期）</div>
+                <div class="p-left1">待收本金+利息</div>
+                <div class="p-right">状态</div>
+            </div>
+        </section>
+        <section class="clearfix bg-bdBom1-ccc">
+            <div class="listBox pd0 clearfix">
+                <ul class="clearfix ml15 mr15">
+                    <li>
+                            <span class="lf f14px c-808080">2016-08-08</span>
+                            <span class="md pos-a f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-fd6040">3000</i></span>
+                            <span class="rf f14px c-808080">回款中</span>
+                    </li>
+                    <li>
+                            <span class="lf f14px c-808080">2016-08-08</span>
+                            <span class="md pos-a f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-fd6040">10.3</i></span>
+                            <span class="rf f14px c-808080">待回款</span>
+                    </li>
+                </ul>
+            </div>
+        <!--</section>-->
+
+        <!--显示回款列表 end-->
+
+        <!--显示图表 start-->
+
+        <section class="trend-chart bg-fff pl15 pr15">
+            <h3 class="c-434343 f14px pt15">收益走势</h3>
+            <div class="clearfix trend-umb mb20">
+                <div class="lf">
+                    <p class="c-434343 f13px">当前收益率：<span class="c-ff6600 f13px">17.8%</span></p>
+                    <p class="c-434343 f13px">市值公布日：2015-07-17</p>
+                </div>
+                <p class="rf c-434343 f13px">近期走势</p>
+            </div>
+            <div style="width:100%">
+                <div>
+                    <canvas id="canvas" height="450" width="600"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!--显示图表 end-->
+
+
+    </div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/Chart.min.js"></script>
+    <script>
+        var randomScalingFactor = function(){ return Math.round(Math.random()*50)};
+        var lineChartData = {
+            labels : ["15/07/15","","15/07/24","","15/08/05","","15/08/13"],
+            datasets : [
+                {
+                    label: "收益走势",
+                    fillColor : "transparent",
+                    strokeColor : "rgba(255,194,27,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#000",
+                    pointHighlightFill : "#000",
+                    pointHighlightStroke : "rgba(151,187,205,1)",
+                    data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                }
+            ]
+
+        }
+
+        window.onload = function(){
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true,
+                bezierCurve: false,
+                pointDot : false,
+                scaleLineWidth : 2,
+                scaleFontColor : "#adadad",
+                scaleFontSize : 8
+            });
+        }
+
+    </script>
+
+</body>
+</html>

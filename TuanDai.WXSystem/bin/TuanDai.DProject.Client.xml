@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.DProject.Client</name>
+    </assembly>
+    <members>
+        <member name="M:TuanDai.DProject.Client.ConnectService.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化wcf调用
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.ConnectService.ReleaseConnection(TuanDai.ServerContract.ProjectService)">
+            <summary>
+            关闭wcf
+            </summary>
+        </member>
+        <member name="T:TuanDai.DProject.Client.DSubscribeClient">
+            <summary>
+            项目服务的客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.SubscribeProject(System.String,System.String@)">
+            <summary>
+            所有发标审核后自动处理的请求(we,自动投标)
+            </summary>
+            <param name="projectid">申购的项目ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.AutoProject(System.String,System.String@)">
+            <summary>
+            根据项目自动投标
+            </summary>
+            <param name="projectid">处理的项目ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.AutoSubscribe(System.String@)">
+            <summary>
+            自动投标
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.ProjectAutoSubscribe(System.String,System.String@)">
+             <summary>
+            从we计划开始自动投标,一直到自动投标(申购)
+             </summary>
+             <param name="projectid">项目的ID</param>
+             <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+             <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.WeAutoSubscribeOfOrderId(System.String,System.String@)">
+            <summary>
+            We计划满标时的自动投标的请求包括(we,自动)
+            </summary>
+            <param name="we_productid">we计划的产品ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.SubscribeInit(TuanDai.Model.DProject.SubscribeRequest,System.String@)">
+             <summary>
+             申购
+             </summary>
+             <param name="subscribeRequest">申购请求类</param>
+            <param name="ErrorMessage">申购的错误日志</param>
+            <returns >返回申购的信息</returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.SubscribeInitHandler(TuanDai.Model.DProject.SubscribeRequest,System.String@)">
+             <summary>
+             申购具体执行
+             </summary>
+             <param name="subscribeRequest">申购请求类</param>
+            <param name="ErrorMessage">申购的错误日志</param>
+            <returns >返回申购的信息</returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.BorrowerBySubscribe(System.String,System.String@,System.Int32)">
+            <summary>
+            申购借款人资金处理
+            </summary>
+            <param name="subscribeId">申购的Id</param>
+            <param name="ErrorMessage">错误信息</param>
+            <param name="priority">1:tcp 2:web</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.ProjectSubmitOfAllByProducter(System.String@)">
+            <summary>
+            将重新提交所有符合项目到生产者
+            </summary>
+            <param name="ErrorMessage">不为空，表示有异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.FQBSetsAudit(System.Guid,System.String@)">
+            <summary>
+            分期宝集审核
+            </summary>
+            <param name="ItemId"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.JoinWePlanSubscribe(System.String@)">
+            <summary>
+            中途加入we计划投资
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient.ProjectAgainAudit(System.String@)">
+            <summary>
+            项目重新审核
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.DProject.Client.DSubscribeClient_Tcp">
+            <summary>
+            项目服务的客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.SubscribeProject(System.String,System.String@,System.Int32)">
+             <summary>
+             所有发标审核后自动处理的请求(we,自动投标)
+             </summary>
+             <param name="projectid">申购的项目ID</param>
+             <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <param name="type"> 1:非分期集合　２：分期集合</param>
+             <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.AutoProject(System.String,System.String@)">
+            <summary>
+            根据项目自动投标
+            </summary>
+            <param name="projectid">处理的项目ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.AutoSubscribe(System.String@)">
+            <summary>
+            自动投标
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.ProjectAutoSubscribe(System.String,System.String@)">
+             <summary>
+            从we计划开始自动投标,一直到自动投标(申购)
+             </summary>
+             <param name="projectid">项目的ID</param>
+             <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+             <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.WeAutoSubscribeOfOrderId(System.String,System.String@)">
+            <summary>
+            We计划满标时的自动投标的请求包括(we,自动)
+            </summary>
+            <param name="we_productid">we计划的产品ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.SubscribeInit(TuanDai.Model.DProject.SubscribeRequest,System.String@)">
+             <summary>
+             申购
+             </summary>
+             <param name="subscribeRequest">申购请求类</param>
+            <param name="ErrorMessage">申购的错误日志</param>
+            <returns >返回申购的信息</returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.BorrowerBySubscribe(System.String,System.String@)">
+            <summary>
+            申购借款人资金处理
+            </summary>
+            <param name="subscribeId">申购的Id</param>
+            <param name="ErrorMessage">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.ProjectSubmitOfAllByProducter(System.String@)">
+            <summary>
+            将重新提交所有符合项目到生产者
+            </summary>
+            <param name="ErrorMessage">不为空，表示有异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.FQBSetsAudit(System.Guid,System.String@)">
+            <summary>
+            分期宝集审核
+            </summary>
+            <param name="ItemId"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.JoinWePlanSubscribe(System.String@)">
+            <summary>
+            中途加入we计划投资
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Tcp.ProjectAgainAudit(System.String@)">
+            <summary>
+            项目重新审核
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.SubscribeProject(System.String,System.String@,System.Int32)">
+            <summary>
+            所有发标审核后自动处理的请求(we,自动投标)
+            </summary>
+            <param name="projectid">申购的项目ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <param name="type"> 1:非分期集合　２：分期集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.AutoProject(System.String,System.String@)">
+            <summary>
+            根据项目自动投标
+            </summary>
+            <param name="projectid">处理的项目ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.AutoSubscribe(System.String@)">
+            <summary>
+            自动投标
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.ProjectAutoSubscribe(System.String,System.String@)">
+             <summary>
+            从we计划开始自动投标,一直到自动投标(申购)
+             </summary>
+             <param name="projectid">项目的ID</param>
+             <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+             <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.WeAutoSubscribeOfOrderId(System.String,System.String@)">
+            <summary>
+            We计划满标时的自动投标的请求包括(we,自动)
+            </summary>
+            <param name="we_productid">we计划的产品ID</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.SubscribeInit(TuanDai.Model.DProject.SubscribeRequest,System.String@)">
+             <summary>
+             申购
+             </summary>
+             <param name="subscribeRequest">申购请求类</param>
+            <param name="ErrorMessage">申购的错误日志</param>
+            <returns >返回申购的信息</returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.BorrowerBySubscribe(System.String,System.String@)">
+            <summary>
+            申购借款人资金处理
+            </summary>
+            <param name="subscribeId">申购的Id</param>
+            <param name="ErrorMessage">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.ProjectSubmitOfAllByProducter(System.String@)">
+            <summary>
+            将重新提交所有符合项目到生产者
+            </summary>
+            <param name="ErrorMessage">不为空，表示有异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.FQBSetsAudit(System.Guid,System.String@)">
+            <summary>
+            分期宝集合审核
+            </summary>
+            <param name="ItemId"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.JoinWePlanSubscribe(System.String@)">
+            <summary>
+            中途加入we计划投资
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.ProjectAgainAudit(System.String@)">
+            <summary>
+            项目重新审核
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DSubscribeClient_Web.DProjectHandler``1(System.String,System.String@)">
+            <summary>
+            统一处理项目服务的请求
+            </summary>
+            <param name="SuffixUrl">Url地址的后缀</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.DProject.Client.DUserClient_Tcp">
+            <summary>
+            用户的基本操作
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Tcp.testrabbitwcf(System.String,System.String@)">
+            <summary>
+            测试
+            </summary>
+            <param name="id">随意</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Tcp.Do(System.String,System.String@)">
+            <summary>
+            检测端口
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Tcp.ClearMoney(System.String,System.String@)">
+            <summary>
+            清理服务端缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Web.Do(System.String@)">
+            <summary>
+            检测端口
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Web.ClearMoney(System.String@)">
+            <summary>
+            清理内存
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.DUserClient_Web.DProjectHandler``1(System.String,System.String@)">
+            <summary>
+            统一处理项目服务的请求
+            </summary>
+            <param name="SuffixUrl">Url地址的后缀</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.DProject.Client.FundAccountClient">
+            <summary>
+            用户账户的调用客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient.FundAccountRechargeRequest(TuanDai.Model.DProject.RechargeRequest,System.String@)">
+            <summary>
+            用户充值请求
+            </summary>
+            <param name="request">RechargeRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient.FundAccountRechargeHanlder(TuanDai.Model.DProject.RechargeHandlerRequest,System.String@)">
+            <summary>
+            用户充值请求处理
+            </summary>
+            <param name="request">RechargeHandlerRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.DProject.Client.FundAccountClient_Tcp">
+            <summary>
+            用户账户的调用客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient_Tcp.FundAccountRechargeRequest(TuanDai.Model.DProject.RechargeRequest,System.String@)">
+            <summary>
+            用户充值请求
+            </summary>
+            <param name="request">RechargeRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient_Tcp.FundAccountRechargeHanlder(TuanDai.Model.DProject.RechargeHandlerRequest,System.String@)">
+            <summary>
+            用户充值请求处理
+            </summary>
+            <param name="request">RechargeHandlerRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient_Web.FundAccountRechargeRequest(TuanDai.Model.DProject.RechargeRequest,System.String@)">
+            <summary>
+            用户充值请求
+            </summary>
+            <param name="request">RechargeRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient_Web.FundAccountRechargeHanlder(TuanDai.Model.DProject.RechargeHandlerRequest,System.String@)">
+            <summary>
+            用户充值请求处理
+            </summary>
+            <param name="request">RechargeHandlerRequest请求实体</param>
+            <param name="ErrorMessage">错误日志如果空:表示没有异常,否则出现异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.DProject.Client.FundAccountClient_Web.DProjectHandler``1(System.String,System.String@)">
+            <summary>
+            统一处理项目服务的请求
+            </summary>
+            <param name="SuffixUrl">Url地址的后缀</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

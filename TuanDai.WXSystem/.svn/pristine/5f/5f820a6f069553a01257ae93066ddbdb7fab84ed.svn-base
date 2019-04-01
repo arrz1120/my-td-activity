@@ -1,0 +1,152 @@
+﻿using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.DAL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.Bank
+{
+    public partial class invest_confirm : UserPage
+    {
+        /// <summary>
+        /// 可用资金
+        /// </summary>
+        protected decimal AviMoney;
+        /// <summary>
+        /// 支付金额
+        /// </summary>
+        protected decimal PayMoney;
+        /// <summary>
+        /// 预期收益
+        /// </summary>
+        protected string ProfitMoney;
+        /// <summary>
+        /// 项目ID
+        /// </summary>
+        protected Guid projectId;
+        /// <summary>
+        /// 申购份数
+        /// </summary>
+        protected int unit;
+        protected UserBasicInfoInfo userModel;
+
+        protected UserSettingInfo userSetting;
+        /// <summary>
+        /// 投资类型 project:投资普通标   weplan:投资we计划    
+        /// </summary>
+        protected string investType;
+        /// <summary>
+        /// we计划分期宝投资计息方式 2本金复投 1本息复投
+        /// </summary>
+        protected int RepeatInvestType;
+        protected WebSettingInfo SetModel;
+        protected WeProductDetailInfo model = null;
+        /// <summary>
+        /// 是否显示短信验证码
+        /// </summary>
+        protected bool IsShowMobileCode = false;
+        /// <summary>
+        /// 是否有选择红包
+        /// </summary>
+        protected Guid? PrizeId;
+        protected string PrizeName = "";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Guid userId = WebUserAuth.UserId.Value;
+            UserBLL bll = new UserBLL();
+            UserSettingBLL uBll = new UserSettingBLL();
+            SetModel = new WebSettingBLL().GetWebSettingInfo("5E08DFE3-6CED-4E71-8CF9-2A2E3BAC9036");
+            if (userId != null && userId != Guid.Empty)
+            {
+                var rInfo = new UserRiskEvaluationBLL().GetAssassTimeThisYear(userId, TdConfig.ApplicationName);
+                if (rInfo == null)
+                {
+                    Response.Redirect("/Member/safety/pre_invest.aspx", true);
+                }
+
+                AviMoney = bll.GetUserAviMoney(userId);
+                userModel = bll.GetUserBasicInfoModelById(userId);
+                userSetting = uBll.GetUserSettingInfo(userId);
+                if (userSetting == null)
+                {
+                    userSetting = new UserSettingInfo();
+                    userSetting.IsTenderNeedPayPassword = false;
+                }
+                
+                //假如数据还不同步过来，设置未身份证验证
+                if (userModel == null)
+                {
+                    userModel = new UserBasicInfoInfo();
+                    userModel.IsValidateIdentity = false;
+                    AviMoney = 0;
+                }
+            }
+            else
+            {
+                Response.Redirect("/user/Login.aspx?ReturnUrl="+Request.RawUrl,true);
+            }
+
+            Tool.CookieHelper.WriteCookie("InvestUrl", HttpContext.Current.Request.RawUrl, 30);
+            var projectIdStr = Tool.WEBRequest.GetQueryString("projectid");// Request.QueryString["projectid"];
+            if (!string.IsNullOrEmpty(projectIdStr))
+            {
+                projectId = Guid.Parse(projectIdStr);
+                //model = new WeProductBLL().GetWeProductInfo(projectId);
+                
+                if (IsZQZR(projectId) && !TuanDai.PortalSystem.Redis.mRedis.GetZqzrInvestCodePass(projectId, userId))
+                {
+                    IsShowMobileCode = true;
+                }
+            } 
+            else
+                Response.Redirect("/pages/invest/invest_list.aspx");
+
+            investType = Tool.WEBRequest.GetQueryString("investType"); //Request.QueryString["investType"];
+
+            var payMoneyStr = Tool.WEBRequest.GetQueryString("payMoney"); //Request.QueryString["payMoney"];
+            if (!string.IsNullOrEmpty(payMoneyStr) && payMoneyStr != "NaN")
+                PayMoney = decimal.Parse(payMoneyStr);
+            else
+                Response.Redirect("/pages/invest/invest_list.aspx");
+
+            ProfitMoney = Tool.WEBRequest.GetQueryString("profitMoney");//Request.QueryString["profitMoney"];
+
+            var unitStr = Tool.WEBRequest.GetQueryString("unit"); //Request.QueryString["unit"];
+            if (!string.IsNullOrEmpty(unitStr))
+                unit = int.Parse(unitStr);
+            else
+                Response.Redirect("/pages/invest/invest_list.aspx");
+
+            var repeatInvestTypeStr = Tool.WEBRequest.GetQueryString("repeatInvestType"); //Request.QueryString["repeatInvestType"];
+            if (!string.IsNullOrEmpty(repeatInvestTypeStr))
+                RepeatInvestType = int.Parse(repeatInvestTypeStr);
+
+            if (Tool.WEBRequest.GetQueryString("PrizeId") != "")
+                PrizeId = WEBRequest.GetGuid("PrizeId");
+            PrizeName = WEBRequest.GetQueryString("PrizeName");
+        }
+
+        protected bool IsZQZR(Guid m_Id)
+        {
+            string sql = @"select count(0) from t_SubScribeTransfer with(nolock) where m_Id=@Id";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@Id",m_Id);
+
+            return PublicConn.QuerySingle<int>(sql, ref para) > 0;
+        }
+    }
+    public class UserBankInfo
+    {
+        public string BankNo { get; set; }
+
+        public int? BankType { get; set; }
+    }
+}

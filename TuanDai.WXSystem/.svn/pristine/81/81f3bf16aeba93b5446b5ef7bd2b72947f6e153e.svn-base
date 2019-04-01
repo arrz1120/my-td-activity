@@ -1,0 +1,8 @@
+html,body{min-height: 100%;}
+	
+.sucBox{padding-top: 60px;}
+.ico_suc{width: 110px;height: 110px;background: url(../images/ico_suc.png) no-repeat;background-size: 100% 100%;}
+.ico_fail{width: 110px;height: 110px;background: url(../images/ico_fail.png) no-repeat;background-size: 100% 100%;}
+.suc_p1{margin-top: 27px;font-size: 17px;}
+.suc_p2{font-size: 13px;color: #ababab;margin-top: 5px;}
+

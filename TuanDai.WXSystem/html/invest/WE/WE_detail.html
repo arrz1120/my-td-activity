@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/WePlan.css" />
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<section class="investMain">
+    <div class="investBox clearfix">
+        <div class="investLeft c-212121 f14px">可用资金：</div>
+        <div class="investRight">
+            <span class="f14px c-ababab">123元</span>
+            <span><a href="" class="btn-chargemoney">充值</a></span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft">
+            <p class="c-212121 f14px">认购份数：</p>
+            <p class="f12px c-ababab">100元/份</p>
+        </div>
+        <div class="investRight">
+            <div class="formBox">
+                <input type="button" class="Btn btn-left disabled subtract" />
+                <input type="text" class="middle num-buy" name="" value="1 份" maxshare="">
+                <input type="button" class="Btn btn-right plusNum" />
+            </div>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-212121 f14px">预期收益：</div>
+        <div class="investRight">
+            <span class="f14px c-fd6040">321.00<i class="f14px c-ababab">元</i></span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-212121 f14px">使用红包：</div>
+        <div class="investRight">
+            <span class="f12px c-ababab">现金红包0.5+普通红包2元）</span>
+        </div>
+    </div>
+    <div class="investBox border0 clearfix">
+        <div class="investLeft c-212121 f14px">实际支付：</div>
+        <div class="investRight">
+            <span class="f18px c-fd6040">88,873,212.00<i class="f14px c-ababab">元</i></span>
+        </div>
+    </div>
+    <a href="javascript:;" class="investBtn">马上投资</a>
+    <div class="investBox pt15 pb15 c-212121 f14px clearfix">WE计划A <i class="c-ababab">(A15041819138) </i></div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">借款总额：</div>
+        <div class="investRight">
+             <span class="f18px c-fd6040">88,873,212.00<i class="f14px c-ababab">元</i></span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">年化收益：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">15%</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">还款期限：</div>
+        <div class="investRight">
+             <span class="f16px c-212121">3个月</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">出借单位：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">100元</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">还款方式：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">按月付息到期还本</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">借入份数：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">20000份</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">剩余份数：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">4000份</span>
+        </div>
+    </div>
+    <div class="investBox clearfix">
+        <div class="investLeft c-ababab f14px">截止时间：</div>
+        <div class="investRight">
+             <span class="f14px c-212121">2015年05月01日</span>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //购买份数
+        $(".subtract").unbind("click");
+        //减去
+        $(".subtract").click(function () {
+            var obj = $(this).parent(".formBox").children(".num-buy");
+            var currentShare = $(obj).val().replace("份", "").replace(" ", "");
+            if (currentShare > 1) {
+                $(obj).val((parseInt(currentShare) - 1) + " 份");
+            }
+            if (currentShare == 1) {
+                $(".btn-left").addClass("disabled");
+            }
+        });
+        $(".plusNum").unbind("click");
+        //增加
+        $(".plusNum").click(function () {
+            $(".btn-left").removeClass("disabled");
+            var obj = $(this).parent(".formBox").children(".num-buy");
+            var currentShare = $(obj).val().replace("份", "").replace(" ", "");
+            if (currentShare != $(obj).attr("maxShare")) {
+                $(obj).val((parseInt(currentShare) + 1) + " 份");
+            }
+        });
+    });
+</script>
+</body>
+</html>

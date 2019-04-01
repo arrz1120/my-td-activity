@@ -1,0 +1,237 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.Objects;
+using Tool;
+using BusinessDll;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.Member.withdrawal
+{
+    public partial class drawmoney : UserPage
+    {
+        protected UserBasicInfoInfo basicinfo;
+        protected FundAccountInfoInfo accountInfo;
+        protected string exsitbank = "1";
+        protected int? vailStatus = 0;
+        protected string sexname = "先生";
+        protected decimal topwithdrawamount = 0;
+        protected int count = 0;
+        protected decimal wxAviMoney = 0;//微信最大可提现余额
+        protected decimal cadAviMoney = 0;//银行卡最大可提现余额
+        protected decimal FreezeAmount = 0;
+        protected int bankStatus = 1;
+        protected Guid userId;
+        protected UserBLL bll = new UserBLL();
+        protected List<WithdrawVoucherInfo> VoucherInfoList = null;//提现卷
+        protected int DefPayType = 2; //默认支付方式
+        protected BankNoInfo bankModel = new BankNoInfo();
+        protected Guid prizeId = Guid.Empty;
+        protected string bankName = string.Empty;
+        protected string bankNo = string.Empty;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                prizeId = Tool.WEBRequest.GetGuid("id");
+                userId = WebUserAuth.UserId.Value;
+                OnInitData();
+            }
+        }
+
+        private void OnInitData()
+        {
+
+            if (!GlobalUtils.IsOpenCGT)
+            {
+                BankInfoInfo bankmodel = new BankInfoBLL().GetBankInfoByUserId(userId);
+                if (bankmodel != null)
+                {
+                    bankStatus = Convert.ToInt32(bankmodel.Status);
+                }
+            }
+            basicinfo = bll.GetUserBasicInfoModelById(userId);
+            if (!GlobalUtils.IsOpenCGT)
+            {
+                bankNo = basicinfo.BankAccountNo;
+                if (string.IsNullOrEmpty(basicinfo.BankAccountNo))
+                {
+                    string sql = @"SELECT BankNo,BankType FROM dbo.UserBankInfo WITH(NOLOCK) WHERE UserId = @UserId ";
+
+                    DynamicParameters para = new DynamicParameters();
+                    para.Add("@UserId", userId);
+                    var ubi = PublicConn.QuerySingle<UserBankInfo>(sql, ref para);
+
+                    if (ubi != null)
+                    {
+                        bankNo = ubi.BankNo;
+                        basicinfo.BankAccountNo = ubi.BankNo;
+                        basicinfo.BankType = ubi.BankType;
+                    }
+                }
+            }
+            else
+            {
+                GlobalUtils.GetBankImg(basicinfo.Id, out bankName);
+                var bankinfo = GlobalUtils.GetBankInfo(basicinfo.Id);
+                bankNo = bankinfo.BankNo;
+            }
+            
+            if (basicinfo.sex == 2)
+            {
+                sexname = "小姐";
+            }
+            vailStatus = getVailStatusByUserModel(basicinfo);
+            accountInfo = new FundAccountBLL().GetFundAccountInfoById(userId);
+
+            if (!GlobalUtils.IsOpenCGT)
+            {
+                //计算团贷网可提现金额  
+                CalcWithDrawMoney(userId);
+            }
+            else
+            {
+                cadAviMoney = bll.GetDrawAviAmount(userId);
+            }
+            wxAviMoney = 0;
+            WebSettingInfo setmodel = new WebSettingBLL().GetWebSettingInfo("1F9F7CF7-267E-4F88-B3A4-F2775401CA0F");
+            topwithdrawamount = (basicinfo.Level ?? 1) == (int)ConstString.UserType.VipUser ? decimal.Parse(setmodel.Param5Value) : decimal.Parse(setmodel.Param4Value);
+
+            UserPrizeBll prizebll = new UserPrizeBll();
+            VoucherInfoList = prizebll.GetWithdrawVoucher(userId);
+            foreach (var item in VoucherInfoList)
+            {
+                if (item.ExpirationDate.HasValue)
+                {
+                    item.DateDeadline = (int)MyDateTime.DateDiff(MyDateTime.DateDiffOption.Day, DateTime.Now,
+                        item.ExpirationDate.Value);
+                }
+            }
+            count = VoucherInfoList.Count;
+
+            if (!GlobalUtils.IsOpenCGT)
+            {
+              this.GetUserBankInfo();
+            }
+
+            //获取默认支付方式
+            DefPayType = 2; 
+        }
+
+
+        protected void GetUserBankInfo()
+        {
+            string strSQL = @"SELECT BankAccountNo,BankType,1 AS ValType FROM dbo.UserBasicInfo with(nolock) WHERE id=@userId AND ISNULL(BankAccountNo,'')!=''
+                                    UNION ALL
+                                    select BankNo,BankType,0 from dbo.UserBankInfo with(nolock) where userid=@userId
+                                    ORDER by ValType DESC ";
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@userId", userId);
+            bankModel = PublicConn.QuerySingle<BankNoInfo>(strSQL, ref dyParams);
+            if (bankModel == null)
+            {
+                exsitbank = "0";
+                bankModel = new BankNoInfo() { };
+            }
+        }
+
+
+
+        //计算用户可提现金额
+        private void CalcWithDrawMoney(Guid userId)
+        {
+            decimal maxAviMoney = bll.GetDrawAviAmount(userId);
+            wxAviMoney = bll.GetWeiXinAviAmount(userId);
+            if (maxAviMoney < 0)
+            {
+                wxAviMoney = 0;
+                cadAviMoney = 0;
+            }
+            var _wxAviMoney = wxAviMoney + (wxAviMoney * (decimal)0.15);
+            //如果提现金额小于或等于微信提现金额
+            if (_wxAviMoney >= maxAviMoney)
+            {
+                wxAviMoney = maxAviMoney;
+                cadAviMoney = 0;
+            }
+            else
+            {
+                wxAviMoney = _wxAviMoney;
+                cadAviMoney = maxAviMoney - _wxAviMoney;
+            }
+        } 
+
+
+        #region 根据用户实体类得到用户验证状态
+        /// <summary>
+        /// 根据用户实体类得到用户验证状态
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回用户状态 小于4：未通过实名认证 4：已通过实名认证 11：未修改昵称 12：未修改交易密码</returns>
+        public int getVailStatusByUserModel(UserBasicInfoInfo userModel)
+        {
+            int vailStatus = 0;
+            if (userModel != null)
+            {
+                //未绑定银行卡
+                if (string.IsNullOrEmpty(userModel.BankAccountNo))
+                {
+                    vailStatus = 5;
+                }
+                else if (string.IsNullOrEmpty(userModel.OpenBankName) || string.IsNullOrEmpty(userModel.BankProvice) || string.IsNullOrEmpty(userModel.BankCity))
+                {
+                    vailStatus = 6;
+                }
+                else if ((!userModel.IsValidateIdentity || !userModel.IsValidateMobile) && (string.IsNullOrEmpty(userModel.PayPwd) || userModel.PayPwd.ToLower() == userModel.Pwd.ToLower()))//既没有身份认证又没有修改交易密码
+                {
+                    vailStatus = 0;
+                }
+                else if (!userModel.IsValidateIdentity)
+                {//没有身份认证
+                    vailStatus = 1;
+                }
+                else if (!userModel.IsValidateMobile)//没有手机认证
+                    vailStatus = 3;
+                else if (string.IsNullOrEmpty(userModel.PayPwd) ||
+                          userModel.PayPwd.ToLower() == userModel.Pwd.ToLower()) //没有修改交易密码
+                {
+                    vailStatus = 2;
+                }
+                else
+                { //验证通过
+                    vailStatus = 4;
+                }
+            }
+            return vailStatus;
+        }
+        #endregion
+        protected string GetBankName()
+        {
+            if (GlobalUtils.IsOpenCGT)
+            {
+                return bankName;
+            }
+            else
+            {
+                return Tool.EnumHelper.GetDescriptionFromEnumValue(typeof(ConstString.BankType), basicinfo.BankType);
+            }
+        }
+    }
+    public class BankNoInfo
+    {
+        public string BankAccountNo { get; set; }
+        public int BankType { get; set; }
+        public int ValType { get; set; }
+    }
+    public class UserBankInfo
+    {
+        public string BankNo { get; set; }
+
+        public int? BankType { get; set; }
+    }
+}

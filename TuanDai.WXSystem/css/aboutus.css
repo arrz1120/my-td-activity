@@ -1,0 +1,119 @@
+/***安全保障*****************************************/
+body {background:#fff;}
+.insurancebox{ padding:20px 60px;}
+.bg-ccc-btb{ background:#f6f6f5; border-top:#d5d5d4 solid 1px; border-bottom:#d5d5d4 solid 1px;}
+.saftbz{ width:100%;}
+.pr40{padding-right: 40px !important;}
+.saft_icon01{width:76px; height:76px;background:url('/imgs/images/saft_icon01.png') no-repeat; background-size:76px 76px;}
+.saft_icon02{width:71px; height:90px;background:url('/imgs/images/saft_icon02.png') no-repeat; background-size:71px 90px;}
+.saft_icon03{width:61px; height:58px;background:url('/imgs/images/saft_icon03.png') no-repeat; background-size:61px 58px;}
+.saft_icon04{width:64px; height:64px;background:url('/imgs/images/saft_icon04.png') no-repeat; background-size:64px 64px;}
+.saft_icon05{width:69px; height:76px;background:url('/imgs/images/saft_icon05.png') no-repeat; background-size:69px 76px;}
+.saft_title01{width:89px; height:17px;background:url('/imgs/images/saft_title01.png') no-repeat; background-size:89px 17px;}
+.saft_title02{width:88px; height:17px;background:url('/imgs/images/saft_title02.png') no-repeat; background-size:88px 17px;}
+.saft_title03{width:88px; height:18px;background:url('/imgs/images/saft_title03.png') no-repeat; background-size:88px 18px;}
+.saft_title04{width:88px; height:17px;background:url('/imgs/images/saft_title04.png') no-repeat; background-size:88px 17px;}
+.saft_title05{width:88px; height:16px;background:url('/imgs/images/saft_title05.png') no-repeat; background-size:88px 16px;}
+
+/***了解团贷*****************************************/
+.pd13{ padding:13px;}
+.banner{display:block;width:100%;}
+.f15px{font-size:1.5rem;}
+.c-161312{ color:#161312 !important;}
+.knowtitle{ width:150px; margin:0px auto;}
+.knowtitle01{width:210px !important;}
+.knowtitle:before{content: " "; display: inline-block; width:20px; height:6px;border-top:1px solid #d9d9d7; margin-right:10px;}
+.knowtitle:after{content: " "; display: inline-block; width:20px; height:6px;border-top:1px solid #d9d9d7; margin-left:10px;}
+
+/***团贷介绍*****************************************/
+.intro_banner{display:block;width: 100%;height:194px; background: url('/imgs/images/intro_banner.png') no-repeat;background-size:100% 194px;}
+.intro_title{width:100%; height:21px; background: url('/imgs/images/intro_title.png') no-repeat center center; background-size:320px 21px;}
+.intro_box h2{ display:block; width:100%; height:42px; border-bottom:#e6e6e6 solid 1px;}
+.intro_box h2.intro_td01{background:url('/imgs/images/intro_td01.png') no-repeat; background-size:95px 32px;}
+.intro_box h2.intro_td02{background:url('/imgs/images/intro_td02.png') no-repeat; background-size:95px 32px;}
+.intro_box h2.intro_td03{background:url('/imgs/images/intro_td03.png') no-repeat; background-size:95px 32px;}
+.intro_box h2.intro_td04{background:url('/imgs/images/intro_td04.png') no-repeat; background-size:95px 32px; }
+.intro_box p{text-indent:2em; line-height:30px;}
+.intro_boxBg{background:url('/imgs/images/intro_bg.png') right bottom no-repeat; background-size:128px 119px;}
+
+/**20150616关于我们***********************/
+.bg-fbfbf9{ background:#fbfbf9!important;}
+.bannerCont{ width: 100%; height: auto;}
+.aboutT{ text-align: center; padding: 0 25px; margin:20px 0;}
+.aboutBox{ padding-left: 15px; border-top: 1px solid #d1d1d1; background-color: #fff;}
+.aboutBox.last{ border-bottom:1px solid #ccc; margin-bottom: 20px;}
+.aboutBox .aboutTit{ height: 50px; line-height: 30px; color: #212121; font-size: 1.5rem; padding: 10px 15px; position: relative; z-index: 20;}
+.aboutBox .aboutTit:before{ content: ""; display: block; height: 24px; width: 2px; background-color: #ffcd41; margin-right: 20px; position: absolute; top: 50%; left: 0; margin-top: -12px;}
+.aboutBox .aboutTit:after{ content: ""; display: block; float: right; width: 10px; height: 17px; background:url('/imgs/images/ico_arrow_r.png') no-repeat; background-size: 10px 17px; position: absolute; top: 50%; right: 15px; margin-top: -8px;}
+.aboutBox .aboutTit_r:after{right: 10px;}
+.aboutBox .aboutTit_nonebg{ text-indent:-15px; font-size:1.4rem; height:auto;}
+.aboutBox .aboutTit_nonebg:before{ background:none !important; padding-left:0;}
+.aboutBox .aboutCont{ display: none; border-top: 1px solid #e6e6e6; padding-top: 10px; color: #ababab; font-size: 1.3rem; line-height: 150%; padding-right: 15px;}
+.active .aboutCont{ display: block;}
+.active .aboutTit:after{-webkit-transform: rotate(90deg)}
+
+.aboutTit.pl15{ padding-left: 15px!important;}
+.aboutBox .bz-box{width: 100%!important; border-bottom: 1px solid #d5d5d4;margin: 10px 0 18px 0;padding: 0 0 8px 0;}
+.aboutBox .bz-box img{border: 0;display: inline-block;}
+.video-box { height: 220px; padding: 3px 0; background: #FFFFFF; top: 75px; }
+#v2 { display: none; }
+.video_img img {cursor: pointer; }
+.video-box #video { z-index: 100;height: 220px; width: 100%; float: left; position: relative; }
+
+.aboutBox .aboutCont .text{ text-indent: 2em; margin-bottom: 15px;color: #ababab; font-size: 1.2rem; line-height: 150%;}
+.aboutBox .aboutCont .text_answer{ text-indent:-20px; padding-left:20px; margin-bottom:0;word-wrap:break-word;word-break:break-all;}
+.aboutBox .aboutCont .text_answer:last-child{ margin-bottom:15px;}
+.aboutBox .aboutCont .text:last-child{ margin-bottom: 0; padding-bottom: 15px;}
+.aboutBox .aboutCont .introduction{ margin-bottom: 25px; color: #ababab; font-size: 1.2rem; line-height: 150%; padding-left: 90px; position: relative; z-index: 20;}
+.aboutBox .aboutCont .introduction:last-child{ margin-bottom: 0; padding-bottom: 15px;}
+.aboutBox .aboutCont .introduction .imgBox{ width: 70px; height: 70px; position: absolute; top: 5px; left: 0;}
+.aboutBox .historyBox{ border-left: 1px solid #ffcf1f; padding-left: 20px; margin-top: 10px; padding-top: 10px;}
+.aboutBox .historyBox .historyCont{ margin-bottom: 30px;}
+.aboutBox .historyBox .historyCont:last-child{ margin-bottom: 0; padding-bottom: 15px;}
+.aboutBox .historyBox .historyCont .tit{ height: 24px; line-height: 24px; font-size: 1.4rem; color: #212121; position: relative; z-index: 20; margin-top: -20px;}
+.aboutBox .historyBox .historyCont .tit:before{ content: ""; display: block; width: 8px; height: 8px; border-radius: 50%;-webkit-border-radius: 50%; background-color: #ffcf1f; position: absolute; top: 8px; left: -24px;}
+.aboutBox .historyBox .historyCont p{ color: #ababab;font-size: 1.3rem; line-height: 150%;}
+
+.aboutBox .aboutCont .partner-box{display: -moz-box;display: -webkit-box;display:box;border-bottom: 1px dashed #ccc;margin: 8px 0; padding-bottom: 3px;}
+.aboutBox .aboutCont .partner-box a{display:block;-webkit-box-flex: 1;box-flex: 1; text-align: center;width: 33%;border: 1px solid #e6e6e6;margin: 6px;-webkit-border-radius: 3px;border-radius: 3px;}
+.aboutBox .aboutCont .partner-box a:hover,.aboutBox .aboutCont .partner-box a:active{border: 1px solid #ffcd41;}
+.partner-cn p{color: #8a8a8a; font-size: 1.2rem;}
+.aboutBox .aboutCont .dif{width: 33.33%;border-bottom: none;}
+.partner-cn img{width: 70%;height: auto;}
+
+.aboutBox .certificate{ height: auto; margin-top: 10px; padding-bottom: 15px;}
+.aboutBox .certificate li{ float: left; width: 33.3%; height: auto; padding-right: 20px; padding-left:20px;position: relative;}
+.aboutBox .certificate li .bigImgBox{ display: none; width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: 1000;}
+.aboutBox .certificate li .bigImgBox .imgCont{ width: 100%; height: 100%; text-align: center; line-height: 100%; position: relative; z-index: 100;}
+.aboutBox .certificate li .bigImgBox .imgCont img{ max-width: 100%; position: absolute; top: 50%; left: 50%; margin-left: -175px;}
+.aboutBox .certificate li .bigImgBox .imgCont .img1{ margin-top: -240px;}
+.aboutBox .certificate li .bigImgBox .imgCont .img2{ margin-top: -137px;}
+.aboutBox .certificate li .bigImgBox .imgCont .img3{ margin-top: -131px;}
+.aboutBox .certificate li .bigImgBox .mask{ height: 100%; width: 100%; background:#000; position: absolute; top: 0; left: 0; z-index: 50;}
+
+.aboutBox .honorBox li{ min-height: 83px; border-bottom: 1px dashed #ababab; padding-bottom: 15px; margin-bottom: 15px; padding-left: 123px; position: relative; z-index: 20;}
+.aboutBox .honorBox li:last-child{ border-bottom: 0;}
+.aboutBox .honorBox li .imgBox{ width: 103px; height: 68px; position: absolute; top: 0; left: 0;}
+.aboutBox .honorBox li .tit{ height: 26px; line-height: 26px; font-size: 1.4rem; color: #212121;}
+.aboutBox .honorBox li .tit:before{ content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;-webkit-border-radius: 50%; background-color: #ffcd41; margin-right: 10px; vertical-align: middle;}
+.aboutBox .honorBox li p{color: #ababab; font-size: 1.2rem; line-height: 150%;}
+
+/*新手指引*/
+.guidelines-banner{width: 100%;}
+.choose-code{display: -moz-box;display: -webkit-box;display:box;}
+.choose-code div{display:block;-webkit-box-flex: 1;box-flex: 1; text-align: center;}
+.choose-code div img{height: 130px;}
+.aboutCont .bbd-e5e5e5{border-bottom: 1px dashed #e5e5e5;}
+.aboutCont .bts-e5e5e5{border-top: 1px solid #e5e5e5;}
+.yeji1 img{width: 86%;margin: 0 auto;}
+.yeji2 img{width: 96%;margin: 0 auto;}
+.fuli2 img{width: 60%;margin: 0 auto;}
+
+@media screen and (max-width:320px) {
+    .insurancebox{ padding:20px 36px;}
+	.pr40{padding-right:20px !important;}
+	.f14px{font-size: 1.2rem !important;}
+	.intro_box p{ line-height:26px;}
+	.aboutBox .certificate li .bigImgBox .imgCont img{ margin-left: -160px;}
+	.aboutBox .certificate li .bigImgBox .imgCont .img1{ margin-top: -220px;}
+}

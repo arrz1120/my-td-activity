@@ -1,0 +1,20 @@
+/*我的账单*/
+.bill-box h3{ height: 25px; line-height: 25px; background: #f1f3f5;}
+.bill-con{padding: 16px 0;}
+.bill-con p span{display: block;}
+.bill-con p .f18px{ line-height: 18px; padding-bottom: 10px;}
+.bill-con p .f12px{ line-height: 12px;}
+.bill-con p .f15px{ line-height: 15px; padding: 2px 0 10px 0;}
+.bill-con .pos-a{left: 20%;top: 16px;width: 75%;}
+
+/*订单详情*/
+.bill-details span{display: block;}
+.bill-details-box .top p{ height: 50px; line-height: 50px;}
+.bill-details-box .top i{display: block; background: url("../javaProject/imgs/images/icon/ico-arrow-r-d1d1d1.png") center no-repeat; width: 8px; height: 14px;background-size: 8px 14px;right: 15px;top: 20px;}
+.figure p:nth-child(1){ line-height: 50px; padding: 75px 0 15px 0;}
+.figure p:nth-child(2){ line-height: 12px; padding-bottom: 65px;}
+.bill-details-box .explain{ padding:18px 0 0 80px;}
+.bill-details-box .explain .pos-a{left:0;}
+.bill-details-box .bt-dashed-d1d1d1:after{content: "";position: absolute;left: 0;top: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}
+.bb-dashed-d1d1d1{position: relative;}
+.bb-dashed-d1d1d1:after{content: "";position: absolute;left: 0;bottom: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}

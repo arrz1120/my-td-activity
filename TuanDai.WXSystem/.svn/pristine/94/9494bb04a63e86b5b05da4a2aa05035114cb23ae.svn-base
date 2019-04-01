@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>我的财富</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css" />
+	<link rel="stylesheet" type="text/css" href="/css/account.css" />
+</head>
+<body class="bg-f1f3f5">
+<header class="headerMain">
+	<div class="header">
+		<div class="back" onclick="javascript:history.go(-1);">返回</div>
+		<h1 class="title">我的财富</h1>
+	</div>
+	<div class="none"></div>
+</header>
+<section class="my-treasure">
+	<div class="bg-ffc11f text-center">
+		<p class="c-ffffff f17px pt40">资产总额（元）</p>
+		<p class="c-ffffff f45px mt30">810,000.00</p>
+		<img src="/imgs/images/pic-c1.png" class="mt15"/>
+	</div>
+	<div class="webkit-box j-link bg-fff">
+		<a href="" class="box-flex1"><img src="/imgs/images/ico_arrow_r_t_1.png" alt=""/>充值</a>
+		<a href="" class="box-flex1 bg-ffcf1f"><img src="/imgs/images/ico_arrow_r_d_1.png" alt=""/>提现</a>
+	</div>
+	<div class="des bg-fff mt10 bb-e6e6e6">
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">可用资金</span>
+			<span class="rf">￥35,362.00</span>
+		</p>
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">待收本金</span>
+			<span class="rf">￥5,362.00</span>
+		</p>
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">待收利息</span>
+			<span class="rf">￥2,343.00</span>
+		</p>
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">待确认投标</span>
+			<span class="rf">￥3,366.00</span>
+		</p>
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">待确认提现</span>
+			<span class="rf">￥1,022.00</span>
+		</p>
+		<p class="ml15 bb-e6e6e6">
+			<span class="lf">We计划待投金额</span>
+			<span class="rf">￥3,362.00</span>
+		</p>
+		<p class="ml15 pr15">
+			<span class="lf">冻结资金</span>
+			<span class="rf">￥362.00</span>
+		</p>
+
+	</div>
+	
+</section>
+
+</body>
+
+</html>

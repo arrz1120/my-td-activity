@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>注册成功</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160602" />
+		
+		<style type="text/css">
+			.suc_ico{width: 110px;height: 110px;margin: 60px auto 0;}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="suc_ico"><img src="/imgs/images/icon/ico_suc.png"/></div>
+		<div class="f17px text-center mt25">注册成功</div>
+		<div class="f13px c-808080 text-center mt20">恭喜您成为第<span class="f13px c-fab600">388286</span>位尊贵的客户</div>
+		<div class="f13px c-808080 text-center mt2 line-h16">用户名：guoxiaobin688</div>
+		<div class="pt40 pl15 pr15">
+			<div class="btn btnYellow">确定</div>
+		</div>
+	</body>
+
+
+</html>

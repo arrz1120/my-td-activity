@@ -1,0 +1,25 @@
+body{background: #fbfbf9;}
+.survey header{height: 60px;line-height: 60px;padding-left: 10px;background: #fbfbf9;color: #ffcf1f;font-size: 1.5rem;font-weight: bold;}
+.exam .item{background: #fff;margin-bottom: 10px;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;padding-left: 20px;}
+.exam .item .itemTit{border-bottom: 1px solid #e6e6e6;font-size: 1.25rem;color: #000;position: relative;padding: 10px 5px 10px 0;}
+.exam .item .itemTit span{font-size: 1.25rem;color: #000;margin-left: -10px;margin-right: 1px;}
+.exam .item .bbnone{border-bottom: none;}
+.exam .item .itemCon{padding: 0px 0 20px;}
+.exam .item .itemCon ul li{height: 20px;width: 50%;float: left;margin-top: 20px;}
+.exam .item .itemCon ul li div.checkBox{height: 18px;width: 18px;border: 1px solid #ccc;border-radius: 2px;float: left;margin-right: 10px;}
+.exam .item .itemCon ul li p{line-height: 20px;font-size: 1.1rem;color: #000;}
+.exam .item .itemCon ul li div.active{background: url('/imgs/member/checked.png') no-repeat;background-size: 18px 18px;border: none;width: 18px;height: 18px;}
+.exam .item .itemCon .textArea{padding-right: 20px;}
+.exam .item .itemCon textarea{width: 100%;background: #fbfbf9;border: 1px solid #e6e6e6;min-height: 125px;padding-left: 10px;font-size: 1.1rem;color: #000;}
+.submit{padding: 20px;background: #fbfbf9;}
+.submit_btn{height: 42px;line-height: 42px;background: #ffcf1f;text-align: center;color: #fff;font-size: 1.6rem;border-radius: 4px;}
+
+.window{position: fixed;left: 0;top: 0;z-index: 999;width: 100%;height: 100%;background: rgba(0,0,0,0.3);}
+.window .close{width: 23px;height: 23px;background: url('/imgs/member/window_close.png') no-repeat;background-size: 100% 100%;position: absolute;top: 10px;right: 10px;}
+.window .window_con{width: 85%;background: #fff;position: absolute;border-radius: 8px;top: 50%;left: 7.5%;}
+.window .getChance{height: 230px;margin-top: -115px;}
+.window .noChance{height: 200px;margin-top: -100px;}
+.window .window_con h3{text-align: center;margin-top: 70px;font-size: 1.6rem;color: #212121;font-weight: bold;}
+.window .window_con h3 span{font-size: 1.6rem;color: #fd6040;font-weight: bold;}
+.window .window_con p{text-align: center;font-size: 1.25rem;color: #ababab;margin-top: 15px;}
+.window .window_btn{height: 55px;line-height: 55px;text-align: center;color: #fff;background: #ffcf1f;font-size: 1.6rem;position: absolute;bottom: 0;width: 100%;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}

@@ -1,0 +1,527 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ClassRoom.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.aboutus.ClassRoom" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>团贷大讲堂</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <!--<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160427" />-->
+    <link rel="stylesheet" type="text/css" href="/css/about_td.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</head>
+<body class="bg-fff">
+<%= this.GetNavStr()%>
+<header class="headerMain">
+  <div class="header">
+    <div class="back" onclick="javascript:history.go(-1);">返回</div>
+    <h1 class="title">团贷大数据</h1>
+  </div>
+  <%= this.GetNavIcon()%>
+  <div class="none"></div>
+</header>
+
+    <div id="bigDiv">
+        <div class="td_banner">
+			<img src="/imgs/images/pic/td_banner.png?v=0630001"/>
+        </div>
+        <div class="part1 pt40 pb15">
+            <div class="part_t">
+                <div class="part_t_txt bg-fff">
+                    团贷网
+					<i class="i_l"></i>
+                    <i class="i_r"></i>
+                </div>
+            </div>
+			<div class="f15px c-212121 text-justify part1_txt">团贷网（tdw.cn）是派生科技集团股份有限公司（以下简称“派生集团”）旗下的综合金融服务平台，秉承安全、透明、稳定、高效、不断创新的经营理念，目标为基金、保险、证券等金融机构（或金融服务机构）提供账户信息、运营风控、大数据管理、产品信息展示、流量合作等金融科技服务，并形成以互联网、移动互联网技术与大数据风控科技、生态链模块为基点，以围绕消费场景的消费金融、三农金融、网络借贷、供应链金融、互联网理财等为核心业务的综合布局。同时致力于为广大投资用户提供基金、保险、证券、网络借贷等互联网投资一站式综合服务。</div>
+			<div class="webkit-box box-center">
+				<div class="f13px c-1fcafb" id="f7">了解更多<span class="f13px c-1fcafb ml5">></span></div>
+			</div>
+        </div>
+
+        <div class="part2 pt40 pb20 bg-fff6eb pos-r">
+            <div class="part_t">
+                <div class="part_t_txt bg-fff6eb">
+                    团贷网的运作模式
+					<i class="i_l"></i>
+                    <i class="i_r"></i>
+                </div>
+            </div>
+            <div class="td_process pos-r z-index10">
+                <img src="/imgs/images/pic/td_process.png?v=20170822001" />
+            </div>
+            <div class="part2_bottom pos-a"></div>
+        </div>
+
+        <div class="part3 pt40 pb25 bg-fff">
+            <div class="part_t">
+                <div class="part_t_txt bg-fff">
+                    雄厚的集团公司背景
+					<i class="i_l"></i>
+                    <i class="i_r"></i>
+                </div>
+            </div>
+            
+            <div class="ico_18yi bgSize"></div>
+            <div class="p_18yi">
+				<p class="f15px c-333333">本轮融资将主要用于加大科技创新领域的投入、集团相关金融牌照的布局，也为集团相关板块未来进入资本市场筹备所需资金，并将增加实业科技板块的投资和布局。未来，派生集团将形成“科技+产业+金融”的生态圈，以拓展更大的战略生存空间。<span class="c-999 f15px">( 此前派生集团已完成三轮6.75亿元的融资 )</span></p>
+            </div>
+            
+			<div class="group_partner pt20">
+				<div class="group_t">
+					<div class="f13px">机构股东</div>
+				</div>
+				<div class="group_m">
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/gd1.png?v=0630001" alt="民生资本" />
+					</div>
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/gd2.png?v=0630001" alt="盈生创新" />
+					</div>
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/hhkj.png?v=0630001" alt="海慧科技" />
+					</div>
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/gd3.png?v=0630001" alt="北海宏泰" />
+					</div>
+				</div>
+				<div class="group_m">
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/gd4.png?v=0630001" alt="巨人投资" />
+					</div>
+
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/hszb.png?v=0630001" alt="宏商资本" />
+					</div>
+					<div class="group_m_box">
+						<img src="/imgs/partner/classroom/wywl.png?v=0630001" alt="唯一网络" />
+					</div>
+                     <div class="group_m_box">
+                    </div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="part4 pt40 bg-f9fbec">
+			<div class="part_t">
+				<div class="part_t_txt bg-f9fbec">
+					团贷网如何保障你的安全
+					<i class="i_l"></i>
+					<i class="i_r"></i>
+				</div>
+			</div>
+			<div class="pl15 pr15">
+				<div class="p4_item clearfix">
+					<div class="ico_sprite ico_bCourse1 lf"></div>
+					<div class="rf p4_txt">
+						<p class="p4_txt1">多维度搜集借款人信息</p>
+						<p class="p4_txt2">征信记录、资产信息、收入信息、基金…</p>
+						<p id="f4" class="p4_txt3">查看详细></p>
+					</div>
+				</div>
+				<div class="p4_item clearfix">
+					<div class="lf p4_txt">
+						<p class="p4_txt1">大数据分析及专业风控系统</p>
+						<p class="p4_txt2">法务合同协议支持系统、借款历史沉淀…</p>
+						<p id="f5" class="p4_txt3">查看详细></p>
+					</div>
+					<div class="ico_sprite ico_bCourse2 rf"></div>
+				</div>
+				<div class="p4_item clearfix">
+					<div class="ico_sprite ico_bCourse3 lf"></div>
+					<div class="rf p4_txt">
+						<p class="p4_txt1">全方位多层次的还款保障体系</p>
+						<p class="p4_txt2">第三方担保公司垫付、借款信息高…</p>
+						<p id="f6" class="p4_txt3">查看详细></p>
+					</div>
+				</div>
+				
+				<div class="pt40">
+					<div class="group_t">
+						<div class="f13px bg-f9fbec">了解更多</div>
+					</div>
+					<div class="pt40 pb40 webkit-box">
+						<div class="box-flex1 f13px c-1fcafb text-center" id="f1"><i class="ico_p8 inline-block"></i>资金安全></div>
+						<div class="box-flex1 f13px c-1fcafb text-center" id="f2"><i class="ico_p9 inline-block"></i>逾期保障></div>
+						<div class="box-flex1 f13px c-1fcafb text-center" id="f3"><i class="ico_p10 inline-block"></i>法律法规></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="part5 pt40 bg-fff">
+            <div class="part_t">
+                <div class="part_t_txt bg-fff">
+                    团贷网的收益如何
+					<i class="i_l"></i>
+                    <i class="i_r"></i>
+                </div>
+            </div>
+            <div class="text-center f15px c-694514 pt40">投资4万块钱，一年后……</div>
+            <div class="p5_compress">
+                <img src="/imgs/images/pic/p5_compress.png?v=20170321" />
+            </div>
+            <div class="p5_bg bg-fffdf5"></div>
+        </div>
+
+        <div class="part6 webkit-box box-center">
+            <p class="f13px c-808080">已经有<span class="c-ff9600 f13px mr0"><%=this.UserCount %></span>位用户在团贷网投资</p>
+            <p class="f18px c-ff9600 pt10">
+               <%=GetChineseAmount(this.Amount) %>
+            </p>
+        </div>
+
+        <div class="bg-fff pl15 pr15 pb20 pt20">
+            <% if (!IsAppLink)
+               {
+            %>
+            <a href="<%= TuanDai.WXApiWeb.GlobalUtils.MTuanDaiURL %>/pages/invest/invest_list.aspx" class="btn btnYellow click-respond2">开启财富之旅</a>
+            <!--web显示-->
+            <% if(!Is360Weishi){ %>
+            <div class="clearfix pt20">
+                <div class="lf w50p shareBox_l" id="downloadApp">
+                    <a class="share_item clearfix click-respond">
+                        <div class="share_r share_b webkit-box box-center lf mt12 share_item_i">
+                            <img src="/imgs/images/icon/ico_share1.png" /></div>
+                        <div class="lf mt18 share_item_t">
+                            <p class="line-h18 p1">下载APP</p>
+                            <p class="c-ababab line-h18 p2">随时随地想投就投</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="lf w50p shareBox_l subscribeWX">
+                    <a class="share_item clearfix click-respond">
+                        <div class="share_r share_g webkit-box box-center lf mt12 share_item_i">
+                            <img src="/imgs/images/icon/ico_share2.png" /></div>
+                        <div class="lf mt18 share_item_t">
+                            <p class="line-h18 p1">微信关注</p>
+                            <p class="c-ababab line-h18 p2">资金动态实时提醒</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <%} %>
+            <%
+               }
+               else
+               {
+                   %>
+            <a href="javascript:void(0);" class="btn btnYellow click-respond2">开启财富之旅</a>
+            <!--app显示--> 
+            <div class="clearfix pt20">
+                <div class="lf w50p shareBox_l subscribeWX">
+                    <a class="share_item clearfix click-respond">
+                        <div class="share_r share_g webkit-box box-center lf mt12 share_item_i">
+                            <img src="/imgs/images/icon/ico_share2.png" /></div>
+                        <div class="lf mt18 share_item_t">
+                            <p class="line-h18 p1">微信关注</p>
+                            <p class="c-ababab line-h18 p2">资金动态实时提醒</p>
+                        </div>
+                        </a>
+                </div>
+                <div class="lf w50p shareBox_l">
+                    <a class="share_item clearfix click-respond" href="javascript:void(0);" id="btnShareFriend">
+                        <div class="share_r share_b2 webkit-box box-center lf mt12 share_item_i">
+                            <img src="/imgs/images/icon/ico_share4.png" /></div>
+                        <div class="lf mt18 share_item_t">
+                            <p class="line-h18 p1">分享好友</p>
+                            <p class="c-ababab line-h18 p2">赚钱怎能不想到ta</p>
+                        </div>
+                    </a>
+                </div>
+            </div> 
+            <%
+               } %>
+            
+
+            
+            
+        </div>
+    </div>
+
+    <!----------------------弹框----------------------->
+	<!--资金安全弹框-->
+    <div class="frame bg-op09 hide" id="frame1">
+    	<p class="f19px c-282828 pt15 pb10 text-center">资金安全</p>
+    	<div class="pl15 pr15">
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay03">
+	    		<div class="tri-lt"></div>
+	    		<span>1</span>
+	    		<div class="ico_r ico_sprite ico_bCourse10"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px">厦门银行资金存管</p>
+	    		</div>
+	    	</div>
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay05">
+	    		<div class="tri-lt"></div>
+	    		<span>2</span>
+	    		<div class="ico_r ico_sprite ico_bCourse11"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px"><%=BabyPlanAmount.ToString().Substring(0,1) %>千万+第三方担保专款</p>
+	    		</div>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close1"></div>
+    </div>
+    
+	<!--逾期保障弹框-->
+    <div class="frame bg-op09 hide" id="frame2">
+    	<p class="f19px c-282828 pt15 pb10 text-center">逾期保障</p>
+    	<div class="group_t mt20">
+			<div class="f13px bg-f6f7f8">安全保障体系</div>
+		</div>
+    	<div class="pl15 pr15">
+	    	<div class="mark-item bg-fff mt35 item_ani ani_delay03">
+	    		<div class="tit_mark">超级会员</div>
+	    		<div class="ico_m ico_sprite ico_bCourse8"></div>
+	    		<div class="tri-item-txt webkit-box box-pack box-vertical">
+	    			<p class="c-fab600 f17px">由担保公司垫付本息</p>
+	    			<p class="f12px mt8 line-h18 text-justify"></p>
+	    		</div>
+	    	</div>
+	    	<div class="mark-item bg-fff mt15 item_ani ani_delay05">
+	    		<div class="tit_mark">普通会员</div>
+	    		<div class="ico_m ico_sprite ico_bCourse9"></div>
+	    		<div class="tri-item-txt webkit-box box-pack box-vertical">
+	    			<p class="c-fab600 f17px">由担保公司垫付本金</p>
+	    			<p class="f12px mt8 line-h18 text-justify"></p>
+	    		</div>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close2"></div>
+    </div>
+    
+	<!--法律法规保障弹框-->
+    <div class="frame bg-fff frame-law hide" id="frame3">
+    	<div class="f19px c-282828 pt15 pb10 text-center">法律法规保障权益</div>
+    	<div>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay03">团贷网聘用了法仕律师事务所作为公司的常年法律顾问。团贷网所有业务活动以及相关合同和协议均咨询法仕事务所，确保其符合相关法律法规，团贷网合法守信经营，让团贷网的用户权益受国家法律保护。</p>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay04">关于投资人及借款人双方民间借贷关系的合法性。根据《合同法》第196条规定“借款合同是借款人向贷款人借款，到期返还借款并支付利息的合同”，《合同法》允许自然人等普通民事主体之 间发生借贷关系，并允许出借方到期可以收回本金和符合法律规定的利息。</p>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay05">关于团贷网平台提供居间撮合服务的合法性根据《合同法》第23章关于“居间合同”的规定，特别是第424条规定的“居间合同是居间人向委托人报告订立合同的机会或者提供订立合同的媒介服务，委托人支付报酬的合同”，团贷网平台作为合法设立的中介服务机构，为民间借贷提供撮合，使借贷双方形成借贷关系并收取相关报 酬的居间服务有着明确的法律基础。</p>
+    	</div>
+    </div>
+    <div class="hide pos-f frame-law-b" id="frame-law-b">
+		<div class="opa_cover"></div>
+		<div class="frame-close" id="close3"></div>
+    </div>
+    
+    <!--关于团贷网-->
+    <div class="frame bg-fff frame-law hide" id="frame7">
+    	<!--<div class="f19px c-282828 pt15 pb10 text-center">关于团贷网</div>-->
+    	<div>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay03">团贷网（tdw.cn）是派生科技集团股份有限公司（以下简称“派生集团”）旗下的综合金融服务平台，秉承安全、透明、稳定、高效、不断创新的经营理念，目标为基金、保险、证券等金融机构（或金融服务机构）提供账户信息、运营风控、大数据管理、产品信息展示、流量合作等金融科技服务，并形成以互联网、移动互联网技术与大数据风控科技、生态链模块为基点，以围绕消费场景的消费金融、三农金融、网络借贷、供应链金融、互联网理财等为核心业务的综合布局。同时致力于为广大投资用户提供基金、保险、证券、网络借贷等互联网投资一站式综合服务。</p>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay04">团贷网在互联网金融、信息服务以及大数据风控方面具有丰富的经验和雄厚的实力，自主研发了四套行业领先的核心系统：天秤大数据智能风控系统、 BI经营决策系统、云镜智能风控系统、业务智能管理系统，还有多项自主研发的软件系统获得国家版权局认证，成为行业标杆，促进行业发展。</p>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay05">2017年3月，派生集团旗下团贷网联手厦门银行打造的银行存管系统正式上线。派生集团始终坚持合规经营，主动拥抱监管，全面接受政府及社会公众的监督，并履行相应的信息披露义务。</p>
+	    	<p class="f15px pl15 pr15 text-justify item_ani ani_delay06">此前派生集团已完成三轮6.75亿元的融资，截至2017年5月，派生集团又获得新一轮融资，共计人民币18亿元。本轮融资由民生资本投资管理有限公司领投，北京盈生创新科技有限责任公司、黄山海慧科技投资有限公司及北海宏泰投资有限公司等企业跟投完成。该轮融资将主要用于加大科技创新领域的投入、集团相关金融牌照的布局，也为集团相关板块未来进入资本市场筹备所需资金，并将增加实业科技板块的投资和布局。未来，派生集团将形成“科技+产业+金融”的生态圈，以拓展更大的战略生存空间。</p>
+    	</div>
+    </div>
+    <div class="pos-f frame-law-b hide" id="about-td-b">
+		<div class="opa_cover"></div>
+		<div class="frame-close" id="close7"></div>
+    </div>
+    
+    <!--多维度弹框-->
+    <div class="frame webkit-box box-center box-vertical bg-op09 hide" id="frame4">
+    	<div class="webkit-box box-center box-vertical item_ani ani_delay03">
+	    	<div class="webkit-box box-pack">
+	    		<div class="txt_frame txt_frame_g">资产信息</div>
+	    	</div>
+	    	<div class="webkit-box box-orient mt12">
+		    	<div class="txt_frame txt_frame_y">征信公司交叉验证</div>
+		    	<div class="txt_frame txt_frame_r ml50">基金现状</div>
+	    	</div>
+	    	<div class="webkit-box box-orient mt12">
+		    	<div class="txt_frame txt_frame_y mt10">收入信息</div>
+		    	<div class="txt_frame txt_frame_b ml25">征信记录</div>
+	    	</div>
+	    	<div class="webkit-box box-orient">
+		    	<div class="txt_frame txt_frame_g mt10">个人背景信息</div>
+		    	<div class="txt_frame txt_frame_r ml85">实地考核调查</div>
+	    	</div>
+	    	<div class="webkit-box box-pack">
+	    		<div class="txt_frame txt_frame_y">工作信息</div>
+	    	</div>
+	    	<div class="webkit-box box-orient mt8">
+		    	<div class="txt_frame txt_frame_r">网络行为记录</div>
+		    	<div class="txt_frame txt_frame_b ml25 mt13">银行流水记录</div>
+	    	</div>
+	    	<div class="webkit-box box-pack mt13">
+	    		<div class="txt_frame txt_frame_g">社会信用评价</div>
+	    	</div>
+	    	<div class="webkit-box box-orient">
+		    	<div class="txt_frame txt_frame_b mt3">家庭信息</div>
+		    	<div class="txt_frame txt_frame_r ml50 mt25">联系人信息</div>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close4"></div>
+    </div>
+	<!--大数据弹框-->
+    <div class="frame bg-op09 hide" id="frame5">
+    	<div class="pl15 pr15">
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay03">
+	    		<div class="tri-lt"></div>
+	    		<span>1</span>
+	    		<div class="ico_sprite ico_bCourse4 ico_r"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px">法务合同协议支持系统</p>
+	    		</div>
+	    	</div>
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay04">
+	    		<div class="tri-lt"></div>
+	    		<span>2</span>
+	    		<div class="ico_sprite ico_bCourse5 ico_r"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px">借款历史沉淀大数据系统</p>
+	    		</div>
+	    	</div>
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay05">
+	    		<div class="tri-lt"></div>
+	    		<span>3</span>
+	    		<div class="ico_sprite ico_bCourse6 ico_r"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px">公安部公民身份核查系统</p>
+	    		</div>
+	    	</div>
+	    	<div class="tri-item bg-fff mt15 item_ani ani_delay06">
+	    		<div class="tri-lt"></div>
+	    		<span>4</span>
+	    		<div class="ico_sprite ico_bCourse7 ico_r"></div>
+	    		<div class="tri-item-txt webkit-box box-align">
+	    			<p class="line-h18 f17px">借贷项目撮合匹配系统</p>
+	    		</div>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close5"></div>
+    </div>
+    
+    <!--全方位弹框-->
+    <div class="frame webkit-box box-pack box-vertical bg-op09 hide" id="frame6">
+    	<div class="item_ani ani_delay03">
+	    	<div class="webkit-box ml23p">
+	    		<div class="txt_frame txt_frame_g">借款信息高频更新</div>
+	    	</div>
+	    	<div class="webkit-box ml53p mt10">
+	    		<div class="txt_frame txt_frame_r">风险评估提前预警</div>
+	    	</div>
+	    	<div class="webkit-box ml14p mt3">
+	    		<div class="txt_frame txt_frame_y">还款能力实时跟踪</div>
+	    	</div>
+	    	<div class="webkit-box ml26p mt19">
+	    		<div class="txt_frame txt_frame_b">第三方担保公司垫付</div>
+	    	</div>
+	    	<div class="webkit-box ml44p mt20">
+	    		<div class="txt_frame txt_frame_r">银行存管多重保障</div>
+	    	</div>
+	    	<div class="webkit-box ml16p mt13">
+	    		<div class="txt_frame txt_frame_g">全方位专业化催收团队</div>
+	    	</div>
+	    	<div class="webkit-box ml39p mt15">
+	    		<div class="txt_frame txt_frame_y">足额质押物变现偿还</div>
+	    	</div>
+    	</div>
+    	<div class="frame-close" id="close6"></div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<!--<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>-->
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20160428001"></script>
+<script type="text/javascript" src="/scripts/jsbridge.js"></script>
+<script type="text/javascript">
+	function tabPeople(index){
+		var txt = $(".famousTxt");
+		txt.addClass('hide');
+		txt.eq(index).removeClass('hide');
+	}
+    //var swiper = new Swiper('#swiper', {
+    //    slidesPerView: 'auto',
+    //    spaceBetween: 0,
+    //    centeredSlides: true,
+    //    spaceBetween: 0,
+    //    speed:300,
+    //    onSlideChangeStart: function (swiper) {
+	//		tabPeople(swiper.activeIndex);
+    //    }
+    //});
+    
+    $(".swiper-slide").each(function(i){
+		$(this).click(function(){
+			swiper.slideTo(i,300,true);
+		})
+	})
+
+    var scrollT = "";
+    function moveToTop(open, target) {
+        $(open).click(function () {
+            scrollT = $(window).scrollTop();
+            $(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+            setTimeout(function () {
+            }, 400);
+        });
+    }
+
+    function moveToBottom(close, target) {
+        $(close).click(function () {
+            $(window).scrollTop(scrollT);
+            $(target).removeClass('moveToTop').addClass('moveToBottom');
+            setTimeout(function () {
+                $(target).addClass('hide');
+            }, 400);
+        })
+    }
+
+    moveToTop("#f1",'#frame1');
+    moveToBottom('#close1','#frame1');
+    moveToTop("#f2",'#frame2');
+    moveToBottom('#close2','#frame2');
+    moveToTop("#f3", '#frame3,#frame-law-b');
+    moveToBottom('#close3','#frame3,#frame-law-b');
+    moveToTop("#f4", '#frame4');
+    moveToBottom('#close4','#frame4');
+    moveToTop("#f5",'#frame5');
+    moveToBottom('#close5','#frame5');
+    moveToTop("#f6",'#frame6');
+    moveToBottom('#close6','#frame6');
+	moveToTop("#f7",'#frame7,#about-td-b');
+	moveToBottom('#close7','#frame7,#about-td-b');
+
+    $(function () {
+        $("#downloadApp").click(function () {
+            window.location.href = "http://hd.tuandai.com/weixin/tuandaiAppNew/IndexApp.aspx?type=weixinapp";
+        })
+        var isAppLink = "<%= IsAppLink%>";
+        $(".subscribeWX").click(function () {
+            if (isAppLink == "True") {
+                window.location.href = "/pages/concernWeChat.aspx?type=mobileapp";
+            } else {
+                window.location.href = "/pages/concernWeChat.aspx";
+            }
+            
+        });
+        $(".btnYellow").click(function () {
+            if (Jsbridge.isNewVersion()) {
+                Jsbridge.toAppInvestList();
+            } else if (appType == "mobileapp") {
+                window.location.href = "ToAppInvestList";
+            } else {
+                window.location.href = "/pages/invest/invest_list.aspx";
+            }
+        });
+        $("#btnShareFriend").click(function () {
+            if (Jsbridge.isNewVersion()) {
+                Jsbridge.toAppInviteFriend();
+            } else if (appType == "mobileapp") {
+                window.location.href = "ToAppInviteFriend";
+            } else {
+                window.location.href = "http://hd.tuandai.com/weixin/20160401/Invite.aspx";
+            }
+        });
+    })
+</script>
+
+</html>

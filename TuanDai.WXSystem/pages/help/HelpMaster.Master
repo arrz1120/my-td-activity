@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HelpMaster.master.cs" Inherits="TuanDai.WXApiWeb.pages.help.HelpMaster" %>
+
+<!doctype html>
+<html>
+<head  runat="server">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-itunes-app" content="app-id=796440356"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+    <link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bg-fbfbf9">  
+    <%= GetNavStr()%>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1)">返回</div>
+            <h1 class="title"><%=this.Title %></h1>
+        </div>
+        <%= GetNavIcon()%>
+        <div class="none"></div>
+    </header>
+    <asp:ContentPlaceHolder ID="body" runat="server"> 
+    </asp:ContentPlaceHolder> 
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/base.js"></script>
+    <asp:ContentPlaceHolder ID="foot" runat="server"> 
+    </asp:ContentPlaceHolder> 
+<script type="text/javascript">
+    $(function () {
+        //设置标题
+        $(".header .title").text($(document).attr("title"));
+    });
+</script>
+</body>
+</html>

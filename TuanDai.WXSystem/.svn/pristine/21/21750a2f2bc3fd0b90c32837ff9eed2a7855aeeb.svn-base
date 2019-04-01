@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目宝AB常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+        <p class="title">项目宝A借款期限怎么计算？</p>
+        <p>项目宝A发标时不设具体期限，发标时约定不同时段还款的借款利率，以资金实际使用为准，但最长不超过24个月，达到24个月的最长期限自动回款。</p>
+        <p class="title">项目宝A收益如何计算？</p>
+        <p>项目宝A最终收益按资金实际使用时间及该期限对应的利率来计算。</p>
+        <p class="text-default">例如，第一期项目宝A类项目借款金额3000万，约定利率范围为6个月内还款年化收益10%，6-9个月12%，9-12个月13%，18-24个月18%，A投资20000元，投资成功后借款用户在9个月零8天还款，则A收益=20000*（13%/12*9）+20000*（13%/365*8）=2007元。</p>
+        <p class="title">如何保证质押物的真实性？</p>
+        <p> 团贷网的专业风控团队会实地调查借款人质押物的真实性，经核查后对质押物估值。</p>
+        <p class="title">项目宝还款如何保障？</p>
+        <p>1、投资项目的盈利；</p>
+        <p class="pt3">2、借款人均须提供足额抵押物；</p>
+        <p class="pt3">3、项目宝所有标的均由担保机构提供担保，一旦逾期由担保公司先行垫付。</p>
+    </div>
+</body>
+</html>

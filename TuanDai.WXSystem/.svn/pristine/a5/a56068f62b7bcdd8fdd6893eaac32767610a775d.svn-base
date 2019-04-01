@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>三分钟了解团贷网</title>
+</head>
+<style type="text/css">
+html,body{
+  height: 100%;
+  position: relative;
+}
+.zt-video{
+  width: 90%;
+  margin: 10px auto;
+  height: 200px;
+}
+img {  border:0; -ms-interpolation-mode:bicubic; max-width:100%; vertical-align:middle;}
+
+
+.x-video-info{
+  display: none !important;
+}
+@media screen and (orientation: portrait) {
+    footer{
+    position: absolute;
+    bottom: 0;
+  }
+} 
+@media screen and (orientation: landscape) {
+ footer{
+  margin-top: 100px;
+  
+}
+}
+
+</style>
+<body>
+<header>
+  <img src="/imgs/ad-top-3min.png">
+</header>
+
+<div class="zt-video" id="youkuplayer">
+</div>  
+<footer>
+  <img src="/imgs/ad-bottom.png">
+</footer>
+<script type="text/javascript" src="http://player.youku.com/jsapi">
+      player = new YKU.Player('youkuplayer',{
+          styleid: '0',
+          client_id: '52b3fa57e9fe17cf',
+          vid: 'XMTU0OTk1NTMwMA',
+          autoplay: false,
+          show_related: false
+      });
+</script>
+</body>
+
+</html>

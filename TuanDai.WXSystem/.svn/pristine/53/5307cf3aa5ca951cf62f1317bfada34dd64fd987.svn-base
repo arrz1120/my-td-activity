@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>回款日历</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160304" />
+		<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160304" />
+		<link rel="stylesheet" type="text/css" href="/css/date.css?v=20180112" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div id="bigDiv">
+			<a href="javascript:void(0);" class="data-tips">因数据同步问题，新产生的回款、结清及还款记录存在延时情况</a>
+			<div class="pl15 pr15 date-header">
+				<div class="clearfix pos-r">
+					<div class="lf clearfix date-header-month pt18 pos-r">
+						<p><span class="f23px c-694514 fb" id="nowMon"></span><b></b><span class="f13px c-694514" id="nowY"></span></p>
+					</div>
+					<a href="returnedmoney_list.html" class="rf date-header-btn">列表模式</a>
+				</div>
+			</div>
+
+			<div class="week date_row">
+				<ul class="clearfix">
+					<li>日</li>
+					<li>一</li>
+					<li>二</li>
+					<li>三</li>
+					<li>四</li>
+					<li>五</li>
+					<li>六</li>
+				</ul>
+			</div>
+
+			<div class="swiper-container bb-e6e6e6 pb10 bg-fff" id="swiper">
+				<div class="swiper-wrapper"></div>
+				<div class="date_mark" id="date_mark"></div>
+			</div>
+
+			<div class="bb-e6e6e6 bt-e6e6e6 pl15 bg-fff mt10">
+				<div class="pt15 pb8 pos-r">
+					<p class="sam-p1 f18px"><i class="sam-icon sam-yellow"></i>待回款<span class="c-fd6040 f18px ml15">10560.00</span></p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px">本金：10280.00</div>
+						<div class="rf w50p c-ababab f12px">收益：280.00</div>
+					</div>
+				</div>
+				<div class="pt15 pb8 pos-r">
+					<div class="zx-item">智享计划</div>
+					<p class="sam-p1 f18px">
+						<i class="sam-icon sam-green"></i>待结清<span class="c-fd6040 f18px ml15">10560.00</span>
+					</p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px">本金：10280.00</div>
+						<div class="rf w50p c-ababab f12px">收益：280.00</div>
+					</div>
+				</div>
+				<div class="pt15 pb8 pos-r">
+					<div class="zcb-item">资产标</div>
+					<p class="sam-p1 f18px"><i class="sam-icon sam-blue"></i>待还款<span class="c-fd6040 f18px ml15">10560.00</span></p>
+					<div class="sam-p2 clearfix">
+						<div class="lf w50p c-ababab f12px">本金：10280.00</div>
+						<div class="rf w50p c-ababab f12px">收益：280.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="c-ababab pl15 pt15 pb30 lh1">待回款中不包含We计划[分期宝]复投金额</div>
+		</div>
+
+		<!--弹框-->
+		<div class="dateAlert hide" id="dateAlert">
+			<div class="d_top"><span id="alert_today">2016年7月11日</span><i id="closeAlert"></i></div>
+			<div class="d_tab clearfix bg-fff">
+				<div class="lf w33p text-center pt8 pb10 cur" id="tab1">
+					<p class="f15px">待回款</p>
+					<p class="f13px line-h18 c-808080">2000.00</p>
+				</div>
+				<div class="lf w33p text-center pt8 pb10" id="tab2">
+					<p class="f15px">待结清</p>
+					<p class="f13px line-h18 c-808080">3000.00</p>
+				</div>
+				<div class="lf w33p text-center pt8 pb10" id="tab3">
+					<p class="f15px">待还款</p>
+					<p class="f13px line-h18 c-808080">3000.00</p>
+				</div>
+			</div>
+			<!--待回款-->
+			<div class="list">
+				<div class="d_list pb10">
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>回款金额:<span class="c-fd6040 r_money">3020.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>回款金额:<span class="c-fd6040 r_money">3020.00</span><span class="d_itemTips">奖励:1.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>回款金额:<span class="c-fd6040 r_money">3020.00</span><span class="d_itemTips">奖励:1.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--待结清-->
+			<div class="list" style="display: none;">
+				<div class="d_list pb10">
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">3020.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">11,093,020.00</span><span class="d_itemTips">逾期30天:10.00+20.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">3020.00</span><span class="d_itemTips">奖励:1.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+				
+			<!--待还款-->
+			<div class="list" style="display: none;">
+				<div class="d_list pb10">
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">3020.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">11,093,020.00</span><span class="d_itemTips">逾期30天:10.00+20.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+					<div class="pl10 pt10 pr10">
+						<div class="d_item">
+							<p>还款金额:<span class="c-fd6040 r_money">3020.00</span><span class="d_itemTips">奖励:1.00</span></p>
+							<p class="c-ababab pt7">(<span class="c-ababab">本金:3000.00</span><span class="c-ababab ml15">利息:20.00</span>)</p>
+							<div class="clearfix proName pt8">
+								<div class="lf text-overflow">[资产标]信用借款保证提前还款信用借款保证提前还款</div>
+								<div class="rf c-ababab">待回款（1/3)</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/monthSwiper.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//初始化调用
+				var mSwiper = new monthSwiper({
+					slideCallBack: slideChange
+				});
+				
+				//配置data
+				var data = [
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678,notreadyMoney: 6789}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 17,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						],
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						],
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						],
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						],
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						],
+						[
+							{day: 1,returnMoney: 0,repayMoney: 5678}, 
+							{day: 5,returnMoney: 1234,repayMoney: 0}, 
+							{day: 10,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 14,returnMoney: 1234,repayMoney: 5678}, 
+							{day: 21,returnMoney: 1234,repayMoney: 5678},
+							{day: 26,returnMoney: 1234,repayMoney: 5678}
+						]
+					]
+				
+				//调用循环选取还款或回款日函数
+				mSwiper.lightDay(data);
+				
+				//头部初始设置
+				var m = (new Date).getMonth() + 1;
+				if(m < 10) {
+					m = '0' + m;
+				}
+				$("#nowMon").html(m);
+				$("#nowY").html((new Date).getFullYear());
+				
+				//自定义滑动回调函数，接受activeIndex参数
+				function slideChange(activeIndex) {
+					var ul = $('.swiper-slide').eq(activeIndex).find('ul');
+					var nowMon = ul.attr('month');
+					var nowY = ul.attr('year');
+					if(nowMon < 10) {
+						nowMon = '0' + nowMon;
+					}
+					$("#nowMon").html(nowMon);
+					$("#nowY").html(nowY);
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

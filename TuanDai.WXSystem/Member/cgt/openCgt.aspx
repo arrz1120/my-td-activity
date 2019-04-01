@@ -1,0 +1,102 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="openCgt.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.cgt.openCgt" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <title>开通存管账户</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" /> 
+    <link rel="stylesheet" type="text/css" href="/css/cunguan.css?v=<%=GlobalUtils.Version %>" />		
+</head>
+	<body  class="bg-f1f3f5"> 
+
+    <div id="bigDiv">
+	    <%=GetNavStr() %>
+	 
+	    <div class="tips">
+			<p>厦门银行为团贷网提供资金存管服务，为保障资金安全，请绑定本人持有的银行卡，资金充值和提现必须使用同一张银行卡。（目前，中国境内公民只支持使用身份证进行开户）</p>
+		</div>
+		
+       <div class="bg-fff">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">真实姓名</div>
+				<div class="inp"><input type="text" placeholder="请输入姓名" id="txtRealName" <%=model.IsValidateIdentity?"value='"+model.RealName+"'  readonly='readonly'":"" %> /></div>
+			</div>
+           <div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+			   <div class="inpName">证件类型</div>
+               <div class="inp selectDiv">
+					<select class="f15px" id="txtCardType"  <%=model.IsValidateIdentity?"value='"+model.IdentityCard+"'  disabled='disabled'":"" %>>
+						<option value="1" <%=iCardType==1?"selected='selected'":""%>>身份证</option>
+						<option value="2" <%=iCardType==2?"selected='selected'":""%>>港澳台居民通行证</option>
+						<option value="4" <%=iCardType==4?"selected='selected'":""%>>外国人护照</option>
+						<option value="3" <%=iCardType==3?"selected='selected'":""%>>外国人永久居住证</option>
+					</select>
+				</div>
+               <% if(!model.IsValidateIdentity){ %>
+				<div class="ico-arrow-r"></div>
+               <%} %>
+			</div>
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">证件号码</div>
+				<div class="inp"><input type="text" placeholder="请输入证件号码"  id="txtIdentity" <%=model.IsValidateIdentity?"value='"+model.IdentityCard+"'  readonly='readonly'":"" %> /></div>
+			</div>
+		</div>  
+		<div class="f12px c-fd6040 pl10 pr10 pt10 line-h16">请确认您的姓名和证件信息真实有效，开通存管账户之后无法修改。</div>
+
+        <div class="bg-fff mt10">
+			<div class="inputBox webkit-box bb-e6e6e6 bt-e6e6e6">
+				<div class="inpName">银行卡号</div>
+				<div class="inp"><input type="text" placeholder="请输入银行卡号码" id="txt_bankCard" <%=!string.IsNullOrEmpty(model.BankAccountNo)?"value='"+model.BankAccountNo+"' readonly='readonly'":"" %> /></div>
+				<a href="/Member/cgt/bank_list.aspx" class="supportBank f12px">支持银行</a>
+			</div> 
+			<div class="inputBox webkit-box bb-e6e6e6">
+				<div class="inpName">预留手机</div>
+				<div class="inp"><input type="tel" placeholder="请输入银行预留手机号" id="txtTelNo" value="<%=PreTelNo %>" /></div>
+			</div>
+		</div>
+          
+        <div class="pl15 pr15 pt20">
+			<!--橙色按钮将 bg-cecfd0 改成 btnYellow-->
+			<a href="javascript:void(0);" class="btn btnYellow" id="btnGoCgt" >前往存管页面绑定</a>
+		</div>
+		<p class="text-center c-999999 mt15">如有疑问，请
+			<a href="tel:1010-1218" class="f13px c-fab600">联系客服</a>
+		</p> 
+   </div>
+
+    <!--激活存管账户遇到问题-->
+	<div class="alert webkit-box box-center hide" id="dvCgQuestion">
+		<div class="alert-select">
+			<div class="text-center c-212121 f17px pt25 pb10 pl15 pr15">激活存管账户遇到问题？</div>
+			<div class="c-999999 f15px text-center pb25">联系客服：<a href="javascript:void(0);" class="f15px c-fab600">1010-1218></a></div>
+			<div class="clearfix bt-e6e6e6">
+				<div class="lf w50p br-e6e6e6">
+					<div class="btn c-808080 f17px br-e6e6e6">稍后再激活</div>
+				</div>
+				<div class="rf w50p">
+					<div class="btn c-ffc61a f17px">继续激活</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+
+     <div class="jumpPage webkit-box box-center box-vertical h100p hide" id="jumpPage">
+		<div class="jump_loading"></div>
+		<p>即将前往存管页面</p>
+	 </div>
+         
+ </body>
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/cgt_bankcard.js?v=<%=GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        var cardType = "<%=iCardType%>";
+        pageType = "<%=pageType%>";
+        cookieDomain = "<%=GlobalUtils.CookieDomain%>";
+    </script>
+</html>

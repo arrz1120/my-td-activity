@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css?v=20150907" />
+    <!--base-->
+    <link rel="stylesheet" type="text/css" href="css/css.css?v=20150819003" />
+    <!--安全中心-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+    <section>
+    	<div class="top_bg"></div>
+    </section>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix ml20 mr20">
+        <div class="phoneCode pr0">
+          <div class="c-left"><i class="phone_num"></i></div>
+          <input type="text" name="" class="codeIpt" id="phone" placeholder="请输入手机号码" maxlength="11"/>
+        </div>
+    </section>
+    <section class="pl20 error" id="dvPhoneError"></section>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix ml20 mr20">
+        <div class="phoneCode pr0">
+          <div class="c-left"><i class="password"></i></div>
+          <input type="password" name="" id="passWord" class="codeIpt" placeholder="由6-16个字符+数字组成"/>
+        </div>
+    </section>
+    <section class="pl20 error" id="dvPwdError"></section>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix ml20 mr20">
+        <div class="phoneCode bindingPhone pl10 pr5">
+            <input type="text" name="" id="txtValidNumber" class="codeIpt" placeholder="请输入图形验证码" maxlength="4" style="width: 135px;"/>
+            <img src="/ValidateCode.ashx" id="imgVcode" alt="图形验证码" style="float:right;margin-right:6px;margin-top: 5px;" onclick="reloadCode('/ValidateCode.ashx')"/>
+        </div>
+    </section>
+    <section class="pl20 error" id="dvValidNumber"></section>
+    <section class="bg-bdtopBom1-ccc pd10 mt20 clearfix ml20 mr20 width60">
+        <div class="phoneCode bindingPhone pl10 pr5">
+            <input type="text" name="" id="messCode" class="codeIpt" placeholder="请输入验证码"/>
+            <input type="button" id="btnSendMsg" class="btncode" value="获取验证码" />
+        </div>
+    </section>
+    <section class="pl20 error" id="dvCodeError"></section>
+    <section class="agreement pl20 pr10 mt20">
+    <input type="checkbox" name="" id="agreexieyi">
+    <span class="c-ababab f14px">我已经阅读《<a href="/pages/agreement.aspx" class="c-ffa019 f14px ml5">团贷网服务协议</a>》</span>
+  </section>
+    <section class="pd20">
+      <a href="javascript:;" id="btnReg" target="_blank" class="btn btnYellow">注册领奖</a>
+  </section>
+    <section class="pd20 pb0 clearfix pt0"><div class="lf security_1"><img src="images/img_1.png" /></div><div class="lf security_txt"><span>高收益 低门槛</span><br>50倍银行活期利率，最高18%年化收益</div></section>
+    <section class="pd20 pb0 clearfix "><div class="lf security_1"><img src="images/img_2.png" /></div><div class="lf security_txt"><span>顶级机构2亿B轮融资</span><br>由巨人（史玉柱）、九鼎、久弈三家领投</div></section>
+    <section class="pd20 pb0 clearfix"><div class="lf security_1"><img src="images/img_3.png" /></div><div class="lf security_txt"><span>安全保障 实力可靠</span><br>大型担保机构担保，第三方资金托管</div></section>
+    <section class="mt20"><a href="/pages/download.aspx"><img src="images/bot_bg.jpg"></a></section>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script src="js/icheck.min.js"></script>
+    <script src="js/reg.js?V=20150914" type="text/javascript"></script>
+</body>
+</html>

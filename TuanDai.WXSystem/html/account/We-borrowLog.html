@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>投资记录</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">投资记录
+                <!-- <select name="time1" class="select">
+                    <option value="进行中">进行中</option>
+                    <option value="已完成">已完成</option>
+                </select> -->
+
+            </h1>
+        </div>
+
+        <div class="state-nav mb10">
+            <a href="javascript:void()" id="Inprogress" class="f15px on">回购中</a>
+            <a href="javascript:void()" id="CompletedAndFlow" class="f15px">完成</a>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="state-nav mb10">
+        <a href="javascript:void()" id="Inprogress" class="f15px on">回购中</a>
+        <a href="javascript:void()" id="CompletedAndFlow" class="f15px">完成</a>
+    </div>
+    <div>
+     <div class="borrowBox">
+        <section class="yellowBox pb25 pt10">
+            <!--<div class="hd">您的待回本金为</div>-->
+            <div class="hd">您的待收本息为</div>
+            <div class="bd mt2">
+                <p class="f28px c-fff">￥26,235.59<span class="f14px c-fff ml10">+2.45</span>
+                    <span class="label-cn c-fff f075px">（当前浮动收益）</span>
+                </p>
+            </div>
+            <div class="hd mt10">您的待收本息为</div>
+            <div class="bd mt20">
+                <p class="f22px c-fff">￥26,235.59                 </p>
+            </div>
+            <!--<div class="bd mt10">-->
+            <!--<p class="f30px c-fff" id="bd">￥26,235,222.59<span class="f14px c-fff ml5">0.00</span><span class="label-cn c-fff f09px">（当前浮动收益）</span></p>-->
+            <!--</div>-->
+        </section>
+         <section class="listBox pd10">
+            <div class="contMain">
+                <a href="borrowShow.html">
+                    <div class="hbody">股票配资<span class="f12px c-ababab ml10">股票配资【GPPZ-150519110413450】</span></div>
+                    <div class="clearfix mbody m10">
+                        <p class="c-ababab f12px rf">手动投标</p>
+                        <div class="c-ffcf1f f20px lf"><i class="icoBox11 ret-m-ico1"></i><span class="c-ababab f12px">最新市值</span> ¥16,426.45</div>
+                    </div>
+                    <div class="clearfix mbody mb5">
+                        <div class="c-ffcf1f f20px lf"><i class="icoBox11 ret-m-ico1"></i><span class="c-ababab f12px">最新市值</span> ¥16,426.45</div>
+                        <p  class="f12px c-24ceff mt5 rf"><i class="icoBox11 state8 "></i>持有中</p>
+                    </div>
+                </a>
+            </div>
+             <div class="contMain">
+                 <a href="borrowShow.html">
+                     <div class="hbody">股票配资<span class="f12px c-ababab ml10">股票配资【GPPZ-150519110413450】</span></div>
+                     <div class="clearfix mbody m10">
+                         <p class="c-ababab f12px rf">手动投标</p>
+                         <div class="c-ffcf1f f20px lf"><i class="icoBox11 ret-m-ico1"></i><span class="c-ababab f12px">最新市值</span> ¥16,426.45</div>
+                     </div>
+                     <div class="clearfix mbody mb5">
+                         <div class="f12px c-ababab pt5 lf"><i class="icoBox12 ret-m-ico2"></i>回款时间    2015-04-2（第1/12期）</div>
+                         <p class="f12px c-9aca40 mt5 rf"><i class="icoBox11 state2"></i>持有中</p>
+                     </div>
+                 </a>
+             </div>
+        </section>
+    </div>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //统计
+        $('.circle').each(function (index, el) {
+            var num = $(this).find('span').text()*3.6;
+            if (num <= 180) {
+                $(this).find('.right').css('transform','rotate('+num+'deg)');
+            }
+            else {
+                $(this).find('.right').css('transform','rotate(180deg)');
+                $(this).find('.left').css('transform','rotate('+(num-180)+'deg)');
+            };
+            if(num==360){
+                $(this).addClass("finish");
+            };
+        });
+        /***************头部筛选下拉********************/
+        $(".selectBox").click(function(e){ 
+            $(".selectList").slideDown();
+            $(".ico-arrow-search").addClass("hover"); 
+            e.stopPropagation();//阻止事件冒泡
+        });
+        //点击文档时，隐藏筛选下拉 
+        $(document).click(function() { 
+            $(".selectList").slideUp();
+            $(".ico-arrow-search").removeClass("hover");
+        }); 
+        $(".selectList").click(function(e) { 
+            e.stopPropagation(); 
+        });
+        //点击下拉文本时，隐藏筛选下拉 
+        $(".selectList li").click(function(){
+            var $sText=$(this).text();
+            $(".selectText").text($sText);
+            $(".selectList").slideUp();
+            $(".ico-arrow-search").removeClass("hover");
+        });
+    });
+</script>
+
+</body>
+</html>

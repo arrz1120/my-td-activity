@@ -1,0 +1,381 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.DQSystemAPI.Client;
+using TuanDai.LogSystem.LogClient;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using System.Data;
+using Tool;
+using Dapper;
+using NetDimension.Json.Converters;
+using NetDimension.Json; 
+using TuanDai.DQSystemAPI.Contract;
+using TuanDai.WXApiWeb.pages.App.find;
+using TuanDai.ZKHelper;
+using TuanDai.ZXSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.fundStatistics
+{
+    public partial class incomeCount : AppActivityBasePage
+    {
+        protected ProfitStatistics profitmodel;
+        protected decimal totalamount = 0;//资产总计
+        protected FundAccountInfoInfo fundAccountInfo;
+        protected We_FundAccountInfo we_FundAccountInfo;
+        protected decimal weWaitInvestment = 0;
+        protected UserBasicInfoInfo userModel;
+        protected int JoinTDDay = 0;
+        protected decimal totalPayAmount = 0; //累计支出
+        protected decimal totalInAmount = 0; //累计收入
+        protected PayOutStatistics paymodel;
+
+        protected decimal DueComeInterest = 0;//待收收益
+        protected List<EChartData1Info> chartDatas1;
+        protected decimal TotalRecharge = 0;//累计充值
+        protected decimal TotalWithDrawal = 0;//累计提现
+        protected string action = "";
+        protected WXFundStatistModel DqFundModel;//定期理财
+        protected DateTime userRegDate = DateTime.MinValue;
+
+        protected FundStatisticsInfo ZxFundModel;//智享库统计数据
+        protected FundAccountInfo_Zx ZxFundModelFromDq;//定期库统计智享数据
+        protected decimal ZxOverMoney;//智享逾期收益
+        protected decimal ZxPayOutBorrow;//智享支付佣金
+
+        protected FundAccountStatistModel DQFundAccountInfo;
+        protected bool IsReadMySQLHistory = ConfigHelper.getConfigString("IsReadMySQLHistory") == "1";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LoadData();
+            }
+        }
+
+        protected void LoadData()
+        {
+            Guid userId = WebUserAuth.UserId.Value;
+            if (Request.QueryString["uid"] != null)
+            {
+                userId = Guid.Parse(Request.QueryString["uid"]);
+            }
+            TuanDai.PortalSystem.BLL.UserBLL bll = new TuanDai.PortalSystem.BLL.UserBLL();
+            userModel = bll.GetUserBasicInfoModelById(userId);
+            if (userModel == null)
+            {
+                Response.Redirect("//passport.tuandai.com/2login?ret=" + HttpUtility.UrlEncode(HttpContext.Current.Request.RawUrl));
+                return;
+            }
+            userRegDate = userModel.AddDate.Value;
+            GetProfitStatistics(userId);
+            GetAccountInfo(userId);
+            DqFundModel = GetDQFundModel(userId);
+            ZxFundModel = new TuanDai.ZXSystem.BLL.FundStatisticsBLL().GetFundStatisticsInfoByUserId(userId);
+            if (ZxFundModel == null)
+                ZxFundModel = new FundStatisticsInfo();
+            GetZxFundModelFromDQ(userId);
+            if (DqFundModel == null)
+                DqFundModel = new WXFundStatistModel();
+            if (DqFundModel.DueComeInterest >= decimal.Parse("-0.03") && DqFundModel.DueComeInterest < 0)
+                DqFundModel.DueComeInterest = 0;
+            JoinTDDay = Tool.DateHelper.GetDateDiffDay(DateTime.Parse(userModel.AddDate.Value.ToString("yyyy-MM-dd")), DateTime.Today.AddDays(1));
+            if (JoinTDDay <= 0)
+                JoinTDDay = 1;
+
+            totalPayAmount = (fundAccountInfo.NetPayOutInterest ?? 0) + (fundAccountInfo.TotalPayOutMember ?? 0) + (fundAccountInfo.TotalWithdrawDepositHandRecharge ?? 0)
+                + (fundAccountInfo.TotalInvestCommission ?? 0) + (fundAccountInfo.BorrowCommission ?? 0) + (fundAccountInfo.DuePayOutInterest ?? 0);
+
+            //GetTotalWithDrawal();
+            TotalWithDrawal = fundAccountInfo.TotalWithdrawDeposit ?? 0;
+
+        }
+
+        protected void GetZxFundModelFromDQ(Guid userId)
+        {
+            string sql = @"select * from FundAccountInfo_ZX with(nolock) where UserId=@UserId";
+            var para = new DynamicParameters();
+            para.Add("@UserId", userId);
+
+            ZxFundModelFromDq = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<FundAccountInfo_Zx>(TdConfig.ApplicationName, "/BD/dqread", sql,
+                ref para);
+            if (ZxFundModelFromDq == null)
+                ZxFundModelFromDq = new FundAccountInfo_Zx();
+
+            sql = @"select sum(isnull(o.OverDueInterest,0)+case when isnull(s.IsVip,0)=1 then isnull(o.PenaltyAmount,0)*2/3 else 0 end) PenaltyAmount from dbo.OverDueRecord o with(nolock) 
+                    inner join dbo.Subscribe s with(nolock) on o.SubscribeId=s.Id
+                    where o.SubscribeUserId=@UserId and o.IsBorrow=1";
+            ZxOverMoney = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal?>(TdConfig.ApplicationName, "/BD/zxread", sql, ref para) ?? 0;
+
+            sql = @" select isnull(sum(BorrowPayoutCommission),0) from dbo.Project with(nolock) where Type =38  and Status in(2,3,6,7) and UserId=@UserId";
+            ZxPayOutBorrow = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal?>(TdConfig.ApplicationName, "/BD/zxread", sql, ref para) ?? 0;
+        }
+        /// <summary>
+        /// 获取定期理财的数据
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        protected WXFundStatistModel GetDQFundModel(Guid userId)
+        {
+            return WXFundClient.GetFundStatistData(userId);
+        }
+
+        #region 统计数据
+        //获取资产统计
+        private void GetAccountInfo(Guid userid)
+        {
+            //获取We待投
+            weWaitInvestment = GetWePlanWaitInvestment(userid);
+
+            GetWe_FundAccountInfo(userid);
+
+            var commandText = @"SELECT * from dbo.FundAccountInfo with(nolock) WHERE UserId =@UserId"; ;
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@UserId", userid);
+            fundAccountInfo = PublicConn.QuerySingle<FundAccountInfoInfo>(commandText, ref para);
+
+            //待收利息加上复投宝的利息
+            fundAccountInfo.DueInPAndI = (fundAccountInfo.DueInPAndI ?? 0) + (we_FundAccountInfo.DueComeInterest ?? 0) + (we_FundAccountInfo.RecoverBorrowOut ?? 0);
+            fundAccountInfo.DueComeInterest = (fundAccountInfo.DueComeInterest ?? 0) + (we_FundAccountInfo.DueComeInterest ?? 0);
+            fundAccountInfo.FreezeAcount = (fundAccountInfo.FreezeAcount ?? 0) + weWaitInvestment;  //冻结资金加上We待投 
+            fundAccountInfo.TotalInvest += (we_FundAccountInfo.TotalInvest ?? 0);
+            fundAccountInfo.NetEarningsInterest += (we_FundAccountInfo.NetEarningsInterest ?? 0);
+
+            if (fundAccountInfo.TotalPenaltyOfInvest < 0)
+                fundAccountInfo.TotalPenaltyOfInvest = 0;
+
+            TotalRecharge = fundAccountInfo.TotalRecharge ?? 0;
+
+            totalamount = (fundAccountInfo.AviMoney ?? 0) + (fundAccountInfo.DueInPAndI ?? 0)
+               + (fundAccountInfo.BorrowerOut ?? 0) + (fundAccountInfo.DueConfirmWithdrawDeposit ?? 0) + (fundAccountInfo.RewardMoney ?? 0) + (fundAccountInfo.FreezeAcount ?? 0);
+
+        }
+
+
+        /// <summary>
+        /// 收益统计
+        /// </summary>
+        protected void GetProfitStatistics(Guid userId)
+        {
+            //DynamicParameters dyParams = new DynamicParameters();
+            //dyParams.Add("@UserId", userId);
+            if (profitmodel == null)
+            {
+                profitmodel = new ProfitStatistics();
+            }
+            //string rsql = @"SELECT ISNULL(SUM(EarnMoney),0) FROM dbo.ExtendEarnRecord WITH(NOLOCK) WHERE UserID =@UserID";
+            //profitmodel.extenderMoney = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal>(TdConfig.ApplicationName,
+            //    TdConfig.DBReportWrite, rsql, ref dyParams);
+            string err = "";
+            profitmodel.prizeAmount = new TuanDai.UserPrizeNew.Client.UserPrizeQueryClient(TdConfig.ApplicationName).GetRedPacketIncome(userId, out err); ;
+
+            profitmodel.extenderMoney = GetExtendEarn(userId) ?? 0;
+
+        }
+
+        public decimal? GetExtendEarn(Guid userid)
+        {
+            #region 昨日佣金java接口版
+            string errorMsg = "";
+            string Url = System.Configuration.ConfigurationManager.AppSettings["CommissionApiUrl"] ?? ZooKClient.GetValueForZK("/url/CommissionApiUrl", ref errorMsg);
+            if (string.IsNullOrWhiteSpace(errorMsg))
+            {
+                if (!string.IsNullOrWhiteSpace(Url))
+                {
+                    string startDate = "";
+                    string endDate = "";
+                    string newUserAPIURL = string.Format("{0}/commission/{1}/totalEarn?startDate={2}&endDate={3}", Url, userid.ToString(), startDate, endDate);
+                    try
+                    {
+                        string result = "";
+                        errorMsg = string.Empty;
+                        result = HttpClient.HttpUtil.HttpGet(TdConfig.ApplicationName, newUserAPIURL, "", out errorMsg,
+                            null, 2);
+                        DailyCommission.CommissionApiResponse<DailyCommission.EarnMoneyResponse> commissionInfo = JsonConvert.DeserializeObject<DailyCommission.CommissionApiResponse<DailyCommission.EarnMoneyResponse>>(result);
+                        if (commissionInfo != null && commissionInfo.code == "SUCCESS")//如果返回银行卡为空，返回默认值
+                        {
+                            return commissionInfo.data.earnMoneyTotal;
+                        }
+                        else if (commissionInfo == null)
+                        {
+                            TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "incomeCount.aspx", "commissionInfo为空", Url);
+                            return null;
+                        }
+                        else
+                        {
+                            if (commissionInfo != null && commissionInfo.code != "SEARCH_USER_ID_NOT_FOUND_ERROR")
+                            {
+                                TuanDai.LogSystem.LogClient.LogClients.TraceLog(TdConfig.ApplicationName, "incomeCount.aspx", "用户不存在", "json=" + result);
+                                return null;
+                            }
+                            else
+                            {
+                                TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "incomeCount.aspx", "数据异常", "json=" + result);
+                                return null;
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "incomeCount.aspx", "获取数据异常", ex.Message + "  |  " + ex.StackTrace);
+                        return null;
+                    }
+                }
+                else
+                {
+                    TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "incomeCount.aspx", "Url为空", Url);
+                    return null;
+                }
+            }
+            else
+            {
+                TuanDai.LogSystem.LogClient.LogClients.ErrorLog(TdConfig.ApplicationName, "incomeCount.aspx", "获取CommissionApiUrl失败", errorMsg);
+                return null;
+            }
+            #endregion
+        }
+
+        //所有We冻结资金
+        public decimal GetWePlanWaitInvestment(Guid userId)
+        {
+            decimal weWaitInvestment;
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@userId", userId);
+            string strSQL = @"SELECT SUM(a.OrderAviAmount)
+                     FROM We_Order a with(nolock) 
+                     where a.UserId=@userId and a.StatusId in (0,1,2,4) and a.IsRefund=0";
+            weWaitInvestment = PublicConn.QuerySingle<decimal?>(strSQL, ref dyParams) ?? 0;
+
+            //We计划分期宝已回款待投冻结金额
+            string sql = @"SELECT isnull(SUM(OrderAviAmount),0) FROM(
+                    SELECT ISNULL(B.OrderAviAmount,0) AS OrderAviAmount
+                    FROM dbo.We_Order a WITH(NOLOCK)
+                    left JOIN We_OrderExtFQB b WITH(NOLOCK) on b.OrderId=a.Id AND b.UserId=a.UserId and b.StatusId=0
+                    WHERE  a.StatusId in (0,1,2,4) and a.UserId=@userId and isnull(a.IsWeFQB,0)=1 
+                    ) AS main";
+            weWaitInvestment += TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal>(TdConfig.ApplicationName, TdConfig.DBRead, sql,
+                ref dyParams);
+            return weWaitInvestment;
+        }
+        /// <summary>
+        /// 获取we计划账户表
+        /// </summary>
+        /// <param name="userId"></param>
+        public void GetWe_FundAccountInfo(Guid userId)
+        {
+
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@UserId", userId);
+            string strSQL = "select RecoverBorrowOut,DueComeInterest,TotalInvest,isnull(NetEarningsInterest,0)+isnull(TuanDaiRedPacket,0) as NetEarningsInterest from We_FundAccountInfo with(nolock) where UserId=@UserId";
+
+            we_FundAccountInfo = PublicConn.QuerySingle<We_FundAccountInfo>(strSQL, ref dyParams);
+            if (we_FundAccountInfo == null)
+                we_FundAccountInfo = new We_FundAccountInfo();
+
+
+        }
+        #endregion
+
+        /// <summary>
+        /// 获取累计提现
+        /// </summary>
+        protected void GetTotalWithDrawal()
+        {
+
+            string strSQL = "select isnull(Sum(Amount),0) as TotalWithDrawal from AppWithdrewFund with(nolock) where UserId=@userId and Type=1 and Status =2";
+
+            Dapper.DynamicParameters dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@userId", WebUserAuth.UserId.Value);
+            TotalWithDrawal = PublicConn.QuerySingle<decimal>(strSQL, ref dyParams);
+
+        }
+
+        #region 内部对像
+        public class ProfitStatistics
+        {
+            public decimal recAmount { get; set; }
+            public decimal dueAmount { get; set; }
+            public decimal overDueAmount { get; set; }
+            /// <summary>
+            /// 活动奖励
+            /// </summary>
+            public decimal actAmount { get; set; }
+            /// <summary>
+            /// 红包奖励
+            /// </summary>
+            public decimal prizeAmount { get; set; }
+            /// <summary>
+            /// 推广收益
+            /// </summary>
+            public decimal extenderMoney { get; set; }
+        }
+        public class PayOutStatistics
+        {
+            /// <summary>
+            /// 已付本息
+            /// </summary>
+            public decimal RepayedCapitalInterest { get; set; }
+            /// <summary>
+            /// 逾期本息
+            /// </summary>
+            public decimal DueCapitalInterest { get; set; }
+            /// <summary>
+            /// 已付利息
+            /// </summary>
+            public decimal RepayedInterest { get; set; }
+        }
+        public class EChartData1Info
+        {
+            /// <summary>
+            /// 日期
+            /// </summary>
+            public string CalcDay { get; set; }
+            /// <summary>
+            /// 累计收益
+            /// </summary>
+            public decimal TotalIn { get; set; }
+            /// <summary>
+            /// 累计支出
+            /// </summary>
+            public decimal TotalOut { get; set; }
+
+        }
+        protected class We_FundAccountInfo
+        {
+            /// <summary>
+            /// 待收本金
+            /// </summary>
+            public decimal? RecoverBorrowOut { get; set; }
+            /// <summary>
+            /// 待收利息
+            /// </summary>
+            public decimal? DueComeInterest { get; set; }
+            /// <summary>
+            /// 投资总额
+            /// </summary>
+            public decimal? TotalInvest { get; set; }
+            /// <summary>
+            /// 投资收益
+            /// </summary>
+            public decimal? NetEarningsInterest { get; set; }
+        }
+
+        protected class FundAccountInfo_Zx
+        {
+            public decimal? DueInAmount { get; set; }
+
+            public decimal? DueInInterest { get; set; }
+
+            public decimal? DueOutAmount { get; set; }
+
+            public decimal? DueOutInterest { get; set; }
+
+            public decimal? ReceivedInterest { get; set; }
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>WE计划理财</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=2016012101" />
+	<style type="text/css">
+		.inpBox{padding: 10px 0 10px 100px;}
+		.inpBox span{left: 15px;top: 10px;}
+		.inpBox input{border: none;outline: none;font-size: 1.4rem;}
+	</style>
+</head>
+<body>
+	<header class="headerMain">
+	    <div class="header">
+	        <div class="back" onClick="javascript:history.go(-1);">返回</div>
+	        <h1 class="title">申请赎回</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	<div class="bg-bdBom1-ccc pl15 pb15">
+		<div class="f15px c-212121 pt15 pb15">We计划【分期宝】（A1504189138）</div>
+		<div class="p12px c-ababab">持有时间：3个月20天</div>
+		<div class="p12px c-ababab clearfix mt5">
+			管理费率：1%
+			<div class="rf f12px c-fd6040 mr15">查看赎回规则</div>
+		</div>
+	</div>
+	<div class="bg-bdtopBom1-ccc mt15">
+		<div class="inpBox pos-r">
+			<span class="f14px c-212121 pos-a">赎回本金</span>
+			<input type="text" placeholder="可赎回本金：￥10,000.00" />
+		</div>
+	</div>
+	<div class="bg-bdtopBom1-ccc mt15 pl15">
+		<div class="c-212121 f12px pt20">预计到账金额<span class="c-ababab f12px">(赎回本金+收益-管理费)</span></div>
+		<div class="c-fd6040 f20px pt10">￥100,000.00 ~ 128,297.00</div>
+		<div class="f12px c-212121 pt25">收取管理费<span class="c-ababab f12px">(从到账金额中扣取)</span></div>
+		<div class="c-fd6040 f15px pt10">￥100.00</div>
+		<div class="c-ababab f12px pt20 pb20">预计到账时间：2015-12-30 ~ 2016-01-02</div>
+	</div>	
+	<div class="ml15 mr15 mt20 pb40">
+		<div class="btn btnYellow">申请赎回</div>
+	</div>
+	
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>我的设置</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=20160412" />
+    <link rel="stylesheet" type="text/css" href="/css/account2.css" /><!--账户中心-->
+</head>
+<body class="bg-f2f2f0">
+<!--<section class="pl15 bg-fff">
+    <div class="pt15 pb15 pos-r">
+        <p class="c-333333 f15px">热标上线通知</p>
+        <p class="c-999999 f12px line-h19">推荐热标上线推送</p>
+        <div class="states">
+            <input type="checkbox" class="switch" name="time1" id="time1">
+            <label for="time1"></label>
+        </div>
+    </div>
+</section>-->
+<section class="pl15 bg-fff">
+    <div class="pt15 pb15 bb-e6e6e6">
+        <p class="c-333333 f15px">投资通知</p>
+        <p class="c-999999 f12px line-h19 pr15">投资相关、自动投标、回款、债权转让、We计划提前退出/到期退出等消息提醒</p>
+    </div>
+    <div class="checkBox-wrap">
+        <ul class="clearfix">
+            <li>
+                <div class="checkBox active"></div>
+                <p>系统消息</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>短信</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>APP推送</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>微信服务号</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>邮件</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="pl15 bg-fff mt15">
+    <div class="pt15 pb15 bb-e6e6e6">
+        <p class="c-333333 f15px">借款通知</p>
+        <p class="c-999999 f12px line-h19">借款、还款相关提醒</p>
+    </div>
+    <div class="checkBox-wrap">
+        <ul class="clearfix">
+            <li>
+                <div class="checkBox active"></div>
+                <p>系统消息</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>短信</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>APP推送</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>微信服务号</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>邮件</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="pl15 bg-fff mt15">
+    <div class="pt15 pb15 bb-e6e6e6">
+        <p class="c-333333 f15px">奖品通知</p>
+        <p class="c-999999 f12px line-h19">邀请好友成功及奖品过期前消息提醒</p>
+    </div>
+    <div class="checkBox-wrap">
+        <ul class="clearfix">
+            <li>
+                <div class="checkBox active"></div>
+                <p>系统消息</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>短信</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>APP推送</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>邮件</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="pl15 bg-fff mt15">
+    <div class="pt15 pb15 bb-e6e6e6">
+        <p class="c-333333 f15px">热标上线通知</p>
+        <p class="c-999999 f12px line-h19">推荐热标上线推送</p>
+    </div>
+    <div class="checkBox-wrap">
+        <ul class="clearfix">
+            <li>
+                <div class="checkBox active"></div>
+                <p>APP推送</p>
+            </li>
+            <li>
+                <div class="checkBox"></div>
+                <p>微信服务号</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="pl15 pr15 mt20 pb20">
+    <a href="javascript:;" class="btn btnYellow">保存设置</a>
+</section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

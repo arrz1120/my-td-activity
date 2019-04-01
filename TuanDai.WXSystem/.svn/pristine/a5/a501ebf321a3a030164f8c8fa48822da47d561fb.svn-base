@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>绑卡说明</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">绑卡说明</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="explain-box mt20">
+        <div class="explain-cn pos-r">
+             <p class="pos-a">1、</p>
+             <p class="cn-r"> 为了避免他人盗用您的账号窃取资产，充值、提现必须使用与实名信息一致的银行借记卡。</p>
+        </div>
+        <div class="explain-cn pos-r">
+            <p class="pos-a">2、</p>
+            <p class="cn-r"> 一经绑定，充值、提现都只能使用该银行卡，不得更换。</p>
+        </div>
+        <div class="explain-cn pos-r">
+            <p class="pos-a">3、</p>
+            <p class="cn-r"> 如原卡丢失、损坏或停用，请联系客服进行视频验证和提供银行书面材料进行更换。</p>
+        </div>
+    </section>
+
+    <section class="agreement pl15 pr15 mt20">
+        <input type="checkbox" name="" id="square-checkbox-disa-checked" checked>
+        <span class="c-ababab f14px">同意该《<span class="c-fac502 f14px ml5">绑卡说明</span> 》</span>
+    </section>
+
+    <section class="pd15 mt5 next-but">
+        <a href="/Member/safety/bindBankCardNew.aspx" class="btn btnYellow">下一步</a>
+    </section>
+
+    <section class="footer">
+        <div class="footer-cn text-center">
+            <p class="f14px c-ababab">东莞团贷网互联网科技服务有限公司</p>
+            <a href="http://www.tuandai.com" class="f14px c-ababab block">www.tuandai.com</a>
+        </div>
+    </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script src="/scripts/icheck.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var next_but = $('.next-but a');
+    $('.agreement input').on('ifUnchecked',
+            function(event) {
+                next_but.removeAttr('href').css("background","#ababab");
+            }).on('ifChecked',
+            function(event) {
+                next_but.attr("href", "/Member/safety/binding_bannkcard.aspx").css("background", "#ffcf1f");
+            }).iCheck({
+                checkboxClass: 'icheckbox_square-yellow',
+                radioClass: 'iradio_square-yellow',
+                increaseArea: '20%'
+            });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using Tool;
+using TuanDai.PortalSystem.BLL;
+
+namespace TuanDai.WXApiWeb.Member.Repayment
+{
+    /// <summary>
+    /// 股票配资借款详情
+    /// Allen 2015-06-30
+    /// </summary>
+    public partial class borrowShow : BasePage
+    {
+        protected WXMyLoanDetailInfo model = null;
+        protected Guid? projectId { get; set; }
+        protected ProjectBLL bll = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.projectId = WEBRequest.GetGuid("id");
+            if (!IsPostBack)
+            {
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData())
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.MTuanDaiURL + "/Member/Repayment/borrowLog.aspx");
+                }
+            }
+        }
+        private bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.WXGetMyLoanDetail(this.projectId.Value, WebUserAuth.UserId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.MTuanDaiURL + "/Member/Repayment/borrowLog.aspx");
+                return false;
+            }
+            return true;
+        }
+
+
+        #region  供前台调用方法
+        //过滤掉标题中特殊字符
+        public static string FilterProjectName(int pTypeId, string title)
+        {
+            if (title.IndexOf("【") != -1)
+            {
+                if (pTypeId == 17)
+                {
+                    //股票配资【GPPZ-201505311454441363】
+                    title = title.Replace("股票配资【", "").Replace("】", "");
+                }
+                else
+                {
+                    List<string> macroList = Tool.StrObj.GetMacroList(title, "【", "】");
+                    foreach (string macro in macroList)
+                    {
+                        title = title.Replace(macro, "");
+                    }
+                }
+            }
+            return StrObj.CutString(title, 20);
+        }
+        //获取标状态
+        public static string GetBillStatus(WXMyLoanDetailInfo model)
+        {
+            if (model.IsOverDueRecord)
+            {
+                return "已逾期";
+            }
+            else
+            {
+                switch (model.Status)
+                {
+                    case 0:
+                        return "未完成";
+                    case 1:
+                        return "不通过";
+                    case 2:
+                        return "投标中";
+                    case 3:
+                        return "结清中";
+                    case 4://流标
+                    case 7://暂停(下架)
+                        if (model.Type == 20 && model.CastedShares == 0 && model.BuybackShares != 0)
+                        {
+                            return "完成";
+                        }
+                        else
+                        {
+                            return "流标";
+                        }
+                    case 5:
+                        return "已逾期";
+                    case 6:
+                        return "完成";
+                }
+                return "";
+            } 
+        }
+
+        public static string GetProcessStr(WXMyLoanDetailInfo model)
+        {
+            if (model.IsOverDueRecord)
+            {
+                return "已逾期";
+            }
+            else
+            {
+                switch (model.Status)
+                {
+                    case 0:
+                    case 1:
+                        return "0%";
+                    case 2:
+                        return model.Progress + "%";
+                    case 3: //还款中
+                        return model.RefundedMonths + "/" + model.TotalRefundMonths + "期";
+                    case 4:
+                    case 7:
+                        if (model.Type == 20 && model.CastedShares == 0 && model.BuybackShares != 0)
+                        {
+                            return "已完成";
+                        }
+                        else
+                        {
+                            return "已流标";
+                        } 
+                    case 5: //逾期
+                        return "逾期";
+                    case 6:
+                        return "已完成";
+                }
+                return "0%";
+            }
+        }
+
+        //获取状态显示样式
+        public static string GetTipBoxCss(WXMyLoanDetailInfo model)
+        {
+            if (model.IsOverDueRecord)
+            {
+                return "tipBox1";
+            }
+            else
+            {
+                switch (model.Status)
+                {
+                    case 0:
+                    case 1:
+                        return "tipBox6";
+                    case 2:
+                        return "tipBox3";
+                    case 3:
+                        return "tipBox5";
+                    case 4:
+                    case 7:
+                        if (model.Type == 20 && model.CastedShares == 0 && model.BuybackShares != 0)
+                        {
+                            return "tipBox2";
+                        }
+                        else
+                        {
+                            return "tipBox4";
+                        } 
+                    case 5:
+                        return "tipBox1";
+                    case 6:
+                        return "tipBox2";
+                }
+                return "tipBox6";
+            }
+        }
+
+        //获取环形样式
+        public static string GetCircleCss(WXMyLoanDetailInfo model)
+        {
+            if (model.IsOverDueRecord)
+            {
+                return "circle5";
+            }
+            else
+            {
+                switch (model.Status)
+                {
+                    case 0:
+                    case 1:
+                        return "circle1";
+                    case 2:
+                        return "circle4";
+                    case 3:
+                        return "circle4";
+                    case 4:
+                    case 7:
+                        if (model.Type == 20 && model.CastedShares == 0 && model.BuybackShares != 0)
+                        {
+                            return "circle2";
+                        }
+                        else
+                        {
+                            return "circle3";
+                        }  
+                    case 5:
+                        return "circle5";
+                    case 6:
+                        return "circle2";
+                }
+                return "circle1";
+            }
+        }
+        //获取查看明细时URL
+        public static string GetDetailLinkUrl(WXMyLoanDetailInfo model)
+        {
+            string strLinkUrl = invest_list.GetClickUrl(model.Type, model.SubTypeId, model.ProjectId);
+            if (strLinkUrl != "#" && strLinkUrl.IndexOf("backurl") == -1) {
+                strLinkUrl += "&backurl=" + BasePage.GetEncodeBackURL();
+            }
+            return strLinkUrl; 
+        }
+        #endregion
+
+    }
+}

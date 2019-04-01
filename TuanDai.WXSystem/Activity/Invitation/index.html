@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>邀请好友-四重大奖等您拿</title>
+    <meta name="keywords" content="团贷网,你我金融,互联网金融,P2P网贷,P2P理财" />
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div class="wrapper">
+    <header class="header-box pos-a">
+        <div class="headerMain">
+            <div class="header border-b0 bg-none">
+                <div class="back Arrow1" onclick="javascript:history.go(-1);"></div>
+                <h1 class="title c-fff">邀请有礼</h1>
+            </div>
+            <div class="none"></div>
+        </div>
+    </header>
+
+    <section>
+        <div class="pic-box p11"><img src="imgs/bg.jpg" alt=""/></div>
+        <div class="pic-box p11"><img src="imgs/p11.png" alt=""/></div>
+        <div class="pic-box p11"><img src="imgs/p12.png" alt=""/></div>
+        <div class="pic-box p11"><img src="imgs/p13.png" alt=""/></div>
+    </section>
+    <section class="content-b pos-a">
+        <div class="link-box">
+            <a href="rule.html" class="f13 c-8c1c2f border-l1">活动规则</a>
+            <a href="log.html" class="f13 c-8c1c2f">邀请记录</a>
+        </div>
+        <a href="javascript:;" class="invite-now f14 mt18">立即邀请</a>
+    </section>
+
+</div>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    //复制分享
+    $(function() {
+        var initNavSuccess = false;
+
+        function show() {
+            if (initNavSuccess) {
+                return;
+            }
+            var html =
+                    '<div class="share-bg" ></div>' +
+                    '<div class="share-url">' +
+                    '<input type="text" value="http://www.tuandai.com/pages/activity/Invitation/index.aspx"/>' +
+                    '<a href="javascript:;" class="share-but">复制网址分享</a>' +
+                    '</div>';
+
+            $('.invite-now').before(html);
+
+            var isOpen = false;
+
+            $('.invite-now').click(function() {
+                if (isOpen) {
+                    $('.share-url').animate({
+                        'bottom': '-150px'
+                    });
+                    $('.share-bg').hide();
+                    $('.share-bg').animate({
+                        opacity: 0
+                    });
+                    $('.share-bg').hide();
+                    isOpen = false;
+                } else {
+                    $('.share-url').animate({
+                        'bottom': '0px'
+                    });
+
+                    $('.share-bg').show();
+                    $('.share-bg').css({
+                        opacity: 1
+                    });
+                    isOpen = true;
+                }
+            });
+
+            $('.share-bg').bind('touchstart', function(e) {
+                e.preventDefault();
+
+                $('.share-url').animate({
+                    'bottom': '-150px'
+                });
+
+                $('.share-bg').hide();
+                $('.share-bg').animate({
+                    opacity: 0
+                });
+                $('.share-bg').hide();
+                isOpen = false;
+            });
+            initNavSuccess = true;
+        }
+        show();
+    });
+</script>
+</body>
+</html>

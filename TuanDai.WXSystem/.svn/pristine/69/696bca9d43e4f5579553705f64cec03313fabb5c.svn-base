@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>手机验证</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=20160114" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">手机验证</h1>
+            <div class="text"><a href="recharge_record.html"></a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="recordingBox clearfix">
+		
+        <div class="bg-bdTop-ccc clearfix numBox">
+            <div class="c-212121 f14px text">持卡人</div>
+            <div class="c-212121 f14px" style="margin-top: 1px;">陈 * 芳</div>
+        </div>
+		
+        <div class="clearfix numBox bt-dash-d1d1d1 ml15 bg-fff padding-reset">
+            <div class="c-212121 f14px text l0">银行卡号</div>
+            <div class="c-212121 f14px" style="margin-top: 1px;">26****************9009</div>
+        </div>
+		
+        <div class="clearfix numBox bt-dash-d1d1d1 ml15 bg-fff padding-reset">
+            <div class="c-212121 f14px text l0">所属银行</div>
+            <div class="c-212121 f14px" style="margin-top: 1px;">工商银行</div>
+        </div>
+        
+        <div class="wave_bg h15"></div>
+        
+        <div class="item pb15">
+				<div class="itemRow1 clearfix">
+					<div class="changeCard rf"><a href="">换卡须知</a></div>
+				</div>
+			</div>
+		
+        <div class="bg-bdtopBom1-ccc numBox clearfix">
+            <div class="text f14px">手机号</div>
+            <input type="text" class="ipt f14px" name="" placeholder="请输入银行预留手机号码">
+        </div>
+		
+        <div class="bg-bdtopBom1-ccc numBox clearfix mt20">
+            <div class="text f14px">验证码</div>
+            <input type="text" class="ipt f14px" name="" placeholder="请输入短信验证码">
+        	<input type="button" id="btnCode" class="btncode f12px" value="发送验证码" />
+        </div>
+        
+        <div class="mt60 pl20 pr20">
+	        <div class="btn btnYellow">提交</div>
+        </div>
+       
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

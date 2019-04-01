@@ -1,0 +1,40 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jing_question.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.jing_question" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>常见问题</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css?v=20151026001" /><!--借款-->
+
+</head>
+<body>
+<%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">常见问题</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header>
+<section class="issue-wrap pl15 pr15">
+    <h3 class="f14px">1、什么是资产标？</h3>
+    <p class="f13px border-b1px c-545454">资产标是借款人以其持有的股票、期货、股份制公司股权、银行票据、商业承兑汇票等资产作为质押物，通过团贷网进行借款的借款标的。团贷网根据质押物的资产价值折价成借款额度，借款人的借款不能超过借款额度。所有资产标都由团贷网合作担保机构担保，资产标包含团贷网原净股专区的净值担保标和股权担保标。
+    </p>
+    <h3 class="f14px">2、资产标借款人能否提前还款？</h3>
+    <p class="f13px border-b1px c-545454">资产标借款人自通过审核上线之日起满三个月即可申请“提前还款”。借款利息计算从借款日起至提前还款日止，不满整期则按天计算。如借款期限为6个月，借款人在第4个月的第10天提前还款，则第4个月借款人只向投资人支付10天的利息。
+    </p>
+    <h3 class="f14px">3、若资产标借款人发生还款逾期会怎样？</h3>
+    <p class="f13px border-b1px c-545454">资产标一旦逾期，借款人须向投资时为超级会员的投资人支付所欠金额0.2%/天的滞纳金。逾期超过30天时，担保机构将于“第31个逾期日”对相关投资者进行垫付。其中，“第三方担保机构”将向超级会员提供“本金+利息+滞纳金”全额垫付，向普通会员提供“本金”垫付（普通会员利息将在平台完成借款催收后再行发放）。
+    </p>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=1"></script>
+
+</body>
+</html>

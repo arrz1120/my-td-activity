@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>团贷网走进广州大学 点燃高校“互联网金融”热情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/news.css" />
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">团贷热点</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<div class="newsMain pt15 pb20">
+<h1 class="title">团贷网走进广州大学 点燃高校“互联网金融”热情</h1>
+<div class="date">2015年06月18日</div>
+<div class="newsCont">
+  <p class="mt15">“互联网+”效应持续发酵，互联网金融具有广阔的发展前景，成了市场的“香饽饽”，备受人们青睐，而这风潮近期也开始席卷高校。6月16日下午，团贷网受邀走进广州大学(下文简称“广大”)分享“互联网金融的现状与发展”干货，吸引了150多名金融学专业学生前来聆听，精彩实用的内容让莘莘学子们大呼“过瘾”，现场掌声不断。</p>
+  <img src="/imgs/file/news_0618_1.jpg">
+  <p>互联网金融在2013年走过发展元年，今年开始迎来监管元年。尽管监管细则尚未落地，但毫无疑问的是互联网金融已经开始触动到传统金融的生态核心，处于“风口上的互联网金融”，正在颠覆传统金融业态。同时互联网金融也契合了年轻一代的理财需求，并呈现出爆发式的增长趋势。</p>
+  <img src="/imgs/file/news_0618_2.jpg">
+  <p>在讲堂上，团贷网O2O中心营销总监赵云龙先生给大学生们讲解当下互联网金融的起源和发展概况，深入浅出地介绍了国内P2P纯线上模式、线下模式及线上与线下相结合模式各自的优缺点，同时展望了未来互联网金融广阔的发展前景。</p>
+  <img src="/imgs/file/news_0618_3.jpg">
+  <p>讲解中，他还以团贷网独特的产品及风控管理模式为例子，让大学生们更加深入了解互联网金融行业，激发他们对新行业、新知识的求知欲望。</p>
+  <p>此外，他还向同学们分享了团贷网创新型产品你我金融独特的商业模式。你我金融是金融与社交结合的全新金融模式，由借款人、担保人、投资人组成，免去中间费用，将“定价权”还给市场。</p>
+  <p>听到赵云龙先生毫无保留的干货分享，现场师生们热情高涨，并就互联网金融特别是P2P与传统金融理财产品的区别、互联网金融风控模式、在校学生如何运用金融知识等问题与团贷网演讲团队做现场交流。</p>
+  <img src="/imgs/file/news_0618_4.jpg">
+  <p class="text-center mb0">你我金融明星担保人吴祖峰受邀分享</p>
+  <img src="/imgs/file/news_0618_5.jpg">
+  <p class="text-center mb0">广大导师与赵总监互动</p>
+  <img src="/imgs/file/news_0618_6.jpg">
+  <p class="text-center mb0">金融学子现场与赵总监互动</p>
+  <img src="/imgs/file/news_0618_7.jpg">
+  <p class="text-center mb0">现场学子课后与你我金融尽调顾问互动</p>
+</div> 
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+</body>
+</html>

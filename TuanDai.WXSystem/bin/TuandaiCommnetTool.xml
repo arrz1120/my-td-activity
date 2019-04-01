@@ -1,0 +1,862 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuandaiCommnetTool</name>
+    </assembly>
+    <members>
+        <member name="T:TuandaiCommnetTool.BaseCommon.MoneyHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.MoneyHelper.ConvertDetailWanMoney(System.Object)">
+            <summary>
+            钱转为金额格式
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.MoneyHelper.ConvertLowerMoney(System.Object)">
+            <summary>
+            只保留最小两位小数的金额格式
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.MoneyHelper.FormatMoney(System.Decimal)">
+            <summary>
+            格式化金额.
+            </summary>
+            <param name="money"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToInt32(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToInt32(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToInt32(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToInt32(System.Object,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToUInt32(System.String,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToUInt32(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToUInt32(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToUInt32(System.Object,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToBoolean(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToBoolean(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToBoolean(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.SafeConvert.ToBoolean(System.Object,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StatusConvert.ConvertRepaymentType(System.Int32)">
+            <summary>
+            还款方式
+            </summary>
+            <param name="payment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StatusConvert.ConvertProjectType(System.Int32)">
+            <summary>
+            项目类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.BaseCommon.StringUtilily">
+            <summary>
+            Summary description for StringUtilily
+            </summary>
+        </member>
+        <member name="F:TuandaiCommnetTool.BaseCommon.StringUtilily.RANDOM_STRING_SOURCE">
+            ＜summary＞
+            随机生成字符串源
+            ＜/summary＞
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StringUtilily.GetRandomString(System.Int32)">
+            ＜summary＞
+            生成随机字符串(数字)
+            ＜/summary＞
+            ＜param name="num"＞字符串的位数＜/param＞
+            ＜returns＞可插入数据库的字符串＜/returns＞
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StringUtilily.GetRandomCode(System.Int32)">
+            <summary>
+            生成随机字符串(数字+字符)
+            </summary>
+            <param name="codeCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StringUtilily.MaskTelNo(System.String)">
+            <summary>
+            隐藏手机
+            </summary>
+            <param name="telno"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StringUtilily.NoHTML(System.String)">
+            <summary>
+            去除HTML标记
+            </summary> 
+            <param name="htmlstring">包括HTML的源码</param> 
+            <returns>已经去除后的文字</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.StringUtilily.DeleteZero(System.Object)">
+            <summary>
+            数字去掉零
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.BaseCommon.TaskAsyncHelper">
+            <summary>
+            Task的异步调用　
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.TaskAsyncHelper.RunAsync(System.Action)">
+            <summary>
+            将一个方法function异步运行
+            </summary>
+            <param name="function">异步方法，该方法没有参数</param>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.TaskAsyncHelper.RunAsync``1(System.Action{``0},``0)">
+            <summary>
+            将一个方法function异步运行
+            </summary>
+            <typeparam name="T1">参数类型</typeparam>
+            <param name="function">异步方法</param>
+            <param name="p1">参数</param>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.TaskAsyncHelper.RunAsync``2(System.Action{``0,``1},``0,``1)">
+            <summary>
+            将一个方法function异步运行
+            </summary>
+            <typeparam name="T1">参数类型</typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="function">异步方法</param>
+            <param name="p1">参数</param>
+            <param name="p2"></param>
+        </member>
+        <member name="M:TuandaiCommnetTool.BaseCommon.TaskAsyncHelper.RunAsync``3(System.Action{``0,``1,``2},``0,``1,``2)">
+            <summary>
+             将一个方法function异步运行
+            </summary>
+            <typeparam name="T1">参数类型</typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="function">异步方法</param>
+            <param name="p1">参数</param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.ExceptionExtensions.GetExceptionMessage(System.Exception)">
+            <summary>
+            获取详细错误信息
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Extensions.StringExtensions">
+            <summary>
+            字符串的扩展函数
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsMatch(System.String,System.String)">
+            <summary>
+            指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项
+            </summary>
+            <param name="value">要搜索匹配项的字符串</param>
+            <param name="pattern">要匹配的正则表达式模式</param>
+            <returns>如果正则表达式找到匹配项，则为 true；否则，为 false</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsEmail(System.String)">
+            <summary>
+            是否电子邮件
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsIpAddress(System.String)">
+            <summary>
+            是否是IP地址
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsNumeric(System.String)">
+            <summary>
+            是否是整数
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsUrl(System.String)">
+            <summary>
+            是否Url字符串
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsGuid(System.String)">
+            <summary>
+            是否Guid
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsIdentityCard(System.String)">
+            <summary>
+            是否身份证号，验证如下3种情况：
+            1.身份证号码为15位数字；
+            2.身份证号码为18位数字；
+            3.身份证号码为17位数字+1个字母
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsPhone(System.String,System.Boolean)">
+            <summary>
+            是否手机号码
+            </summary>
+            <param name="value"></param>
+            <param name="isRestrict">是否按严格格式验证</param>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsEmpty(System.String)">
+            <summary>
+            指示指定的字符串是 null 还是 System.String.Empty 字符串
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            指示指定的字符串是 null、空还是仅由空白字符组成。
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsNotEmpty(System.String)">
+            <summary>
+            判断字符串是否非空
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToText(System.String)">
+            <summary>
+            返回ToString的结果，但可避免空值问题
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToText(System.Object)">
+            <summary>
+            返回ToString的结果，但可避免空值的问题
+            </summary> 
+            <param name="sourceObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+             转换为Decimal类
+            </summary>
+            <param name="sourceObj"></param>
+            <param name="defaultValue">如果字符串不是有效Decimal类型时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToDateTime(System.Object,System.DateTime)">
+            <summary>
+            返回ToDate的结果，但可避免空值问题
+            </summary>
+            <param name="sourceObj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.VarToStr(System.Object)">
+            <summary>
+            将对象转换成字符串，如果对象为null，则返回""
+            </summary>
+            <param name="values">要读取文字符的文本</param>
+            <returns>返回字符串</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToInt(System.Object,System.Int32)">
+            <summary>
+            转换为INT类型
+            </summary> 
+            <param name="sourceObj"></param>
+            <param name="defaultValue">如果字符串不是有效整型时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsIn(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            判断是否在字符串列表中
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="StrList">字符串列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsIn(System.String,System.String)">
+            <summary>
+            判断是否在字符串列表中
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="stringListStr">使用;分隔的字符串列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.IsIn(System.String,System.String[])">
+            <summary>
+            判断是否在字符串列表中
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="compareStrs">字符串队表</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.ToList(System.String,System.String)">
+            <summary>
+            转换为字符中集合
+            </summary>
+            <param name="sourceStr"></param>        
+            <param name="splitStr">字符串中用于识别分隔的符号</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            获取字符串右边指定数量的字符
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="len">要获取多少个字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Extensions.StringExtensions.DeleteZero(System.Object)">
+            <summary>
+            数字去掉零
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.File.XMLConfigure">
+            <summary>
+            XML配置文件动态检测
+            </summary>
+        </member>
+        <member name="F:TuandaiCommnetTool.File.XMLConfigure.configFileName">
+            <summary>
+            配置文件所在路径
+            </summary>
+        </member>
+        <member name="F:TuandaiCommnetTool.File.XMLConfigure.ErrorMessage">
+            <summary>
+            如果值不为0:表示有异常
+            </summary>
+        </member>
+        <member name="P:TuandaiCommnetTool.File.XMLConfigure.ConfigFilePath">
+            <summary>
+            获取配置文件所在路径
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.File.XMLConfigure.GetDataByKey(System.String)">
+            <summary>
+            获取某个key值
+            </summary>
+            <param name="key"></param>
+            <returns>如果值为null表示不存在该key</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.File.XMLConfigure.GetDateByAll">
+            <summary>
+            获取所有的XML文档数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.File.XMLConfigure.watcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            文件更改触发事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TuandaiCommnetTool.File.XMLConfigure.LoadConfig">
+            <summary>
+            加载配置文件反序列化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Http.HttpClient">
+            <summary>
+            Http请求(Post,Get)
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpClient.HttpPost``1(System.String,System.String@,System.Int32,System.String)">
+            <summary>
+            Http的同步的Post的方法(Json)
+            </summary>
+            <param name="url">地址</param>
+            <param name="param">参数</param>
+            <param name="ErrorMessage">错误信息</param>
+            <param name="timeOut">超时(可选:默认是60秒)</param>
+            <returns>返回结果值</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpClient.HttpPostByForm(System.String,System.String@,System.String,System.Int32)">
+            <summary>
+            Http的Post的(application/x-www-form-urlencoded)
+            </summary>
+            <param name="url">地址</param>
+            <param name="ErrorMessage">如果为空:true:否则表示有异常</param>
+            <param name="param">参数 </param>
+            <param name="timeOut">超时时间</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpClient.HttpPostOfAsy(System.String,System.String,System.String@,System.Int32)">
+            <summary>
+            http调用Post的方法参数是Json
+            </summary>
+            <param name="url">地址</param>
+            <param name="param">Json参数</param>
+            <param name="ErrorMessage">错误信息</param>
+            <param name="timeOut">超时,默认是60秒</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpClient.HttpGet(System.String,System.Text.Encoding,System.String@,System.Int32)">
+            <summary>
+            http调用Get的方法
+            </summary>
+            <param name="url">地址</param>
+            <param name="encoding">编码</param>
+            <param name="ErrorMessage">如果错误信息是空:表示没有异常,否则表示有异常</param>
+            <param name="timeOut">超时时间默认的是10秒</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpUtils.HttpPostJson``1(System.String,System.String,System.Int32,System.Text.Encoding,System.String@)">
+            <summary>
+            Post请求，Json格式
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="param">参数</param>
+            <param name="timeOut">超时</param>
+            <param name="encoding">编码</param>
+            <param name="ErrorMessage">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpUtils.HttpPostform(System.String,System.String,System.Int32,System.Text.Encoding,System.String@)">
+            <summary>
+            HTTP POST方式请求数据
+            </summary>
+            <param name="url">URL.</param>
+            <param name="param">POST的数据</param>
+            <param name="encoding">编码</param>
+            <param name="ErrorMessage">异常空:true:否则:有异常</param>
+            <param name="timeOut">超时</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Http.HttpUtils.HttpGet(System.String,System.Int32,System.String@,System.Text.Encoding)">
+            <summary>
+            HTTP GET方式请求数据.
+            </summary>
+            <param name="url">URL.</param>
+            <param name="timeOut">超进</param>
+            <param name="encoding">编码</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Log.WindowsLog">
+            <summary>
+            windows系统日志
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Log.WindowsLog.AddLog(System.String,System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            添加日志
+            </summary>
+            <param name="source">标题</param>
+            <param name="message">具体的错误</param>
+            <param name="type">错误类型</param>
+        </member>
+        <member name="M:TuandaiCommnetTool.Log.WindowsLog.ReadWindowsLog(System.Int32,System.String)">
+            <summary>
+            读取windows服务的日志
+            </summary>
+            <param name="eventId">事件ID</param>
+            <param name="logName">日志名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Net.ComputerInfo">
+            <summary>
+            获取计算机基本信息
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Net.ComputerInfo.GetHostOfIP">
+            <summary>
+            获取当前计算机主机名和IP   例如:计算机名:aaa,IP:10.10.10.10
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Resource.ResourceHandler">
+            <summary>
+            清理资源
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Resource.ResourceHandler.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Resource.ResourceHandler.Dispose(System.Boolean)">
+            <summary>
+            虚函数释放资源(继承类具体执行)
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:TuandaiCommnetTool.Resource.ResourceHandler.Finalize">
+            <summary>
+            析构函数对象脱离作用时调用
+            </summary>
+        </member>
+        <member name="T:TuandaiCommnetTool.Security.AppDESC">
+            <summary>
+            APP加密解密
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.UseridEncry(System.String)">
+            <summary>
+            UserId加密
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.UserIdDecryption(System.String)">
+            <summary>
+            UserId解密
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.PwdDecryption(System.String)">
+            <summary>
+            Pwd解密
+            </summary>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.PwdDESEncrypt(System.String)">
+            <summary>
+            Pwd加密
+            </summary>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.UrlParamEncry(System.String)">
+            <summary>
+            App请求参数加密
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.UrlParamDecryption(System.String)">
+            <summary>
+            App请求参数解密
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.DynamicUrlParamDecryption(System.String,System.String)">
+            <summary>
+            带签名的APP请求参加解密
+            add by Aaron 
+            2015/07/29
+            </summary>
+            <param name="param"></param>
+            <param name="UUId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.DynamicUrlParamEncry(System.String,System.String)">
+            <summary>
+            带参数的APP请求参加加密
+            add by Aaron 
+            2015/07/29
+            </summary>
+            <param name="param"></param>
+            <param name="UUId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.GetDynamicKey(System.String)">
+            <summary>
+            获取动态加密签名
+            add by Aaron 
+            2015/07/29
+            </summary>
+            <param name="signUrlParamKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.GetDynamicSecretkey(System.String)">
+            <summary>
+            获取动态加密签名
+            </summary>
+            <param name="UUId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.Encode(System.IntPtr)">
+            <summary>
+            动态库加解密方法
+            add by Aaron 
+            2015/07/29
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.PwdEncrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.OldPwdEncrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.TripleDESDecrypt(System.String,System.String)">
+            <summary>
+            3DES解密 TripleDESDecrypt
+            </summary>
+            <param name="originalString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.TripleDESEncrypt(System.String,System.String)">
+            <summary>
+            3DES加密 TripleDESEncrypt
+            </summary>
+            <param name="originalString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.GetMd5(System.String)">
+            <summary>
+            GetMd5
+            </summary>
+            <param name="originalString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.AppDESC.GetSha1(System.String)">
+            <summary>
+            GetSha1
+            </summary>
+            <param name="originalString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.Encrypt(System.String)">
+            <summary>
+            标准的DES加密
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.Decrypt(System.String)">
+            <summary>
+            标准的DES解密
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.EncryptToHexes(System.String,System.String)">
+            <summary>
+            加密成16进制字符串(仅限登录使用)
+            </summary>
+            <param name="beinetstr">待加密的字符串</param>
+            <param name="beinetkey">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.DecryptFromHexes(System.String,System.String)">
+            <summary>
+            将16进制字符串解密(仅限登录使用)
+            </summary>
+            <param name="beinetstr">待解密的字符串</param>
+            <param name="beinetkey">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.StringToHex(System.String)">
+            <summary>
+            把字符串转换为16进制字符串
+            如：a变成61（即10进制的97）；abc变成616263
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.HexToString(System.String)">
+            <summary>
+            16进制字符串转换为字符串
+            如：61（即10进制的97）变成a；616263变成abc
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.RM(System.Int32,System.Int32)">
+            <summary>
+            带符号位右移（类似于js的>>>）
+            </summary>
+            <param name="a">用于右移的操作数</param>
+            <param name="bit">右移位数</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.DescMain(System.String,System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            加解密主调方法
+            </summary>
+            <param name="beinetkey">密钥</param>
+            <param name="message">加密时为string，解密时为byte[]</param>
+            <param name="encrypt">true：加密；false：解密</param>
+            <param name="mode">true：CBC mode；false：非CBC mode</param>
+            <param name="iv">初始化向量</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.DESC.des_createKeys(System.String)">
+            <summary>
+            this takes as input a 64 bit beinetkey(even though only 56 bits are used)
+            as an array of 2 integers,and returns 16 48 bit keys
+            </summary>
+            <param name="beinetkey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Security.Encryption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.Encryption.MD5(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="enstring">加密的内容</param>
+            <returns>MD5加密结果</returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.Encryption.OldMD5(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="enstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.Encryption.CreateExtendKey(System.String)">
+            <summary>
+            生成推广的Key
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.Encryption.GetMd5(System.String)">
+            <summary>
+            GetMd5
+            </summary>
+            <param name="originalString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuandaiCommnetTool.Security.Encryption.GetSha1(System.String)">
+            <summary>
+            GetSha1
+            </summary>
+            <param name="originalString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.Testing.Telnet">
+            <summary>
+            检测某个ip的端口是否通顺类型(cmd中的Telnet功能)
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.Testing.Telnet.Connect(System.String,System.String@)">
+            <summary>
+             启动socket 进行telnet操作    
+            </summary>
+            <param name="s_address">是在配置文件进行配置kay,并且value值是Ip:Port</param>
+            <param name="ErrorMessage">如果不空表示有异常连接失败</param>
+            <returns>true:表示成功 false:表示失败</returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.wcf.NetTcpService">
+            <summary>
+            Wcf的NetTcp的服务端绑定
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.wcf.NetTcpService.NetTcpBind(System.String,System.Type,System.Type,System.String@)">
+            <summary>
+            wcf的nettcp的绑定
+            </summary>
+            <param name="url">地址(配置地址注意：如果是多少tcp地址中间用,分隔．要想tcp能通过wcftestclient功能使用要加一个mex的地址如(http://0.0.0.0:1234/service,http://0.0.0.0:1235/service/mex))</param>
+            <param name="service">服务</param>
+            <param name="Iservice">接口报务</param>
+            <param name="ErrorMessage">是否有错误存在</param>
+            <returns></returns>
+        </member>
+        <member name="T:TuandaiCommnetTool.wcf.NamePipeService">
+            <summary>
+            绑定wcf的命名管道
+            </summary>
+        </member>
+        <member name="M:TuandaiCommnetTool.wcf.NamePipeService.NamePipeBind(System.String,System.Type,System.Type,System.String@)">
+            <summary>
+            绑定命名管道
+            </summary>
+            <param name="url">地址(配置地址注意：只能有一个地址没有端口如(net.pipe://localhost/Cal)，会自动加一个net.pipe://localhost/Cal/mex用于工具查看)</param>
+            <param name="service">服务</param>
+            <param name="Iservice">接口报务</param>
+            <param name="ErrorMessage">是否有错误存在</param>
+            <returns></returns>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

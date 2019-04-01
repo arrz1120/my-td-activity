@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<title>升级官方版App立即获得88元红包</title>
+	<link rel="stylesheet" href="/pages/App/dist/css/main1113.css?v=20171204001">
+	<script>
+        //动态算rem
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    // if (docEl.style.fontSize) return;
+                    clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+                    if (document.body) {
+                        document.body.style.fontSize = docEl.style.fontSize;
+                    }
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener("DOMContentLoaded", recalc, false);
+        })(document, window);
+	</script>
+</head>
+<body>
+	<div class="p1">
+		<div class="time">活动时间：2017.12.01-2018.02.09</div>
+	</div>
+	<div class="p2">
+		<img src="/pages/App/dist/images/p2.png?v=20171108" />
+	</div>
+	<div class="p3">
+		<img src="/pages/App/dist/images/p3.png?v=20180130" />
+	</div>
+	<div class="p4">
+		<img src="/pages/App/dist/images/p4.png?v=20171108" />
+	</div>
+	<div class="p5">
+		<img src="/pages/App/dist/images/p5.png?v=20171108" />
+	</div>
+	<div class="p6">
+		<img src="/pages/App/dist/images/p6.png?v=20171108" />
+	</div>
+	<div class="p7">
+		<img src="/pages/App/dist/images/p7.png?v=20171108" />
+	</div>
+	<a href="https://www.tuandai.com/app/install.aspx" class="sj-btn breath">升级官方版领88元红包</a>
+	<div class="ruleBtn" id="ruleBtn"></div>
+
+	<div class="alert hide" id="alert">
+		<div class="alert_bg"></div>
+		<div class="alert_con">
+			<div class="ico_close"></div>
+			<div class="ruleTit">活动规则</div>
+			<div class="ruleTxt">
+				<p>1、活动时间：2017.12.01-2018.02.09</p>
+				<p>2、活动期间通过团贷网新手版和招财版注册的用户，下载并登录官方版APP，即可获得88元组合投资红包（含38元和50元投资红包）；</p>
+				<p>3、获得的投资红包将于成功登录官方版APP后的五个工作日内发放至个人团宝箱，红包使用有效期7天，详细使用规则请见团宝箱；</p>
+				<p>4、本活动最终解释权归团贷网所有。</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="/pages/App/dist/js/lib/fastclick-jquery.js"></script>
+<script src="/pages/App/dist/js/index11113.js" type="text/javascript" charset="utf-8"></script>
+</html>

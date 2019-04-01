@@ -1,0 +1,91 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="We_What.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.WE.We_What" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>什么是WE计划</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /><!--base-->
+    <style type="text/css">
+        /*什么是we计划*/
+        .weplan-cn h3:before{content: " "; display:inline-block; width:8px; height:8px;-webkit-border-radius: 5px; border-radius: 5px; border:1px solid #fec72c; background: #fff;vertical-align: 1px; margin-right: 5px;}
+        .weplan-cn h3{color: #212121;margin: 10px 0 5px;}
+        .weplan-cn .text1{text-indent: 20px; color: #434343;line-height: 190%;}
+        .weplan-cn .border-l1{border-left:1px dashed #d1d1d1;border-radius:0 0 0 15px;}
+        .weplan-cn .border-r1{border-right:1px dashed #d1d1d1;border-radius:0 15px 15px 0;}
+        .weplan-cn .border-t1{border-top:1px dashed #d1d1d1;padding: 20px 0;}
+        .weplan-cn .border-t2{border-top:1px dashed #d1d1d1;-webkit-border-top-left-radius: 15px;}
+        .why-we p{color: #6b6b6b;line-height: 170%;}
+        .why-we .w1{width: 56%;}
+        .why-we .w2{width: 32%;}
+        .why-we .title{color: #ffa200;}
+        .weplan-cn a{width: 78%; height: 40px; line-height: 40px;display: block; background: #fdcd39;margin: 0 auto;text-align: center;-webkit-border-radius: 37px; border-radius: 37px; color: #ffffff;}
+    </style>
+</head>
+<body>
+ <%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">什么是WE计划</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header> 
+<section class="weplan-wrap">
+    <div class="top-banner">
+        <img src="/imgs/images/we-p.png" alt=""/>
+    </div>
+    <div class="weplan-cn pl15 pr15">
+        <h3 class="f14px">什么是We计划？</h3>
+        <p class="text1 f12px">We计划是团贷网为满足用户多样化投资需求，解决资金站岗问题而定期推出的标准化投资工具。该产品主要投资于团贷网平台各类标的，包括项目标、微团贷标、资产标以及其他定向产品组合。We计划的推出，为投资者提供了多样化的投资选择。
+        </p>
+    </div>
+    <div class="weplan-cn pl15 pr15 pb30">
+        <h3 class="f14px">加入We计划，马上享受？</h3>
+        <div class="why-we clearfix border-l1 pl15 pr15 pt20 pb20">
+            <div class="lf w1">
+                <p class="f12px title">抢标超神速  优先度最高</p>
+                <p class="f12px">We计划投标优先度高于自动投标和手动投标，让投资者抢占先机，快人一步。</p>
+            </div>
+            <img src="/imgs/images/why-we1.png" class="rf w2"/>
+        </div>
+        <div class="why-we pl15 ">
+            <div class="border-t1 border-r1 clearfix pr15">
+                <div class="rf w1">
+                    <p class="f12px title">资金不站岗  资金闲置低</p>
+                    <p class="f12px">We计划定期发布，丰富了团贷平台产品体系，减少因抢不到标或因没时间抢标造成的资金站岗问题。</p>
+                </div>
+                <img src="/imgs/images/why-we2.png" class="lf w2"/>
+            </div>
+           
+        </div>
+        <div class="why-we">
+            <div class="clearfix border-l1 pl20 mr15 pt20 pb20 border-t2">
+                <div class="lf w1">
+                    <p class="f12px title">投资按组合  风险全分散</p>
+                    <p class="f12px">We计划投资于一系列产品组合，将资金分散于不同项目，让投资风险分散，风险降低。</p>
+                </div>
+                <img src="/imgs/images/why-we3.png" class="rf w2"/>
+            </div>
+        </div>
+        <div class="why-we pl15">
+            <div class="border-t1 border-r1 clearfix pr15">
+                <div class="rf w1">
+                    <p class="f12px title">安全有保障  资金最安全</p>
+                    <!--6b6b6b-->
+                    <p class="f12px">We计划适用于团贷安全保障体系，逾期代偿，投资零风险。</p>
+                </div>
+                <img src="/imgs/images/why-we4.png" class="lf w2"/>
+            </div>
+        </div>
+        <%--<a href="WE_list.aspx" class="f15px">立即加入</a>--%>
+    </div>
+</section>
+ <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+ <script type="text/javascript" src="/scripts/base.js?v=1"></script>
+</body>
+</html>

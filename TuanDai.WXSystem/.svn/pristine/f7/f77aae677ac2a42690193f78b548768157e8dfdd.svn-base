@@ -1,0 +1,408 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web; 
+using System.Web.SessionState;
+using Tool;
+using System.Text; 
+using System.Data.SqlClient;
+using Kamsoft.Data.Dapper;
+using System.Data;
+using TuanDai.WXSystem.Core;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using TuanDai.InfoSystem.Model;
+using BusinessDll;
+using Newtonsoft.Json;
+
+namespace TuanDai.WXApiWeb.ajaxCross
+{
+    /// <summary>
+    /// ajax_wefqb 的摘要说明
+    /// </summary>
+    public class ajax_wefqb : SafeHandlerBase
+    {
+
+        #region We计划分期宝 申请赎回
+        /// <summary>
+        /// We计划分期宝申请赎回
+        /// </summary>
+        public void ApplyWeFqbTransfer()
+        {
+            Guid userid = WebUserAuth.UserId.Value;
+            if (userid == Guid.Empty)
+            {
+                PrintJson("-99", "登陆超时");
+            }
+            TuanDai.PortalSystem.BLL.UserBLL userbll = new TuanDai.PortalSystem.BLL.UserBLL();
+            TuanDai.PortalSystem.Model.UserBasicInfoInfo model = userbll.GetUserBasicInfoModelById(userid);
+            if (model == null)
+            {
+                PrintJson("-98", "用户不存在");
+            }
+            if ((model.uStatus ?? 0) != 1)
+            {
+                PrintJson("-10", "用户已被冻结");
+            }
+            Guid weOrderId = WEBRequest.GetFormGuid("WeOrderId");
+            if (weOrderId == Guid.Empty)
+            {
+                PrintJson("-9", "We订单不存在");
+            } 
+            if (GlobalUtils.IsOpenCGT)
+            {
+                var reqMode = new CgtCallbackUrl.Model.ModelRequest.ApplyWeFQBTransferRequest
+                {
+                    WeOrderId = weOrderId
+                };
+
+                string url = CgtCallBackConfig.GetCgtTradePwdUrl(reqMode, CgtCallBackConfig.CgtCallBackType.WeFqbPreExit);
+                PrintJson("8888", url);
+            }
+            else
+            {
+                //验证交易密码 
+                var bll = new UserSettingBLL();
+                var usersetting = bll.GetUserSettingInfo(userid);
+                if (usersetting != null)
+                {
+                    if (usersetting.PayPwdErrorDate.HasValue)
+                    {
+                        DateTime date1 = Convert.ToDateTime(usersetting.PayPwdErrorDate.Value.ToString("yyyy/MM/dd"));
+                        DateTime date2 = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd"));
+                        if (date1 == date2 && usersetting.PayPwdErrorCount >= 5)
+                        {
+                            PrintJson("-151", "交易密码已错误5次，请24小时后再进行此操作");
+                        }
+                        if (date1 != date2 && usersetting.PayPwdErrorCount > 1)
+                        {
+                            usersetting.PayPwdErrorCount = 0;
+                            usersetting.PayPwdErrorDate = null;
+                        }
+                    }
+                    string PayPwd = Tool.Encryption.MD5(Context.Request["TranPwd"]);
+                    if (PayPwd != model.PayPwd)
+                    {
+                        //记录登录错误次数
+                        if (usersetting.PayPwdErrorCount == null)
+                        {
+                            usersetting.PayPwdErrorCount = 0;
+                        }
+                        usersetting.PayPwdErrorCount += 1;
+                        usersetting.PayPwdErrorDate = DateTime.Now;
+                        //db.SaveChanges();
+                        bll.UpdateUserSettingInfo(usersetting);
+                        if (usersetting.PayPwdErrorCount == 5)
+                        {
+                            PrintJson("-151", "交易密码已错误5次，请24小时后再进行此操作");
+                        }
+                        else
+                        {
+                            PrintJson("-15", "交易密码错误，您还剩下" + (5 - usersetting.PayPwdErrorCount).ToString() + "次机会");
+                        }
+                    }
+                    else
+                    {
+                        //清除错误记录
+                        usersetting.PayPwdErrorCount = 0;
+                        usersetting.PayPwdErrorDate = null;
+                        //db.SaveChanges();
+                        bll.UpdateUserSettingInfo(usersetting);
+                    }
+                }
+                int status = 0;
+                TuanDai.PortalSystem.BLL.WeOrderBLL webll = new TuanDai.PortalSystem.BLL.WeOrderBLL();
+                webll.ApplyWeFqbRansom(weOrderId, out status);
+                if (status == 1)
+                {
+                    PrintJson("1", "申请转让成功");
+                }
+                else
+                {
+                    string errMsg = "";
+                    switch (status)
+                    {
+                        case 0:
+                            errMsg = "系统异常";
+                            break;
+                        case 2:
+                            errMsg = "不是We计划分期宝";
+                            break;
+                        case 3:
+                            errMsg = "回款中状态不允许赎回";
+                            break;
+                        case 4:
+                            errMsg = "持有时间必须超过3个月";
+                            break;
+                        case 5:
+                            errMsg = "只有投标中的We计划才能转让";
+                            break;
+                    }
+                    PrintJson("0", errMsg);
+                }
+            }
+        }
+
+        /// <summary>
+        /// We计划分期宝取消赎回
+        /// </summary>
+        public void CancleWeFqbTransfer()
+        {
+            Guid userid = WebUserAuth.UserId.Value;
+            if (userid == Guid.Empty)
+            {
+                PrintJson("-99", "登陆超时");
+            }
+            TuanDai.PortalSystem.BLL.UserBLL userbll = new TuanDai.PortalSystem.BLL.UserBLL();
+            TuanDai.PortalSystem.Model.UserBasicInfoInfo model = userbll.GetUserBasicInfoModelById(userid);
+            if (model == null)
+            {
+                PrintJson("-98", "用户不存在");
+            }
+            Guid weOrderId = WEBRequest.GetFormGuid("WeOrderId");
+            if (weOrderId == Guid.Empty)
+            {
+                PrintJson("-9", "We订单不存在");
+            }
+            int status = 0;
+            TuanDai.PortalSystem.BLL.WeOrderBLL webll = new TuanDai.PortalSystem.BLL.WeOrderBLL();
+            webll.RevokeWeFqbRansom(weOrderId, out status);
+            if (status == 1)
+            {
+                PrintJson("1", "撤销转让成功");
+            }
+            else
+            {
+                string errMsg = "";
+                switch (status)
+                {
+                    case 0:
+                        errMsg = "系统异常";
+                        break;
+                    case 2:
+                        errMsg = "不在赎回状态";
+                        break;
+                    case 3:
+                        errMsg = "不是We计划分期宝";
+                        break;
+                    case 4:
+                       errMsg = "债权已有人承接,不能撤销";
+                       break;
+                }
+                PrintJson("0", errMsg);
+            }
+        }
+        /// <summary>
+        /// 判断转让的债权是否有承接
+        /// </summary>
+        public void CheckTransferHasJoin()
+        {
+            Guid weOrderId = WEBRequest.GetFormGuid("WeOrderId");
+            if (weOrderId == Guid.Empty)
+            {
+                PrintJson("-9", "We订单不存在");
+            }
+            string strSQL = "SELECT COUNT(1) AS cnt from  dbo.Subscribe with(nolock)  WHERE WeOrderId=@WeOrderId AND TransferedShares>0";
+            Dapper.DynamicParameters dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@WeOrderId", weOrderId);
+            int count = TuanDai.DB.TuanDaiDB.Query<int>(TdConfig.DBRead, strSQL, ref dyParams).FirstOrDefault();
+            if (count <= 0)
+                PrintJson("1", "未承接");
+            else
+                PrintJson("0", "已被承接");
+        }
+        #endregion
+
+        /// <summary>
+        /// 获取We计划分期宝的投资列表
+        /// </summary>
+        public void GetWeFQBProjectList()
+        {
+            int pageindex = Tool.SafeConvert.ToInt32(Context.Request.Form["pageIndex"], 1);
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+            Guid userid = WebUserAuth.UserId.Value;
+            Guid weOrderId = WEBRequest.GetFormGuid("WeOrderId");
+            StringBuilder sb = new StringBuilder();
+            WeOrderBLL webll = new WeOrderBLL();
+            int totalCount = 0;
+            int pagesize = 10;
+            List<SubMyInvestWeDetail_Info> dataList = webll.GetMyInvestWeFQBList(userid, weOrderId, pageindex, pagesize, out totalCount);
+            int pageCount = GetPageCount(totalCount,pagesize);
+            if (dataList.Count() > 0)
+            {
+                int index = 1;
+                sb.Append("{\"result\":\"1\",\"pageCount\":\"" + pageCount + "\",\"list\":[");
+                foreach (SubMyInvestWeDetail_Info model in dataList)
+                {
+                    string Title = model.Title.Length > 20 ? model.Title.Substring(0, 20) + "..." : model.Title;
+
+                    sb.Append("{\"Title\":\"" + Title + "\",\"Amount\":\"" + ToolStatus.ConvertLowerMoney(model.Amount)
+                        + "\",\"SubscribeId\":\"" + model.InvestId
+                        + "\",\"Type\":\"" + model.Type
+                        + "\",\"ProjectId\":\"" + model.ProjectId
+                        + "\",\"StatusDesc\":\"" + GetWeProjectStatusDesc(model)                       
+                        + "\",\"TotalRecord\":\"" + model.TotalRecord
+                        + "\",\"AddDate\":\"" + model.AddDate.ToString("yyyy-MM-dd HH:mm")
+                        + "\",\"RemarkMode\":\"" + GetRemarkMode(model.TenderMode, model.IsFromTran ? 1 : 0)
+                        + (index == dataList.Count() ? "\"}]}" : "\"},")); 
+                    index++;
+                }
+            }
+            else
+            {
+                sb.Append("{\"result\":\"0\",\"pageCount\":\"" + pageCount + "\"}");
+            }
+            this.Context.Response.Write(sb.ToString());
+            this.Context.Response.End();
+        }
+        private string GetWeProjectStatusDesc(SubMyInvestWeDetail_Info model)
+        {
+            string cycleDate = model.FirstDate.ToString("yyyy-MM-dd") == "1900-01-01" ? "暂无" : model.FirstDate.ToString("yyyy-MM-dd");
+            if (model.Status == 1 || model.Status == 2)
+                return "等待满标";
+            else if (model.Status == 3)
+            {
+
+                return cycleDate + " 回款(" + model.RefundedMonths + "/" + model.TotalRefundMonths + ")";
+            }
+            else if (model.Status == 4)
+            {
+                return cycleDate + " 已流标";
+            }
+            else if (model.Status == 5)
+            {
+                return " 已逾期";
+            }
+            else if (model.Status == 6)
+            {
+                return cycleDate + " 已完成";
+            }
+            return "";
+        }
+        protected string GetRemarkMode(object oTenderMode, object oIsFromTran)
+        {
+            string tenderMode = "";
+
+            if (oTenderMode.ToText() == "5")
+            {
+                tenderMode = "自动投标";
+            }
+            if (oIsFromTran.ToText() == "1")
+            {
+                tenderMode = "承接债权";
+            }
+            return tenderMode;
+        }
+
+
+        #region 复投宝  申请赎回
+        public void ApplyFTBTransfer()
+        {
+            Guid userid = WebUserAuth.UserId.Value;
+            if (userid == Guid.Empty)
+            {
+                PrintJson("-99", "登陆超时");
+            }
+            TuanDai.PortalSystem.BLL.UserBLL userbll = new TuanDai.PortalSystem.BLL.UserBLL();
+            TuanDai.PortalSystem.Model.UserBasicInfoInfo model = userbll.GetUserBasicInfoModelById(userid);
+            if (model == null)
+            {
+                PrintJson("-98", "用户不存在");
+            }
+            if ((model.uStatus ?? 0) != 1)
+            {
+                PrintJson("-10", "用户已被冻结");
+            }
+            Guid weOrderId = WEBRequest.GetFormGuid("WeOrderId");
+            if (weOrderId == Guid.Empty)
+            {
+                PrintJson("-9", "We订单不存在");
+            }
+            decimal applyAmount = WEBRequest.GetFormString("ApplyAmount").ToDecimal(0);
+            if (applyAmount <= 0)
+            {
+                PrintJson("-1", "申请的退出本金必须大于0");
+            }
+            if (applyAmount % 1 != 0)
+            {
+                PrintJson("-1", "请输入大于0的整数金额");
+            }
+
+            if (GlobalUtils.IsOpenCGT)
+            {
+                var reqMode = new CgtCallbackUrl.Model.ModelRequest.ApplyFTBTransferRequest
+                {
+                    WeOrderId = weOrderId,
+                    TransferAmount = applyAmount
+                };
+
+                string url = CgtCallBackConfig.GetCgtTradePwdUrl(reqMode, CgtCallBackConfig.CgtCallBackType.FTBPreExit);
+                PrintJson("8888", url);
+            }
+            else
+            {
+                //验证交易密码 
+                var bll = new UserSettingBLL();
+                var usersetting = bll.GetUserSettingInfo(userid);
+                if (usersetting != null)
+                {
+                    #region
+                    if (usersetting.PayPwdErrorDate.HasValue)
+                    {
+                        DateTime date1 = Convert.ToDateTime(usersetting.PayPwdErrorDate.Value.ToString("yyyy/MM/dd"));
+                        DateTime date2 = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd"));
+                        if (date1 == date2 && usersetting.PayPwdErrorCount >= 5)
+                        {
+                            PrintJson("-151", "交易密码已错误5次，请24小时后再进行此操作");
+                        }
+                        if (date1 != date2 && usersetting.PayPwdErrorCount > 1)
+                        {
+                            usersetting.PayPwdErrorCount = 0;
+                            usersetting.PayPwdErrorDate = null;
+                        }
+                    }
+                    string PayPwd = Tool.Encryption.MD5(Context.Request["TranPwd"]);
+                    if (PayPwd != model.PayPwd)
+                    {
+                        //记录登录错误次数
+                        if (usersetting.PayPwdErrorCount == null)
+                        {
+                            usersetting.PayPwdErrorCount = 0;
+                        }
+                        usersetting.PayPwdErrorCount += 1;
+                        usersetting.PayPwdErrorDate = DateTime.Now;
+                        //db.SaveChanges();
+                        bll.UpdateUserSettingInfo(usersetting);
+                        if (usersetting.PayPwdErrorCount == 5)
+                        {
+                            PrintJson("-151", "交易密码已错误5次，请24小时后再进行此操作");
+                        }
+                        else
+                        {
+                            PrintJson("-15", "交易密码错误，您还剩下" + (5 - usersetting.PayPwdErrorCount).ToString() + "次机会");
+                        }
+                    }
+                    else
+                    {
+                        //清除错误记录
+                        usersetting.PayPwdErrorCount = 0;
+                        usersetting.PayPwdErrorDate = null;
+                        bll.UpdateUserSettingInfo(usersetting);
+                    }
+                    #endregion
+                }
+
+                int status = 0;
+                string strError = "";
+                TuanDai.PortalSystem.BLL.WeFTBBLL webll = new TuanDai.PortalSystem.BLL.WeFTBBLL();
+                webll.ApplyFTBRansom(weOrderId, applyAmount, out status, out strError);
+                PrintJson(status.ToString(), strError);
+            }
+        }
+        #endregion
+
+    }
+}

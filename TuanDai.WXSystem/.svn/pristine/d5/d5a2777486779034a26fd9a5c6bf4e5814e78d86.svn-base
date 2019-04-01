@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>成长明细</title>
+ <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/growUpDetail.css" />
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">成长明细</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    	<div class="growUpDetail_list">
+    		<div id="wrapper">
+                <div id="scroller">
+                    <div id="pullDown">
+                        <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                    </div>
+                    <ul>
+                    	<li>
+                    		<div class="row1 clearfix">
+			    				<font>团贷官网每日首次登录</font>
+			    				<span>+10</span>
+			    			</div>
+			    			<div class="row2 clearfix">
+			    				<font>2015-09-09  18:30</font>
+			    				<span>总成长值：120</span>
+			    			</div>
+                    	</li>
+                    	<li>
+                    		<div class="row1 clearfix">
+			    				<font>团贷官网每日首次登录</font>
+			    				<span>+10</span>
+			    			</div>
+			    			<div class="row2 clearfix">
+			    				<font>2015-09-09  18:30</font>
+			    				<span>总成长值：120</span>
+			    			</div>
+                    	</li>
+                    	<li>
+                    		<div class="row1 clearfix">
+			    				<font>团贷官网每日首次登录</font>
+			    				<span>+10</span>
+			    			</div>
+			    			<div class="row2 clearfix">
+			    				<font>2015-09-09  18:30</font>
+			    				<span>总成长值：120</span>
+			    			</div>
+                    	</li>
+                    </ul>
+		    	</div>	
+    			<div id="pullUp">
+	                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+	            </div>
+	        </div>
+	    </div>
+    <!--end-->
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/iscroll.js"></script>
+	<script type="text/javascript" src="/scripts/scrollUpdate.js"></script>
+	<script type="text/javascript">
+		$("li:first").css('border','none');
+	</script>
+</body>
+</html>

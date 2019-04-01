@@ -1,0 +1,1375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.SMS.Client</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest">
+            <summary>
+            站内消息API请求
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.CategoryId">
+            <summary>
+            类型ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.IsContainReaded">
+            <summary>
+            是否包含已读
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.MessageId">
+            <summary>
+            消息ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.Index">
+            <summary>
+            分页页数
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.PageSize">
+            <summary>
+            分页大小
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageInfoRequest.IsSedReaded">
+            <summary>
+            是否设置已读
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest">
+            <summary>
+            消息设置API请求
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.UserId">
+            <summary>
+            用户ID，无论哪个都需要用到
+            批量获取
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.CategoryNotices">
+             <summary>
+            消息设置 
+            设置消息的时候用到
+             </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.PlatformSource">
+            <summary>
+            平台来源，无论哪个端都用到
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.RegistrationId">
+            <summary>
+            设备ID，更新设备ID，APP登录，推出的时候用到
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.WeiXinOpenId">
+            <summary>
+            微信ID，更新微信ID用到
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.UserIds">
+             <summary>
+            用户ID列表
+            根据用户ID获取有设置的微信ID，设备ID
+             </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.CategoryId">
+            <summary>
+            消息类型ID，在根据用户ID获取可以发送的微信ID，与设备Id函数用到
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.DeviceId">
+            <summary>
+            设备Id或者微信ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.Index">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.PageSize">
+            <summary>
+            分页大小
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Model.ApiRequest.ApiMessageSetRequest.Code">
+            <summary>
+            消息设置CODE
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MsgSetMqRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.CategoryNotices">
+            <summary>
+            设置
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.RegistrationId">
+            <summary>
+            设备ID 
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.WeixinOpenId">
+            <summary>
+            微信ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.DeviceId">
+            <summary>
+            未注册的设备ID，或者微信ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.PlatformSource">
+            <summary>
+            平台来源
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetMqRequest.MsgSetOperationType">
+            <summary>
+            操作方法名
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MsgTemplateBaseInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.Id">
+            <summary>
+            ID 
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.Code">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.CategoryId">
+            <summary>
+            消息类型 团贷网  0, 系统消息 1, 投资通知  2,借款通知  3, 奖品通知 4
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.Authority">
+            <summary>
+            对应消息设置的值
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.Name">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.Status">
+            <summary>
+            是否启用1启用0禁用
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsWeiXinPush">
+            <summary>
+            是否开启微信消息推送
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsSysMsg">
+            <summary>
+            启用系统消息
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsSMS">
+            <summary>
+            启用短信
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsPush">
+            <summary>
+            启用推送
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsEmail">
+            <summary>
+            启用邮件发送
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.IsConstraintSend">
+            <summary>
+            是否强制发送
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgTemplateBaseInfo.WeiXinPush">
+            <summary>
+            微信推送
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient">
+            <summary>
+            api请求客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.GetMessageCount(System.String,System.Int32,System.Boolean,System.String@)">
+            <summary>
+            获取消息条数
+            </summary>
+            <param name="userId"></param>
+            <param name="categoryId"></param>
+            <param name="isContainReaded"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.GetMessageInfoById(System.String,System.String@)">
+            <summary>
+            获取单一条消息
+            </summary>
+            <param name="messageId">消息ID</param>
+            <param name="errorString"></param>
+            <returns>消息实体</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.GetMessageInfoList(System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.String@)">
+            <summary>
+            获取消息列表根据用户ID跟消息类型
+            </summary>
+            <param name="userId">用户id</param>
+            <param name="index">页码</param> 
+            <param name="pageSize">分页大小</param>
+            <param name="categoryId">消息类型(如果不传消息类型默认为-1查询所有类型，否则获取单独类型列表)</param>
+            <param name="totalCount">总数量</param>
+            <param name="errorString">错误信息</param>
+            <param name="isContainReaded">是否包含已读</param>
+            <param name="isSetRead">是否</param>
+            <returns>返回消息结果集</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.DeleteSingleMessage(System.String,System.String@)">
+            <summary>
+            删除单条消息
+            </summary> 
+            <param name="messageId">消息id</param>
+            <param name="errorString"></param>
+            <returns>true:成功 false:失败</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.DeleteAllMessageByCategoryId(System.String,System.Int32,System.String@)">
+            <summary>
+            删除同一类型的所有消息
+            </summary>
+            <param name="userId">用户id</param>
+            <param name="categoryId">消息类型(如果不传删除所有)</param>
+            <param name="errorString"></param>
+            <returns>true:成功 false:失败</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageInfoApiClient.UpdateReadedStatus(System.String,System.String@)">
+            <summary>
+            更新为已读状态
+            </summary>
+            <param name="messageId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient">
+            <summary>
+            消息设置API请求
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetMsgSetInfoListByUserId(System.String,System.String@)">
+            <summary>
+             根据用户Id获取用户设置
+            </summary>
+            <param name="userId"></param>
+            <param name="errorString"></param>
+            <returns>返回的是list,一般情况下是只有一条设置，一个用户有多个手机的，就有多个设备ID</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.UpdateMsgSetInfoCategoryNotices(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            更新消息设置
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="categoryNotices">消息设置</param>
+            <param name="errorString">错误消息</param>
+            <param name="platformSource">操作平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.UpdateMsgSetInfoRegistrationId(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            更新设备ID
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="errorString">错误消息</param>
+            <param name="registrationId">设备ID</param>
+            <param name="platformSource">平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.DeleteMsgSetInfoRegistrationId(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            删除设备ID
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="errorString">错误信息</param>
+            <param name="registrationId">设备ID</param>
+            <param name="platformSource">操作平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.UpdateMsgSetInfoWeixinOpenId(System.String,System.String,System.String@)">
+            <summary>
+             更新微信openID 
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="weixinOpenId">微信ID</param>
+            <param name="errorString">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetMsgTemplateNewInfo(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="code"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.DeleteMsgSetInfoWeixinOpenId(System.String,System.String,System.String@)">
+            <summary>
+             删除微信ID
+            </summary>
+            <param name="userId">用户ID</param> 
+            <param name="weiXinOpendId">微信ID</param>
+            <param name="errorString">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetRegistrationsByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的设备ID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetAppRegistrationsByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            add by linhelin
+            2017-02-14
+            根据用户id获取可以接收的设备ID、推送声音开关
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetWxOpenIdByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的微信openID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.AddRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            添加未注册用户微信ID或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource">平台来源</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.DelteRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            删除未注册用户微信ID或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource">平台来源</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.MessageSetApiClient.GetRegistrationsWeixinOpenIdWithoutUserId(TuanDai.Enums.PlatformSource,System.Int32,System.Int32,System.Int32@,System.String@)">
+            <summary>
+            获取未注册用户微信ID或者设备ID
+            </summary>
+            <param name="platformSource">平台来源，如果是appServer代表设备号，如果是微信代表微信号</param>
+            <param name="index">当前页数</param>
+            <param name="pageSize">分页大小</param>
+            <param name="totalCount">总数</param>
+            <param name="errorString"></param>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.DeserialObjectDelegate`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type"></param>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.DelegateHandler`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:TuanDai.SMS.Client.Services.ApiRequest.DelegateHandler`1.DeserialMethod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel">
+            <summary>
+            返回请求数据Model
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.ReturnCode">
+            <summary>
+            用于接口请求状态
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.ReturnMessage">
+            <summary>
+            用于接口请求状态说明
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.DataCode">
+            <summary>
+            Data结果状态值
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.Total">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.Data">
+            <summary>
+            返回的数据
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.ApiRequest.ApiResponseModel.GetData``1">
+            <summary>
+            获取数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.ApiRequest.UrlParameter">
+            <summary>
+            接口请求对象
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.UrlParameter.ParamData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.Services.ApiRequest.UrlParameter.Token">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.MqDao.SendSms(TuanDai.SMS.Client.SmsRequest,System.String@)">
+            <summary>
+            发送短信
+            </summary> 
+            <param name="smsRequest"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.MqDao.SendSMS_Code(TuanDai.SMS.Client.SmsRequest,System.String@)">
+            <summary>
+            发送验证码队列
+            </summary>
+            <param name="smsRequest"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.MqDao.SendMessageSet(TuanDai.SMS.Client.MsgSetMqRequest,System.String@)">
+            <summary>
+            发送设置到队列
+            </summary>
+            <param name="msgSetMqRequest">设置</param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.RedisHelper.DateDiff(System.DateTime,System.DateTime)">
+            <summary>
+            计算两个时间相差的秒
+            </summary>
+            <param name="dtStart"></param>
+            <param name="dtEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.SmsCodeService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsCodeService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsCodeService.IsCanSendNewCodeRecordByProc(TuanDai.ServerContract.SmsCodeSendRequest,System.String@)">
+            <summary>
+            验证是否可以发送验证码
+            </summary>
+            <param name="smsCodeSendRequest"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsCodeService.CheckCodeRecord(TuanDai.ServerContract.SmsCodeCheckRequest,System.String@)">
+            <summary>
+            验证验证码是否有效
+            </summary>
+            <param name="smsCodeCheckRequest"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsCodeService.GetCodeRecordInfoByTypeValue(TuanDai.ServerContract.SmsCodeCheckRequest,System.String@)">
+            <summary>
+             /*根据手机号码或者邮箱获取当天最新一条记录
+            </summary>
+            <param name="smsCodeCheckRequest"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsCodeService.GetCodeRecordInfoByCode(TuanDai.ServerContract.SmsCodeCheckRequest,System.String@)">
+            <summary>
+                /*根据Code获取验证码用于注册邮箱*/
+            </summary>
+            <param name="smsCodeCheckRequest"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.Services.SmsService">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetMsgSetInfoListByUserId(System.String,System.String@)">
+            <summary>
+            根据用户Id获取用户设置*/
+            </summary>
+            <param name="userId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.UpdateMsgSetInfoCategoryNotices(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+             <summary>
+            *更新消息设置*/
+             </summary>
+             <param name="userId"></param>
+             <param name="categoryNotices"></param>
+             <param name="errorString"></param>
+             <param name="platFormSource"></param>
+             <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.UpdateMsgSetInfoRegistrationId(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            *更新设备ID*/
+            </summary>
+            <param name="userId"></param>
+            <param name="registrationId"></param>
+            <param name="errorString"></param>
+            <param name="platFormSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.DeleteMsgSetInfoRegistrationId(System.String,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            *删除设备Id*/
+            </summary>
+            <param name="userId"></param>
+            <param name="registrationId"></param>
+            <param name="errorString"></param>
+            <param name="platFormSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.UpdateMsgSetInfoWeixinOpenId(System.String,System.String,System.String@)">
+            <summary>
+             /*更新微信openID*/
+            </summary>
+            <param name="userId"></param>
+            <param name="weixinOpenId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.DeleteMsgSetInfoWeixinOpenId(System.String,System.String,System.String@)">
+            <summary>
+             删除微信号
+            </summary>
+            <param name="userId"></param>
+            <param name="weixinOpenId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetRegistrationsByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的设备ID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetWxOpenIdByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的微信openID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.AddRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            添加未注册用户微信ID，或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.DelteRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            删除未注册用户微信ID或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource">平台来源</param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetRegistrationsWeixinOpenIdWithoutUserId(TuanDai.Enums.PlatformSource,System.Int32,System.Int32,System.Int32@,System.String@)">
+            <summary>
+            获取未注册用户微信ID或者设备ID
+            </summary>
+            <param name="platformSource">平台来源，如果是appServer代表设备号，如果是微信代表微信号</param>
+            <param name="index">当前页数</param>
+            <param name="pageSize">分页大小</param>
+            <param name="totalCount">总数</param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetMessageCount(System.String,System.Int32,System.Boolean,System.String@)">
+            <summary>
+            获取一类型的消息数目
+            </summary>
+            <param name="userId"></param>
+            <param name="categoryId"></param>
+            <param name="isContainReaded"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetMessageInfoById(System.String,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="messageId"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.GetMessageInfoList(System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.String@)">
+            <summary>
+            分页获取数据
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="index">第几页</param>
+            <param name="pageSize">分页大小</param>
+            <param name="categoryId">类型</param>
+            <param name="isContainReaded">是否包含已读</param> 
+            <param name="isSetRead">是否置为已读</param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.DeleteSingleMessage(System.String,System.String@)">
+            <summary>
+            /*删除单条消息*/
+            </summary>
+            <param name="messageId"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.DeleteAllMessageByCategoryId(System.String,System.Int32,System.String@)">
+            <summary>
+            /*删除同类型所有消息*/
+            </summary>
+            <param name="userId"></param>
+            <param name="categoryId"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.Services.SmsService.UpdateReadedStatus(System.String,System.String@)">
+             <summary> 
+            *更新已读状态*/
+             </summary>
+             <param name="messageId"></param>
+             <param name="errorMessage"></param>
+             <returns></returns>
+        </member>
+        <member name="P:TuanDai.SMS.Client.RequestHanld`1.Data">
+            <summary>
+            组成Data数据实体
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.RequestHanld`1.MethodName">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.HttpHelper`1.ErrorString">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.HttpHelper`1.DoPost(System.Object,System.String)">
+            <summary>
+            POST请求到Info
+            </summary>
+            <param name="data"></param>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.HttpHelper`1.HttpPostJson``1(System.String,System.String,System.Int32,System.Text.Encoding,System.String@)">
+            <summary>
+            post数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url"></param>
+            <param name="param"></param>
+            <param name="timeOut"></param>
+            <param name="encoding"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.VerifyCodeClient">
+            <summary>
+            验证码操作客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.VerifyCodeClient.SendCodeRecord(TuanDai.Enums.Sms.VerifyCodeSendType,System.String,System.String,TuanDai.Enums.Sms.VerifyCodeType2,TuanDai.Enums.PlatformSource,System.Nullable{System.Guid})">
+            <summary>
+            发送验证码
+            </summary>
+            <param name="verifySendType">发送验证码的方式（手机短信，语音，邮件）</param>
+            <param name="typeValue">验证码的接收端(如果是语音或者短信传手机号码，如果是邮件传邮箱地址)</param>
+            <param name="token">如果有用户ID的，此值可以空，如果没有用户ID，判断为注册验证码不能为空(必须传IP进来)</param>
+            <param name="msCodeType2">发送验证码的作用(触发的行为，注册,找回密码等等)</param>
+            <param name="platFormSource">来源平台</param>
+            <param name="userId">用户ID，如果注册验证码不需要填写，其他类型判断为已注册必须填写</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.VerifyCodeClient.CheckCodeRecord(TuanDai.Enums.Sms.VerifyCodeType,TuanDai.Enums.Sms.VerifyCodeType2,System.String,System.String,System.Nullable{System.Guid},System.Boolean,System.Int32)">
+            <summary>
+            验证验证码是否有效
+            </summary>
+            <param name="msCodeType">验证码接收类型</param>
+            <param name="msCodeType2">验证码触发类型</param>
+            <param name="typeValue">接收验证码手机号码或者邮箱</param>
+            <param name="code">验证码值</param>
+            <param name="userId">用户ID</param>
+            <param name="isSetUsed">是否设置为已用(可以不传值,默认为设置已用)</param>
+            <param name="overdueMins">判断过期时间(可以不传值，默认为5分钟)</param>
+            <returns>1：验证通过；0:参数错误；-1：验证码不存在；-2：验证码已使用；-3：验证码已过期；</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.VerifyCodeClient.GetCodeRecordInfoByTypeValue(System.Nullable{System.Guid},TuanDai.Enums.Sms.VerifyCodeType,TuanDai.Enums.Sms.VerifyCodeType2,System.String,System.String@)">
+            <summary>
+            获取同类型当天最新的一条验证码
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="msCodeType">验证码接收类型</param>
+            <param name="msCodeType2">验证码触发类型</param>
+            <param name="typeValue">接收验证码手机号码或者邮箱</param>
+            <param name="errorString"></param>
+            <returns>当天最新的一条验证码</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.VerifyCodeClient.GetCodeRecordInfoByCode(System.Nullable{System.Guid},TuanDai.Enums.Sms.VerifyCodeType,TuanDai.Enums.Sms.VerifyCodeType2,System.String,System.String@)">
+            <summary>
+            获取符合条件的最新一条验证码
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="msCodeType">验证码接收类型</param>
+            <param name="msCodeType2">验证码触发类型</param>
+            <param name="code">验证码</param>
+            <param name="errorString"></param>
+            <returns>获取验证码</returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MessageInfoClient">
+            <summary>
+            消息客户端，获取，更改站内消息操作类
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.GetMessageCount(System.Guid,System.String@,System.Int32,System.Boolean)">
+            <summary>
+            获取单一类型消息数量
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="categoryId">类型ID(不指定某个类型默认-1查所有类型)</param> 
+            <param name="isContainReaded">是否包含已读消息(默认包含)</param>
+            <param name="errorString"></param>
+            <returns>返回某类型消息数量（根据参数包含是否已读）</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.GetMessageInfoById(System.Guid,System.String@)">
+            <summary>
+            获取单一条消息
+            </summary>
+            <param name="messageId">消息ID</param>
+            <param name="errorString"></param>
+            <returns>消息实体</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.GetMessageInfoList(System.Guid,System.Int32,System.Int32,System.Int32@,System.String@,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            获取消息列表根据用户ID跟消息类型
+            </summary>
+            <param name="userId">用户id</param>
+            <param name="index">页码</param> 
+            <param name="pageSize">分页大小</param>
+            <param name="categoryId">消息类型(如果不传消息类型默认为-1查询所有类型，否则获取单独类型列表)</param>
+            <param name="totalCount">总数量</param>
+            <param name="errorString">错误信息</param>
+            <param name="isContainReaded">是否包含已读</param>
+            <param name="isSetRead">是否</param>
+            <returns>返回消息结果集</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.DeleteSingleMessage(System.Guid,System.String@)">
+            <summary>
+            删除单条消息
+            </summary> 
+            <param name="messageId">消息id</param>
+            <param name="errorString"></param>
+            <returns>true:成功 false:失败</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.DeleteAllMessageByCategoryId(System.Guid,System.String@,System.Int32)">
+            <summary>
+            删除同一类型的所有消息
+            </summary>
+            <param name="userId">用户id</param>
+            <param name="categoryId">消息类型(如果不传删除所有)</param>
+            <param name="errorString"></param>
+            <returns>true:成功 false:失败</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageInfoClient.UpdateReadedStatus(System.Guid,System.String@)">
+            <summary>
+            更新为已读状态
+            </summary>
+            <param name="messageId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MessageSetClient">
+            <summary>
+            消息设置类
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetMsgSetInfoListByUserId(System.Guid,System.String@)">
+            <summary>
+             根据用户Id获取用户设置
+            </summary>
+            <param name="userId"></param>
+            <param name="errorString"></param>
+            <returns>返回的是list,一般情况下是只有一条设置，一个用户有多个手机的，就有多个设备ID</returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetMsgTemplateNewInfo(System.String,System.String@)">
+            <summary>
+            获取消息模板
+            </summary>
+            <param name="code"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.UpdateMsgSetInfoCategoryNotices(System.Guid,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            更新消息设置
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="categoryNotices">消息设置</param>
+            <param name="errorString">错误消息</param>
+            <param name="platformSource">操作平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.UpdateMsgSetInfoRegistrationId(System.Guid,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            更新设备ID
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="errorString">错误消息</param>
+            <param name="registrationId">设备ID</param>
+            <param name="platformSource">平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.DeleteMsgSetInfoRegistrationId(System.Guid,System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            删除设备ID
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="errorString">错误信息</param>
+            <param name="registrationId">设备ID</param>
+            <param name="platformSource">操作平台</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.UpdateMsgSetInfoWeixinOpenId(System.Guid,System.String,System.String@)">
+            <summary>
+             更新微信openID 
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="weixinOpenId">微信ID</param>
+            <param name="errorString">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.DeleteMsgSetInfoWeixinOpenId(System.Guid,System.String,System.String@,System.Boolean)">
+            <summary>
+             删除微信ID
+            </summary>
+            <param name="userId">用户ID(如果不是取消微信关注，不能为空,如果取消请传Guid.Empty)</param>
+            <param name="weixinOpenId">微信ID</param>
+            <param name="errorString">错误消息</param>
+            <param name="isCancelAttention">是否取消微信关注</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetRegistrationsByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的设备ID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetAppRegistrationsByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            获取app注册ID根据用户ID
+            </summary>
+            <param name="userIds"></param>
+            <param name="categoryId"></param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetWxOpenIdByUserIds(System.Collections.Generic.List{System.String},System.Int32,System.String@)">
+            <summary>
+            根据用户id获取可以接收的微信openID
+            </summary>
+            <param name="userIds">用户ID</param>
+            <param name="categoryId">消息类型</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.AddRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            添加未注册用户微信ID或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource">平台来源</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.DelteRegistrationsWeixinOpenIdWithoutUserId(System.String,TuanDai.Enums.PlatformSource,System.String@)">
+            <summary>
+            删除未注册用户微信ID或者设备ID
+            </summary>
+            <param name="deviceId"></param>
+            <param name="platformSource">平台来源</param>
+            <param name="errorString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.MessageSetClient.GetRegistrationsWeixinOpenIdWithoutUserId(TuanDai.Enums.PlatformSource,System.Int32,System.Int32,System.Int32@,System.String@)">
+            <summary>
+            获取未注册用户微信ID或者设备ID
+            </summary>
+            <param name="platformSource">平台来源，如果是appServer代表设备号，如果是微信代表微信号</param>
+            <param name="index">当前页数</param>
+            <param name="pageSize">分页大小</param>
+            <param name="totalCount">总数</param>
+            <param name="errorString"></param>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MsgSetInfo">
+            <summary>
+            消息设置类
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.UserId">
+             <summary>
+            用户ID
+             </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.Message">
+            <summary>
+            消息设置
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.CategoryNotices">
+            <summary>
+            接受类型
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.UpdateDate">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.UpdatePlatformSource">
+            <summary>
+            更新的平台
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.RegistrationId">
+            <summary>
+            推送的设备ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.WeixinOpenId">
+            <summary>
+            微信OpenID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.DeviceType">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.LoginDate">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.LogoutDate">
+            <summary>
+            登出时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.BindWxDate">
+            <summary>
+            绑定微信时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfo.IsMaster">
+            <summary>
+            是否主设置，如果不是的话，可以删除记录,支持多设备推送
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MsgSetInfoByApp">
+            <summary>
+            add by linhelin
+            2017-02-14
+            根据用户id获取可以接收的设备ID,app声音开关
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfoByApp.RegistrationId">
+            <summary>
+            推送的设备ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MsgSetInfoByApp.AppSountType">
+            <summary>
+            app推送消息开关
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.MessageInfo">
+            <summary>
+            系统消息
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.FromId">
+            <summary>
+            来源ID
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.AddDate">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.IsRead">
+            <summary>
+            是否已读
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.CategoryId">
+            <summary>
+            消息通知类型
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.PlatformSource">
+            <summary>
+            平台来源
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.MessageInfo.MsgCode">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.SmsRequest">
+            <summary>
+            消息请求类
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.SendOption">
+            <summary>
+            发送的选项,默认空值的时候全发,不空的时候指定发送选中的SendOption option = SendOption.Sms | SendOption.Email | SendOption.Sys,
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.EventCode">
+            <summary>
+            消息类型,不可为空
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.PlatformSource">
+            <summary>
+            平台来源
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.UserId">
+             <summary>
+            (提前还款传借款人ID) 可选用户ID如需根据用户设定决定是否通过某个途径发送信息，则需要指定此参数
+             </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.Mobile">
+            <summary>
+            手机号(可选，如需发送短信或语音，则需要指定此参数)
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.EmailAddress">
+            <summary>
+            邮箱地址(可选，如需发送Email，则需要指定此参数)
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.Parameters">
+            <summary>
+            补全模板需要的参数
+            如果需要自定义内容,使用一个通用模板
+            如果是验证码，一定需要带IP信息
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsRequest.IsWithoutTemplates">
+            <summary>
+            是否不需要查询模板类
+            暂时用在推送分期宝,分期乐满标发送给投资人
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.VerifyCodeInfo">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.TypeValue">
+            <summary>
+            接收手机或者邮箱
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Type">
+            <summary>
+            接收验证的方式
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Type2">
+            <summary>
+            触发类型
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.VerifyCodeInfo.Token">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="T:TuanDai.SMS.Client.SmsProcessResult">
+            <summary>
+            处理响应.
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.SmsProcessResult.Parameters">
+            <summary>
+            过程参数.
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsProcessResult.Success">
+            <summary>
+            处理是否成功.
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsProcessResult.Code">
+            <summary>
+            处理结果代码.
+            </summary>
+        </member>
+        <member name="P:TuanDai.SMS.Client.SmsProcessResult.Message">
+            <summary>
+            处理结果信息.
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsProcessResult.AddParameter(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加参数.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="replace"></param>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsProcessResult.GetParameter(System.String)">
+            <summary>
+            获取参数.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsProcessResult.GetParameter``1(System.String)">
+            <summary>
+            获取参数.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsProcessResult.op_Addition(TuanDai.SMS.Client.SmsProcessResult,TuanDai.SMS.Client.SmsProcessResult)">
+            <summary>
+            重载+.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsProcessResult.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.SMS.Client.SmsClient">
+            <summary>
+            发送消息客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsClient.SendMessage(TuanDai.SMS.Client.SmsRequest,System.String@)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="smsRequest"></param>
+            <param name="errorMessage"></param> 
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsClient.SendMessage(TuanDai.SMS.Client.SmsRequest,System.String@,System.Boolean)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="smsRequest"></param>
+            <param name="errorMessage"></param>
+            <param name="isCheck"></param>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsClient.CheckIsCanPush(TuanDai.SMS.Client.SmsRequest,System.String@,System.Boolean)">
+            <summary>
+            /判断是否可以发送到队列
+            </summary>
+            <param name="smsRequest"></param>
+            <param name="errorMessage"></param>
+            <param name="isCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.SMS.Client.SmsClient.CheckSendMessage(TuanDai.SMS.Client.SmsRequest,System.String@)">
+            <summary>
+            判断用户设置，是否可以发送到队列
+            </summary>
+            <param name="smsRequest"></param>
+            <param name="errorStrng"></param>
+            <returns></returns>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.ApplicationName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.SmsQueueName">
+            <summary>
+            消息队列（短信，邮件，微信，站内消息，app推送）
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.SmsCodeQueueName">
+            <summary>
+            验证码队列名称
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.SmsMessageSetQueueName">
+            <summary>
+            消息设置队列名称
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.RedisPath">
+            <summary>
+            Redis路径
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.IsOpenSmsCodeRedis">
+            <summary>
+            是否打开Redis
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.RequestType">
+            <summary>
+            走哪一种方式，默认
+            </summary>
+        </member>
+        <member name="F:TuanDai.SMS.Client.TdConfig.SmsApiRouteUrl">
+            <summary>
+            API请求路径
+            </summary>
+        </member>
+    </members>
+</doc>

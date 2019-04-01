@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>详细资料</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2626265" /><!--账户中心-->
+</head>
+<body class="bg-f1f3f5">
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">详细资料</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="MyInfoBox clearfix">
+        <div class="bg-jb">
+            <section class="hbody">
+                <div class="headPic pos-r">
+                    <img src="/imgs/images/headerPic.jpg">
+                    <div class="upload-box pos-a">
+                        <div class="uploader pos-r">
+                            <input type="file" accept="image/*" />
+                            <img src="/imgs/images/ico-camera.png" class="ico-camera pos-a"/>
+                            <!--<a href="javascript:;" class="camera-but pos-a"></a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="infoBox">
+                    <p>
+                        <img class="icon_v7" src="/imgs/images/V7.png"/>
+                        <span>投资大鳄</span>
+                        <!--<img class="level_v7" src="/imgs/images/tequanhuiyuan.png"/>-->
+                    </p>
+                    <p>我的积分：2350<span class="f12px">普通会员</span></p>
+                    <a href="/html/member/upqradeAccount.html" class="f13px c-fff up-member mt5">升级VIP会员</a>
+                </div>
+
+            </section>
+
+            <section class="pl15 mt20">
+                <div class="infoMain bb-e6e6e6">
+                    <div class="leftBox">用户名</div>
+                    <div class="rightBox pr30">
+                        <div class="contBox">Liz-Chen</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="pl15 bb-e6e6e6 bg-fff">
+                <div class="infoMain bb-e6e6e6">
+                        <div class="leftBox">昵称</div>
+                        <div class="rightBox pr30">
+                            <div class="contBox">
+                                <input type="text" name="" class="ipt" value="萌萌哒" placeholder="请输入昵称">
+                            </div>
+                        </div>
+                </div>
+                <div class="infoMain bb-e6e6e6">
+                        <div class="leftBox">紧急联系人</div>
+                        <div class="rightBox pr30">
+                            <div class="contBox">
+                                <input type="text" name="" class="ipt" value="" placeholder="紧急联系人名字">
+                            </div>
+                        </div>
+                    </div>
+                <div class="infoMain bb-e6e6e6 ">
+                        <div class="leftBox">联系人电话</div>
+                        <div class="rightBox pr30">
+                            <div class="contBox">
+                                <input type="text" name="" class="ipt" value="" placeholder="联系人手机号码">
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <div class="fixLine pl15 pb25 pt5">安全认证</div>
+        <section class="pl15 bb-e6e6e6 bt-e6e6e6 bg-fff">
+            <div class="infoMain bb-e6e6e6">
+                <div class="leftBox">身份验证</div>
+                <div class="rightBox pr15">
+                    <div class="contBox c-d1d1d1">未验证<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png"/></div>
+                </div>
+            </div>
+            <div class="infoMain bb-e6e6e6">
+                <div class="leftBox">手机验证</div>
+                <div class="rightBox pr15">
+                    <div class="contBox c-d1d1d1">未验证<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png"/></div>
+                </div>
+            </div>
+            <div class="infoMain bb-e6e6e6">
+                <div class="leftBox">登录密码</div>
+                <div class="rightBox pr15">
+                    <div class="contBox c-d1d1d1">修改<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png"/></div>
+                </div>
+            </div>
+            <div class="infoMain bb-e6e6e6">
+                <div class="leftBox">交易密码</div>
+                <div class="rightBox pr15">
+                    <div class="contBox c-d1d1d1">未设置<img src="/imgs/images/icon/ico-arrow-r-d1d1d1.png"/></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="fixLine pl15 pb25 pt5">详细资料</div>
+
+        <section class="pl15 bg-fff bb-e6e6e6 bt-e6e6e6 bg-fff">
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">最高学历</div>
+             <div class="rightBox pr15">
+                <select name="" class="select">
+                     <option value="大专">大专</option>
+                     <option value="本科">本科</option>
+                     <option value="研究生">研究生</option>
+                     <option value="博士">博士</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">毕业院校</div>
+              <div class="rightBox pr30">
+                    <div class="contBox">
+                        <input type="text" name="" class="ipt" value="" placeholder="请输入您所毕业院校信息">
+                    </div>
+                </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">婚姻状况</div>
+             <div class="rightBox pr15">
+                <select name="" class="select">
+                     <option value="未婚">未婚</option>
+                     <option value="已婚">已婚</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain">
+             <div class="leftBox">居住地址</div>
+              <div class="rightBox pr30">
+                    <div class="contBox">
+                        <input type="text" name="" class="ipt" value="" placeholder="请输入现居住地址">
+                    </div>
+                </div>
+          </div>
+        </section>
+        <div class="fixLine"></div>
+
+        <section class="pl15  bg-fff bb-e6e6e6 bt-e6e6e6 bg-fff">
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">公司行业</div>
+             <div class="rightBox pr15">
+                <select name="" class="select">
+                     <option value="互联网/金融">互联网/金融</option>
+                     <option value="教育/培训">教育/培训</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">公司规模</div>
+             <div class="rightBox pr15">
+                <select name="" class="select">
+                     <option value="0-50人">0-50人</option>
+                     <option value="50-150人">50-150人</option>
+                     <option value="150-500人">150-500人</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">职位</div>
+              <div class="rightBox pr30">
+                    <div class="contBox">
+                        <input type="text" name="" class="ipt" value="" placeholder="请输入您的职位信息">
+                    </div>
+                </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">月收入</div>
+             <div class="rightBox pr15">
+                <select name="time1" class="select">
+                     <option value="5000元以下">5000元以下</option>
+                     <option value="5000-20000元">5000-20000元</option>
+                     <option value="20000-50000元">20000-50000元</option>
+                     <option value="我是老板">我是老板</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain bb-e6e6e6">
+             <div class="leftBox">是否购房</div>
+             <div class="rightBox pr15">
+                <select name="time1" class="select">
+                    <option value="否">否</option>
+                    <option value="是">是</option>
+                </select>
+             </div>
+          </div>
+          <div class="infoMain">
+             <div class="leftBox">是否购车</div>
+             <div class="rightBox pr15">
+                <select name="time1" class="select">
+                    <option value="否">否</option>
+                    <option value="是">是</option>
+                </select>
+             </div>
+          </div>
+        </section>
+
+    </div>
+
+    <div class="pl15 pr15 mt20 pb20">
+        <a href="javascript:;" class="btn yellowBox f17px">保存</a>
+    </div>
+
+
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+</body>
+</html>

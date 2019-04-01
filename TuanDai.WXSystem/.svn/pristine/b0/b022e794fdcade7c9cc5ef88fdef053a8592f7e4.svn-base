@@ -1,0 +1,212 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Weftb_project.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Repayment.Weftb_project" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title><%=model.FTBSubType.HasValue&&model.FTBSubType.Value==3?"速盈宝":"We+自动服务" %>详情</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=<%=GlobalUtils.Version %>" />
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=<%=GlobalUtils.Version %>" />
+
+</head>
+<body class="bg-f1f3f5 pb20">
+     <%= this.GetNavStr()%>
+     <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:window.location.href='/Member/Repayment/my_return_list.aspx?tab=<%=tab %>'">返回</div>
+            <h1 class="title" id="dvTitle">复投宝</h1>
+        </div> 
+        <%= this.GetNavIcon()%>
+        <div class="none"></div>
+    </header>
+<div id="wrapper" style="top:0px!important;">
+<div id="scroller">
+    <div id="pullDown">
+        <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+    </div> 
+
+ <div class="detail-top-bg bb-e6e6e6 pt10">
+	<div class="pl15 pos-r detail_tit">
+		<p class="f14px c-808080 text-overflow"><%=model.ProductName %></p>
+		<%--<div class="lookProject c-ababab f13px">服务详情<i class="ico-right"></i></div>--%>
+	</div>
+	<div class="pt25 text-center f13px c-ababab pos-r">参考总回报</div>
+	<div class="f37px c-fd6040 text-center pt10"><%=ToolStatus.ConvertLowerMoney(DueInterestAmount) %></div>
+     <% if (RewardInterest>0)
+       {
+           %>
+    <div class="rect-box clearfix"style="margin-left:!important auto;margin-right:!important auto;width: 200px;" >
+        <div class="rect_r f11px c-ffffff text-center" style="width:200px;height:auto;">计划奖励:￥<span id="reward" class="c-ffffff"><%=ToolStatus.ConvertLowerMoney(RewardInterest) %></span>(结束服务时发放)</div>		
+	</div>
+    <%
+       } %>
+	<div class="pt10 text-center f13px c-ababab"><span class="f13px c-ababab mr10"><%=model.Deadline %><%=model.DeadType==1?"个月":"天" %></span>参考年回报率<%=ToolStatus.DeleteZero(model.YearRate)%>% <%=RewardRate>0?"+"+ToolStatus.DeleteZero(RewardRate)+"%":"" %></div>
+	<div class="bg005 mt30">
+		<div class="pl15 pt10 pb11 pos-r">
+			<p class="f17px c-212121">加入金额：<%=ToolStatus.ConvertLowerMoney(model.Amount) %></p>
+			<p class="line-h19 f13px c-ababab"><%=model.OrderDate.ToString("yyyy-MM-dd HH:mm") %></p>
+			<a class="lookProject c-ababab f13px" href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin<%=model.IsNewHand==1?"/contractTypeWeNewHand.aspx?key="+weOrderId:model.FTBSubType.HasValue&&model.FTBSubType.Value==3?"/contractTypeWeSYB.aspx?key="+weOrderId:"/contractFTB.aspx?key="+weOrderId %>">查看合同<i class="ico-right"></i></a>
+		</div>
+		<div class="pl15 pt10 pb11 pos-r bt-e6e6e6">
+			<p class="f17px c-212121">已投资金额：<%=ToolStatus.ConvertLowerMoney(model.AmountInvestment) %></p>
+            <% if(model.WeStatusId==1 && model.OrderAviAmount>0){ %>
+                <%if(model.IsNewHand==0){ %>
+			     <p class="line-h19 f13px c-ababab">项目匹配中，<%=model.LockEndDate.Value.ToString("MM月dd日")%>前未投资的金额将解冻</p>
+                <%}else{ %>
+                 <p class="line-h19 f13px c-ababab">项目匹配中</p>
+                <%} %>
+            <%} else if (model.WeStatusId==2) {  %>
+             <p class="line-h19 f13px c-ababab"><%=model.OrderAviAmount == 0?"已全部投标完成":"未投资金额已解冻" %></p> 
+            <%} %>
+		</div>
+	</div>
+</div>
+	
+<div class="mt20 bg-fff pl15 pt10 pb10 bt-e6e6e6 bb-e6e6e6">
+	<p class="f17px"><%=GetWeFQBStatus() %><span class="f17px c-ababab">（<%=model.ExpireDate.ToString("yyyy-MM-dd")%>到期）</span></p>
+    <%--<% if(model.IsNewHand==0  &&  model.WeStatusId==2 && model.FTBSubType.HasValue&&model.FTBSubType.Value != 3){ %>
+      <div class="lookProject c-ababab f13px" id="btnApplyTransfer">申请结束<i class="ico-right"></i></div> 
+    <%}else if(model.WeStatusId==3){ %>
+    <div class="lookProject c-ababab f13px" id="btnCancelTransfer">撤销转让</div>
+    <%} %>  --%>
+</div>
+	
+	
+<div class="pl15 bg-fff bb-e6e6e6">
+	<div class="pt10 pb10 bb-e6e6e6">
+		<p class="f17px">交易记录</p>
+		<div class="lookProject c-ababab f13px" id="btnViewProject">债权明细<i class="ico-right"></i></div>
+	</div>
+
+    <div id="thelist"> 
+    </div>	
+</div> 
+  
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+    </div> 
+</div> 
+
+    <!--您持有该计划未满3个月弹框-->
+    <div class="alert we-alert" style="display: none;" id="popRansom">
+    	<div class="bg-fff pl15 pr15 pb15 we-alert-box">
+    		<div class="c-212121 text-center f14px pt30 pb20">您持有该计划未满3个月，<br/>请于<%=model.FtbTransferDate.HasValue?model.FtbTransferDate.Value.ToString("yyyy年MM月dd日"):""%>再来申请结束。</div>
+    		<div class="btn btnYellow">确定</div>
+    	</div>
+    </div> 
+    <!--确认撤销转让申请？-->
+    <div class="alert we-alert" style="display: none;" id="popCancelRansom">
+    	<div class="bg-fff pl15 pr15 pb15 we-alert-box">
+    		<div class="c-212121 text-center f14px pt30 pb20">确认撤销结束申请？</div>
+    		<div class="clearfix we-btn-select">
+    			<div class="btnL lf f14px c-212121">取消</div>
+    			<div class="btnR rf f14px c-fff">确定</div>
+    		</div>
+    	</div>
+    </div>  
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/iscroll.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/scrollUpdate.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+    var weOrderId = "<%=weOrderId%>";
+    var transferDate = "<%=model.TransferDate.ToString("yyyy-MM-dd HH:mm")%>";
+
+    $(function () {
+        iScroll.onLoadData = LoadProjectList;
+        LoadProjectList('empty');
+        <%--$(".detail_tit").click(function () { 
+            window.location.href = "/pages/invest/WE/WeFtb_detail.aspx?id=<%=model.ProductId%>";
+        });--%>
+        //查看投标项目
+        $("#btnViewProject").click(function () {
+            window.location.href = "ftb_myZqList.aspx?OrderId=<%=weOrderId%>";
+        });
+        //申请转让
+        $("#btnApplyTransfer").click(function () {
+            try {
+                //--------存管通验证----2016-12-21------
+                if (isOpenCGT == "1" && !checkIsOpen())
+                    return false;
+                //--------存管通验证结束------------
+            } catch (e) {
+
+            }
+            var year = new Date(transferDate).getFullYear();
+            var month = new Date(transferDate).getMonth();
+            var day = new Date(transferDate).getDate();
+            if (new Date() < new Date(year, month, day)) {
+                $("#popRansom").show();
+            } else {
+                 window.location.href = "/Member/Repayment/Weftb_Ransom.aspx?orderid=<%=weOrderId%>";
+            }
+        });  
+        $("#popCancelRansom .btnL").click(function () {
+            $(".we-alert").hide();
+        });
+        $(".btnYellow").click(function () {
+            $(".we-alert").hide();
+        });
+    });
+    function LoadProjectList(flag) {
+        $("body").showLoading("数据加载中...");
+        if (flag == "empty") {
+            $("#thelist").children().remove();
+        }
+        jQuery.ajax({
+            type: "Post",
+            url: "/ajaxCross/InvestAjax.ashx",
+            dataType: "json",
+            data: { Cmd: "GetWeFTBTradeDetailShowList", pageIndex: pageIndex, weOrderId: "<%=weOrderId%>" },
+            success: function (jsonstr) {
+                if (flag == "empty") {
+                    $("#thelist").children().remove();
+                }
+                pageCount = jsonstr.pageCount;
+                if (pageCount <= 1)
+                    $("#pullUp").hide();
+                else
+                    $("#pullUp").show();
+
+                var html = new Array();
+                var str = "";
+                if (jsonstr.result == "1") {
+                    for (var i = 0; i < jsonstr.list.length; i++) {
+                        var item = jsonstr.list[i];
+                        str = "<div class='bb-e6e6e6" + (item.LinkUrl != "" ? "click-respond" : "") + "' >" +
+                            "   <div class='mt2 f17px pt8 " + (parseFloat(item.InAmount) > 0 ? "c-9bc84a" : "c-fd6040") + " '>" + (parseFloat(item.InAmount) > 0 ? "+¥" + item.InAmount : "-¥" + item.OutAmount) + "</div>" +
+                            "   <div class='clearfix mt1 pr15 pb15'>" +
+                            "     <div class='lf f13px c-ababab pl5 w50p text-overflow'>" + item.ActionStr + "</div>" +
+                            "     <div class='rf f13px c-ababab'>" + item.AddDate + "</div>" +
+                            "   </div>" +
+                            "</div> ";
+                        html.push(str);
+                    }
+                    $("#thelist").append(html.join(""));
+                    myScroll.refresh();
+                }
+                else {
+                    $("#thelist").append(" <div class='bb-e6e6e6'>暂时没有记录</div>");
+                }
+                $("body").hideLoading();
+            },
+            error: function (msg) {
+                $("body").hideLoading();
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

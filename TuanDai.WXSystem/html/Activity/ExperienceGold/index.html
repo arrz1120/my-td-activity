@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>投800送800</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body class="wrap-bg1">
+<section class="wrap">
+    <div>
+        <img src="imgs/banner1.png?v=20150917"/>
+    </div>
+    <section class="form-box pl40 pr40 mt20">
+        <div class="inp-cn pos-r mb25">
+            <input type="text" name="" class="text1" id="tel" placeholder="请输入手机号码">
+            <a href="javascript:;" class="clear pos-a" id="clear">
+                <img src="imgs/clear.png"/>
+            </a>
+            <span class="pos-a">手机号码不能为空</span>
+        </div>
+        <div class="inp-cn1 pos-r mb25">
+            <input type="text" name=""  class="text2 pos-a" placeholder="请输入图形码">
+            <div class="imgcode">
+                <img src="imgs/code-img.png"/>
+            </div>
+            <span class="pos-a">图形验证码输入错误</span>
+        </div>
+        <div class="inp-cn1 pos-r mb25">
+            <input type="text" name=""  class="text2 pos-a" placeholder="请输入验证码">
+            <input type="button" class="but-getcode text-center pl0" value="重新发送150秒">
+            <span class="pos-a">验证码输入错误</span>
+        </div>
+        <div class="inp-cn">
+            <input type="button"  class="getnow-but f16px" value="立即领取">
+        </div>
+        <!--<p class="f12px mt15">点击“立即领取”后，收到验证短信，凭此短信领取礼品哦~~~</p>-->
+    </section>
+</section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script>
+    $("#clear").click(function(){
+        $('#tel').val("").focus();
+    });
+</script>
+
+</body>
+</html>

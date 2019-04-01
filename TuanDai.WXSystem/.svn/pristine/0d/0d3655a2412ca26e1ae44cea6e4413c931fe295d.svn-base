@@ -1,0 +1,423 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"     CodeBehind="Index.aspx.cs" Inherits="TuanDai.WXApiWeb.Index" %> 
+
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="applicable-device" content="mobile">
+    <meta name="keywords" content="投资理财,互联网金融,P2P网站,P2P网贷,P2P理财" />
+<meta name="description" content="团贷网是安全可靠的P2P理财投资网贷平台,专注为投资理财和贷款用户提供优质的互联网金融服务,为投资者带来稳定收益,解决中小微企业资金需求." /> 
+    <title>团贷网-安全可靠的投资理财网站,p2p理财网贷平台</title>
+    <link rel="canonical" href="https://www.tuandai.com/">
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/log-alert.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/baikedaohang.css?v=<%=GlobalUtils.Version %>" />
+    <style type="text/css">
+        .shuiyin-1218Cur {
+            width: 77px;
+            height: 67px;
+            background: url("/imgs/1218/shuiyin121801.png?v=20161218001") center no-repeat;
+            background-size: 77px 67px;
+            right: 5.5%;
+            top: -25px;
+        }
+    </style>
+</head>
+
+<body class="bg-f1f3f5" id="noSeoTop">
+    <div class="loading-box" id="cMloading">
+        <div class="loading-tips">
+            <img src="/imgs/images/icon/ico_loading.png" alt=""><span>加载中...</span>
+        </div>
+    </div>
+    <div id="bigDiv">
+    	<div class="pageContainer">
+	        <header class="headerMain2 ">
+	            <div class="header">
+	                <a href="https://m.tuandai.com/" class="logo"></a>
+	                <!--<div class="pc">
+	                    <% if (!Is360Weishi)
+	                       { %>
+	                    <a href="https://www.tdw.cn/default.aspx?devicetype=tuandaicp" rel="nofollow">电脑版</a>
+	                    <%} %>
+	                </div>
+	                <div class="header_r">登录/注册</div>-->
+	                <div class="top_right clearfix">
+	                <% if (!Is360Weishi)
+	                       { %>
+	                    <a href="https://www.tdw.cn/default.aspx?devicetype=tuandaicp" class="top_a1 lf" rel="nofollow"></a>
+	                    <%} %>
+					<a href="javascript:void(0);" class="top_a2 rf webkit-box box-center box-vertical <%=IsInApp || TuanDai.WXApiWeb.GlobalUtils.IsWeiXinBrowser ? "hide":"" %>">
+						<span></span>
+						<span></span>
+						<span></span>
+					</a>
+	            </div>
+	            </div>
+	            <div class="none"></div>
+	        </header>
+	        <div class="swiper-container" id="swiper-banner">
+	            <div class="swiper-wrapper">
+	                <% 
+	                    var imgIndex = 0;
+	                    foreach (var imgeInfo in BannerList)
+	                    {
+	                        imgIndex++;
+	                        
+	                        %>
+	                <div class="swiper-slide">
+	                    <a href="<%=imgeInfo.Link %>" target="_blank">
+	                        <img src="<%= imgeInfo.ImageUrl %>" <%=imgIndex>1?"style='display:none;'":"" %> /></a>
+	                </div>
+	                <%} %>
+	            </div>
+	            <!-- 如果需要分页器 -->
+	            <div class="swiper-pagination" id="nav-mark"></div>
+	        </div>
+	        <section id="scrollDiv" class="mr15">
+	            <div class="notice-box">
+	                <ul>
+	                    <% foreach (var Item in this.noticelist)
+	                       {%>
+	                    <li>
+	                        <div class="notice-cn clearfix">
+	                            <a href="/pages/news/noticedetails.aspx?id=<%=Item.Id %>" class="lf inline-block f12px notice-text">
+	                                <img class="mr5" src="/imgs/images/icon/ico_sound01.png" alt="投资" />
+	                                （<%=Item.AddDate.Value.ToString("MM月dd日")%>）<%= Tool.StrObj.CutString(Item.Title, 10)%>
+	                            </a>
+	                            <a href="/pages/news/noticelist.aspx" class="f12px rf notice-more c-808080">更多></a>
+	                        </div>
+	                    </li>
+	                    <%} %>
+	                    <li>
+	                        <div class="notice-cn clearfix">
+	                            <% if (TuanDai.WXApiWeb.WebUserAuth.IsAuthenticated)
+	                               { %>
+	                            <div class="box-flex1 text-overflow">
+	                                <a href="javascript:void(0);" class="f14px notice-text">
+	                                    <img class="mr5" src="/imgs/images/ico-index-ad03.png" alt="资金" />
+	                                    团贷网已为您赚取<span class="f14px c-fd6040"><%= Tool.MoneyHelper.ConvertLowerMoney(UserEarnAmount)%></span>元
+	                                </a>
+	                            </div>
+	                            <%}
+	                               else
+	                               { %>
+	                            <a href="javascript:void(0);" class="lf inline-block f12px notice-text">
+	                                <img class="mr5" src="/imgs/images/ico-index-ad02.png" alt="理财" />
+	                                累计融资<%= GetChineseAmount(TotalAmount)%>
+	                            </a>
+	                            <a href="javascript:void(0);" class="rf inline-block f12px notice-text">
+	                                <img class="mr5" src="/imgs/images/ico-index-ad03.png" alt="" />
+	                                累计为用户赚取<%= GetChineseAmount(UserInterestAmount)%>
+	                            </a>
+	                            <%} %>
+	                        </div>
+	                    </li>
+	                </ul>
+	            </div>
+	        </section>
+	
+	        <div class="index-nav bg-fff">
+	            <div class="clearfix">
+	                <div class="<%=Is360Weishi?"w33p":"w25p" %> lf text-center pt20 pb15 click-respond">
+	                    <a href="https://at.tuandai.com/201702/20170223RealTime/weixin/index.aspx" rel="nofollow">     
+	                          <div class="nav-img nav-img2 webkit-box box-center">
+	                                <img src="/imgs/images/icon/ico_s2.png" alt="" />
+	                          </div>
+	                          <p class="f12px c-212121 mt7">团贷大数据</p> 
+	                    </a>
+	                </div>
+	                <div class="<%=Is360Weishi?"w33p":"w25p" %> lf text-center pt20 pb15 click-respond" id="login">
+	                    <a href="/pages/invest/invest_newHand.aspx" rel="nofollow"> 
+	                         <div class="nav-img nav-img1 webkit-box box-center">
+	                            <img src="/imgs/images/icon/ico_s4.png" alt="" />
+	                         </div>
+	                         <p class="f12px c-212121 mt7">新手福利</p> 
+	                    </a>
+	                </div>
+	                <% if (!Is360Weishi)
+	                   { %>
+	                <div class="w25p lf text-center pt20 pb15 click-respond">
+	                    <a href="/pages/downopenapp.aspx?type=weixinapp" rel="nofollow"> 
+	                        <div class="nav-img nav-img3 webkit-box box-center">
+	                            <img src="/imgs/images/icon/ico_share1.png" alt="" />
+	                        </div>
+	                        <p class="f12px c-212121 mt7">下载APP</p> 
+	                    </a>
+	                </div>
+	                <%} %>
+	                <div class="<%=Is360Weishi?"w33p":"w25p" %> lf text-center pt20 pb15 click-respond">
+	                    <a href="/pages/concernWeChat.aspx" rel="nofollow"> 
+	                        <div class="nav-img nav-img4 webkit-box box-center">
+	                            <img src="/imgs/images/icon/ico_share2.png" alt="" />
+	                        </div>
+	                        <p class="f12px c-212121 mt7">微信公众号</p> 
+	                    </a>
+	                </div>
+	            </div>
+	        </div>
+			<div class="div-h10 bg-f1f3f5"></div>
+	       
+	       <div class="invest-area bg-fff bt-e6e6e6 bb-e6e6e6">
+	           <a href="<%=showModel.IsWeAYB?showModel.DetailUrl:"javascript:checkCgtSubGoUrl('"+showModel.DetailUrl+"');" %>">
+	            <div class="ia_r1"></div>
+	            <div class="text-center f15px"><%=showModel.ProductName %></div>
+	             <div class="ia_r3 webkit-box box-center box-vertical"> 
+	                   <%=ShowWeRank(showModel) %>
+	                   <% if (showModel.IsFTB && !showNewHand)
+	                      { %> 
+	                    <i class="ia_r3_i2">可提前退出</i>   
+	                   <%}else if (showNewHand) { %> 
+	                     <i class="ia_r3_i1">新手专享</i>
+	                     <% if(IsNewHandNewRule){ %>
+	                      <i class="ia_r3_i2">累计限投<%=limitInvestStr %></i>
+	                      <i class="ia_r3_i2">限投<%=limitInvestNum%>次</i>
+	                     <%}else{ %>
+	                      <i class="ia_r3_i2">限投<%=limitInvestStr %></i>
+	                     <%} %> 
+	                   <% } %> 
+                       <%=ShowWePubCach(showModel) %> 
+	             </div> 
+	
+	            <div class="ia_r4 pos-r"><%=ShowProjectYearRate(showModel) %><span style="font-size: 16px;">%</span></div>
+	            <div class="ia_r5 webkit-box box-center box-vertical">
+	                <i><%=ToolStatus.DeleteZero(showModel.Deadline) %><%=showModel.DeadType==1?"个月":"天" %></i>
+	                <i class="ia_r5_i2">剩余<%=GetWeMoney(((showModel.Amount) - (showModel.CastedShares) * (showModel.LowerUnit))) %></i>
+	                <i><%=ToolStatus.DeleteZero(showModel.LowerUnit) %>元起购</i>
+	            </div>
+	           </a>
+	            <a href="javascript:checkCgtSubGoUrl('<%=showModel.DetailUrl%>');" class="ia_r6">
+	                <p class="c-ffffff line-h18 f15px text-center">立即抢购</p>
+	                <p class="c-ffffff f10px text-center">已加入<%=showModel.OrderCount %>人</p>
+	            </a>
+	            <div class="ia_r7 c-ababab" style="padding: 8px 0;" onclick="javascript:window.location.href='/pages/app/safeguard/index.aspx';"><%--<i></i>个人资产由银行级别风控体系保障--%></div> 
+	        </div>
+			
+		   <div class="div-h10 bg-f1f3f5"></div>
+			
+			<div class="bt-e6e6e6 bb-e6e6e6">
+		        <a href="http://hd.tuandai.com/weixin/Invite/InviteIndex.aspx" class="block text-center" rel="nofollow">
+		            <img src="/imgs/images/pic/find_banner1080.png?v=20160901" alt="邀请好友赢大礼"/>
+		        </a>
+			</div>
+		
+			    <!--<div class="dlapp-box pos-r">
+					<img class="w100p" src="/imgs/images/pic/downloadApp.png?v=2016100801" alt="下载团贷网APP" />
+					<a href="/pages/downopenapp.aspx?type=weixinapp" class="c-ffffff bg-ffcf1f f15px text-center dlapp-but" rel="nofollow">下载APP</a>
+				</div>-->
+	
+			<div class="mt10 dl-box">
+				<a href="/pages/downopenapp.aspx?type=weixinapp<%=!string.IsNullOrEmpty(Tool.CookieHelper.GetCookie("tdfrom"))?"&tdfrom="+Tool.CookieHelper.GetCookie("tdfrom"):"" %>" class="block"><img class="w100p" src="/imgs/images/pic/downloadApp.png?v=2017030101"/>
+				</a>
+				<!--<a href="/pages/downopenapp.aspx?type=weixinapp" class="c-ffffff bg-ffcf1f f15px text-center dlapp-but" rel="nofollow">下载APP</a>-->
+			</div>
+
+		    <!--底部-->
+		    <div class="bt-e6e6e6 webkit-box box-center wx-footer">
+		        <a class="block box-flex1 text-center">
+		            <p>
+		                <img src="/imgs/images/icon/ico_f1_act.png" />
+		            </p>
+		            <p class="f10px line-h18 c-ffc000">团贷</p>
+		        </a>
+		        <a class="webkit-box box-center box-vertical box-flex1 text-center" href="<%=GlobalUtils.DQWebURL%>/pages/invest/WE/WE_list.aspx">
+		            <p>
+		                <img src="/imgs/images/icon/ico_f2.png" />
+		            </p>
+		            <p class="f10px line-h18 c-626262">投资</p>
+		        </a>
+		        <a class="webkit-box box-center box-vertical box-flex1 text-center" id="mine" <%=TuanDai.WXApiWeb.WebUserAuth.IsAuthenticated?"href='/Member/my_account.aspx'":"" %>>
+		            <p>
+		                <img src="/imgs/images/icon/ico_f3.png" />
+		            </p>
+		            <p class="f10px line-h18 c-626262">我</p>
+		        </a>
+		    </div>
+	        
+		    <!--悬浮按钮-->
+		    <a href="http://hd.tuandai.com/weixin/newhand/welfarenew.aspx?tdsource=wxindex" class="index_float" rel="nofollow">
+        <img src="/imgs/images/pic/index_float.png" alt="新手红包"/></a>
+	    </div>
+	</div> 
+
+    <!-----登录注册弹框---->
+    <% if (!TuanDai.WXApiWeb.WebUserAuth.IsAuthenticated)
+       { %>
+    <!--登录-->
+    <div class="bg-fff log-alert hide" id="dvLoginPass">
+        <div class="log-close webkit-box box-center">
+            <i class="block logSprite close"></i>
+        </div>
+        <div class="text-center f17px pt15 pb15">登录</div>
+        <div class="contentWrap pt20">
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite phone"></i>
+                <input type="tel" placeholder="请输入手机号码" id="txtLoginTel" />
+            </div>
+            <div class="input-box bb-e6e6e6 password">
+                <i class="block logSprite unlock"></i>
+                <input type="password" placeholder="请输入登录密码" id="txtLoginPass" />
+                <!--<b class="block logSprite eye-close" id="btnSee2"></b>-->
+                <div class="btnsee webkit-box box-center" id="btnSee2">
+                    <b class="block logSprite eye-close"></b>
+                </div>
+            </div>
+            <div class="btn btnYellow mt50 opacity05" id="loginConfirm">确定</div>
+            <div class="mt8 clearfix">
+                <a href="/user/Register.aspx" class="lf f13px c-ffcf1f" rel="nofollow">注册</a>
+                <a href="/Member/safety/ResetPwd.aspx" class="rf f13px c-ffcf1f" rel="nofollow">忘记密码</a>
+            </div>
+            <%--<a href="/Member/safety/ResetPwd.aspx" class="block text-center f13px c-ffcf1f mt8">忘记密码</a>--%>
+        </div>
+    </div>
+    <!--注册-->
+    <div class="bg-fff log-alert hide" id="dvRegister">
+        <div class="log-close webkit-box box-center">
+            <i class="block logSprite close"></i>
+        </div>
+        <div class="text-center f17px pt15 pb15">注册</div>
+        <div class="contentWrap pt20">
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite phone"></i>
+                <input type="tel" placeholder="请输入手机号码" id="txtRegTel" />
+            </div>
+            <div class="input-box bb-e6e6e6" id="setPassword">
+                <i class="block logSprite lock"></i>
+                <input type="password" placeholder="" id="txtRegPass" />
+                <p id="likePlaceholder">设置密码<span>（6-16个字符，数字+字母）</span></p>
+                <!--<b class="block logSprite eye-close" id="btnSee"></b>-->
+                <div class="btnsee webkit-box box-center" id="btnSee">
+                    <b class="block logSprite eye-close"></b>
+                </div>
+            </div>
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite info"></i>
+                <input type="tel" placeholder="验证码" id="txtRegCode" />
+                <div class="timeout bl-e6e6e6 f13px c-ffcf1f text-center" id="getCode">
+                    获取验证码
+                </div>
+                <div class="timeWrap bl-e6e6e6 hide" id="timeWrap">
+                    <div class="time_bg"></div>
+                    <div class="time">
+                        <div class="wrap circle_right">
+                            <div class="round rightcircle" id="rightcircle"></div>
+                        </div>
+                        <div class="wrap circle_left">
+                            <div class="round leftcircle" id="leftcircle"></div>
+                        </div>
+                        <div id="show"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix pl10 mt8 invite_t">
+                <div class="lf c-ffcf1f f13px" id="invite"><i class="triangle-r"></i>邀请人手机号码</div>
+                <div class="rf c-ffcf1f f13px" id="getVoiceCode">语音验证码</div>
+            </div>
+            <div class="input-box bb-e6e6e6 mt13 hide" id="invite-inp">
+                <i class="block logSprite people"></i>
+                <input type="tel" placeholder="邀请人手机号码" id="txtFriendTel" />
+            </div>
+            <div class="btn btnYellow mt50" id="zhuceConfirm">注册</div>
+            <div class="text-center f13px c-ababab mt8">注册即表示您已同意<a class="f13px c-ffcf1f" href="/pages/agreement.aspx" rel="nofollow">《团贷网服务协议》</a></div>
+        </div>
+        <div class="bottom_txt f13px c-ababab w100p text-center">已有账号？<a href="/user/Login.aspx" class="f13px c-ffcf1f" rel="nofollow">马上登录</a></div>
+    </div>
+    <!--登录注册-->
+    <div class="bg-fff log-alert hide" id="dvLogin">
+        <div class="log-close webkit-box box-center">
+            <i class="block logSprite close"></i>
+        </div>
+        <div class="tdLogo"></div>
+        <div class="contentWrap pt20">
+            <div class="input-box bb-e6e6e6">
+                <i class="block logSprite phone"></i>
+                <input type="tel" placeholder="请输入手机号码" id="tel-inp" />
+            </div>
+        </div>
+        <div class="bottom_txt f13px c-ababab w100p text-center">你也可以选择<a href="/user/Login.aspx" class="f13px c-ffcf1f" rel="nofollow">用户名登录</a></div>        
+    </div>
+    <%} %>
+    
+    <script type="text/javascript" src="/scripts/jquery.min.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/TdStringHandler.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/Common.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/home.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/seo.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        var swiper_banner = new Swiper('#swiper-banner', {
+            onInit: function () {
+                $('#swiper-banner').find('img').show();
+            },
+            autoplay: 5000,
+            direction: 'horizontal',
+            loop: true,
+            pagination: '#nav-mark'
+        });
+
+        //滚动
+        setInterval(AutoScroll1, 3000);
+        setInterval(AutoScroll2, 5000);
+
+        function AutoScroll1() {
+            $("#scrollDiv").find("ul:first").animate({
+                marginTop: "-30px"
+            }, 500, function () {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+        }
+
+        function AutoScroll2() {
+            $("#newHandScrollDiv").find("ul:first").animate({
+                marginTop: "-50px"
+            }, 500, function () {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+        }
+        
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {
+                    //移动终端浏览器版本信息
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                };
+            }(),
+        };
+        $(".download").click(function () {
+            if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+                window.location.href = "http://www.tuandai.com/app/install.aspx";
+            }
+            else if (browser.versions.android) {
+                window.location.href = "http://image.tuandai.com/tuandaiapp/tuandai.apk";
+            } else {
+                window.location.href = "http://hd.tuandai.com/weixin/tuandaiAppNew/IndexApp.aspx?type=weixinapp";
+            }
+        }); 
+        window.onload = function(){
+			(function() {
+				$(".dlapp-box").height($(".dl-box").find('img').height()+191);
+			})();
+		}
+	</script>
+</body>
+
+</html>

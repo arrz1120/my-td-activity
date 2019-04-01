@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>充值常见问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/qa.css?v=20160114" />
+</head>
+<body>
+
+<a href="ToChangeCard" class="link border-scale">
+<p class="text-wraper">
+  换卡须知 <span></span>
+</p>
+</a>
+
+
+<section class='text border-scale'>
+  <h2 class="border-bottom">注意事项</h2>
+  <ul>
+    <li>由于建行银行每天22:00-24:00会进行系统升级，届时建行银行卡支付无法充值。</li>
+    <li>为遵守国家反洗钱和套现行为的相关法律规定，充值后的资金需等15天后才能提现。</li>
+    <li>如果您的充值资金是用于还款，请暂停自动投标，以免资金被投资出去。</li>
+  </ul>
+</section>
+
+<p class="phone_num"><a href="ToMakePhoneCall">客服电话: 400-6410-888 (09:00 - 22:00)</a></p>
+
+</body>
+</html>

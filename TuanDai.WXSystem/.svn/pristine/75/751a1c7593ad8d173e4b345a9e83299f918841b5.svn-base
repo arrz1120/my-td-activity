@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>投资成功</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160603" />
+	<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20160603001" />
+</head>
+<body class="bg-f1f3f5">
+	<div class="webkit-box box-center suc_box">
+		<p><i class="ico_suc02"></i>投资成功</p>
+	</div>
+	<div class="whiteArea bb-e6e6e6"></div>
+	<div class="suc_frame">
+		<div class="frame_line"></div>
+		<div class="frame_bg" style="">
+			<p class="f24px text-center">￥80,000.00</p>
+			<p class="f12px text-center pt8 pb15 c-ababab">预期收益:<span class="c-fd6040 f12px ml7">￥800.00</span></p>
+			<ul class="bb-d1-dash">
+
+				<!--新增-->
+
+				<li class="clearfix bt-d1-dash">
+					<div class="lf">已使用优惠券</div>
+					<div class="rf c-fd6040">0.1%加息券</div>
+				</li>
+
+				<li class="clearfix bt-d1-dash">
+					<div class="lf">到期时间</div>
+					<div class="rf">2016-12-10</div>
+				</li>
+				<li class="clearfix bt-d1-dash">
+					<div class="lf">回款方式</div>
+					<div class="rf">每月付息</div>
+				</li>
+				<li class="clearfix bt-d1-dash">
+					<div class="lf">获得团币</div>
+					<div class="rf">1个</div>
+				</li>
+				<li class="clearfix bt-d1-dash">
+					<div class="lf">获得红包</div>
+					<div class="rf"><a href="javascript:void(0);">1.5元现金红包</a><i class="ico-arrow-r"></i></div>
+				</li>
+			</ul>
+		</div>
+		<a href="" class="btn btnYellow mt20 moveFromBottom moveDelay1">完成</a>
+		<p class="f13px c-ababab text-center mt10 moveFromBottom moveDelay2">微信关注<span class="c-fab600 f13px" id="showCode">“团贷网服务平台”</span>可收取回款通知</p>
+	</div>
+
+	<!--弹框-->
+	<div class="alert webkit-box box-center hide">
+		<div class="bg-fff code-popup text-center pos-r">
+			<a href="javascript:;" class="close pos-a" id="close"><i></i></a>
+			<p class="c-212121 f17px">关注“团贷服务平台”</p>
+			<img src="/imgs/images/pic/code1.png" class="code mt10">
+			<p class="c-ababab f13px">（长按或扫描识别）</p>
+			<p class="c-212121 f15px mt25">团贷首席体验官“王宝强”强力推荐</p>
+			<img src="/imgs/images/pic/pic1.png" class="pic mt20">
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//关注团贷网弹窗
+		$("#showCode").click(function(){
+			$(".alert").removeClass('hide').bind("touchmove", function(e) {
+				e.preventDefault();
+			});
+		});
+		$("#close").click(function(){
+			$(".alert").addClass('hide');
+		});
+	})
+	
+
+</script>
+</html>

@@ -1,0 +1,135 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="saleRecord.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.Mall.saleRecord" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>兑换记录</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160423001" />
+    <link rel="stylesheet" type="text/css" href="/css/mall.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</head>
+
+<body class="bg-f1f3f5">
+    <%= this.GetNavStr()%>
+    <header class="headerMain">
+        <div class="header bb-e6e6e6">
+            <a class="pageReturn" href="productDetail.aspx?id=<%=productid %>"></a>
+            <h1 class="title">兑换记录</h1>
+        </div>
+        <%= this.GetNavIcon()%>
+        <div class="none"></div>
+    </header>
+    <div id="wrapper" style="top:0;background: none;">
+        <div id="scroller">
+            <div id="pullDown" style="background: #f1f3f5;">
+                <div class="centerBox-wp">
+                    <div class="pullDownTips">
+                        <span class="pullDownIcon"></span>
+                        <span class="pullDownLabel">下拉刷新...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-list">
+                <ul class="pl15 bg-fff bb-e6e6e6 pos-r z-index10 recordList">
+                    
+                </ul>
+            </div>
+            <div id="pullUp" style="background: #f1f3f5;">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </div>
+    <!--无数据的时候显示-->
+    <div class="text-center bt-e6e6e6 no-update z-index100 hide">
+        <img src="/imgs/member/pic-asset1.png" alt="">
+        <p class="f17px c-212121 pt40">暂无商品兑换记录~</p>
+        <div class="a-link">
+            <a href="productDetail.aspx?id=<%=productid %>">查看商品详情</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/iscroll.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/scrollUpdate.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        function nameOverflow() {
+            $.each($(".name-overflow"), function (i, item) {
+                $(this).css('max-width', $(window).width() - $('li .rf').width() - 40);
+            });
+        }
+        nameOverflow();
+        function LoadData() {
+            var pageSize = "10";
+            var paramObj = { Cmd: "GetSaleRecord", pageIndex: pageIndex, pageSize: pageSize, productid: "<%= productid%>" };
+        $.ajax({
+            type: "get",
+            url: "/ajaxCross/ajax_mall.ashx",
+            dataType: "json",
+            data: paramObj,
+            success: function (jsonData) {
+                pageCount = jsonData.TotalRecords % pageSize == 0 ? jsonData.TotalRecords / pageSize : parseInt(jsonData.TotalRecords / pageSize) + 1;
+                if (pageCount <= 1) {
+                    $("#pullUp").hide();
+                } else {
+                    $("#pullUp").show();
+                }
+                if (pageIndex == 1)
+                    $(".recordList").html("");
+                if (parseInt(jsonData.Data.length) > 0) {
+                    $(".no-update").hide();
+                    for (var i = 0; i < jsonData.Data.length; i++) {
+                        var css = "bt-e6e6e6";
+                        if (i == 0 && pageIndex==1)
+                            css = "";
+                        var level = 1;
+                        level = jsonData.Data[i].Level;
+                        if (level == null)
+                            level = 1;
+                        var liHtml = '<li class="clearfix pr15 ' + css + ' pt10 pb10">' +
+                                        '<div class="lf">' +
+                                            '<p class="c-212121 f17px text-overflow name-overflow">' + SunStr(jsonData.Data[i].UserName) + '</p>' +
+                                            '<p class="line-h16 mt5"><i class="ico-level v' + level + '"></i></p>' +
+                                        '</div>' +
+                                        '<div class="rf f15px c-212121">' +
+                                            '<p class="c-212121 f17px text-right">兑换<span class="f17px  c-fd6040">' + jsonData.Data[i].TotalNum + '</span>件</p>' +
+                                            '<p class="f13px c-d1d1d1 line-h16 mt5">' + jsonData.Data[i].AddDate + '</p>' +
+                                        '</div>' +
+                                    '</li>';
+                        $(".recordList").append(liHtml);
+                    }
+
+                } else {
+                    $("#pullUp").hide();
+                    $(".no-update").show().find("p").html("暂无商品兑换记录~");
+                }
+                myScroll.refresh();
+            },
+            error: function () {
+                $("#pullUp").hide();
+                $(".no-update").show().find("p").html("服务器繁忙~");
+            }
+        });
+        };
+        function SunStr(str) {
+            if (str.length > 15)
+                return str.substring(0, 1) + "**********";
+            else {
+                var star = "";
+                for (var i = 0; i < str.length -1; i++) {
+                    star += "*";
+                }
+                return str.substring(0, 1) + star;
+            }
+                
+        }
+        $(function() {
+            LoadData();
+            iScroll.onLoadData = LoadData;
+        });
+    </script>
+</body>
+</html>

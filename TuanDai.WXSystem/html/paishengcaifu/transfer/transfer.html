@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="telephone=no">
+		<title>转账</title>
+		<link rel="stylesheet" href="css/transfer.css">
+		<script>window.mobileUtils=function(e,t){var i=navigator.userAgent,n=/android|adr/gi.test(i),a=/iphone|ipod|ipad/gi.test(i)&&!n;return{isAndroid:n,isIos:a,isMobile:n||a,isWeixin:/MicroMessenger/gi.test(i),isQQ:/QQ\/\d/gi.test(i),dpr:a?Math.min(e.devicePixelRatio,3):1,rem:null,fixScreen:function(){var i=this,n=t.querySelector('meta[name="viewport"]'),r=n?n.content:"";if(r.match(/initial\-scale=([\d\.]+)/),r.match(/width=([^,\s]+)/),!n){var o,s=t.documentElement,d=s.dataset.mw||750,m=a?Math.min(e.devicePixelRatio,3):1;t.getElementsByTagName("body")[0],s.removeAttribute("data-mw"),s.dataset.dpr=m,n=t.createElement("meta"),n.name="viewport",n.content=function(e){return"initial-scale="+e+",maximum-scale="+e+",minimum-scale="+e}(1),s.firstElementChild.appendChild(n);var c=function(){var e=s.getBoundingClientRect().width;e=e>d?d:e;var t=e/16;i.rem=t,s.style.fontSize=t+"px"};e.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(c,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(o),o=setTimeout(c,300))},!1),c()}}}}(window,document),mobileUtils.fixScreen();</script>
+	</head>
+	<body>
+		<div class="transfer">
+			<div class="t-top">
+				<div class="t-left">可转出金额：</div>
+				<div class="t-right" id="amo">653,321.78</div>
+			</div>
+			<div class="t-con">
+				<div class="con-r1">
+					<div class="r-left">金额<span>(转出至派生)</span></div>
+					<div class="r-right" id="tranAll">全部转出</div>
+				</div>
+				<div class="con-inp">
+					<span>¥</span>
+					<input type="text" placeholder="请输入转出金额" id="input"/>
+				</div>
+				<div class="recordBox">
+					<a href="record.html" class="record">转账记录<i></i></a>
+				</div>
+				<div class="con-btn">确认转出</div>
+			</div>
+			<div class="t-bot">
+				<p><i></i>您也可将派生财富的余额转入至团贷网</p>
+				<div class="b-btn">派生转入</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../scripts/fastclick.js"></script>
+	<script src="js/transfer.js" type="text/javascript" charset="utf-8"></script>
+</html>

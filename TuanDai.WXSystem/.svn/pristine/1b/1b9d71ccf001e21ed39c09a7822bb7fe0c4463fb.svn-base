@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>团贷公益</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body class="bg-f1f3f5">
+		<div class="pd15">
+			<div class="act-list">
+				<div class="act-item mt18 click-respond">
+					<a href="https://mp.weixin.qq.com/s/fERX2fmmknXwvwTGm7hxGw">
+						<img src="http://image.tuandai.com/newfile/image/2017/20170707/20170707175101_6590.jpg">
+						<div class="act-txt pos-r">
+							<p class="f15px" style="line-height: 48px !important;">你的梦想，值得加工！</p>
+							<i class="ico-arrow-r"></i>
+						</div>
+					</a>
+				</div>
+				<div class="act-item mt18 click-respond">
+					<a href="http://mp.weixin.qq.com/s/PGvdUoDFudJMIWDlJMN-0Q">
+						<img src="http://image.tuandai.com/newfile/image/2017/20170707/20170707174947_8966.jpg">
+						<div class="act-txt pos-r">
+							<p class="f15px" style="line-height: 48px !important;">让孩子听见爱</p>
+							<i class="ico-arrow-r"></i>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/fastclick.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</body>
+
+</html>

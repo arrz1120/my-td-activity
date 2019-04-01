@@ -1,0 +1,105 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="TuanDai.WXApiWeb.Member.UserPrize.Index" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Expires" CONTENT="0"> 
+    <meta http-equiv="Cache-Control" CONTENT="no-cache"> 
+    <meta http-equiv="Pragma" CONTENT="no-cache"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>团宝箱</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/giftBox.css?v=20180305001" />
+</head>
+<body class="bg-f1f3f5">
+    <%= this.GetNavStr()%>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:window.location.href='/Member/my_account.aspx'">返回</div>
+            <h1 class="title">团宝箱</h1>
+        </div>
+        <%= this.GetNavIcon()%>
+        <div class="none"></div>
+    </header>
+
+    <section class="safetyBox2 bt-e6e6e6 bb-e6e6e6 bg-fff">
+        <div class="bb-e6e6e6 click-respond" onclick="javascript:window.location='RedPacket.aspx?type=1'">
+            <div class=" pb10 pr15 clearfix">
+                <div class="lf clearfix">
+                    <i class="icoBox30 ico-cashPacket"></i>
+                    <p class="text lh22">现金红包</p>
+                    <p class="text f12px c-ababab">可用于投资、提现等</p>
+                </div>
+                <div class="rf mt15 clearfix"><span class="f15px c-ababab lh22"><%=ToolStatus.DeleteZero(this.Prize1)%>元<i class="box-arrow-r mt-1"></i></span></div>
+            </div>
+        </div>
+        <div class="bb-e6e6e6 click-respond" onclick="javascript:window.location='RedPacket.aspx?type=3'">
+            <div class="pb10 pt10 pr15 clearfix">
+                <div class="lf clearfix">
+                    <i class="icoBox30 ico-investPacket"></i>
+                    <p class="text lh22">投资红包</p>
+                    <p class="text f12px c-ababab">仅用于投资</p>
+                </div>
+                <div class="rf mt12 clearfix"><span class="f15px c-ababab lh22"><%=ToolStatus.DeleteZero(this.Prize2)%>元<i class="box-arrow-r mt-1"></i></span></div>
+            </div>
+        </div>
+        <div class="bb-e6e6e6 click-respond" onclick="javascript:window.location='jiaxiquan.aspx'">
+            <div class="pb10 pt10 pr15 clearfix">
+                <div class="lf clearfix">
+                    <i class="icoBox30 ico-jiaxiquan"></i>
+                    <p class="text lh22">加息券</p>
+                    <p class="text f12px c-ababab">仅用于投资</p>
+                </div>
+                <div class="rf mt12 clearfix"><span class="f15px c-ababab lh22"><%=Prize7%>张<i class="box-arrow-r mt-1"></i></span></div>
+            </div>
+        </div>
+        <div class="pt10 pr15 clearfix click-respond" onclick="javascript:window.location='RedPacket.aspx?type=9'">
+            <div class="lf clearfix">
+                <i class="icoBox30 ico-tyj"></i>
+                <p class="text lh22">体验金</p>
+                <p class="text f12px c-ababab">仅用于投资</p>
+            </div>
+            <div class="rf mt12 clearfix"><span class="f15px c-ababab lh22"><%=Prize8%>元<i class="box-arrow-r mt-1"></i></span></div>
+        </div>
+
+    </section>
+    <section class="bt-e6e6e6 bb-e6e6e6 bg-fff click-respond">
+        <div class="bb-e6e6e6" onclick="javascript:window.location='ticket.aspx'">
+            <div class="safetyBox3 clearfix">
+                <div class="lf c-212121 f17px lh22 clearfix"><i class="icoBox30 ico-ticket"></i>提现券</div>
+                <div class="rf clearfix"><span class="f15px c-ababab lh22"><%=this.Prize3%>张<i class="box-arrow-r mt-1"></i></span></div>
+            </div>
+        </div>
+    </section>
+    <%if(Prize9>=0) { %>
+    <section class="bt-e6e6e6 bb-e6e6e6 bg-fff click-respond">
+        <div class="bb-e6e6e6" onclick="javascript:window.location='freezqzr.aspx'">
+            <div class="safetyBox3 clearfix">
+                <div class="lf c-212121 f17px lh22 clearfix"><i class="icoBox30 ico-zzq"></i>免费债转券</div>
+                <div class="rf clearfix"><span class="f15px c-ababab lh22"><%=this.Prize9%>张<i class="box-arrow-r mt-1"></i></span></div>
+            </div>
+        </div>
+    </section>
+    <%} %>
+    <section class="bt-e6e6e6 bb-e6e6e6 bg-fff click-respond" onclick="javascript:window.location='gift.aspx'">
+        <div class="safetyBox clearfix">
+            <div class="lf c-212121 f17px clearfix"><i class="icoBox30 ico-gift"></i>精美礼品<i class="<%=isNeedViewGift?"class='redDot'":"" %>"></i></div>
+            <div class="rf clearfix"><span class="f15px  c-ababab lh22"><%=this.Prize6%><i class="box-arrow-r mt-1"></i></span></div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/fastclick.js"></script>
+    <script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+    <script type="text/javascript">
+        //解决click延迟问题
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+    </script>
+</body>
+</html>

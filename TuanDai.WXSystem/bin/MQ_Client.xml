@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MQ_Client</name>
+    </assembly>
+    <members>
+        <member name="T:MQ_Client.CustomerClient">
+            <summary>
+            消费者调用客户类
+            </summary>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化wcf调用
+            </summary>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.DoWork">
+            <summary>
+            测试DoWork
+            </summary>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.SendCustomer(System.String,System.String,System.String@)">
+            <summary>
+            发送给MQ,建立消费者
+            </summary>
+            <param name="Exchange">
+            借款人处理:ex_Borrower
+             项目申购处理:ex_SubscribeProject
+            </param>
+            <param name="QueueName">
+            如果是处理We计划:根据标的期限和利率生成一个队列名
+            如果是处理借款人:(项目标的队列名是借款人的Id:qu_借款人的用户Id,净股:qu_jingu|分期:qu_fengqi|配资:qu_paizhi)
+            项目申购处理:队列名是:qu_项目的Id
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.GetAllQueueList(System.String,System.String@)">
+            <summary>
+            获取所有的队列
+            </summary>
+            <param name="exchange"></param>
+            <param name="ErrorMessage">错误日志</param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.DeleteQueueOfExChange(System.String,System.String,System.String@)">
+            <summary>
+            从某个exchange删除队列
+            </summary>
+            <param name="exchange"></param>
+            <param name="queuename"></param>
+            <param name="ErrorMessage">错误日志</param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.Do(System.String@,System.String)">
+            <summary>
+            检测端口
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.ClearMemoney(System.String@,System.String)">
+            <summary>
+            清理内存
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.CustomerClient.ReleaseConnection">
+            <summary>
+            关闭wcf
+            </summary>
+        </member>
+        <member name="M:MQ_Client.CustomerConnectService.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化wcf调用
+            </summary>
+        </member>
+        <member name="M:MQ_Client.CustomerConnectService.ReleaseConnection(TuanDai.ServerContract.ProjectCustomer)">
+            <summary>
+            关闭wcf
+            </summary>
+        </member>
+        <member name="T:MQ_Client.ProducterClient">
+            <summary>
+            生产者调用客户类
+            </summary>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.DoWork(System.String,System.String@)">
+            <summary>
+            测试接口
+            </summary>
+            <param name="message"></param>
+            <param name="ErrorMessage">错误日志</param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.Borrower_SetQueue(System.String,System.String,System.String,System.String@)">
+            <summary>
+            建立生产者
+            </summary>
+            <param name="Exchange"> ex_weautoproject自动投标
+            
+            </param>
+            <param name="QueueName">
+            如果是处理We计划:根据标的期限和利率生成一个队列名
+            如果是处理借款人:(项目标的队列名是借款人的Id:qu_借款人的用户Id,净股:qu_jingu|分期:qu_fengqi|配资:qu_paizhi)
+            项目申购处理:队列名是:qu_项目的Id
+            </param>
+            <param name="Msg">
+            We计划:Msg=项目Id
+            借款人处理:Msg=申购的Id
+            项目申购:Msg=申购用户Id_申购金额_项目Id
+            </param>
+            <param name="ErrorMessage">错误日志</param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.SubscribeCheckProjectThread(System.String,System.String@)">
+            <summary>
+            申购时的项目的线程队列
+            </summary>
+            <param name="Msg">项目Id</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.SubscribeByProject(System.String,System.String,System.String@)">
+            <summary>
+            项目申购的请求(企业)
+            </summary>
+            <param name="Msg">申购的请求信息</param>
+            <param name="Projectid">项目Id</param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.SubscribeByAssets(System.String,System.String@)">
+            <summary>
+            申购(资产标)
+            </summary>
+            <param name="Msg"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.SubscribeByStageTreasure(System.String,System.String@)">
+            <summary>
+            申购(宝宝)
+            </summary>
+            <param name="Msg"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.ToBorrowerByEnterprise(System.String,System.String@)">
+            <summary>
+            申购成功后给借款人钱(项目标)
+            </summary>
+            <param name="Msg"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.ToBorrowerByAssets(System.String,System.String@)">
+            <summary>
+            申购成功给借款人钱(资产标)
+            </summary>
+            <param name="Msg"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.Do(System.String@,System.String)">
+            <summary>
+            检测端口
+            </summary>
+            <param name="ErrorMessage"></param>
+            <param name="v_Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterClient.ClearMemoney(System.String@,System.String)">
+            <summary>
+            清理内存
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MQ_Client.ProducterConnectService.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化wcf调用
+            </summary>
+        </member>
+        <member name="M:MQ_Client.ProducterConnectService.ReleaseConnection(TuanDai.ServerContract.ProjectProducter)">
+            <summary>
+            关闭wcf
+            </summary>
+        </member>
+    </members>
+</doc>

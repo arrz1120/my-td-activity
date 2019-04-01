@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>回款计划</title>
+		<link rel="stylesheet" type="text/css" href="/css/remPage.css?v=20160718" />
+	</head>
+	<script type="text/javascript">
+		(function(doc, win) {
+			var dpr, rem, scale = 1;
+			var docEl = document.documentElement;
+			var metaEl = document.querySelector('meta[name="viewport"]');
+			var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+			metaEl.setAttribute('content', 'width=device-width,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no,shrink-to-fit=no');
+			docEl.setAttribute('data-dpr', dpr);
+			var recalc = function() {
+				clientWidth = docEl.clientWidth;
+				if(!clientWidth) return;
+				docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+				if(document.body) {
+					document.body.style.fontSize = docEl.style.fontSize;
+				}
+
+			};
+			recalc();
+			if(!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+
+	<body>
+
+		<div class="rmWidth rmNav clearfix">
+			<div class="w1 lf f30rem c-808080 text-overflow pl20rem">日期</div>
+			<div class="w4 lf f30rem text-overflow text-right">待回款</div>
+		</div>
+
+		<div class="monthListWrap">
+			<div class="monthList">
+				<div class="rmWidth rmItem monthItem clearfix">
+					<div class="w1 lf f30rem c-808080 text-overflow pl20rem"><span>12月</span></div>
+					<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+					<i class="ico-arrow-r rotateZ_90"></i>
+				</div>
+				<div class="dayList hide">
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>04</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>06</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>08</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>12</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="yearItem">2017年</div>
+
+		<div class="monthListWrap">
+
+			<div class="monthList">
+				<div class="rmWidth rmItem monthItem clearfix">
+					<div class="w1 lf f30rem c-808080 text-overflow pl20rem"><span>1月</span></div>
+					<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+					<i class="ico-arrow-r rotateZ_90"></i>
+				</div>
+				<div class="dayList hide">
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>04</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>06</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>08</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>12</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="monthList">
+				<div class="rmWidth rmItem monthItem clearfix">
+					<div class="w1 lf f30rem c-808080 text-overflow pl20rem"><span>2月</span></div>
+					<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+					<i class="ico-arrow-r rotateZ_90"></i>
+				</div>
+				<div class="dayList hide">
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>04</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>06</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>08</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>12</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="monthList">
+				<div class="rmWidth rmItem monthItem clearfix">
+					<div class="w1 lf f30rem c-808080 text-overflow pl20rem"><span>12月</span></div>
+					<div class="w4 lf f30rem text-overflow text-right">30000000.00</div>
+					<i class="ico-arrow-r rotateZ_90"></i>
+				</div>
+				<div class="dayList hide">
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>04</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">3000.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>06</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>08</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+
+					<div class="rmWidth rmItem dayItem clearfix">
+						<div class="w1 lf f30rem c-808080 text-overflow"><span>12</span></div>
+						<div class="w4 lf f30rem text-overflow text-right">20,003,620.00</div>
+						<i class="ico-arrow-r"></i>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="loadMore">加载更多</div>
+
+		<div class="dateAlert hide" id="dateAlert">
+			<div class="d_top"><span id="alert_today">2018年03月19日</span><i id="closeAlert"></i></div>
+			<div class="d_tit"><i></i><span>待回款：</span>2000.00</div>
+			<div class="d_list pb10" id="d1">
+				<div class="pl10 pt10 pr10">
+					<div class="d_item">
+						<p>回款金额:<span class="c-fd6040 r_money">1,535.63</span></p>
+						<p class="c-ababab pt7">(<span class="c-ababab">本金:1,500.00</span><span class="c-ababab ml15">利息:35.63</span>)</p>
+						<div class="clearfix proName pt8">
+							<div class="lf text-overflow">[资产标]资产标171218112638779</div>
+							<div class="rf c-ababab">待回款（1/3)</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+		<script src="/scripts/fastclick.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(".monthItem").click(function() {
+				var dayList = $(this).next();
+				if(dayList.hasClass('hide')) {
+					$(this).find('i').removeClass('rotateZ_90').addClass('rotateZ90');
+					dayList.removeClass('hide');
+				} else {
+					$(this).find('i').removeClass('rotateZ90').addClass('rotateZ_90');
+					dayList.addClass('hide');
+				}
+			})
+
+			//显示弹框
+			function openAlert(obj) {
+				$(document).scrollTop(0);
+				var parent = obj.parent();
+				$("#dateAlert").removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+				setTimeout(function() {
+					$("#bigDiv").addClass('hide');
+				}, 300);
+			}
+
+			//隐藏弹框
+			$("#closeAlert").click(function() {
+				$("#dateAlert").removeClass('moveToTop').addClass('moveToBottom');
+				$("#bigDiv").removeClass('hide');
+				setTimeout(function() {
+					$("#dateAlert").addClass('hide');
+				}, 300);
+			});
+			
+			$(".dayItem").click(function(){
+				openAlert($(this));
+			})
+		</script>
+	</body>
+
+</html>

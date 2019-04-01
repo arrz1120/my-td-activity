@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Dapper;
+using TuanDai.DQSystemAPI.Client;
+using TuanDai.DQSystemAPI.Contract;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member
+{
+    public partial class PSWealth : UserPage
+    {
+        protected WXFundStatistModel DqFundModel;//定期理财
+        protected FundAccountInfo_Zx ZxFundModelFromDq;//定期库统计智享数据
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!WebUserAuth.IsAuthenticated)
+            {
+                Response.Redirect("/user/Login.aspx");
+                return;
+            }
+            var userId = WebUserAuth.UserId.Value;
+            DqFundModel = GetDQFundModel(userId);
+            if (DqFundModel == null)
+                DqFundModel = new WXFundStatistModel();
+            if (DqFundModel.DueComeInterest >= decimal.Parse("-0.03") && DqFundModel.DueComeInterest < 0)
+                DqFundModel.DueComeInterest = 0;
+            GetZxFundModelFromDQ(userId);
+        }
+        /// <summary>
+        /// 获取定期理财的数据
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        protected WXFundStatistModel GetDQFundModel(Guid userId)
+        {
+            return WXFundClient.GetFundStatistData(userId);
+        }
+        protected void GetZxFundModelFromDQ(Guid userId)
+        {
+            string sql = @"select * from FundAccountInfo_ZX with(nolock) where UserId=@UserId";
+            var para = new DynamicParameters();
+            para.Add("@UserId", userId);
+
+            ZxFundModelFromDq = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<FundAccountInfo_Zx>(TdConfig.ApplicationName, "/BD/dqread", sql,
+                ref para);
+            if (ZxFundModelFromDq == null)
+                ZxFundModelFromDq = new FundAccountInfo_Zx();
+        }
+        protected class FundAccountInfo_Zx
+        {
+            public decimal? DueInAmount { get; set; }
+
+            public decimal? DueInInterest { get; set; }
+
+            public decimal? DueOutAmount { get; set; }
+
+            public decimal? DueOutInterest { get; set; }
+
+            public decimal? ReceivedInterest { get; set; }
+        }
+    }
+}

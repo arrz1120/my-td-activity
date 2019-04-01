@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>供应链-项目详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+	<link rel="stylesheet" type="text/css" href="/css/invest.css?v=20151113" /><!--借款-->
+	
+	</head>
+	<body>
+		<header class="headerMain">
+		    <div class="header">
+		        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+		        <h1 class="title">九泰基金</h1>
+		    </div>
+		    <div class="none"></div>
+		</header>
+		<div class="info-item simubao-d gyl-bd plpr15">
+	        <div class="pb20">
+	            <h3 class="f14px c-ffcf1f">资金用途</h3>
+	            <p class="f12px c-212121 pr10 text-indent2em">九泰基金管理有限公司（以下简称九泰基金）于2014年7月3日成立，注册地址在北京市，注册资本2亿元。</p>
+	            <p class="f12px c-212121 pr10 text-indent2em mt20">其中昆吾九鼎投资管理有限公司、北京同创九鼎投资管理股份有限公司、拉萨昆吾九鼎产业投资管理有限公司、九州证券有限公司出资分别占注册资本的26%、25%、25%和24%。作为首家PE投资管理机构发起设立的公募基金管理公司，九泰基金由具有丰富基金管理经验的专业人士组成，并将延续股东方的长期投资、价值投资的经营理念，率先在公募行业建立最有效的公司治理结构和激励约束机制，引入私募合伙人创业文化和经营理念，培育企业内生发展动力，以“平台”思维和“跨界”理念打造不同于传统公募基金的业务发展模式。</p>
+	            <p class="f12px c-212121 pr10 text-indent2em mt20">九泰基金优先发展公募基金业务，创新拓展特定客户资产管理业务，坚持“持有人利益优先”和“风控第一”原则，以“大资管”时代金融资本市场改革发展为契机，积极推动业务和产品创新，不断探索新的商业模式，打造九泰基金差异化的竞争优势，致力于发展成为国内最具核心竞争力的现代财富管理机构。</p>
+	        </div> 
+	    </div>  
+	    
+		<div class="info-item simubao-d gyl-bd plpr15">
+	        <div class="pb20">
+	            <h3 class="f14px c-ffcf1f">管理团队</h3>
+	            <p class="f12px c-212121 pr10 text-indent2em">九泰基金管理有限公司（以下简称九泰基金）注册资本2亿元。其中昆吾九鼎投资管理有限公司、北京同创九鼎投资管理股份有限公司、拉萨昆吾九鼎产业投资管理有限公司、九州证券有限公司出资分别占注册资本的26%、25%、25%和24%。</p>
+	            <p class="f12px c-212121 pr10 text-indent2em mt20">昆吾九鼎投资注册资本5亿元，是在国家发展与改革委员会和中国证券投资基金业协会备案登记的专注于股权投资及管理的专业机构，是中国投资协会股权和创业投资专业委员会副会长单位。公司拥有300余人的国内最大规模的专业投资团队，在全国30个省市设有分支机构或派驻专业人员。</p>
+	            <p class="f12px c-212121 pr10 text-indent2em mt20">北京同创九鼎投资是国内首家在全国股转系统（新三板）挂牌的投资管理公司，注册资本50亿元，市值超过1000亿元。昆吾九鼎投资是北京同创九鼎投资的控股子公司。</p>
+	            <p class="f12px c-212121 pr10 text-indent2em mt20">九州证券是经中国证监会批准，由国内顶尖PE机构九鼎投资控股的中国首家PE系证券公司。九州证券作为综合证券服务提供商，已具备承销与保荐、资产管理、证券经纪、做市等多项业务资质，跻身综合型券商阵营。</p>
+	        </div> 
+	    </div>      
+	</body>
+</html>

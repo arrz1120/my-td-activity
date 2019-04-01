@@ -1,0 +1,97 @@
+/*account banner*/
+.account_banner{padding-top: 20px;padding-bottom: 27px;position: relative;background: url(/javaProject/imgs/account/account_banner_temp.png) no-repeat;background-size: 100% 100%;}
+.account_banner_top{height: 31px;line-height: 31px;padding: 0 79px 0 15px;}
+.user-header{font-size: 15px;color: #694514;position: relative;padding-right: 110px;}
+.user-header span{display: inline-block;}
+.user-header span.touxiang{width: 38px;height: 38px;border-radius: 50%;margin-right: 10px;vertical-align: 10px;border: 1px solid #fff;}
+.user-header span.touxiang img{width: 100%;height: 100%;border-radius: 50%;}
+.user-header span p{line-height: 18px;font-size: 12px;color: #996B0F;}
+.ab_r2{padding: 32px 0 8px 15px;text-shadow: 0px 6px 10px #F0B60A;}
+.ab_r3{text-shadow: 0px 10px 18px #F0B60A;font-size: 45px;line-height: 63px;position:relative;}
+.s-arrow{height: 14px;width: 8px;background: url(/javaProject/imgs/images/icon/swiper-arrow.png) center center no-repeat;background-size: 8px 14px;display: block;margin-left: 10px;vertical-align: 9px; position:absolute;right:20px;top:27px;}
+.ico_unsee{display: inline-block;width: 37px;height: 24px;background: url(/javaProject/imgs/images/icon/ico_unsee.png) center center no-repeat;background-size: 17px 14px;vertical-align: -7px;}
+.ico_see{display: inline-block;width: 37px;height: 24px;background: url(/javaProject/imgs/images/icon/ico_see.png) center center no-repeat;background-size: 15px 11px;vertical-align: -7px;}
+
+.account_notice{display: block;background: rgba(255,171,0,0.2);height: 35px;line-height: 35px;color: #F58300;position: relative;}
+.account_notice i{display:inline-block;width: 12px;height: 15px;background-image: url(/javaProject/imgs/account/ico_notice.png);margin-right: 10px;vertical-align: -3px;}
+.account_notice span{display: block;width: 7px;height: 13px;background-image: url(/javaProject/imgs/account/arrow_orange.png);position: absolute;right: 15px;top: 11px;}
+
+.licaiBox{padding: 0 15px;}
+.banner_t_right{width: 33px;height: 49px;background: url(/javaProject/imgs/images/pic/banner_t_right.png?v=20160923) no-repeat;background-size: 100% 100%;position: absolute;top: -19px;right: 12px;}
+
+.lcTxt p:first-child{color: #525F66;font-size: 15px;line-height: 21px;}
+.lcTxt p:last-child{color: #88979E;margin-top: 8px;line-height: 16px;}
+.licaiBox .rf{color: #88979E;line-height: 16px;margin-top: 12px; margin-right:16px;}
+.licaiBox .rf span{color: #FF6B4E;}
+
+.btn_recharge{display: inline-block;height: 33px;line-height: 33px;color: #88979E;width: 70px;text-align: center;background: #fff;
+box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.04);border-radius: 7px;margin-right: 15px;font-size: 15px;}
+.btn_withdraw{display: inline-block;height: 33px;line-height: 33px;color: #F58300;width: 70px;text-align: center;background: #fff;
+box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.04);border-radius: 7px;font-size: 15px;}
+
+.acount-link a{display: block;height: 61px;line-height: 61px;color: #525F66;font-size: 15px;position: relative;}
+.linkBox .ico-arrow-r{right: 0;}
+.acount-link a span{position: absolute;right: 16px;top: 23px;color: #ababab;font-size: 13px;line-height: 16px;white-space:nowrap;}
+.acount-link a span b{color: #ff5d3e;margin-left: 9px;}
+.acount-link .linkBox{position: relative;padding-left: 55px;padding-right: 15px;}
+.account_ico{display: block;height:28px;width:28px;background:url(/javaProject/imgs/account/account_ico.png) no-repeat;background-size:28px 280px;}
+.acount-link .account_ico,.acount-link .ico_more{position: absolute;top: 15px;left: 15px;}
+.ico_a7{background-position:0 0;}
+.ico_a6{background-position:0 -28px;}
+.ico_a8{background-position:0 -56px;}
+.ico_p2p{background-position:0 -84px;margin-right: 16px;margin-top: 7px;}
+.ico_lc{background-position:0 -112px;margin-right: 16px;margin-top: 7px;}
+.ico_a2{background-position:0 -140px;}
+.ico_a1{background-position:0 -168px;}
+.ico_a3{background-position:0 -196px;}
+.ico_a5{background-position:0 -224px;}
+.ico_a4{background-position:0 -252px;}
+
+.ico_more{display: block;background:url(/javaProject/imgs/account/ico_more.png) no-repeat;background-size:28px 140px}
+.ico_m4{height:28px;width:28px;background-position:0 0;}
+.ico_m5{height:28px;width:28px;background-position:0 -28px;}
+.ico_m3{height:28px;width:28px;background-position:0 -56px;}
+.ico_m1{height:28px;width:28px;background-position:0 -84px;}
+.ico_m2{height:28px;width:28px;background-position:0 -112px;}
+
+@media only screen and (max-width: 320px) {
+	.licaiBox{padding: 0 10px;}
+	.ico_p2p,.ico_lc{margin-right: 10px;}
+}
+
+.quit{text-align: center;color: #FF6B4E;font-size: 15px;height: 45px;line-height: 45px;background: #fff;box-shadow: 0px 10px 12px 0px rgba(0,0,0,0.04);border-radius: 10px;margin: 10px auto 0;width: 92%;}
+.kefu{line-height: 37px;color: #b1b1b1;}
+.sever_tel{padding-top: 9px;}
+.new_icon{width:32px; height: 15px; background: url("/javaProject/imgs/users/new.png"); background-size: 32px 15px; margin-top:6px; } 
+.acount-link .redPoint{width: 10px;height: 10px;background: #fd6040;border-radius: 50%;position: absolute;right: 17px;top: 25px;}
+.account_alert{width: 81.6%;position: relative;}
+.account_alert_btn{width: 76.7%;position: absolute;bottom: 11px;left: 11.65%;}
+.account_alert_close{width: 24px;height: 24px;background: url(/javaProject/imgs/images/icon/account_alert_close.png?v=20160923) no-repeat;background-size: 100% 100%;position: absolute;bottom: -54px;left: 50%;margin-left: -12px;}
+
+.res_finish{position: absolute;bottom: 0;left: 0;}
+.r_f_close{width: 53px;height: 53px;position: absolute;right: 0;top: 9%;background: url(/javaProject/imgs/account/close.png) center no-repeat;background-size: 24px 24px;}
+.r_f_bot{width: 100%;position: absolute;bottom: 0;}
+.r_f_bot a{display: block;width: 100%;height: 40px;background: url(/javaProject/imgs/account/res_finish_btn.png) center no-repeat;background-size: contain;margin-top: 20px;line-height: 40px;color: #e86669;text-align: center;font-size: 17px;}
+@media only screen and (max-width: 320px) {
+	.r_f_bot a{font-size: 15px;margin-top: 10px;}
+}
+
+
+/*P2P*/
+.bg-f7f9fa{background: #f7f9fa !important;}
+.ico_licai{display: block;background:url(/javaProject/imgs/account/ico_licai.png) no-repeat;background-size:28px 212px}
+.acount-link .ico_licai{position: absolute;top: 15px;left: 15px;}
+.ico_tx{height:22px;width:22px;background-position:0 0;display: inline-block;margin-right: 13px;vertical-align: -4px;}
+.ico_cz{height:22px;width:22px;background-position:0 -22px;display: inline-block;margin-right: 13px;vertical-align: -4px;}
+.ico_lc4{height:28px;width:28px;background-position:0 -44px;}
+.ico_lc2{height:28px;width:28px;background-position:0 -72px;}
+.ico_lc1{height:28px;width:28px;background-position:0 -100px;}
+.ico_lc3{height:28px;width:28px;background-position:0 -128px;}
+.ico_lc5{height:28px;width:28px;background-position:0 -156px;}
+.ico_lc6{height:28px;width:28px;background-position:0 -184px;}
+
+.ico_a9{height: 28px;width: 28px;background: url(/javaProject/imgs/account/ico_a9.png) no-repeat;background-size: 100% 100%;}
+
+.wx-footer{height: 49px;position: fixed;bottom: 0;width: 100%;background: #f7f7f7;z-index: 2;}
+.wx-footer a{padding-top: 4px;}
+.wx-footer img{width: 26px;height: 26px;}

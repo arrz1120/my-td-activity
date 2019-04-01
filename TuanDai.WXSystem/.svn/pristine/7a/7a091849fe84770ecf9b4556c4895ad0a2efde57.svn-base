@@ -1,0 +1,361 @@
+/*account banner*/
+.f36px{line-height: 36px;}
+.account_banner{height: 185px; background: -webkit-linear-gradient(left top, #f9ce00 , #f8aa2c);padding-top: 11px;position: relative;}
+.account_banner_top{height: 31px;line-height: 31px;padding: 0 79px 0 15px;}
+.user-header{font-size: 15px;color: #694514;position: relative;padding-right: 110px;}
+.user-header span{display: inline-block;}
+.user-header span.touxiang{width: 36px;height: 36px;border-radius: 50%;margin-right: 13px;vertical-align: 9px;}
+.user-header span.touxiang img{width: 100%;height: 100%;border-radius: 50%;}
+.user-header span p{line-height: 18px;font-size: 12px;color: #694514;}
+.myBill{display: block;position: absolute;right: 58px;top: 0;height: 32px;line-height: 32px;width: 53px;text-align: center;font-size: 12px;color: #694514 !important;}
+.ico_bill{display:inline-block;width: 11px;height: 13px;background: url(/imgs/images/icon/ico_bill.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -2px;}
+.banner_t_right{width: 33px;height: 49px;background: url(/imgs/images/pic/banner_t_right.png?v=20160923) no-repeat;background-size: 100% 100%;position: absolute;top: -11px;right: 12px;}
+.ab_r2{padding: 32px 0 16px 15px;}
+.s-arrow{height: 14px;width: 8px;position: absolute;right: 15px;top: 125px;background: url(/imgs/images/icon/swiper-arrow.png) center center no-repeat;background-size: 8px 14px;}
+.ico_unsee{display: inline-block;width: 37px;height: 24px;background: url(/imgs/images/icon/ico_unsee.png) center center no-repeat;background-size: 17px 14px;vertical-align: -7px;}
+.ico_see{display: inline-block;width: 37px;height: 24px;background: url(/imgs/images/icon/ico_see.png) center center no-repeat;background-size: 15px 11px;vertical-align: -7px;}
+
+.account_info span{color: #fa7d00;}
+.ico_ai1{width: 17px;height: 17px;background: url(/imgs/images/icon/ico_ai1.png) no-repeat;background-size:100% 100%;margin-right: 10px;display: inline-block;vertical-align: -1px;}
+.ico_ai2{width: 19px;height: 18px;background: url(/imgs/images/icon/ico_ai2.png) no-repeat;background-size:100% 100%;margin-right: 10px;display: inline-block;vertical-align: -2px;}
+
+.btn_recharge{display: inline-block;height: 32px;line-height: 32px;color: #fff !important;width: 60px;text-align: center;background: #fa7d00;border-radius: 4px;margin-right: 15px;}
+.btn_withdraw{display: inline-block;height: 32px;line-height: 32px;color: #fff !important;;width: 60px;text-align: center;background: #f9ce00;border-radius: 4px;}
+
+/*account nav*/
+.nav-imgBox{height: 27px;}
+.ico-recharge{width: 31px;height: 23px;margin-top: 3px;}
+.ico-invest{width: 29px;height: 23px;margin-top: 3px;}
+.ico-tradeDetail{width: 23px;height: 27px;}
+
+
+.acount-link a{display: block;height: 54px;line-height: 54px;color: #212121;font-size: 17px;position: relative;padding-left: 37px;margin-left: 15px;}
+.acount-link a span{position: absolute;right: 38px;top: 14px;color: #ababab;font-size: 13px;}
+.acount-link a i{display: block;}
+.ico_account{position: absolute;left: 0;width:18px;}
+.ico_a1{height:16px;top: 18px;background: url(/imgs/images/icon/ico_a1.png) center top no-repeat;background-size: 16px 16px;}
+.ico_a2{height:15px;top: 19px;background: url(/imgs/images/icon/ico_a2.png) center top no-repeat;background-size: 17px 15px;}
+.ico_a3{height:15px;top: 19px;background: url(/imgs/images/icon/ico_a3.png) center top no-repeat;background-size: 18px 15px;}
+.ico_a4{height:16px;top: 19px;background: url(/imgs/images/icon/ico_a4.png) center top no-repeat;background-size: 17px 16px;}
+.ico_a5{height:18px;top: 18px;background: url(/imgs/images/icon/ico_a5.png) center top no-repeat;background-size: 15px 18px;}
+.ico_a6{height:18px;top: 18px;background: url(/imgs/images/icon/ico_a6.png) center top no-repeat;background-size: 18px 18px;}
+.ico_a7{height:18px;top: 19px;background: url(/imgs/images/icon/ico_a7.png) center top no-repeat;background-size: 18px 18px;}
+.ico_a8{height:16px;top: 20px;background: url(/imgs/images/icon/ico_a8.png) center top no-repeat;background-size: 18px 16px;}
+.ico_a9{height:15px;top: 19px;background: url(/imgs/images/icon/ico_a9.png) center top no-repeat;background-size: 17px 15px;}
+.ico_a10{height:17px;top: 18px;background: url(/imgs/images/icon/ico_a10.png) center top no-repeat;background-size: 17px 17px;}
+.ico_a11{height:18px;top: 18px;background: url(/imgs/images/icon/ico_a11.png) center top no-repeat;background-size: 16px 18px;}
+.ico_a12{height:17px;top: 19px;background: url(/imgs/images/icon/ico_a12.png) center top no-repeat;background-size: 17px 17px;}
+.ico_a13{height:17px;top: 17px;background: url(/imgs/images/icon/ico_a13.png) center top no-repeat;background-size: 17px 18px;}
+.ico_a14{height:18px;top: 18px;background: url(/imgs/images/icon/ico_a14.png) center top no-repeat;background-size: 18px 18px;}
+.quit{text-align: center;color: #fd6040;font-size: 17px;height: 55px;line-height: 55px;background: #fff;}
+.sever_tel{padding-top: 5px;}
+.new_icon{width:32px; height: 15px; background: url("/imgs/users/new.png"); background-size: 32px 15px; margin-top:6px; } 
+.acount-link .redPoint{width: 10px;height: 10px;background: #fd6040;border-radius: 50%;position: absolute;right: 37px;top: 22px;}
+.account_alert{width: 81.6%;position: relative;}
+.account_alert_btn{width: 76.7%;position: absolute;bottom: 11px;left: 11.65%;}
+.account_alert_close{width: 24px;height: 24px;background: url(/imgs/images/icon/account_alert_close.png?v=20160923) no-repeat;background-size: 100% 100%;position: absolute;bottom: -54px;left: 50%;margin-left: -12px;}
+
+/*充值记录*/
+.ico-inline{display: inline-block;}
+.ico-clock{width: 11px;height: 11px;background: url(/imgs/images/icon/ico-clock.png) no-repeat;background-size: 11px 11px;margin-right: 4px;vertical-align: -1px;}
+.ico-android{width: 13px;height: 15px;background: url(/imgs/images/icon/ico-android.png) no-repeat;background-size: 13px 15px;margin-left: 10px;vertical-align: -3px;}
+.ico-weixin{width: 16px;height: 13px;background: url(/imgs/images/icon/ico-weixin.png) no-repeat;background-size: 16px 13px;margin-left: 10px;vertical-align: -2px;}
+.ico-apple{width: 13px;height: 15px;background: url(/imgs/images/icon/ico-apple.png) no-repeat;background-size: 13px 15px;margin-left: 10px;vertical-align: -2px;}
+.ico-pc{width: 14px;height: 12px;background: url(/imgs/images/icon/ico-pc.png) no-repeat;background-size: 14px 12px;margin-left: 10px;vertical-align: -2px;}
+.ico-mobile{width: 11px;height: 14px;background: url(/imgs/images/icon/ico-mobile.png) no-repeat;background-size: 11px 14px;margin-left: 10px;vertical-align: -2px;}
+.ico-state01{width: 15px;height: 15px;background: url(/imgs/images/icon/ico-state01.png) no-repeat;background-size: 15px 15px;margin-right: 7px;vertical-align: -2px;}
+.ico-state02{width: 15px;height: 15px;background: url(/imgs/images/icon/ico-state02.png) no-repeat;background-size: 15px 15px;margin-right: 7px;vertical-align: -2px;}
+.ico-state03{width: 15px;height: 15px;background: url(/imgs/images/icon/ico-state03.png) no-repeat;background-size: 15px 15px;margin-right: 7px;vertical-align: -2px;}
+.ico-state04{width: 15px;height: 15px;background: url(/imgs/images/icon/ico-state04.png) no-repeat;background-size: 15px 15px;margin-right: 7px;vertical-align: -2px;}
+.recharge-list{padding-bottom: 55px;background: #f1f3f5;}
+.recharge-list li{height: 65px;background: #fff;}
+.look-record{bottom: 0;left: 0;width: 100%;height: 45px;line-height: 45px;font-size: 17px;color: #fab600;text-align: center;background: #fff;z-index: 2;}
+
+/*申购人数*/
+.sub-list li{height: 70px;background: #fff;}
+.sub_way{font-size: 11px;color: #fff;padding: 2px 5px;background: #d1d1d1;border-radius: 2px;}
+
+/*进度条样式*/
+.dataTables_processing {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -55px;
+	margin-top: -25px;
+	width: 110px;
+	height: 50px;
+	text-align: center;
+	text-indent: 2em;
+	color: #333;
+	background: url(/imgs/loading01.gif) 10px 10px no-repeat #fff;
+	z-index:9999;
+	box-shadow: 0 0 10px #ccc; line-height: 50px; border-radius: 5px;
+	}
+
+/*微信底部*/
+.wx-footer{height: 49px;position: fixed;bottom: 0;width: 100%;background: #f7f7f7; z-index:999;}
+.wx-footer a{padding-top: 4px;}
+.wx-footer img{width: 26px;height: 26px;}
+
+/*充值*/
+.c-1fcafb{color: #1fcafb;}
+.inputBox{padding-left: 111px;position: relative;height: 45px;}
+.inputBox span{position: absolute;left: 15px;top: 0;display: block;height: 45px;line-height: 45px;}
+.inputBox input{border: 0;outline: none;font-size: 17px;height: 45px;}
+.payType span{display: inline-block;width: 18px;height: 18px;border: 1px solid #d1d1d1;border-radius: 50%;margin-right: 15px;vertical-align: -3px;}
+.payType span i{display: none;width: 12px;height: 12px;background: #ffcf1f;border-radius: 50%;margin: 2px 0 0 2px;}
+.payType span.selected{border-color: #ffcf1f;}
+.payType span.selected i{display: block;}
+
+/*充值常见问题*/
+.rotateZ0{-webkit-transform: rotateZ(0);}
+.rotateZ90{-webkit-transform: rotateZ(90deg);}
+.questionWrap ul li:last-child{border-bottom: 0;}
+.questionWrap ul li i{display: inline-block;width: 7px;height: 9px;background: url(/imgs/images/ico-triangle-r.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;transition: transform 0.2s linear;}
+.questionWrap ul li i.icon-round{width: 7px;height: 7px;background: url(/imgs/images/yuan_gray.png) no-repeat;background-size: 100% 100%;margin-right: 15px;vertical-align: 3px;}
+.questionWrap ul li .arrow-right{width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) no-repeat;background-size: 100% 100%;position: absolute;right: 15px;top: 23px;}
+.flow .flowLine{width: 2px;background: #ffcf1f;position: absolute;left: 22px;top: 1px;height: 84%;}
+.flow dl{padding-left: 45px;padding-right: 15px;}
+.flow dl dt{position: relative;}
+.flow dl dt span{display: block;position: absolute;left: -35px;top: 21px;height: 24px;width: 24px;background:url(/imgs/images/icon/ico-rechargeFlow.png)  no-repeat;background-size:24px 96px}
+.flow dl dt span.flow3{background-position:0 0;}
+.flow dl dt span.flow4{background-position:0 -24px;}
+.flow dl dt span.flow1{background-position:0 -48px;top: 1px;}
+.flow dl dt span.flow2{background-position:0 -72px;}
+
+/*提现*/
+.poundage{height: 35px;line-height: 35px;}
+.ico-doubt{display: inline-block;width: 15px;height: 15px;background: url(/imgs/images/icon/ico-doubt02.png) no-repeat;background-size: 100% 100%;margin-left: 10px;vertical-align: -2px;}
+.ico-a-r{display: inline-block;width: 7px;height: 13px;background: url(/imgs/images/ico_arrow_r3.png) no-repeat;background-size: 100% 100%;margin-left: 10px;vertical-align: -1px;}
+/*提现弹框*/
+/*选择提现券弹框*/
+.wd_amo{background: #fff;width: 81.33%;border-radius: 6px;}
+.wd_tit{height: 40px;line-height: 40px;}
+.wd_p2{line-height: 26px;}
+.wd_p3{}
+
+.ticket-con{width: 84%;background: #fff;border-radius: 6px;}
+.ticket-top{height: 45px;line-height: 45px;background: #f6f7f8;font-size: 17px;text-align: center;border-top-left-radius: 6px;border-top-right-radius: 6px;}
+.ticket-mid ul li{padding: 0 17px;height: 45px;line-height: 45px;}
+.ticket-mid ul li div{height: 45px;line-height: 45px;}
+.ticket-mid ul li .lf{font-size: 15px;}
+.ticket-mid ul li .rf{font-size: 12px;color: #ababab;}
+.ticket-mid ul li.selected .lf{color: #fab600;}
+/*交易密码、获取验证码、手续费说明弹框*/
+.c-c5c5c5{color: #c5c5c5;}
+.br-dashed-d1d1d1{border-right: 1px dashed #d1d1d1;}
+.alert-select{width: 84%;}
+.ico-warn{display: inline-block;width: 11px;height: 11px;background: url(/imgs/images/state1.png) no-repeat;background-size: 100% 100%;margin-right: 5px;}
+.psdEye{position: absolute;width: 30px;height: 30px;right: 10px;top: 6px;}
+.psdEye i{display: block;background:url(/imgs/images/icon/ico-psdEye.png) no-repeat;background-size:20px 24px;}
+.psdEye i.eye-close{height:12px;width:20px;background-position:0 -12px;}
+.psdEye i.eye-open{height:12px;width:20px;background-position:0 0;}
+.getTelCode{height: 42px;line-height: 42px;position: absolute;right: 0;top: 0;padding: 0 10px;border-left: 1px solid #ffcf1f;color: #ffcf1f;font-size: 15px;}
+
+/*填写开户行*/
+.pl28{padding-left: 28px;}
+.mt23{margin-top: 23px;}
+.ico-phone{width: 17px;height: 18px;display: inline-block;background: url(/imgs/images/ico-phone.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -3px;}
+.alert-close{width: 22px;height: 22px;position: absolute;top: 10px;right: 10px;background: url(/imgs/images/icon/ico-close.png) center center no-repeat;background-size: 12px 12px;}
+
+/*资金统计*/
+.f30px{line-height: 30px;}
+.incomeTit .tit_txt{position: relative;z-index: 2;width: 27.33%;text-align: center;margin: 0 auto;}
+.incomeTit .tit_line{width: 55.73%;position: absolute;left: 22.135%;top: 12px;height: 1px;background: #d1d1d1;z-index: 1;}
+.incomeBox{padding-top: 18px;padding-bottom: 20px;}
+.allAmo{font-size: 30px;line-height: 30px;color: #fd6040;padding: 15px 0 30px 0;text-align: center;}
+.c1_lable{margin-top: -144px;position: relative;z-index: 2;}
+.c1_lable .lf{position: relative;padding-left: 10%;}
+.c1_lable i{display: inline-block;width: 12px;height: 12px;border-radius: 50%;position: absolute;top: 6px;left: 16%;}
+.c1_lable i.c_i1{background: #ffc260;}
+.c1_lable i.c_i2{background: #f9ac78;}
+.c1_lable i.c_i3{background: #f5897f;}
+.c1_lable i.c_i4{background: #bc95a7;}
+.c1_lable i.c_i5{background: #8992b8;}
+.c1_lable i.c_i6{background: #5ba6b3;}
+.c1_lable i.c_i7{background: #2ab8aa;}
+/*.xAxis{padding: 0 15px 0 55px;margin-top: -5px;}*/
+.tabTit{height: 50px;line-height: 50px;z-index: 3;}
+.tabTit i{-webkit-transition: all ease-out 0.3s;}
+.tabTit span{margin-left: 14px;}
+.triChart{height: 132px;position: relative;background: #fff;margin-top: 15px;z-index: 20;}
+.c2_lable{background: #fff;padding-top: 132px;}
+.per-num{height: 20px;line-height: 20px;color: #808080;font-size: 9px;}
+.per-box{position: absolute;bottom: 0;text-align: center;}
+.per-box1{left: 50px;}
+.per-box2{left: 100px;}
+.per-box3{left: 170px;}
+.td_age{height: 55px;line-height: 55px;}
+.td_age span{display: inline-block;font-size: 18px;width: 22px;height: 26px;background: url(/imgs/images/bg/bg_num.png) no-repeat;background-size: 100% 100%;text-align: center;line-height: 26px;color: #ff9600;margin-right: 5px;}
+.td_age span:first-child{margin-left: 5px;}
+.partOpt{padding: 4px 0;}
+.partCenter{width: 30px;height: 30px;position: absolute;left: 50%;top: 50%;margin-left: -16px;margin-top: -15px;background: #fff;z-index: 2;}
+.partCenter i{display: block;width: 3px;height: 3px;background: #e6e6e6;border-radius: 50%;}
+.delayTips{padding-left: 5.5%;}
+.delayTips i{display: inline-block;width: 11px;height: 11px;background: url(/imgs/images/icon/ico_warn.png) no-repeat;background-size: 100% 100%;margin-right: 5px;vertical-align: -1px;}
+
+/*我的账单*/
+.bill-box h3{ height: 25px; line-height: 25px; background: #f1f3f5;}
+.bill-con{padding: 16px 0;}
+.bill-con p span{display: block;}
+.bill-con p .f18px{ line-height: 18px; padding-bottom: 10px;}
+.bill-con p .f12px{ line-height: 12px;}
+.bill-con p .f15px{ line-height: 15px; padding: 2px 0 10px 0;}
+.bill-con .pos-a{left: 20%;top: 16px;width: 75%;}
+
+/*订单详情*/
+.bill-details span{display: block;}
+.bill-details-box .top p{ height: 50px; line-height: 50px;}
+.bill-details-box .top i{display: block; background: url("../imgs/images/icon/ico-arrow-r-d1d1d1.png") center no-repeat; width: 8px; height: 14px;background-size: 8px 14px;right: 15px;top: 20px;}
+.figure p:nth-child(1){ line-height: 50px; padding: 75px 0 15px 0;}
+.figure p:nth-child(2){ line-height: 12px; padding-bottom: 65px;}
+.bill-details-box .explain{ padding:18px 0 0 80px;}
+.bill-details-box .explain .pos-a{left:0;}
+.bill-details-box .bt-dashed-d1d1d1:after{content: "";position: absolute;left: 0;top: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}
+.bb-dashed-d1d1d1{position: relative;}
+.bb-dashed-d1d1d1:after{content: "";position: absolute;left: 0;bottom: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}
+
+/*我的设置*/
+.bg-f2f2f0{ background: #f2f2f0;}
+.states{position: absolute;right: 15px;top: 16px;}
+.checkBox-wrap{ padding-bottom: 15px;}
+.checkBox-wrap ul li{width: 33.333%; float: left; left: 20px; margin-top: 15px;}
+.checkBox-wrap ul li div.checkBox{height: 18px;width: 18px;border: 1px solid #ccc;border-radius: 2px;float: left;margin-right: 10px;}
+.checkBox-wrap ul li p{line-height: 20px;font-size: 1.1rem;color: #000;}
+.checkBox-wrap ul li div.active{background: url('/imgs/member/checked.png') no-repeat;background-size: 18px 18px;border: none;width: 18px;height: 18px;}
+
+@media only screen and (max-width: 320px) {
+	.states{right: 10px;}
+	}
+	
+.res_finish{position: absolute;bottom: 0;left: 0;}
+.r_f_close{width: 53px;height: 53px;position: absolute;right: 0;top: 9%;background: url(/imgs/account/close.png) center no-repeat;background-size: 24px 24px;}
+.r_f_bot{width: 100%;position: absolute;bottom: 0;}
+.r_f_bot a{display: block;width: 100%;height: 40px;background: url(/imgs/account/res_finish_btn.png) center no-repeat;background-size: contain;margin-top: 20px;line-height: 40px;color: #e86669;text-align: center;font-size: 17px;}
+@media only screen and (max-width: 320px) {
+	.r_f_bot a{font-size: 15px;margin-top: 10px;}
+}
+
+/*昨日收益*/
+.c-fa7d00{color: #fa7d00 !important;}
+.c-f77b00{color: #f77b00 !important;}
+.ico_nav{background:url(/imgs/account/yesterdayIncome/ico_nav.png) no-repeat;background-size:44px 88px;position: absolute;left: 10px;top: 15px;}
+.ico_nav1{height:44px;width:44px;background-position:0 -44px;}
+.ico_nav2{height:44px;width:44px;background-position:0 0;}
+.c-a55200{color: #a55200 !important;}
+.c-f96f00{color: #f96f00 !important;}
+.yesterdayIncome{padding-top: 55px;background: #fffbf7 url(/imgs/account/yesterdayIncome/bg.png) no-repeat;background-size: 100% 33px;}
+.yesterdayIncome .ico_doubt{display: inline-block;width: 18px;height: 18px;background-image: url(/imgs/account/yesterdayIncome/ico_doubt.png);margin-left: 13px;vertical-align: -2px;}
+.yesterdayIncome .amo{font-size: 70px;line-height: 70px;padding-top: 26px;}
+.yi_tit{margin: 75px auto 0;width: 254px;}
+.yi_tit span{position: absolute;display: block;width: 60px;height: 1px;background: #ccc;top: 12px;}
+.yi_tit span.yi_tit_l{left: 0;}
+.yi_tit span.yi_tit_r{right: 0;}
+.yi_nav{width: 100%;height: 74px;border: 1px solid #ebd2c2;border-radius: 6px;background: #fff;position: relative;padding-left: 65px;padding-top: 15px;}
+.champion_img{width: 48px;height: 48px;padding: 3px;background: #ffcf1f;border-radius: 50%;position: relative;}
+.champion_img img{width: 42px;height: 42px;border-radius: 50%;}
+.champion_bgImg{width: 52px;height: 16px;background-image: url(/imgs/account/yesterdayIncome/champion_img.png);position: absolute;left: -3px;top: 35px;}
+.champion_txt{margin-left: 17px;}
+.champion_txt p{height: 20px;line-height: 20px;}
+.yi_invest{width: 100%;height: 68px;border: 1px solid #e6e6e6;margin-top: 5px;padding: 4px 15px 13px 15px;}
+.yi_row{-webkit-box-pack: justify;margin-top: 2px;}
+.yi_row a{border-radius: 4px;background: #ffcf1f;width: 89px;height: 30px;line-height: 30px;margin-top: -3px;}
+.yi_alert{width: 81.3%;padding-bottom: 27px;}
+.yi_alertTit{height: 40px;line-height: 40px;border-bottom: 1px dashed #d1d1d1;}
+.yi_close{width: 25px;height: 25px;background-image: url(/imgs/account/yesterdayIncome/close.png);position: absolute;left: 50%;margin-left: -12px;bottom: -50px;}
+
+
+/*投资前准备*/
+.mt54{ margin-top: 54px;}
+.rd-top{ width: 100%; margin-bottom: 80px;}
+.rd-top-con{ width: 100%;left: 50%; margin-left: -50%;top:25px;}
+.rd-top-con img{ width: 37.86%;}
+.rd-mid-con{width: 68%;}
+.rd-mid-con img{ width: 60px; height: 60px;display: inline-block; margin:-30px 10px 0 0;}
+.rd-info{display: inline-block;}
+.rd-mid .ico-yes{display:inline-block;width: 22px; height: 22px; background:url("/imgs/account/ico-yes.png") center no-repeat;background-size: 22px 22px;}
+.card-nub input{width: 100%; color: #333333; font-size: 15px;border:none; height: 44px; line-height: 44px;}
+.pic-rd1{margin: 80px auto;}
+.pic-rd1 img{width: 46.4%;}
+.rd-but{ cursor:pointer; display:block;width:100%; background: #ffcc00; height:40px; line-height:40px;border: 0; box-shadow: none; font-size: 17px; color: #fff; text-align:center;-webkit-border-radius: 4px;border-radius: 4px;-moz-background-clip: padding;-webkit-background-clip: padding-box;background-clip: padding-box;}/*通用按钮*/
+
+
+@media screen and (device-aspect-ratio: 40/71) {
+	.rd-mid-con{width: 75%;}
+	}
+
+@media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){
+	.rd-mid-con{width: 65%;}
+	}
+@media (device-width:414px) and (-webkit-min-device-pixel-ratio:3.0){
+	.rd-mid-con{width: 60%;}
+	}
+	
+/*账号管理*/	
+.zhgl-top{
+	padding-top: 8px;
+	background: #fcfcfc;
+}	
+
+.zhgl-top .top-p1 span{
+	color: #fab700;
+}
+.zhgl-top .top-p2{
+	margin-top: 2px;
+	padding-bottom: 6px;
+}
+
+.zhgl-item{
+	background: #fff;
+}
+
+.zhgl-item .top-p1{
+	line-height: 45px;
+}
+
+.jiebang{
+	color: #fab600;
+	font-size: 13px;
+	display: block;
+	line-height: 14px;
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+}
+.zhgl-top .jiebang{
+	bottom: 10px;
+}
+.jiebang:after{
+	content: '';
+	display: inline-block;
+	background: url(/imgs/images/icon/arrow_right_orange.png) no-repeat;
+	background-size: 100% 100%;
+	width: 8px;
+	height: 14px;
+	margin-left: 11px;
+	vertical-align: top;
+}
+
+.zhgl-bottom p{line-height: 44px;color: #1fcafb;font-size: 17px}
+.zhgl-bottom p:before{
+	content: '';
+	display: inline-block;
+	background: url(/imgs/images/icon/ico_add2.png) no-repeat;
+	background-size: 100% 100%;
+	width: 18px;
+	height: 18px;
+	margin-right: 5px;
+	vertical-align: m;
+}
+
+/*绑定账户*/
+/*.inp-box{margin-top: 8px;margin-bottom: 42px;}*/
+.inp-box{padding-left: 87px;position: relative;height: 45px;}
+.inp-box span{position: absolute;left: 13px;top: 0;display: block;height: 45px;line-height: 45px;}
+.inp-box input{border: 0;outline: none;font-size: 17px;height: 45px;width: 60%;}
+.inp-err{height: 30px;line-height: 30px;position: absolute;top: 44px;left: 15px;color: #fd6040;font-size: 12px;}
+.mt36{margin-top: 36px;}
+.sendCode{width: 32%;height: 45px;line-height: 45px;color: #f3b800;font-size: 13px;text-align: right;position: absolute;right: 0;top: 0;padding-right: 15px;}
+
+/*未绑定账户*/
+.ico-bind{width: 160px;height: 49px;background: url(/imgs/images/icon/ico_bind.png) no-repeat;background-size: 100% 100%;margin: 40px auto 0;}

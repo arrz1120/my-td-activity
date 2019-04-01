@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.VipSystem.BLL;
+using TuanDai.VipSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.Mall
+{
+    public partial class tuanbiDetail : AppActivityBasePage
+    {
+        public MUserVipInfo UserVipInfo;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.UserVipInfo = MUserVipInfoBLL.GetUserVipInfoById(WebUserAuth.UserId.Value);
+        }
+    }
+}

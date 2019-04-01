@@ -1,0 +1,183 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL; 
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    /// <summary>
+    /// 分期宝详情界面
+    /// Allen 2015-05-18
+    /// </summary>
+    public partial class fqbao_detail : BasePage
+    {
+
+        protected ProjectDetailInfo model = null; 
+        protected Guid? projectId = Guid.Empty; 
+        private ProjectBLL bll = null; 
+        protected OrganizationInfo Organization = null; 
+        //项目展示图
+        protected List<ProjectImageInfo> imageList;
+        protected WXFQUserApplyInfo userApply;
+        protected string AuthHtml = string.Empty;
+        protected int IdentityTypeId { get; set; }
+        protected ApplyEducation applyEducation { get; set; }
+        protected UserBasicInfoInfo borrowUserInfo = null;
+        protected userDetailInfoInfo userDetai = null;
+        protected BorrowUserCreditInfo creditInfo = null;
+        protected string finishProcess = "0%";
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            { 
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+                    if (!this.GetData()) {
+                        return;
+                    }
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+            userApply = bll.WXGetFQUserApplyInfo(projectId.Value.ToText());
+            if (userApply != null)
+                Organization = bll.WXGetOrganizationInfo(userApply.OrgId.HasValue ? userApply.OrgId.Value.ToText() : ""); 
+            else
+                userApply=new WXFQUserApplyInfo();
+           
+            string strFile = string.Format(" oa.OrgTypeId ={0} and (f.UserId IS NULL OR f.UserId = '{1}') ", Organization.OrgTypeId, userApply.ApplyUserId);
+
+            Dapper.DynamicParameters dyParams = new Dapper.DynamicParameters();  
+            string strSQL = string.Format(@" SELECT DISTINCT AuthName = a.Name, oa.AuthId, a.UploadedStyle,oa.SortOrder
+                                             FROM fq_OrgAuthSetting oa with(nolock)
+                                             INNER JOIN fq_AuthSetting a with(nolock) ON oa.AuthId = a.Id 
+                                             INNER JOIN (SELECT AuthId,UserId from  dbo.fq_UserAuthFile with(nolock) WHERE (IsDelete IS NULL OR IsDelete = 0) AND IsHiddenInfo =0) f ON a.Id = f.AuthId 
+                                             Where {0} Order by oa.SortOrder asc", strFile);
+            var AuthList = PublicConn.QueryBySql<AuthSet>(strSQL, ref dyParams); 
+            for (int i = 0; i < AuthList.Count; i++)
+            {
+                if (i == 0)
+                {
+                    AuthHtml = AuthList[i].AuthName;
+                }
+                else
+                {
+                    AuthHtml += "、" + AuthList[i].AuthName;
+                }
+            } 
+
+            //是否学生分期 
+            dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@ProjectId", model.Id);
+            strSQL = "select isnull(IdentityTypeId,0) as IdentityTypeId from fq_UserApply with(nolock) where ProjectId=@ProjectId";
+            IdentityTypeId = PublicConn.QuerySingle<int>(strSQL, ref dyParams);
+
+            if (IdentityTypeId == 1)
+            {
+                //获取学生基本信息
+                dyParams = new Dapper.DynamicParameters();
+                dyParams.Add("@UserId", model.UserId);
+                strSQL = "select * from fq_ApplyEducation with(nolock) where UserId=@UserId";
+                applyEducation = PublicConn.QuerySingle<ApplyEducation>(strSQL, ref dyParams);
+            }
+            else
+            {
+                borrowUserInfo = userbll.GetUserBasicInfoModelById(model.UserId.Value);
+                strSQL = "select * from userDetailInfo with(nolock) where UserId=@UserId";
+                dyParams = new Dapper.DynamicParameters();
+                dyParams.Add("@UserId", borrowUserInfo.Id);
+                userDetai = PublicConn.QuerySingle<userDetailInfoInfo>(strSQL, ref dyParams);
+            }
+            //信用档案
+            creditInfo = CommUtils.GetBorrowerCreditData(model.UserId.Value);
+
+            //项目展示图
+            imageList = CommUtils.GetProjectImages(this.projectId.Value);
+            finishProcess = CommUtils.GetProjectProcess(model);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+            return true;
+        }
+
+        #region 内部Model
+        public class AuthSet
+        {
+            public string AuthName { get; set; }//认证项名称
+            public string UploadedStyle { get; set; }//已上传的样式
+            public Guid AuthId { get; set; }//认证项ID
+            public int? SortOrder { get; set; }
+        }
+        /// <summary>
+        /// 分期宝学历信息
+        /// by HH 2014-10-12 Add
+        /// </summary>
+        public class ApplyEducation
+        {
+            /// <summary>
+            /// 毕业时间
+            /// </summary>
+            public DateTime GraduateDate { get; set; }
+
+            /// <summary>
+            /// 学历
+            /// </summary>
+            public string Education { get; set; }
+
+            /// <summary>
+            /// 学校
+            /// </summary>
+            public string School { get; set; }
+
+            /// <summary>
+            /// 专业
+            /// </summary>
+            public string Specialty { get; set; }
+
+            /// <summary>
+            /// 班级
+            /// </summary>
+            public string EduClass { get; set; }
+
+            /// <summary>
+            /// 宿舍地址
+            /// </summary>
+            public string Address { get; set; }
+        }
+        #endregion
+
+    }
+}

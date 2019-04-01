@@ -1,0 +1,293 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using Dapper;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using System.Data;
+using BusinessDll;
+
+namespace TuanDai.WXApiWeb.pages.invest
+{
+    public partial class youxindai_detail : BasePage
+    {
+        protected Guid? projectId = Guid.Empty;
+        protected ProjectDetailInfo model = null;
+        private ProjectBLL bll = null; 
+        protected string finishProcess = "0%";
+
+        protected int SubscribeUserCount = 0;//投资人数 
+        protected decimal PreInterestRate = 0; //投资1W的预期收益
+        protected int EbaoMultiple = 0;//余额宝的倍数,余额宝按2.5%计算
+        protected decimal EbaoInterest = 0;//余额宝收益
+        protected List<PreSubscribeDetailInfo> preSubscribeList;//预回款信息
+        //项目展示图
+        protected List<ProjectImageInfo> imageList;
+        protected BorrowUserCreditInfo creditInfo = null;
+
+        protected WebSettingInfo regulaSet = new WebSettingInfo();
+        protected int InterestModel = 1;//起息方式
+        protected Project_xdInfo projectXDInfo = null;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("/Member/Repayment/my_return_list.aspx?typeTab=Disperse&tab=CompletedAndFlow", true);
+            this.projectId = WEBRequest.GetGuid("projectid");
+            if (!IsPostBack)
+            {
+                bll = new ProjectBLL();
+                if (this.projectId != Guid.Empty)
+                {
+
+                    if (!this.GetData())
+                        return;
+                    //信用档案
+                    creditInfo = CommUtils.GetBorrowerCreditData(model.UserId.Value);
+                    imageList = CommUtils.GetProjectImages(this.projectId.Value);
+                }
+                else
+                {
+                    Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                }
+            }
+        }
+        
+        protected bool GetData()
+        {
+            UserBLL userbll = new UserBLL();
+            //获取项目信息
+            model = bll.GetProjectDetailInfo(projectId.Value);
+            if (model == null)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+            if (model.Type.Value != 32)
+            {
+                Response.Redirect(GlobalUtils.WebURL + "/Member/my_account.aspx");
+                return false;
+            }
+             
+            DynamicParameters dyParams;
+            string sql = "";
+
+            finishProcess = CommUtils.GetProjectProcess(model);
+
+            SubscribeUserCount = CommUtils.GetSubscribeUserCount(this.projectId.Value);
+            //计算预期收益
+            PreInterestRate = CommUtils.CalcInvestInterest(model, 10000);
+            EbaoMultiple = int.Parse(Math.Ceiling(model.InterestRate.Value / decimal.Parse("2.5")).ToString());
+            EbaoInterest = CommUtils.GetEbaoMultipleInterest(model, 10000);
+            preSubscribeList = CommUtils.GetPreSubscribeDetail(model, 10000);
+
+            regulaSet = new WebSettingBLL().GetWebSettingInfo("293A1C07-1D90-4D22-ADD4-39E6735DAC06");
+            InterestModel = TuanDai.PortalSystem.Redis.ProjectRedis.GetProjectInterestMode(model.Type.Value, model.RepaymentType.Value);
+            //截标时间为NULL时候取审核时间  +5 天
+            if (model.TenderDate == null)
+            {
+                model.TenderDate = Convert.ToDateTime(model.AuditDate == null ? model.AddDate : model.AuditDate).AddDays(5);
+            }
+            else
+            {
+                model.TenderDate = model.TenderDate;
+            }
+
+            if (model.AuditDate == null)
+            {
+                model.TenderStartDate = model.AddDate;
+            }
+            else
+            {
+                model.TenderStartDate = model.AuditDate;
+            }  
+			
+
+            sql = "select RiskAssessment,FundUse,RepaymentAssure from project_xd with(nolock) where ProjectId=@ProjectId";
+            Dapper.DynamicParameters Parprojectxd = new Dapper.DynamicParameters();
+            Parprojectxd.Add("@ProjectId", projectId);
+            projectXDInfo =PublicConn.QuerySingle<Project_xdInfo>(sql, ref Parprojectxd);
+            if (projectXDInfo == null)
+                projectXDInfo = new Project_xdInfo();
+            return true;
+        }
+
+       
+
+        /// <summary>
+        /// 计算逾期还款率
+        /// </summary>
+        /// <param name="successcount">成功记录数</param>
+        /// <param name="badcount">逾期记录数</param>
+        /// <returns></returns>
+        private string calcrate(int successcount, int badcount)
+        {
+            if (successcount != 0)
+            {
+                return ((double)(badcount) / (double)(successcount) * 100).ToString("0.00");
+            }
+            else
+            {
+                return "0";
+            }
+        } 
+
+        #region 内部Model
+        public class BorrowUserInfo
+        {
+
+            public Guid Id { get; set; }
+            public DateTime? Birthday { get; set; }
+            public string TelNo { get; set; }
+            public int? sex { get; set; }
+            public DateTime AddDate { get; set; }
+            public string NickName { get; set; }
+            public string BankCity { get; set; }
+            public string CreditRatingName { get; set; }
+            public string RealName { get; set; }
+            public string Age
+            {
+                get
+                {
+                    if (!Birthday.HasValue)
+                    {
+                        return "保密";
+                    }
+
+                    else
+                    {
+                        int tempAge = DateTime.Today.Year - Birthday.Value.Year;
+                        if (tempAge <= 0)
+                            tempAge = 1;
+
+                        if (UserTypeId.HasValue && UserTypeId.Value != 1)
+                            return tempAge.ToString();
+
+                        if (tempAge < 18 || tempAge > 60)
+                            return "保密";
+                        return tempAge.ToString();
+                    }
+                }
+            }
+
+            public string Sex
+            {
+                get
+                {
+                    if (Age == "保密")
+                        return "保密";
+                    return sex.HasValue ? (sex == 1 ? "男" : "女") : "保密";
+                }
+            }
+
+            public string AddDateStr
+            {
+                get { return Tool.SafeConvert.ToDateTime(AddDate).ToString("yyyy-MM-dd"); }
+            }
+            /// <summary>
+            /// 是否显示用户扩展信息
+            /// </summary>
+            public string IsShowExt { get; set; }
+
+            public int? UserTypeId { get; set; }
+            /// <summary>
+            /// 最高学历描述
+            /// </summary>
+            public string Graduation { get; set; }
+            /// <summary>
+            /// 婚姻状况描述
+            /// </summary>
+            public string Marriage { get; set; }
+            /// <summary>
+            /// 是否有小孩描述
+            /// </summary>
+            public string IsHasChildren { get; set; }
+            /// <summary>
+            /// 借款人所属行业
+            /// </summary>
+            public string Industry { get; set; }
+            /// <summary>
+            /// 月均收入
+            /// </summary>
+            public string Salary { get; set; }
+            /// <summary>
+            /// 住房情况:有无
+            /// </summary>
+            public string IsHasHouse { get; set; }
+            /// <summary>
+            /// 当前负债
+            /// </summary>
+            public string CurrentDebts { get; set; }
+            /// <summary>
+            /// 在其他网络借贷平台借款情况
+            /// </summary>
+            public string OtherBorrow { get; set; }
+            /// <summary>
+            /// 近6个月征信报告中的逾期情况
+            /// </summary>
+            public string CreditOverDue { get; set; }
+            /// <summary>
+            /// 注册资本
+            /// </summary>
+            public string RegAmount { get; set; }
+            /// <summary>
+            /// 注册地址
+            /// </summary>
+            public string RegAddress { get; set; }
+            /// <summary>
+            /// 企业成立日期
+            /// </summary>
+            public string RegDate { get; set; }
+            /// <summary>
+            /// 法定代表人
+            /// </summary>
+            public string LegalName { get; set; }
+        }
+        public class PageBorrowerComplianceInfo
+        {
+            public Guid ProjectId { get; set; }
+            //主体性质:1、自然人 2、法人/组织
+            public int MainNature { get; set; }
+            //所属行业
+            public string Trade { get; set; }
+            //月均收入
+            public string IncomePerMonth { get; set; }
+            /// <summary>
+            /// 当前负债
+            /// </summary>
+            public string CurrentDebt { get; set; }
+            /// <summary>
+            /// 其它平台借款情况
+            /// </summary>
+            public string OtherPlatformsBorrow { get; set; }
+            /// <summary>
+            /// 逾期情况
+            /// </summary>
+            public string OverdueSituation { get; set; }
+            /// <summary>
+            /// 企业全称或简称
+            /// </summary>
+            public string CompanyName { get; set; }
+            /// <summary>
+            /// 注册资本
+            /// </summary>
+            public string RegisteredCapital { get; set; }
+            /// <summary>
+            /// 注册地址
+            /// </summary>
+            public string RegisteredAddress { get; set; }
+            /// <summary>
+            /// 成立时间
+            /// </summary>
+            public DateTime EstablishedTime { get; set; }
+            /// <summary>
+            /// 法定代表人
+            /// </summary>
+            public string LegalPerson { get; set; }
+        }
+        #endregion
+    }
+}

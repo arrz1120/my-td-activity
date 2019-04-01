@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuandai.Redis.Client</name>
+    </assembly>
+    <members>
+        <member name="M:Tuandai.Redis.Client.ConnectService.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <param name="v_Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.Client.ConnectService.ReleaseConnection(TuanDai.ServerContract.RedisService)">
+            <summary>
+            关闭wcf
+            </summary>
+        </member>
+        <member name="T:Tuandai.Redis.Client.RedisClient">
+            <summary>
+            Redis客户端
+            </summary>
+        </member>
+        <member name="M:Tuandai.Redis.Client.RedisClient.AddSubscribeStatus(System.String,System.Int32,System.String@)">
+            <summary>
+            添加申购的状态
+            </summary>
+            <param name="subscribeId">申购的Id</param>
+            <param name="status">状态</param>
+            <param name="ErrorMessage">是否有错误非空表示有异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.Client.RedisClient.GetSubscribeStatus(System.String,System.String@)">
+            <summary>
+            获取申购的状态
+            </summary>
+            <param name="subscribeId">申购的Id</param>
+            <param name="ErrorMessage">非空表示有异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.Client.RedisClient.ClearMoney(System.String,System.String@)">
+            <summary>
+            清理服务端的缓存
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.Redis.Client.RedisClient.Do(System.String,System.String@)">
+            <summary>
+            测试端口
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

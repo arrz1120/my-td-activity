@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>团贷网B轮融资新闻发布会,召开在即,参与互动 赢见证机会</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/news.css" />
+</head>
+<body>
+<div class="list-nav">
+    <div class="pos-r list-nav-cn">
+        <b class="ico-sj pos-a"></b>
+        <div class="j-but pos-a">
+            <a class="i-1" href="javascript:;">首页</a>
+            <a class="i-2" href="">投资专区</a>
+            <a class="i-3" href="">借款服务</a>
+            <a class="i-4" href="">个人中心</a>
+            <a class="i-5" href="" style="display: none">登录注册</a>
+        </div>
+    </div>
+</div>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">活动专题</h1>
+    </div>
+    <a href="javascript:;" class="header-list-icon">
+        <img src="/imgs/images/header-list-icon.png"/>
+    </a>
+    <div class="none"></div>
+</header>
+<div class="newsMain pt15 pb20" >
+    <div class="newsCont">
+      <img src="/imgs/file/pic-zhuanti.jpg">
+      <p class="f14px c-4c4c4c text-title-icon-1  mb0">一起来说说2015年你还继续投P2P的理由</p>
+      <p class="f12px c-ababab text-title-icon-2 mb0">活动时间：2015.07.14至2015.07.31</p>
+      <a class="btn-20150825 btn-20150825-1 text-center c-fff f18px " href="">敬请期待</a>
+    </div>
+    <div class="newsCont">
+        <img src="/imgs/file/pic-zhuanti.jpg">
+        <p class="f14px c-4c4c4c text-title-icon-1  mb0">一起来说说2015年你还继续投P2P的理由</p>
+        <p class="f12px c-ababab text-title-icon-2 mb0">活动时间：2015.07.14至2015.07.31</p>
+        <a class="btn-20150825 btn-20150825-2 text-center c-fff f18px " href="">我要参加</a>
+    </div>
+    <div class="newsCont">
+        <img src="/imgs/file/pic-zhuanti.jpg">
+        <p class="f14px c-4c4c4c text-title-icon-1  mb0">一起来说说2015年你还继续投P2P的理由</p>
+        <p class="f12px c-ababab text-title-icon-2 mb0">活动时间：2015.07.14至2015.07.31</p>
+        <a class="btn-20150825 btn-20150825-3 text-center c-fff f18px " href="">已结束</a>
+    </div>
+</div> 
+<div class="layer"></div>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(".header-list-icon").click(function(){
+        $(".list-nav").toggleClass("nav-height");
+        $(".layer").toggleClass("block").bind("touchmove",function(e){
+            e.preventDefault();
+        });
+    });
+
+    $('.layer').click(function() {
+        $(".list-nav").toggleClass("nav-height");
+        $(this).toggleClass("block");
+    });
+
+    $(".list-nav a").click(function(){
+        $(".list-nav").toggleClass("nav-height");
+        $(".layer").toggleClass("block");
+    });
+</script>
+</body>
+</html>
+
+
+

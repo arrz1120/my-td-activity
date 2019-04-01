@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using TuanDai.CgtCallbackUrl.Model.ModelRequest;
+using TuanDai.CunGuanTong.Model;
+using TuanDai.Payment.Models.Withdraw;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using TuanDai.WXSystem.Core;
+
+namespace TuanDai.WXApiWeb.ajaxCross
+{
+    /// <summary>
+    /// ajax_withdrawals 的摘要说明
+    /// </summary>
+    public class ajax_withdrawals : SafeHandlerBase
+    {
+        public void CheckPayPwd()
+        {
+            Guid userid = WebUserAuth.UserId.Value;
+            if (userid == Guid.Empty)
+            {
+                PrintJson("-99", "登录已失效");
+            }
+            string msg = string.Empty;
+            var isWithdrawal = new CgtCheckBLL().GetUserCgtIsOper(userid, "tixian", ref msg);
+            if (!isWithdrawal)
+            {
+                PrintJson("-199", msg + "，不允许提现");
+                return;
+            }
+
+            string amountStr = Context.Request.Form["amount"];
+            string couponAmountStr = Context.Request.Form["couponAmount"];
+            decimal amount = 0m;
+            decimal couponAmount = 0m;
+            if (!string.IsNullOrEmpty(amountStr))
+            {
+                amount = Convert.ToDecimal(amountStr);
+            }
+            if (!string.IsNullOrEmpty(couponAmountStr))
+            {
+                couponAmount = Convert.ToDecimal(couponAmountStr);
+            }
+            string userPrizeId = Context.Request.Form["userPrizeId"];
+            Guid couponId = new Guid();
+            if (!string.IsNullOrEmpty(userPrizeId))
+            {
+                couponId = Guid.Parse(userPrizeId);//优惠券Id
+            }
+            //可提现金额
+            decimal aviMoney = new UserBLL().GetDrawAviAmount(userid);
+            if (amount > aviMoney)
+            {
+                PrintJson("-1", "申请提现金额大于可用金额");
+                return;
+            }
+              
+            WithdrawResponseModel resmodel = TuanDai.Payment.Client.Withdraw.ApplyWithdraw(new WithdrawRequestModel
+            {
+                Amount = amount,
+                CouponAmount = couponAmount,
+                CouponId = couponId,
+                FundType = 0,
+                UserId = userid,
+                WithdrawType = 1//1:存管通,2:定期
+            });
+
+            if (resmodel == null) {
+                PrintJson("-1", "生成提现申请出错");
+                return;
+            }
+            if (resmodel.ReturnCode != 1)
+            {
+                TuanDai.LogSystem.LogClient.LogClients.ErrorLog("WXTouch", "TuanDai.Payment.Client.Withdraw.ApplyWithdraw", "提现申请错误", resmodel.ReturnMessage);
+                PrintJson("-1",resmodel.ReturnMessage);
+            }
+            
+            //申请提现金额
+            //decimal handingcharge= decimal.Parse(resmodel.HandingCharge.ToString());
+            //if ((aviMoney - amount - handingcharge) < 0)
+            //{
+            //    amount = amount - handingcharge;
+            //}
+            string strSQL = "SELECT TOP 1 * FROM AppWithdrewFund WHERE UserId=@UserId and WithdrawNo=@WithdrawNo";
+
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@UserId", userid);
+            dyParams.Add("@WithdrawNo", resmodel.WithdrawNo);
+            WXAppWithdrewFund fundInfo = TuanDai.DB.TuanDaiDB.QuerySingleOrDefault<WXAppWithdrewFund>(TdConfig.ApplicationName, TdConfig.DBRealRead, strSQL, ref dyParams);
+            if (fundInfo == null)
+            {
+                PrintJson("-1", "获取提现金额失败");
+                return;
+            }
+
+            TuanDai.CunGuanTong.Model.WITHDRAW_Request info = new TuanDai.CunGuanTong.Model.WITHDRAW_Request
+            {
+
+                callbackUrl = CgtCallBackConfig.GetCgtCallBackUrl(CgtCallBackConfig.CgtCallBackType.Withdraw),
+                platformUserNo = userid.ToString(),
+                userDevice = TuanDai.CunGuanTong.Model.userDevice.MOBILE,
+                amount = decimal.Parse(fundInfo.ActualWithdrawDeposit.Value.ToString("0.00")),
+                commission = fundInfo.HandingCharge.HasValue ? decimal.Parse(fundInfo.HandingCharge.Value.ToString("0.00")) : decimal.Zero,//,//提现手续费
+                requestNo = resmodel.WithdrawNo //提现订单流水号
+            };
+            string responseStr = TuanDai.CunGuanTong.Client.FundClient.WITHDRAW_Req(info);
+            PrintJson("1", responseStr);
+        }
+    }
+}

@@ -1,0 +1,185 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="myProduct.aspx.cs" MasterPageFile="~/MVipWebStite.Master" Inherits="TuanDai.WXApiWeb.Member.Mall.myProduct" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <title>我的商品</title>
+    <link rel="stylesheet" type="text/css" href="/css/mall.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/list2.css?v=20160406001" />    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="Server">
+    <body class="bg-f1f3f5">
+        <%= this.GetNavStr()%>
+        <header class="headerMain">
+            <div class="header">
+                <div class="pageReturn" onclick="javascript:window.location.href='mallindex.aspx';"></div>
+                <h1 class="title">我的商品</h1>
+            </div>
+            <%= this.GetNavIcon()%>
+            <div class="none"></div>
+        </header>
+        <!--tabs 导航-->
+        <div class="pl15 pr15 bg-fff tabs-box bb-e6e6e6">
+            <div class="tabs clearfix">
+                <a href="javascript:;" class="active lf w33p" data="0">全部</a>
+                <a href="javascript:;" class="lf w33p" data="1">未领取</a>
+                <a href="javascript:;" class="lf w33p" data="2">已领取</a>
+            </div>
+        </div>
+
+
+
+        <div id="wrapper" style="background: none; top: 44px;">
+            <div id="scroller">
+                <div id="pullDown" style="background: #f1f3f5;">
+                    <div class="centerBox-wp">
+                        <div class="pullDownTips">
+                            <span class="pullDownIcon"></span>
+                            <span class="pullDownLabel">下拉刷新...</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="tabs-container" class="swiper-container mt10">
+                    <div class="swiper-wrapper bt-e6e6e6 bb-e6e6e6">
+                        <!--已领取-->
+                        <div class="swiper-slide">
+                            <div class="bg-fff bb-e6e6e6 bt-e6e6e6 productList">
+                            </div>
+                        </div>
+                        <div id="pullUp" style="background: #f1f3f5;">
+                            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--无数据的时候显示-->
+        <div class="text-center bt-e6e6e6 no-update z-index100 hide">
+            <img src="/imgs/member/pic-asset1.png" alt="">
+            <p class="f17px c-212121 pt40">暂无商品，可前往商城兑换~</p>
+            <div class="a-link">
+                <a href="/Member/Mall/mallIndex.aspx">马上前往商城</a>
+            </div>
+        </div>
+    </body>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">
+    <script type="text/javascript" src="/scripts/statistics.tencent.js"></script>
+    <script type="text/javascript" src="/scripts/fastclick.js"></script>
+    <script type="text/javascript" src="/scripts/iscroll.js?v=20170605001"></script>
+    <script type="text/javascript" src="/scripts/scrollUpdate.js?v=20170605001"></script>
+    <script type="text/javascript">
+        //    选项卡交互
+
+        var status = 0;
+        $(".tabs a").on('touchstart mousedown', function (e) {
+            e.preventDefault();
+            $(".tabs .active").removeClass('active');
+            $(this).addClass('active');
+            status = $(this).attr("data");
+            pageIndex = 1;
+            LoadData(status);
+        });
+        $(".tabs a").click(function (e) {
+            e.preventDefault();
+        });
+
+
+        function LoadData() {
+            var pageSize = 6;
+            $.ajax({
+                url: "/ajaxCross/ajax_mall.ashx",
+                type: "post",
+                dataType: "json",
+                data: { Cmd: "GetMyProduct", pageIndex: pageIndex, pageSize: pageSize, status: status },
+                success: function (jsonData) {
+                    pageCount = jsonData.TotalRecords % pageSize == 0 ? jsonData.TotalRecords / pageSize : parseInt(jsonData.TotalRecords / pageSize) + 1;
+                    if (pageCount <= 1) {
+                        $("#pullUp").hide();
+                    } else {
+                        $("#pullUp").show();
+                    }
+                    if (pageIndex == 1)
+                        $(".productList").html("");
+                    if (parseInt(jsonData.Status) == 1) {
+                        $(".no-update").hide();
+                        if (jsonData.History.length > 0) {
+                            var liHtml = "";
+                            var css = "";
+                            var button = "";
+                            $(jsonData.History).each(function (index, item) {
+                                if (item.SourceFlag == 0) //兑换
+                                    css = "ico-sp2";
+                                else if (item.SourceFlag == 1) //礼
+                                    css = "ico-sp3";
+                                else //奖
+                                    css = "ico-sp1";
+
+                                if (item.Status == 0) {
+                                    if (item.ExpireDate != null && item.ExpireDate != "") {
+                                        var arr = item.ExpireDate.toString().split(/[- : \/]/);
+                                        var exDate = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4], arr[5]);
+                                        console.log(exDate + "-" + new Date());
+                                        if (exDate < new Date()) {
+                                            button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>已过期</p>';
+                                        }
+                                        else {
+                                            button = '<a href="receive.aspx?productid=' + item.ProductId + '&num=' + item.TotalNum + '&orderid=' + item.Id + '" class="c-fab600 f13px">马上领取</a>';
+                                        }
+                                    }
+                                    else {
+                                        button = '<a href="receive.aspx?productid=' + item.ProductId + '&num=' + item.TotalNum + '&orderid=' + item.Id + '" class="c-fab600 f13px">马上领取</a>';
+                                    }
+                                }
+                                else if (item.Status == 1) {
+                                    if (item.ExpireDate != null && item.ExpireDate != "" && new Date(item.ExpireDate) < new Date(2016, 10, 1, 0, 0, 0)) {  //针对以前遗留bug特别处理
+                                        button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>已过期</p>';
+                                    }
+                                    else {
+                                        button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>待发货</p>';
+                                    }
+                                    //button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>待发货</p>';
+                                }
+                                else if (item.Status == 2) {
+                                    button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp6"></i>已发货</p>';
+                                }
+                                else if (item.Status == -11) {
+                                    button = '<p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>已退款</p>';
+                                }
+                                if (item.Status > 0 || item.Status == -11)
+                                    liHtml = '<div class="sp-con ml15" onclick="javascript:window.location.href=\'orderDetail.aspx?orderId=' + item.Id + '\';">'
+                                else
+                                    liHtml = '<div class="sp-con ml15">';
+                                liHtml += '<img src="' + item.ProductImageUrl + '">' +
+                                    '<div class="pos-a con1">' +
+                                    '<p class="c-212121 f15px text-overflow"><i class="sp-sprite ' + css + '"></i>' + item.ProductName + '</p>';
+                                if (item.AttributeDesc != null && item.AttributeDesc.trim() != "")
+                                    liHtml += '<p class="c-808080 f13px">规格：<span class="c-808080 f13px">' + item.AttributeDesc + '</span></p>';
+                                liHtml += '<p class="c-808080 f13px">数量：<span class="c-808080 f13px">×' + item.TotalNum + '</span></p>' +
+                                    '</div>' +
+                                    '<div class="pos-a con2">' +
+                                    '<p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>' + item.TotalTuanBi + '</p>' +
+                                    button +
+                                    '</div>' +
+                                    '</div>';
+                                $(".productList").append(liHtml);
+                            });
+
+                        }
+                    } else {
+                        $(".no-update").show();
+                        $("#pullUp").hide();
+                    }
+                    myScroll.refresh();
+                },
+                error: function () {
+                    $(".no-update").show();
+                    $("#pullUp").hide();
+                }
+            });
+        }
+
+        LoadData();
+        iScroll.onLoadData = LoadData;
+    </script>
+</asp:Content>

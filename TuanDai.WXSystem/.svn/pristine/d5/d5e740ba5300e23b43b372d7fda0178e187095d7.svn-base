@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>分期宝-普通</title>
+    <meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+    <meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+    <link rel="stylesheet" href="css/style.css?v=2016061600001"/>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+        document.oncontextmenu = function (e) { return false; }
+
+        var omitformtags = ["input", "textarea", "select"]
+        omitformtags = omitformtags.join("|")
+        function disableselect(e) {
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+                return false
+        }
+        function reEnable() {
+            return true
+        }
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function("return false")
+        else {
+            document.onmousedown = disableselect
+            document.onmouseup = reEnable
+        }
+    </script>
+
+</head>
+<body>
+    <header class="headerMain" id="header">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">借款合同</h1>
+        </div>
+    </header>
+    <!--第1页>-->
+    <div class="Contract">
+        <h3>借款合同</h3>
+        <div class="Number">合同编号：*********</div>
+        <div class="Contract_t">
+            <ul>
+                <li>
+                    <div>甲方（出借人）：<span>***</span></div>
+                    <div>身份证号码：<span>******************</span></div>
+                </li>
+                <li>
+                    <div>乙方（借款人）：<span>***</span></div>
+                    <div>身份证号码：<span>******************</span></div>
+                </li>
+                <li>
+                    <div>丙方（担保人）：<span>***</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="Contract_c">
+            <p>
+                特别提示：<br />
+                甲、乙、丙三方请认真仔细阅读本合同项下的全部条款。甲、乙、丙三方一旦签订本合同，即视为三方已充分理解并完全同意本合同项下的所有条款及内容。<br/>乙方向甲方借款，用于支付其向<span>*****</span>购买<span>*****</span>产品的<span>*****</span>费用，丙方为乙方的借款提供连带担保。甲、乙、丙三方在平等自愿、协商一致的基础上，经充分友好协商，现达成如下借款合同，以兹共同遵守执行。</p>
+            <p>
+                一、借款条款<br />
+                1、借款金额：人民币￥<span>*****</span>元（大写人民币：<span>**圆整</span>）<br />
+                2、借款期限：<span>*</span>个月，自乙方的本借款标满标之日起计算<span>*****</span>个月到期。<br />
+                3、借款利息：在本合同规定的借款期内，年利率为<span>*%</span>。不足一个月的按一个月计算。乙方如果不按期、足额归还借款，逾期部分除了按本合同约定年利率<span>*%</span>折算成天计算借款利息外，还需按每天万分之三计算违约金。<br />
+                4、还款方式：***。</p>
+            <p>
+                二、保证担保<br />
+                1. 乙方应按照约定向丙方支付担保费。如果乙方到期未按规定归还借款本金及利息，甲方有权立即要求丙方承担保证责任，有权立即直接要求丙方向甲方偿还本合同项下的借款本金。<br />
+                2. 如果乙方到期未按规定归还借款本金及利息，甲方有权立即要求丙方承担保证责任，向甲方偿还本合同项下的借款本金。<br />
+                3. 自丙方代乙方清偿剩下的借款本金给甲方时，丙方有权向乙方追偿。<br />
+              </p>
+        </div>
+    </div>
+    <!--第2页>-->
+    <div class="Contract">
+        <div class="Contract_c">
+            <p>
+                三、追索费用<br />
+                如果乙方到期未归还借款本金及利息从而引致甲方或者丙方向乙方追索的，则甲方或者丙方因行使追索权而产生的包括但不限于诉讼费用、仲裁费用、律师费用等在内的一切费用和开支，一概均由乙方负责承担。</p>
+            <p>
+                四、违约责任<br />
+                本合同签定后，甲、乙、丙三方必须全面适当地履行本合同项下各自的义务及/或责任。任何一方对本合同项下任一条款之违反，即被视为违约，违约方须对非违约方承担相应之违约责任，赔偿非违约方因违约而遭致的一切经济损失。如果乙方违约，甲方或者丙方有权向有关个人征信系统予以披露，有权通过社会公告等形式追究其违约责任。</p>
+            <p>
+                五、争议解决方式<br />
+                合同履行过程中如果发生争议，协商解决，协商不成的，任何一方可提交湛江仲裁委员会在东莞仲裁，并按其当时有效的仲裁规则适用简易程序进行仲裁。仲裁裁决是终局的，对各方均有约束力。</p>
+            <p>
+                六、生效及其他<br />
+                本电子合同适用《中华人民共和国电子签名法》的规定，本合同对各方均有约束力。本合同书自甲、乙、丙三方签字或者盖章，且乙方的借款标满标之日起成立并生效。</p>
+        </div>
+        <div class="Contract_b">
+            <p>
+                <br />
+                <strong>各方签署：</strong></p>
+            <p>
+                甲方：<span>***</span></p>
+            <p>
+                乙方：<span>***</span></p>
+            <p>
+                丙方：<span>***</span></p>
+            <p>
+                协议签订地：<span>*********</span></p>
+            <p>
+                协议签署日期：<em>****</em>年<em>**</em>月<em>**</em>日</p>
+
+            <!--盖章-->
+            <!--<div class="seal-con pos-a">
+                <img src="images/hnstrz.png" alt=""/>
+            </div>-->
+
+        </div>
+    </div>
+    <div class="clearfix mt20"></div>
+    <script type="text/javascript">
+        var url = window.location.href;
+        if (url.indexOf("type=mobileapp") >= 0) {
+            document.getElementById("header").style.display = "none";
+        }
+    </script>
+</body>
+</html>

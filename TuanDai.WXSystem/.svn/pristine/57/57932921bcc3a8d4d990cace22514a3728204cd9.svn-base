@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+using Tool;
+
+namespace TuanDai.WXApiWeb.Member.Repayment
+{
+    /// <summary>
+    /// 我的账单
+    /// Allen 2015-06-29
+    /// </summary>
+    public partial class bills_details : UserPage
+    {       
+        protected WXMyBillDetialInfo model { get; set; }
+        protected IList<ProjectAdImageInfo> BannerList;   //首页头部广告图
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                this.GetData();
+            }
+        }
+
+        private void GetData()
+        {
+            Guid userId = WebUserAuth.UserId.Value;
+            ProjectBLL bll = new ProjectBLL();
+            Guid id= Tool.SafeConvert.ToGuid(Tool.WEBRequest.GetQueryString("Id")).Value;
+            model = bll.WXGetMyBillDetailInfo(id, userId);           
+            BannerList = new AdImageBLL().GetTuanDaiHot((int)ConstString.AdImageType.WEBImage, 1);
+        } 
+
+        //获取标题
+        public static string GetBillTitle(WXMyBillDetialInfo item)
+        {
+            if (item.BillType == 4)
+            {
+                if (item.BillDesc == "申购借出")
+                {
+                    if (!item.Title.IsEmpty())
+                        return item.Title.ToText();
+                    else
+                        return item.BillDesc;
+                }
+                else
+                {
+                    return item.BillDesc; 
+                }
+            }
+            else
+                return item.BillDesc;
+        }
+
+        //获取交易类型
+        public static string GetBillType(int BillType)
+        {
+            //if (item.BillType == 5)
+            //    return "投资回款";
+            //else
+             return Tool.EnumHelper.GetDescriptionFromEnumValue(typeof(ConstString.FundDetailType1), BillType);
+        }
+    }
+}

@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=750, user-scalable=no, target-densityDpi=device-dpi">
+		<title>资金统计</title>
+		<link rel="stylesheet" type="text/css" href="css/fundStatistics.css?v=20161110" />
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.0.min.css" />
+	</head>
+
+	<body>
+		<section class="sec01">
+			<p class="p1_1 text-center c-fff">资产总额</p>
+			<p class="p1_2 text-center c-fff">8,090,688.00</p>
+			<div class="lqBox clearfix">
+				<div class="w50p text-center lf">
+					<p class="lq_p1">P2P理财</p>
+					<p class="lq_p2">1,000,000.00</p>
+				</div>
+				<div class="w50p text-center lf">
+					<p class="lq_p1">定期理财</p>
+					<p class="lq_p2">1,000,000.00</p>
+				</div>
+			</div>
+			<div class="lqSlide">
+				<div class="swiper-container" id="swiper1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="frame frame1">
+								<div class="clearfix frame_row">
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark1"></span>待收本金</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark1"></span>待收利息</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark1"></span>可用余额</p>
+										<p>5000.00</p>
+									</div>
+								</div>
+								<div class="clearfix frame_row mt18">
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark1"></span>冻结资金</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark1"></span>在途资金<i class="ico ico_wran2" id="a1"></i></p>
+										<p>5000.00</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="frame frame2">
+								<div class="clearfix frame_row">
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark2"></span>待收本金</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark2"></span>待收利息</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark2"></span>可用余额</p>
+										<p>5000.00</p>
+									</div>
+								</div>
+								<div class="clearfix frame_row mt18">
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark2"></span>冻结资金</p>
+										<p>5000.00</p>
+									</div>
+									<div class="lf lfBox">
+										<p><span class="markRound f_mark2"></span>在途资金<i class="ico ico_wran" id="a2"></i></p>
+										<p>5000.00</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pagination1" id="page1"></div>
+			</div>
+		</section>
+
+		<div class="split split1">
+			<div class="ico ico_bgleft"></div>
+			<div class="imgLine imgLine1 margin-auto"></div>
+			<div class="ico ico_bgright"></div>
+		</div>
+
+		<section class="sec02">
+			<div class="secTop text-center">
+				<p class="st_p1">投资收益</p>
+				<p class="st_p2">3,688.00</p>
+			</div>
+			<div class="lqIncome clearfix">
+				<div class="w50p lf lqi_l">
+					<p class="lqi_p1">P2P理财：1,121,300.00</p>
+					<p class="lqi_p2"><i></i>已收利息<span>500.00</span></p>
+					<p class="lqi_p3"><i></i>待收利息<span>200.00</span></p>
+					<div class="lqiBar">
+						<div class="lqiBarPer" style="width: 60%;"></div>
+					</div>
+				</div>
+				<div class="w50p lf lqi_r">
+					<p class="lqi_p1">定期理财：1,121,300.00</p>
+					<p class="lqi_p2"><i></i>已收利息<span>500.00</span></p>
+					<p class="lqi_p3"><i></i>待收利息<span>200.00</span></p>
+					<div class="lqiBar">
+						<div class="lqiBarPer" style="width: 10%;"></div>
+					</div>
+				</div>
+				<div class="imgLine imgLine2"></div>
+			</div>
+
+			<div id="chart1" style="height: 351px;"></div>
+			<div class="xAxis clearfix">
+				<div class="lf">2016.04.10</div>
+				<div class="rf">2016.05.09</div>
+			</div>
+		</section>
+
+		<div class="split">
+			<div class="imgLine imgLine1 margin-auto"></div>
+		</div>
+
+		<section class="sec03">
+			<div class="secTop text-center">
+				<p class="st_p1">其它收益</p>
+				<p class="st_p2">888.00</p>
+			</div>
+			<div class="clearfix otherIncome">
+				<div class="lf lfBox">
+					<p><span class="markRound markOrange"></span>红包收益</p>
+					<p id="hbIncome">10.00</p>
+				</div>
+				<div class="lf lfBox">
+					<p><span class="markRound markRed"></span>投资收益</p>
+					<p id="investIncome">100.00</p>
+				</div>
+				<div class="lf lfBox">
+					<p><span class="markRound markPurple"></span>邀请收益</p>
+					<p id="inviteIncome">60.00</p>
+				</div>
+			</div>
+			<div class="oiBar">
+				<div class="oiBarPer hbBar" id="bar1"></div>
+				<div class="oiBarPer investBar" id="bar2"></div>
+				<div class="oiBarPer inviteBar" id="bar3"></div>
+			</div>
+		</section>
+
+		<div class="split">
+			<div class="ico ico_bgleft"></div>
+			<div class="imgLine imgLine1 margin-auto"></div>
+			<div class="ico ico_bgright"></div>
+		</div>
+
+		<section class="sec04">
+			<div class="secTop text-center">
+				<p class="st_p1">支出总计</p>
+				<p class="st_p2">666.00</p>
+			</div>
+			<div class="frame3">
+				<div class="chartBox">
+					<div class="chartImg chartRed" id="h1"></div>
+					<div class="chartImg chartOrange" id="h2"></div>
+					<div class="chartImg chartPurple" id="h3"></div>
+					<div class="chartImg chartGreen" id="h4"></div>
+					<div class="chartLineBox">
+						<span id="yAxis1">100</span>
+						<div class="chartLine"></div>
+					</div>
+					<div class="chartLineBox">
+						<span id="yAxis2">50</span>
+						<div class="chartLine"></div>
+					</div>
+					<div class="chartLineBox">
+						<span>0</span>
+						<div class="chartLine"></div>
+					</div>
+				</div>
+				<div class="chartLable">
+					<p><span class="markRound markRed"></span>已付利息<span class="chartNum" id="num1">110,000,000.23</span></p>
+					<p><span class="markRound markOrange"></span>待付利息<span class="chartNum" id="num2">210,000,000.23</span></p>
+					<p><span class="markRound markPurple"></span>提现费用<span class="chartNum" id="num3">1,000.00</span></p>
+					<p><span class="markRound markGreen"></span>支付佣金<span class="chartNum" id="num4">100,000.00</span></p>
+				</div>
+			</div>
+		</section>
+
+		<div class="split">
+			<div class="imgLine imgLine1 margin-auto"></div>
+		</div>
+
+		<section class="sec05">
+			<div class="secTop text-center">
+				<p class="st_p1">净赚收益</p>
+				<p class="st_p3">1700.00</p>
+			</div>
+			<div class="frame frame5">
+				<div>
+					<p>投资收益</p>
+					<p>1000.00</p>
+				</div>
+				<div class="add"></div>
+				<div>
+					<p>其它收益</p>
+					<p>800.00</p>
+				</div>
+				<div class="ico minus"></div>
+				<div>
+					<p>支出总计 </p>
+					<p>10000.00</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="split">
+			<div class="imgLine imgLine3 margin-auto"></div>
+		</div>
+
+		<section class="sec06">
+			<div class="dayCount text-center">
+				2015.12.20注册，已加入团贷网
+				<span>2</span>
+				<span>8</span>
+				<span>0</span> 天！
+			</div>
+		</section>
+
+		<div class="split">
+			<div class="imgLine imgLine3 margin-auto"></div>
+		</div>
+
+		<section class="sec07">
+			<div class="incomePart">
+				<div class="clearfix">
+					<div class="partOpt text-center w50p lf bre6">
+						<p>累计投资</p>
+						<p>1,380,800.00</p>
+					</div>
+					<div class="partOpt text-center w50p lf">
+						<p>累计借款</p>
+						<p>0.00</p>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="partOpt text-center w50p lf bre6">
+						<p>累计充值</p>
+						<p>8,820.00</p>
+					</div>
+					<div class="partOpt text-center w50p lf">
+						<p>累计提现</p>
+						<p>8,820.00</p>
+					</div>
+				</div>
+				<div class="imgLine imgLine3 margin-auto"></div>
+				<div class="partCenter">
+					<i></i>
+				</div>
+			</div>
+		</section>
+		
+		<!--弹框-->
+		<div class="alert hide" id="alert1">
+			<div class="alert_con">
+				<p>在途资金包含提现确认资金和<br />投标待确认资金</p>
+				<div class="iKnow">我知道了</div>
+			</div>
+		</div>
+		
+		<div class="alert hide" id="alert2">
+			<div class="alert_con">
+				<p>在途资金包含提现确认资金和<br />投标待确认资金</p>
+				<div class="iKnow">我知道了</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script src="js/swiper-3.4.0.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>团贷大数据</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160411" />
+		<link rel="stylesheet" type="text/css" href="/css/about_td.css?v=003" />
+		<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=dfsdf" />
+	</head>
+	<body>
+	<div class="bg-fff">
+		<div class="top-banner pos-r">
+			<img src="/imgs/images/bigData/banner-bg.png">
+			<p class="pos-a time">安全运营<span>4</span>年<span>1</span><span>7</span><span>4</span>天<span>1</span><span>0</span>时</p>
+			<div class="title-box top1">
+				<p>累计交易额（截至2017年1月4日）</p>
+				<p>526亿5589万</p>
+			</div>
+		</div>
+		<div class="bigdata-box pt1">
+			<div class="pl20 pr20">
+				<p class="s-t1">今日交易额（实时更新）</p>
+				<p class="s-t2">180,970,316元</p>
+				<div class="pt35 pb70">
+					<div id="c1" style="height: 190px;"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bigdata-box">
+			<div class="title-box">
+				<p>质保服务专款（截至2016年11月）</p>
+				<p>7835万8184元</p>
+			</div>
+			<div class="pl20 pr20 pt25">
+				<p class="c-8a9199 f13px text-justify">当借款项目出现逾期时，平台将按照偿付规则及时启用“质保服务专款”进行质保偿付，赔付投资者投资资金（超级会员偿付本金和利息，普通会员偿付本金）；</p>
+				<div class="webkit-box wb-box1 text-center">
+					<div class="box-flex1">
+						<img src="/imgs/images/bigData/pic1.png?v=001">
+						<p class="c-4c4c4c f15px">厦门银行存管</p>
+					</div>
+					<div class="box-flex1">
+						<img src="/imgs/images/bigData/pic2.png?v=001">
+						<p class="c-4c4c4c f15px">每月增补资金</p>
+					</div>
+				</div>
+				<a href="quality_assurance_details.html" class="btn-con">了解更多<i></i></a>
+			</div>
+		</div>
+
+		<div class="bigdata-box">
+			<div class="title-box">
+				<p>注册用户</p>
+				<p>387万1751人</p>
+			</div>
+			<div class="pl20 pr20">
+				<div class="webkit-box sj-box">
+					<div class="box-flex1">
+						<p>累计成交笔数</p>
+						<p>1183万4417笔</p>
+					</div>
+					<div class="box-flex1">
+						<p>累计为投资人赚取收益</p>
+						<p>28亿144万</p>
+					</div>
+				</div>
+				<p class="title">更多运营数据</p>
+				<div class="webkit-box wb-box2 text-center">
+					<div class="box-flex1">
+						<img src="/imgs/images/bigData/file/pic5.png">
+						<p class="f13px c-4d4d4d">2016年第四季度运营报告</p>
+					</div>
+					<div class="box-flex1">
+						<img src="/imgs/images/bigData/file/pic6.png">
+						<p  class="f13px c-4d4d4d">2016年第三季度运营报告</p>
+					</div>
+				</div>
+				<a href="operative_report.html" class="btn-con">查看更多<i></i></a>
+			</div>
+		</div>
+
+		<div class="bigdata-box">
+			<div class="title-box">
+				<p>累计投资排名</p>
+				<p>最豪团粉</p>
+			</div>
+			<div class="pl20 pr20">
+				<div class="table-box">
+					<div class="clearfix pb15">
+						<span class="icon-n icon-n1 fl"></span>
+						<span class="lf">2亿2483万</span>
+						<span class="rf">广东</span>
+						<span class="rf">李先生</span>
+					</div>
+					<div class="clearfix pb15 pt15">
+						<span class="icon-n icon-n2 fl"></span>
+						<span class="lf">1亿3283万</span>
+						<span class="rf">广东</span>
+						<span class="rf">李先生</span>
+					</div>
+					<div class="clearfix pt15">
+						<span class="icon-n icon-n3 fl"></span>
+						<span class="lf">1亿3283万</span>
+						<span class="rf">广东</span>
+						<span class="rf">李先生</span>
+					</div>
+				</div>
+				<p class="title">收益最高团粉</p>
+				<div class="clearfix tf-box">
+					<span class="lf icon1"></span>
+					<div class="lf">
+						<p>累计收益：923万元</p>
+						<p>李先生<span>广东</span></p>
+					</div>
+				</div>
+
+				<p class="title">人脉最广团粉</p>
+				<div class="clearfix tf-box">
+					<span class="lf icon2"></span>
+					<div class="lf">
+						<p>累计推广收益：9万元</p>
+						<p>李女士<span>上海</span></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="bigdata-box">
+			<div class="bg-f5f6f7"></div>
+			<h3>2016年12月团粉投资报告</h3>
+			<div class="title-box">
+				<p>12月团粉帮助融资企业和个人</p>
+				<p>18678个</p>
+			</div>
+			<div class="pl20 pr20 pb70 pt35">
+				<div id="c2" style="height: 190px;"></div>
+			</div>
+
+			<div class="title-box">
+				<p>12月最受团粉欢迎的项目</p>
+				<p>复投宝36</p>
+			</div>
+			<div class="webkit-box wb-box3 pl20 pr20 text-center pb70">
+				<div class="box-flex1">
+					<img src="/imgs/images/bigData/pic3.png?v=01">
+					<p class="p1">1分30秒</p>
+					<p class="p2">平均满标速度</p>
+				</div>
+				<div class="box-flex1">
+					<img src="/imgs/images/bigData/pic4.png?v=01">
+					<p class="p1">1亿2000万</p>
+					<p class="p2">累计投资金额</p>
+				</div>
+			</div>
+
+			<div class="title-box">
+				<p>12月投资排名</p>
+				<p>Top3</p>
+			</div>
+
+			<div class="pl20 pr20">
+				<div class="top-wrapper webkit-box">
+					<div class="top-box box-flex1">
+						<div class="top-pic">
+							<img src="/imgs/images/bigData/no.2.png">
+						</div>
+						<span class="c-f5c60a f17px pt17 fb">8,83万</span>
+						<span class="c-e5b000 f13px">叶先生(山西）</span>
+					</div>
+					<div class="top-box box-flex1 top-scale">
+						<div class="top-pic">
+							<img src="/imgs/images/bigData/no.1.png">
+						</div>
+						<span class="c-ff8b52 f17px pt17 fb">1483万</span>
+						<span class="c-ff8b52 f13px">李先生(广东）</span>
+					</div>
+
+					<div class="top-box box-flex1">
+						<div class="top-pic">
+							<img src="/imgs/images/bigData/no.3.png">
+						</div>
+						<span class="c-feb132 f17px pt17 fb">7,89万</span>
+						<span class="c-f0a630 f13px">李女士(广东）</span>
+					</div>
+				</div>
+
+				<div class="swiper-container top-table" id="swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="top-table-con">
+								<div class="clearfix">
+									<span class="lf">投资项目</span>
+									<span class="lf">投资占比</span>
+									<span class="rf">加权平均利率</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝36</span>
+									<span class="lf">30.5%</span>
+									<span class="rf">14.8%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝24</span>
+									<span class="lf">25.5%</span>
+									<span class="rf">14%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">小微企业</span>
+									<span class="lf">24.5%</span>
+									<span class="rf">10%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">资产标</span>
+									<span class="lf">19.5%</span>
+									<span class="rf">11%</span>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="top-table-con">
+								<div class="clearfix">
+									<span class="lf">投资项目</span>
+									<span class="lf">投资占比</span>
+									<span class="rf">加权平均利率</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝36</span>
+									<span class="lf">30.5%</span>
+									<span class="rf">14.8%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝24</span>
+									<span class="lf">25.5%</span>
+									<span class="rf">14%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">小微企业</span>
+									<span class="lf">24.5%</span>
+									<span class="rf">10%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">资产标</span>
+									<span class="lf">19.5%</span>
+									<span class="rf">11%</span>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="top-table-con">
+								<div class="clearfix">
+									<span class="lf">投资项目</span>
+									<span class="lf">投资占比</span>
+									<span class="rf">加权平均利率</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝36</span>
+									<span class="lf">30.5%</span>
+									<span class="rf">14.8%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">复投宝24</span>
+									<span class="lf">25.5%</span>
+									<span class="rf">14%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">小微企业</span>
+									<span class="lf">24.5%</span>
+									<span class="rf">10%</span>
+								</div>
+								<div class="clearfix">
+									<span class="lf">资产标</span>
+									<span class="lf">19.5%</span>
+									<span class="rf">11%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	</body>
+	<script type="text/javascript" src="/scripts/lib/fastclick-jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="/scripts/echarts2.js"></script>
+	<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+	<script type="text/javascript">
+        $(function() {
+            FastClick.attach(document.body);
+
+            function chart(id,xData,yData,formatterType) {
+                var myChart = echarts.init(document.getElementById(id));
+                option = {
+                    tooltip: {
+                        show: true,
+                        trigger: 'axis',
+                        triggerOn: 'none',
+                        showContent:true,
+                        alwaysShowContent:true,
+						//confine:true,
+                        backgroundColor: 'rgba( 255, 255, 255, 0.8 )',
+                        borderColor:'#d3d7db',
+                        borderWidth:1,
+                        axisPointer: {
+                            lineStyle: {
+                                color: '#facf2f',
+                            },
+                            animation: false
+                        },
+                        padding: [5, 9, 5, 9],
+                        formatter: '{c0}' + formatterType,
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#4d4d4d'
+                        }
+
+                    },
+                    grid: {
+                        left: '0',
+                        right: '0',
+                        top: '0',
+                        bottom: '30',
+                        x:0,
+                    },
+                    calculable: true,
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: true,
+                        axisTick: {show: false},
+                        axisLine: {show: false},
+                        splitLine: {
+                            show: false,
+                            lineStyle: {color: '#f4f4f4'}
+                        },
+                        axisLabel: {
+                            show:true,
+                            textStyle: {
+                                color: '#8a9199',
+                                fontSize: 10
+                            },
+                            margin: 10
+                        },
+                        data: xData
+                    }],
+
+                    yAxis: [{
+                        type: 'value',
+                        scale:true,
+                        axisTick: {
+                            show: false
+                        },
+                        splitNumber: 2,
+                        axisLine: {
+                            show: false,
+                            lineStyle: {
+                                width: 1,
+                                color: '#ebeef0'
+                            }
+                        },
+                        axisLabel: {
+                            show:false,
+                            textStyle: {
+                                color: '#808080',
+                                fontSize: 10
+                            },
+                            margin: 0
+                        },
+                        splitLine: {
+                            lineStyle: {color: '#f4f4f4'}
+                        },
+                    }],
+                    series: [{
+                        symbol: 'image:///imgs/images/icon/yuan4.png',
+                        symbolSize: 11,
+                        zlevel: 3,
+                        z: 3,
+	//					name: '净赚收益',
+                        type: 'line',
+                        smooth: true,
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: 'rgba(250, 207, 47,0.4)'
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(255, 255, 255,0.4)'
+                                }])
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    color: '#facf2f',
+                                    width: '2'
+                                }
+                            }
+                        },
+                        data: yData
+                    }]
+                };
+
+                myChart.setOption(option);
+            }
+            $(function(){
+                chart('c1',['12－31','1－1','1－2','1－3','1－4','1－5'],[10002,31458,22222,13658,8700,6500],'万');
+                chart('c2',['2016-09','2016-10','2016-11','2016-12','2017-01'],['200','8700','6500','8700','18000'],'个');
+            });
+
+			//排名交互
+            function addScale(index){
+                var topBox = $(".top-box");
+                topBox.removeClass("top-scale");
+                topBox.eq(index).addClass('top-scale');
+            }
+
+            var mySwiper = new Swiper('#swiper', {
+                slidesPerView: 1,
+                initialSlide :1,
+                spaceBetween: 0,
+                speed:300,
+                onSlideChangeStart:function(swiper){
+                    addScale(swiper.activeIndex);
+                }
+            });
+
+            $(".top-box").each(function(i,item){
+                $(item).click(function(){
+                    mySwiper.slideTo(i,500,true);
+                })
+            })
+
+        });
+
+	</script>
+</html>

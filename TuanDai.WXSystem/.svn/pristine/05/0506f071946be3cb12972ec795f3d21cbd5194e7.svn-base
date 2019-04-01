@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>标分享页面</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+	<link rel="stylesheet" type="text/css" href="/css/range.css?v=20160305" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160323" />
+</head>
+<body class="bg-f1f3f5 is-bg">
+		<div class="bg-fff">
+			<div class="ml15 mr15 is-top">
+				<h3 class="text-center pos-r f17px">We计划X<span class="f17px ml15">分期宝</span></h3>
+				<div class="webkit-box pt18 pb18">
+					<div class="box-flex1 text-center">
+						<p class="c-fd6040 f27px">14<span class="c-fd6040 f14px">.40%</span></p>
+						<p class="c-ababab f12px">预期年化收益率</p>
+					</div>
+					<div class="box-flex1 text-center">
+						<p class="c-212121 f14px">9个月</p>
+						<p class="c-ababab f12px">计划期限</p>
+					</div>
+				</div>
+				<div class="figure pos-r">
+					<div class="circle1 pos-a bg-d1d1d1"></div>
+					<div class="circle2 pos-a"></div>
+					<div class="trapezoid pos-a"></div>
+				</div>
+			</div>
+		</div>
+		<div class="is-mid-box" >
+			<div class="is-mid bg-fff">
+				<div class="bg-fff pl15 pr15 pb15">
+					<p class="c-ababab f12px pt5">预计到期总收益</p>
+					<p class="c-fd6040 f36px mt20">￥<span class="c-fd6040 f36px" id="count1">1,080</span>.00</p>
+					<p class="c-808080 f14px mt20">投资金额：<span class="c-808080 f14px" id="count2">10,000</span>.00元</p>
+
+					<div class="range-slider range1">
+						<span class="c-ababab f12px span_from pos-a">5</span>
+						<input type="text" class="js-range-slider1" value="" tabindex="-1" style="border: none;" />
+						<span class="c-ababab f12px span_to pos-a">20,000</span>
+					</div>
+					<div class="btn-box">
+						<a href="" class="btn btnYellow mt30">去团贷网投资</a>
+					</div>
+				</div>
+			</div>
+			<div class="bg-by">
+				<div class="bg-by-con"></div>
+			</div>
+		</div>
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="ml15 pt10 pb10 c-212121 f17px bb-e6e6e6">产品特点</div>
+			<div class="round-box pt20 pb20 pos-r">
+				<div class="round01 webkit-box box-center box-vertical pos-a round-l">
+					<p class="c-fab600">自动投标</p>
+					<p class="c-fab600">自动复投</p>
+				</div>
+				<div class="round01 margin-auto webkit-box box-center box-vertical">
+					<p class="c-fab600">持有3个月</p>
+					<p class="c-fab600">可提前退出</p>
+				</div>
+				<div class="round01 webkit-box box-center box-vertical pos-a round-r">
+					<p class="c-fab600">适用于会员</p>
+					<p class="c-fab600">保障体系</p>
+				</div>
+			</div>
+		</div>
+
+
+
+	<div class="text-center mt15 bg-fff is-b">
+		<a href="" class="f17px c-fab600">了解更多</a>
+	</div>
+
+	<!--弹框-->
+	<div class="alert webkit-box box-center hide">
+		<div class="bg-fff code-popup moveTop text-center pos-r">
+			<a href="javascript:;" class="close pos-a" id="close"><i></i></a>
+			<p class="c-212121 f17px">关注“团贷服务平台”</p>
+			<img src="/imgs/images/pic/code1.png" class="code mt10">
+			<p class="c-ababab f13px">（长按或扫描识别）</p>
+			<p class="c-212121 f15px mt25">团贷首席体验官“王宝强”强力推荐</p>
+			<img src="/imgs/images/pic/pic1.png" class="pic mt20">
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/ion.rangeSlider.js"></script>
+<script type="text/javascript">
+	//滑块
+	range1( 1000, 20000, 1000, 20000);
+	function range1(min, max, from, to){
+		var $range = $(".js-range-slider1");
+		$range.ionRangeSlider({
+			type: "single",
+			min: min,
+			max: max,
+			from: from,
+			to: to,
+			step: 100,
+			prettify_enabled: true,
+			prettify_separator: ",",
+			onChange: function (data) {
+				var f = data.from;
+				var t = data.to;
+				updateValues(f,t);
+			}
+		});
+		var slider = $range.data("ionRangeSlider");
+		var updateRange = function (from,to) {
+			slider.update({
+				from: from,
+				to: to
+			});
+		};
+		var updateValues = function (from,to) {
+			$("#count1").html(from);
+			$("#count2").html(to);
+		};
+	}
+
+//   关闭弹窗
+	$("#close").click(function(){
+		$(".code-popup").removeClass('moveTop').addClass('moveDown');
+		$(".alert").fadeOut(500);
+	})
+
+</script>
+</html>

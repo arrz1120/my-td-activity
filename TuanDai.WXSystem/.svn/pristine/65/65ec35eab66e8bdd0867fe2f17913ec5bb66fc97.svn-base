@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>供应链-项目详情</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/invest.css?v=20151113" /><!--借款-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">项目详情</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<section class="wrapper-loan assetsbid-cn">
+    <div class="bg-fbfbf9 bb-d1d1d1"><h2 style="padding: 12px 0;">项目宝（1期）B</h2></div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>借款总额:</p>
+            <p class="f16px"> <span class="f16px c-ff6600">20,000.00</span>元</p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>年化收益:<span class="c-ff6600">13-200%</span><img id="detail_B" onclick="showAlert();" src="/imgs/images/state9.png"></p>
+        </div>
+        <div class="info-r rf">
+            <p>借款期限:<span class="c-ff6600">30 - 360</span><span class="c-212121">天</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>出借单位:<span class="c-ff6600">1000</span><span class="c-212121">元</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>计息方式:<span class="c-ff6600">即投即计息</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix">
+        <div class="info-l lf">
+            <p>剩余份数:<span class="c-ff6600">1366</span><span class="c-212121">份</span></p>
+        </div>
+        <div class="info-r rf">
+            <p>担保方式:<span class="c-ff6600">联胜担保</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>还款方式:<span class="c-212121"><span class="c-ff6600">按天计息，到期本息</span></p>
+        </div>
+    </div>
+    <div class="info-item clearfix mb15">
+        <div class="info-l lf">
+            <p>剩余时间:<span class="c-212121"><span class="c-ff6600">9</span>天<span class="c-ff6600">8</span>时<span class="c-ff6600">47</span>分</span></p>
+        </div>
+    </div>
+    <div class="tips text-left">
+    	本项目无固定期限，以资金实际使用时间为准。利率随时间变化而变化， 时间越长利率越高。
+    </div>
+
+    <div class="bg-fbfbf9 bb-d1d1d1 bt-d1d1d1 mt20"><h2>借款详情</h2></div>
+    <div class="info-item simubao-d gyl-bd">
+        <div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">资金用途</h3>
+            <p class="f12px c-212121 pr10">本项目由深圳前海俊拓金融服务股份有限公司（下称“俊拓金融”）推介并提供本息担保。俊拓金融专注国内电商供应链的 金融咨询服务公司，以大数据为基础，以金融为手段，深度切入电商完整供应链，打造服务电商的开放性综合服务平台。</p>
+        </div>
+	        
+        <div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">项目前景</h3>
+            <p class="f12px c-212121 pr10">本项目由深圳前海俊拓金融服务股份有限公司（下称“俊拓金融”）推介并提供本息担保。俊拓金融专注国内电商供应链的 金融咨询服务公司，以大数据为基础，以金融为手段，深度切入电商完整供应链，打造服务电商的开放性综合服务平台。</p>
+        </div>
+        
+        <div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">盈利预测</h3>
+            <p class="f12px c-212121 pr10">本项目由深圳前海俊拓金融服务股份有限公司（下称“俊拓金融”）推介并提供本息担保。俊拓金融专注国内电商供应链的 金融咨询服务公司，以大数据为基础，以金融为手段，深度切入电商完整供应链，打造服务电商的开放性综合服务平台。</p>
+        </div>
+        
+        <div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-ffcf1f">借款人信息</h3>
+            <p class="f13px">第一还款来源<span class="f13px">项目盈利</span></p>
+            <p class="f13px">第二还款来源<span class="f13px">质押物（如有）</span></p>
+            <p class="f13px">第三还款来源<span class="f13px">担保公司</span></p>
+        </div>
+
+        <!--借款人信息-->
+        <div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-ffcf1f">借款人信息</h3>
+            <p class="f13px">公司名称<span class="f13px">东莞市数额疏风有限公司</span></p>
+            <p class="f13px">组织机构代码<span class="f13px">4637367467327868767</span></p>
+            <p class="f13px">注册时间<span class="f13px">2014-09-09</span></p>
+        </div>
+
+        <!--审核信息-->
+        <div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-ffcf1f">借款人信息</h3>
+            <div class="verifyInfo pr10">
+                <div class="f14px">
+                    <img src="/imgs/images/ico-loan1.png">身份认证
+                </div>
+                <div class="f14px">
+                    <img src="/imgs/images/ico-loan2.png">手机认证
+                </div>
+                <div class="f14px">
+                    <img src="/imgs/images/ico-loan3.png">实地认证
+                </div>
+                <div class="f14px">
+                    <img src="/imgs/images/ico-loan4.png">邮箱认证
+                </div>
+            </div>
+        </div>
+
+
+        <!--借款人信用档案-->
+        <div class="files border-b">
+            <h3 class="f14px c-ffcf1f">借款人信用档案</h3>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p>成功出让:<span class="c-000">2份</span></p>
+                </div>
+                <div class="info-r rf">
+                    <p>成功回购:<span class="c-000">100份</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p>累计利息成本:<span class="c-000"> 6.8%</span></p>
+                </div>
+                <div class="info-r rf">
+                    <p>逾期回购:<span class="c-000">0份</span></p>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="info-l lf">
+                    <p>逾期还款率:<span class="c-000">0%</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!--股权新增的从这里开始--------------------------------------------------------------->
+        
+        <!--资金用途-->
+        <div class="border-b pb20">
+	        <h3 class="f14px c-ffcf1f">资金用途</h3>
+	        <div class="clearfix">
+		        <div class="info-l lf">
+		            <p>产品名称<span class="c-212121 ml5">九鼎投资定增一号</span></p>
+		        </div>
+		    </div>
+		    <div class="clearfix">
+		        <div class="info-l lf">
+		            <p>管理机构<span class="c-212121 ml5">九泰基金</span></p>
+		        </div>
+		    </div>
+		    <div class="clearfix">
+		        <div class="info-l lf">
+		            <p>存续期限<span class="c-212121 ml5">1年</span></p>
+		        </div>
+		        <div class="info-r rf">
+		            <p>投资方向<span class="c-212121 ml5">股权投资</span></p>
+		        </div>
+		    </div>
+		    <div class="clearfix">
+		        <div class="info-l lf">
+		            <p>认购费<span class="c-212121 ml20">无</p>
+		        </div>
+		        <div class="info-r rf">
+		            <p>逾期回购<span class="c-212121 ml5">契约型</span></p>
+		        </div>
+		    </div>
+		    <div class="clearfix">
+		        <div class="info-l lf">
+		            <p>资本类型<span class="c-212121 ml5">本土</span></p>
+		        </div>
+		    </div>
+		    <div class="tips text-left mt10 mr10">
+		    	风险提示：私募股权投资有一定风险，请谨慎投资。
+		    </div>
+	    </div>
+	    
+	    <!--投资范围-->
+		<div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">投资范围</h3>
+            <p class="f12px c-212121 pr10">本计划的投资范围为北京同创九鼎投资管理股份有限公司（九鼎投资，股票代码：430719）依法非公开发行的股票和货币市场工具。具体包括：</p>
+            <p class="f12px c-212121 pr10"> （1）北京同创九鼎投资管理股份有限公司（九鼎投资，股票代码：430719）依法非公开发行的股票；</p>
+            <p class="f12px c-212121 pr10"> （2）闲置资金可投资于货币市场工具和存款工具：包括现金、债券逆回购、货币市场基金、期限在一年以内（含一年）的银行存款、剩余期限在一年以内（含一年）的公开发行的债券。</p>
+        </div>
+        
+	    <!--投资亮点-->
+		<div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">投资亮点</h3>
+            <p class="f13px c-212121 pr10">【亮点一】拥有丰富的经验及资源</p>
+            <p class="f12px c-808080 pr10">九鼎投资作为新三板第一股拥有丰富的新三板经验及拟投企业资源，累计投资企业235家；上市&并购退出企业43家；新三板挂牌&退出企业30家；Pre-Pro投资市场份额超过5%； 在管项目综合IRR超过30%； 已退出企业（不含新三板挂牌）综合IRR超过40%。</p>
+            <p class="f13px c-212121 pr10">【亮点二】投资期限短</p>
+            <p class="f12px c-808080 pr10">投资期限短，针对九鼎投资单票定增。</p>
+            <p class="f13px c-212121 pr10">【亮点三】投资策略</p>
+            <p class="f12px c-808080 pr10">1、权益类资产投资策略：本计划在存续期间全部投资于北京同创九鼎投资管理股份有限公司（九鼎投资，股票代码：430719）依法非公开发行的股票。</p>
+            <p class="f12px c-808080 pr10">2、货币市场工具投资策略：本基金将在深入研究国内外的宏观经济走势、货币政策变化趋势、市场资金供求状况的基础上，分析和判断利率走势并综合考虑各类投资品种的收益性、流动性和风险特征，对基金资产组合进行积极管理。</p>
+        </div>
+	    
+	    <!--盈利预期-->
+		<div class="border-b pb20">
+            <h3 class="f14px c-ffcf1f">盈利预期</h3>
+            <p class="f12px c-212121 pr10">借款方提供的相关物业，据我方风控部门的现场调查及评估 公司的评估，价值约在2000万。签署借款合同、长期租赁协 议、资产变卖协议、租金收益转让协议等。同时签署由团贷 网代理借款方长期银行融资手续。</p>
+        </div>
+	    
+	    <!--还款保障-->
+		<div class="pr10 border-b pb20 company-info">
+            <h3 class="f14px c-ffcf1f">还款保障</h3>
+            <p class="f13px">第一还款来源<span class="f13px">项目盈利</span></p>
+            <p class="f13px">第二还款来源<span class="f13px">质押物（如有）</span></p>
+            <p class="f13px">第三还款来源<span class="f13px">担保公司</span></p>
+        </div>
+        
+        <!--股权新增的从这里结束--------------------------------------------------------------->
+        
+        
+    </div>
+
+    <!--申购人数-->
+    <div class="bg-f2f2f2 h20"></div>
+    <!--这个是股权新增的-->
+    <a href="xmb_detail_gljg.html">
+        <div class="clearfix border-b ml10 sg-people btNone">
+            <h3 class="f13px lf">管理机构</h3>
+            <div class="rf">
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <!------------>
+    <a href="">
+        <div class="clearfix border-b ml10 sg-people btNone">
+            <h3 class="f13px lf">项目进展</h3>
+            <div class="rf">
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <a href="">
+        <div class="clearfix border-b ml10 sg-people btNone">
+            <h3 class="f13px lf">申购人数</h3>
+            <div class="rf">
+                <span class="c-808080 f13px">150人</span>
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+    <a href="">
+        <div class="clearfix border-b ml10 sg-people btNone">
+            <h3 class="f13px lf">常见问题</h3>
+            <div class="rf">
+                <i class="ico-arrow-r"></i>
+            </div>
+        </div>
+    </a>
+
+    <div class="bg1 mb50"></div>
+    <footer>
+        <a href="javascript:void(0)" class="loan-button">确定加入</a>
+    </footer>
+
+</section>
+
+<!--弹窗-->
+<div class="alert" id="alert" style="display: none;">
+	<div class="alert_bg">
+		<div class="alert_wp">
+			<div class="alert_close" id="close" onclick="closeAlert()">
+				
+			</div>
+			<div class="alert_tit">
+				<p>年化利率随资金使用时间变化而变化，时间越长利率越高</p>
+			</div>
+			<div class="tableB">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr class="th">
+						<td>资金使用时间（天）</td>
+						<td>对应年化利率</td>
+					</tr>
+					<tr>
+						<td>1-180</td>
+						<td>13.5%</td>
+					</tr>
+					<tr class="fcfcfc">
+						<td>181-270</td>
+						<td>14%</td>
+					</tr>
+					<tr>
+						<td>271-365</td>
+						<td>15%</td>
+					</tr>
+					<tr class="fcfcfc">
+						<td>366-545</td>
+						<td>16%</td>
+					</tr>
+					<tr>
+						<td>546-730</td>
+						<td>18%</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function showAlert(){
+		document.getElementById('alert').style.display = 'block';
+	}
+	function closeAlert(){
+		document.getElementById('alert').style.display = 'none';
+	}	
+</script>
+</body>
+</html>

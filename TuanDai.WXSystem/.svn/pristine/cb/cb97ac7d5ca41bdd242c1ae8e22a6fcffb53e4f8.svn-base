@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>P2P理财</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160620" />
+		<link rel="stylesheet" type="text/css" href="/css/account2_new.css?v=20160620" />
+	</head>
+	<body class="bg-f7f9fa">
+		<div class="licaiBanner">
+			<div class="clearfix">
+				<div class="lf w50p pl15">
+					<p class="lcb_p1">总资产  (元)</p>
+					<p class="lcb_p2">100,100.00</p>
+				</div>
+				<div class="lf w50p pl15">
+					<p class="lcb_p1">账户余额  (元)</p>
+					<p class="lcb_p2">0.00</p>
+				</div>
+			</div>
+			<div class="lcb_line"></div>
+			<a href="javascript:void(0);" class="lcb_btn tx"><i class="ico_licai ico_tx"></i>提现</a>
+			<a href="javascript:void(0);" class="lcb_btn cz"><i class="ico_licai ico_cz"></i>充值</a>
+		</div>
+		
+		<div class="acount-link pt30 bg-fff" style="padding-top: 0 !important;">
+			<div class="click-respond linkBox">
+				<i class="ico_licai ico_lc1"></i>
+				<a href="" class="bb-e6e6e6">理财日历<i class="ico-arrow-r"></i><span>2016-10-12<b>50,00,000.23</b>元</span></a>
+			</div>
+			<div class="click-respond linkBox">
+				<i class="ico_licai ico_lc2"></i>
+				<a href="" class="bb-e6e6e6">投资记录<i class="ico-arrow-r"></i><span>待收本息：100元</span></a>
+			</div>
+			<div class="click-respond linkBox">
+				<i class="ico_licai ico_lc3"></i>
+				<a href="" class="bb-e6e6e6">借款记录<i class="ico-arrow-r"></i><span>待还本息：100元</span></a>
+			</div>
+			<div class="click-respond linkBox">
+				<i class="ico_licai ico_lc4"></i>
+				<a href="">账单<i class="ico-arrow-r"></i></a>
+			</div>
+		</div>
+	</body>
+</html>

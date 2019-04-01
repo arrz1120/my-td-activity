@@ -1,0 +1,91 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=375, user-scalable=no, target-densityDpi=device-dpi">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>常见问题</title>
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/global.css">
+		<link rel="stylesheet" type="text/css" href="/javaProject/css/question.css">
+	</head>
+
+	<body class="bg-f6f7f8">
+		<div class="questionWrap bg-fff">
+			<ul>
+				<li>
+					<div class="question-tit bb-e6e6e6 pl15 pt15 pb15">
+						<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ90"></i>什么是安盈宝？</p>
+					</div>
+					<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15">
+						<p class="c-808080 f15px text-justify">安盈宝系列产品是金交所挂牌的金融产品，由金交所备案登记，团贷网为金交所挂牌的金融产品提供信息展示服务。</p>
+					</div>
+				</li>
+				<li>
+					<div class="question-tit bb-e6e6e6 pl15 pt15 pb15">
+						<p class="c-212121 f17px"><i class="icon-triagle-r rotateZ0"></i>什么是地方金融资产交易所？</p>
+					</div>
+					<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+						<p class="c-808080 f15px text-justify">地方金融资产交易所是经监管部门批准设立的为金融产品提供登记、托管、交易、结算的金融资产交易平台，并由地方政府金融办监管的，为金融产品提供登记、托管、交易和结算等提供场所设施和服务的组织机构。</p>
+					</div>
+				</li>
+				<li>
+					<div class="question-tit bb-e6e6e6 pl15 pt15 pb15">
+						<p class="c-212121 f17px"><i class="icon-triagle-r"></i>安盈宝产品有哪些种类？</p>
+					</div>
+					<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+						<p class="c-808080 f15px text-justify">安盈宝展示的金交所产品包含权益转让类、直接融资类等多种类型产品。
+							<br>权益转让类产品：指在中国境内依法注册的公司、合伙企业及其他组织形式的商事主体依据法律法规规定将其因持有收益权性资产而形成的财产类权益在地方金融资产交易所转让予投资人的产品。
+							<br>直接融资类产品：指在中国境内依法注册的公司、合伙企业及其他组织形式的商事主体依据法律法规规定在地方金融资产交易所注册（备案）的、以直接融资为目的并约定在一定期限还本付息的产品。
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="question-tit bb-e6e6e6 pl15 pt15 pb15">
+						<p class="c-212121 f17px"><i class="icon-triagle-r"></i>安盈宝有哪些投资要求？</p>
+					</div>
+					<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+						<p class="c-808080 f15px text-justify">每期产品的投资人数不能超过200人；投资者的年龄必须大于18周岁。</p>
+					</div>
+				</li>
+				<li>
+					<div class="question-tit bb-e6e6e6 pl15 pt15 pb15">
+						<p class="c-212121 f17px"><i class="icon-triagle-r"></i>安盈宝在到期前可以提前赎回吗？可以转让吗？</p>
+					</div>
+					<div class="question-txt bb-e6e6e6 bg-f6f7f8 pd15 hide">
+						<p class="c-808080 f15px text-justify">认购成功后不能提前赎回。持有3个月后允许转让，转让服务费为转让总额的0.7%。</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="text-center f13px c-ababab pt15 pb15">注：具体说明以产品说明书为准。</div>
+
+		<script type="text/javascript" src="/scripts/jquery.min.js?v=20161119001"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				$(".questionWrap").find('li').click(function() {
+					var box = $(this).find('.question-txt');
+					var ico = $(this).find('.icon-triagle-r');
+					if(box.hasClass('hide')) {
+						if(ico.hasClass('rotateZ90')) {
+							ico.removeClass('rotateZ90').addClass('rotateZ0');
+						} else {
+							ico.removeClass('rotateZ0').addClass('rotateZ90');
+						}
+						box.removeClass('hide');
+					} else {
+						if(ico.hasClass('rotateZ90')) {
+							ico.removeClass('rotateZ90').addClass('rotateZ0');
+						} else {
+							ico.removeClass('rotateZ0').addClass('rotateZ90');
+						}
+						box.addClass('hide');
+					}
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

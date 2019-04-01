@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.BalancedSystem.Client</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.BalancedSystem.Client.BalancedSystemClient">
+            <summary>
+            获取接口Url地址
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.LogWcfUrl(System.String@,System.String@)">
+            <summary>
+            获取日志的地址
+            </summary>
+            <param name="Url">返回的地址</param>
+            <param name="ErrorMessage">错误信息</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.MessageWcfUrl(System.String@,System.String@)">
+             <summary>
+             发送(手机,邮件)地址
+             </summary>
+            <param name="Url">返回的地址</param>
+             <param name="ErrorMessage">错误信息</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.InfoWcfUrl(System.String@,System.String@)">
+            <summary>
+            获取信息系统的地址
+            </summary>
+            <param name="Url">返回的地址</param>
+            <param name="ErrorMessage">错误信息</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ProjectUrl(System.String@,System.String@)">
+            <summary>
+            获取项目的地址
+            </summary>
+            <param name="Url">返回的地址</param>
+            <param name="ErrorMessage">错误信息</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ProjectUrl_Web(System.String@,System.String@)">
+            <summary>
+            获取项目地址(web)
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.MQ_ProducterAddress(System.String@,System.String@)">
+            <summary>
+            队列的生产者地址 
+            </summary>
+            <param name="Url">返回的地址</param>
+            <param name="ErrorMessage">错误信息</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.MQ_CustomerAddress(System.String@,System.String@)">
+            <summary>
+            队列消费者地址
+            </summary>
+            
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.SMS_Producter(System.String@,System.String@)">
+            <summary>
+            短信系统生产者地址
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.SMS_Customer(System.String@,System.String@)">
+            <summary>
+            短信系统的
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.InfoWcfUrlOfWeb(System.String@,System.String@)">
+            <summary>
+            信息系统的地址(web)
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.PortalWebUrl(System.String@,System.String@)">
+            <summary>
+            团贷网WEB
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ImageWebUrl(System.String@,System.String@)">
+            <summary>
+            图片WEB
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.MobileWebUrl(System.String@,System.String@)">
+            <summary>
+            团贷网触屏版WEB
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ActivityWebUrl(System.String@,System.String@)">
+            <summary>
+            团贷活动Web
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.BBSWebUrl(System.String@,System.String@)">
+            <summary>
+            团贷社区Web
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.NiiwooWebUrl(System.String@,System.String@)">
+            <summary>
+            你我金融Web
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.PortalWcfUrl(System.String@,System.String@)">
+            <summary>
+            团贷网Wcf
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.RedisUrl(System.String@,System.String@)">
+            <summary>
+            redis的地址
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.FQBUrl(System.String@,System.String@)">
+            <summary>
+            分期宝地址
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.Vip_MQ(System.String@,System.String@)">
+            <summary>
+            Vip的MQ连接地址
+            </summary>
+            <param name="Url"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.GetLocalXmlCache(System.String,System.String,System.String@,System.String@)">
+             <summary>
+             获取本地应用XMl的缓存值　
+             </summary>
+             <param name="xmlPath">xml路径</param>
+             <param name="key"></param>
+             <param name="value"></param>
+            <param name="ErrorMessage">空：正确　否:有异常</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ClearCacheByClient">
+            <summary>
+            清理客户端的缓存
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.ClearAddressMemory(System.String,System.String@)">
+            <summary>
+            清除Balanced服务地址缓存
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.Do(System.String)">
+            <summary>
+            测试端口是否通
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.DoPipe">
+            <summary>
+            测试管道的端口是否通
+            </summary>
+            <param name="Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.TestAddress(System.String,System.String@,System.Boolean@)">
+            <summary>
+            测试这个地址访问从内存调出的情况
+            </summary>
+            <param name="addressurl">Url</param>
+            <param name="addressName">获取地址的名称数据库的是ConnectionString,ReadConnectionString,ReadOneConnectionString</param>
+            <param name="isExit"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.AddClientCache(System.String,System.Object)">
+            <summary>
+            添加客户端缓存
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemClient.GetClientCache(System.String)">
+            <summary>
+            获取客户端缓存
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="F:TuanDai.BalancedSystem.Client.BalancedSystemCache.AddressUrl">
+            <summary>
+            保存接口的地址的内存字段
+            </summary>
+        </member>
+        <member name="F:TuanDai.BalancedSystem.Client.BalancedSystemCache.ClientCache">
+            <summary>
+            保存客户端的缓存
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.BalancedUrl(System.String,System.String@)">
+            <summary>
+            获取接口的具体地址Url
+            </summary>
+            <param name="AddressName">地址名称</param>
+            <param name="ErrorMessage">错误信息,如果错误信息不为空!那说明有异常</param>
+            <returns>返回地址的Url</returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.GetDB(System.String,System.String@)">
+            <summary>
+            获取数据库连接地址
+            </summary>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.BalancedUrl(System.String,System.String@,System.Boolean@,System.String@)">
+            <summary>
+            获取接口具体的地址的Url并且返回是否调用内存 
+            </summary>
+            <param name="AddressName">地址名</param>
+            <param name="AddressUrl">返回的地址</param>
+            <param name="isExit">是否是使用内存数据</param>
+            <param name="ErrorMessage">错误信息,如果错误信息不为空!那说明有异常</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.ClearMemoney">
+            <summary>
+            清除地址的所有的内存
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.GetLocalXmlCache(System.String,System.String,System.String@,System.String@)">
+            <summary>
+            查询本地缓存是否存在,并查找值
+            </summary>
+            <param name="xmlPath">xml路径</param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage">是否有异常</param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.AddMemoryAddress(System.String,System.String@)">
+            <summary>
+            添加接口地址信息到内存中
+            </summary>
+            <param name="addressName"></param>
+            <param name="ErrorMessage">是否有错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.AddDBMemoryAddress(System.String,System.String@)">
+            <summary>
+            添加数据库连接到内存中
+            </summary>
+            <param name="addressName"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.GetMemoryAddress(System.String,System.String@,System.Boolean@)">
+            <summary>
+            获取接口的地址信息
+            </summary>
+            <param name="addressName"></param>
+            <param name="urladdress"></param>
+            <param name="isExit"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.GetClientCache(System.String)">
+            <summary>
+            获取客户端缓存
+            </summary>
+            <param name="Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.BalancedSystemCache.AddClientCache(System.String,System.Object)">
+            <summary>
+            添加客户端缓存
+            </summary>
+            <param name="Key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.ConnectService.InitConnection(System.String@,System.String)">
+            <summary>
+            初始化wcf
+            </summary>
+            <param name="ErrorMessage"></param>
+            <param name="v_Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.ConnectService.ReleaseConnection(TuanDai.ServerContract.BalancedSystemService)">
+            <summary>
+            关闭wcf连接
+            </summary>
+            <param name="balanceService"></param>
+        </member>
+        <member name="T:TuanDai.BalancedSystem.Client.DBBalanceClient">
+            <summary>
+            获取数据库的字符串
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.WriteDB(System.String@)">
+            <summary>
+            写的数据库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ReadDB(System.String@)">
+            <summary>
+            读的数据库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdProjectWrite(System.String@)">
+            <summary>
+            项目写数据库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdProjectManagerRead(System.String@)">
+            <summary>
+            Manager后台数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdProjectPCRead(System.String@)">
+            <summary>
+            项目的ＰＣ读
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdProjectAppRead(System.String@)">
+            <summary>
+            项目App读
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdProjectTouchRead(System.String@)">
+            <summary>
+            项目触屏读
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdUserWrite(System.String@)">
+            <summary>
+            用户写数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdUserPCRead(System.String@)">
+            <summary>
+            用户ＰＣ读数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdUserAppRead(System.String@)">
+            <summary>
+            用户ＡPP读数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdUserTouchRead(System.String@)">
+            <summary>
+            用户触屏数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdUserManagerRead(System.String@)">
+            <summary>
+            用户管理数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdStatisticsRead(System.String@)">
+            <summary>
+            统计库
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TdOtherApiRead(System.String@)">
+            <summary>
+            第三方Api读
+            </summary>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.PCHistory(System.String@)">
+            <summary>
+            PC历史数据库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.AppHistory(System.String@)">
+            <summary>
+            App历史数据库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TouchHistory(System.String@)">
+            <summary>
+            触屏历史库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ManagerHistory(System.String@)">
+            <summary>
+            管理后台历史库
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.Hao8daiConn(System.String@)">
+            <summary>
+            获取好帮贷的连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.TDTempConn(System.String@)">
+            <summary>
+            获取TDTempConnectionString连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ArticleConn(System.String@)">
+            <summary>
+            获取文章的连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ActivityConn(System.String@)">
+            <summary>
+            获取活动的连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.FinanceConn(System.String@)">
+            <summary>
+            获取FinanceConn的连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.MessageConn(System.String@)">
+            <summary>
+            获取短信的连接
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.VipConn(System.String@)">
+            <summary>
+            Vip的连接字符串
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ReportConn(System.String@)">
+            <summary>
+            报表连接字符串
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ManagerWrite(System.String@)">
+            <summary>
+            管理后台写的字符串
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.BalancedSystem.Client.DBBalanceClient.ManagerRead(System.String@)">
+            <summary>
+            管理后台读的字符串
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind ="WXIndex.aspx.cs" Inherits="TuanDai.WXApiWeb.WXIndex" %>

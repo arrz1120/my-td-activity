@@ -1,0 +1,511 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind="WE_detail.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.invest.WE.WE_detail" %>
+
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>We计划-项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=<%=GlobalUtils.Version %>" /> 
+    <link rel="stylesheet" type="text/css" href="/css/investProcess.css?v=<%=GlobalUtils.Version %>" />
+     <script type="text/javascript">
+         var projectId = "<%=projectId %>";
+         var isWeFQB = "<%= model.IsWeFQB?"1":"0" %>";
+         var backurl = "<%= GetEncodeBackUrl()%>";
+    </script>
+</head>
+<body class="bg-f1f3f5">
+<div id="bigDiv">
+<%= this.GetNavStr()%>
+<header class="headerMain">
+    <div class="header bb-c2c2c2">
+        <div class="back" onclick="javascript:window.location.href='/pages/invest/we/WE_list.aspx'">返回</div>
+        <h1 class="title">计划详情</h1>
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+</header>   
+     
+ <div class="detail-top-bg bg-fff <%=IsWeFinish?"pro-finish":"pro-notFinish"%>">
+	<div class="pl15 pr15 pos-r pt15 detail_tit">
+		<p class="f14px c-808080"><%=model.ProductName %></p>
+		<div class="round-btn" onclick="javascript:window.location.href='/pages/invest/SubscribeUser.aspx?type=weplan&id=<%=model.ProductId %>'"><i class="ico-sprite01 ico-record"></i>加入记录</div>
+	</div>
+	<div class="pt10 text-center">
+		<p><span class="f13px c-ababab">参考年回报率</span></p>
+	</div>
+	<div class="rateIncome">
+		<p><%=GetWePlanYearRate()%></p>
+	</div> 
+     <div class="rect-box webkit-box box-center" style="width:100%;">      
+     <%=ShowWePubCach(model) %>
+     <%=ShowWeRank(model)%>
+    </div> 
+    <div class="bg005 mt5 bb-e6e6e6">
+        <div class="clearfix pt15 pb15">
+		    <div class="lf w33p text-center">
+			    <p class="f17px c-212121"><%=ToolStatus.ConvertLowerMoney((model.PlanAmount ?? 0) - (model.OrderQty ?? 0) * (model.UnitAmount ?? 0)) %></p>
+			    <p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+		    </div>
+		    <div class="lf w33p text-center">
+			    <p class="f17px c-212121"><%=model.Deadline %>个月</p>
+			    <p class="line-h20 f12px c-ababab">计划期限</p>
+		    </div>
+		    <div class="lf w33p text-center">
+			    <p class="f17px c-212121"><%= Convert.ToDouble(model.UnitAmount ?? 0) %>元/份</p>
+			    <p class="line-h20 f12px c-ababab">投资单位</p>
+		    </div>
+	    </div>
+     </div>
+	<div class="finishImg"><img src="/imgs/images/bg/pro-finish.png"/></div>
+</div>
+	
+    <div class="is_tit bb-e6e6e6 pos-r f17px mt15 pl15 bg-fff click-respond" onclick="javascript:window.location.href='/pages/invest/SubscribeUser.aspx?type=weplan&id=<%=model.ProductId %>';">
+		投资记录
+		<b class="c-ababab f13px"><%=model.OrderCount??0 %></b>
+		<div class="ico-arrow-r"></div>
+	</div>
+
+	<!--计划介绍-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle"></i>计划介绍</div>
+		<div class="dropdownCon">
+			<div class="c-808080 f14px pt15 pb15 bt-e6e6e6 bb-e6e6e6 text-justify pr15">
+			    <% if (IsWeZnq)
+			       {
+			    %>
+                <%=model.ProductName %>是团贷网在平台上线4周年之际，为回馈广大投资用户而特别推出的限时限量尊享加息的专属标准化智能投标工具；用户加入<%=model.ProductName %>后，平台立即启动优先匹配投标，按用户认可的标的范围内，对符合要求的标的进行优先自动投标，提高了用户投资的速度和灵活度，及时盘活用户资金，更好的满足用户多样化的投资需求。
+                <%
+			       }
+			       else
+			       {
+			           %>
+                We计划是团贷网为方便用户投资推出的标准化投资工具，用户加入We计划后，平台立即启动优先匹配投标，按用户认可的标的范围内，对符合要求的标的进行优先自动投标，提高了用户投资的速度和灵活度，及时盘活用户资金，更好的满足用户多样化的投资需求。此外，该计划所投资项目还适用于安全保障计划。
+                <%
+			       } %>
+			    
+			</div>
+			<div class="pt10 pb10 clearfix pr15">
+				<span class="lf c-808080 f14px">计划总额</span>
+				<span class="rf c-808080 f14px"><%=ToolStatus.ConvertLowerMoney(model.PlanAmount??0) %>元</span>
+			</div>
+			<div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/WePlanServiceContract.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">We计划服务协议</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+				</a>
+			</div> 
+		</div>
+	</div>
+	
+	<!--投标范围-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>投标范围</div>
+		<div class="dropdownCon hide">
+		    <% string projectTypesDesc = TuanDai.WXApiWeb.CommUtils.GetProjectTypesDesc(model.ProjectTypes);
+               if (projectTypesDesc.Contains("小微企业"))
+		       {
+		           %>
+            <div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/ContractType1.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">小微企业</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>
+            <%
+		       }
+                if (projectTypesDesc.Contains("微团贷"))
+		       {
+		           %>
+            <div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/contractType11.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">微团贷</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>
+            <%
+		       }
+                if (projectTypesDesc.Contains("资产标"))
+		       {
+		           %>
+            <div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/contractType6.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">资产标</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>	
+            <%
+		       }
+                if (projectTypesDesc.Contains("分期宝"))
+		       {
+		           %>
+            <div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/mujinnongServiceContract.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">分期宝</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>
+            <%
+		       }
+                if (projectTypesDesc.Contains("供应链"))
+		       {
+		           %>
+            <div class="bt-e6e6e6">
+				<a href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/contractType20.html" class="block pt10 pb10 clearfix pr15">
+					<span class="lf c-808080 f14px">供应链</span>
+					<span class="rf ico-arrow-r-d1d1d1"></span>
+					<span class="rf f14px c-d1d1d1 mr15">查看合同</span>
+				</a>
+			</div>
+            <%
+		       } %>
+		</div>
+	</div>
+	
+	<!--规则说明-->
+	<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>规则说明</div>
+		<div class="dropdownCon hide">
+			<div class="bt-e6e6e6 pb15 pr15">
+				<p class="pt13 f14px c-212121">退出计划</p>
+				<p class="pt10 c-808080 f14px text-justify">自用户加入当期We计划起，加入计划的资金将被冻结在用户的团贷网个人资金账户中； 若5天内系统未将用户加入计划的资金全额投完，未投资出去的资金将解除冻结由用户自由支配。</p>
+			</div>
+			<div class="bt-e6e6e6 pb15 pr15">
+				<p class="pt13 f14px c-212121">保障方式</p>
+				<p class="pt10 c-808080 f14px text-justify">小微企业,微团贷,<%=model.TypeWord.ToLower().Contains("g")?"供应链":"资产标,分期宝" %>适用于安全保障体系；资产标有借款人平台待收资金保障和借款人逾期罚息赔付保障。</p>
+			</div>
+			<div class="bt-e6e6e6 pb15 pr15">
+				<p class="pt13 f14px c-212121">备注</p>
+				<p class="pt10 c-808080 f14px text-justify"><%=IsWeZnq?"该We计划不支持使用红包。":"加入We计划时系统会自动使用合适的红包。" %></p>
+			</div> 
+		</div>
+	</div>
+	
+	<!--常见问题-->
+	<div class="mt15 bt-e6e6e6 bb-e6e6e6 bg-fff pl15 pr15">
+		<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>常见问题</div>
+		<div class="dropdownCon hide">
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划什么时候启动优先投标？</p>
+				<p class="f14px c-808080 pt12 text-justify">加入We计划后（不需满额）即可立即启动优先匹配投标。</p>
+			</div>
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划还款方式有哪些？</p>
+				<p class="f14px c-808080 pt12 text-justify">We计划还款方式主要根据投资标的还款方式而定，包括到期还本付息和每月付息到期还本。</p>
+			</div>
+			<div class="bt-e6e6e6 pt17 pb15">
+				<p class="line-h18 f14px c-212121 text-justify">We计划安全吗？</p>
+				<p class="f14px c-808080 pt12 text-justify">团贷网以严谨负责的态度对每笔借款进行严格筛选。同时，We计划所投资项目适用于安全保障体系。</p>
+			</div>
+			<div class="bg-fff bt-e6e6e6">
+				<a href="/pages/invest/WE/We_Question.aspx?isWeFQB=0&typeword=<%=model.TypeWord.ToLower() %>" class="block text-center c-fab600 f17px pt10 pb10">查看更多</a>
+			</div>
+		</div>
+	</div> 
+    <!--We详情 End-->  
+    <div class="text-center c-ababab bt-e6e6e6 ftb_bot">
+			市场有风险，投资需谨慎。查看<a class="c-fab600" href="<%=TuanDai.WXApiWeb.GlobalUtils.ContractViewUrl%>/p2p/weixin/P2PRisk.html">《风险揭示书》</a>
+	</div>
+    <!--按钮区域-->
+	<div class="pos-f btn-joinNow"> 
+        <% if (model.StartDate > DateTime.Now && model.StatusId == 1)
+        { %>
+       <a href="javascript:void(0);" class="btn btnGray" style="font-size:18px;text-align:left;padding-left:20px;"  attrid="<%= model.ProductId %>" title="<%= model.ProductName %>">离开放还有：<span style="color: #ffffff;font-size:16px;" class="timeSet" count="<%= model.StartDate > DateTime.Now ? Convert.ToInt32((model.StartDate.Value - DateTime.Now).TotalSeconds) : 0 %>">00时 00分 00 秒</span></a>
+        <% if (!IsApp)
+           {
+        %>
+       <a href="javascript:void(0);" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a>
+        <% } %>
+    <% }
+        else if (model.StartDate < DateTime.Now && model.OrderQty != model.TotalQty && model.StatusId == 1)
+        {
+    %>
+        <a href="javascript:void(0)" class="btn btnYellow" id="btnJoin">马上加入</a>
+        <% if (!IsApp)
+           {
+        %>
+       <a href="javascript:void(0);" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a>
+        <% } %>
+        
+    <%
+        } %>
+    <%
+           else if (((model.OrderQty == model.TotalQty && model.InvestCompleteDate.HasValue) || (model.OrderCompleteDate.HasValue && model.OrderCompleteDate.Value.AddDays(5) <= DateTime.Now)) && !model.IsWeFQB)
+        {
+    %>
+            <a class="btn btnGray">计划已结束</a>
+    <%
+        }
+        else
+        { %>
+           <a class="btn btnGray">计划已满</a>
+       <% } %> 
+	</div>   
+
+<!--分享滑出层-->
+<div class="share-popup pos-f">
+	<div class="ml15 mr15 top bg-fff mt40 pos-r">
+		<span class="by-l pos-a"></span>
+		<span class="by-r pos-a"></span>
+		<h3 class="text-center pos-r f17px"><%=model.ProductName.GetCharLeft("(") %></h3>
+		<div class="webkit-box pt13 pb15">
+			<div class="box-flex1 text-center">
+				<p class="c-fd6040 f27px"><%=GetWePlanYearRate() %></p>
+				<p class="c-ababab f12px">参考年回报率</p>
+			</div>
+			<div class="box-flex1 text-center">
+				<p class="c-212121 f14px"><%=model.Deadline %>个月</p>
+				<p class="c-ababab f12px">计划期限</p>
+			</div>
+		</div>
+	</div>
+	<div class="mid text-center">
+		<span class="bb-d1d1d1"></span>
+		<span class="c-212121 f15px">分享到</span>
+		<span class="bb-d1d1d1"></span>
+	</div>
+	<div class="share-links webkit-box ml15 mr15">
+		<a href="javascript:void(0);" class="wechat box-flex1 wxShare animated" style="display: none"><span><i></i></span>微信好友</a>  
+		<a href="javascript:void(0);" class="moments box-flex1 wxShare animated" style="display: none"><span><i></i></span>朋友圈</a> 
+		<a href="javascript:shareSina();" class="weibo box-flex1 webShare animated" ><span><i></i></span>新浪微博</a>
+		<a href="javascript:share(2);" class="qq box-flex1 animated"><span><i></i></span>QQ</a>
+		<a href="javascript:share(1);" class="qzone box-flex1 animated"><span><i></i></span>QQ空间</a>
+	</div>
+	<a href="javascript:void(0);" class="close-share animated"><i></i></a>
+</div>
+
+</div>
+<footer></footer>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script> 
+<script type="text/javascript" src="/scripts/jquery.cookies.2.2.0.js"></script>  
+<script type="text/javascript" src="/scripts/TdStringHandler.js?v=2015101601"></script> 
+<script type="text/javascript" src="/scripts/Common.js"></script> 
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/WePlanDetailNew.js?v=<%=GlobalUtils.Version %>"></script> 
+<script type="text/javascript" src="/scripts/noLoginInvest.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/scripts/weixinapi.js?v=4.0"></script> 
+<script type="text/javascript" src="/scripts/base.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/cgtWindow.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+
+<script type="text/javascript"> 
+    var TypeWord = "<%= model.TypeWord%>";
+    var isNewHandProject = false;//是否新手标
+    wxData.isWxJsSDK = true;
+    wxData.debug = false;  
+    wxData.title = '参考年回报率<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！'; 
+    wxData.img_url = "http://m.tuandai.com/imgs/sharelogo.png?v=20160407";
+    wxData.ShareCallBack = function (res) {
+        if (res == "success") {
+            clearShareTip();
+        }
+    };
+    wxData.BeforeShareCall = function (res) {
+        wxData.desc = "<%=model.ProductName%>";
+        var tdfrom = "WeWX160329";
+        try {
+            if (res == "wxfriend") {
+                tdfrom = "WeWX160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeWX', 'wx分享', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "wxtimeline") {
+                tdfrom = "WeWXFriendster160329";
+                wxData.desc = '参考年回报率<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！';
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeWXFriendster', 'wx朋友圈', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "qq") {
+                tdfrom = "Weqq160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'Weqq', 'QQ分享', '160329', 1, '', '', 'TDW_WX');
+            } else if (res == "qqzone") {
+                tdfrom = "WeQzone160329";
+                nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeQzone', 'QQ空间分享', '160329', 1, '', '', 'TDW_WX');
+            }
+        } catch (ex) { }
+        wxData.url = "<%=GlobalUtils.MTuanDaiURL%>/pages/invest/investShare.aspx?tdForm=" + tdfrom + "&id=<%=projectId%>";
+    }
+    $(function () {
+        //	分享层交互
+        $(".btn-share").click(function () {
+            $('.share-popup').addClass('current').bind("touchmove", function (e) {
+                e.preventDefault();
+            });
+            $('.share-links a').addClass('bounceInUp');
+            $('.close-share').addClass('bounceInUp');
+        });
+        $('.close-share').click(function () {
+            $('.share-popup').removeClass('current');
+            $('.share-links a').removeClass('bounceInUp');
+            $('.close-share').removeClass('bounceInUp');
+        });
+
+        $('.wxShare').click(function () {
+            sharePopup();
+        });
+
+        
+        <%--if (TypeWord == "Q" && "<%=IsWeFinish%>" == "False") {
+            
+            jsonData.WeQCurrDayCount = parseInt(jsonData.WeQAmount) / 10000;
+            if (jsonData.WeQCurrDayCount > 5) {
+                $("#btnJoin").unbind("click").bind("click", function() {
+                    $("body").showMessage({ message: "对不起，1天最多可以投资5份", showCancel: false });
+                });
+                return false;
+            } else {
+                $("#bigDiv").hide();
+                repeatInvestType = 0;
+                aviShares = parseInt(jsonData.TotalShares) - parseInt(jsonData.ComplateShares);
+                $("#SharesDesc").html(LowerUnit + "元/份  　剩余" + aviShares + "份");
+                $("#InvestShares").val("投资 1 份");
+                $("#ProfitMoney").html("￥0");
+                $("#TotalMoney").html("0");
+                $("#TotalMoney2").html("￥0");
+                $("#invest_alert").removeClass("hide");
+                $("#invest_alert").addClass("moveToTop");
+                $("#invest_alert").removeClass("moveToBottom");
+                calcMoney();
+                //重写出借份数框离开事件
+                $("#InvestShares").unbind("blur").bind("blur", function () {
+                    var shares = $(this).val();
+                    if (isNaN(shares)) {
+                        showError("投资份数必须是数字");
+                        $(this).val("投资 1 份");
+                        calcMoney();
+                        return false;
+                    }
+                    if (shares == "")
+                        return false;
+                    if (shares.indexOf(".") > -1)
+                        shares = parseInt(shares).toFixed(0);
+                    if (parseInt(shares) > parseInt(aviShares))
+                        shares = parseInt(aviShares).toFixed(0);
+                    if (parseInt(shares) + parseInt(jsonData.WeQCurrDayCount) > 5) {
+                        showError("对不起，1天最多可以投资5份");
+                        $(this).val("投资 " + (5 - parseInt(jsonData.WeQCurrDayCount)) + " 份");
+                        calcMoney();
+                        return false;
+                    }
+                    if (shares.indexOf("投资") == -1 && parseInt(shares) > 0) {
+                        $(this).val("投资 " + shares + " 份");
+                    }
+                    if (parseInt(shares) <= 0) {
+                        showError("投资份数必须大于0");
+                        shares = 1;
+                        $(this).val("投资 " + 1 + " 份");
+                    }
+                    calcMoney();
+                });
+                //重写加号点击事件
+                $("#InvestAdd").unbind("click").bind("click", function () {
+                    var shares = $("#InvestShares").val();
+                    if (shares == "") {
+                        $("#InvestShares").val("投资 1 份");
+                    } else {
+                        if (shares.indexOf("投资") > -1) {
+                            shares = shares.replace("投资 ", "").replace(" 份", "");
+                            if (parseInt(shares) >= parseInt(aviShares)) {
+                                shares = parseInt(aviShares).toFixed(0);
+                                return false;
+                            }else if (parseInt(shares) + parseInt(jsonData.WeQCurrDayCount) > 4) {
+                                showError("对不起，1天最多可以投资5份");
+                                $(this).val("投资 " + (5 - parseInt(jsonData.WeQCurrDayCount)) + " 份");
+                                calcMoney();
+                                return false;
+                            }
+                            else
+                                $("#InvestShares").val("投资 " + (parseInt(shares) + 1) + " 份");
+                        }
+                    }
+                    
+                    calcMoney();
+                });
+            }
+        };--%>
+    });
+    //	点击分享按钮
+    var isWeiXin = navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1;
+    var bd = document.body;
+    $(function () {
+        if (isWeiXin) {
+            $(".wxShare").show();
+            $(".webShare").hide();
+        }
+    });
+    function sharePopup() {
+        if (isWeiXin) {
+            if (!document.getElementById("shareTip")) {
+                window.scrollTo(0, 0);
+                var dom = document.createElement("div");
+                dom.className = "modal-backdrop";
+                dom.id = "shareTip";
+                dom.innerHTML = '<div class="shareTip-box"><div class="shareTip"></div></div>';
+                bd.appendChild(dom);
+                dom.addEventListener("touchstart", clearShareTip, false);
+            }
+            return false;
+        }
+    }
+
+    function clearShareTip() {
+        var hintTip = document.getElementById("shareTip");
+        hintTip.removeEventListener("touchstart", clearShareTip, false);
+        bd.removeChild(hintTip);
+    }
+
+    function share(t) {
+        var p = {
+            url: "<%=GlobalUtils.MTuanDaiURL%>/pages/invest/investShare.aspx?tdForm=Weqq&id=<%=projectId%>",
+            showcount: '0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+            desc: '<%=model.ProductName%>',/*默认分享理由(可选)*/
+            summary: '团贷网（tuandai.com）,中国领先的互联网投资平台，超低门槛，期限7天-24个月任选，现在注册就送518元红包',/*分享摘要(可选)*/
+            title: '参考年回报率<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！',/*分享标题(可选)*/
+            site: '团贷网',/*分享来源 如：腾讯网(可选)*/
+            pics: 'http://m.tuandai.com/imgs/sharelogo.png?v=20160407' /*分享图片的路径(可选)*/
+        };
+        var s = [];
+        for (var i in p) {
+            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+        }
+        var params = s.join('&');
+        if (t == 1) {
+            nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'WeQzone', 'QQ空间分享', '160329', 1, '', '', 'TDW_WX');
+            window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + params);
+        }
+        else {
+            nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'Weqq', 'QQ分享', '160329', 1, '', '', 'TDW_WX');
+            window.open("http://connect.qq.com/widget/shareqq/index.html?" + params);
+        }
+    };
+    function shareSina() {
+        var p = {
+            url: "<%=GlobalUtils.MTuanDaiURL%>/pages/invest/investShare.aspx?tdForm=sina&id=<%=projectId%>",
+            title: '参考年回报率<%=ToolStatus.DeleteZero(model.YearRate)%>%的自动投资神器！',
+            appkey: '1343713053',
+            pic: 'http://m.tuandai.com/imgs/sharelogo.png?v=20160407', /*分享图片的路径(可选)*/
+            searchPic: "true"
+        };
+        var s = [];
+        for (var i in p) {
+            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+        }
+        var params = s.join('&');
+        params += "#_loginLayer_" + (new Date()).valueOf();
+        nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'Wesina', '新浪分享', '160329', 1, '', '', 'TDW_WX');
+        window.open("http://service.weibo.com/share/share.php?" + params);
+    }
+    
+    var IsWeZnq = "<%= IsWeZnq%>";//是否是we计划4周年庆
+    var DayJoinMoney = parseFloat("0");//we计划4周年庆每天限制加入金额
+    var DayJoinCount = parseInt("0");//we计划4周年庆每天限制加入次数
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.pro_tab{padding: 7px 0;background: #fff;}
+.pro_tab_box{width: 75.7%;margin: 0 auto;border: 1px solid #ffcf1f;border-radius: 4px;}
+.pro_tab_box div{height: 30px;line-height: 30px;text-align: center;color: #808080;}
+.pro_tab_box div.act{background: #ffcf1f;color: #fff;}
+.triangle{display: inline-block;vertical-align: 3px;margin-left: 5px;}
+.triangle-down-orange{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #ffc61a;
+}
+.triangle-up-orange{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #ffc61a;
+}
+.triangle-down-gray{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+     border-top: 4px solid #d1d1d1;
+}
+.triangle-up-gray{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #d1d1d1;
+}
+.record_item{padding: 14px 0 13px 15px;background: #fff;}
+.record_item .rf{padding-right: 15px;}
+.red_mark{display:inline-block;width: 5px;height: 5px;background: #ff644e;border-radius: 50%;vertical-align: 3px;margin-right: 10px;}
+.white_mark{display:inline-block;width: 5px;height: 5px;background: #ffffff;border-radius: 50%;vertical-align: 3px;margin-right: 10px;}
+.alert-record{background: rgba(251,251,249,0.95);position: absolute;top: 39px;width: 100%;}
+.alert-record ul li{height: 44px;line-height: 44px;text-align: center;font-size: 16px;color: #808080;padding-right: 15px;}
+.alert-record ul li.active{color: #ffcf1f;background: url(/javaProject/imgs/member/mall/ico-gx.png) 63% center no-repeat;background-size: 13px 9px;}

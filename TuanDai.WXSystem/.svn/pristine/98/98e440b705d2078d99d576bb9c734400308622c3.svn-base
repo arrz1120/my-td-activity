@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>团贷百科</title>
+		<link rel="stylesheet" type="text/css" href="css/global.css?v=20160921" />
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=20160921" />
+	</head>
+	<body>
+		<div id="bigDiv">
+			<header class="top bb-e6e6e6">
+				<a href="javascript:void(0);" class="logo"><img src="img/logo.png" alt="团贷网"/></a>
+				<div class="top_right clearfix">
+					<a href="javascript:void(0);" class="top_a1 lf"></a>
+					<a href="javascript:void(0);" class="top_a2 lf webkit-box box-center box-vertical">
+						<span></span>
+						<span></span>
+						<span></span>
+					</a>
+				</div>
+			</header>
+			
+			<div class="navBox bb-e6e6e6 pl20">
+				<p class="f20px">金融百科</p>
+				<div class="navTit f20px c-ffffff text-center">百科导航</div>
+				<div class="bk_nav">
+					<div class="bk_nav_l" style="display: none;">
+						<ul>
+							<li class="f15px text-center active">理财百科</li>
+							<li class="f15px text-center">投资百科</li>
+							<li class="f15px text-center">贷款百科</li>
+							<li class="f15px text-center">银行百科</li>
+							<li class="f15px text-center">人物百科</li>
+							<li class="f15px text-center">信用卡百科</li>
+						</ul>
+					</div>
+					<div class="bk_nav_r" style="display: none;">
+						<ul>
+							<!--<li class="f15px text-center">全部金融百科</li>
+							<li class="f15px text-center">投资百科</li>
+							<li class="f15px text-center">贷款百科</li>
+							<li class="f15px text-center">银行百科</li>
+							<li class="f15px text-center">人物百科</li>
+							<li class="f15px text-center">信用卡百科</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="listBox">
+				<div class="bk_box pl10 pr10">
+					<div class="bk_item">
+						<a href="javascript:void(0);" class="bk_item_img block"><img src="img/temp/img1.png"/></a>
+						<h3 class="f17px">买房贷款</h3>
+						<p class="text-overflow2 f13px">一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎。一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎</p>
+					</div>
+					<div class="bk_item">
+						<a href="javascript:void(0);" class="bk_item_img block"><img src="img/temp/img1.png"/></a>
+						<h3 class="f17px">买房贷款</h3>
+						<p class="text-overflow2 f13px">一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎</p>
+					</div>
+					<div class="bk_item">
+						<a href="javascript:void(0);" class="bk_item_img block"><img src="img/temp/img1.png"/></a>
+						<h3 class="f17px">买房贷款</h3>
+						<p class="text-overflow2 f13px">一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎</p>
+					</div>
+					<div class="bk_item">
+						<a href="javascript:void(0);" class="bk_item_img block"><img src="img/temp/img1.png"/></a>
+						<h3 class="f17px">买房贷款</h3>
+						<p class="text-overflow2 f13px">一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎</p>
+					</div>
+					<div class="bk_item">
+						<a href="javascript:void(0);" class="bk_item_img block"><img src="img/temp/img1.png"/></a>
+						<h3 class="f17px">买房贷款</h3>
+						<p class="text-overflow2 f13px">一日，我与上帝一同出行。 路过一条河时，我看到水里有一个人在挣扎</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pageBox">
+				<div class="clearfix paging">
+					<a href="javascript:void(0);" class="lf block w33p text-center">上一页</a>
+					<a href="javascript:void(0);" class="lf block w33p text-center">1/10</a>
+					<a href="javascript:void(0);" class="lf block w33p text-center">下一页</a>
+				</div>
+			</div>
+			
+			<footer>
+				<div class="split"></div>
+				<div class="clearfix bot_nav">
+					<a href="javascript:void(0);" class="block w25p text-center pt25 pb20 lf">
+						<div class="ico_bot ico_bot1 margin-auto"></div>
+						<p class="f13px mt8">团贷网</p>
+					</a>
+					<a href="javascript:void(0);" class="block w25p text-center pt25 pb20 lf">
+						<div class="ico_bot ico_bot2 margin-auto"></div>
+						<p class="f13px mt8">理财攻略</p>
+					</a>
+					<a href="javascript:void(0);" class="block w25p text-center pt25 pb20 lf">
+						<div class="ico_bot ico_bot3 margin-auto"></div>
+						<p class="f13px mt8">下载APP</p>
+					</a>
+					<a href="javascript:void(0);" class="block w25p text-center pt25 pb20 lf">
+						<div class="ico_bot ico_bot4 margin-auto"></div>
+						<p class="f13px mt8">电脑版</p>
+					</a>
+				</div>
+				<div class="bottom">
+					<div class="clearfix bot_link">
+						<a href="javascript:void(0);" class="c-999999 f13px text-center lf w33p" id="callUs">联系我们</a>
+						<a href="javascript:void(0);" class="c-999999 f13px text-center lf w33p">关于我们</a>
+						<a href="javascript:void(0);" class="c-999999 f13px text-center lf w33p">帮助中心</a>
+					</div>
+					<p class="copyright c-ababab f11px text-center mt13">2010- 2016 © 团贷网 粤ICP备12043601号-1</p>
+				</div>
+			</footer>
+		</div>
+		
+		<!--攻略弹窗-->
+		<div class="normalAlert hide" id="glAlert">
+			<header class="top bb-e6e6e6">
+				<h1 class="logo"><img src="img/logo.png" alt="团贷网"/></h1>
+				<div class="top_right clearfix">
+					<a href="javascript:void(0);" class="alertClose1 rf"></a>
+				</div>
+			</header>
+			<div class="gl_detail">
+				<div class="pl15">
+					<div class="bb-e6e6e6">
+						<div class="gl_tit pos-r">
+							<p class="f15px">团贷网</p>
+							<i class="ico-r"></i>
+						</div>
+						<div class="gl_lableBox pb10" style="display: none;">
+							<div class="lableBox2">
+								<a href="javascript:void(0);">首页</a>
+								<a href="javascript:void(0);">投资</a>
+								<a href="javascript:void(0);">个人中心</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bb-e6e6e6 pl15">
+					<div class="gl_tit pos-r">
+						<p class="f15px">理财攻略</p>
+						<i class="ico-r"></i>
+					</div>
+					<div class="gl_lableBox pb10" style="display: none;">
+						<div class="lableBox2">
+							<a href="javascript:void(0);">首页</a>
+							<a href="javascript:void(0);">专题</a>
+							<a href="javascript:void(0);">投资理财</a>
+						</div>
+						<div class="lableBox2">
+							<a href="javascript:void(0);">互联网金融</a>
+							<a href="javascript:void(0);">借贷</a>
+							<a href="javascript:void(0);">信用卡</a>
+						</div>
+					</div>
+				</div>
+				<div class="bb-e6e6e6 pl15">
+					<div class="gl_tit pos-r">
+						<p class="f15px">团贷百科</p>
+						<i class="ico-r"></i>
+					</div>
+					<div class="gl_lableBox pb10" style="display: none;">
+						<div class="lableBox2">
+							<a href="javascript:void(0);">投资</a>
+							<a href="javascript:void(0);">理财</a>
+							<a href="javascript:void(0);">贷款</a>
+						</div>
+						<div class="lableBox2">
+							<a href="javascript:void(0);">银行</a>
+							<a href="javascript:void(0);">人物</a>
+							<a href="javascript:void(0);">信用卡</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gl_bot pt30 clearfix">
+				<a href="javascript:void(0);" class="lf w33p block text-center">
+					<div class="ico_bot gl_bot1 margin-auto"></div>
+					<p class="f13px">注册</p>
+				</a>
+				<a href="javascript:void(0);" class="lf w33p block text-center">
+					<div class="ico_bot gl_bot2 margin-auto"></div>
+					<p class="f13px">登录</p>
+				</a>
+				<a href="javascript:void(0);" class="lf w33p block text-center">
+					<div class="ico_bot gl_bot3 margin-auto"></div>
+					<p class="f13px">官方App</p>
+				</a>
+			</div>
+		</div>
+		
+		<!--联系我们弹窗-->
+		<div class="normalAlert hide" id="callUsAlert">
+			<div class="callUsCon">
+				<p class="c-999999 f15px pt15 text-center">电话：400-641-0888</p>
+				<p class="c-999999 f15px pt15 text-center">微信服务号：团贷网服务平台</p>
+				<p class="c-999999 f15px pt15 text-center">微信订阅号：团贷网</p>
+				<p class="text-center pt15"><a href="javascript:void(0);" class="c-fab600 f15px">在线客服</a></p>
+			</div>
+			<div class="ico_bot ico_close2"></div>
+		</div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function navTab(){
+				var navData = [
+					['理财产品','理财案例','家庭理财','个人理财','公司理财','互联网理财'],
+					['货币投资','风险投资','基金投资','现货投资','贵金属投资','PP投资','债券投资','信托投资','保险投资','房产投资','期货投资','股票投资'],
+					['商业贷款','小额贷款','公积金贷款','抵押贷款','无抵押贷款','银行贷款','消费贷款','房屋贷款','汽车贷款','创业贷款','企业贷款','信用贷款'],
+					['网点查询','电话号码','营业时间','贷款利率','理财产品'],
+					['信用卡逾期','信用卡还款','信用卡套现','信用卡分期','信用卡额度','信用卡申请','信用卡积分','信用卡电话'],
+					['金融名人','平台高管','创始人']
+				];
+				var navLeft = $(".bk_nav_l");
+				var navRight = $(".bk_nav_r");
+				var navRightUl = $(".bk_nav_r").find('ul');
+				
+				$(".navTit").click(function(){
+					if(navLeft.css('display') == 'none'){
+						navLeft.show();
+						navRight.show();
+						navRightUl.html('');
+						navRightUl.append('<li class="f15px text-center"><a href="javascript:void(0);">全部理财百科</a></li>');
+						for(var j=0;j<navData[0].length;j++){
+							navRightUl.append('<li class="f15px text-center"><a href="javascript:void(0);">'+ navData[0][j] +'</a></li>');
+						}
+					}else{
+						navLeft.hide();
+						navRight.hide();
+					}
+				})
+				
+				navLeft.find('li').each(function(i,item){
+					$(item).click(function(){
+						var $this = $(this);
+						var txt = $this.html();
+						var len = navData[i].length;
+						if(len<=7){
+							navRight.css('border-left','0');
+						}else{
+							navRight.css('border-left','1px solid #e6e6e6');
+						}
+						$this.siblings().removeClass('active');
+						$this.addClass('active');
+						navRightUl.html('');
+						navRightUl.append('<li class="f15px text-center"><a href="javascript:void(0);">全部'+ txt +'</a></li>');
+						for(var j=0;j<len;j++){
+							navRightUl.append('<li class="f15px text-center"><a href="javascript:void(0);">'+ navData[i][j] +'</a></li>');
+						}
+					})
+				})
+			}
+			
+			$(function(){
+				navTab();
+			})
+		</script>
+	</body>
+</html>

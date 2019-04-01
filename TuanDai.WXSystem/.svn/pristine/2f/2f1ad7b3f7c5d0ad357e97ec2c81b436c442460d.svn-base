@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>回款日历</title>
+<link rel="stylesheet" type="text/css" href="global.css?v=20160304" />
+<link rel="stylesheet" type="text/css" href="swiper.3.1.7.min.css?v=20160304" />
+<link rel="stylesheet" type="text/css" href="date.css?v=20160304" />
+<style type="text/css">
+</style>
+</head>
+<body class="pb15 bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">回款日历</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="pl15 pr15 date-header bg-fff">
+		<div class="clearfix pos-r">
+			<div class="lf clearfix date-header-month pl15 pt13 pos-r">
+				<i class="date-redline"></i>
+				<p class="c-212121 f27px" id="nowMon">2月</p>
+				<p class="f13px c-ababab" id="nowY">2016</p>
+			</div>
+			<a class="rf date-header-btn">回款计划</a>
+		</div>
+	</div>
+	
+	<div class="">
+		<div class="week date_row">
+			<ul>
+				<li>日</li>
+				<li>一</li>
+				<li>二</li>
+				<li>三</li>
+				<li>四</li>
+				<li>五</li>
+				<li>六</li>
+			</ul>
+		</div>
+	</div>
+	<div class="swiper-container pb40 bg-fff z-index100" id="swiper">
+    	<div class="swiper-wrapper"></div>
+	    <div class="date_mark" id="date_mark"></div>
+	</div>
+	<div class="bb-d1d1d1 bt-d1d1d1 pl15 bg-fff" style="margin-top:-20px">
+		<div class="clearfix pt15 pb15">
+			<div class="lf f17px c-212121 mt8">
+				本月待收（元）
+			</div>
+			<div class="rf pr15">
+				<p class="c-fd6040 f17px text-right">10560.00</p>
+				<p class="c-ababab f12px">本金：1020.00<span class="ml15"></span>收益：280.00</p>
+			</div>
+		</div>
+		<div class="clearfix bt-e6e6e6 pt15 pb15">
+			<div class="lf f17px c-212121 mt8">
+				本月待收（元）
+			</div>
+			<div class="rf pr15">
+				<p class="c-fd6040 f17px text-right">10560.00</p>
+				<p class="c-ababab f12px">本金：1020.00<span class="ml15"></span>收益：280.00</p>
+			</div>
+		</div>
+	</div>
+		
+	
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="swiper.3.1.7.jquery.min.js"></script>
+	<script type="text/javascript" src="monthSwiper.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var mSwiper = new monthSwiper({
+				//自定义开始月份，月个数。默认是当前月，月个数是6
+				startMonth:7,
+				monthCount:6,
+				slideCallBack:slideChange
+			});
+			//绑定回款日数据
+			var data = [
+				[
+					{day:1,returnMoney:1234,repayMoney:0},
+					{day:5,returnMoney:0,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				],
+				[
+					{day:1,returnMoney:1234,repayMoney:5678},
+					{day:5,returnMoney:1234,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				],
+				[
+					{day:1,returnMoney:1234,repayMoney:5678},
+					{day:5,returnMoney:1234,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				],
+				[
+					{day:1,returnMoney:1234,repayMoney:5678},
+					{day:5,returnMoney:1234,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				],
+				[
+					{day:1,returnMoney:1234,repayMoney:5678},
+					{day:5,returnMoney:1234,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				],
+				[
+					{day:1,returnMoney:1234,repayMoney:5678},
+					{day:5,returnMoney:1234,repayMoney:5678},
+					{day:10,returnMoney:1234,repayMoney:5678},
+					{day:21,returnMoney:1234,repayMoney:5678},
+					{day:26,returnMoney:1234,repayMoney:5678}
+				]
+			]
+			//高亮显示回款日
+			mSwiper.lightDay(data);
+			
+//			$("#nowMon").html((new Date).getMonth()+1 + '月');
+//			$("#nowY").html((new Date).getFullYear());
+			//自定义切换函数，获取slide的索引
+			function slideChange(activeIndex){
+//				console.log(activeIndex);
+				var ul = $('.swiper-slide').eq(activeIndex).find('ul');
+				$("#nowMon").html(ul.attr('month') + '月');
+				$("#nowY").html(ul.attr('year'));
+			}
+		})
+	</script>
+
+</body>
+</html>

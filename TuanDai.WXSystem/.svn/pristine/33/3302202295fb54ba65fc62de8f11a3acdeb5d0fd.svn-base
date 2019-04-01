@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>提现常见问题</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/qa.css?v=20160114" />
+</head>
+<body>
+<a href="ToChangeCard" class="link  border-scale" >
+  <p class="text-wraper">
+  换卡须知 <span></span>
+  </p>
+</a>
+<section class='text  border-scale'>
+  <h2  class="border-bottom">到账时间</h2>
+  <p>团贷网将于周一至周六8:30-18:00；周日及其他国家法定假日下午15:00处理提现申请。提现会在申请处理后2个小时内到账（限工、农、建、招、交行）。</p>
+</section>
+<section class='text  border-scale'>
+  <h2  class="border-bottom">注意事项</h2>
+  <p>为遵守国家反洗钱和套现行为的相关法律规定，充值后的资金需等15天后才能提现。</p>
+</section>
+<p class="phone_num"><a href="ToMakePhoneCall">客服电话:400-6410-888(09:00 - 22:00)</a></p>
+</body>
+</html>

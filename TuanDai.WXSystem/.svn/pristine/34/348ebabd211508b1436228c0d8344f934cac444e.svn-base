@@ -1,0 +1,255 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register_BindBankCard.aspx.cs" Inherits="TuanDai.WXApiWeb.user.Register_BindBankCard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>绑定银行卡</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+<link rel="stylesheet" type="text/css" href="/css/safety.css?v=20160428001" />
+<link rel="stylesheet" type="text/css" href="/css/loan.css?v=20160428001" /> 
+</head>
+<body>
+    <header class="headerMain2">
+        <div class="header">
+            <h1 class="title">绑定银行卡</h1>
+            <div class="text"><a href="javascript:;" onclick="location.replace('<%=this.returnUrl == ""?"/index.aspx":this.returnUrl %>')">跳过</a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+
+    <section class="flow-wrap">
+        <div class="flow-pic pos-r">
+            <p class="flow1 pos-a text-center f13px c-ababab">
+                <span class="on pos-r">
+                    <i class="sign pos-a"><img src="/imgs/images/ico-y.png"/></i>
+                </span>
+                身份证认证
+            </p>
+            <p class="flow2 pos-a text-center f13px c-ababab">
+                <span class="on pos-r">
+                    <i class="sign pos-a"><img src="/imgs/images/ico-y.png"/></i>
+                </span>
+                设置交易密码
+            </p>
+            <p class="flow3 pos-a text-center f13px c-ababab">
+                <span class="on"></span>
+                绑定银行卡
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode bindingPhone pr0">
+            <div class="c-left">银行卡号</div>
+            <input type="text" id="txt_account" class="codeIpt" placeholder="持卡人须与实名认证相符" />
+        </div>
+    </section>
+
+    <section class="bankCardCont clearfix">
+        <ul>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">开户银行</div>
+                <select name="bank-name" id="sel_bankList" onchange="selectBank1();">
+                 <option value="-1">请选择开户银行</option>
+                 <option value="1">招商银行</option>
+                    <option value="2">中国银行</option>
+                    <option value="3">中国工商银行</option>
+                    <option value="4">中国建设银行</option>
+                    <option value="5">中国农业银行</option>
+                    <option value="6">交通银行</option>
+                    <option value="7">上海浦东发展银行</option>
+                    <option value="8">中国民生银行</option>
+                    <option value="9">兴业银行</option>
+                    <option value="10">光大银行</option>
+                    <option value="11">深发展银行</option>
+                    <option value="12">北京银行</option>
+                    <option value="13">中信银行</option>
+                    <option value="14">广东发展银行</option>
+                    <option value="15">平安银行</option>
+                    <option value="16">中国邮政储蓄银行</option>
+                    <option value="9999">其他</option>
+              </select>
+            </li>
+            <li class="phoneCode bindingPhone hint" style="display:none">
+                <div class="hint-text">
+                    <p class="f13px" id="bankamt"></p>
+                </div>
+            </li>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">所在省份</div>
+                <select name="sel_city1" runat="server" id="sel_city1" class="selectcard">
+                    <option>请选择省份</option>
+                </select>
+            </li>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">所在城市</div>
+                <select name="sel_city2" runat="server" id="sel_city2" class="selectcard">
+                    <option>请选择城市</option>
+                </select>
+            </li>
+            <li class="phoneCode bindingPhone" id="otherbankname" style="display:none">
+                <div class="c-left">其它银行</div>
+                <input type="text" name="" id="txtOtherBankName" class="codeIpt" placeholder="请输入其它银行账户" />
+            </li>
+            <li class="phoneCode bindingPhone">
+                <div class="c-left">支行名称</div>
+                <input type="text" id="txtOpenBankName" class="codeIpt" placeholder="请输入开户银行支行名称" />
+            </li>
+        </ul>
+    </section>
+
+    <section class="pd15 mt5">
+        <div id="trError" style="display:none;" class="addcard_mx"></div>
+        <p class="f12px c-ababab lh20 pt10 clearfix">1、为了避免他人盗用您的账号窃取资产，充值、提现必须使用与实名信息一致的银行借记卡。</p>
+        <p class="f12px c-ababab lh20 pt10 clearfix">2、一经绑定，充值、提现都只能使用该银行卡，不得更换。</p>
+        <p class="f12px c-ababab lh20 pt10 clearfix">3、如原卡丢失、损坏或停用，请联系客服进行视频验证和提供银行书面证明材料进行更换</p>
+    </section>
+
+    <section class="pd15 mt15">
+        <a href="javascript:void(0)" id="btn_sumbit" class="btn btnYellow">完成认证</a>
+    </section>
+
+    <section class="pd15 mt60 text-center">
+        <p class="c-ababab f14px">如有疑问，请联系客服：<a href="tel:1010-1218" class="inline-block c-f86420 txt-uline f14px">1010-1218</a></p>
+    </section>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20160428001"></script>
+<script type="text/javascript" src="/scripts/jquery.extensions.js?v=20160428001"></script>
+
+    <script type="text/javascript">
+        function selectBank1() {
+            var type = $("#sel_bankList :selected").val();
+            if (type == 9999) {
+                $("#otherbankname").show();
+            } else {
+                $("#otherbankname").hide();
+            }
+        }
+        function clearErr() {
+            $("#trError").html("");
+            $("#trError").css("display", "none");
+        }
+        function addErr(err) {
+            $("#trError").html(err);
+            $("#trError").css("display", "");
+        }
+        $(function () {
+            $("#txt_account").blur(function () {
+                var account = $("#txt_account").val().trim();
+                if (account.length <= 0)
+                    return false;
+                $.ajax({
+                    url: "/ajaxCross/ajax_s1a2fe.ashx",
+                    type: "post",
+                    dataType: "json",
+                    data: { Cmd: "GetBankCardBin", BankAccountNo: $("#txt_account").val()
+                    },
+                    success: function (json) { 
+                        var d = json.result; 
+                        var msg = json.msg;
+                        if (parseInt(d) == 1) {
+                            $(".hint").css("display", "");
+                            $("#bankamt").html(msg);
+                        }
+                        else {
+                            $(".hint").css("display", "");
+                            $("#bankamt").html(msg);
+                        }
+                    }
+                });
+            });
+            $("#btn_sumbit").click(function () { 
+                clearErr();
+                var reg = /[\u4E00-\u9FA5]/;
+                if ($("#sel_bankList :selected").val() == "9999") {
+                    if ($("#txtOtherBankName").val().length < 1) {
+                        addErr("* 请输入其它银行名称");
+                        return false;
+                    }
+                    if (!reg.test($("#txtOtherBankName").val())) {
+                        addErr("* 其它银行名称输入有误");
+                        return false;
+                    }
+                }
+                if ($("#txt_account").val().length < 1) {
+                    addErr("* 请输入银行卡号");
+                    return;
+                }
+                var nunreg = new RegExp("^[0-9]*$");
+                if (!nunreg.test($("#txt_account").val())) {
+                    addErr("* 银行账号输入有误!");
+                    return false;
+                }
+                if ($("#txt_account").val().length < 9) {
+                    addErr("* 请输入正确的银行卡号");
+                    return;
+                }
+                if ($("#sel_bankList :selected").val() == -1) {
+                    addErr("* 请选择开户银行");
+                    return;
+                }
+                if (!reg.test($("#txtOpenBankName").val())) {
+                    addErr("* 开户支行名称输入有误");
+                    return false;
+                }
+
+                $.ajax({
+                    url: "/ajaxCross/ajax_s1a2fe.ashx",
+                    type: "post",
+                    dataType: "json",
+                    data: { Cmd: "addbankaccount", province: $("#sel_city1 :selected").val(),
+                        account: $("#txt_account").val(), cityName: $("#sel_city2 :selected").val(),
+                        bankName: $("#txtOpenBankName").val(), bankType: $('#sel_bankList').val(), otherBankName: $("#txtOtherBankName").val(), code: $("#txt_smsCode").val()
+                    },
+                    success: function (json) {
+                        var d = json.result;
+                        var msg = json.msg; 
+                        if (parseInt(d) == 1) { 
+                            $("body").showMessage({ message: "恭喜您，完成新手认证！", showCancel: false, okbtnEvent: function () { window.location.href = '<%=this.returnUrl == ""?"/index.aspx":this.returnUrl %>' }, direction: "center" });
+                        }
+                        else if (parseInt(d) == -1) {
+                            addErr("添加失败：用户不存在！");
+                            return false;
+                        } else if (parseInt(d) == -2) {
+                            addErr("添加失败：" + msg);
+                            return false;
+                        } else if (parseInt(d) == -3) {
+                            addErr("添加失败：该银行账号已经绑定另一用户，不能再绑定！");
+                            return false;
+                        }
+                        else if (parseInt(d) == -4) {
+                            addErr("添加失败：每个用户最多添加1张银行卡！");
+                            return false;
+                        }
+                    }
+                });
+            });
+        });
+        $("#" + 'sel_city1').change(function () {
+            var thisDom = $(this);
+            $.ajax({
+                url: "/ajaxCross/ajax_s1a2fe.ashx",
+                type: "post",
+                dataType: "json",
+                data: "Cmd=getcity&province=" + thisDom.val(),
+                success: function (d) {
+                    if (d.result == "1") {
+                        $('#sel_city2').html("");
+                        for (var i = 0; i < d.list.length; i++) {
+                            $('#sel_city2').append("<option value='" + d.list[i].CityName + "'>" + d.list[i].CityName + "</option>");
+                        }
+                        $('#sel_city2').change();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

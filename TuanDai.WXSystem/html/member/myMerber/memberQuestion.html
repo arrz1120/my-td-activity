@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>帮助中心</title>
+		<link href="/css/info.css?v=201712181708" rel="stylesheet">
+		<script>
+			window.mobileUtils = function(e, t) {
+				var i = navigator.userAgent,
+					n = /android|adr/gi.test(i),
+					a = /iphone|ipod|ipad/gi.test(i) && !n;
+				return {
+					isAndroid: n,
+					isIos: a,
+					isMobile: n || a,
+					isWeixin: /MicroMessenger/gi.test(i),
+					isQQ: /QQ\/\d/gi.test(i),
+					dpr: a ? Math.min(e.devicePixelRatio, 3) : 1,
+					rem: null,
+					fixScreen: function() {
+						var i = this,
+							n = t.querySelector('meta[name="viewport"]'),
+							r = n ? n.content : "";
+						if(r.match(/initial\-scale=([\d\.]+)/), r.match(/width=([^,\s]+)/), !n) {
+							var o, s = t.documentElement,
+								d = s.dataset.mw || 750,
+								m = a ? Math.min(e.devicePixelRatio, 3) : 1;
+							t.getElementsByTagName("body")[0], s.removeAttribute("data-mw"), s.dataset.dpr = m, n = t.createElement("meta"), n.name = "viewport", n.content = function(e) {
+								return "initial-scale=" + e + ",maximum-scale=" + e + ",minimum-scale=" + e
+							}(1), s.firstElementChild.appendChild(n);
+							var c = function() {
+								var e = s.getBoundingClientRect().width;
+								e = e > d ? d : e;
+								var t = e / 16;
+								i.rem = t, s.style.fontSize = t + "px"
+							};
+							e.addEventListener("resize", function() {
+								clearTimeout(o), o = setTimeout(c, 300)
+							}, !1), e.addEventListener("pageshow", function(e) {
+								e.persisted && (clearTimeout(o), o = setTimeout(c, 300))
+							}, !1), c()
+						}
+					}
+				}
+			}(window, document), mobileUtils.fixScreen();
+		</script>
+	</head>
+
+	<body>
+		<section class="layout-main">
+			<!-- 导航 -->
+			<ul class="nav-container">
+				<li class="item">常见问题</li>
+				<li class="item">会员公告</li>
+			</ul>
+			<!-- 导航end -->
+			<section class="swiper-container info-swiper">
+				<div class="swiper-wrapper">
+					<!-- 常见问题 -->
+					<section class="info-swiper-item swiper-slide">
+						<div class="qa-tabs-container">
+							<dl class="qa-tab">
+								<dt class="qa-tab-icon n0"></dt>
+								<dd class="qa-tab-desc">会员体系</dd>
+							</dl>
+							<dl class="qa-tab">
+								<dt class="qa-tab-icon n1"></dt>
+								<dd class="qa-tab-desc">团币相关</dd>
+							</dl>
+							<dl class="qa-tab">
+								<dt class="qa-tab-icon n2"></dt>
+								<dd class="qa-tab-desc">团币兑换</dd>
+							</dl>
+							<dl class="qa-tab">
+								<dt class="qa-tab-icon n3"></dt>
+								<dd class="qa-tab-desc">云宝物</dd>
+							</dl>
+							<dl class="qa-tab no-margin-t">
+								<dt class="qa-tab-icon n4"></dt>
+								<dd class="qa-tab-desc">转盘抽奖</dd>
+							</dl>
+							<dl class="qa-tab no-margin-t">
+								<dt class="qa-tab-icon n5"></dt>
+								<dd class="qa-tab-desc">砸一砸</dd>
+							</dl>
+						</div>
+						<!-- 会员体系 -->
+						<div class="qa-tab-switch">
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">团贷网会员体系简介？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团贷网会员体系是为更好地服务、回馈团贷网用户而建立的，系统依据用户上月日均净资产公正合理地将团贷网用户划分为8个会员等级，并赋予不同等级的用户不同的特权； 同时引入激励性积分——团币，用户完成相关团币任务即可获赠团币，团币可用于商品免费兑换、免费抽奖等活动。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">什么是日净资产、月日均净资产？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">用户账户的日净资产包括账户余额、待收本息等，具体的计算公式为：日净资产(A)=账户余额+待收本息+冻结资金-待还本息。 取一个自然月所有日净资产的平均值，即为月日均净资产，具体的计算公式为：月日均净资产=【A1+ A2 + A3 + ... + Am】/m（m为自然月天数）。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">团贷网的会员等级是如何计算的，等级有哪些？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团贷网每月1号3点根据上月日均净资产计算用户的会员等级，用户上月日均净资产越高会员等级越高。根据上月日均净资产的不同，团贷的会员一共分为9个等级：
+									<div class="ques-table mt10">
+										<table class="">
+											<tbody>
+												<tr>
+													<th class="bb-e6e6e6 br-e6e6e6-before">用户等级</th>
+													<th class="bb-e6e6e6">上月日均净资产</th>
+												</tr>
+												<tr class="bg-fff">
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V1.png"></td>
+													<td class="bb-e6e6e6">0≤上月日均净资产＜10,000</td>
+												</tr>
+												<tr>
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V2.png"></td>
+													<td class="bb-e6e6e6">10,000≤上月日均净资产＜50,000</td>
+												</tr>
+												<tr class="bg-fff">
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V3.png"></td>
+													<td class="bb-e6e6e6">50,000≤上月日均净资产＜100,000</td>
+												</tr>
+												<tr>
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V4.png"></td>
+													<td class="bb-e6e6e6">100,000≤上月日均净资产＜200,000</td>
+												</tr>
+												<tr class="bg-fff">
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V5.png"></td>
+													<td class="bb-e6e6e6">200,000≤上月日均净资产＜500,000</td>
+												</tr>
+												<tr>
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V6.png"></td>
+													<td class="bb-e6e6e6">500,000≤上月日均净资产＜1,000,000</td>
+												</tr>
+												<tr class="bg-fff">
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V7.png"></td>
+													<td class="bb-e6e6e6">1,000,000≤上月日均净资产＜3,000,000</td>
+												</tr>
+												<tr>
+													<td class="br-e6e6e6-before">
+														<img src="/imgs/images/V8.png"></td>
+													<td class="">3,000,000≤上月日均净资产＜7,000,000</td>
+												</tr>
+												<tr class="bg-fff">
+													<td class="bb-e6e6e6 br-e6e6e6-before">
+														<img src="/imgs/images/V9.png"></td>
+													<td class="bb-e6e6e6">上月日均净资产&gt;7,000,000</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">为什么我当月的日均净资产变化了，会员等 级还没有变化？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团贷网每月1号3点根据上月日均净资产来调整用户的会员等级，用户当月的日均净资产会只影响下月的会员等级，不会影响本月会员等级。</dd>
+							</dl>
+							<dl class="qa-tab-dl" isSwiper='1'>
+								<dl class="qa-tab-dl-title">团贷会员可以享受哪些特权？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<div class="tab_con c-b3b3b3 f13px bb-e6e6e6">团贷网会员可以享受团币系数、提现优惠券、借款费用减免、生日投资红包、节日礼物赠送、贵宾客服专线、高端专属服务7项特权，会员等级与会员特权关系如下：
+										<div class="table-wrap mt10 pos-r bl-e6e6e6 br-e6e6e6">
+											<div class="pos-a shadow"></div>
+											<div class="table-left pos-a br-e6e6e6">
+												<p class="bt-e6e6e6 bb-e6e6e6"></p>
+												<p class="bb-e6e6e6">团币系数</p>
+												<p class="bb-e6e6e6">免费提现次数</p>
+												<p class="bb-e6e6e6">周转费用减免</p>
+												<p class="bb-e6e6e6">生日投资红包</p>
+												<p class="bb-e6e6e6">节日礼物赠送</p>
+												<p class="bb-e6e6e6">专属投资项目</p>
+												<p class="bb-e6e6e6">专属兑换特权</p>
+												<p class="bb-e6e6e6">贵宾客服专线</p>
+												<p class="bb-e6e6e6">高级专属服务</p>
+												<p class="bb-e6e6e6">额度升级礼</p>
+												<p class="bb-e6e6e6">周年感恩礼</p>
+											</div>
+											<div class="swiper-container table-right swiper-container-horizontal swiper-container-android" id="swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-slide-active">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V1.png"></p>
+														<p class="bb-e6e6e6">1</p>
+														<p class="bb-e6e6e6">1</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide swiper-slide-next">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V2.png"></p>
+														<p class="bb-e6e6e6">1.05</p>
+														<p class="bb-e6e6e6">1</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V3.png"></p>
+														<p class="bb-e6e6e6">1.1</p>
+														<p class="bb-e6e6e6">2</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">18元投资红包</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V4.png"></p>
+														<p class="bb-e6e6e6">1.15</p>
+														<p class="bb-e6e6e6">2</p>
+														<p class="bb-e6e6e6">7折</p>
+														<p class="bb-e6e6e6">28元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V5.png"></p>
+														<p class="bb-e6e6e6">1.20</p>
+														<p class="bb-e6e6e6">3</p>
+														<p class="bb-e6e6e6">6.5折</p>
+														<p class="bb-e6e6e6">48元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V6.png"></p>
+														<p class="bb-e6e6e6">1.25</p>
+														<p class="bb-e6e6e6">3</p>
+														<p class="bb-e6e6e6">5.5折</p>
+														<p class="bb-e6e6e6">68元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V7.png"></p>
+														<p class="bb-e6e6e6">1.3</p>
+														<p class="bb-e6e6e6">4</p>
+														<p class="bb-e6e6e6">4.5折</p>
+														<p class="bb-e6e6e6">98元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V8.png"></p>
+														<p class="bb-e6e6e6">1.35</p>
+														<p class="bb-e6e6e6">4</p>
+														<p class="bb-e6e6e6">3.5折</p>
+														<p class="bb-e6e6e6">128元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6">-</p>
+														<p class="bb-e6e6e6">-</p>
+													</div>
+													<div class="swiper-slide">
+														<p class="bt-e6e6e6 bb-e6e6e6"><img src="/imgs/images/V9.png"></p>
+														<p class="bb-e6e6e6">1.4</p>
+														<p class="bb-e6e6e6">5</p>
+														<p class="bb-e6e6e6">3.3折</p>
+														<p class="bb-e6e6e6">188元投资红包</p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+														<p class="bb-e6e6e6"><img src="/imgs/member/mall/ico-gx.png" class="you"></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</dd>
+
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">什么是团币系数？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>用户可通过完成投资任务赚取团币，团币可用于兑换商品或抽奖，不同会员等级的用户享有不同的团币系数，投资赚团币的计算公式为： 团币= 投资预期收益 * 团币系数</p>
+									<img src="/imgs/memberCenter/tb_table.png" class="qa-tab-dl-img"/>
+									<p>说明：用户在团贷网参与投资（债权转让标除外）均可赚取团币，其中加息奖励部分、团币小数部分不计算。团币按照投资期限平均分摊至每月发放，若该笔投资提前退出，则退出后剩余未发放的团币不再继续发放。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">提现优惠券如何使用？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>符合等级条件的用户，系统每月1号会往团宝箱自动发送提现优惠券，提现优惠券可在提现页面使用，每次限使用一张，不设找零；提现优惠券有效期为一个月。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">每月1号，在会员等级未更新前发布资产标 的，管理费如何收取？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>每月1号零点后，由于系统需要一段时间去计算用户当月的会员等级，用户在当月会员等级未更新的情况下发布资产标的，按上月会员等级对应的折扣优惠收取管理费。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">生日投资红包何时发送，如何使用？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>用户生日当天（以身份证登记为准）系统会往团宝箱自动发送生日投资红包，请用户及时前往团宝箱领取使用。 生日投资红包须在系统发放后两个月内使用；生日投资红包的杠杆为1：200，如98元的生日投资红包，须投资19600元以上方可使用。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">节日礼物是什么，何时发放？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>节日礼物是团贷网回赠高等级会员而准备的精美礼物，一般在传统佳节前提前通知并发放，如端午节、中秋节等，高等级会员收到相关提醒后， 应及时提交收货地址信息，以便我们为您及时配送。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">高端专属服务是什么样的服务？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>高端专属服务是团贷网针对高等级会员不定期提供的线下专属服务，如组团旅游、专车接送、酒店招待等，具体以实际营运状况为准。</p>
+								</dd>
+							</dl>
+						</div>
+						<!-- 会员体系end -->
+						<!-- 团币相关 -->
+						<div class="qa-tab-switch d-hide">
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">什么是团币？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团币是团贷网推出的一种虚拟的激励性积分（即平台为用户设立的福利体系，并非契约型固定收益产品，平台有权对上述规则随时进行适当性调整），用户完成团币任务即可获得团贷网赠送的团币，持有团币的用户可以参与商品免费兑换、转盘抽奖等活动。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">如何赚取团币？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>用户完成团币任务即可赚取团币，团币任务目前分为投资任务、日常任务、新手任务三种：</p>
+									<img src="/imgs/info/6.png" class="qa-tab-dl-img">
+									<p>备注：投资赚团币，系统会按计息时所在的会员等级取团币系数计算团币；会员等级未更新，系统会等待等级更新后再计算；团币通常在计息1小时内发放至用户账号。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">通过投资赚取的团币如何发放？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>用户在团贷网参与投资（债权转让标除外）均可赚取团币，其中加息奖励部分、团币小数部分不计算。团币按照投资期限平均分摊至每月发放，若该笔投资提前退出，则退出后剩余未发放的团币不再继续发放。</p>
+									<img src="/imgs/info/7.png" class="qa-tab-dl-img">
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">通过投资赚取的团币会计算小数部分么？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>为方便展示和使用团币，团币小数部分忽略不计。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">如何查询我的团币？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>登录后，在APP发现-会员中心可查看您的团币数量，点击团币数量即可查看您的团币收支明细。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">团币可以转让、兑现吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>团币不可以转让，不可以兑换人民币。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">团币可以无限期使用吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>团币自赚取或获赠之日起至其次年12月31日内使用有效，未在有效期内使用的团币将自动作废。例如2016年4月15日获赠而未被使用的团币，将会在2017年12月31日后作废。</p>
+								</dd>
+							</dl>
+						</div>
+						<!-- 团币相关end -->
+						<!-- 团币兑换 -->
+						<div class="qa-tab-switch d-hide">
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">使用团币可以兑换哪些商品？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团币可兑换的商品分实物商品和虚拟商品两种，其中实物商品以市场热售商品为主，如电饭煲、移动电源等，虚拟商品主要为团贷网内部提供的投资红包、提现抵扣券、超级会员等商品。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">如何查看我兑换过的或获赠的商品？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">登录后，前往APP-我-我的会员-会员商城，点击【我的商品】，即可查询您兑换过或获赠的商品明细。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">我兑换或抽中的商品什么时候发货？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团贷内部虚拟商品（如投资红包等）一般即时发货，其他实物商品或外部虚拟商品（如电影票等）一般在订单提交后的3～5个工作日内发货。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">商品下单后，久未发货，怎么办？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">商品下单后久未发货，有可能是商品缺货需要采购，您可以主动联系客服了解相关进度。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">没有我喜欢的商品，怎么办？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">用户没找到自己喜欢的商品时，可以在团贷会员首页下方的许愿池板块提交您想要的商品，或前往团贷社区团贷会员板块留言，我们会定期收集用户的反馈，采购并上架关注度较高的商品。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">我兑换或抽中的商品有发票提供吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团币兑换商品或团币抽奖并非现金买卖商品，而是团贷网为答谢用户所提供的回馈服务，不提供发票。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">商品存在质量问题，我该如何处理？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">除商品在运送途中发生损毁或本身存在质量瑕疵以外，恕不允许退货或换货。符合退换货条件的用户， 请在商品签收后及时与客服联系退换货。残次商品寄回时，请务必保留原包装、内附说明书及相关文件。</dd>
+							</dl>
+						</div>
+						<!-- 团币兑换end -->
+						<!-- 云宝物 -->
+						<div class="qa-tab-switch d-hide">
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">什么是云宝物？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">云宝物是一种新颖的抽奖玩法，用户只要花费10枚团币，就有可能获得以1件高价值的宝物，参与次数越多中奖概率越大。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">云宝物的玩法流程是怎么样的？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>① 云宝物是以期为单位筹集的，一期宝物成功开奖后系统会开放下一期购买权限，每期云宝物用户参与1人次须支付10枚团币。</p>
+									<p>② 用户每次参与1人次即可拥有1个参与号码，用户参与次数越多，拥有的参与号码越多，中奖概率越大。</p>
+									<p>③ 宝物筹集完成后，系统会按约定的算法从所有参与号码中，计算出一个唯一的兑换号码，拥有兑换号码的用户视为中奖。</p>
+									<p>④ 宝物开奖后，系统会下发短信通知中奖用户领取奖品，并在5个工作日内安排发货。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">一件宝物有多少参与号码？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">参与号码是一个8位数数字，如10000001；宝物总人次决定参与号码数量，一件价值1000团币的宝物有1000个参与号码：10000001、10000002 ...... 10000999、10001000 。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">参与号码可以自主选择吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">为确保公正性，系统会随机分配参与号码。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">兑换号码如何计算出来？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>兑换号码是按约定算法从所有参与号码中计算出来，每期云宝物只有一个兑换号码：</p>
+									<p>① 取当宝物筹满时间点，网站前100条参与时间记录，参与时间记录精确到毫秒；</p>
+									<p>② 每条购买时间记录，按时、分、秒、号码排列一组数值，如21:25:38.235>212538235；</p>
+									<p>③ 将100组数值求和，和值除以当期宝物总人次取余数，取余数与10000001之和，即为兑换号码。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">如何查询我是否中奖？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>进入团贷会员个人中心 ，打开我的商品即可查询是否中奖。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">中奖了会通知我吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>中奖后，系统即时发短信通知用户，并在会员首页显要位置告知用户中奖。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">中奖了如何领奖？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>无须人工发货的宝物（如投资红包），前往团宝箱领取；必须人工发货的宝物，前往团贷会员个人中心我的商品中提交收货地址领取。</p>
+								</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">领奖后何时配送？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">
+									<p>无须人工发货的宝物（如投资红包），即时发货；必须人工发货的宝物，提交收货地址后3～5个工作日安排发货。</p>
+								</dd>
+							</dl>
+						</div>
+						<!-- 云宝物end -->
+						<!-- 转盘抽奖 -->
+						<div class="qa-tab-switch d-hide">
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">如何查看团币抽奖的中奖纪录？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">登录后，用户可在团贷个人中心团宝箱中查看到自己抽中的团贷内部虚拟商品，其他实物商品或外部虚拟商品（如电影票等）可在团贷会员>个人中心>我的商品中查看。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">我兑换或抽中的商品什么时候发货？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团贷内部虚拟商品（如投资红包等）一般即时发货，其他实物商品或外部虚拟商品（如电影票等）一般在订单提交后的3～5个工作日内发货。</dd>
+							</dl>
+							<dl class="qa-tab-dl">
+								<dl class="qa-tab-dl-title">我兑换或抽中的商品有发票提供吗？<i class="qa-tab-dl-arrow"></i></dl>
+								<dd class="qa-tab-dl-desc">团币兑换商品或团币抽奖并非现金买卖商品，而是团贷网为答谢用户所提供的回馈服务，不提供发票。</dd>
+							</dl>
+						</div>
+						<!-- 转盘抽奖end -->
+						<!-- 砸一砸 -->
+						<div class="qa-tab-switch d-hide"></div>
+						<!-- 砸一砸end -->
+					</section>
+					<!-- 常见问题end -->
+					<!-- 会员公告 -->
+
+					<section class="info-swiper-item swiper-slide">
+
+					</section>
+					<!-- 会员公告end -->
+				</div>
+			</section>
+		</section>
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/common.bundle.js"></script>
+	<script type="text/javascript" src="/js/info.bundle.js"></script>
+	<script type="text/javascript">
+		var isInit = false;
+		function initSwiper() {
+			var swiper = new Swiper('#swiper-container', {
+				slidesPerView: 'auto',
+				freeMode: true,
+				nested: true,
+				//			resistanceRatio: 0,
+			});
+		}
+
+		var winH = window.innerHeight;
+
+		var domsMap = {
+			infoSwiper: Q('.info-swiper'),
+			navContainer: Q('.nav-container'),
+			qaTabItems: Q('.qa-tabs-container>.qa-tab'),
+			qaTabSwitchs: Q('.qa-tab-switch'),
+			qaDls: Q('.qa-tab-dl'),
+			noticeDls: Q('.notice-dl')
+		};
+
+		var state = {
+			qaDlIdx: null,
+			noticeIdx: null
+		}
+
+		var methods = {
+			setNavIdx: function(idx) {
+				domsMap.navContainer.find('.item').eq(idx).addClass('on').siblings('.item').removeClass('on');
+				infoSwiper.slideTo(idx);
+			},
+			setQaTabIdx: function(idx) {
+				domsMap.qaTabItems.eq(idx).addClass('on').siblings().removeClass('on');
+				domsMap.qaTabSwitchs.eq(idx).removeClass('d-hide').siblings('.qa-tab-switch').addClass('d-hide');
+				domsMap.qaDls.removeClass('on');
+				state.qaDlIdx = null;
+			},
+			onNavItemClk: function() {
+				var idx = Q(this).index();
+				methods.setNavIdx(idx)
+			},
+			onQaTabClk: function() {
+				var idx = Q(this).index();
+				methods.setQaTabIdx(idx);
+			},
+			onQaDlClk: function() {
+				var idx = Q(this).index();
+				if(state.qaDlIdx === idx) {
+					domsMap.qaDls.removeClass('on');
+					state.qaDlIdx = null;
+					return;
+				}
+				domsMap.qaDls.removeClass('on');
+				Q(this).addClass('on');
+				state.qaDlIdx = idx;
+				if(Q(this).attr('isSwiper') == '1' && !isInit) {
+					isInit = true;
+					initSwiper();
+				}
+			},
+			onNoticeDlClk: function() {
+				var idx = Q(this).index();
+				if(state.noticeIdx === idx) {
+					domsMap.noticeDls.removeClass('on');
+					state.noticeIdx = null;
+					return;
+				}
+				domsMap.noticeDls.removeClass('on');
+				Q(this).addClass('on');
+				state.noticeIdx = idx;
+			}
+		};
+
+		var infoSwiper = new Swiper('.info-swiper', {
+			onInit: function() {
+				var navH = domsMap.navContainer[0].getBoundingClientRect().height;
+				domsMap.infoSwiper.css({
+					'height': winH - navH + 'px'
+				})
+			},
+			onTransitionEnd: function(swiper) {
+				var idx = swiper.realIndex;
+				methods.setNavIdx(idx);
+			}
+		});
+
+		methods.setNavIdx(0);
+		methods.setQaTabIdx(0);
+		domsMap.navContainer.find('.item').on('click', methods.onNavItemClk);
+		domsMap.qaTabItems.on('click', methods.onQaTabClk);
+		domsMap.qaDls.on('click', methods.onQaDlClk);
+		domsMap.noticeDls.on('click', methods.onNoticeDlClk);
+
+		window.onload = function() {
+			var a = $(".MsoNormalTable").css("width", "");
+			var i = GetQueryString("i");
+			if(i == 1) {
+				domsMap.navContainer.find('.item').eq(1).addClass('on').siblings('.item').removeClass('on');
+				infoSwiper.slideTo(1);
+			}
+		};
+
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+	</script>
+
+</html>

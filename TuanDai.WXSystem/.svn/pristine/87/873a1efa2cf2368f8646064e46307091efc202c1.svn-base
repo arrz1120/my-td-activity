@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>忘记密码 - 我的账户</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode bindingPhone pr0">
+            <div class="c-left">新密码</div>
+            <input type="text" name="" class="codeIpt" placeholder="含字母和数字的6-16个字符">
+        </div>
+    </section>
+    <section class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+        <div class="phoneCode bindingPhone pr0">
+            <div class="c-left">确认密码</div>
+            <input type="text" name="" class="codeIpt" placeholder="再次输入新密码">
+        </div>
+    </section>
+
+    <section class="pd15 mt5">
+      <a href="" target="_blank" class="btn btnYellow">提交更新</a>
+    </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

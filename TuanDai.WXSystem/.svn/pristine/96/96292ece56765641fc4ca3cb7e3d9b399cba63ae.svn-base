@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>交易密码 - 我的账户</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--安全中心-->
+
+</head>
+<body>
+	<header class="headerMain">
+		<div class="header">
+			<div class="back" onclick="javascript:window.location.href='safety.html';">返回</div>
+			<h1 class="title">交易密码</h1>
+		</div>
+		<div class="header-list-icon"></div>
+		<div class="none"></div>
+	</header>
+   <section class="tradePsdBox clearfix">
+       <div class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+       	<div class="p-left">
+       		<p class="f16px c-212121">交易密码：<b class="">开启</b></p>
+       		<p class="f12px c-ababab">进行投标时是否需要输入交易密码</p>
+       	</div>
+       	<div class="states">
+	        <input type="checkbox" class="switch" name="openpsw" id="openpsw">
+	        <label for="openpsw"></label>
+	      </div>
+       </div>
+       <div class="bg-bdtopBom1-d1d1d1 pd10 mt20 clearfix">
+       	<a href="" target="_blank">
+       		<p class="f16px c-212121">修改交易密码</p>
+       		<i class="rf ico-arrow-r arrow"></i>
+       	</a>
+       	
+       </div>
+   </section>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+</body>
+</html>

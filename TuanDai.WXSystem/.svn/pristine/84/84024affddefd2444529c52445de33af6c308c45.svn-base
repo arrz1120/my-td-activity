@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>会员商城</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160412" />
+		<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160412" />
+		<link rel="stylesheet" type="text/css" href="/css/mall.css?v=20170307001" />
+	</head>
+
+	<body class="bg-f1f3f5">
+		<header class="headerMain">
+			<div class="header bb-e6e6e6">
+				<div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+				<h1 class="title">会员商城</h1>
+			</div>
+			<a href="javascript:void(0);" class="header-list-icon"><img src="/imgs/images/header-list-icon01.png"></a>
+			<div class="none"></div>
+		</header>
+		<div class="swiper-container" id="swiper-banner">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a><img src="/pimg/slider1.jpg"></a>
+				</div>
+				<div class="swiper-slide">
+					<a><img src="/pimg/slider2.jpg"></a>
+				</div>
+				<div class="swiper-slide">
+					<a><img src="/pimg/slider3.jpg"></a>
+				</div>
+			</div>
+			<div class="swiper-pagination" id="nav-mark"></div>
+		</div>
+
+		<div class="index-nav bg-fff bb-e6e6e6">
+			<div class="clearfix">
+				<div class="w50p lf pt15 pb15 nav-item br-e6e6e6">
+					<i class="nav-item-i1"></i>
+					<p class="f14px">我的商品</p>
+					<p class="c-ababab line-h20">已兑换1个商品</p>
+				</div>
+				<div class="w50p lf pt15 pb15 nav-item br-e6e6e6">
+					<i class="nav-item-i2"></i>
+					<p class="f14px">我的团币</p>
+					<p class="c-ababab line-h20">3000</p>
+				</div>
+			</div>
+			<!--<div class="clearfix">
+			<div class="w33p lf text-center pt13 pb11 click-respond">
+				<a href="">
+					<div class="nav-img bg-4ac6ff webkit-box box-center"><span class="index-ico index-ico1"></span></div>
+					<p class="f13px c-212121 mt7">我的商品</p>
+				</a>
+			</div>
+			<div class="w33p lf text-center pt13 pb11 click-respond">
+				<a href="">
+					<div class="nav-img bg-fe787d webkit-box box-center"><span class="index-ico index-ico2"></span></div>
+					<p class="f13px c-212121 mt7">会员中心</p>
+				</a>
+			</div>
+			<div class="w33p lf text-center pt13 pb11 click-respond">
+				<a href="">
+					<div class="nav-img bg-ffcf1f webkit-box box-center"><span class="index-ico index-ico3"></span></div>
+					<p class="f13px c-212121 mt7">我的团币</p>
+				</a>
+			</div>
+		</div>-->
+
+		</div>
+
+		<div class="bt-e6e6e6 bb-e6e6e6 mt15 bg-fff">
+			<div class="click-respond">
+				<a href="" class="invset-guide-tit pos-r f14px c-212121 bb-e6e6e6 pl15">
+					<i class="index-sprite index-ico4 mr10"></i>赚团币·抽奖品
+				</a>
+			</div>
+			<div class="knowMore pl15 pr15 pb20 pt20 clearfix">
+				<div class="w50p lf knowMore_l">
+					<div class="webkit-box box-center box-vertical bg_more more5">
+						<p class="f15px c-ffffff">幸运转盘赢大礼</p>
+						<p class="f12px c-ffffff line-h18">好运气在等着你</p>
+					</div>
+				</div>
+				<div class="w50p lf knowMore_r">
+					<div class="webkit-box box-center box-vertical bg_more more6">
+						<p class="f15px c-ffffff">做任务赚团币</p>
+						<p class="f12px c-ffffff line-h18">快来看看吧</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt15 bg-fff bt-e6e6e6 bb-e6e6e6">
+			<div class="click-respond pl15">
+				<a href="" class="invset-guide-tit pos-r f14px c-212121">
+					<i class="index-sprite index-ico5 mr10"></i>兑奖品
+					<p class="f12px c-808080 pos-a">更多<i class="i-arrow-right"></i></p>
+				</a>
+			</div>
+
+			<ul class="goodsList clearfix w100p c-212121">
+				<li class="w50p lf bt-e6e6e6 br-e6e6e6 activityLi">
+					<div class="webkit-box box-center goodsBox">
+						<div class="goodsItem bg_txj">1000<span>元</span></div>
+					</div>
+					<p class="f14px pl12 pr5 text-overflow">1000元提现券</p>
+
+					<!--<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>-->
+
+					<!--活动已开始-->
+					<img class="qgj" src="/imgs/member/mall/qgj.png"/>
+					<p class="line-h18 c-fd6040 f10px pl12 activityTime">
+						<i class="ico_clock1"></i>距结束仅剩:&nbsp;
+						<span class="f10px c-fd6040" id="hour1">08</span> :
+						<span class="f10px c-fd6040" id="minute1">42</span> :
+						<span class="f10px c-fd6040" id="second1">20</span>
+					</p>
+
+					<div class="activityBox">
+						<div class="clearfix">
+							<div class="lf pl10 pt10">
+								<i class="ico_pai1"></i><span class="f22px c-ffffff">7500</span>
+							</div>
+							<div class="rf pt2 pr10">
+								<div class="normalPrice">
+									<i class="ico_pai2"></i>75000
+									<div class="priceLine"></div>
+								</div>
+								<div class="exchangePeople">200人兑换</div>
+							</div>
+						</div>
+						<div class="qiang qiang_on"></div>
+					</div>
+
+				</li>
+				<li class="w50p lf bt-e6e6e6 activityLi">
+					<div class="webkit-box box-center">
+						<div class="webkit-box box-center goodsBox">
+							<div class="goodsItem bg_hb">10</div>
+						</div>
+					</div>
+					<p class="f14px pt5 pl12 pr5 text-overflow">投资红包</p>
+					<!--<div class="line-h18 pl12 pr10 clearfix">
+					<span class="c-fd6040 lf">7500团币</span>
+					<span class="c-ababab rf">200人兑换</span>
+				</div>-->
+
+					<!--活动未开始-->
+					<img class="qgj" src="/imgs/member/mall/qgj.png"/>
+					<p class="line-h18 c-979797 f10px pl12 activityTime">
+						<i class="ico_clock2"></i>距开始还有:&nbsp;
+						<span class="f10px c-979797" id="hour2">08</span> :
+						<span class="f10px c-979797" id="minute2">42</span> :
+						<span class="f10px c-979797" id="second2">20</span>
+					</p>
+					<div class="activityBox">
+						<div class="clearfix">
+							<div class="lf pl10 pt10">
+								<i class="ico_pai1"></i><span class="f22px c-ffffff">7500</span>
+							</div>
+							<div class="rf pt2 pr10">
+								<div class="normalPrice">
+									<i class="ico_pai2"></i>75000
+									<div class="priceLine"></div>
+								</div>
+								<div class="exchangePeople">200人兑换</div>
+							</div>
+						</div>
+						<div class="qiang qiang_off"></div>
+					</div>
+				</li>
+				<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+					<div class="zhuanxiang">V5以上专享</div>
+					<div class="webkit-box box-center">
+						<div class="webkit-box box-center goodsBox">
+							<div class="goodsItem"><img src="/imgs/member/mall/iphone.png" /></div>
+						</div>
+					</div>
+					<p class="f14px pt5 pl12 pr5 text-overflow">苹果6splus金色</p>
+					<div class="line-h18 pl12 pr10 clearfix">
+						<span class="c-fd6040 lf">7500团币</span>
+						<span class="c-ababab rf">200人兑换</span>
+					</div>
+					<!--已售罄遮罩 2017.03.07 新增-->
+					<div class="sell-out"></div>
+				</li>
+				<li class="w50p lf bt-e6e6e6">
+					<div class="webkit-box box-center">
+						<div class="webkit-box box-center goodsBox">
+							<div class="goodsItem"><img src="/imgs/member/mall/mouse.png" /></div>
+						</div>
+					</div>
+					<p class="f14px pt5 pl12 pr5 text-overflow">微软蓝影M4000无线鼠标</p>
+					<div class="line-h18 pl12 pr10 clearfix">
+						<span class="c-fd6040 lf">7500团币</span>
+						<span class="c-ababab rf">200人兑换</span>
+					</div>
+					<!--已售罄遮罩 2017.03.07 新增-->
+					<div class="sell-out"></div>
+				</li>
+				<li class="w50p lf bt-e6e6e6 br-e6e6e6">
+					<div class="webkit-box box-center">
+						<div class="webkit-box box-center goodsBox">
+							<div class="goodsItem"><img src="/imgs/member/mall/mouse2.png" /></div>
+						</div>
+					</div>
+					<p class="f14px pt5 pl12 pr5 text-overflow">微软蓝影M4000无线鼠标</p>
+					<div class="line-h18 pl12 pr10 clearfix">
+						<span class="c-fd6040 lf">7500团币</span>
+						<span class="c-ababab rf">200人兑换</span>
+					</div>
+					<!--已售罄遮罩 2017.03.07 新增-->
+					<div class="sell-out"></div>
+				</li>
+				<li class="w50p lf bt-e6e6e6">
+					<div class="webkit-box box-center">
+						<div class="webkit-box box-center goodsBox">
+							<div class="goodsItem"><img src="/imgs/member/mall/upmove.png" /></div>
+						</div>
+					</div>
+					<p class="f14px pt5 pl12 pr5 text-overflow">卓棒智能穿戴（UP-MOVE）</p>
+					<div class="line-h18 pl12 pr10 clearfix">
+						<span class="c-fd6040 lf">7500团币</span>
+						<span class="c-ababab rf">200人兑换</span>
+					</div>
+
+					<!--已售罄遮罩 2017.03.07 新增-->
+					<div class="sell-out"></div>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var swiper_banner = new Swiper('#swiper-banner', {
+				onInit: function() {
+					$('#swiper-banner').find('img').show();
+				},
+				autoplay: 5000,
+				direction: 'horizontal',
+				loop: true,
+				pagination: '#nav-mark'
+			});
+
+			//倒计时
+			function pad(n) {
+				return(n < 10 ? '0' : '') + n;
+			}
+
+			function time(target_time, hourId, minuteId, secondId) {
+				target_time = new Date(target_time);
+				var $hour = $(hourId),
+					$minute = $(minuteId),
+					$second = $(secondId);
+					
+				getCountdown();
+
+				var timeout = setInterval(function() {
+					getCountdown();
+				}, 1000);	
+
+				function getCountdown() {
+					var now_time = new Date().getTime();
+					var left_time = (target_time - now_time) / 1000;
+					if(left_time<=0){
+						return
+					}
+//					left_time = left_time % 86400;alert(left_time)
+					hours = pad(parseInt(left_time / 3600));
+					left_time = left_time % 3600;
+					minutes = pad(parseInt(left_time / 60));
+					seconds = pad(parseInt(left_time % 60));
+					console.log(seconds)
+					
+					$hour.html(hours);
+	                $minute.html(minutes);
+	                $second.html(seconds);
+				}
+			}
+			
+			time('2017/3/5 20:00:00','#hour1','#minute1','#second1');
+			time('2017/3/3 21:00:00','#hour2','#minute2','#second2');
+			
+		})
+	</script>
+
+	</body>
+
+</html>

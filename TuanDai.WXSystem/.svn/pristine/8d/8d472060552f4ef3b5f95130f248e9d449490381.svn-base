@@ -1,0 +1,355 @@
+﻿var oldTransferShares = "0";
+$(function () {
+    //查看详情
+    $("#detail-btn").click(function () {
+        moveToTop(".debt-apply-detail");
+    });
+    $("#detail-close").click(function () {
+        moveToBottom(".debt-apply-detail");
+    });
+    
+    $("#detail-close").click(function () {
+        moveToBottom(".debt-apply-detail");
+    });
+    /*转让申请*/
+    $("#txtTransferShares").blur(function () { 
+        $("#spnWithdrawFunds").html("￥0.00");
+        if ($("#txtTransferShares").val() != oldTransferShares) {
+            oldTransferShares = $("#txtTransferShares").val();
+            $("#txtTransferPrice").val("0");
+        }
+        if (!ValidateTransferShares()) { return false; }
+        ValueClaims();
+        GetYearRate();
+    });
+    $("#txtTransferPrice").blur(function () { if (!ValidateTransferShares() || !ValidateTransferPrice()) { return false; } WithdrawFunds(); GetYearRate(); });
+    $("#txtTransferShares").bind("keyup", function () {
+        $this = $(this);
+        $this.val($this.val().toString().replace(/[^(\d)]+/, ""));
+    });
+    $("#txtTransferPrice").bind("keyup", function () {
+        $this = $(this);
+        $this.val($this.val().toString().replace(/[^(\d|\.)]+/, ""));
+    });
+    $("#btnConfirmTran").click(function () {
+        ConfirmTran();
+    }); 
+    InitApplicationTransfer();
+});
+
+
+//申请转让,查看详情
+function moveToTop(ele) {
+    $(ele).removeClass('moveToBottom').removeClass('hide').addClass('moveToTop');
+}
+function moveToBottom(ele) {
+    $(ele).removeClass('moveToTop').addClass('moveToBottom');
+    setTimeout(function () {
+        $(ele).addClass('hide');
+    }, 500);
+}
+
+/********转让申请****************/
+var LowerUnit = 0;
+var SubscribeShares = 0; 
+var CommissionsReceivable = 0;
+function InitApplicationTransfer() {
+    $("body").showLoading("加载中...");
+
+    $("#txtTransferShares").val("0");
+    $("#txtTransferPrice").val("0");
+    $("#txtPayPwd").val("");
+    $("#spnErrorMsg").text("");
+    InitData();
+    $.ajax({
+        url: "/ajaxCross/ZQZRAjax.ashx",
+        type: "post",
+        dataType: "json",
+        data: { Cmd: "InitApplicationTransfer", id: SubscribeId },
+        success: function (json) {
+            $("body").hideLoading();
+            if (json.result == "1") {
+                var placeTxt = "可转让1~" + json.SubscribeShares + "份";
+                if (json.SubscribeShares == 1) {
+                    placeTxt = "可转让1份";
+                }
+                $("#txtTransferShares").attr("placeholder", placeTxt);
+                $("#txtTransferShares").val("");
+                $("#txtTransferPrice").val("");
+                LowerUnit = json.LowerUnit;
+                SubscribeShares = json.SubscribeShares;
+            } else {
+                alert(json.msg);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $("body").hideLoading();
+            alert("程序错误！");
+        }
+    });
+}
+
+function InitData() {
+    $("#spnAmount").text(0)//转让本金
+    $("#spnMinAmount").text(0);//最低本金折让价
+    $("#spnMaxAmount").text(0);//最高本金折让价
+    $("#txtTransferPrice").val(0);//本金折让价 
+    $("#spnWithdrawFunds").html("￥0.00");//预计收回资金 
+    $("#spnWithdrawFunds2").html("￥0.00");//预计收回资金
+    $("#spnAmount2").html("+0.00元");//折让本金
+    $("#spnAmount3").html("0.00元");
+    $("#spnAmount4").html("0.00元");
+    $("#spnAmount5").html("0.00元");
+    $("#spnInterestPayable").html("+0.00元");//未结算利息
+    $("#spnInterestPayable2").html("0.00元");
+    $("#spnInterestPayable3").html("0.00元");
+    $("#spnCommissionsReceivable").html("-0.00元");//佣金
+    $("#spnCommissionsReceivable2").html("0.00元"); 
+    $("#spnYearRate").html("0%"); //承接者年化利率
+}
+//计算承接者的年化利率
+function GetYearRate() {
+    var shares = $("#txtTransferShares").val();
+    var price = $("#txtTransferPrice").val();
+    if ($.trim(shares) == "" || $.trim(price) == "") {
+        $("#spnYearRate").html("0%");
+        return;
+    }
+    if (parseInt(shares) <= 0 || parseInt(price) <= 0) {
+        $("#spnYearRate").html("0%");
+        return;
+    }
+    var yearRate = 0;
+    $.ajax({
+        type: 'POST',
+        dataType: "json",
+        async: false,
+        url: '/ajaxCross/ZQZRAjax.ashx',
+        data: { Cmd: "GetUndertakeYearRate", subscribeid: SubscribeId, totalshares: shares, totalamount: price },
+        success: function (data) {
+            yearRate = parseFloat(data.result);
+        },
+        cache: false
+    });
+    $("#spnYearRate").html(yearRate + "%");
+}
+function ValidateData() {
+    if (ValidateTransferShares() && ValidateTransferPrice() && ValidatePayPwd()) {
+        if (zqRateSet.IsOpen && parseFloat($("#spnYearRate").text().replace("%", "")) >= parseFloat(zqRateSet.MaxRate)) {
+            setErrorTip("预期年化利率不能超过" + zqRateSet.MaxRate + "%，请重新设置")
+            $("#txtTransferPrice").focus();
+            return false;
+        }
+        setErrorTip("");
+        return true;
+    }   
+    return false;
+}
+function setErrorTip(str) {
+    if (str != "")
+        $("#spnErrorMsg").show();
+    else {
+        $("#spnErrorMsg").hide();
+    }
+    $("#spnErrorMsg").html("<i class='ico ico-warn'></i>" + str);
+}
+function ValidateTransferShares() {
+    var shares = $.trim($("#txtTransferShares").val());
+    if (shares == "" || shares == "undefined") {
+        setErrorTip("份数不能为空");
+        InitData();
+        return false;
+    }
+    if (parseInt(shares) <= 0) {
+        setErrorTip("份数必须大于零");
+        InitData();
+        return false;
+    }
+    setErrorTip("");
+    return true;
+}
+function ValidateTransferPrice() {
+    var price = $("#txtTransferPrice").val();
+    if (price == "" || price == "undefined") {
+        setErrorTip("本金折让价格不能为空")
+        return false;
+    }
+
+    var regx = /^\d+$|^\d+\.\d{0,2}$/gi;
+    if (!regx.test(price)) {
+        setErrorTip("本金折让价格格式不正确，只能保留2位小数");
+        return false;
+    }
+    if (parseFloat(price) <= 0) {
+        setErrorTip("本金折让价格必须大于零")
+        return false;
+    }
+    setErrorTip("");
+    return true;
+}
+function ValidatePayPwd() {
+    var payPwd = $("#txtPayPwd").val();
+    if (payPwd == "" || payPwd == "undefined") {
+        setErrorTip("交易密码不能为空")
+        return false;
+    }
+    setErrorTip("");
+    return true;
+}
+var interestPayable;
+function ValueClaims() {
+    var amount = 0;
+    var txtTransferShares = $("#txtTransferShares").val();
+    if (parseInt(txtTransferShares) > parseInt(SubscribeShares)) {
+        $("#txtTransferShares").val(parseInt(SubscribeShares))
+        amount = parseInt(SubscribeShares) * parseInt(LowerUnit);
+        txtTransferShares = SubscribeShares;
+    }
+    else {
+        amount = parseInt(txtTransferShares) * parseInt(LowerUnit);
+    }
+
+    $.ajax({
+        type: 'POST',
+        dataType: "json",
+        async: false,
+        url: '/ajaxCross/ZQZRAjax.ashx',
+        data: { Cmd: "GetInterestPayable", transfershares: txtTransferShares, sid: SubscribeId },
+        success: function (data) {
+            interestPayable = parseFloat(data.msg);
+        },
+        cache: false
+    });
+
+    var discount = WebSettingEntity.Param1Value;//本金折扣
+    var discountPrice = amount * parseInt(discount) / 100;//最低转让本金 
+    $("#spnAmount").text(amount);
+    $("#spnAmount2").html("+"+amount + "元");
+    $("#spnAmount3").html(amount + "元");
+    $("#spnAmount4").html(amount + "元");
+    $("#spnAmount5").html(amount + "元");
+    $("#spnInterestPayable").html("+" + interestPayable + "元");
+    $("#spnInterestPayable2").html(interestPayable + "元");
+    $("#spnInterestPayable3").html(interestPayable + "元");
+    $("#spnMinAmount").text(discountPrice);
+    $("#spnMaxAmount").text(amount);
+}
+function WithdrawFunds() {
+    var txtTransferShares = $("#txtTransferShares").val();//份数
+    var totalAmount = parseInt(txtTransferShares) * parseInt(LowerUnit);//转让本金
+    var txtTransferPrice = parseFloat($("#txtTransferPrice").val());//转让价格
+    var discount = WebSettingEntity.Param1Value;//本金折扣
+    var discountPrice = totalAmount * parseInt(discount) / 100;//最低转让本金
+
+    if (txtTransferPrice > totalAmount) {
+        $("#txtTransferPrice").val(totalAmount);
+        txtTransferPrice = totalAmount
+    }
+    if (txtTransferPrice < discountPrice) {
+        $("#txtTransferPrice").val(discountPrice);
+        txtTransferPrice = discountPrice
+    }
+    var serviceRate = WebSettingEntity.Param5Value;
+    CommissionsReceivable = ((txtTransferPrice + interestPayable) * parseFloat(serviceRate)).toFixed(2);
+
+    var WithdrawFunds = txtTransferPrice + interestPayable - CommissionsReceivable;
+
+    $("#spnWithdrawFunds").html("￥" + WithdrawFunds.toFixed(2));
+    $("#spnWithdrawFunds2").html("￥" + WithdrawFunds.toFixed(2));
+    $("#spnAmount2").html("+" + parseFloat($("#txtTransferPrice").val()) + "元");
+    $("#spnAmount3").html(parseFloat($("#txtTransferPrice").val()) + "元");
+    $("#spnAmount4").html(parseFloat($("#txtTransferPrice").val()) + "元");
+    $("#spnAmount5").html(parseFloat($("#txtTransferPrice").val()) + "元");
+    $("#spnInterestPayable").html("+" + interestPayable + "元");
+    $("#spnInterestPayable2").html(interestPayable + "元");
+    $("#spnInterestPayable3").html(interestPayable + "元");
+    $("#spnCommissionsReceivable").html("-" + CommissionsReceivable + "元");
+    $("#spnCommissionsReceivable2").html(CommissionsReceivable + "元");
+}
+//确认申请转让
+function ConfirmTran() {
+    if (!ValidateData()) {
+        return false;
+    }
+    var shares = $("#txtTransferShares").val();
+    var price = $("#txtTransferPrice").val();
+    var payPwd = IsOpenCGT ? "" : $("#txtPayPwd").val();
+    showDialWindows("确定要转让此债权吗？", "您申请转让债权" + price + "元，需扣除服务费" + CommissionsReceivable + "元。佣金将在债权被接收时即时扣除。", "确定",
+        function () {
+            coloseWindow(); 
+            $("body").showLoading("申请中...");
+            $.ajax({
+                url: "/ajaxCross/ZQZRAjax.ashx",
+                type: "post",
+                dataType: "json",
+                data: {
+                    Cmd: "SubmitTransaction",
+                    sid: SubscribeId,
+                    shares: shares,
+                    price: price,
+                    ppwd: payPwd
+                },
+                success: function (data) {
+                    $("body").hideLoading();
+                    if (data.result == "1") { 
+                        $("#dvTranSuc .successTips").html("<i class='ico ico-success'></i>" + data.msg);
+                        $("#dvTranSuc").show();
+                        setTimeout(function () {
+                            window.location.href = "/Member/Repayment/my_debt_transferlist.aspx?tab=Traning";
+                        }, 2000);
+                        return; 
+                    }else if (data.result == "8888") {
+                        window.location.href = unescape(data.msg);
+                    } else {
+                        alert(data.msg);
+                        return false;
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("body").hideLoading();
+                    alert("转让失败！");
+                    return false;
+                }
+            });
+        },
+        "取消", function () { coloseWindow(); });
+}
+
+function showDialWindows(title, content, okString, okbtnEvent, cancleString, cancleEvent) { 
+    $("#dvNeedTran .fb").html(title);
+    $("#dvNeedTran .text-justify").html(content);
+    if (okString != "null" && okString != null && okString.length > 0) {
+        $("#btnOk").html(okString);
+        $("#btnOk").show();
+    }
+    else {
+        $("#btnOk").hide();
+    }
+
+    $("#btnOk").unbind("click").bind("click", function (e) {
+        e.preventDefault();
+        if (okbtnEvent)
+        { okbtnEvent(); }
+    });
+
+    if (cancleString != "null" && cancleString != null && cancleString.length > 0) {
+        $("#btnCancel").html(cancleString);
+        $("#btnCancel").show();
+    }
+    else {
+        $("#btnCancel").hide();
+    }
+    $("#btnCancel").unbind("click").bind("click", function (e) {
+        e.preventDefault();
+        if (cancleEvent)
+        { cancleEvent(); }
+    });
+   
+    $("#dvNeedTran").fadeIn();
+}
+
+ 
+//弹出层事件
+function coloseWindow() {
+    $("#dvNeedTran").fadeOut();
+}

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>绑定银行卡</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160727" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css?v=526262" />
+	</head>
+
+	<body class="bg-f2f2f0">
+		<div class="card-nub mt20 bg-fff pl15">
+			<input type="text" placeholder="银行卡号">
+		</div>
+		<div class="clearfix mt5 pl5 pr15">
+			<a href="" class="rf c-fab600 f13px block">支持银行列表</a>
+		</div>
+		<div class="pl15 pr15 mt20">
+			<a href="" class="rd-but">绑定</a>
+		</div>
+	</body>
+
+</html>

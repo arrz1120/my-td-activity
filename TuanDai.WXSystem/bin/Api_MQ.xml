@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_MQ</name>
+    </assembly>
+    <members>
+        <member name="T:Api_MQ.ComputerInfo">
+            <summary>
+            获取计算机基本信息
+            </summary>
+        </member>
+        <member name="M:Api_MQ.ComputerInfo.GetHostOfIP">
+            <summary>
+            获取当前计算机主机名和IP   例如:计算机名:aaa,IP:10.10.10.10
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api_MQ.MQServer">
+            <summary>
+            rabbitMQ的操作类
+            </summary>
+        </member>
+        <member name="M:Api_MQ.MQServer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="exchangeName">交换机名称</param>
+            <param name="queueName">队列名称:qu_Borrow</param>
+        </member>
+        <member name="M:Api_MQ.MQServer.BindChannel(System.Int32,System.String)">
+             <summary>
+             
+             </summary>
+             <param name="prefetchCount">如果为０：RabbitMQ仅仅是当消息到达队列进行转发消息。并不在乎有多少任务消费者并未传递一个应答给RabbitMQ。仅仅盲目转发所有的奇数给一个消费者，偶数给另一个消费者。
+            为了解决这样的问题，我们可以使用basicQos方法，传递参数为prefetchCount = 1。这样告诉RabbitMQ不要在同一时间给一个消费者超过一条消息。换句话说，只有在消费者空闲的时候会发送下一条信息</param>
+            <param name="type">
+            交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式
+             </param>
+             <returns></returns>
+        </member>
+        <member name="M:Api_MQ.MQServer.SetMessage(System.String,System.String)">
+            <summary>
+            发送信息
+            </summary>
+            <param name="message">信息内容</param>
+            <param name="exchargeType">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <returns>1:表示成功,其它表示失败</returns>
+        </member>
+        <member name="M:Api_MQ.MQServer.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:Api_MQ.MQServer.GetMessage">
+             <summary>
+            获取内容
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:Api_MQ.MQServer.CreadCustomer">
+            <summary>
+            创建消息费
+            </summary>
+        </member>
+        <member name="M:Api_MQ.MQServer.PandC(Api_MQ.MQServer.CustomerExecute,System.Int32,System.String)">
+            <summary>
+            建立消费者
+            </summary>
+            <param name="customerExecute">执行的方法</param>
+            <param name="WaitDestroyOfTime">阻塞释放的时间(分钟)</param>
+            <param name="exchargeType">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <returns>1:成功 其它:失败</returns>
+        </member>
+        <member name="M:Api_MQ.MQServer.PandCByAlways(Api_MQ.MQServer.CustomerExecute,System.String)">
+            <summary>
+            建立消费者一直阻塞
+            </summary>
+            <param name="customerExecute">委托执行方法</param>
+            <param name="exchargeType">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <returns>1:成功 其它:失败</returns>
+        </member>
+        <member name="M:Api_MQ.MQServer.DeleteQueue(System.String)">
+            <summary>
+            删除队列
+            </summary>
+            <param name="exchargeType">交换器交换的类型 direct 直接 fanout 广播式 topic 主题交换式</param>
+            <returns>1:成功 其它:失败</returns>
+        </member>
+        <member name="M:Api_MQ.Telnet.Connect(System.String,System.String@)">
+            <summary>
+             启动socket 进行telnet操作    
+            </summary>
+            <param name="s_address">是在配置文件进行配置kay,并且value值是Ip:Port</param>
+            <param name="ErrorMessage">如果不空表示有异常连接失败</param>
+            <returns>true:表示成功 false:表示失败</returns>
+        </member>
+    </members>
+</doc>

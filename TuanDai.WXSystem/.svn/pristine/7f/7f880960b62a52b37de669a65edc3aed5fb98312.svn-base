@@ -1,0 +1,268 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.Objects;
+using System.Text;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.setAuto
+{
+    /// <summary>
+    /// 自动投标设置
+    /// </summary>
+    public partial class auto_invest : UserPage
+    {
+        protected string perAmountLimit;
+        protected int rankid = 0;
+        protected string limitPercent;
+        protected IList<UserAutoTenderSettingInfo> autoList;
+        protected string WeMinRate = string.Empty;//最低利率
+        protected string WeDeadlines = string.Empty;//we计划月份
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!this.IsPostBack)
+            {
+                Guid UserId = WebUserAuth.UserId.Value;
+                var para = new Dapper.DynamicParameters();
+                para.Add("@UserId", UserId);
+                para.Add("@rank", 0, DbType.Int32, ParameterDirection.Output);
+                TuanDai.DB.TuanDaiDB.Execute(TdConfig.ApplicationName,TdConfig.DBRead, "exec p_GetUserAutoQueue @UserId,@rank out", ref para);
+                rankid = para.Get<int?>("@rank")??0;
+
+                //List<UserAutoTenderSettingInfo> list =
+                //    new UserAutoTenderSettingBLL().GetUserAutoTenderSettingListByUserId(UserId);
+                //autoList = list.ToList();
+
+                string sql = @"SELECT * FROM (SELECT * FROM dbo.UserAutoTenderSetting WITH(NOLOCK) WHERE UserId=@UserId
+UNION 
+SELECT Id,UserId,ProjectType,''AS RepaymentType,0 AS StartRate,0 AS EndRate,0 AS StartDeadLine,0 AS EndDeadLine,StartDate,EndDate,ReservedAmout,0 AS PreAmout,SortOrder,Status,CreateDate,0 AS StartDeadType,0 AS EndDeadType FROM dbo.UserAutoWePlanSetting WITH(NOLOCK) WHERE UserId=@UserId)a ORDER BY a.SortOrder";
+                var settingList = TuanDai.DB.TuanDaiDB.Query<UserAutoTenderSettingInfo>(TdConfig.ApplicationName,
+                    TdConfig.DBUserWrite, sql, ref para);
+                autoList = settingList;
+                //获取自动投标设置
+                WebSettingInfo webSettingInfo =
+                    new WebSettingBLL().GetWebSettingInfo("17191362-568A-4F46-8D7D-5C23D80C9D8B");
+                this.perAmountLimit = !string.IsNullOrEmpty(webSettingInfo.Param2Value) ? webSettingInfo.Param2Value : "100";
+                this.limitPercent = !string.IsNullOrEmpty(webSettingInfo.Param3Value) ? webSettingInfo.Param3Value : "100";
+            }
+        }
+
+        /// <summary>
+        /// 获取利率范围
+        /// </summary>
+        /// <param name="beginRate"></param>
+        /// <param name="endRate"></param>
+        /// <returns></returns>
+        public string getRateRank(object beginRate, object endRate)
+        {
+            string strBegin = "";
+            string strEnd = "";
+            if (beginRate == null || string.IsNullOrWhiteSpace(beginRate.ToString()))
+            {
+                strBegin = "";
+            }
+            else
+            {
+                strBegin = ToolStatus.DeleteZero(beginRate);
+            }
+            if (endRate == null || string.IsNullOrWhiteSpace(endRate.ToString()))
+            {
+                strEnd = "";
+            }
+            else
+            {
+                strEnd = ToolStatus.DeleteZero(endRate);
+            }
+            if (strEnd == "" && strBegin == "")
+            {
+                return "不限";
+            }
+            else if (strBegin == "" || strEnd == "")
+            {
+                return strBegin == "" ? strEnd + "%" : strBegin + "%";
+            }
+            else
+            {
+                return strBegin + "% - " + strEnd + "%";
+            }
+        }
+        /// <summary>
+        /// 获取期限
+        /// </summary>
+        /// <param name="beginDeadline"></param>
+        /// <param name="endDeadline"></param>
+        /// <returns></returns>
+        public string getDeadline(object beginDeadline, object endDeadline,int beginDeadType,int endDeadType)
+        {
+            string strBegin = "";
+            string strEnd = "";
+            if (beginDeadline != null && !string.IsNullOrWhiteSpace(beginDeadline.ToString()))
+            {
+                strBegin = beginDeadline.ToString();
+            }
+            if (endDeadline != null && !string.IsNullOrWhiteSpace(endDeadline.ToString()))
+            {
+                strEnd = endDeadline.ToString();
+            }
+            if (strBegin == "" && strEnd == "")
+            {
+                return "不限";
+            }
+            else if (strBegin == "" || strEnd == "")
+            {
+                return strBegin == "" ? strEnd + (endDeadType == 1 ? "个月" : "天") : strBegin + (beginDeadType == 1 ? "个月" : "天");
+            }
+            else
+            {
+                return strBegin + (beginDeadType == 1 ? "个月" : "天") + "-" + strEnd + (endDeadType == 1 ? "个月" : "天");
+            }
+        }
+        /// <summary>
+        /// 获取有效期
+        /// </summary>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public string getValid(object beginTime, object endTime)
+        {
+            if (beginTime == null)
+            {
+                beginTime = DateTime.Now.ToShortDateString();
+            }
+            if (endTime == null)
+            {
+                endTime = DateTime.MaxValue;
+            }
+
+            if (DateTime.Parse(beginTime.ToString()) > DateTime.Now)
+            {
+                return "未开始";
+            }
+            if (DateTime.Parse(endTime.ToString()) < DateTime.Now)
+            {
+                return "已过期";
+            }
+            if (endTime.ToString() == DateTime.MaxValue.ToString())
+            {
+                return "长期有效";
+            }
+            else
+            {
+                return DateTime.Parse(beginTime.ToString()).ToString("yy.MM.dd") + "-" + DateTime.Parse(endTime.ToString()).ToString("yy.MM.dd");
+            }
+        }
+        /// <summary>
+        /// 获取项目类型
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public string getProjectType(object ids)
+        {
+            if (ids == null || string.IsNullOrWhiteSpace(ids.ToString()))
+            {
+                return "不限";
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                string[] strArray = ids.ToString().Replace("6,7", "6").Split(',');
+                foreach (string id in strArray)
+                {
+                    switch (id)
+                    {
+                        case "9":
+                            sb.Append(sb.Length == 0 ? "微团贷" : "/微团贷");
+                            break;
+                        case "1":
+                            sb.Append(sb.Length == 0 ? "小微企业" : "/小微企业");
+                            break;
+                        //case "3":
+                        //    sb.Append(sb.Length == 0 ? "零售贷" : "/零售贷");
+                        //    break;
+                        case "6":
+                            sb.Append(sb.Length == 0 ? "资产标" : "/资产标");
+                            break;
+                        //case "17":
+                        //    sb.Append(sb.Length == 0 ? "证券宝" : "/证券宝");
+                        //    break;
+                        case "15":
+                            sb.Append(sb.Length == 0 ? "分期宝" : "/分期宝");
+                            break;
+                        //case "18":
+                        //    sb.Append(sb.Length == 0 ? "B类私募宝" : "/B类私募宝");
+                        //    break;
+                        case "20":
+                            sb.Append(sb.Length == 0 ? "供应链" : "/供应链");
+                            break;
+                    }
+                }
+                return sb.ToString();
+            }
+        }
+        /// <summary>
+        /// 还款方式
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public string getRepaymentType(object ids)
+        {
+            if (ids == null || string.IsNullOrWhiteSpace(ids.ToString()))
+            {
+                return "不限";
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                string[] strArray = ids.ToString().Split(',');
+                foreach (string id in strArray)
+                {
+                    if (sb.ToString() == "")
+                    {
+                        sb.Append(Tool.EnumHelper.GetDescriptionFromEnumValue(typeof(ConstString.RepaymentType), id));
+                    }
+                    else
+                    {
+                        sb.Append("/" + Tool.EnumHelper.GetDescriptionFromEnumValue(typeof(ConstString.RepaymentType), id));
+                    }
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        protected void GetWeAutoString(string projectTypes)
+        {
+            WeDeadlines = string.Empty;
+            string sql = @"SELECT YearRate,Deadline FROM dbo.We_ProductType with(nolock) WHERE Id IN(" + projectTypes + ") order by YearRate";
+
+            var para = new Dapper.DynamicParameters();
+            var weAuto = PublicConn.QueryBySql<SimpleWeAuto>(sql, ref para);
+            if (weAuto != null)
+            {
+                WeMinRate = ToolStatus.DeleteZero(weAuto[0].YearRate);
+                foreach (var item in weAuto)
+                {
+                    if (string.IsNullOrEmpty(WeDeadlines))
+                    {
+                        WeDeadlines = item.Deadline.ToString();
+                    }
+                    else
+                    {
+                        WeDeadlines += ","+item.Deadline.ToString();
+                    }
+                }
+            }
+        }
+
+        protected class SimpleWeAuto
+        {
+            public decimal YearRate { get; set; }
+            public decimal Deadline { get; set; }
+        }
+    }
+}

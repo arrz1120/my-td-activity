@@ -1,0 +1,37 @@
+.header-tab{width: 225px;height: 30px;margin: 9px auto 0;border-radius: 4px;border: 1px solid #eeeeee;}
+.header-tab a{display: block;text-align: center;width: 50%;height: 28px;line-height: 28px;font-size: 17px;color: #808080;float: left;}
+.header-tab a.active{background: #ffc61a;color: #fff;}
+
+.tab-nav div{color: #808080;}
+.tab-nav div.tab-nav-active{color: #fab600;}
+
+@media only screen and (max-width: 360px) {
+	.header-tab{width: 200px;}
+}
+@media only screen and (max-width: 320px) {
+	.header-tab{width: 180px;}
+}
+.debt-list .debt-list-title{padding: 10px 0;position: relative;}
+.debt-list .debt-list-title p{padding-right: 90px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.debt-list .debt-list-title .apply-btn{height: 25px;line-height: 25px;background: #ffcf1f;padding: 0 10px;border-radius: 2px;right: 15px;top: 10px;}
+.debt-list .debt-list-body{padding: 15px 0;position: relative;}
+.debt-list .debt-list-body .debtWay{bottom: 14px;right: 15px;}
+.ico{display: inline-block;margin-right: 7px;}
+.ico-money1{width: 12px;height: 12px;background: url('/imgs/images/ret-m-ico1.png');background-size: 100% 100%;vertical-align: -2px;}
+.ico-money2{width: 21px;height: 20px;background: url('/imgs/images/ico-money2.png');background-size: 100% 100%;vertical-align: -4px;}
+.ico-date1{width: 12px;height: 12px;background: url('/imgs/images/ret-m-ico2.png');background-size: 100% 100%;vertical-align: -2px;}
+.ico-schedule{width: 12px;height: 12px;background: url('/imgs/images/ico-schedule.png');background-size: 100% 100%;vertical-align: -2px;}
+.ico-clock{width: 12px;height: 12px;background: url('/imgs/images/clock.png');background-size: 100% 100%;vertical-align: -2px;}
+.ico-clock-red{width: 12px;height: 12px;background: url('/imgs/images/ico-clock-red.png');background-size: 100% 100%;vertical-align: -1px;}
+.ico-debt1{width: 9px;height: 11px;background: url('/imgs/images/ico-debt1.png');background-size: 100% 100%;vertical-align: -1px;}
+.ico-deal7{width: 17px;height: 17px;background: url('/imgs/images/ico-deal7.png?v=20160627');background-size: 100% 100%;vertical-align: -3px;}
+.ico-biao{width: 13px;height: 15px;background: url('/imgs/images/ico-biao.png');background-size: 100% 100%;vertical-align: -3px;margin-right: 5px;}
+.ico-state5{width: 11px;height: 11px;background: url('/imgs/images/state5.png');background-size: 100% 100%;vertical-align: 0;margin-right: 5px;}
+.ico-arrow-right{width: 15px;height: 11px;background: url('/imgs/images/ico-arrow-right.png');background-size: 100% 100%;vertical-align: 0;}
+.ico-warn{width: 11px;height: 11px;background: url('/imgs/images/ico_warn.png');background-size: 100% 100%;vertical-align: 0;}
+.ico-income{width: 12px;height: 11px;background: url('/imgs/images/ico-income.png');background-size: 100% 100%;vertical-align: 0;}
+.ico-titlemark{width: 3px;height: 12px;background: #808080;}
+
+.img-debt-empty{width: 219px;margin: 75px auto 0;}
+
+.circle{right: 15px;top: 14px;}

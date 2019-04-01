@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;
+
+namespace TuanDai.WXApiWeb.Member.Bank
+{
+    public partial class bankInfo : UserPage
+    {
+        protected UserBasicInfoInfo basicInfo;
+        private Payment.Models.PayRoute.RouteInfo recharInfo;
+        protected string bankName = string.Empty;
+        protected string bankImg = string.Empty;
+        //protected var recharInfo;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Guid userid = WebUserAuth.UserId.Value;
+            basicInfo = new UserBLL().GetUserBasicInfoModelById(userid);
+            if (basicInfo.BankAccountNo == null)
+            {
+                Response.Redirect("/Member/cgt/cgtBindCard.aspx");
+            }
+            recharInfo = new Payment.Client.Recharge().GetCgtRechargeInfo(basicInfo.Id, basicInfo.BankAccountNo);
+            GetBankInfo();
+        }
+
+        private void GetBankInfo()
+        {
+            bankImg = GlobalUtils.GetBankImg(basicInfo.Id, out bankName);
+        }
+    }
+}

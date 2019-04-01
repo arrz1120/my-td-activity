@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>账号管理-未绑定账户</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css" />
+	</head>
+
+	<body class="bg-fff">
+		<div class="ico-bind"></div>
+		<p class="f17px text-center mt40">
+			你的团贷网账户136****1121是否与 <br />
+			<span class="f17px c-fab600">米粒1215</span>微信号绑定？
+		</p>
+		<div class="pl15 pr15 mt40">
+			<a href="javascript:void(0);" class="btn btnYellow">确认绑定</a>
+		</div>
+		<p class="f13px mt5 c-999 text-center">绑定后可收到团贷网公众号关于资金动态的推送</p>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+
+</html>

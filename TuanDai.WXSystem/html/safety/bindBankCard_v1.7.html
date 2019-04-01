@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>忘记交易密码</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20160126" />
+</head>
+<style type="text/css">
+	.pl108{padding-left: 108px;}
+	.bg-fbfbf9{background: #fbfbf9;}
+	.fb{font-weight: bold;}
+	.l15{left: 15px;}
+	.bt-d9d9d9{border-top: 1px solid #d9d9d9;}
+	.bb-d9d9d9{border-bottom: 1px solid #d9d9d9;}
+	.bb-d1d1d1{border-bottom: 1px solid #d1d1d1;}
+	.inp{border: 0;outline: 0;width: 100%;}
+	.border-radius-top{border-top-left-radius: 6px;border-top-right-radius: 6px;}
+	.state1{display: inline-block;width: 11px;height: 11px;background: url(/imgs/images/state1.png) no-repeat;background-size: 100% 100%;margin-right: 5px;}
+	.bbc-alert{display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center; display:box;-box-pack:center;box-align:center; }
+	.bbc-alert-box{width: 80%;border-radius: 6px;background: #fff;}
+	.bbc-btn-select div{height: 38px;line-height: 38px;padding: 0 40px;border-radius: 4px;}
+	.bbc-btn-select div.btnL{border: 1px solid #ababab;background: #fff;}
+	.bbc-btn-select div.btnR{border: 1px solid #ffcf1f;background: #ffcf1f;}
+</style>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">绑定银行卡</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+	<div class="mt20 bt-d9d9d9 bb-d9d9d9 pt10 pb10 pos-r pl108 bg-fff">
+		<span class="c-212121 f14px pos-a l15">手机号码</span>
+		<input class="inp f14px c-212121" type="text" placeholder="请输入手机号码" />
+	</div>
+	<div class="pl15 pr15 c-ababab f12px mt5">请确认您所绑定的银行卡留存的手机号与注册手机号一致。</div>
+	<div class="mt20 bt-d9d9d9 bb-d9d9d9 pt10 pb10 pos-r pl108 bg-fff">
+		<span class="c-212121 f14px pos-a l15">银行卡号</span>
+		<input class="inp f14px c-212121" type="text" placeholder="持卡人须与实名认证相符" />
+	</div>
+	<div class="pl15 c-fd6040 f12px mt5"><i class="state1"></i>请勿绑定信用卡! 不支持使用信用卡充值。</div>
+	<div class="ml15 mr15 mt40">
+		<div class="btn btnYellow">提交</div>
+	</div>
+	
+	<!--弹框-->
+	<!--无法识别该卡号弹框-->
+	<div class="alert bbc-alert" style="display: none;">
+		<div class="bbc-alert-box pl15 pr15">
+			<div class="c-212121 f14px pt30 pb30 text-center">无法识别该卡号，请使用其它银行卡!</div>
+			<div class="pb15">
+				<div class="btn btnYellow">确定</div>
+			</div>
+		</div>
+	</div>
+	<!--无法识别该卡号弹框-->
+	<div class="alert bbc-alert" style="display: none;">
+		<div class="bbc-alert-box">
+			<div class="bg-fbfbf9 fb f16px text-center bb-d1d1d1 pt15 pb10 border-radius-top">请确认信息</div>
+			<div class="pl15 mt15 f13px c-212121">卡号<span class="ml30 c-212121 f13px">1234  3546  2345  7683  456</span></div>
+			<div class="pl15 f13px c-212121">银行<span class="ml30 c-212121 f13px">招商银行</span></div>
+			<div class="pl15 pr15 mt15 c-ababab f12px">请确保银行卡信息准确，否则无法进行充值或提现。</div>
+			<div class="clearfix bbc-btn-select pl15 pr15 mt15 pb15">
+    			<div class="btnL lf f14px c-212121">取消</div>
+    			<div class="btnR rf f14px c-fff">确定</div>
+    		</div>
+		</div>
+	</div>
+</body>
+</html>

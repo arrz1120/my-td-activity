@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>我的待收</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/account.css?v=2015090701" /><!--账户中心-->
+
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">我的待收</h1>
+            <div class="text"><a href="">投资记录</a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    <div class="payMnetBox clearfix">
+        <section class="clearfix">
+        	<div class="pay-t">
+                <div class="mytakeCont">Keith Hu，您在2015-04-10有1笔回款，回款总金额：3000.00元，请注意查收！</div>
+            </div>
+            <div class="payNav clearfix">
+                <div class="p-left">
+                    <div class="textBox" id="textBox">
+                        <span attrval="0" class="dateBox dayBox c-fac502">按日</span>
+                        <span attrval="1" class="dateBox monthBox">按月</span>
+                    </div>
+                </div>
+                <div class="p-right">待收本金 + 利息</div>
+            </div>
+        </section>
+
+        <section class="pl20 clearfix">
+            <div class="listBox clearfix">
+                <ul class="clearfix">
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+
+                    <li class="year-line"><i class="year">2014</i></li>
+
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                        
+                    <li class="year-line"><i class="year">2013</i></li>
+
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                    <li>
+                        <span class="lf f14px c-808080">04月 13日</span>
+                        <span class="rf f14px c-808080"><b class="c-212121">¥1000</b> + <i class="c-ff7357">10.3</i></span>
+                        <i class="ico-clock"></i>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //筛选条件显示/隐藏
+        $("#textBox").click(function(){
+            $(".selectList").slideToggle();
+        });
+        $(".selectList li").click(function(){
+            $(".selectList").slideUp();
+        });
+
+        setInterval(function(){
+            $(".mytakeCont").slideUp();
+            $(".selectList").slideUp();
+        },5000);
+
+    })
+</script>
+</body>
+</html>

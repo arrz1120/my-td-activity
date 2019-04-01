@@ -1,0 +1,447 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using Tool;
+using System.Text;
+using Dapper; 
+
+namespace TuanDai.WXApiWeb.Member.UserPrize
+{
+    public partial class RedPacket : UserPage
+    {
+        protected string type = string.Empty;
+        private int pagesize = 10;
+        private int totalItemCount = 0;
+        UserBLL bll = new UserBLL();
+        Guid UserId = WebUserAuth.UserId.Value;
+        protected string ShowTitle = "红包";
+        protected bool IsInvestNewUser = false;//是否投资新手
+        //UserBLL bll = new UserBLL();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            type = WEBRequest.GetString("type", "");
+            SetPageTitle();
+            string action = WEBRequest.GetQueryString("action");
+            if (action == "GetRedPacket")
+            {
+                GetRedPacket();
+            }
+            if (!IsPostBack) {
+              //判断当前用户是否投资新手
+                WXFundAccountInfo accountModel = bll.GetWXFundAccountInfo(WebUserAuth.UserId.Value);
+                if (accountModel!=null && (accountModel.TotalInvest ?? 0) == 0)
+                  IsInvestNewUser = true;
+            }
+        }
+        protected void SetPageTitle()
+        {
+            if (type == "1")
+            {
+                ShowTitle = "现金红包";
+            }
+            else if (type == "2")
+            {
+                ShowTitle = "投资红包";
+            }
+            else if (type == "3")
+            {
+                ShowTitle = "提现券";
+            }
+            else if (type == "4")
+            {
+                ShowTitle = "签到卡";
+            }
+            else if (type == "5")
+            {
+                ShowTitle = "彩票";
+            }
+            else if (type == "6")
+            {
+                ShowTitle = "精美礼品";
+            }
+            else if (type == "7")
+            {
+                ShowTitle = "投资体验金";
+            }
+        }
+
+        /// <summary>
+        /// 红包
+        /// </summary>
+        public void GetRedPacket()
+        {
+            int pageindex = Tool.SafeConvert.ToInt32(WEBRequest.GetQueryString("Pageindex"), 1);
+            string type = Tool.SafeConvert.ToString(WEBRequest.GetQueryString("type"), "");
+            string orderField = Tool.SafeConvert.ToString(WEBRequest.GetQueryString("orderField"), "CreateDate");
+            string orderType = Tool.SafeConvert.ToString(WEBRequest.GetQueryString("orderType"), "desc");
+            int isUsed = Tool.SafeConvert.ToInt32(WEBRequest.GetQueryString("isUsed"), 1);
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+            StringBuilder sb = new StringBuilder();
+            List<WXUserPrizeListInfoNB> list = WXGetUserPrizeList(UserId, type, pageindex, pagesize, orderField, orderType, isUsed, out totalItemCount).ToList();
+
+            #region 过期
+            List<WXUserPrizeListInfoNB> temp = list.Where(p => p.ActivityCode == "20141016" && p.IsReceive == false).ToList();
+            if (temp.Count > 0)
+            {
+                foreach (WXUserPrizeListInfoNB item in temp)
+                {
+                    list.Remove(item);
+                    totalItemCount--;
+                }
+            }
+            //
+            if (type == "1")//现金红包
+            {
+                DateTime addTime = bll.WXGetAddDate(UserId);//注册日期
+                foreach (WXUserPrizeListInfoNB item in list)
+                {
+                    //注册红包过期 
+                    if (item.TypeId == 14 && item.SubTypeId != 19 && item.ExpirationDate == null && item.IsReceive == false && addTime < DateTime.Now.AddMonths(-1))
+                        item.IsUsed = 2;
+                    if (item.TypeId == 14 && item.SubTypeId != 19 && item.ExpirationDate != null && item.IsReceive == false && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ReceiveEndDate))
+                        item.IsUsed = 2;
+                   
+                    if (item.TypeId == 14 && item.SubTypeId == 19 && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ReceiveEndDate) && item.ReceiveDate == null)
+                        item.IsUsed = 2;
+                    //现金红包
+                    if (item.TypeId.ToText().IsIn("11", "13"))
+                    {
+                        if (item.IsReceive == false && item.ReceiveEndDate.HasValue && DateTime.Now >item.ReceiveEndDate.Value)
+                            item.IsUsed = 2;
+                        if (item.IsReceive && item.IsUsed == 0 && item.ExpirationDate.HasValue && DateTime.Now > item.ExpirationDate.Value) {
+                            item.IsUsed = 2;
+                        }
+                    }
+                }
+
+            }
+            if (type == "2")//投资红包
+            {
+                foreach (WXUserPrizeListInfoNB item in list)
+                {
+                    //愚人节活动过期
+                    if (item.TypeId == 3 && item.SubTypeId == 10 && item.IsReceive == false && DateTime.Now > DateTime.Parse("2015-04-30 23:59:59"))
+                        item.IsUsed = 2;
+
+                    //加入领取过期判断
+                     if (item.TypeId == 3 && item.IsReceive==false && item.ReceiveEndDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ReceiveEndDate))
+                        item.IsUsed = 2;
+                    //加入使用过期判断
+                    if (item.TypeId == 3 && item.IsReceive && (item.IsUsed??0)==0 && item.ExpirationDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ExpirationDate))
+                        item.IsUsed = 2;
+
+                    //投资金币过期
+                    if (item.TypeId == 12 && item.IsUsed == 0 && DateTime.Now > DateTime.Parse("2014-12-19"))
+                        item.IsUsed = 2;
+                    //体验金过期
+                    if (item.TypeId == 16 && item.IsUsed == 0 && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ReceiveEndDate))
+                        item.IsUsed = 2; 
+                }
+            }
+            //投资体验金
+            if (type == "7") {
+                foreach (WXUserPrizeListInfoNB item in list)
+                {
+                    //加入领取过期判断
+                    if (item.TypeId == 16 && item.IsReceive == false && item.ReceiveEndDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ReceiveEndDate))
+                        item.IsUsed = 2;
+                    //加入使用过期判断
+                    if (item.TypeId == 16 && item.IsReceive && (item.IsUsed ?? 0) == 0 && item.ExpirationDate != null && DateTime.Now > Tool.SafeConvert.ToDateTime(item.ExpirationDate))
+                        item.IsUsed = 2; 
+                }
+            }
+            #endregion
+
+            int pageCount = GetPageCount();
+
+            if (list != null && list.Count() > 0)
+            {
+                int index = 1;
+                sb.Append("{\"result\":\"1\",\"totalcount\":\"" + pageCount + "\",\"list\":[");
+                foreach (WXUserPrizeListInfoNB model in list)
+                {
+                    string receive = model.IsReceive == false ? "0" : "1";
+                    int subTypeId = model.SubTypeId == null ? 0 : (int)model.SubTypeId;
+
+                    string ExpStr = "";
+                    string ReceiveDateStr = "";
+                    string CreateDateStr = string.Format("{0}获得", model.CreateDate.ToString("yyyy-MM-dd"));
+                    
+                    if (model.ExpirationDate.HasValue && DateTime.Now < model.ExpirationDate.Value)
+                    {
+                        var diffDay = MyDateTime.DateDiff(MyDateTime.DateDiffOption.Day, DateTime.Now,
+                            model.ExpirationDate.Value);
+                        if (diffDay == 0)
+                        {
+                            ExpStr = string.Format("（今天到期）");
+                        }
+                        else
+                        {
+                            ExpStr = string.Format("（{0}天后到期）", diffDay);
+                        }
+                        
+                    }
+                    if (model.ExpirationDate.HasValue && DateTime.Now > model.ExpirationDate.Value)
+                    {
+                        ExpStr = string.Format("（{0}过期）", model.ExpirationDate.Value.ToString("yyyy-MM-dd"));
+                    }
+                    if (model.ReceiveEndDate.HasValue && DateTime.Now < model.ReceiveEndDate.Value)
+                    {
+                        ReceiveDateStr = string.Format("（领取时间剩{0}天）", MyDateTime.DateDiff(MyDateTime.DateDiffOption.Day, DateTime.Now, model.ReceiveEndDate.Value));
+                    }
+                    if (model.ReceiveDate.HasValue)
+                    {
+                        ReceiveDateStr = string.Format("（{0}使用）",model.ReceiveDate.Value.ToString("yyyy-MM-dd"));
+                    }
+
+                    sb.Append("{\"PrizeName\":\"" + model.PrizeName + "\",\"Description\":\"" + Tool.SubHtmlString.NoHTML(model.Description) + "\",\"PrizeValue\":\"" + ToolStatus.DeleteZero(model.PrizeValue)
+                           + "\",\"IsUsed\":\"" + model.IsUsed + "\",\"Id\":\"" + model.Id + "\",\"Receive\":\"" + receive
+                           + "\",\"SourceFrom\":\"" + model.SourceFrom
+                           + "\",\"ExpStr\":\"" + ExpStr
+                           + "\",\"ReceiveDateStr\":\"" +ReceiveDateStr
+                           + "\",\"InvestMoney\":\"" +ToolStatus.DeleteZero(model.InvestMoney)
+                           + "\",\"TypeId\":\"" + model.TypeId + "\",\"SubTypeId\":\"" + subTypeId + "\",\"CreateDateStr\":\"" + CreateDateStr);
+
+                    if (index == list.Count())
+                    {
+                        sb.Append("\"}]}");
+                    }
+                    else
+                    {
+                        sb.Append("\"},");
+                    }
+                    index++;
+                }
+            }
+            else
+            {
+                sb.Append("{\"result\":\"0\",\"totalcount\":\"" + pageCount + "\"}");
+            }
+            this.Context.Response.Write(sb.ToString());
+            this.Context.Response.End();
+        }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static List<WXUserPrizeListInfoNB> WXGetUserPrizeList(Guid UserId, string type, int pageIndex, int pageSize, string orderField, string orderType, int isUsed, out int totalItemCount)
+        {
+            List<WXUserPrizeListInfoNB> list;
+            totalItemCount = 0;
+
+            string historyDate = ConfigHelper.getConfigString("UserPrizeHistory");
+
+            DynamicParameters paras = new DynamicParameters();
+            paras.Add("@userId", UserId);
+            paras.Add("@historyDate", historyDate.IsEmpty() ? DateTime.Today.AddMonths(-2).ToString("yyyy-MM-dd") : historyDate);
+            string sqlText = @"SELECT * FROM(
+                                    SELECT ROW_NUMBER() OVER(ORDER BY {0}) RowNum,  prize.Id ,prize.TypeId ,prize.SubTypeId ,prize.PrizeName ,prize.CreateDate,
+                                    prize.PrizeValue,prize.[Description] ,prize.IsReceive,prize.ReceiveDate ,prize.IsUsed ,prize.ExpirationDate, prize.SourceFrom, prize.ReceiveBeginDate, 
+                                    prize.ReceiveEndDate,prize.UseBeginDate, case when isnull(act.InvestMoney,0)>0 then act.InvestMoney else act.TotalInvest end as InvestMoney
+                                    FROM UserPrize prize  WITH(NOLOCK)
+                                   left join UserPrize_Activity act  WITH(NOLOCK) on act.Id=prize.RuleId 
+                                    WHERE prize.UserId=@userId ";
+
+            string sqlCount = "SELECT COUNT(0) FROM UserPrize WITH(NOLOCK) WHERE UserId=@userId ";
+
+
+            sqlText = string.Format(sqlText, " prize." + orderField + " " + orderType + " ");
+
+            if (type == "1")
+            {//现金红包
+                sqlText += " AND (prize.TypeId =4 OR prize.TypeId=11  OR prize.TypeId=13  OR prize.TypeId=14)";
+                sqlCount += " AND (TypeId =4 OR TypeId=11  OR TypeId=13  OR TypeId=14)";
+            }
+            else if (type == "2")
+            {//投资红包
+                sqlText += " AND (prize.TypeId =3 OR prize.TypeId=12 )";
+                sqlCount += " AND (TypeId =3 OR TypeId=12 )";
+            }
+            else if (type == "3")
+            {//提现券
+                sqlText += " AND prize.TypeId =2";
+                sqlCount += " AND TypeId =2";
+            }
+            else if (type == "4")
+            {//签到卡
+                sqlText += " AND (prize.TypeId =6 OR prize.TypeId=7)";
+                sqlCount += " AND (TypeId =6 OR TypeId=7)";
+            }
+            else if (type == "5")
+            {//彩票
+                sqlText += " AND prize.TypeId =5 AND prize.IsReceive=1";
+                sqlCount += " AND TypeId =5 AND IsReceive=1";
+            }
+            else if (type == "6")
+            {//精美礼品
+                sqlText += " AND prize.TypeId =9";
+                sqlCount += " AND TypeId =9";
+            }//体验券
+            else if (type == "7")
+            {
+                sqlText += " AND  prize.TypeId=16";
+                sqlCount += " AND TypeId=16";
+            }
+            if (isUsed == 1)//可使用
+            {
+                if (type == "1" || type == "6")
+                {
+                    sqlText += " AND (prize.IsReceive =0 AND Isnull(prize.ReceiveEndDate,getDate()+1) > GETDATE() ) ";
+                    sqlCount += " AND (IsReceive =0 AND Isnull(ReceiveEndDate,getDate()+1) > GETDATE())";
+                }
+                else
+                {
+                    sqlText += " AND (prize.IsUsed =0 AND Isnull(prize.ExpirationDate,getDate()+1) > GETDATE()) ";
+                    sqlCount += " AND (IsUsed =0 AND Isnull(ExpirationDate,getDate()+1) > GETDATE())";
+                }
+
+            }
+            else if (isUsed == 2)//已失效
+            {
+                if (type == "1" || type == "6")
+                {
+                    sqlText += " AND ((prize.IsReceive =0 AND Isnull(prize.ReceiveEndDate,getDate()+1) < GETDATE()) OR (prize.IsReceive = 1))";
+                    sqlCount += " AND ((IsReceive =0 AND Isnull(ReceiveEndDate,getDate()+1) < GETDATE()) OR (IsReceive = 1) )";
+                }
+                else
+                {
+                    sqlText += " AND ((prize.IsUsed =0 AND Isnull(prize.ExpirationDate,getDate()+1) < GETDATE()) OR (prize.IsUsed != 0)) ";
+                    sqlCount += " AND ((IsUsed =0 AND Isnull(ExpirationDate,getDate()+1) < GETDATE()) OR (IsUsed != 0)) ";
+                }
+
+            }
+            sqlText += ")a  WHERE a.RowNum>" + (pageIndex - 1) * pageSize + " AND a.RowNum<=" + (pageIndex * pageSize);
+
+            totalItemCount = PublicConn.QuerySingle<int>(sqlCount, ref paras);
+
+            list = PublicConn.QueryBySql<WXUserPrizeListInfoNB>(sqlText, ref paras);
+
+            return list;
+        }
+
+        /// <summary>
+        /// 得到页数
+        /// </summary>
+        /// <returns></returns>
+        public int GetPageCount()
+        {
+            double divide = totalItemCount / pagesize;
+            double floor = System.Math.Floor(divide);
+            if (totalItemCount % pagesize != 0)
+                floor++;
+            int pageCount = Convert.ToInt32(floor);//总页数
+            return pageCount;
+        } 
+       
+    }
+
+    /// <summary>
+    /// 团宝箱详细(当前页面内部使用)
+    /// </summary>
+    public class WXUserPrizeListInfoNB
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public Guid UserId { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public int TypeId { get; set; }
+        /// <summary>
+        /// 子类型
+        /// </summary>
+        public int? SubTypeId { get; set; }
+        /// <summary>
+        /// 活动编号
+        /// </summary>
+        public string ActivityCode { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string PrizeName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid TargetProductId { get; set; }
+        /// <summary>
+        /// 奖励值
+        /// </summary>
+        public decimal PrizeValue { get; set; }
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Description { get; set; }
+        /// <summary>
+        /// 是否领取
+        /// </summary>
+        public bool IsReceive { get; set; }
+        /// <summary>
+        /// 领取日期
+        /// </summary>
+        public DateTime? ReceiveDate { get; set; }
+        /// <summary>
+        /// 是否使用 0:未使用 1:已使用  2:已过期
+        /// </summary>
+        public int? IsUsed { get; set; }
+        /// <summary>
+        /// 使用日期
+        /// </summary>
+        public DateTime? UseDate { get; set; }
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string CreateUser { get; set; }
+        /// <summary>
+        /// 创建日期
+        /// </summary>
+        public DateTime CreateDate { get; set; }
+        /// <summary>
+        /// 过期时间(未用)
+        /// </summary>
+        public DateTime? ExpirationDate { get; set; }
+        /// <summary>
+        ///来源哪个活动
+        /// </summary>
+        public string SourceFrom { get; set; }
+        /// <summary>
+        /// 领取开始时间
+        /// </summary>
+        public DateTime? ReceiveBeginDate { get; set; }
+        /// <summary>
+        /// 领取过期时间
+        /// </summary>
+        public DateTime? ReceiveEndDate { get; set; }
+        /// <summary>
+        /// 使用开始时间
+        /// </summary>
+        public DateTime? UseBeginDate { get; set; }
+        /// <summary>
+        /// 活动规则ID
+        /// </summary>
+        public Guid? RuleId { get; set; }
+        /// <summary>
+        /// 领取方式(0-pc,1-移动端,2-触屏版)
+        /// </summary>
+        public int? ReceiveType { get; set; }
+        /// <summary>
+        /// 需投资额
+        /// </summary>
+        public decimal InvestMoney { get; set; }
+    }
+}

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>帮助中心</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=2016071" />
+		<link rel="stylesheet" type="text/css" href="/css/helpCenter.css?v=2016071" />
+	</head>
+
+	<body class="bg-fff">
+
+		<div class="clearfix pt10 pl15 pr15" id="appKefu">
+			<a href="javascript:void(0)" class="block lf w50p pr5" id="toAppOnlineService">
+				<div class="kefuBox">
+					<div class="zaixiankefu bgSize"></div>
+					<p class="kefu-p1">在线客服</p>
+					<p class="kefu-p2">24小时专属服务</p>
+				</div>
+			</a>
+			<a href="javascript:void(0)" class="rf w50p pl5" id="toAppCallService">
+				<div class="kefuBox">
+					<div class="dianhuakefu bgSize"></div>
+					<p class="kefu-p1">电话客服</p>
+					<p class="kefu-p2">拨打客服热线</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="text-center f13px c-999999 mt19">常见问题</div>
+
+		<div class="pageNormal">
+			<div class="inputEnter">
+				<i class="bgSize"></i>搜索
+			</div>
+
+			<div class="qBox">
+				<ul>
+					<li class="click-respond">
+						<a>投资的收益怎么计算？<i class="ico-arrow-r"></i></a>
+					</li>
+					<li class="click-respond">
+						<a href="javascript:void(0);">投资有哪些安全保障？<i class="ico-arrow-r"></i></a>
+					</li>
+					<li class="click-respond">
+						<a href="javascript:void(0);">什么是风险拨备金？风险拨备金有什么用？<i class="ico-arrow-r"></i></a>
+					</li>
+					<li class="click-respond">
+						<a href="javascript:void(0);">投资的项目逾期了怎么办？<i class="ico-arrow-r"></i></a>
+					</li>
+					<li class="click-respond">
+						<a href="javascript:void(0);">提现一般多久到账？<i class="ico-arrow-r"></i></a>
+					</li>
+					<li class="click-respond">
+						<a href="javascript:void(0);">充值最多可以充多少钱？<i class="ico-arrow-r"></i></a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="ml15 mr15 mt10 bt-e6e6e6"></div>
+
+			<div class="sBox mt10">
+				<div class="clearfix">
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg1"><img class="block" src="/imgs/images/icon/helpCenter/new/zhinan.png" /></div>
+						<p>新手指南</p>
+					</a>
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg2"><img class="block" src="/imgs/images/icon/helpCenter/new/zhanghao.png" /></div>
+						<p>账号管理</p>
+					</a>
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg3"><img class="block" src="/imgs/images/icon/helpCenter/new/chanpin.png" /></div>
+						<p>团贷产品</p>
+					</a>
+				</div>
+				<div class="clearfix mt15">
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg4"><img class="block" src="/imgs/images/icon/helpCenter/new/daikuan.png" /></div>
+						<p>我要贷款</p>
+					</a>
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg5"><img class="block" src="/imgs/images/icon/helpCenter/new/huiyuan.png" /></div>
+						<p>会员帮助</p>
+					</a>
+					<a class="block w33p text-center lf click-respond" href="">
+						<div class="sImg webkit-box box-center sImg6"><img class="block" src="/imgs/images/icon/helpCenter/new/duanxin.png" /></div>
+						<p>短信通知</p>
+					</a>
+				</div>
+			</div>
+			<div class="pageInput" style="display: none;">
+				<div class="clearfix inputingBox">
+					<div class="lf inputing">
+						<div class="searchIcon"></div>
+						<div class="inputClean" style="display: none;"></div>
+						<input type="text" maxlength="20" id="inp"/>
+					</div>
+					<div class="rf pageInputCancel">取消</div>
+				</div>
+				<div class="mt10 bt-e6e6e6 pl15 pr15">
+					<!--搜索结果-->
+					<div class="searchResult" style="display: block;">
+						<div class="bb-e6e6e6 f15px c-333333"><span class="c-fab600 f15px">提现</span>需要手续费吗？</div>
+						<div class="bb-e6e6e6 f15px c-333333"><span class="c-fab600 f15px">提现</span>需要多久到账？</div>
+						<div class="f15px c-333333">可以<span class="c-fab600 f15px">提现</span>到其它银行卡吗？</div>
+					</div>
+					<!--无搜索结果-->
+					<p class="text-center c-999999 f15px pt10" style="display: none;">无搜索结果</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript" src="/scripts/jsbridge-3.0.1.js"></script>
+	<script type="text/javascript">
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+		$(function() {
+			if(GetQueryString('type') == 'mobileapp') {
+				$("#appKefu").show();
+				$("#toAppOnlineService").click(function() {
+					Jsbridge.toAppOnlineService();
+				})
+				$("#toAppCallService").click(function() {
+					Jsbridge.toAppCallService();
+				})
+			} else {
+				$("#appKefu").hide();
+			}
+		})
+		
+		$(".inputEnter").click(function(){
+			$(".pageInput").fadeIn();
+			$("#inp").focus();
+		})
+		
+		$(".pageInputCancel").click(function(){
+			$(".pageInput").fadeOut();
+		})
+		
+		$(".inputing").find('input').on('input',function(){
+			if($(this).val() == ''){
+				$(".inputClean").fadeOut(100);
+			}else{
+				$(".inputClean").fadeIn(100);
+			}
+		})
+		
+		$(".inputClean").click(function(){
+			$(".inputing").find('input').val('');
+			$(this).fadeOut(100);
+		})
+	</script>
+
+</html>

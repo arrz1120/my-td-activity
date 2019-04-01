@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.VipSystem.BLL;
+using TuanDai.VipSystem.Model;
+
+namespace TuanDai.WXApiWeb.Member.Mall
+{
+    public partial class confirmPay : UserPage
+    {
+        public string productId;//商品ID
+        public Guid SkuId;//商品SKUID
+        public int Num =1;//购买数量
+        public MVipProduct VipProduct;//商品信息
+        public string ValueStr = string.Empty;//商品属性
+        public int PriceValue;//商品的售价 团币
+        public List<MUserShippingAddresses> ShippingAddress = new List<MUserShippingAddresses>();
+        public string DefAddressId = string.Empty;//默认地址ID
+        public string DefAddress = string.Empty;//默认地址
+        public string DefTelNo = string.Empty;//默认电话
+        public string DefName = string.Empty;//默认收件人姓名
+        public MUserShippingAddressesBLL bll = new MUserShippingAddressesBLL();
+
+        //每天每种商品限制兑换次数
+        protected int LimitNum = 0;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string url = "//mvip.tdw.cn" + Request.RawUrl;
+            Context.Response.Redirect(url);
+            return;
+            productId = Request.QueryString["productid"];
+            string skuId = Request.QueryString["skuid"];
+            if (!string.IsNullOrEmpty(skuId))
+                SkuId = Guid.Parse(skuId);
+            else
+                Response.Redirect("productDetail.aspx?id=" + productId);
+
+            Num = int.Parse(Request.QueryString["num"]);
+
+            var userId = WebUserAuth.UserId.Value;
+            if (userId == Guid.Empty)
+                Response.Redirect("/Index.aspx");
+
+            this.VipProduct = MVipProductBLL.GetVipProductBySkuId(SkuId);
+            this.ValueStr = string.Join(",", VipProduct.ProductValues.Select(en => en.ValueStr).ToArray());
+            //如果是特价商品，则显示特价
+            MVipScareBuying buyingModel = new MVipScareBuyingBLL().GetBuyingModel(VipProduct.Id);
+            if (buyingModel != null && !buyingModel.IsDone && buyingModel.BuyingEndDate > DateTime.Now && buyingModel.BuyingStartDate < DateTime.Now)
+            {
+                this.PriceValue = buyingModel.BuyingPrice;
+            }
+            else
+            {
+                this.PriceValue = VipProduct.ProductValues.FirstOrDefault().PriceValue;
+            }                
+            
+            //如果有选择非默认地址
+            string addrId = Tool.WEBRequest.GetQueryString("addrid");
+            if (!string.IsNullOrEmpty(addrId))
+            {
+                var addr = bll.GetMUserShippingAddressesById(Guid.Parse(addrId));
+                if (addr != null)
+                {
+                    this.DefAddressId = addr.Id.ToString();
+                    this.DefAddress = bll.GetPrivinceById(Convert.ToString(addr.Privince)) +
+                                      bll.GetCityById(Convert.ToString(addr.City)) +
+                                      bll.GetAreaById(Convert.ToString(addr.Area)) + addr.Address;
+                    this.DefTelNo = addr.CellPhone;
+                    DefName = addr.ShipTo;
+                }
+            }
+            else
+            {
+                //获取用户默认地址或者没有默认地址时使用其中一条有的地址
+                ShippingAddress = bll.GetMUserShippingAddressesByUserId(userId);
+                if (this.ShippingAddress != null && ShippingAddress.Count >0)
+                {
+                    var addr = this.ShippingAddress.OrderByDescending(o=>o.IsDefault).FirstOrDefault();
+                    this.DefAddressId = addr.Id.ToString();
+                    this.DefAddress = bll.GetPrivinceById(Convert.ToString(addr.Privince)) +
+                        bll.GetCityById(Convert.ToString(addr.City)) +
+                        bll.GetAreaById(Convert.ToString(addr.Area)) + addr.Address;
+                    this.DefTelNo = addr.CellPhone;
+                    DefName = addr.ShipTo;
+                }
+            }
+
+            GetLimitNum(VipProduct.Id);
+        }
+
+        //获取每种商品每天的个人的最大兑换数量
+        private void GetLimitNum(Guid id)
+        {            
+            string sql = " select @LimitNum=LimitNum from dbo.MVipProductConfigure where IsLimitNum=1 and ProductId=@productId ";
+            var param = new Dapper.DynamicParameters();
+            param.Add("@LimitNum", 0, DbType.Int32, ParameterDirection.Output);
+            param.Add("@productId", id);
+            TuanDai.DB.TuanDaiDB.Execute(TdConfig.ApplicationName, TdConfig.DBVipWrite, sql, ref param);
+            LimitNum = param.Get<int?>("@LimitNum").HasValue ? param.Get<int>("@LimitNum") : 0;
+        }
+    }
+}

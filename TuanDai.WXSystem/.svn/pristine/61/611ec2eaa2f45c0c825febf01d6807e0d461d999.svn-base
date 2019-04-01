@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>股票配资</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/loan.css" /><!--借款-->
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">股票配资</h1>
+    </div>
+    <div class="none"></div>
+</header>
+<div class="pd15 c-212121 f14px">操盘资金预览</div>
+<section class="fundPreview">
+  <div class="c-694514 f12px">总操盘资金（元）</div>
+  <div class="c-fff f30px pt15 pb15">￥600,000.00</div>
+  <div class="warningMain clearfix">
+    <div>
+      <p class="c-212121 f12px lh20">亏损预警线（元）</p>
+      <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+    </div>
+    <div>
+      <p class="c-212121 f12px lh20">亏损预警线（元）</p>
+      <p class="c-fff f16px pt5 pb15">￥530,000.00</p>
+    </div>
+  </div>
+</section>
+
+<div class="loanMain">
+  <section class="bg-bdtopBom1-ccc pl15 mt15 clearfix">
+    <div class="loanBox pr40">
+     <div class="leftBox">保证金</div>
+     <div class="rightBox">
+        <div class="contBox">
+          <input type="text" name="" class="ipt" value="" placeholder="1-100万，必须是1000的整数倍">
+        </div>
+     </div>
+     <div class="unit">元</div>
+   </div>
+
+   <div class="loanBox pr30">
+     <div class="leftBox">配置比例</div>
+     <div class="rightBox">
+        <div class="contBox">
+          <input type="text" name="" class="ipt" value="" placeholder="3-5">
+        </div>
+     </div>
+     <div class="unit">倍</div>
+   </div>
+
+   <div class="loanBox pr15" onclick="show(wayMain)">
+     <div class="leftBox">借款期限</div>
+      <div class="rightBox">
+        <div class="contBox overflowText">
+          <select name="time1" class="select" id="time1">
+                 <option value="1个月">1个月</option>
+                 <option value="3个月">3个月</option>
+                 <option value="5个月">5个月</option>
+                 <option value="6个月">6个月</option>
+                 <option value="12个月">12个月</option>
+            </select>
+        </div>
+      </div>
+   </div>
+
+   <div class="loanBox pr30">
+     <div class="leftBox">年化利率</div>
+     <div class="rightBox">
+        <div class="contBox">
+          <input type="text" name="" class="ipt" value="" placeholder="3-24">
+        </div>
+     </div>
+     <div class="unit">%</div>
+   </div>
+  </section>
+</div>
+
+<!--已登录 S-->
+<section class="loanBtnBox">
+  <input type="button" class="btn btnYellow borderRadius0 h52" value="马上借款" onclick="show(affirmLoanMain)">
+</section>
+<!--已登录 E-->
+
+<!--确认借款弹窗-->
+<section class="automaticwayBox pt15 clearfix" id="affirmLoanMain">
+  <ul>
+    <li class="pl15 pr15 pt5 pb5 clearfix">
+      <div class="LoanNumList clearfix">
+        <div class="LoanCont clearfix">
+          <span class="lf">保证金</span>
+          <span class="rf">100,000,000元</span>
+        </div>
+        <div class="LoanCont clearfix">
+          <span class="lf">单期利息</span>
+          <span class="rf">1,000元</span>
+        </div>
+      </div>
+      <div class="LoanNumList clearfix">
+        <div class="LoanCont clearfix">
+          <span class="lf">帐户管理费</span>
+          <span class="rf">1,000元</span>
+        </div>
+        <div class="LoanCont clearfix">
+          <span class="lf">单期服务费</span>
+          <span class="rf">1,000元</span>
+        </div>
+      </div>
+    </li>
+    <li class="f12px c-fd6040 pt10 pb10">＊如借款超过30天，利息、服务费需要每30天预付一次。</li>
+    <li class="pl15 pr15 pt5 pb5 border0 clearfix">
+      <div class="lf f14px c-212121 lh22 mt15">首次支付：</div>
+      <div class="rf f14px c-212121 lh22"><span class="f18px c-fd6040">888,888,000</span>元</div>
+    </li>
+  </ul>
+  <div class="border0"><input type="button" class="btn btnYellow borderRadius0 h52" value="确认借款" id="nowBtn"></div>
+</section>
+
+<div class="maskLayer hide"></div><!--遮罩层-->
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+  //类型//还款方式//模拟弹出，具体请开发自行判断
+  function show(i){
+    $(".maskLayer").fadeIn();
+    $(i).animate({
+      bottom:"0"
+    },200)
+  };
+  function Done(i){
+    $(".maskLayer").fadeOut();
+    $(i).animate({
+      bottom:"-430px"
+    },200)
+  }
+</script>
+</body>
+</html>

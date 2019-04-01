@@ -1,0 +1,160 @@
+/*通用*/
+.loanMain{ padding-bottom: 75px;}
+.h52{ height: 52px!important; line-height: 52px!important;}
+.line-h24{line-height: 24px;}
+.text-justify{text-align: justify;}
+.loanBtnBox{ height: 52px; width: 100%; background-color: #fff; position: fixed;left: 0; bottom: 0; z-index: 50;}
+.loginMain{height: auto; width: 100%;border-top: 1px solid #c2c2c2; background-color: #fcfcfc; padding: 10px 15px; position: fixed;left: 0; bottom: 0; z-index: 50;}
+/***借款********************************************/
+.loanBox{ padding-left: 80px; border-bottom: 1px solid #d9d9d9; padding-bottom: 10px; padding-top: 10px; position: relative; z-index: 10;}
+.loanBox:last-child{ border-bottom: 0;}
+.loanBox .leftBox{ width: 80px;color: #212121;height:28px; line-height:150%;font-size: 1.4rem; position: absolute; top: 11px; left: 0;}
+.loanBox .rightBox{width: 100%;height: 28px;line-height: 150%;font-size: 1.4rem;border: 0;background: none;display: -moz-box;display: -webkit-box;display:box;}
+.loanBox .rightBox .contBox{-webkit-box-flex: 1;box-flex: 1;font-size: 1.4rem;color: #212121; min-height:28px!important;height: 28px!important;line-height: 150%; padding: 0!important; padding-top: 1px;}
+.loanBox .rightBox .select{border: 0; border-image:url('/imgs/images/ico_arrow_r.png');  outline: none;display:block;width: 100%;height:100%;color: #545454;font-size: 1.2rem;background: url('/imgs/images/ico_arrow_r.png') center right no-repeat; background-size: 10px 17px;}
+.loanBox .rightBox .ipt{ width: 100%; height: 100%; border: 0; background: none;font-size: 1.4rem;color: #212121; margin-top: -1px;}
+.loanBox .rightBox .date{ width: 100%; border: 0; background: none;font-size: 1.4rem;color: #212121;background: url('/imgs/images/ico_arrow_r.png') center right no-repeat; background-size: 10px 17px;}
+.loanBox .rightBox .date:last-child{}
+.loanBox .unit{ width: 20px; height: 28px; color: #212121; font-size: 1.4rem; line-height: 150%; text-align: center; position: absolute; top: 11px; right: 13px;}
+.ico-arrow-r-d1d1d1{display: inline-block;width: 8px;height: 14px;background: url(/imgs/images/icon/ico-arrow-r-d1d1d1.png) no-repeat;background-size: 8px 14px;vertical-align: -10px;}
+
+/**确认借款弹窗***************/
+#affirmMain{bottom:-220px;}
+#affirmLoanMain{ bottom: -430px;}
+/**资料未完善弹窗**/
+#informationMain{ bottom: -380px;}
+#informationMain .hbody{ padding: 35px 0 40px 0; width: 220px; margin:0 auto; line-height: 16px;}
+#informationMain .hbody span{color: #212121; font-size: 1.4rem;}
+#informationMain .completeBox{ padding: 10px 15px; background-color: #fcfcfc; border-top: 1px solid #ccc;}
+.completeBox .btnBox{ display: block; float: left; width: 50%;}
+.completeBox .btnBox:first-child{ padding-right: 6px;}
+.completeBox .btnBox:last-child{ padding-left: 6px;}
+/***还款方式/投标类型*****************************************/
+#TypeMain{bottom:-380px;}
+#wayMain{bottom:-430px;}
+.automaticwayBox{width:100%; background-color: #fff; padding-top: 5px;position: fixed; left: 0;  z-index: 1010;}
+.automaticwayBox li{ border-bottom: 1px solid #ccc;padding-left: 15px; padding-right: 15px; }
+.automaticwayBox li span{ height: 60px; line-height: 60px;font-size: 1.4rem;display: inline-block;vertical-align: middle;}
+.automatic_but{bottom:0px; padding:0 15px 0 15px; width: 100%;background:#fbfbf9;}
+.automatic_but span{font-size: 1.4rem;height: 60px; line-height: 57px; display: inline-block;vertical-align: middle; margin-right: 10px;}
+.automatic_but .btn_determine{width:40%;display: inline-block;float: right;margin-top:9px; }
+
+/****借款成功********************/
+.loanSucBox{ padding: 50px 15px 75px 15px;}
+
+/****股权担保********************/
+.pl64{ padding-left: 60px!important;}
+.ico-datum{ display: block; width: 36px; height: 36px; background: url(/imgs/images/ico_datum.png); background-size: 36px; position: absolute; top: 15px; left: -56px;}
+.ico-check{ display: block; width: 41px; height: 36px; background: url(/imgs/images/ico_check.png); background-size: 41px 36px; position: absolute; top: 15px; left: -58px;}
+.ico-list{ display: block; width: 13px; height: 11px; background: url(/imgs/images/ico_list.png); background-size: 13px 11px; position: absolute; top: 21px; left: 15px;}
+.loanStockBox{ padding-bottom: 75px;}
+.loanStockBox .titBox{ padding: 10px 15px; color: #212121; font-size: 1.4rem;}
+.loanStockBox .titBox:before{ content: " "; display: inline-block; width: 8px; height: 8px; background-color: #fff; border: 1px solid #ffcf1f; border-radius: 50%;-webkit-border-radius: 50%; margin-right: 5px; vertical-align: middle; margin-top: -2px;}
+.infoListBox{ padding-left: 15px; background-color: #fff; border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+.infoListBox.bg-e{ background: #eee;}
+.infoListBox{ padding-left: 15px; background-color: #fff; border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+.infoListBox li{ color: #212121; font-size: 1.4rem; padding: 20px 15px 20px 0; border-bottom: 1px solid #ededed; position: relative; z-index: 20;}
+.infoListBox li:last-child{ border-bottom: 0;}
+.infoListBox .border-cc{border-bottom: 1px solid #ccc;}
+.loanStockBox .msgMain{ padding: 15px 15px 15px 36px; color: #694514; font-size: 1.4rem; background: #ffd747 url(/imgs/images/ico_dot_repeat.png) repeat-x left bottom; background-size: 6px 3px; position: relative; z-index: 20;}
+
+/**股票配资*******************/
+.stockMarketMain{ padding: 15px 15px 75px 15px;}
+.stockMarketMain .tit{ display: inline-block; height: 20px; line-height: 20px; width: auto; padding: 0 12px 0 5px; background: #f56852 url(/imgs/images/ico_arrow_orange.png) no-repeat right center; background-size: 9px 20px; color: #fff; font-size: 1.3rem;}
+.stockMarketMain .stockInfo{ color: #808080; font-size: 1.2rem; line-height: 150%; margin-bottom: 5px;}
+.stockMarketMain .stockInfo:before{ content: " "; display: inline-block; width: 16px; height: 16px; background: url(/imgs/images/Loan_Stock_right.png); background-size: 16px; margin-right: 5px; vertical-align: middle;}
+
+/**我要借款首页******************/
+.ico-guarantee{ background: url(/imgs/images/guarantee.png); background-size: 43px;}/*净值担保*/
+.ico-equity-security{background: url(/imgs/images/equity_security.png); background-size: 43px;}/*股权担保*/
+.ico-capital-stock{background: url(/imgs/images/capital_stock.png); background-size: 43px; position: relative; z-index: 20;}/*股票配资*/
+.ico-hot{ display: block; width: 27px; height: 27px; background: url(/imgs/images/hot.png); background-size: 27px; position: absolute; top: -10px; right: -10px;}
+.loanMain .nav{padding: 13px 15px;background: #fff;}
+.loanMain .nav .p-borrow{line-height: 34px;}
+.loanMain .nav img.ico-borrow{width: 34px;height: 34px; margin-right: 10px;}
+.loanMain .nav .btn-apply{color: #ffffff;font-size: 15px;border-radius: 2px;width: 80px;height: 28px;line-height: 28px;background: #ffcf1f;text-align: center;margin-top: 4px;}
+
+
+/**股票配资第二步***************************/
+.fundPreview{ padding: 15px; background-color: #ffcf1f;}
+.select{border: 0; border-image:url('/imgs/images/ico_arrow_r.png');  outline: none;display:block;width: 100%;height:100%;color: #545454;font-size: 1.4rem;background: url('/imgs/images/ico_arrow_r.png') center right no-repeat; background-size: 10px 17px;}
+.warningMain{ margin-top: 5px;}
+.warningMain div{ float: left; width: 50%; padding-right: 10px; position: relative; z-index: 0;}
+.warningMain div:first-child{ width: 55%;padding-right: 20px;}
+.warningMain div:last-child{ width: 45%}
+.warningMain div:first-child:after{ content: ""; display: block; width: 1px; height: 40px; background-color: #eea718; position: absolute; top: 10px; right: 15px;}
+#affirmLoanMain .LoanNumList:last-child{ margin-bottom: 5px;}
+#affirmLoanMain .LoanNumList .LoanCont{ float: left; width: 50%;  padding-right: 10px;}
+#affirmLoanMain .LoanNumList .LoanCont:last-child{padding-right: 0; padding-left: 10px;}
+#affirmLoanMain .LoanNumList .LoanCont span{ font-size: 1.1rem; color: #212121; height: 28px; line-height: 28px;}
+
+/*申请资产标*/
+.select-hint .hint-cn{ background: #fcdcbd;-webkit-border-radius: 4px;border-radius: 4px;padding: 5px; margin-bottom: 15px;}
+.select-hint .hint-cn img{display: inline-block;width: 20px; height: 20px;top:8px;}
+.select-hint .hint-cn p{padding-left: 30px;}
+
+.IDtip{ height: auto; padding:10px 0 2px 10px; background-color: #fffdf5;}
+.IDtip span{ display: inline-block; width: auto; line-height: 18px; color: #ababab; font-size: 1.3rem; padding-right: 20px;}
+.IDtip span i{ display: inline-block; width: 8px; height: 8px; border-radius: 50%;-webkit-border-radius: 50%; background-color: #FFCF1F; vertical-align: middle; margin-right: 5px; margin-top: -1px;}
+
+.bm-table{border: 1px solid #e6e6e6;}
+.bm-table table{width: 100%; background: #fcfcfc;}
+.bm-table table tr{width: 100%;}
+.bm-table table tr th,.bm-table table tr td{text-align: center;width: 50%;padding: 13px 0; font-size: 15px; border--right:1px solid #e6e6e6;border--top:1px solid #e6e6e6;}
+.bm-table table tr:nth-child(1) th{border-top:none;}
+.bm-table table tr th{color: #694514; background: #fffdf5;}
+.bm-table table tr td{color: #212121;}
+.bm-table table tr td img{ height: 14px;width: auto;}
+
+/*正合普惠*/
+.rotateZ180{-webkit-transform: rotateZ(-180deg);}
+.zhph_banner img{width: 100%;}
+.ico_zhph{width: 42px;height: 42px;margin-right: 10px;margin-top: 1px;}
+.textFrame_blue{height: 15px;line-height: 15px;font-size: 11px;color: #49c8f2;padding: 0 3px;border: 1px solid #49c8f2;border-radius: 2px;margin-top: 2px;}
+.zhph_applyBtn{width: 80px;text-align: center;height: 28px;line-height: 28px;font-size: 15px;color: #fff;background: #ffcf1f;border-radius: 2px;margin-top: 9px;}
+.tit_line{display: inline-block;background: #212121;width: 2px;height: 10px;margin-right: 5px;margin-left: 1px;}
+.ico-arrow{width: 14px;height: 8px;-webkit-transition: all 0.4s linear;}
+
+/*我的借款列表*/
+.load_t div{height: 50px;line-height: 50px;}
+.load_t .lf{width: 60%;}
+.load_t .rf i{width: 14px;height: 14px;display: inline-block;margin-right: 5px;vertical-align: -2px;}
+.load_t .loadState1{color: #3cb8ff;}
+.load_t .loadState1 i{background: url(/imgs/images/icon/loadState1.png) no-repeat;background-size: 100% 100%;}
+.load_t .loadState2{color: #fd6040;}
+.load_t .loadState2 i{background: url(/imgs/images/icon/loadState2.png) no-repeat;background-size: 100% 100%;}
+.load_t .loadState3{color: #78b605;}
+.load_t .loadState3 i{background: url(/imgs/images/icon/loadState3.png) no-repeat;background-size: 100% 100%;}
+.load_t .loadState4{color: #fab600;}
+.load_t .loadState4 i{background: url(/imgs/images/icon/loadState4.png) no-repeat;background-size: 100% 100%;}
+.load_c{padding: 15px 15px 15px 0;}
+
+/*我的借款详情*/
+.line-h32{line-height: 32px !important;}
+.bt-d1-dash,.bt-f8ebcd{position: relative;}
+.bt-d1-dash:before{content: "";position: absolute;left: 0;top: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}
+.bt-f8ebcd:before{content: "";position: absolute;left: 0;top: 0;right: 0;border-bottom: 1px solid #f8ebcd;transform: scaleY(.5);transform-origin: 0 0;}
+.ml32{margin-left: 32px;}
+.detail_t{padding: 10px 100px 14px 15px;position: relative;font-size: 15px;}
+.detail_t a{display: block;height: 19px;line-height: 19px;color: #3cb8ff;font-size: 13px;width: 62px;text-align: center;position: absolute;top: 14px;right: 15px;border: 1px solid #3cb8ff;border-radius: 20px;}
+.detail_t a.isEnd{color: #78b605;border: 1px solid #78b605;}
+.detail_b{padding: 5px 0 0 15px;background: #fcfcfc;}
+.loaning_tit{background: #fbfbfb;padding: 10px 15px;}
+.loaning_project{padding: 10px 0 12px 0;background: #fff;}
+.loaning_item{padding: 0 15px;}
+.loaningS{height: 15px;line-height: 15px;font-size: 11px;padding: 0 5px;display: inline-block;border-radius: 20px;margin-left: 8px;border: 1px solid;}
+.loaningS1{border-color: #ababab;color: #ababab;}
+.loaningS2{border-color: #fab600;color: #fab600;}
+.txt_add{margin: 0 7px;}
+.loanDelay{padding: 11px 15px;background: #fff7f5;}
+@media only screen and (max-width: 320px) {
+	.loading_tit{padding: 10px;}
+	.loaning_item{padding: 0 7px;}
+	.loaningS{margin-left: 3px;}
+	.txt_add{margin: 0;}
+}
+.loan_btn{position: fixed;bottom: 0;width: 100%;z-index: 99;}
+.loan_btn .btn{border-radius: 0;}
+.loan_btn_bottom{position: absolute;left: 0;bottom: 0;width: 100%;}
+.loanBar{height: 4px;background: #ececec;border-radius: 10px;position: relative;}
+.loaningBar{position: absolute;left: 0;top: 0;background: #ffcf1f;border-radius: 10px;height: 4px;}

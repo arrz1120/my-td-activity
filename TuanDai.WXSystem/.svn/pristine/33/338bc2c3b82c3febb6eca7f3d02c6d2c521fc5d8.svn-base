@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>资金统计</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160411" />
+		<link rel="stylesheet" type="text/css" href="/css/account2.css?v=20160411" />
+	</head>
+
+	<body class="bg-f1f3f5">
+
+		<div class="bg-fff">
+			<div class="pt25">
+				<div class="incomeTit text-center pos-r">
+					<div class="f15px bg-fff tit_txt">资产总额</div>
+					<div class="tit_line"></div>
+				</div>
+				<div class="allAmo">8,090,688.00</div>
+			</div>
+			
+			<div id="c1" style="width: 100%;height: 250px;"></div>
+			<div class="c1_lable" id="c1_lable">
+				<div class="text-center c-ababab pb8">资产总额的构成</div>
+				<div class="clearfix">
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i1"></i>可用资金</p>
+						<p class="line-h16 c_p2">10.00</p>
+					</div>
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i3"></i>待收本金</p>
+						<p class="line-h16">20.00</p>
+					</div>
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i5"></i>待收利息</p>
+						<p class="line-h16 c_p2">30.00</p>
+					</div>
+				</div>
+				<div class="clearfix pt20">
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i4"></i>待确认投标</p>
+						<p class="line-h16 c_p2">40.00</p>
+					</div>
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i2"></i>待确认提现</p>
+						<p class="line-h16 c_p2">50.00</p>
+					</div>
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i6"></i>We计划待投</p>
+						<p class="line-h16 c_p2">60.00</p>
+					</div>
+				</div>
+				<div class="clearfix pt20 pb20">
+					<div class="w33p lf">
+						<p class="c-808080"><i class="c_i7"></i>冻结资金</p>
+						<p class="line-h16 c_p2">70.00</p>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="mt10 bt-e6e6e6 bg-fff pt25">
+			<div class="incomeTit text-center pos-r">
+				<div class="f15px bg-fff tit_txt">净赚收益</div>
+				<div class="tit_line"></div>
+			</div>
+			<div class="allAmo">3,688.00</div>
+			<!--<div id="c2" style="height: 250px;"></div>
+			<div class="xAxis clearfix">
+				<div class="lf f10px c-808080">2016.04.10</div>
+				<div class="rf f10px c-808080">2016.05.09</div>
+			</div>-->
+			
+			<div class="tabBox bt-e6e6e6 mt20 bg-fff">
+				
+				<div class="tabTit f15px ml15 pos-r bb-e6e6e6">累计收益：<span class="f15px">3,300.00</span><i class="ico-arrow-r" style="-webkit-transform: rotateZ(-90deg);"></i></div>
+				
+				<div class="tabCon">
+					<div class="triChart" id="triChart1">
+						<div class="per-box per-box1">
+							<div class="per-num" id="num1"></div>
+							<div class="tri-box webkit-box">
+								<div id="yellowLeft"></div>
+								<div id="yellowRight"></div>
+							</div>
+						</div>
+						<div class="per-box per-box2">
+							<div class="per-num" id="num2"></div>
+							<div class="tri-box webkit-box">
+								<div id="redLeft"></div>
+								<div id="redRight"></div>
+							</div>
+						</div>
+						<div class="per-box per-box3">
+							<div class="per-num" id="num3"></div>
+							<div class="tri-box webkit-box">
+								<div id="greenLeft"></div>
+								<div id="greenRight"></div>
+							</div>
+						</div>
+						<div class="per-box per-box14">
+							<div class="per-num" id="num14"></div>
+							<div class="tri-box webkit-box">
+								<div id="grayLeft"></div>
+								<div id="grayRight"></div>
+							</div>
+						</div>
+						<div class="per-box per-box15">
+							<div class="per-num" id="num15"></div>
+							<div class="tri-box webkit-box">
+								<div id="purpleLeft"></div>
+								<div id="purpleRight"></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="c1_lable c2_lable pb18" id="lable1">
+						<div class="clearfix pt30">
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i1"></i>已收利息</p>
+								<p class="line-h16 c_p2" id="m1">12000.00</p>
+							</div>
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i3"></i>逾期收益</p>
+								<p class="line-h16 c_p2" id="m2">5000.00</p>
+							</div>
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i7"></i>红包收益</p>
+								<p class="line-h16 c_p2" id="m3">6000.00</p>
+							</div>
+						</div>
+						<div class="clearfix pt20">
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i5"></i>活动奖励</p>
+								<p class="line-h16 c_p2" id="m14">12000.00</p>
+							</div>
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i4"></i>推广收益</p>
+								<p class="line-h16 c_p2" id="m15">6000.00</p>
+							</div>
+						</div>
+					</div>
+					<div class="delayTips c-ababab pb15"><i></i>数据维护，红包累计收益更新或有延迟</div>
+				</div>
+			</div>
+			            	
+			<div class="tabBox bt-e6e6e6 bg-fff">
+				<div class="tabTit f15px ml15 pos-r bb-e6e6e6">累计支出：<span class="f15px">10,000.00</span><i class="ico-arrow-r" style="-webkit-transform: rotateZ(-90deg);"></i></div>
+				<div class="tabCon">
+					<div class="triChart" id="triChart2">
+						<div class="per-box per-box4">
+							<div class="per-num" id="num4"></div>
+							<div class="tri-box webkit-box">
+								<div id="redLeft2"></div>
+								<div id="redRight2"></div>
+							</div>
+						</div>
+						<div class="per-box per-box5">
+							<div class="per-num" id="num5"></div>
+							<div class="tri-box webkit-box">
+								<div id="greenLeft2"></div>
+								<div id="greenRight2"></div>
+							</div>
+						</div>
+						<div class="per-box per-box6">
+							<div class="per-num" id="num6"></div>
+							<div class="tri-box webkit-box">
+								<div id="yellowLeft2"></div>
+								<div id="yellowRight2"></div>
+							</div>
+						</div>
+						<div class="per-box per-box7">
+							<div class="per-num" id="num7"></div>
+							<div class="tri-box webkit-box">
+								<div id="grayLeft2"></div>
+								<div id="grayRight2"></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="c1_lable c2_lable pb18" id="lable2">
+						<div class="clearfix pt30">
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i3"></i>提现费用</p>
+								<p class="line-h16 c_p2" id="m4">2000.00</p>
+							</div>
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i7"></i>购买会员</p>
+								<p class="line-h16 c_p2" id="m5">3000.00</p>
+							</div>
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i1"></i>已付利息</p>
+								<p class="line-h16 c_p2" id="m6">4000.00</p>
+							</div>
+						</div>
+						<div class="clearfix pt20">
+							<div class="w33p lf">
+								<p class="c-808080"><i class="c_i5"></i>支付佣金</p>
+								<p class="line-h16 c_p2" id="m7">5000.00</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<section class="mt10 bt-e6e6e6 bg-fff bb-e6e6e6">
+			<div class="td_age text-center">
+				2016.06.03注册，已加入团贷网
+                
+                           <span>5</span> 
+                
+                           <span>8</span> 
+                
+				天！
+			</div>
+			<div class="incomePart pos-r">
+				<div class="pt15 pb15 ml15 mr15 bt-e6e6e6">
+					<div class="clearfix">
+						<div class="partOpt text-center w50p lf br-e6e6e6">
+							<p class="c-999">累计投资</p>
+							<p class="f18px mt4">0.00</p>
+						</div>
+						<div class="partOpt text-center w50p lf">
+							<p class="c-999">累计借款</p>
+							<p class="f18px mt4">0.00</p>
+						</div>
+					</div>
+				</div>
+				<div class="pt15 pb15 ml15 mr15 bt-e6e6e6">
+					<div class="clearfix">
+						<div class="partOpt text-center w50p lf br-e6e6e6">
+							<p class="c-999">累计充值</p>
+							<p class="f18px mt4">0.00</p>
+						</div>
+						<div class="partOpt text-center w50p lf">
+							<p class="c-999">累计提现</p>
+							<p class="f18px mt4">0.00</p>
+						</div>
+					</div>
+				</div>
+				<div class="partCenter webkit-box box-center">
+					<i></i>
+				</div>
+			</div>
+		</section>
+		
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/echarts1.js"></script>
+	<script type="text/javascript" src="/scripts/fastclick.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript">
+		function c1(){
+			//计算白色填充区域的值
+			var whiteValue = 0;
+			var arr = [];
+			var dataConfig = [];
+			var c1_num = $("#c1_lable").find('.c_p2');
+			c1_num.each(function(i){
+				var html = Number(c1_num.eq(i).html());
+				arr.push(html);
+				whiteValue += html;
+			})
+			if(whiteValue == 0){
+				dataConfig = [{
+						value: '1',
+						name: '',
+						itemStyle: {normal: {color: '#e6e6e6'}}
+					},{
+						value: '1',
+						name: '',
+						itemStyle: {normal: {color: 'rgba(255,255,255,0)'}}
+					}]
+			}else{
+				dataConfig = [{
+						value: arr[0],
+						name: '可用资金',
+						itemStyle: {normal: {color: '#ffc260'}}
+					}, {
+						value: arr[1],
+						name: '待收本金',
+						itemStyle: {normal: {color: '#f5897f'}}
+					}, {
+						value: arr[2],
+						name: '待收利息',
+						itemStyle: {normal: {color: '#8992b8'}}
+					}, {
+						value: arr[3],
+						name: '待确认投标',
+						itemStyle: {normal: {color: '#bc95a7'}}
+					}, {
+						value: arr[4],
+						name: '待确认提现',
+						itemStyle: {normal: {color: '#f9ac78'}}
+					}, {
+						value: arr[5],
+						name: 'We计划待投',
+						itemStyle: {normal: {color: '#5ba6b3'}}
+					}, {
+						value: arr[6],
+						name: '冻结资金',
+						itemStyle: {normal: {color: '#2ab8aa'}}
+					}, {
+						value: whiteValue,
+						name: '白色填充',
+						itemStyle: {normal: {color: 'rgba(255,255,255,0)'}}
+					}]
+			}
+			//初始化饼图
+			var myChart = echarts.init(document.getElementById('c1'));
+			var option = {
+				tooltip: {show:false,},
+				legend: {show: false,},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					legendHoverLink: false,
+					hoverAnimation: false,
+					silent: true,
+					selectedOffset:0,
+					radius: ['75', '125'],
+					startAngle: '-180',
+					selectedMode : 'single',
+					avoidLabelOverlap: false,
+					label: {
+						normal: {show: false,}
+					},
+					labelLine: {normal: {}},
+					data: dataConfig
+				}]
+			};
+			myChart.setOption(option);
+		}
+		
+		function setStyle1(h1,h2,h3,h4,h5){
+			if(h1>0&&h1<0.27) h1 = 0.27;
+			if(h2>0&&h2<0.27) h2 = 0.27;
+			if(h3>0&&h3<0.27) h3 = 0.27;
+			if(h4>0&&h4<0.27) h4 = 0.27;
+			if(h5>0&&h5<0.27) h5 = 0.27;
+//			h1=h2=h3=h4=h5=1;
+			var triH = $(window).width()*0.27;
+			if(triH>120){
+				triH = 120;
+			}
+			$("#yellowLeft").css({
+				'borderBottom' : (h1*triH)+'px solid #ffca72',
+				'borderLeft' : (h1*triH/2)+'px solid transparent',
+			});
+			$("#yellowRight").css({
+				'borderBottom' : (h1*triH)+'px solid #ffc260',
+				'borderRight' : (h1*triH/2)+'px solid transparent'
+			});
+			$("#redLeft").css({
+				'borderBottom' : (h2*triH)+'px solid #f7988f',
+				'borderLeft' : (h2*triH/2)+'px solid transparent'
+			});
+			$("#redRight").css({
+				'borderBottom' : (h2*triH)+'px solid #f5897f',
+				'borderRight' : (h2*triH/2)+'px solid transparent'
+			});
+			$("#greenLeft").css({
+				'borderBottom' : (h3*triH)+'px solid #3cc2b5',
+				'borderLeft' : (h3*triH/2)+'px solid transparent'
+			});
+			$("#greenRight").css({
+				'borderBottom' : (h3*triH)+'px solid #2ab8aa',
+				'borderRight' : (h3*triH/2)+'px solid transparent'
+			});
+			$("#grayLeft").css({
+				'borderBottom' : (h4*triH)+'px solid #98a0c2',
+				'borderLeft' : (h4*triH/2)+'px solid transparent'
+			});
+			$("#grayRight").css({
+				'borderBottom' : (h4*triH)+'px solid #8992b8',
+				'borderRight' : (h4*triH/2)+'px solid transparent'
+			});
+			$("#purpleLeft").css({
+				'borderBottom' : (h5*triH)+'px solid #c5a3b3',
+				'borderLeft' : (h5*triH/2)+'px solid transparent'
+			});
+			$("#purpleRight").css({
+				'borderBottom' : (h5*triH)+'px solid #bc95a7',
+				'borderRight' : (h5*triH/2)+'px solid transparent'
+			});
+			var winWidth = $(window).width();
+			var perBox1 = $(".per-box1");
+			var perBox2 = $(".per-box2");
+			var perBox3 = $(".per-box3");
+			var perBox4 = $(".per-box14");
+			var perBox5 = $(".per-box15");
+			var w = perBox1.outerWidth()+perBox2.outerWidth()+perBox3.outerWidth()+perBox4.outerWidth()+perBox5.outerWidth();
+			perBox1.css({
+				'left':(winWidth-w)/2+10
+			});
+			perBox2.css({
+				'left':(winWidth-w)/2+perBox1.outerWidth()+5,
+			});
+			perBox3.css({
+				'left':(winWidth-w)/2+perBox1.outerWidth()+perBox2.outerWidth(),
+			});
+			perBox4.css({
+				'left':(winWidth-w)/2+perBox1.outerWidth()+perBox2.outerWidth()+perBox3.outerWidth()-5,
+			});
+			perBox5.css({
+				'left':(winWidth-w)/2+perBox1.outerWidth()+perBox2.outerWidth()+perBox3.outerWidth()+perBox4.outerWidth()-10,
+			});
+		}
+		
+		function setStyle2(h1,h2,h3,h4){
+			if(h1>0&&h1<0.27) h1 = 0.27;
+			if(h2>0&&h2<0.27) h2 = 0.27;
+			if(h3>0&&h3<0.27) h3 =0.27;
+			if(h4>0&&h4<0.27) h4 = 0.27;
+			$("#redLeft2").css({
+				'borderBottom' : (h1*112)+'px solid #f7988f',
+				'borderLeft' : (h1*56)+'px solid transparent',
+			});
+			$("#redRight2").css({
+				'borderBottom' : (h1*112)+'px solid #f5897f',
+				'borderRight' : (h1*56)+'px solid transparent'
+			});
+			$("#greenLeft2").css({
+				'borderBottom' : (h2*112)+'px solid #3cc2b5',
+				'borderLeft' : (h2*56)+'px solid transparent'
+			});
+			$("#greenRight2").css({
+				'borderBottom' : (h2*112)+'px solid #2ab8aa',
+				'borderRight' : (h2*56)+'px solid transparent'
+			});
+			$("#yellowLeft2").css({
+				'borderBottom' : (h3*112)+'px solid #ffca72',
+				'borderLeft' : (h3*56)+'px solid transparent'
+			});
+			$("#yellowRight2").css({
+				'borderBottom' : (h3*112)+'px solid #ffc260',
+				'borderRight' : (h3*56)+'px solid transparent'
+			});
+			$("#grayLeft2").css({
+				'borderBottom' : (h4*112)+'px solid #98a0c2',
+				'borderLeft' : (h4*56)+'px solid transparent'
+			});
+			$("#grayRight2").css({
+				'borderBottom' : (h4*112)+'px solid #8992b8',
+				'borderRight' : (h4*56)+'px solid transparent'
+			});
+			var winWidth = $(window).width();
+			var perBox4 = $(".per-box4");
+			var perBox5 = $(".per-box5");
+			var perBox6 = $(".per-box6");
+			var perBox7 = $(".per-box7");
+			var w = perBox4.outerWidth()+perBox5.outerWidth()+perBox6.outerWidth()+perBox7.outerWidth();
+			perBox4.css({
+				'left':(winWidth-w)/2+10
+			});
+			perBox5.css({
+				'left':(winWidth-w)/2+perBox4.outerWidth()+5
+			});
+			perBox6.css({
+				'left':(winWidth-w)/2+perBox4.outerWidth()+perBox5.outerWidth()
+			});
+			perBox7.css({
+				'left':(winWidth-w)/2+perBox4.outerWidth()+perBox5.outerWidth()+perBox6.outerWidth()-5
+			});
+		}
+		
+		function c3(){
+			var m1 = Number($("#m1").html());
+			var m2 = Number($("#m2").html());
+			var m3 = Number($("#m3").html());
+			var m4 = Number($("#m14").html());
+			var m5 = Number($("#m15").html());
+			var max;
+			var m12345 = Number(m1 + m2 + m3 + m4 +m5);
+			if(m12345 == 0){
+				$("#num1,#num2,#num3，#m14").html('');
+				$("#triChart1").css('height','0');
+				$("#lable1").css({
+					'padding-top':'0',
+					'margin-top':'-27px'
+				})
+			}else{
+				if(m1>m2 && m1>m3 && m1>m4 && m1>m5){
+					max = m1;
+				}else{
+					if(m2>m3&&m2>m4&&m2>m5){
+						max = m2;
+					}else{
+						if(m3>m4&&m3>m5){
+							max = m3;
+						}else{
+							if(m4>m5){
+								max = m4;
+							}else{
+								max = m5;
+							}
+						}
+					}
+				}
+				var per1 = m1/max;
+				var per2 = m2/max;
+				var per3 = m3/max;
+				var per4 = m4/max;
+				var per5 = m5/max;
+				setStyle1(per1,per2,per3,per4,per5);
+				$("#num1").html(parseInt(m1/m12345*100)+'%');
+				$("#num2").html(parseInt(m2/m12345*100)+'%');
+				$("#num3").html(parseInt(m3/m12345*100)+'%');
+				$("#num14").html(parseInt(m4/m12345*100)+'%');
+				$("#num15").html(parseInt(m5/m12345*100)+'%');
+			}
+		}
+		
+		function c4(){
+			var m1 = Number($("#m4").html());
+			var m2 = Number($("#m5").html());
+			var m3 = Number($("#m6").html());
+			var m4 = Number($("#m7").html());
+			var max;
+			var m1234 = Number(m1 + m2 + m3 + m4);
+			
+			if(m1234 == 0){
+				$("#num4,#num5,#num6,#num7").html('');
+				$("#triChart2").css('height','0');
+				$("#lable2").css({
+					'padding-top':'0',
+					'margin-top':'-27px'
+				})
+			}else{
+				if(m1>m2 && m1>m3 && m1>m4){
+					max = m1;
+				}else{
+					if(m2>m3&&m2>m4){
+						max = m2;
+					}else{
+						if(m3>m4){
+							max = m3;
+						}else{
+							max = m4;
+						}
+					}
+				}
+				var per1 = m1/max;
+				var per2 = m2/max;
+				var per3 = m3/max;
+				var per4 = m4/max;
+				setStyle2(per1,per2,per3,per4);
+				$("#num4").html(parseInt(m1/m1234*100)+'%');
+				$("#num5").html(parseInt(m2/m1234*100)+'%');
+				$("#num6").html(parseInt(m3/m1234*100)+'%');
+				$("#num7").html(parseInt(m4/m1234*100)+'%');
+			}	
+		}
+		function tab() {
+	        $(".tabTit").click(function () {
+	            var i = $(this).find('i');
+	            var next = $(this).next();
+	            if (next.css('display') == 'none') {
+	                next.slideDown(300);
+	                i.css('-webkit-transform', 'rotateZ(-90deg)');
+	            } else {
+	                next.slideUp(300);
+	                i.css('-webkit-transform', 'rotateZ(90deg)');
+	            }
+	        });
+	    }
+		c1();
+		c3();
+		c4();
+		tab();
+	</script>
+
+</html>

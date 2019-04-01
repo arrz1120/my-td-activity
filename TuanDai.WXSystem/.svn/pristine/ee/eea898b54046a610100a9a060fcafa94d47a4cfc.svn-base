@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>项目详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20160123" /><!--base-->
+</head>
+<style type="text/css">
+	.ico-clock{display: inline-block;width: 11px;height: 11px;background: url(/imgs/images/clock.png) no-repeat;background-size: 100% 100%;margin-right: 3px;}
+</style>
+<body>
+	<header class="headerMain">
+	    <div class="header">
+	        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+	        <h1 class="title">We计划分期宝交易记录</h1>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+	<div class="bg-bdtopBom1-ccc mt15 pl15">
+		<section class="bb-e6e6e6 pt15 pb15">
+			<div class="clearfix pr15 pl5">
+				<div class="lf"><p class="c-212121 f13px">-<span class="c-fd6040 f13px">￥3,000.00</span></p></div>
+				<div class="rf f13px c-212121">退出计划</div>
+			</div>
+			<div class="clearfix pr15 pl5 mt5">
+				<div class="lf pl5"><p class="c-ababab f12px"><i class="ico-clock"></i>2014-05-16 13:21</p></div>
+				<div class="rf f12px c-ababab">资金提取至可用余额</div>
+			</div>
+		</section>
+		<section class="bb-e6e6e6 pt15 pb15">
+			<div class="clearfix pr15 pl5">
+				<div class="lf"><p class="c-212121 f13px">+<span class="c-9bc84a f13px">￥5,0000.00</span></p></div>
+				<div class="rf f13px c-212121">退出计划</div>
+			</div>
+			<div class="clearfix pr15 pl5 mt5">
+				<div class="lf pl5"><p class="c-ababab f12px"><i class="ico-clock"></i>2014-05-16 13:21</p></div>
+				<div class="rf f12px c-ababab">回款标号：15229964</div>
+			</div>
+		</section>
+		<section class="bb-e6e6e6 pt15 pb15">
+			<div class="clearfix pr15 pl5">
+				<div class="lf"><p class="c-212121 f13px">-<span class="c-fd6040 f13px">￥3,000.00</span></p></div>
+				<div class="rf f13px c-212121">退出计划</div>
+			</div>
+			<div class="clearfix pr15 pl5 mt5">
+				<div class="lf pl5"><p class="c-ababab f12px"><i class="ico-clock"></i>2014-05-16 13:21</p></div>
+				<div class="rf f12px c-ababab">资金提取至可用余额</div>
+			</div>
+		</section>
+		<section class="pt15 pb15">
+			<div class="clearfix pr15 pl5">
+				<div class="lf"><p class="c-212121 f13px">-<span class="c-fd6040 f13px">￥3,000.00</span></p></div>
+				<div class="rf f13px c-212121">退出计划</div>
+			</div>
+			<div class="clearfix pr15 pl5 mt5">
+				<div class="lf pl5"><p class="c-ababab f12px"><i class="ico-clock"></i>2014-05-16 13:21</p></div>
+				<div class="rf f12px c-ababab">资金提取至可用余额</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

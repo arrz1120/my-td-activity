@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>计划详情</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160323" />
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/project-detail.css?v=20160323" />
+</head>
+<body class="bg-f1f3f5">
+	<header class="headerMain">
+	    <div class="header bb-c2c2c2">
+	        <div class="back" onclick="javascript:history.go(-1);"></div>
+	        <h1 class="title">计划详情</h1>
+	        <div class="text"><a href="automatic_rules.html"><i class="rf ico-info mt15"></i></a></div>
+	    </div>
+	    <div class="none"></div>
+	</header>
+	
+		<div class="detail-top-bg pro-notFinish">
+			<div class="pl15 pos-r pt15 detail_tit">
+				<p class="f14px c-808080 text-overflow">【东莞】本地小微企业个人股东短期借</p>
+				<div class="round-btn"><i class="ico-record"></i>加入记录</div>
+			</div>
+			<div class="pt10 text-center">
+				<p><span class="f13px c-ababab">年化利率（每月付息）</p>
+			</div>
+			<div class="rateIncome">
+				<p>13<span>.30%</span></p>
+			</div>
+			<div class="bg005 mt5">
+				<div class="clearfix pt15">
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">200,000.00</p>
+						<p class="line-h20 f12px c-ababab">剩余金额(元)</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">3个月</p>
+						<p class="line-h20 f12px c-ababab">计划期限</p>
+					</div>
+					<div class="lf w33p text-center">
+						<p class="f17px c-212121">100元/份</p>
+						<p class="line-h20 f12px c-ababab">投资单位</p>
+					</div>
+				</div>
+				<div class="pl15 pr15 pt15 pb11">
+					<div class="pBar">
+						<div class="barRate" style="width: 70%;"></div>
+					</div>
+					<div class="mt4 clearfix">
+						<div class="lf f13px c-ababab">借款金额：300,000.00</div>
+						<div class="rf f13px c-ababab">70%</div>
+					</div>
+				</div>
+				<div class="pl15">
+					<div class="bt-e6e6e6 f13px c-ababab text-center pt11 pb11 line-h20">
+						保障方式：风险拨备金+志诚担保
+					</div>
+				</div>
+			</div>
+			<div class="finishImg"><img src="/imgs/images/bg/pro-finish.png"/></div>
+		</div>
+		
+		<!--项目描述-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>微团贷介绍</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">主要面向全国分公司覆盖到的地区的个体工商户以及人个提供50万元以内的小额信贷产品业务。目前主要产品包括房速贷、车易贷及小额消费贷，通常以个人持有的房产、汽车等作为贷款抵押物</div>
+			</div>
+		</div>
+		
+		<!--车辆信息-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>车辆信息</div>
+			<div class="dropdownCon hide">
+				<div class="h43 c-808080 f14px pl15">汽车品牌：大众</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">汽车产地：国产</div>
+				<div class="h43 c-808080 f14px pl15">汽车型号：FV7160BBAGG</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">汽车估值：45,000.00 元</div>
+				<div class="h43 c-808080 f14px pl15">总公里数：32,196 km</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">有无大修：无</div>
+				<div class="h43 c-808080 f14px pl15">车辆属地：晋中</div>
+			</div>
+		</div>
+		
+		<!--还款保障措施-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>还款保障措施</div>
+			<div class="dropdownCon hide">
+				<div class="c-808080 f14px pb15 bb-e6e6e6 text-justify pr15">借款人在晋中从事某种植行业。月均收入约3000元左右。现向团贷网申请3.6万元借款用于短期资金周转，据银行征信系统显示，借款人信用记录良好。借款人提供名下的大众小车1辆作为本次团贷网授信的反担保物，该车辆为晋中本地牌照，车况良好，目前评估价值在4.5万元。办理车辆抵押登记手续，签署相关借贷协议、车辆转让协议、以物抵债协议等。同时安装车辆GPS监控组件，车辆保险第一受益人设为我方。综合评估借款人基本工作收入情况及上述车辆状况后，现借款方获得团贷网综合授信3.6万元作为短期流动资金周转，授信额度约车辆评估价值的8成，如借款人违约，抵押车辆在短期内
+变现足可覆盖团贷网授信额度。</div>
+			</div>
+		</div>
+		
+		<!--资料展示-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15 pl15">
+			<div class="pt10 pb10 c-212121 f17px dropdownTit slideTit"><i class="ico-sprite01 ico-triangle"></i>资料展示</div>
+			<div class="dropdownCon hide">
+				<div class="swiper-container swiper1 pb15" id="swiper1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big01.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big02.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big03.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big04.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big05.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/pic2.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/pic3.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/zz_big06.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/pic5.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/pic6.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img data-src="/imgs/file/V1.7/pic7.jpg" class="swiper-lazy">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
+		<!--借款人信息-->
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>借款人信息</div>
+			<div class="dropdownCon hide">
+				<div class="h43 c-808080 f14px pl15">昵称：MRwong</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">年龄：38</div>
+				<div class="h43 c-808080 f14px pl15">性别：男</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">手机号码：保密</div>
+				<div class="h43 c-808080 f14px pl15">注册时间：2016-03-12</div>
+				<div class="h43 c-808080 f14px pl15 bg-fafafa">所在地区：东莞市</div>
+				<div class="mt15">
+					<div class="pt15 pb15 c-212121 f17px ml15 bt-e6e6e6">审核记录</div>
+					<div class="swiper-container swiper2 pl15 pb15" id="swiper2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="/imgs/images/pic/id1.png">
+								<p class="c-808080 f13px mt8">身份验证</p>	
+							</div>
+							<div class="swiper-slide">
+								<img src="/imgs/images/pic/id2.png">
+								<p class="c-808080 f13px mt8">手机验证</p>	
+							</div>
+							<div class="swiper-slide">
+								<img src="/imgs/images/pic/id3.png">
+								<p class="c-808080 f13px mt8">邮箱验证</p>	
+							</div>
+							<div class="swiper-slide">
+								<img src="/imgs/images/pic/id4.png">
+								<p class="c-808080 f13px mt8">收入证明</p>	
+							</div>
+							<div class="swiper-slide">
+								<img src="/imgs/images/pic/id5.png">
+								<p class="c-808080 f13px mt8">机构验证</p>	
+							</div>
+						</div>
+					</div>		
+				</div>	
+				<div class="bb-e6e6e6">
+					<div class="pt15 c-212121 f17px bt-e6e6e6 ml15">信用档案</div>
+					<div class="h43 c-808080 f14px pl15">申请借款：1 笔</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">成功借款：1 笔</div>
+					<div class="h43 c-808080 f14px pl15">借款总额：68500.00 元</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">逾期金额：0.00 元</div>
+					<div class="h43 c-808080 f14px pl15">逾期期数：0 期</div>
+					<div class="h43 c-808080 f14px pl15 bg-fafafa">还清笔数：0 笔</div>
+					<div class="h43 c-808080 f14px pl15">待还本息：0 元</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="bt-e6e6e6 bb-e6e6e6 bg-fff mt15">
+			<div class="pt10 pb10 c-212121 f17px pl15 dropdownTit"><i class="ico-sprite01 ico-triangle rotate0"></i>业务模型</div>
+			<div class="dropdownCon hide">
+				<div class="pl20 pt18 pb25 pos-r">
+					<div class="firmModule h385"></div>
+					<div class="pos-a firm_txt">
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>电商企业向贸易公司申请垫资代采</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>贸易公司向俊拓金融申请融资方案</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>俊拓金融审核上下游企业资质信用</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>俊拓金融为贸易公司提供担保方案</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>团贷网审核同意贸易公司融资方案</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>贸易公司通过团贷网发标借款</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>贸易公司向供应商付款采购货物</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>供应商收款后向电商企业发货</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>电商企业周转后向贸易公司还款付息</p>
+						<p class="c-808080 f14px"><i class="ico-suc01"></i>贸易公司通过团贷网还款付息</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+			
+	<div class="pos-f btn-joinNow">
+		<div class="btn btnYellow">马上加入</div>
+		<a href="" class="btn-share webkit-box"><i class="ico-sprite01 ico-share"></i></a>
+	</div>
+	
+	<!--弹框-->
+	<div class="slide2 hide">
+			<div class="slide-close">
+				
+			</div>
+			<div class="slide-big">
+				<div class="swiper-container3" id="swiper3">
+					<div class="swiper-wrapper"></div>
+				</div>
+			</div>
+			<div class="mark"></div>
+		</div>
+</body>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript">
+	var swiper1 = undefined;
+	var swiper3 = undefined;
+	var swiper2 = new Swiper('#swiper2', {
+		slidesPerView: 'auto'
+	});
+	var len = $("#swiper1").find('.swiper-slide').length;
+	$(".mark").html("<p><span id='nowMark'>1/</span>"+ len +"</p>");
+		
+	$('.slide-close').click(function(){
+		$('.slide2').addClass('hide'); 
+		swiper3.destroy(true,true);
+		swiper3 = undefined;
+	})
+	
+	function initSwiper1(){
+		swiper1 = new Swiper('#swiper1', {
+			slidesPerView: 'auto',
+			preloadImages:false,
+			watchSlidesVisibility:true,
+			lazyLoading : true,
+			lazyLoadingOnTransitionStart : true
+		});
+		swiper1.on('tap',function(){
+			$(".slide2").removeClass('hide');
+			var idx = swiper1.clickedIndex;
+			if(idx == 0){
+	        	$("#nowMark").html('1/');
+			}
+			var wrapper1 = $("#swiper1").find('.swiper-wrapper').html();
+			$("#swiper3").find('.swiper-wrapper').html(wrapper1);
+			swiper3 = new Swiper('#swiper3', {
+				initialSlide : idx,
+		        slidesPerView: '1',
+		        spaceBetween: 1,
+		        preloadImages:false,
+				lazyLoading : true,
+				lazyLoadingOnTransitionStart : true,
+		        onSlideChangeEnd:function(swiper3){
+		        	console.log(swiper3.activeIndex+1);
+		        	$("#nowMark").html((swiper3.activeIndex+1)+'/');
+		        }
+			});
+		});
+	}
+	
+	//栏目显示切换
+	$(".dropdownTit").click(function(){
+		var next = $(this).next();
+		var triangle = $(this).find('i');
+		if(next.hasClass('hide')){
+			triangle.removeClass('rotate0');
+			next.removeClass('hide');
+		}else{
+			triangle.addClass('rotate0');
+			next.addClass('hide');
+		}
+		if($(this).hasClass('slideTit')){
+			initSwiper1();
+		}
+	})
+	
+</script>
+
+</html>

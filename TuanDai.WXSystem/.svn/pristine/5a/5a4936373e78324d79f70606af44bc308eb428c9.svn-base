@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>订单支付</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=20160406" />
+    <link rel="stylesheet" type="text/css" href="/css/mall.css?v=20160406001" />
+</head>
+<body class="bg-f1f3f5">
+    <header class="headerMain">
+        <div class="header bb-e6e6e6">
+            <div class="pageReturn" onclick="javascript:history.go(-1);"></div>
+            <h1 class="title">订单支付</h1>
+        </div>
+        <div class="none"></div>
+    </header>
+    <a href="">
+        <div class="address-box bg-fff pl15 pr40 pb13 pos-r">
+            <div class="id pt8 pos-r">
+                <p class="f15px c-212121"><span class="id-icon"></span>王凡<span class="f15px c-212121 ml20">156****3225</span></p>
+            </div>
+            <div class="add pt8 pos-r pl25">
+                <span class="add-icon"></span>
+                <p class="f13px c-212121 line-h20">新疆省乌鲁木齐市知情乡激情大道456号天津狗不理大厦2单元3598室 </p>
+            </div>
+            <span class="arrow-r pos-a"> </span>
+        </div>
+    </a>
+
+    <!--当默认没有地址的时候 显示添加地址-->
+    <div class="bg-fff text-center pt30 pb30" style="display: none">
+        <a href=""><span class="addadd-ico"></span><span class="c-212121 f15px">添加新地址</span></a>
+    </div>
+
+    <div class="order-line"></div>
+    <div class="bg-fff bb-e6e6e6 bt-e6e6e6">
+        <div class="mt10 ml15 pr15 product pt15 bb-e6e6e6 pb15">
+            <img src="/imgs/member/mall/pic-p1.png" >
+            <div class="product-d pos-a">
+                <p class="f15px c-212121">微软蓝影M4000无线鼠标</p>
+                <p class="f13px c-808080">规格：蓝色，24骨朵</p>
+                <p class="f13px c-808080">数量：×2</p>
+            </div>
+        </div>
+        <div class="pt15 con_m">
+            <div class="pos-r ml15 pb20 pr15 bb-e6e6e6">
+                <p class="f13px c-808080">购买数量</p>
+                <div class="countBox">
+                    <span class="minus"></span>
+                    <input type="text" placeholder="0">
+                    <span class="add"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bb-e6e6e6 ml15 pr15 remark pt15 pb15">
+            <span class="f13px c-808080">订单备注</span>
+            <input type="text" placeholder="选填，可填写您的其他需求" class="ml15 f13px" id="txtRemark">
+            <a href="javascript:;" class="pos-a clear-beizhu hide" id="clearBeizhu"><i></i></a>
+        </div>
+
+        <div class="pos-r ml15 pr15 total  pt15 pb15">
+            <span class="f13px c-808080">商品合计</span>
+            <p class="c-fd6040 f30px pos-a">5000 <span class="c-808080 f15px">团币</span></p>
+        </div>
+    </div>
+    <a href="javascript:;" class="btn btnYellow pos-f pay-but" id="payBut">立即支付</a>
+
+    <!--添加地址弹窗-->
+    <div class="alert z-index1000 webkit-box box-center add-alert hide">
+        <div class="add-alert-box">
+            <img src="/imgs/member/mall/yx.png">
+            <p class="f15px c-ffffff pt15">请填写收货地址</p>
+        </div>
+    </div>
+
+    <!--兑换成功弹窗-->
+    <div class="alert z-index1000 webkit-box box-center hide">
+        <div class="alert-box pos-r bg-fff">
+            <img src="/imgs/member/mall/yes.png">
+            <div class="text-center c-808080 f15px pb30 pl25 pr25">恭喜你，成功兑换罗技M238无线鼠标商品3件！请耐心等待系统为您配送～</div>
+            <div class="clearfix bt-e6e6e6">
+                <div class="lf w50p br-e6e6e6">
+                    <div class="btn c-808080 f17px br-e6e6e6">查看其他商品</div>
+                </div>
+                <div class="rf w50p">
+                    <div class="btn c-fab600 f17px">查看订单</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        //清空备注
+        $("#txtRemark").focus(function(){
+            $("#clearBeizhu").show();
+        });
+        $('#clearBeizhu').click(function () {
+            $("#txtRemark").val("");
+            $(this).hide();
+        });
+    });
+
+    //兑换成功弹窗方法
+    function showAlert() {
+        $(".alert").removeClass('hide').bind("touchmove", function(e) {
+            e.preventDefault();
+        });
+        $(".alert-box").removeClass('moveToBottom').addClass('moveFromBottom');
+    }
+
+    //添加地址弹窗
+    function showAdddz() {
+        $(".add-alert").removeClass('hide').bind("touchmove", function(e) {
+            e.preventDefault();
+        });
+    }
+</script>
+
+</html>

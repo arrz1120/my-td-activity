@@ -1,0 +1,147 @@
+﻿/*'=========================================================
+Web: http://m.tuandai.com
+Author:ChenWeiZhi
+Update:2015-07-08  nierong
+=========================================================*/
+@charset "utf-8";
+html,body,h1,h2,h3,p,span,a,div,ol,ul,li,dl,dt,dd,table,tbody,tfoot,thead,tr,th,td,input,textarea, form,article,aside,details,figcaption,figure,footer,header,hgroup,nav,section { margin: 0; padding: 0; font: 12px/2rem 'Microsoft Yahei', Arial, Verdana, Helvetica, sans-serif; -webkit-tap-highlight-color: rgba(0,0,0,0); color: #545454;box-sizing: border-box;}
+body { -webkit-text-size-adjust: none; width: 100%;height:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+em, i, b, strong { font-style: normal; font-weight: normal;}
+input, textarea { outline: 0;}
+input,textarea,select{-webkit-border-radius: 0; appearance:none;-moz-appearance:none; -webkit-appearance:none;}
+ul, li {list-style: none;}
+fieldset{border: none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display: block;}
+img {  border:0; -ms-interpolation-mode:bicubic; max-width:100%; vertical-align:middle;}
+.hide {display: none;}
+a{text-decoration: none; color: #3e3d3d;}
+.position-relative{ position: relative;}
+.pos-r{ position: relative;}
+.pos-a{ position: absolute;}
+.imgBox{ text-align: center;}
+.c-hd{height:50px;}
+/*浮动、清除浮动*/
+.lf{float:left;}
+.rf{float:right;}
+.clearfix {zoom:1;}
+.clearfix:after{content:'.'; display:block; visibility:hidden; clear:both; height:0;}
+.hidden{ display: none !important;}
+.block{ display: block!important;}
+.inline-block{ display: inline-block!important;}
+
+
+body{
+	background: #f0f0f0;
+	color: #808080;
+}
+
+.tit_h2{
+	text-align: center;
+	color: #a66e17;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 15px 0;
+}
+
+.content{
+	padding: 0 15px 20px;
+}
+
+.intro p {
+    line-height: 22px;
+}
+
+
+.yield{
+	margin-top: 30px;
+}
+
+.kind{
+	width: 15%;
+	float: left;
+	margin: 5px  5% 0  0;
+
+}
+
+.kind img{
+	width: 100%;
+}
+
+.yield .yield_detail{
+	width: 80%;
+	float: left;
+	overflow: hidden;
+	font-size: 11px;
+}
+
+.yield .rate{
+	color: #ff781c;
+	margin-top: 8px;
+	font-size: 20px;
+}
+
+.yield  .fir_line{font-weight: bold;font-size: 11px;}
+.yield  .sed_line{font-size: 10px;color: #ababab;line-height: 18px;}
+
+.yield p{line-height: 20px;}
+
+
+.pro_attr{
+	padding: 15px 0;
+}
+
+.pro_attr .icon{
+	width: 17%;
+	float: left;
+}
+
+.pro_attr .icon img{
+	width: 100%;
+}
+
+	
+.pro_attr .classify{	
+	float: left;
+	width: 76%;
+	margin-right: 2%;
+	font-size: 11px;
+	border-left : 1px #cccccc dashed;
+	padding-left: 5px;
+}
+
+.pro_attr .classify dt{
+    float: left;
+    width: 15%;
+    line-height: 20px;
+}
+
+.pro_attr .classify dd{
+	float: left;
+    width: 85%;
+    line-height: 20px;
+}
+
+
+.pro_attr .classify .kind_a dt,
+.pro_attr .classify .kind_a dd,
+.pro_attr .classify  p{
+	font-size: 10px;
+	color: #60b9f8;
+	line-height: 14px;
+
+}
+
+.pro_attr .classify .kind_b dt,
+.pro_attr .classify .kind_b dd{
+	font-size: 10px;
+	line-height: 14px;
+	color: #ffbe21;
+}
+
+.odd{
+	background: #f0f9ff
+}
+
+.even{
+	background: #fffdf7
+}

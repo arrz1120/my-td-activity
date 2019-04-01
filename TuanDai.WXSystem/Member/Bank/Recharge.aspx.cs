@@ -1,0 +1,518 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.CunGuanTong.Client;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL; 
+using LLPay;
+using System.Data.SqlClient;
+using Dapper;
+using TuanDai.PortalSystem.DAL;
+using System.Net;
+using System.Text;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+using TuanDai.WXSystem.Core.Common;
+using TuanDai.WXSystem.Core.models;
+
+namespace TuanDai.WXApiWeb.Member.Bank
+{
+    /// <summary>
+    /// 充值页
+    /// 改版:Allen 2015-12-15
+    /// </summary>
+    public partial class Recharge : UserPage
+    {
+        protected bool IsValidateIdentity { get; set; }
+        protected UserBasicInfoInfo userModel;
+        protected Guid userId;
+        protected BankCardBin bank; 
+        protected decimal AviMoney = 0;//帐户可用资金
+        protected int DefPayType = 2; //默认支付方式 1 微信支付 2 银行卡支付
+        protected decimal MinRechargeAmount = 50; //最低充值金额
+        protected string ThirdPayType = "lianlian";
+        protected decimal rechargeMoney = 0;//充值金额
+        protected string bankName = string.Empty;
+        protected int? vailStatus = 0;
+        protected string bankNo = string.Empty;
+        protected WXResponsePublicInfo<WXResponseSelectBankInfoChild> bankInfoFromJava;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("//m.tuandai.com/pages/downOpenApp.aspx", true);
+            return;
+            //缓存充值时跳转过来的URL
+            string returnUrl = WEBRequest.GetString("ReturnUrl");
+            if (returnUrl.IsNotEmpty())
+               Tool.CookieHelper.WriteCookie("InvestUrl", returnUrl, 30);
+            string backurl = WEBRequest.GetString("backurl");
+            if (!string.IsNullOrEmpty(backurl))
+            {
+                Tool.CookieHelper.WriteCookie("InvestUrl", GoBackUrl, 30);
+            }
+            string reMoney = WEBRequest.GetString("rechargeMoney");
+            if (!string.IsNullOrEmpty(reMoney))
+            {
+                rechargeMoney = decimal.Parse(reMoney);
+                Tool.CookieHelper.WriteCookie("WxRechargeMoney", reMoney, 30);
+            }
+                
+            string sType = WEBRequest.GetString("selectType");
+            if (!string.IsNullOrEmpty(sType))
+            {
+                DefPayType = int.Parse(sType);
+                Tool.CookieHelper.WriteCookie("WxRechargeType", sType, 30);
+            }
+                
+            userId = WebUserAuth.UserId.Value;
+            if (!this.IsPostBack)
+            {
+                OnInitData();   
+            }
+        }
+
+        #region 页面初始化
+        protected void OnInitData()
+        {
+            UserBankInfo ubi = new UserBankInfo();
+            UserBLL bll = new UserBLL();
+            userModel = bll.GetUserBasicInfoModelById(userId);
+            var javaBankService = new BankFromJavaService();
+            if (!GlobalUtils.IsOpenCGT)
+            {
+                if (string.IsNullOrEmpty(userModel.BankAccountNo))
+                {
+                    string sql = @"SELECT BankNo,BankType FROM dbo.UserBankInfo WITH(NOLOCK) WHERE UserId = @UserId ";
+
+                    DynamicParameters para = new DynamicParameters();
+                    para.Add("@UserId", userId);
+                    ubi = PublicConn.QuerySingle<UserBankInfo>(sql, ref para);
+
+                    if (ubi != null)
+                    {
+                        userModel.BankAccountNo = ubi.BankNo;
+                        userModel.BankType = ubi.BankType;
+                    }
+                }
+            }
+            else
+            {
+                if (GlobalUtils.IsBankService)
+                {
+                    bankInfoFromJava = javaBankService.GetBankInfo(userId, ServiceType.TuoMin);
+                    if (bankInfoFromJava != null && bankInfoFromJava.respData != null)
+                    {
+                        bankName = bankInfoFromJava.respData.bankName;
+                        bankNo = bankInfoFromJava.respData.bankNo;
+                    }
+                }
+
+                if (string.IsNullOrEmpty(bankNo))
+                {
+                    GlobalUtils.GetBankImg(userModel.Id, out bankName);
+                    bankNo = userModel.BankAccountNo;
+                }
+
+            }
+            vailStatus = getVailStatusByUserModel(userModel);
+            this.IsValidateIdentity = userModel.IsValidateIdentity;
+            if (GlobalUtils.IsBankService)
+            {
+                AviMoney = javaBankService.GetAviMoney(userId);
+            }
+            else
+            {
+                AviMoney = bll.GetUserAviMoney(userId);
+            }
+             
+
+            bank = GetSupportBank();
+
+            if (!GlobalUtils.IsOpenCGT)
+            {
+                string sType = WEBRequest.GetString("selectType");
+                if (sType == "")
+                {
+                    //获取默认支付方式
+                    if (GlobalUtils.IsWeiXinBrowser)
+                    {
+                        if (userModel.BankAccountNo.ToText().IsEmpty())
+                            DefPayType = 1;
+                        else
+                            DefPayType = 2;
+                    }
+                    else
+                    {
+                        DefPayType = 2;
+                    }
+                }
+                //判断openid为空时,重新授权
+                if (GlobalUtils.IsWeiXinBrowser)
+                {
+                    if (GlobalUtils.OpenId.IsEmpty())
+                    {
+                        string strOpenId = TuanDai.WXApiWeb.Common.WeiXinApi.GetUserWXOpenId(userModel.Id);
+                        if (strOpenId.IsNotEmpty())
+                        {
+                            GlobalUtils.WriteOpenIdToCookie(strOpenId.ToText());
+                        }
+                        else
+                        {
+                            TuanDai.WXApiWeb.Common.WeiXinApi wxApi = new Common.WeiXinApi();
+                            wxApi.GetOpenidAndAccessToken(this);
+                        }
+                    }
+                }
+            }
+            WebSettingInfo rechargeSet = new TuanDai.PortalSystem.DAL.WebSettingDAL().GetWebSettingInfo("9A89CBAE-6550-4EA1-8224-EB645F38F8FA");
+            MinRechargeAmount = decimal.Parse(rechargeSet.Param1Value);
+
+            this.CheckUseKuaiJiePay();
+        }
+        //检测当前使用哪种快捷支付方式
+        protected void CheckUseKuaiJiePay() { 
+            string IsOpenEBuyPay = ConfigHelper.getConfigString("IsOpenEBuyPay");
+            if (IsOpenEBuyPay == "1")
+                ThirdPayType = "eb";
+            else{
+                string IsOpenLianLianPay = ConfigHelper.getConfigString("IsOpenLianLianPay");
+                if (IsOpenLianLianPay == "1") {
+                    ThirdPayType = "lianlian";
+                }
+            }
+            if (ThirdPayType == "") {
+                ThirdPayType = "lianlian";
+            }
+        } 
+        #endregion
+
+        #region 根据用户实体类得到用户验证状态
+        /// <summary>
+        /// 根据用户实体类得到用户验证状态
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>返回用户状态 小于4：未通过实名认证 4：已通过实名认证 11：未修改昵称 12：未修改交易密码</returns>
+        private int getVailStatusByUserModel(UserBasicInfoInfo userModel)
+        {
+            int vailStatus = 0;
+            if (userModel != null)
+            {
+                //未绑定银行卡
+                //if (string.IsNullOrEmpty(userModel.BankAccountNo))
+                //{
+                //    vailStatus = 5;
+                //}
+                //else if (string.IsNullOrEmpty(userModel.OpenBankName) || string.IsNullOrEmpty(userModel.BankProvice) || string.IsNullOrEmpty(userModel.BankCity))
+                //{
+                //    vailStatus = 6;
+                //}
+                //else 
+                WXResponsePublicInfo<WXResponseSelectBankInfoChild> bankInfo =
+                    new BankFromJavaService().GetBankInfo(userModel.Id, ServiceType.TuoMin);
+                if (bankInfo == null || (bankInfo != null && string.IsNullOrEmpty(bankInfo.respData.bankNo)))
+                {
+                    vailStatus = 5;
+                }
+                if ((!userModel.IsValidateIdentity || !userModel.IsValidateMobile))
+                {
+                    vailStatus = 0;
+                }
+                else if (!userModel.IsValidateIdentity)
+                { //没有身份认证
+                    vailStatus = 1;
+                }
+                else if (!userModel.IsValidateMobile)
+                {//没有手机认证
+                    vailStatus = 3;
+                }
+                else
+                { //验证通过
+                    vailStatus = 4;
+                }
+                if (GlobalUtils.IsOpenCGT)
+                {
+                    var cgtmode = new QueryClient().GetUserByPlatformUserNo(userModel.Id);
+                    if (cgtmode == null)
+                    {
+                        vailStatus = -2;//未开通存管
+                    }
+                    else if (cgtmode.accountStage == 3 && !cgtmode.isAllowRechare)
+                    {
+                        //三要素用户提示去修改预留手机号
+                        vailStatus = -1;
+                    }
+                }
+            }
+            return vailStatus;
+        }
+        #endregion
+
+        #region 获取银行限额
+
+        private BankCardBin GetSupportBank()
+        {
+            BankCardBin bindCard = new BankCardBin();
+             bindCard.single_amt = "0";
+             bindCard.day_amt = "0";
+            try
+            {
+                WebSettingInfo webSetting = new TuanDai.PortalSystem.DAL.WebSettingDAL().GetWebSettingInfo("E27798C9-9301-4176-AC0B-6F3916F389EA");
+
+                SortedDictionary<string, string> sParaTemp = new SortedDictionary<string, string>();
+                sParaTemp.Add("oid_partner", webSetting.Param1Value.Trim());
+                sParaTemp.Add("api_version", "1.0");
+                sParaTemp.Add("sign_type", "RSA");
+                sParaTemp.Add("product_type", "1");
+                sParaTemp.Add("pay_chnl", "10");
+
+                var sign = PaymentUtil.AddSign(sParaTemp, webSetting.Param3Value, webSetting.Param2Value);
+                sParaTemp.Add("sign", sign);
+                var reqJson = PaymentUtil.DictToJson(sParaTemp);
+
+                var url = "https://yintong.com.cn/queryapi/supportbankquery.htm";
+
+                string json = postJson(url, reqJson);
+                SupportBankQuery responseResult = new SupportBankQuery();
+                responseResult = Newtonsoft.Json.JsonConvert.DeserializeObject<SupportBankQuery>(json); 
+               
+                //记录充值请求参数
+               // BusinessDll.NetLog.WriteBatchwithdrawHandler("记录连连支付银行卡卡bin查询", "请求报文:" + reqJson + ";返回报文" + json, "触屏版");
+                if (responseResult == null)
+                {
+                    responseResult = new SupportBankQuery();
+                }
+                if (responseResult.ret_code == "0000")
+                {
+                    var sqlParamBankCode = new Dapper.DynamicParameters();
+                    sqlParamBankCode.Add("@bankType", userModel.BankType);
+                    var sqlBankCode = @"select BankCode,BankDesc from [dbo].[Bank_Code] with(nolock) where bankType=@bankType";
+                    var bank_code = TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<Bank_Code>(TdConfig.DBRead, sqlBankCode,
+                        ref sqlParamBankCode);
+                    var backCode = string.Empty;
+                    if (bank_code != null)
+                    {
+                        bindCard.BankDesc = bank_code.BankDesc;
+                        backCode = bank_code.BankCode;
+                    }
+                           
+                    backCode = string.IsNullOrEmpty(backCode) ? string.Empty : backCode.Trim();
+                        
+                    var _supportBank = responseResult.support_banklist.FirstOrDefault(x => x.bank_code == backCode);
+                    if (null != _supportBank)
+                    {
+                        bindCard.single_amt = _supportBank.single_amt;
+                        bindCard.day_amt = _supportBank.day_amt;
+                        if (_supportBank.bank_status == "0")
+                        {
+                            bindCard.IsBankMaintain = false;
+                        }
+                        else
+                        {
+                            bindCard.IsBankMaintain = true;
+                        }
+                    }
+                }
+                if (decimal.Parse(bindCard.single_amt) >= 10000)
+                    bindCard.SingleAmt = (decimal.Parse(bindCard.single_amt) / 10000).ToString("n0") + "万";
+                else
+                    bindCard.SingleAmt = decimal.Parse(bindCard.single_amt).ToString("n0") + "元";
+
+                if (decimal.Parse(bindCard.day_amt) >= 10000)
+                    bindCard.DayAmt = (decimal.Parse(bindCard.day_amt) / 10000).ToString("n0") + "万";
+                else
+                    bindCard.DayAmt = decimal.Parse(bindCard.day_amt).ToString("n0") + "元";
+
+                return bindCard;
+            }
+            catch (Exception ex) {
+              // BusinessDll.NetLog.WriteLoginHandler("查询卡限额时出错", Tool.ExceptionHelper.GetExceptionMessage(ex), "触屏版");
+                bindCard.IsBankMaintain = true; 
+                return bindCard;
+            }
+        }
+
+
+        #region 旧的请求方式
+        private BankCardBin GetBankCardBin_Old()
+        {
+
+            WebSettingInfo webSetting = new TuanDai.PortalSystem.DAL.WebSettingDAL().GetWebSettingInfo("E27798C9-9301-4176-AC0B-6F3916F389EA");
+
+            PartnerConfig partnerConfig = new PartnerConfig(webSetting.Param1Value, webSetting.Param2Value, webSetting.Param3Value, webSetting.Param5Value);
+
+            string url = "https://yintong.com.cn/traderapi/bankcardquery.htm";
+
+            SortedDictionary<string, string> sParaTemp = new SortedDictionary<string, string>();
+            sParaTemp.Add("oid_partner", partnerConfig.OidPartner);
+            sParaTemp.Add("sign_type", "RSA");
+            sParaTemp.Add("card_no", userModel.BankAccountNo);
+            sParaTemp.Add("pay_type", "D");
+            sParaTemp.Add("flag_amt_limit", "1");
+
+            string strb = "";
+            foreach (var item in sParaTemp)
+            {
+                if (strb == "")
+                {
+                    strb = item.Key + "=" + item.Value;
+                }
+                else
+                {
+                    strb += "&" + item.Key + "=" + item.Value;
+                }
+            }
+            string req_data = strb;
+            String sign = LLPay.RSAFromPkcs8.sign(req_data, partnerConfig.TraderPriKey, "utf-8");
+            BankCardInfo info = new BankCardInfo();
+            info.oid_partner = partnerConfig.OidPartner;
+            info.sign_type = "RSA";
+            info.sign = sign;
+            info.card_no = userModel.BankAccountNo;
+            info.pay_type = "D";
+            info.flag_amt_limit = "1";
+
+            SysLogHelper.WriteTraceLog("连连查询银行卡BIN报文", strb);
+
+            string json = Tool.HttpUtils.HttpPost(url, Newtonsoft.Json.JsonConvert.SerializeObject(info));
+            BankCardBin bankcard = new BankCardBin();
+            bankcard = Newtonsoft.Json.JsonConvert.DeserializeObject<BankCardBin>(json);
+
+            if (bankcard == null) {
+                bankcard = new BankCardBin();
+            }
+            if (bankcard.single_amt.ToText().IsEmpty())
+                bankcard.single_amt = "0";
+            if (bankcard.day_amt.ToText().IsEmpty())
+                bankcard.day_amt = "0";
+            return bankcard;
+        }
+        #endregion
+
+        #endregion
+
+        /// <summary>
+        /// pos方法
+        /// </summary>
+        private static string postJson(string serverUrl, string reqJson)
+        {
+            var http = (HttpWebRequest)WebRequest.Create(new Uri(serverUrl));
+            http.Accept = "application/json";
+            http.ContentType = "application/json";
+            http.Method = "POST";
+            http.Timeout = 1000 * 10;//设置超时10s
+
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
+            UTF8Encoding encodeing = new UTF8Encoding();
+
+            Byte[] bytes = encodeing.GetBytes(reqJson);
+
+            Stream newStream = http.GetRequestStream();
+            newStream.Write(bytes, 0, bytes.Length);
+
+
+            var response = http.GetResponse();
+
+            var stream = response.GetResponseStream();
+            var sr = new StreamReader(stream);
+            var content = sr.ReadToEnd();
+
+            newStream.Close();
+            stream.Close();
+            sr.Close();
+
+            return content;
+        }
+        //验证服务器证书
+        private static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
+        {
+            return true;
+        }
+        #region 内部对象
+
+        public class Bank_Code
+        {
+            public string BankCode { get; set; }
+            public string BankDesc { get; set; }
+        }
+        public class BankCardInfo
+        {
+            public string oid_partner { get; set; }
+            public string sign_type { get; set; }
+            public string sign { get; set; }
+            public string card_no { get; set; }
+            public string pay_type { get; set; }
+            public string flag_amt_limit { get; set; }
+        }
+
+        public class BankCardBin
+        {
+            public string ret_code { get; set; }
+            public string ret_msg { get; set; }
+            public string sign_type { get; set; }
+            public string sign { get; set; }
+            public string bank_code { get; set; }
+            public string bank_name { get; set; }
+            public int card_type { get; set; }
+            public string single_amt { get; set; }
+            public string day_amt { get; set; }
+            public string month_amt { get; set; }
+            public string SingleAmt { get; set; }
+            public string DayAmt { get; set; }
+            //是否在维护中
+            public bool IsBankMaintain { get; set; }
+            /// <summary>
+            /// 银行卡特殊说明
+            /// </summary>
+            public string BankDesc { get; set; }
+        }
+        protected class SupportBankQuery
+        {
+            public string ret_code { get; set; }
+
+            public string ret_msg { get; set; }
+
+            public List<SupportBankList> support_banklist { get; set; }
+        }
+        protected class SupportBankList
+        {
+            public string bank_code { get; set; }
+
+            public string bank_name { get; set; }
+
+            public string card_type { get; set; }
+
+            public string single_amt { get; set; }
+
+            public string day_amt { get; set; }
+
+            public string month_amt { get; set; }
+
+            public string bank_status { get; set; }
+        }
+        public class UserBankInfo
+        {
+            public string BankNo { get; set; }
+
+            public int? BankType { get; set; }
+        }
+        #endregion
+
+        protected string GetBankName()
+        {
+            if (GlobalUtils.IsOpenCGT)
+            {
+                return bankName;
+            }
+            else
+            {
+                return Tool.EnumHelper.GetDescriptionFromEnumValue(typeof(ConstString.BankType), userModel.BankType);
+            }
+        }
+      
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>我的商品</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=20160406" />
+    <link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160406001" />
+    <link rel="stylesheet" type="text/css" href="/css/mall.css?v=20160406001" />
+</head>
+<body class="bg-f1f3f5">
+
+    <!--tabs 导航-->
+    <div class="pl15 pr15 bg-fff tabs-box bb-e6e6e6">
+        <div class="tabs clearfix">
+            <a href="javascript:;" class="active lf w33p">全部</a>
+            <a href="javascript:;" class="lf w33p">未领取</a>
+            <a href="javascript:;" class="lf w33p">已领取</a>
+        </div>
+    </div>
+
+    <div id="tabs-container" class="swiper-container mt10" >
+        <div class="swiper-wrapper bt-e6e6e6 bb-e6e6e6">
+
+            <!--全部-->
+            <div class="swiper-slide">
+                <div class="bg-fff bt-e6e6e6 bb-e6e6e6">
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp1"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <a href="" class="c-fab600 f13px">马上领取</a>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp2"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px" >蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>即将配送</p>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp3"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp6"></i>配送成功</p>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp3"></i>微软蓝影M4000无线鼠标微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp6"></i>配送成功</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--未领取-->
+            <div class="swiper-slide">
+                <div class="bg-fff bt-e6e6e6 bb-e6e6e6">
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp1"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <a href="javascript:;" class="c-fab600 f13px">马上领取</a>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp2"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px" >蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>即将配送</p>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp3"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp6"></i>配送成功</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--已领取-->
+            <div class="swiper-slide">
+                <div class="bg-fff bb-e6e6e6 bt-e6e6e6">
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp1"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <a href="javascript:;" class="c-fab600 f13px">马上领取</a>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp2"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px" >蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp5"></i>即将配送</p>
+                        </div>
+                    </div>
+                    <div class="sp-con ml15">
+                        <img src="/imgs/member/mall/pic-p1.png">
+                        <div class="pos-a con1">
+                            <p class="c-212121 f15px text-overflow"><i class="sp-sprite ico-sp3"></i>微软蓝影M4000无线鼠标</p>
+                            <p class="c-808080 f13px">规格：<span class="c-808080 f13px">蓝色，24骨朵</span></p>
+                            <P class="c-808080 f13px">数量：<span class="c-808080 f13px">×2</span></P>
+                        </div>
+                        <div class="pos-a con2">
+                            <p class="c-212121 f15px"><i class="sp-sprite ico-sp4"></i>5000</p>
+                            <p class="c-808080 f14px"><i class="sp-sprite ico-sp6"></i>配送成功</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!--暂无商品的时候-->
+    <div class="text-center bt-e6e6e6 no-update" style="display: none">
+        <img src="/imgs/member/pic-asset1.png" alt="">
+        <p class="f17px c-212121 pt40">暂无商品，可前往商城兑换~</p>
+        <div class="a-link">
+            <a href="">马上前往商城</a>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+//    选项卡交互
+    $(function () {
+        var tabsSwiper = new Swiper('#tabs-container',{
+            speed:500,
+            onSlideChangeStart: function(){
+                $(".tabs .active").removeClass('active');
+                $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active')
+            }
+        });
+        $(".tabs a").on('touchstart mousedown',function(e){
+            e.preventDefault();
+            $(".tabs .active").removeClass('active');
+            $(this).addClass('active');
+            tabsSwiper.slideTo( $(this).index() )
+        });
+        $(".tabs a").click(function(e){
+            e.preventDefault();
+        });
+
+    });
+
+</script>
+
+</html>

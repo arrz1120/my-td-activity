@@ -1,0 +1,629 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tuandai.ServiceStackRedis</name>
+    </assembly>
+    <members>
+        <member name="M:Tuandai.ServiceStackRedis.LogDao.RedisTrace(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            添加Redis跟踪
+            </summary>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="method"></param>
+            <param name="begindate"></param>
+            <param name="endDate"></param>
+        </member>
+        <member name="T:Tuandai.ServiceStackRedis.RedisConfig">
+            <summary>
+            Redis的配置文件
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.InvokeType">
+            <summary>
+            调用方式 1:哨兵 0:直接(读写)
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.ReadHost">
+            <summary>
+            读的主机pwd@127.0.0.1
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.WriteHost">
+            <summary>
+            写的主机格式pwd@127.0.0.1
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.MaxWritePoolSize">
+            <summary>
+            最大写的池
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.MaxReadPoolSize">
+            <summary>
+            最大读的池
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.ConnectTimeout">
+            <summary>
+            连接超时时间(毫秒)Timeout in ms for making a TCP Socket connection
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.DefaultDb">
+            <summary>
+            使用数据库
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.MasterName">
+            <summary>
+            主的名称
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.SentinelHost">
+            <summary>
+            哨兵主机
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.IdleTimeOutSecs">
+            <summary>
+            空闲回收时间(秒)Timeout in Seconds for an Idle connection to be considered active
+            </summary>
+        </member>
+        <member name="P:Tuandai.ServiceStackRedis.RedisConfig.RetryTimeout">
+            <summary>
+            重试超时毫秒，如果服务器不能访问的超时时间
+            </summary>
+        </member>
+        <member name="T:Tuandai.ServiceStackRedis.RedisManager">
+            <summary>
+            Redis管理
+            </summary>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisManager.GetRedisClientFactory(System.String,Tuandai.ServiceStackRedis.RedisSource,System.String@)">
+            <summary>
+            获取Redis源工厂
+            </summary>
+            <param name="path"></param>
+            <param name="redisSource"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tuandai.ServiceStackRedis.RedisServerStack">
+            <summary>
+            Redis服务
+            </summary>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.StringGet``1(System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            通过字符串获取对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">Read读库 Write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.StringSet``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            字符串设置
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path">路径</param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <param name="exiprt">有效期</param>
+            <param name="asy">是否异步:true异步</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.StringIncrement(System.String,System.String,System.String,System.String@,System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            String里面的值在原有的基础上增加
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value">默认是增长1</param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.StringIncrement(System.String,System.String,System.String,System.String@,System.Double,System.Nullable{System.DateTime})">
+            <summary>
+            String里面的值在原有的基础上增加
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value">默认是增长1</param>
+            <param name="asy"></param>
+            <param name="expireDate">过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.StringDecrement(System.String,System.String,System.String,System.String@,System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            string里面的值在原有的基础上减
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="value"></param>
+            <param name="expireDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashSet``1(System.String,System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            哈希的使用
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用名称</param>
+            <param name="path"></param>
+            <param name="key">键字</param>
+            <param name="field">字段</param>
+            <param name="model">值</param>
+            <param name="ErrorMessage"></param>
+            <param name="expirtDate">到期时间</param>
+            <param name="asy">同步:true</param>
+            <param name="isExists">false:直接覆盖,true:如果不存在，才生成</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashGet``1(System.String,System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            获取Hash的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">Read读库 Write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashGets``1(System.String,System.String,System.String,System.String[],System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            获取Hash的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashSetRange(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            Hash-添加多个值
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashIncrement(System.String,System.String,System.String@,System.String,System.String,System.Double,System.Nullable{System.DateTime})">
+            <summary>
+            Hash值增长
+            </summary>
+            <param name="appname">应用程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="field"></param>
+            <param name="value">增加的值，默认是1</param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.HashDelete(System.String,System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            Hash删除
+            </summary>
+            <param name="appname">程序名称</param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fields"></param>
+            <param name="ErrorMessage"></param>
+            <param name="asy">同步：true</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByGetAll``1(System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            List操作－获取所有的列
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByGetRange``1(System.String,System.String,System.String,System.Int32,System.Int32,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            List操作-获取开始到结束的数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="startingFrom"></param>
+            <param name="endingAt"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByAddItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            List,添加操作(添加头部)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="values"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByAddRangeItem``1(System.String,System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list,批量添加操作(添加头部)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="values"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByAddPrependItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list,添加(从尾部添加)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="values"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByAddPrependRangeItem``1(System.String,System.String,System.String,System.Collections.Generic.List{``0},System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list-(从尾部添加)批量添加
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="values"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByRemoveAll(System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list-移出所有的项目
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByRemoveStart``1(System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            List-移出最新一条(删除)
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByRemoveEnd``1(System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list-移出最旧一条(删除)
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByRemoveItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            List-移出某个值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListBySetItem``1(System.String,System.String,System.String,``0,System.Int32,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list-某个位置插入项目
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="listIndex"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByEnqueueItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list,队列插入(尾部插入)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByDequeueItem``1(System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list-队列出(头部移出)
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByStackPushItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            list,Stack入(先进先出)尾部插入
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.ListByStackPopItem``1(System.String,System.String,System.String,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            List,Stack出(尾部出)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByAddItem``1(System.String,System.String,System.String,``0,System.Nullable{System.Double},System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet-添加
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="score"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByAddRangeItem``1(System.String,System.String,System.String,System.Collections.Generic.List{``0},System.Double,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet -批量添加
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="score"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByRemoveItem``1(System.String,System.String,System.String,``0,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet-移出项目
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByIncrementItem``1(System.String,System.String,System.String,``0,System.Double,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet-自动增长
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="model"></param>
+            <param name="incrementBy"></param>
+            <param name="ErrorMessage"></param>
+            <param name="expirtDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetAll``1(System.String,System.String,System.String,System.Int32,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取所有列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="sort">1:升序 0：降序</param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetRange``1(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取某个排名的列表(按位置排序)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="sort">1:升序 其它：降序</param>
+            <param name="fromRank">开始排名(索引)</param>
+            <param name="toRank">结束排名（索引）</param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetRangeLowestScore``1(System.String,System.String,System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取某个区间，从低
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromStringScore"></param>
+            <param name="toStringScore"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetRangeLowestScore``1(System.String,System.String,System.String,System.Double,System.Double,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取某个区间，从低
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromScore"></param>
+            <param name="toScore"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetRangeHighestScore``1(System.String,System.String,System.String,System.Double,System.Double,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-区间分时从高
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromScore"></param>
+            <param name="toScore"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByGetRangeHighestScore``1(System.String,System.String,System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-区间从高
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromStringScore"></param>
+            <param name="toStringScore"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByRemoveRange(System.String,System.String,System.String,System.Int32,System.Int32,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet-移出(位置索引)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="minRank"></param>
+            <param name="maxRank"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByRemoveRangeSocre(System.String,System.String,System.String,System.Double,System.Double,System.String@,System.Nullable{System.DateTime})">
+            <summary>
+            SortedSet-移出按分数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromScore"></param>
+            <param name="toScore"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByCount(System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取数量
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByCountSocre(System.String,System.String,System.String,System.String,System.String,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取分数区间数量
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromScore"></param>
+            <param name="toScore"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.SortedSetByCountSocre(System.String,System.String,System.String,System.Double,System.Double,System.String@,Tuandai.ServiceStackRedis.RedisSource)">
+            <summary>
+            SortedSet-获取分数区间数量
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="fromScore"></param>
+            <param name="toScore"></param>
+            <param name="ErrorMessage"></param>
+            <param name="redisSource">read读库,write写库</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.KeyExpirtDate(ServiceStack.Redis.IRedisClient,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Key的有效期
+            </summary>
+            <param name="db"></param>
+            <param name="key"></param>
+            <param name="expirtDate"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.RedisServerStack.KeyByExpire(System.String,System.String,System.String,System.DateTime,System.String@)">
+            <summary>
+            键过期
+            </summary>
+            <param name="appname"></param>
+            <param name="path"></param>
+            <param name="key"></param>
+            <param name="expireDate">过期时间</param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="M:Tuandai.ServiceStackRedis.ZKConfig.GetRedisConfig(System.String,System.String@)">
+            <summary>
+            获取zk的值
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

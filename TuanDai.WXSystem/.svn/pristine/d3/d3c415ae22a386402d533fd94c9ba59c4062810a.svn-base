@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>身份认证</title>
+<link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/safety.css" /><!--base-->
+</head>
+<body>
+    <header class="headerMain">
+        <div class="header">
+            <h1 class="title">身份认证</h1>
+            <div class="text"><a href="">跳过</a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    <section class="flow-wrap">
+        <div class="flow-pic pos-r">
+            <p class="flow1 pos-a text-center f13px c-ababab">
+                <span class="on"></span>
+                身份证认证
+            </p>
+            <p class="flow2 pos-a text-center f13px c-ababab">
+                <span></span>
+                设置交易密码
+            </p>
+            <p class="flow3 pos-a text-center f13px c-ababab">
+                <span></span>
+                绑定银行卡
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-bdtopBom1-ccc pl15 mt20 clearfix">
+        <div class="pt10 pb10 bg-bdBom1-ccc">
+            <div class="phoneCode pr0">
+                <div class="c-left">姓名</div>
+                <input type="text" name="" class="codeIpt" placeholder="请输入真实姓名">
+            </div>
+        </div>
+
+        <div class="pt10 pb10">
+            <div class="phoneCode pr0">
+                <div class="c-left">身份证</div>
+                <input type="text" name="" id="" class="codeIpt" placeholder="请输入身份证号码">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pd15 mt15">
+        <a href="" target="_blank" class="btn btnYellow">下一步</a>
+    </section>
+
+    <section class="pd15 mt60 text-center">
+        <p class="c-ababab f14px">如有疑问，请联系客服：<a href="tel:400-641-088" class="inline-block c-f86420 txt-uline f14px">400-641-0888</a></p>
+    </section>
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>团贷热点</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css?v=20150907" /><!--base-->
+    <link rel="stylesheet" type="text/css" href="/css/news.css" />
+
+</head>
+<body>
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">团贷热点</h1>
+        <div class="text"><a href="news_list.html">更多</a></div>
+    </div>
+    <div class="none"></div>
+</header>
+<div class="newsMain pt15 pb20">
+    <h1 class="title">你我金融创业一期全国合伙人001班开课 助力草根圆金融梦</h1>
+    <div class="date">2015年05月20日</div>
+    <div class="newsCont">
+      <img src="/pimg/img_690_398.jpg">
+      <p>东莞时间网讯 5月18日至19日，市委书记、市人大常委会主任徐建华赴南城、东城和松山湖(生态园)检查督导贯彻落实省委书记胡春华来莞调研创新驱动发展工作重要讲话精神情况，强调三地要认真贯彻落实胡春华书记来莞调研创新驱动发展工作重要讲话精神，进一步深化发展观、责任使命和机遇“三个认识”，抓好稳增长、走在前“两个重点”，当好全市实施创新驱动发展的主力军，为全市发展大局多做贡献。</p>
+      <p>市政府党组成员、松山湖工委书记、管委会主任殷焕明，市委秘书长黄少文参加活动。</p>
+      <p>东莞时间网讯 5月18日至19日，市委书记、市人大常委会主任徐建华赴南城、东城和松山湖(生态园)检查督导贯彻落实省委书记胡春华来莞调研创新驱动发展工作重要讲话精神情况，强调三地要认真贯彻落实胡春华书记来莞调研创新驱动发展工作重要讲话精神，进一步深化发展观、责任使命和机遇“三个认识”，抓好稳增长、走在前“两个重点”，当好全市实施创新驱动发展的主力军，为全市发展大局多做贡献。</p>
+      <p>市政府党组成员、松山湖工委书记、管委会主任殷焕明，市委秘书长黄少文参加活动。</p>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

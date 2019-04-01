@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>确认投资</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css?v=20150907" /><!--base-->
+<link rel="stylesheet" type="text/css" href="/css/pay.css?v=20151214" /><!--账户中心-->
+
+</head>
+<body class="bg-f1f3f5 pb20">
+    <header class="headerMain">
+        <div class="header bb-c2c2c2">
+            <div class="back" onclick="javascript:history.go(-1);">返回</div>
+            <h1 class="title">确认投资</h1>
+            <div class="text"><a href="recharge_record.html"></a></div>
+        </div>
+        <div class="none"></div>
+    </header>
+    
+    <section class="pl15 pr15 bg-fff">
+		<div class="pt20 c-333333 f15px">支付金额</div>
+        <div class="f36px c-212121 text-right pt8 pb20">￥10,000.00</div>
+    </section>   
+        
+    <div class="wave_bg"></div>
+        
+    <div class="bt-e6e6e6 bb-e6e6e6 pl15 pr15 pt10 pb10 bg-fff">
+    	<div class="clearfix">
+    		<img class="lf ico-elseMoney" src="/imgs/images/ico-elseMoney.png"/>
+			<div class="lf f17px c-212121">账户余额</div>
+			<div class="rf c-ff6040 f17px">-￥8,000.00</div>
+    	</div>
+    </div>   
+    
+    <!--输入交易密码-->
+    <div class="bg-fff pd15 mt15 bt-e6e6e6 bb-e6e6e6">
+    	<div class="pos-r">
+    		<input type="text" name="" id="" value="" placeholder="请输入交易密码" class="t_password" />
+    		<div class="ico-eye pos-a"></div>
+    	</div>
+    	<div class="clearfix mt5">
+    		<div class="lf c-fd6040 f13px">
+    			<i class="state1"></i>交易密码错误
+    		</div>
+    		<div class="rf c-fd6040 f13px">忘记密码？</div>
+    	</div>
+    	<div class="btn btnYellow mt20">确定</div>
+    </div>
+    
+    <!--微信支付，银行卡支付-->
+    <div class="bb-e6e6e6" style="display-: none;">
+	    <div class="pos-r mt15 bt-e6e6e6">
+	    	<div class="bg-fffcf4 pl15 pt5 pb5 f12px c-ababab bb-dashed">账户余额不足部分可使用以下方式支付</div>
+	    	<div class="pos-a ico-close-808080"></div>
+	    </div>
+	    
+	    <div class="pl15  bg-fff">
+	    	<div class="clearfix pt13 pb13 pr15">
+	    		<div class="lf c-212121 f17px"><i class="inline-block ico-payway ico-payway-active"></i>微信支付</div>
+	    		<div class="rf c-ff6040 f17px">-￥2,000.00</div>
+	    	</div>
+	    	<div class="clearfix pt13 pb13 pr15 bt-e6e6e6">
+	    		<div class="lf c-212121 f17px"><i class="inline-block ico-payway"></i>招商银行</div>
+	    		<div class="rf c-ff6040 f17px">-￥2,000.00</div>
+	    	</div>
+	    </div>
+    </div>
+    
+    <div class="text-center c-999999 f13px mt10">若投资失败，资金会进入可用资金</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+   
+</script>
+</body>
+</html>

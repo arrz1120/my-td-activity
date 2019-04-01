@@ -1,0 +1,100 @@
+<html style="font-size: 48px;">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>风险揭示书(P2P)</title>
+		<meta name="keywords" content="团贷网,互联网金融,P2P网贷,P2P理财">
+		<meta name="description" content="团贷网是中国互联网金融领军企业，首家注册资本一亿元股份制网贷平台，解决中小微企业资金需求，为投资用户带来高收益。100%本息担保、100%人工审核、足额抵押物担保，确保投资理财用户资金安全。">
+		<link rel="stylesheet" href="/javaProject/css/contract.css">
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+
+			document.oncontextmenu = function(e) {
+				return false;
+			}
+
+			var omitformtags = ["input", "textarea", "select"]
+			omitformtags = omitformtags.join("|")
+
+			function disableselect(e) {
+				if(omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+					return false
+			}
+
+			function reEnable() {
+				return true
+			}
+			if(typeof document.onselectstart != "undefined")
+				document.onselectstart = new Function("return false")
+			else {
+				document.onmousedown = disableselect
+				document.onmouseup = reEnable
+			}
+		</script>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			.suojin {
+				text-indent: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="headerMain" id="header">
+			<div class="header">
+				<div class="back" onclick="javascript:history.go(-1);">返回</div>
+				<h1 class="title">风险揭示书(P2P)</h1>
+			</div>
+		</header>
+		<!--第1页>-->
+		<div class="Contract">
+			<h3>风险揭示书(P2P)</h3>
+			<div class="Contract_c">
+				<p>尊敬的投资人：</p>
+				<p class="suojin">感谢您参与/投资本计划/投资标的，在您签署本风险揭示书之前，请您认真、仔细阅读以下内容及本平台制定并发布的规则制度及其更新或修正的内容。本风险揭示书经您签署，即视为您已详细了解并理解本风险揭示书的全部内容，对其中揭示的风险均有足够的认识，并自愿承担参与/投资本计划/投资标的可能面临的风险及法律责任。</p>
+				<p class="suojin">您参与/投资本计划/投资标的，可能会面临以下风险，包括但不限于：</p>
+				<p class="suojin">1、本平台仅作为网络借贷信息中介机构进行信息发布，不对您及/或您的任何交易提供任何担保，包括但不限于明示、默示或法定的担保。</p>
+				<p class="suojin">2、本平台提供的各种信息及资料仅供参考，您应依其独立判断做出其决策，并承担可能的投资风险。</p>
+				<p class="suojin">3、宏观经济变化可能使融资人的经营处于剧烈波动中，从而导致其价值产生不同程度的贬损，可能使您产生亏损的风险。</p>
+				<p class="suojin">4、融资人所处行业或区域的法律、法规及政策可能发生变化，或本平台的交易规则发生变化，可能使融资人产生经营及信息披露的波动，而本平台仅能在法律、法规及本平台规则允许的范围内尽可能完整地向您进行信息披露，可能使您产生亏损的风险。</p>
+				<p class="suojin">5、本平台的业务均通过电子通讯技术及电脑技术实现信息展现及交易处理，您需通过网络数据传输来进行查看及交易，如您或本平台的终端设备或软件系统可能会遭到非法攻击或病毒感染，可能会导致您的平台账号及密码信息泄露或身份被仿冒，本平台会尽力保障平台正常运行，但您应承担您的终端设备或软件系统及本平台以外因素导致系统故障而产生的风险。</p>
+			</div>
+		</div>
+		<!--第2页>-->
+		<div class="Contract">
+			<div class="Contract_c">
+				<p class="suojin"> 6、如您投资的为无担保的投资标的，则可能会产生融资人经营失败等导致您难以收回投资的风险。</p>
+				<p class="suojin"> 7、在投资过程中，您的利息所得或投资收益所得需要根据国家的财税政策缴纳相关税费，国家对该类收益的财税政策可能会发生变化，从而导致您的收入低于预期。</p>
+				<p class="suojin"> 8、本计划/投资标的采用电子签名方式签署，所以在您投资过程中，由于网络数据传输原因，数据传输可能会出现中断、停顿、延迟，传输数据可能会出现错误，导致电子签名数据无法传输或传输失败的风险。</p>
+				<p style="margin-top: 10px;margin-left: 12%;">风险揭示方：东莞团贷网互联网科技服务有限公司</p>
+				<p style="margin-top: 150px;">东莞团贷网互联网科技服务有限公司：</p>
+				<p class="suojin">本人已认真阅读并完全理解、接受本风险揭示书的全部内容，愿意依法承担投资本计划/投资标的可能产生的财产损失及法律责任。本人知悉本计划/投资标的的风险，了解贵司作为网络借贷信息中介机构在其中的责任，本人自愿参与/投资本计划/投资标的，自行享有其投资收益并承担其全部风险损失。</p>
+				<p style="margin-top: 10px; margin-left: 12%;">投资人：</p>
+			</div>
+		</div>
+		<div class="clearfix mt20"></div>
+		<script type="text/javascript">
+			var url = window.location.href;
+			if(url.indexOf("type=mobileapp") >= 0) {
+				document.getElementById("header").style.display = "none";
+			}
+		</script>
+
+	</body>
+
+</html>

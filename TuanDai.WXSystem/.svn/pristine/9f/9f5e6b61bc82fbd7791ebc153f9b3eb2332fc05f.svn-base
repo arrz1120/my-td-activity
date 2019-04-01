@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>新手专享复投宝常见问题</title>
+    <link rel="stylesheet" type="text/css" href="css/question.css?v=20160720001" />
+</head>
+<body class="bg-f1f3f5">
+    <div class="q-box">
+        <p class="title">新手专享复投宝如何计算收益？</p>
+        <p>新手专享复投宝收益按照：加入金额 * 预期年化利率 * 计划期限/12（计划期限以月为单位）或加入金额 * 预期年化利率 * 计划期限/365（计划期限以天为单位）计算。计划到期后如实际收益高于预期收益，超出部分作为服务费由平台收取；计划到期后如实际收益低于预期收益，平台将补发与差额等值的现金奖励。</p>
+        <p class="text-default break-word"> 举例说明：</p>
+        <p> 加入1个月的新手专享复投宝10000元，计划到期后可获收益：10000*11%*1/12=91.66；</p>
+        <p> 加入15天的新手专享复投宝10000元，计划到期后可获收益：10000*10%*15/365=41.09。</p>
+        <p class="title">新手专享复投宝安全吗？</p>
+        <p> 新手专享复投宝所投标的适用于安全保障计划，由第三方担保机构和第三方担保专款保障。</p>
+        <p class="title">新手专享复投宝到期后如何退出？</p>
+        <p>计划到期，系统将自动帮投资者转让债权，并在T+3个自然日内完成退出。</p>
+        <p class="title">新手专享复投宝是否收取服务费？</p>
+        <p>到期退出后如实际收益高于预期收益，超出部分作为平台服务费由平台收取。</p>
+        <p class="title">为什么新手专享复投宝的计划期限是1个月，投资标的借款期限不一定是1个月呢？</p>
+        <p>新手专享复投宝所投标的借款期限与计划期限无关，如所投标的借款期限比1个月长，系统会在计划到期时自动帮您通过债权转让退出计划；如所投标的借款期限比1个月短，系统会在标的到期后自动帮您匹配新的标的。</p>
+        <p class="title">新手专享复投宝的计划期限（即持有期）从哪一日开始？</p>
+        <p> 新手专享复投宝的计划期限（即持有期）自加入之日起算。</p>
+        <p class="title">加入新手专享复投宝后，相应的待收和借款额度什么时候会增加？</p>
+        <p>新手专享复投宝的待收和借款额度按计划的待收计算，系统会在用户加入新手专享复投宝后即增加相应的待收和借款额度。</p>
+        <p class="title">加入新手专享复投宝后，团币是如何发放的？</p>
+        <p> 新手复投宝的团币在加入后即发放。</p>
+    </div>
+</body>
+</html>

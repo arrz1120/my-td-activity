@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+		<title>投资前准备</title>
+	</head>
+
+	<body class="bg-f2f2f0">
+		<div class="tzqBox pb20" id="tzqBox">
+			<div class="pt30 pb25 bg-fff">
+				<div class="imgTouZiQian1 margin-auto"></div>
+				<p class="c-333333 f17px text-center mt20">完善投资前准备信息</p>
+				<p class="c-999999 f13px text-center mt10">享受更全面的账户保护</p>
+			</div>
+
+			<div class="bg-fff mt15 pl15">
+				<div class="clearfix pt10 pb10 pr15">
+					<div class="lf f15px c-333333">银行存管</div>
+					<div class="rf f12px c-999999">银行存管</div>
+				</div>
+				<div class="clearfix pt10 pb10 pr15 bt-e6e6e6">
+					<div class="lf f15px c-333333">实名认证</div>
+					<div class="rf f12px c-999999">*月如(441***********858)</div>
+				</div>
+				<a href="javascript:void(0);" class="block clearfix pt10 pb10 pr30 bt-e6e6e6">
+					<div class="lf f15px c-333333">我的银行卡</div>
+					<div class="rf f12px c-999999">去绑定</div>
+					<i class="ico-arrow-r"></i>
+				</a>
+			</div>
+			<div class="tzqBottom w100p c-808080 text-center"><i class="ico_shield"></i>个人资产由银行级别风控体系保障</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		//处理底部文字位置
+		function setBotPos() {
+			var winHeight = $(window).height();
+			var conHeight = $("#tzqBox").outerHeight();
+			if(winHeight - conHeight <= 15) {
+				$(".tzqBottom").css('margin-top', '20px');
+			} else {
+				$(".tzqBottom").css({
+					'position': 'absolute',
+					'bottom': '15px'
+				});
+			}
+		}
+		$(function() {
+			setBotPos();
+		})
+	</script>
+
+</html>

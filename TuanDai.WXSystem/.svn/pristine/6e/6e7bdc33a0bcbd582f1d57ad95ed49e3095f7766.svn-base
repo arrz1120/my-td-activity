@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/cunguan.css" />
+		<title>成功</title>
+	</head>
+	<body class="bg-fff">
+		<div class="sucBox">
+			<!--成功图标-->
+			<div class="ico_suc margin-auto"></div>
+			<!--失败图标-->
+			<div class="ico_fail margin-auto hide"></div>
+			<p class="suc_p1 text-center">激活成功</p>
+			<p class="suc_p2 text-center">已成功激活厦门银行资产存管服务</p>
+			<div class="pl15 pr15 mt45">
+				<a href="javascript:void(0);" class="btn btnYellow">完成</a>
+			</div>
+		</div>
+	</body>
+</html>

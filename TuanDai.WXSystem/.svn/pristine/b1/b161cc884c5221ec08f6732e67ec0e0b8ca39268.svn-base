@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>债权转让</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160220" />
+	<link rel="stylesheet" type="text/css" href="/css/debt.css?v=20160220"/>
+</head>
+<body class="pb15 bg-f1f3f5">
+	<header class="headerMain">
+	  <div class="header">
+	    <div class="back" onClick="javascript:history.go(-1);">返回</div>
+	    <div class="header-tab">
+	    	<a href="" class="active">承接</a>
+	    	<a href="" class="">转让</a>
+	    </div>
+	  </div>
+	  <div class="none"></div>
+	</header>
+	
+	<div class="tab-nav webkit-box bg-fff bb-e6e6e6">
+		<div class="box-flex1 text-center f17px">已完成</div>
+		<div class="box-flex1 text-center f17px tab-nav-active">回收中</div>
+	</div>
+	
+	
+	<div class="debt-list-wrap" style="display-: none;">
+		<section class="mt10 bt-e6e6e6 bb-e6e6e6 pl15 bg-fff debt-list">
+			<div class="bb-e6e6e6 debt-list-title">
+				<p class="f14px c-212121">债权转让<span class="f13px c-808080 ml8">转让标题</span></p>
+			</div>
+			<div class="debt-list-body">
+				<p class="f12px c-ababab"><i class="ico ico-money1"></i>承接金额<span class="f21px c-ffcf1f ml20">￥15,000.00</span></p>
+				<p class="f12px c-ababab mt10"><i class="ico ico-date1"></i>下次回款<span class="f12px c-ababab ml20">已完成（提前还款）</span></p>
+			</div>
+		</section>
+		<section class="mt10 bt-e6e6e6 bb-e6e6e6 pl15 bg-fff debt-list">
+			<div class="bb-e6e6e6 debt-list-title">
+				<p class="f14px c-212121">债权转让<span class="f13px c-808080 ml8">转让标题</span></p>
+			</div>
+			<div class="debt-list-body">
+				<p class="f12px c-ababab"><i class="ico ico-money1"></i>承接金额<span class="f21px c-ffcf1f ml20">￥15,000.00</span></p>
+				<p class="f12px c-ababab mt10"><i class="ico ico-date1"></i>下次回款<span class="f12px c-ababab ml20">已完成（提前还款）</span></p>
+			</div>
+		</section>
+		<section class="mt10 bt-e6e6e6 bb-e6e6e6 pl15 bg-fff debt-list">
+			<div class="bb-e6e6e6 debt-list-title">
+				<p class="f14px c-212121">债权转让<span class="f13px c-808080 ml8">转让标题</span></p>
+			</div>
+			<div class="debt-list-body">
+				<p class="f12px c-ababab"><i class="ico ico-money1"></i>承接金额<span class="f21px c-ffcf1f ml20">￥15,000.00</span></p>
+				<p class="f12px c-ababab mt10"><i class="ico ico-date1"></i>下次回款<span class="f12px c-ababab ml20">已完成（提前还款）</span></p>
+			</div>
+		</section>
+	</div>
+	
+	<!--没有标-->
+	<div class="debt-empty" style="display: none;">
+		<div class="img-debt-empty">
+			<img src="/imgs/images/debt-empty.png"/>
+		</div>
+		<div class="text-center f17px c-212121 mt40">暂无回款中标的</div>
+		<div class="mt40 pl40 pr40">
+			<a class="btn btnRed f16px"><i class="ico ico-arrow-right"></i>前往投资专区</a>
+		</div>
+	</div>
+	
+	<div class="alert z-index10" style="display: none;"></div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+	//头部筛选下拉
+        $(".selectBox").click(function(e){
+            if($(".ico-arrow-search").hasClass("hover")){
+                $(".selectList").slideUp();
+                $(".alert").hide();
+                $(".ico-arrow-search").removeClass("hover");
+                e.stopPropagation();
+            }else{
+                $(".selectBox .ico-sj").addClass("block");
+                $(".selectList").slideDown();
+                 $(".alert").show();
+                $(".ico-arrow-search").addClass("hover");
+                e.stopPropagation();
+            }
+        });
+
+        //点击文档时，隐藏筛选下拉
+        $(".selectList").click(function(e) {
+            e.stopPropagation();
+        });
+
+        //点击下拉文本时，隐藏筛选下拉
+        $(".selectList li").click(function(){
+            var $sText=$(this).text();
+            $(".selectText").text($sText);
+            $(".selectBox .ico-sj").removeClass("block");
+            $(".selectList").slideUp();
+            $(".alert").hide();
+            $(".ico-arrow-search").removeClass("hover");
+            $(".layer").toggleClass("block");
+        });
+        
+        //点击遮罩层，隐藏筛选下拉
+        $(".alert").click(function(){
+        	$(".selectBox .ico-sj").removeClass("block");
+        	$(".ico-arrow-search").removeClass("hover");
+        	$(".selectList").slideUp();
+        	$(this).hide();
+        })
+</script>
+
+</body>
+</html>

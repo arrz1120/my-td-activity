@@ -1,0 +1,75 @@
+.qBox ul li{padding: 0 15px;}
+.qBox ul li a{display: block;position: relative;font-size: 15px;height: 50px;line-height: 50px;}
+.qBox ul li i{right: 0;}
+@media only screen and (max-width: 320px) {
+	.qBox ul li{padding: 0 10px;}
+}
+/*.sBox a{height: 75px;}
+.sBox a .sImg{height: 28px;margin-top: 14px;}
+.sBox a .sImg1 img{height: 27px;}
+.sBox a .sImg2 img{height: 24px;margin-top: 2px;}
+.sBox a .sImg3 img{height: 22px;margin-top: 2px;}
+.sBox a .sImg4 img{height: 21px;margin-top: 3px;}
+.sBox a .sImg5 img{height: 21px;margin-top: 3px;}
+.sBox a .sImg6 img{height: 24px;margin-top: 2px;}
+.sBox a .sImg7 img{height: 25px;margin-top: 1px;}
+.sBox a .sImg8 img{height: 24px;margin-top: 2px;}
+.sBox a .sImg9 img{height: 21px;margin-top: 3px;}
+.sBox a .sImg13 img{height: 21px;margin-top: 3px;}*/
+.ans_tit{font-size: 17px;font-weight: bold;line-height: 24px;padding: 10px 10px 10px 0;text-align: justify;}
+.ans_con{padding: 21px 15px 23px 0;font-size: 15px;line-height: 30px;}
+.ans_select i{display: inline-block;width: 16px;height: 15px;margin-right: 10px;vertical-align: -2px;}
+.hasHelp i{background: url(/imgs/images/hp.png) no-repeat;background-size: 100% 100%;}
+.hasHelp.act i{background: url(/imgs/images/hp_act.png) no-repeat;background-size: 100% 100%;}
+.notHelp i{background: url(/imgs/images/np.png) no-repeat;background-size: 100% 100%;}
+.notHelp.act i{background: url(/imgs/images/np_act.png) no-repeat;background-size: 100% 100%;}
+.hasHelp,.notHelp{color: #808080;}
+.act{color: #fab600;}
+
+/*公告*/
+.nTxt{line-height: 30px;text-indent: 30px;text-align: justify;font-size: 15px;padding-bottom: 24px;}
+.bt-d1d1d1-dash{position: relative;}
+.bt-d1d1d1-dash:before{content: "";position: absolute;left: 0;top: 0;right: 0;border-bottom: 1px dashed #d1d1d1;transform: scaleY(.5);transform-origin: 0 0;}
+
+/*20170215-帮助中心改版样式*/
+.kefuBox{position: relative;padding-left: 70px;padding-top: 28px;height: 91px;box-shadow: 1px 1px 9px 0 rgba( 0, 0, 0 ,0.08);border-radius: 8px;}
+.zaixiankefu{width: 40px;height: 38px;background-image: url(/imgs/images/zaixiankefu.png);position: absolute;left: 15px;top: 50%;margin-top: -19px;}
+.dianhuakefu{width: 40px;height: 40px;background-image: url(/imgs/images/dianhuakefu.png);position: absolute;left: 12px;top: 50%;margin-top: -20px;}
+@media only screen and (max-width: 320px) {
+	.kefuBox{padding-left: 50px;}
+	.zaixiankefu{width: 35px;height: 33px;left: 8px;}
+	.dianhuakefu{width: 35px;height: 35px;left: 6px;}
+}
+.kefu-p1{font-size: 15px;color: #333;line-height: 19px;margin-bottom: 1px;}
+.kefu-p2{font-size: 12px;color: #999;line-height: 17px;}
+.inputEnter{width: 90%;height: 33px;border: 1px solid #ccc;line-height: 33px;text-align: center;color: #ccc;font-size: 15px;border-radius: 4px;margin: 10px auto;}
+.inputEnter i{display: inline-block;width: 12px;height: 11px;background-image: url(/imgs/images/search.png);margin-right: 7px;}
+.sBox{padding-top: 21px;padding-bottom: 18px;}
+.qBox ul li a{height: 45px;line-height: 45px;}
+.sBox a .sImg{height: 35px;}
+.sBox a .sImg1 img{width: 28px;}
+.sBox a .sImg2 img{width: 25px;}
+.sBox a .sImg3 img{width: 26px;}
+.sBox a .sImg4 img{width: 27px;}
+.sBox a .sImg5 img{width: 29px;}
+.sBox a .sImg6 img{width: 27px;}
+.sBox a .sImg7 img{width: 27px;}
+
+.hd-div{width: 100%;padding: 15px 15px 10px;}
+.hd-icon{width: 18%; margin-right: 10px;}
+.hd-url{width: 78%;}
+.hd-url a{display: block; font-size: 12px; color: #999999;text-decoration: none;white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hd-url a span{ font-size: 11px;  display: inline-block; line-height: 11px;vertical-align: 1px;}
+.hd-url a span em{ font-size: 11px; max-width: 80px; display: inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;vertical-align: 0;}
+.div-f8f8f8{ background: #f8f8f8;width: 100%;height: 10px;}
+
+.pageNormal{position: relative;}
+.pageInput{position: absolute;width: 100%;top: 0;left: 0;height: 100%;background: rgba(255,255,255,0.95);z-index: 2;}
+.inputingBox{padding: 0 4.5%;}
+.inputing{width: 86%;height: 33px;border: 1px solid #fab600;position: relative;border-radius: 4px;padding: 0 31px 0 32px;}
+.inputing input{width: 100%;height: 100%;border: 0;outline: none;padding-left: 10px;color: #333;font-size: 15px;}
+.pageInputCancel{height: 33px;line-height: 33px;color: #333;font-size: 15px;}
+.searchIcon{width: 32px;height: 22px;background: url(/imgs/images/search_cur.png) center no-repeat;background-size: 11px 11px;border-right: 1px solid #999;position: absolute;top: 5px;left: 0;}
+.inputClean{width: 31px;height: 100%;position: absolute;top: 0;right: 0;background: url(/imgs/images/clean.png) center no-repeat;background-size: 11px 11px;}
+.searchResult div{padding: 5px 0 5px 44px;}
+.searchResult div a{line-height:18px}

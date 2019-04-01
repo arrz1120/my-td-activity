@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.Fund.Client</name>
+    </assembly>
+    <members>
+        <member name="T:TuanDai.Fund.Client.FundClient">
+            <summary>
+            资金客户端
+            </summary>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClient.SendSubscribeFund(TuanDai.ServerContract.SubscribeFundRequest,System.String@)">
+            <summary>
+            发送申购资金处理
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClient.InvesterPayResultBySubscribe(System.String,System.String@)">
+            <summary>
+            查询投资人申购支付结果
+            </summary>
+            <param name="TradeNo"></param>
+            <param name="Amount"></param>
+            <param name="ErrorMessage"></param>
+            <returns>-2:客户端异常 -1:服务程序异常 0:支付失败 1:支付成功 </returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClient.InvestWePayout(TuanDai.ServerContract.InvestPayOutByWeRequest,System.String@)">
+            <summary>
+            购买we计划投资人支付
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClient.Do(System.String@)">
+            <summary>
+            测试
+            </summary>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClientService.SendSubscribeFund(TuanDai.ServerContract.SubscribeFundRequest,System.String@)">
+            <summary>
+            发送申购资金处理
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClientService.InvesterPayResultBySubscribe(System.String,System.String@)">
+            <summary>
+            查询投资人申购支付结果
+            </summary>
+            <param name="TradeNo"></param>
+            <param name="Amount"></param>
+            <param name="ErrorMessage"></param>
+            <returns>-2:客户端异常 -1:服务程序异常 0:支付失败 1:支付成功 </returns>
+        </member>
+        <member name="M:TuanDai.Fund.Client.FundClientService.InvestWePayout(TuanDai.ServerContract.InvestPayOutByWeRequest,System.String@)">
+            <summary>
+            购买we计划投资人支付
+            </summary>
+            <param name="request"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

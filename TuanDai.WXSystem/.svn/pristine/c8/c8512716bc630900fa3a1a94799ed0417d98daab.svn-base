@@ -1,0 +1,106 @@
+body{-webkit-user-select: none;}
+.list_nav{width: 90%;margin: 9px auto 0;border-radius: 4px;border: solid #eeeeee;border-width: 1px;}
+.list_nav div{height: 30px;line-height: 30px;color: #808080;}
+.list_nav div.active{color: #ffffff;background: #ffc61a;border-right: 0;}
+.list_nav div:first-child{border-top-left-radius: 4px;border-bottom-left-radius: 4px;}
+.list_nav div:last-child{border-top-right-radius: 4px;border-bottom-right-radius: 4px;}
+
+.list-box{padding: 0 120px;}
+.list-box-left{position: absolute;left: 20px;top: 17px;}
+.list-box-right{position: absolute;right: 20px;top: 19px;text-align: right;}
+.itemTipsBox{margin-top: 3px;}
+.itemTips{font-size: 0.9rem;border-radius: 2px;margin-left: 10px;height: 18px;line-height: 18px;text-align: center;}
+.itemTips1{color: #fd6040;border: 1px solid #fd6040;width-: 46px;padding: 0 3px;}
+.itemTips2{color: #49c8f2;border: 1px solid #49c8f2;width-: 64px;padding: 0 3px;}
+
+.img-debt-empty{width: 219px;margin: 75px auto 0;}
+
+.triangle{display: inline-block;vertical-align: 3px;margin-left: 5px;}
+.triangle-down-orange{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #ffc61a;
+}
+.triangle-up-orange{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #ffc61a;
+}
+.triangle-down-gray{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+     border-top: 4px solid #d1d1d1;
+}
+.triangle-up-gray{
+	width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid #d1d1d1;
+}
+
+.ico-con{display: inline-block;vertical-align:4px;margin-left: 5px;width: 9px;height: 5px;}
+.ico-down-gray{ background: url("/imgs/images/icon/down-gray.png");background-size: 9px 5px; }
+.ico-up-gray{ background: url("/imgs/images/icon/up-gray.png");background-size: 9px 5px;}
+
+
+.moveFromTop{-webkit-animation: moveFromTop .4s ease-out;}
+.moveToTop{-webkit-animation: moveToTop .4s ease-out;}
+
+@-webkit-keyframes moveFromTop{
+	0%{-webkit-transform: translate3d(0,-100%,0);}
+	100%{-webkit-transform: translate3d(0,0,0);}
+}
+
+@-webkit-keyframes moveToTop{
+	0%{-webkit-transform: translate3d(0,0,0);}
+	100%{-webkit-transform: translate3d(0,-100%,0);}
+}
+
+.dataTables_processing {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -55px;
+	margin-top: -25px;
+	width: 110px;
+	height: 50px;
+	text-align: center; 
+	text-indent: 2em; 
+	color: #333;
+    background: url(/imgs/loading01.gif) 10px 10px no-repeat #fff; 
+	z-index:9999;
+	box-shadow: 0 0 10px #ccc; line-height: 50px; border-radius: 5px; 
+}
+
+.wx-footer{height: 49px;position: fixed;bottom: 0;width: 100%;background: #f7f7f7; z-index:1000;}
+.wx-footer a{padding-top: 4px;}
+.wx-footer img{width: 26px;height: 26px;}
+
+/*投资记录列表*/
+.record_item{padding: 0 15px;background: #fff;}
+.record_item .w50p{height: 45px;line-height: 45px;}
+.red_mark{display:inline-block;width: 5px;height: 5px;background: #ff644e;border-radius: 50%;vertical-align: 3px;margin-right: 10px;}
+.white_mark{display:inline-block;width: 5px;height: 5px;background: #ffffff;border-radius: 50%;vertical-align: 3px;margin-right: 10px;}
+.alert-record{background: rgba(251,251,249,0.95);position: absolute;top: 44px;width: 100%;}
+.alert-record ul li{height: 44px;line-height: 44px;text-align: center;font-size: 16px;color: #808080;padding-right: 15px;}
+.alert-record ul li.active{color: #ffcf1f;background: url(/imgs/member/mall/ico-gx.png) 63% center no-repeat;background-size: 13px 9px;}
+
+@media only screen and (max-width: 320px) {
+	.record_list{padding-left: 10px;} 
+	.record_item .rf{padding-right: 5px;}
+	.f17px{font-size: 15px !important;}
+	.f13px{font-size: 12px !important;}
+}
+
+/*我的投资*/
+.pro_tab{padding: 7px 0;background: #fff;}
+.pro_tab_box{width: 75.7%;margin: 0 auto;border: 1px solid #ffcf1f;border-radius: 4px;}
+.pro_tab_box div{height: 30px;line-height: 30px;text-align: center;color: #808080;}
+.pro_tab_box div.act{background: #ffcf1f;color: #fff;}

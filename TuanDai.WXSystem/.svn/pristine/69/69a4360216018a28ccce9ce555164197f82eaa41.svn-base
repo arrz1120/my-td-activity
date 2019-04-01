@@ -1,0 +1,212 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="newHelpIndex.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.helpCenter.newHelpIndex" %>
+
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>帮助中心V2.0</title>
+		<link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=GlobalUtils.Version %>" />
+		<link rel="stylesheet" type="text/css" href="/css/helpCenter.css?v=<%=GlobalUtils.Version %>" />
+	</head>
+<body class="bg-fff">
+
+ <%=this.GetNavStr()%>
+    <header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">帮助中心</h1> 
+    </div>
+    <%= this.GetNavIcon()%>
+    <div class="none"></div>
+  </header> 
+
+	<div class="clearfix pt10 pl15 pr15" id="appKefu" style="display:none;">
+		<a href="javascript:void(0)" class="block lf w50p pr5" id="toAppOnlineService">
+			<div class="kefuBox">
+				<div class="zaixiankefu bgSize"></div>
+				<p class="kefu-p1">在线客服</p>
+				<p class="kefu-p2">24小时专属服务</p>
+			</div>
+		</a>
+		<a href="javascript:void(0)" class="rf w50p pl5" id="toAppCallService">
+			<div class="kefuBox">
+				<div class="dianhuakefu bgSize"></div>
+				<p class="kefu-p1">电话客服</p>
+				<p class="kefu-p2">拨打客服热线</p>
+			</div>
+		</a>
+	</div>
+
+		<div class="text-center f13px c-999999 mt19">常见问题</div>
+
+		<div class="pageNormal">
+			<div class="inputEnter">
+				<i class="bgSize"></i>搜索
+			</div> 
+			<div class="qBox">
+				<ul>
+                   <% if(hotQueList!=null && hotQueList.Any()){
+                       foreach (TuanDai.News.Contract.WXHelpDetialInfo item in hotQueList)
+                       { 
+                        %>
+				        <li class="click-respond">
+                            <a href="/pages/helpCenter/helpDetail.aspx?id=<%=item.Id%>"><%=Tool.StrObj.CutString(item.Title, 20) %><i class="ico-arrow-r"></i></a>
+				        </li> 
+                    <%}
+                    }else{ %>
+                       <li class="click-respond">暂无常见问题数据</li>
+                    <%} %> 
+				</ul>
+			</div>
+
+			<div class="ml15 mr15 mt10 bt-e6e6e6"></div> 
+			<div class="sBox mt10">
+                <% if (categroyList != null && categroyList.Any())
+                 {
+                   for (int pIndex = 0; pIndex < categroyList.Count; pIndex++) 
+                   {%>
+                   <%if(pIndex%3==0){ %>
+			          <div class="clearfix <%=pIndex>0?"mt15":""%>">
+                    <%} %>
+				    <a class="block w33p text-center lf click-respond" href="/pages/helpCenter/secondQuestion.aspx?typeid=<%=categroyList[pIndex].Id %>">
+					    <div class="sImg webkit-box box-center sImg1"><img src="<%=categroyList[pIndex].ImageUrl %>" /></div>
+					    <p><%=categroyList[pIndex].CategoryName %></p>
+				    </a> 
+                   <% if((pIndex-2)%3==0){ %>
+			         </div>
+                 <%} %>
+                <%} 
+                  }%> 
+			</div>
+
+            <!--搜索项-->
+			<div class="pageInput" style="display: none;">
+               
+				<div class="clearfix inputingBox">
+					<div class="lf inputing">
+                        <form action="javascript:return true;">
+						    <div class="searchIcon"></div>
+						    <div class="inputClean" style="display: none;"></div>
+						    <input type="search" maxlength="30" id="txtFilter"  />
+                        </form>
+					</div>
+					<div class="rf pageInputCancel">取消</div>
+				</div>
+				<div class="mt10 bt-e6e6e6 pl15 pr15">
+					<!--搜索结果-->
+					<div class="searchResult" id="searchResult" style="display:none;">
+						<%--<div class="bb-e6e6e6 f15px c-333333"><span class="c-fab600 f15px">提现</span>需要手续费吗？</div> --%>
+					</div>
+					<!--无搜索结果-->
+					<p class="text-center c-999999 f15px pt10" id="searchNoResult" style="display: none;">无搜索结果</p>
+				</div> 
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/base.js"></script>
+	<script type="text/javascript" src="/scripts/jsbridge-3.0.0.js?v=20170430001"></script>
+    <script type="text/javascript" src="/scripts/jquery.extensions.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+	<script type="text/javascript">
+	    function GetQueryString(name) {
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	        var r = window.location.search.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]);
+	        return null;
+	    }
+	    $(function () {
+	        if (GetQueryString('type') == 'mobileapp') {
+	            $("#appKefu").show();
+	            $("#toAppOnlineService").click(function () {
+	                Jsbridge.toAppOnlineService();
+	            })
+	            $("#toAppCallService").click(function () {
+	                Jsbridge.toAppCallService();
+	            })
+	        } else {
+	            $("#appKefu").hide();
+	        }
+
+            //绑定事件
+	        $(".inputEnter").click(function () {
+	            $(".pageInput").fadeIn();
+	            $("#inp").focus();
+	        })
+
+	        $(".pageInputCancel").click(function () {
+	            $(".pageInput").fadeOut();
+	        })
+
+	        $(".inputing").find('input').on('input', function () {
+	            if ($(this).val() == '') {
+	                $(".inputClean").fadeOut(100);
+	            } else {
+	                $(".inputClean").fadeIn(100);
+	            }
+	        })
+
+	        $(".inputClean").click(function () {
+	            $(".inputing").find('input').val(''); 
+	            $("#searchResult").hide();
+	            $("#searchNoResult").hide();
+	            $("#searchResult").children().remove();
+	            $(this).fadeOut(100);
+	        });
+            //搜索
+	        $(".searchIcon").click(function () {
+	            searchTitle();
+	        });
+	        $('form').on('submit', function(e){
+	            searchTitle();
+	            return false;
+	        });
+	    })
+
+	    function searchTitle() {
+	        $("#searchResult").hide();
+	        $("#searchNoResult").hide();
+	        var strKey = $("#txtFilter").val();
+	        if (strKey == "" || strKey.trim() == "") {
+	            $("body").showMessage({ message: "请输入搜索关键词", showCancel: false });
+	            return;
+	        }
+	        strKey = strKey.trim();
+
+	        $.ajax({
+	            type: "post",
+	            async: false,
+	            url: "/ajaxCross/NewsAjax.ashx",
+	            data: { cmd: "SearchWXHelpTitle", KeyWord: strKey },
+	            dataType: "json", 
+	            success: function (jsonstr) {
+	                var result = jsonstr.result;
+	                if (result == "1") {
+	                    $("#searchResult").show();
+	                    $("#searchResult").children().remove();
+	                    var html = new Array();
+	                    var str = "";
+	                    for (var i = 0; i < jsonstr.list.length; i++) {
+	                        var item = jsonstr.list[i]; 
+	                        var linkUrl = "/pages/helpCenter/helpDetail.aspx?id=" + item.NewsId;
+	                        var title = item.Title;
+	                        title = title.replace(new RegExp(strKey, "gm"), "<span class=\"c-fab600 f15px\">" + strKey + "</span>");
+	                        str = "<div class=\"bb-e6e6e6 f15px c-333333 click-respond\"><a href='" + linkUrl + "' class=\"f15px\">" + title + "</a></div> ";
+	                        html.push(str);
+	                    }
+	                    $("#searchResult").append(html.join(""));
+	                }
+	                else {
+	                    $("#searchNoResult").show();
+	                }
+	            },
+	            error: function () {
+	            }
+	        });
+	    } 
+	</script>
+
+</html>

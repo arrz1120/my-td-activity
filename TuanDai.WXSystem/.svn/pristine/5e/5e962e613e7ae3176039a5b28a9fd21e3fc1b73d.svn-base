@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+
+namespace TuanDai.WXApiWeb.user
+{
+    public partial class Register : BasePage
+    {
+        protected string openId;
+        protected string returnUrl = "";
+        protected string extenderkey;
+        protected string tdFrom = "";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Redirect("//passport.tuandai.com/2register?tdfrom=wap",false);
+            return;
+            if (!IsPostBack)
+            {
+                this.extenderkey = WEBRequest.GetString("extendkey").ToText().Trim();
+                this.returnUrl = WEBRequest.GetString("ReturnUrl");
+                string IsSaveData = WEBRequest.GetString("issave");
+                tdFrom = WEBRequest.GetString("tdfrom").ToText();
+                if (this.returnUrl.IsNotEmpty())
+                {
+                    string isEncry = WEBRequest.GetString("isencry");
+                    if (isEncry == "1")
+                    {
+                        this.returnUrl = BasePage.GetDecodeBackUrl(this.returnUrl);
+                    }
+                }
+
+                if (string.IsNullOrWhiteSpace(tdFrom))
+                {
+                    tdFrom = WEBRequest.GetString("from").ToText(); 
+                }
+                if (IsSaveData.ToText() == "1")
+                {
+                    //记录帐户
+                    openId = WEBRequest.GetString("openid");
+                    GlobalUtils.WriteOpenIdToCookie(WEBRequest.GetString("openid"));
+                }
+            }
+        }
+
+    }
+}

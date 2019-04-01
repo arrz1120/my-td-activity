@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace TuanDai.WXApiWeb.Member.MemberCenter
+{
+    /// <summary>
+    /// 会员中心--特权详情
+    /// Allen 2015-11-05
+    /// </summary>
+    public partial class myPrivileges : UserPage
+    {
+        protected TuanDai.VipSystem.Model.UserInfo vipModel = null;
+        protected TuanDai.VipSystem.Model.UserRankInfo userRankInfo;//用户排名
+
+        protected int curLevel = 1;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+          
+            if (!this.IsPostBack)
+            {
+                InitFormData();
+            }
+        }
+
+        protected void InitFormData()
+        {
+            Guid userId = WebUserAuth.UserId.Value;
+            TuanDai.VipSystem.BLL.UserBLL userbll = new VipSystem.BLL.UserBLL();
+            vipModel = userbll.GetUserInfo(userId);
+
+            userRankInfo = userbll.GetRank(userId);
+            curLevel = vipModel.Level;
+        }
+
+    }
+}

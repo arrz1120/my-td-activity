@@ -1,0 +1,615 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind="BigData.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.aboutus.BigData" %>
+
+<%@ Import Namespace="Tool" %>
+<%@ Import Namespace="TuanDai.WXApiWeb" %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="keywords" content="团贷网大数据" />
+    <meta name="description" content="团贷网大数据频道是一个实时数据更新频道,频道提供团贷网最新的每日交易量对比、用户分析、累计第三方担保专款、累计用户等情况,是用户了解团贷网必不可少的窗口" />
+    <title>团贷网大数据—团贷网</title>
+    <link rel="stylesheet" type="text/css" href="/css/global.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/about_td.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+    <link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160411" />
+    <link rel="stylesheet" type="text/css" href="/css/baikedaohang.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" />
+</head>
+
+<body class="bg-f1f3f5">
+	<div id="bigDiv">
+    <%= this.GetNavStr()%>
+    <% if (!IsApp)
+       {
+    %>
+    <div class="bg-f1f3f5 clearfix pl10 pr10 data_t">
+        <div class="lf f17px data_t">
+            <i class="logo1"></i>团贷大数据
+		
+        </div>
+        <div class="rf f17px data_t" id="shareFirends1">
+            <i class="ico-share01"></i>分享
+        </div>
+    </div>
+    <div class="split"></div>
+    <%
+           } %>
+    <div class="bg-fff">
+        <div class="td_age">
+            <i class="ico_punctuation1"></i>
+            团贷网已安全运营
+			
+            <% for (int i = 0; i < this.Year.ToString().Length; i++)
+               {
+                        %>
+            <span><%=this.Year.ToString().Substring(i,1) %></span>
+            <%
+               } %>年
+			
+            <% for (int i = 0; i < this.Day.ToString().Length; i++)
+               {
+                        %>
+            <span><%=this.Day.ToString().Substring(i,1)%></span><%} %>天
+			
+            <% for (int i = 0; i < this.Hour.ToString().Length; i++)
+               { %>
+            <span><%=this.Hour.ToString().Substring(i,1) %></span><%} %>小时
+			
+            <i class="ico_punctuation2"></i>
+        </div>
+        <div class="pt36">
+            <div class="dataTit dataTit1">累计交易额</div>
+        </div>
+        <div class="allAmo"><%=GetChineseAmount(this.Amount,1) %></div>
+        <div class="text-center c-d1d1d1 ml10 mr10 bb-dashed pb15">（截至<%=DateTime.Now.AddDays(-1).ToString("yyyy年MM月dd日") %>）</div>
+    </div>
+
+    <div class="chart pt40 pb30 bg-fff">
+        <div class="clearfix pl15 pr15 pb25">
+            <div class="lf f13px">
+                今日交易额<span class="f13px c-ababab">（实时更新）</span>
+            </div>
+            <div class="rf f24px">
+                <%=this.TodayAmount.ToString("N0").Split('.')[0]%><span class="f12px">元</span>
+            </div>
+        </div>
+        <div id="c1" style="width: 100%; height: 180px;"></div>
+    </div>
+
+    <div class="bg-fff mt10">
+        <div class="pt36">
+            <div class="dataTit dataTit1">第三方担保专款</div>
+        </div>
+        <div class="allAmo"><%=GetBabyPlanAmountString(BabyPlanAmount) %></div>
+        <div class="spareMoney clearfix">
+            <div class="lf w50p pos-r">
+                <div class="s_r1">
+                    <p>平台总待收</p>
+                </div>
+                <div class="s_r2">
+                    <p>第三方担保专款</p>
+                </div>
+                <div class="s_r3 webkit-box box-center box-vertical">
+                    <p>预估</p>
+                    <p>坏账金额</p>
+                </div>
+            </div>
+            <div class="rf w50p pt8">
+                <p class="f13px">第三方担保专款会根据平台待收额度增长而新增。</p>
+                <p class="mt15">第三方担保专款由厦门银行存管</p>
+                <p class="c-3cb8ff pt2" id="f7">第三方担保专款有什么用？</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-fff mt10">
+        <div class="pt36">
+            <div class="dataTit dataTit2">注册用户</div>
+        </div>
+        <div class="allAmo"><%=GetTotalUserString(UserCount)%></div>
+        <div class="td_invester">
+            <img src="/imgs/images/bigData/td_invester.png" />
+        </div>
+        <p class="pt30 text-center f15px">全国用户分布</p>
+        <p class="c-ababab f13px pt4 pb25 text-center">注：颜色越深则代表人数占比越大</p>
+    </div>
+
+    <div class="bg-fff mt10">
+        <div class="pt36">
+            <div class="dataTit dataTit3">投资统计分析</div>
+            <div class="pl18 pr18">
+                <div class="clearfix lrBox lrBox1">
+                    <div class="lf w50p">
+                        <p class="f15px pt10">人均投资</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040"><%=ToolStatus.ConvertLowerMoney(AvgInvestMoney) %></span>元</p>
+                    </div>
+                    <div class="lf w50p pl10 text-left">
+                        <img src="/imgs/images/bigData/img1.png" />
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox2 bt-dashed">
+                    <div class="lf w50p pl10 text-left">
+                        <img src="/imgs/images/bigData/img2.png" />
+                    </div>
+                    <div class="lf w50p">
+                        <p class="f15px pt25">最高累计投资</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040"><%=ToolStatus.ConvertLowerMoney(_MaxInvestUser.Amount) %></span>元</p>
+                        <p class="f13px c-ababab pt5">(昵称：<%=_MaxInvestUser.NickName %>)</p>
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox2 bt-dashed">
+                    <div class="lf w50p">
+                        <p class="f15px pt25">最高累计收益</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040"><%=ToolStatus.ConvertLowerMoney(_MaxIncomeUser.InterestAmount) %></span>元</p>
+                        <p class="f13px c-ababab pt5">(昵称：<%=_MaxIncomeUser.NickName %>)</p>
+                    </div>
+                    <div class="lf w50p pl10 text-left">
+                        <img src="/imgs/images/bigData/img3.png" />
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox2 bt-dashed">
+                    <div class="lf w50p pl10 text-left">
+                        <img src="/imgs/images/bigData/img4.png" />
+                    </div>
+                    <div class="lf w50p">
+                        <p class="f15px pt30">每天的投资高峰期</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040">07:00~09:00</span>AM</p>
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox3 bt-dashed hide">
+                    <div class="lf w50p">
+                        <p class="f15px pt30">每天的签到高峰期</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040">22:00~23:00</span>PM</p>
+                    </div>
+                    <div class="lf w50p pl10 text-left">
+                        <img src="/imgs/images/bigData/img5.png" />
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox4 bt-dashed hide">
+                    <div class="lf w50p text-left">
+                        <img src="/imgs/images/bigData/img6.png" />
+                    </div>
+                    <div class="lf pl10 w50p">
+                        <p class="f15px">最高连续签到</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040">1000</span>天</p>
+                        <p class="f13px c-ababab pt5">(昵称：123 )</p>
+                    </div>
+                </div>
+                <div class="clearfix lrBox lrBox5 bt-dashed">
+                    <div class="lf pl10 w50p">
+                        <p class="f15px">投龄最长</p>
+                        <p class="f13px c-fd6040 line-h20 pt15"><span class="f20px c-fd6040"><%=OnlineTotalDays %></span>天</p>
+                        <p class="f13px c-ababab pt5">(昵称：星**)</p>
+                    </div>
+                    <div class="lf w50p text-left">
+                        <img src="/imgs/images/bigData/img7.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <% if (!IsApp)
+       {
+           %>
+    <div class="pd15">
+        <div class="btn btnYellow" id="shareFirends2">分享给好友</div>
+    </div>
+    <%
+      } %>
+    
+    <!--关于团贷网-->
+    <div class="frame bg-fff frame-law hide" id="frame7">
+        <div class="f17px pt36 pb5 text-center">关于第三方担保专款</div>
+        <div>
+            <p class="f15px pl15 pr15 text-justify c-808080 item_ani ani_delay03">当借款人出现逾期时，担保公司自有资金先行垫付，若垫付资金不足则根据偿付规则启用“第三方担保专款”进行质保偿付，赔付投资者投资资金；待逾期还款或者坏账担保物处置回款后，垫付资金将会重新返还至“质量保障服务”资金账户。</p>
+        </div>
+    </div>
+    <div class="pos-f frame-law-b hide" id="about-td-b">
+        <div class="opa_cover"></div>
+        <div class="frame-close" id="close7"></div>
+    </div>
+		
+	</div>
+    <!--报告弹框-->
+    <div class="alert webkit-box box-center hide" id="report">
+        <div class="swiper-container report-swiper" id="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/imgs/images/pic/report1.jpg?v=20160908" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="/imgs/images/pic/report2.jpg?v=20160908" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--分享滑出层-->
+    <div class="share-popup pos-f">
+        <div class="mid text-center">
+            <span class="bb-d1d1d1"></span>
+            <span class="c-212121 f15px">分享</span>
+            <span class="bb-d1d1d1"></span>
+        </div>
+        <div class="share-links webkit-box ml15 mr15">
+            <a href="javascript:void(0);" class="wechat box-flex1 wxShare animated" style="display: none"><span><i></i></span>微信好友</a>
+            <a href="javascript:void(0);" class="moments box-flex1 wxShare animated" style="display: none"><span><i></i></span>朋友圈</a>
+            <a href="javascript:shareSina();" class="weibo box-flex1 webShare animated"><span><i></i></span>新浪微博</a>
+            <a href="javascript:share(2);" class="qq box-flex1 animated"><span><i></i></span>QQ</a>
+            <a href="javascript:share(1);" class="qzone box-flex1 animated"><span><i></i></span>QQ空间</a>
+        </div>
+        <a href="javascript:void(0);" class="close-share animated"><i></i></a>
+    </div>
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/echarts2.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/scripts/weixinapi.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/jsbridge.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript" src="/scripts/seo.js?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>"></script>
+<script type="text/javascript">
+    //报表数据
+    var dayArr = [];
+    var dayAmountArr = [];
+    iniStatistics();
+
+    function iniStatistics() {
+        <% if(ReportList != null &&ReportList.Count >0 ){for (int i = 0; i < this.ReportList.Count; i++)
+          { %>
+        dayArr.push('<%=this.ReportList[i].Date.Month.ToString().PadLeft(2,'0')+"-"+this.ReportList[i].Date.Day.ToString().PadLeft(2,'0')%>');
+        dayAmountArr.push(<%=this.ReportList[i].Amount/10000%>);
+        <%}}%>
+        dayArr.push('<%=DateTime.Today.Month.ToString().PadLeft(2,'0')%>' + "-" + '<%=DateTime.Today.Day.ToString().PadLeft(2,'0')%>');
+        dayAmountArr.push(<%=this.TodayAmount/10000%>);
+
+    }
+
+    function c1() {
+        var myChart = echarts.init(document.getElementById('c1'));
+        option = {
+            tooltip: {
+                show: true,
+                trigger: 'axis',
+                triggerOn: 'mousemove',
+                backgroundColor: 'rgba( 255, 255, 255, 0.8 )',
+                position: function (point, params, dom) {
+                    var w = $(window).width() - 30;
+                    if (point[0] - 100 < 10) {
+                        return [point[0], '-50px'];
+                    }
+                    else if (point[0] > w) {
+                        return [point[0] - 130, '-50px'];
+                    }
+                    else {
+                        return [point[0] - 100, '-50px'];
+                    }
+
+                },
+                extraCssText: 'box-shadow:0px 0px 20px 0px rgb( 234, 234, 234 );',
+                axisPointer: {
+                    lineStyle: {
+                        color: '#fd6040',
+                    },
+                    animation: false
+                },
+                padding: [7, 10, 7, 15],
+                formatter: function(params, ticket, callback) {
+                    var strTip = '&nbsp;&nbsp;&nbsp;&nbsp;'+params[0].name+'<br>当日交易额:&nbsp;&nbsp;'+parseInt(params[0].value)+'万';
+                    return strTip;
+                },//'&nbsp;&nbsp;&nbsp;&nbsp;{b0}<br>当日交易额:&nbsp;&nbsp;{c0}',
+                textStyle: {
+                    fontSize: 12,
+                    color: '#212121'
+                }
+
+            },
+            grid: {
+                left: '15',
+                right: '7%',
+                top: '10px',
+                bottom: '0',
+                containLabel: true
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                axisTick: { show: false },
+                axisLine: { show: false },
+                splitLine: {
+                    show: false,
+                    lineStyle: { color: '#f4f4f4' }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#808080',
+                        fontSize: 10
+                    },
+                    margin: 13
+                },
+                data: dayArr
+            }],
+
+            yAxis: [{
+                type: 'value',
+                axisTick: { show: false },
+                splitNumber: 4,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        width: 1,
+                        color: '#f4f4f4',
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#808080',
+                        fontSize: 10
+                    },
+                    margin: 10
+                },
+                splitLine: {
+                    lineStyle: { color: '#f4f4f4' }
+                },
+            }],
+            series: [{
+                symbol: 'image:///imgs/images/icon/yuan3.png',
+                symbolSize: 5,
+                zlevel: 3,
+                z: 3,
+                name: '净赚收益',
+                type: 'line',
+                smooth: true,
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(255, 179, 163,0.4)'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(255, 250, 249,0.4)'
+                        }])
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color: '#fd6040',
+                            width: '1'
+                        }
+                    }
+                },
+                data: dayAmountArr
+            }]
+        };
+
+        myChart.setOption(option);
+    }
+
+    function initSwiper() {
+        var swiper = new Swiper('#swiper', {});
+    }
+
+    c1();
+
+    var scrollT = "";
+    function moveToTop(open, target, callBack) {
+        $(open).click(function () {
+            scrollT = $(window).scrollTop();
+            $(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+            setTimeout(function () {
+                if (callBack != undefined) {
+                    callBack()
+                }
+            }, 400);
+        });
+    }
+
+    function moveToBottom(close, target, callBack) {
+        $(close).click(function () {
+            $(window).scrollTop(scrollT);
+            $(target).removeClass('moveToTop').addClass('moveToBottom');
+            setTimeout(function () {
+                $(target).addClass('hide');
+                if (callBack != undefined) {
+                    callBack()
+                }
+            }, 400);
+        });
+    }
+    moveToTop("#f7", '#frame7,#about-td-b');
+    moveToBottom('#close7', '#frame7,#about-td-b');
+    moveToTop("#readReport", '#report', initSwiper);
+    moveToBottom('.swiper-slide', '#report');
+
+
+    //分享
+    var isWeiXin = navigator.userAgent.toLowerCase().indexOf("micromessenger") != -1;
+    var bd = document.body;
+
+    WXInitial();
+
+    function WXInitial() {
+        window.document.title = '团贷网竟然是这样一个平台？';
+        wxData.isWxJsSDK = true;
+        wxData.debug = false;
+        wxData.title = '团贷网竟然是这样一个平台！？';
+        wxData.img_url = "<%=GlobalUtils.WebURL%>/imgs/images/pic/bigData_share.png";
+        wxData.BeforeShareCall = function (res) {
+            var tdfrom = "BigDataWX160330";
+            wxData.desc = "让数据来告诉你真相";
+            try {
+                if (res == "wxfriend") {
+                    tdfrom = "BigDataWX";
+                    nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataWX', 'wx分享', '160330', 1, '', '', 'TDW_WX');
+                } else if (res == "wxtimeline") {
+                    wxData.desc = "看数据~~团贷网竟然是个这样的平台！！！";
+                    tdfrom = "BigDataWXFriendster";
+                    nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataWXFriendster', 'wx朋友圈', '160330', 1, '', '', 'TDW_WX');
+                } else if (res == "qq") {
+                    tdfrom = "BigDataqq";
+                    nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataqq', 'QQ分享', '160330', 1, '', '', 'TDW_WX');
+                } else if (res == "qqzone") {
+                    tdfrom = "BigDataQzone";
+                    nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataQzone', 'QQ空间分享', '160330', 1, '', '', 'TDW_WX');
+                }
+            } catch (ex) { }
+            wxData.url = "<%=GlobalUtils.WebURL%>/pages/aboutus/BigData.aspx?tdform=" + tdfrom;
+        }
+        wxData.ShareCallBack = function (res) {
+            if (res == "success") {
+                clearShareTip();
+            }
+        };
+    }
+    $(function () {
+        if (isWeiXin) {
+            $(".wxShare").show();
+            $(".webShare").hide();
+        }
+        //	分享层交互
+        $("#shareFirends1,#shareFirends2").click(function () {
+            $('.share-popup').addClass('current').bind("touchmove", function (e) {
+                e.preventDefault();
+            });
+            $('.share-links a').addClass('bounceInUp');
+            $('.close-share').addClass('bounceInUp');
+        });
+        $('.close-share').click(function () {
+            $('.share-popup').removeClass('current');
+            $('.share-links a').removeClass('bounceInUp');
+            $('.close-share').removeClass('bounceInUp');
+        });
+        $('.wxShare').click(function () {
+            sharePopup();
+        });
+
+        //弹框调用、swiper初始化
+        var scrollT = "";
+        function moveToTop(open, target, callBack) {
+            $(open).click(function () {
+                scrollT = $(window).scrollTop();
+                $(target).removeClass('hide').removeClass('moveToBottom').addClass('moveToTop');
+                setTimeout(function () {
+                    if (callBack != undefined) {
+                        callBack()
+                    }
+                }, 400);
+            });
+        }
+        function moveToBottom(close, target, callBack) {
+            $(close).click(function () {
+                $(window).scrollTop(scrollT);
+                $(target).removeClass('moveToTop').addClass('moveToBottom');
+                setTimeout(function () {
+                    $(target).addClass('hide');
+                    if (callBack != undefined) {
+                        callBack()
+                    }
+                }, 400);
+            })
+        }
+        function initSwiper() {
+            var swiper = new Swiper('#swiper', {});
+        }
+        moveToTop("#f7", '#frame7,#about-td-b');
+        moveToBottom('#close7', '#frame7,#about-td-b');
+        moveToTop("#readReport", '#report', initSwiper);
+        moveToBottom('.swiper-slide', '#report');
+    })
+
+    function sharePopup() {
+        if (isWeiXin) {
+            if (!document.getElementById("shareTip")) {
+                window.scrollTo(0, 0);
+                var dom = document.createElement("div");
+                dom.className = "modal-backdrop";
+                dom.id = "shareTip";
+                dom.innerHTML = '<div class="shareTip-box"><div class="shareTip"></div></div>';
+                bd.appendChild(dom);
+                dom.addEventListener("touchstart", clearShareTip, false);
+            }
+            return false;
+        }
+    }
+
+    function clearShareTip() {
+        var hintTip = document.getElementById("shareTip");
+        hintTip.removeEventListener("touchstart", clearShareTip, false);
+        bd.removeChild(hintTip);
+    }
+
+    //QQ分享
+    function share(t) {
+        var p = {
+            url: "<%=GlobalUtils.WebURL%>/pages/aboutus/BigData.aspx?tdform=qq",
+            showcount: '0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+            summary: '让数据来告诉你真相',/*分享摘要(可选)*/
+            title: '团贷网竟然是这样一个平台！？',/*分享标题(可选)*/
+            site: '团贷网',/*分享来源 如：腾讯网(可选)*/
+            pics: '<%=GlobalUtils.WebURL%>/imgs/images/pic/bigData_share.png' /*分享图片的路径(可选)*/
+        };
+        var s = [];
+        for (var i in p) {
+            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+        }
+        var params = s.join('&');
+        if (t == 1) {
+            nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataQzone', 'QQ空间分享', '160330', 1, '', '', 'TDW_WX');
+            window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + params);
+        }
+        else {
+            nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDataqq', 'QQ分享', '160330', 1, '', '', 'TDW_WX');
+            window.open("http://connect.qq.com/widget/shareqq/index.html?" + params);
+        }
+    };
+    //新浪分享
+    function shareSina() {
+        var p = {
+            url: "<%=GlobalUtils.WebURL%>/pages/aboutus/BigData.aspx?tdform=sina",
+            title: '团贷网竟然是这样一个平台！？',
+            appkey: '1343713053',
+            pic: '<%=GlobalUtils.WebURL%>/imgs/images/pic/bigData_share.png', /*分享图片的路径(可选)*/
+            searchPic: "true"
+        };
+        var s = [];
+        for (var i in p) {
+            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+        }
+        var params = s.join('&');
+        params += "#_loginLayer_" + (new Date()).valueOf();
+        nwbi_api.nwbi_logWebEvent(nwbi_userName, getNowFormatDate(), 'BigDatasina', '新浪分享', '160330', 1, '', '', 'TDW_WX');
+        window.open("http://service.weibo.com/share/share.php?" + params);
+    }
+
+    $(function () {
+        Jsbridge.appLifeHook(null, null, null, null, null);
+        $(".appPerson").click(function () {
+            //alert("app执行了点击事件");
+            if (Jsbridge.isNewVersion()) {
+                Jsbridge.toAppPersonalCenter(); //跳转app个人中心
+            } else {
+                window.location.href = "ToAppPersonalCenter";
+            }
+
+        });
+        $(".appRegister").click(function () {
+            //alert("app执行了点击事件");
+            if (Jsbridge.isNewVersion()) {
+                Jsbridge.toAppRegister(); //跳转app注册
+            } else {
+                window.location.href = "ToAppRegister";
+            }
+        });
+    });
+</script>
+
+</html>

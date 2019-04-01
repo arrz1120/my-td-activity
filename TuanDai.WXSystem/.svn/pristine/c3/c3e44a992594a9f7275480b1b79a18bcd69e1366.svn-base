@@ -1,0 +1,307 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Tool;
+using TuanDai.DQSystemAPI.Client;
+using TuanDai.DQSystemAPI.Contract;
+using TuanDai.PortalSystem.Model;
+using TuanDai.PortalSystem.BLL;  
+using System.Data;
+using Dapper; 
+
+namespace TuanDai.WXApiWeb.Member
+{
+    public partial class my_account : UserPage
+    {
+        protected string headImage = "/imgs/users/avatar/bav_head.gif?v=20160714";
+        protected string openid = string.Empty; 
+        protected UserBasicInfoInfo userModel;
+        protected Guid userId;  
+        protected decimal UserEarnAmount = 0; //已赚收益
+        protected NewVipUserInfo UserVipModel = null;
+        /// <summary>
+        /// 是否显示团宝箱的提示
+        /// </summary>
+        protected bool isShowPrizeBoxIco = false;
+       
+        protected WXFundAccountInfo_Info accountModel;
+
+        protected UserAddInterest userAddInterest; 
+        protected WXFundStatistModel DqFundModel;//定期理财
+        protected string MaxStatusString = null;
+        protected TuanDai.DQSystemAPI.Contract.FundAccountStatistModel dqAccountModel; //定期理财帐户 
+        protected PageMoneyModel pageModel = null;
+        protected PageNoticeModel noticeModel = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            userId = WebUserAuth.UserId.Value; 
+            if (!this.IsPostBack)
+            {
+                this.IsShowRightBar = GlobalUtils.IsWeiXinBrowser ? false : true;
+                InitFormData();
+                GetMaxStatusString();
+            }
+        }
+
+        protected void InitFormData()
+        {
+            pageModel = new PageMoneyModel();
+            //GetUserAddInterest();
+            UserBLL bll = new UserBLL();
+            userModel = bll.GetUserBasicInfoModelById(userId);
+            if (userModel != null && !string.IsNullOrWhiteSpace(userModel.HeadImage))
+            {
+                headImage = userModel.HeadImage;
+            }
+            GetAccountInfo(userId);
+            GetDQLCFundData(userId);
+
+            isShowPrizeBoxIco = bll.GetUnReceiveCount(userId) > 0;
+
+            //获取用户收益
+            //GetProfitStatistics(userId);
+            UserVipModel = GetNewVipUserInfo();
+
+            //待收本息加上复投宝的
+            Tuple<decimal, decimal> ftbDueIn = GetFTBDueInAmountInterest(userId);
+            accountModel.DueInPAndI = accountModel.DueInPAndI + ftbDueIn.Item1 + ftbDueIn.Item2;
+
+            decimal weWaitInvestAmount = GetWePlanWaitInvestment(userId);
+            accountModel.FreezeAcount = accountModel.FreezeAcount + weWaitInvestAmount;  //冻结资金加上We待投 
+
+            if (accountModel != null)
+                pageModel.P2PSumAmount = (accountModel.AviMoney) + (accountModel.DueInPAndI)
+                              + (accountModel.BorrowerOut) + (accountModel.DueConfirmWithdrawDeposit)
+                              + (accountModel.RewardMoney) + (accountModel.FreezeAcount);
+
+            pageModel.P2PAviAmount = accountModel.AviMoney;
+            pageModel.P2PDueIn = accountModel.DueInPAndI;
+
+            pageModel.DQDueIn = dqAccountModel.DueInPAndI;
+            pageModel.DQAviAmount = dqAccountModel.AviMoney;
+            pageModel.DQSumAmount = dqAccountModel.TotalAmount;
+
+            GetPersonalNotice();
+        }
+
+        //获取消息通知
+        protected void GetPersonalNotice() {
+            string strSQL = "SELECT top 1  NoticesContent,ActivityUrl FROM AppPageNotice where PageNoticeCode='AppMyWealthNotice' and NoticeStatus=1 and  getdate() between StartDate and EndDate order by AddDate desc ";
+
+            DynamicParameters dyParams = new DynamicParameters();
+            noticeModel = PublicConn.QuerySingle<PageNoticeModel>(strSQL, ref dyParams);
+            if (noticeModel != null)
+            {
+                noticeModel.ActivityUrl = noticeModel.ActivityUrl.Replace("?type=mobileapp","").Replace("&type=mobileapp","");
+            }
+        }
+        /// <summary>
+        /// 获取we计划可用金额
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public decimal GetWePlanWaitInvestment(Guid userId)
+        {
+            decimal weWaitInvestment;
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@userId", userId);
+            string strSQL = @"SELECT SUM(a.OrderAviAmount)
+                            FROM We_Order a with(nolock) 
+                     where a.UserId=@userId and a.StatusId in (0,1,2,4) and a.IsRefund=0";
+            weWaitInvestment = PublicConn.QuerySingle<decimal?>(strSQL, ref dyParams) ?? 0;
+
+            //We计划分期宝已回款待投冻结金额
+            string sql = @"SELECT isnull(SUM(OrderAviAmount),0) FROM(
+                    SELECT ISNULL(B.OrderAviAmount,0) AS OrderAviAmount
+                    FROM dbo.We_Order a WITH(NOLOCK)
+                    left JOIN We_OrderExtFQB b WITH(NOLOCK) on b.OrderId=a.Id AND b.UserId=a.UserId and b.StatusId=0
+                    WHERE  a.StatusId in (0,1,2,4) and a.UserId=@userId and isnull(a.IsWeFQB,0)=1 
+                    ) AS main";
+            weWaitInvestment += TuanDai.DB.TuanDaiDB.QueryFirstOrDefault<decimal>(TdConfig.ApplicationName, TdConfig.DBRead, sql,
+                ref dyParams);
+
+            return weWaitInvestment;
+        }
+
+        //获取复投宝的待收本息
+        public Tuple<decimal, decimal> GetFTBDueInAmountInterest(Guid userId)
+        {
+            var dyParams = new Dapper.DynamicParameters();
+            dyParams.Add("@UserId", userId);
+            dyParams.Add("@totalAmount", 0, DbType.Decimal, ParameterDirection.Output, 18, null, 2);
+            dyParams.Add("@totalInterest", 0, DbType.Decimal, ParameterDirection.Output, 18, null, 2);
+
+            string strSQL = "select @totalAmount=RecoverBorrowOut, @totalInterest=DueComeInterest from We_FundAccountInfo with(nolock) where UserId=@UserId";
+            PublicConn.ExecuteTD(PublicConn.DBWriteType.Read,strSQL, ref dyParams);
+            Tuple<decimal, decimal> result = new Tuple<decimal, decimal>(dyParams.Get<decimal?>("@totalAmount") ?? 0, dyParams.Get<decimal?>("@totalInterest") ?? 0);
+            return result;
+        }
+        /// <summary>
+        /// 获取账户资料信息
+        /// </summary>
+        /// <param name="userid"></param>
+        private void GetAccountInfo(Guid userid)
+        {
+            var commandText = @"SELECT * from dbo.FundAccountInfo with(nolock) WHERE UserId =@UserId"; ;
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@UserId", userid);
+
+            accountModel = PublicConn.QuerySingle<WXFundAccountInfo_Info>(commandText, ref para); 
+            if(accountModel == null)
+                accountModel = new WXFundAccountInfo_Info();
+        }
+        //获取定期理账户资金
+        protected void GetDQLCFundData(Guid userId)
+        {
+            
+            TuanDai.DQSystemAPI.Contract.BaseRequest request = new TuanDai.DQSystemAPI.Contract.BaseRequest();
+            request.DataId = userId;
+            dqAccountModel = TuanDai.DQSystemAPI.Client.DQHelperClient.GetFundStatistInfo(request);
+            if (dqAccountModel == null)
+                dqAccountModel = new TuanDai.DQSystemAPI.Contract.FundAccountStatistModel();
+        } 
+    
+        private NewVipUserInfo GetNewVipUserInfo()
+        {
+            //p_GetUserLevelInfo 
+            string strSQL = "SELECT [Level], LevelName FROM dbo.MUserVipInfo with(nolock) where UserId=@UserId "; 
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@UserId", userId);
+            NewVipUserInfo vipUserInfo = PublicConn.QueryVipSingle<NewVipUserInfo>(strSQL, ref dyParams);
+            if (vipUserInfo == null)
+            {
+                vipUserInfo = new NewVipUserInfo();
+                vipUserInfo.Level = 1;
+                vipUserInfo.LevelName = "投资学徒";
+            }
+            return vipUserInfo;
+        }
+        /// <summary>
+        /// 收益统计
+        /// </summary>
+        protected void GetProfitStatistics(Guid userId)
+        {
+            string sqlText = @"SELECT SUM(A1) AS dueAmount,SUM(A2) AS recAmount,SUM(A3) AS overDueAmount,SUM(A4) AS otherAmount FROM (
+                            SELECT  ISNULL(InterestAmout,0)+ISNULL(TuandaiRedPacket,0)+ISNULL(PublisherRedPacket,0) A1,0 AS A2,0 AS A3,0 AS A4 FROM SubscribeDetail WITH(NOLOCK)  WHERE  SubscribeUserId=@UserID 
+                            UNION ALL
+							SELECT 0 AS A1,0 A2 ,ISNULL(SUM(ISNULL(B.Interest,0)),0)+ISNULL(SUM(ISNULL(B.PenaltyAmount,0)),0)/2 A3,0 AS A4
+							FROM td_SubDetailHis.dbo.SubscribeDetailHistory_h1 A WITH(NOLOCK) 
+                            JOIN OverDueRecord B WITH(NOLOCK)  ON A.SubscribeId=B.SubscribeId  AND B.periods = A.Periods and isnull(b.IsHide,0)=0
+							WHERE A.SubscribeUserId=@UserID AND B.IsBorrow=0
+							UNION ALL 
+							SELECT 0 AS A1,ISNULL(RealInterestAmout,0)+ISNULL(TuandaiRedPacket,0)+ISNULL(PublisherRedPacket,0) A2,0 AS A3,0 AS A4 FROM td_SubDetailHis.dbo.SubscribeDetailHistory_h1 a WITH(NOLOCK)  
+							WHERE  NOT EXISTS (SELECT b.SubscribeId,b.periods FROM dbo.OverDueRecord b WITH(NOLOCK)  WHERE b.SubscribeId = a.SubscribeId AND b.periods = a.Periods 
+							AND b.SubscribeUserId=@UserID AND b.IsBorrow=0  and isnull(b.IsHide,0)=0) 
+							 AND a.SubscribeUserId=@UserID 
+                            UNION ALL
+                            SELECT 0 AS A1,0 AS A2,0 AS A3,ISNULL(SUM(ISNULL(PrizeValue,0)),0) AS A4 FROM UserPrize WITH(NOLOCK) 
+                            WHERE TypeId IN (3,4,11,13,14) AND IsReceive=1 AND UserId=@UserID  
+                            ) T";
+            DynamicParameters dyParams = new DynamicParameters();
+            dyParams.Add("@UserId", userId);
+            ProfitStatistics profitmodel = PublicConn.QuerySingle<ProfitStatistics>(sqlText, ref dyParams);
+            if (profitmodel != null)
+            {
+                UserEarnAmount = profitmodel.dueAmount + profitmodel.overDueAmount + profitmodel.recAmount;
+            }
+        }
+
+        /// <summary>
+        /// 4周年庆获得用户定向最高加息
+        /// </summary>
+        /// <returns></returns>
+        private void GetUserAddInterest()
+        {
+            string sql = "select top 1 * from UserAddInterest with(nolock) where UserId=@UserId Order by RedRate Desc";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@UserId", WebUserAuth.UserId.Value);
+
+            userAddInterest = PublicConn.QuerySingle<UserAddInterest>(sql, ref para);
+        }
+
+        private void GetMaxStatusString() 
+        {
+            string sql = @"SELECT  ISNULL(a.Status,0) AS Status from (SELECT Status FROM dbo.UserAutoTenderSetting WITH(NOLOCK) WHERE UserId=@UserId
+                UNION 
+                SELECT Status FROM dbo.UserAutoWePlanSetting WITH(NOLOCK) WHERE UserId=@UserId)a
+                ORDER BY a.Status DESC";
+            var para = new Dapper.DynamicParameters();
+            para.Add("@UserId", WebUserAuth.UserId.Value);
+
+            var maxStatus = PublicConn.QuerySingle<int?>(sql, ref para);
+            if (maxStatus == null)
+            {
+                MaxStatusString = "未设置";
+            }
+            else if (maxStatus == 0)
+            {
+                MaxStatusString = "暂停";
+            }
+            else
+            {
+                MaxStatusString = "开启";
+            }
+        }
+
+        #region 内部Model
+        public class UserAddInterest
+        {
+            public Guid? UserId { get; set; }
+            public decimal? RedRate { get; set; }
+
+            public int? StartDeadline { get; set; }
+            public int? EndDeadline { get; set; }
+
+            public DateTime? StartDate { get; set; }
+
+            public DateTime? EndDate { get; set; }
+
+            public int? Type { get; set; }
+        }
+        public class ProfitStatistics
+        {
+            public decimal recAmount { get; set; }
+            public decimal dueAmount { get; set; }
+            public decimal overDueAmount { get; set; }
+            public decimal otherAmount { get; set; }
+        }
+        public class NewVipUserInfo
+        {
+            public int Level { get; set; }
+            public string LevelName { get; set; }
+        }
+        protected class NextReturnMoneyDay
+        {
+            public DateTime CycDate { get; set; }
+
+            public decimal TotalAmount { get; set; }
+        }
+
+        public class PageMoneyModel {
+            public decimal TotalAmount { get { return P2PSumAmount + DQSumAmount; } }
+            public decimal TotalAviAmount { get { return P2PAviAmount + DQAviAmount; } }
+
+            public decimal P2PSumAmount { get; set; }
+            /// <summary>
+            /// P2P帐号待收本息
+            /// </summary>
+            public decimal P2PDueIn { get; set; }
+            public decimal P2PAviAmount { get; set; }
+
+            public decimal DQSumAmount { get; set; }
+            public decimal DQDueIn { get; set; }
+            public decimal DQAviAmount { get; set; } 
+        }
+        public class PageNoticeModel
+        {
+            public string NoticesContent { get; set; }
+            public string ActivityUrl { get; set; }
+        }
+        #endregion
+
+
+    }
+}

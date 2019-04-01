@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>正合普惠</title>
+	<link rel="stylesheet" type="text/css" href="/css/global.css?v=20160316" />
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css?v=20160406001" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?v=2016041100001" />
+</head>
+<body>
+<header class="headerMain" id="header">
+   <div class="header bb-e6e6e6">
+       <div class="back" onclick="javascript:history.go(-1);">返回</div>
+       <h1 class="title">正合普惠</h1>
+    </div>
+    <div class="none"></div>
+</header>
+
+<div class="text-center top-con bg-fff pb20 pos-r">
+    <img id="bannerImg" src="imgs/banner.jpg?v=2016041100001">
+    <div class="pl20 pr20">
+        <img src="imgs/ico-title.png" class="mt18 block">
+
+        <div class="ico-box pos-r">
+            <img src="imgs/ico-dx.png" class="mt18 block">
+            <a href="javascript:;" class="ico1 pos-a" id="ico1"></a>
+            <a href="javascript:;" class="ico2 pos-a" id="ico2"></a>
+            <a href="javascript:;" class="ico3 pos-a" id="ico3"></a>
+            <a href="javascript:;" class="ico4 pos-a" id="ico4"></a>
+        </div>
+    </div>
+    <div class="showAlert f14px c-ffffff pos-a">关于团队</div>
+</div>
+
+<!--tabs 导航-->
+<div class="tabs webkit-box bg-fff mt15">
+    <a href="javascript:;" class="active box-flex1 bb-d3d3d3">团队风采</a>
+    <a href="javascript:;" class="box-flex1 bb-d3d3d3">管理团队</a>
+    <a href="javascript:;" class="box-flex1 bb-d3d3d3">业务模式</a>
+    <a href="javascript:;" class="box-flex1 bb-d3d3d3">风控模式</a>
+</div>
+<div id="tabs-container" class="swiper-container bg-fff">
+
+    <!--团队风采-->
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="team-con pl20 pr20">
+                <div class="clearfix img-box pt20">
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td1.png">
+                    </div>
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td2.png">
+                    </div>
+                </div>
+                <div class="clearfix img-box pt20">
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td3.png">
+                    </div>
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td4.png">
+                    </div>
+                </div>
+                <div class="clearfix img-box pt20">
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td5.png">
+                    </div>
+                    <div class="w50p lf">
+                        <img class="teamImg" src="imgs/td6.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--管理团队-->
+        <div class="swiper-slide">
+            <div class="manage-con pl20 pr20 pb20 pt20">
+                <div class="manage-box pos-r">
+                    <img src="imgs/gl1.png" class="pos-a">
+                    <div class="manage">
+                        <h3>叶衍伟（CEO）</h3>
+                        <p>叶衍伟先生于厦门大学获得会计学学士学位，民间借贷、风控行业元老。 2011年起，在上海P2P网贷平台信而富任资产端总经理，负责资产端销售与风控业务。三年时间将债权规模从零做到60亿。 2015年6月，与有利网一起组建深圳利信快捷金融服务有限公司，任利信CEO。截止于2015年12月，仅半年的时间，其率领团队组建115家分公司，债权总额近60亿。 2015年12月底正式组建正合普惠金融，并加盟上市公司光影侠（股票代码：831138），成为光影侠董事。</p>
+                    </div>
+                </div>
+                <div class="manage-box pos-r">
+                    <img src="imgs/gl2.png" class="pos-a">
+                    <div class="manage">
+                        <h3>王云科（技术部总监）</h3>
+                        <p>专注技术发展，将金融与技术相结合，曾任合道融通技术部总监；宜信公司产品高级经理（信贷系统）；任宜信公司信贷审核系统项目负责人等职位。</p>
+                    </div>
+                </div>
+                <div class="manage-box pos-r">
+                    <img src="imgs/gl3.png" class="pos-a">
+                    <div class="manage">
+                        <h3>胡木生（运营副总裁）</h3>
+                        <p>专注研究金融产品体系，有着丰富的产品分析管理实操经验；拥有极具前瞻性和开发性的金融产品眼光，将产品服务覆盖率达到最大化。</p>
+                    </div>
+                </div>
+                <div class="manage-box pos-r">
+                    <img src="imgs/gl4.png" class="pos-a">
+                    <div class="manage">
+                        <h3>吴攀科（销售副总裁）</h3>
+                        <p>依托精准专业背景，对市场进行宏观把控,制定市场销售管理方案；深入小额借贷市场一线，对国内小额借贷市场有着独到的见解及雷霆手腕。</p>
+                    </div>
+                </div>
+
+                <div class="manage-box pos-r">
+                    <img src="imgs/gl5.png" class="pos-a">
+                    <div class="manage">
+                        <h3>罗毅（财务副总裁）</h3>
+                        <p>精通税法，熟悉中国及国际会计准则，多年跨行业上市审计经验，对企业内控有深入研究，熟悉境外上市流程，曾参与境内企业香港上市红筹架构设计及搭建，对企业信息化有多年经验和专研。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--业务模式-->
+        <div class="swiper-slide">
+            <div class="workModule">
+                <img src="imgs/workModule.png"/>
+            </div>
+        </div>
+
+        <!--风控模型-->
+        <div class="swiper-slide">
+            <div class="risk">
+                <ul>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk1 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">优质用户</p>
+                            <p class="text_con">定位高质量借款用户</p>
+                            <p class="text_con">公务员、精英阶层、高保障人士</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk2 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">风险准备</p>
+                            <p class="text_con">风险计提，覆盖逾期及坏账</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk3 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">审批机制</p>
+                            <p class="text_con">分、总公司流程化作业，权限层级分离</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk4 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">过程监控</p>
+                            <p class="text_con">贷前：征信查询+线下尽调+线上审核</p>
+                            <p class="text_con">贷中：定期走访，风险提前预警</p>
+                            <p class="text_con">贷后：线下催收+司法成寻</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk5 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">大数据过滤</p>
+                            <p class="text_con">行业共享黑名单，自有累计黑名单</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk6 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">产品设计</p>
+                            <p class="text_con">额度小、期限长、还款压力小、违约成本高</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="riskImgBox sprite-risk risk7 lf"></div>
+                        <div class="riskTextBox lf">
+                            <p class="text_tit">系统评分</p>
+                            <p class="text_con">消费习惯多维度评估，风险预测，风险定价</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="alert">
+    <div class="alert webkit-box box-center">
+        <div class="alert-con pl20 pr20 pt25 pb25">
+            <div class="alert-close"><i></i></div>
+            <p class="alert-con-tit text-center">正合普惠金融</p>
+            <p class="alert-con-txt pt10 text-justify">深圳正合普惠金融服务有限公司（以下简称正合普惠金融）于2015年12月23日在深圳前海注册成立，注册资本1000万。以完整专业的风控团队为核心依托，致力于为个人提供专业、快捷、贴心的小额借款咨询服务。截止2016年1月，公司服务网点已经辐射全国48个城市。2016年3月正合普惠被新三板上市公司光影侠（代码：831138）全资收购，同时，与团贷网正式建立战略合作关系，此后，将在原有业务基础上新增针对蓝领和公务员的小额借款业务，2016年6月前将建设100个营业网点覆盖全国，加速消费金融业务的发展规模，打造一个信息量广泛，专业、高效的普惠金融服务平台。</p>
+        </div>
+    </div>
+</div>
+
+<!--服务对象弹窗-->
+<!--公务员方案-->
+<div id="gwyAlert">
+    <div class="alert webkit-box box-center">
+        <div class="alert-con pl20 pr20 pt25 pb25">
+            <div class="alert-close"><i></i></div>
+            <div class="alert-ico"><img src="imgs/ico1.png"></div>
+            <p class="alert-con-txt pt30 text-justify c-212121">适用于公务员、事业单位、银行、公立学校、公立医院；且申请人必须是正式员工（含银行派遣员工）。</p>
+        </div>
+    </div>
+</div>
+
+<!--精英方案：-->
+<div id="jyAlert">
+    <div class="alert webkit-box box-center">
+        <div class="alert-con pl20 pr20 pt25 pb25">
+            <div class="alert-close"><i></i></div>
+            <div class="alert-ico"><img src="imgs/ico2.png"></div>
+            <p class="alert-con-txt pt30 text-justify c-212121">适用于在本地有社保公积金的工薪族，不包括实习、临时工、短期雇佣人员或者一线体力工。</p>
+        </div>
+    </div>
+</div>
+
+<!--保单方案：-->
+<div id="bdAlert">
+    <div class="alert webkit-box box-center">
+        <div class="alert-con pl20 pr20 pt25 pb25">
+            <div class="alert-close"><i></i></div>
+            <div class="alert-ico"><img src="imgs/ico3.png"></div>
+            <p class="alert-con-txt pt30 text-justify c-212121">适用于有投保人寿险产品的投保人，申请人工作必须在申请地，保险购买城市无要求。</p>
+        </div>
+    </div>
+</div>
+
+<!--公积金方案：-->
+<div id="gjjAlert">
+    <div class="alert webkit-box box-center">
+        <div class="alert-con pl20 pr20 pt25 pb25">
+            <div class="alert-close"><i></i></div>
+            <div class="alert-ico"><img src="imgs/ico4.png"></div>
+            <p class="alert-con-txt pt30 text-justify c-212121">适用于在本地有公积金的申请人，不包括实习、临时工、短期雇佣人员或者一线体力工。</p>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript">
+	
+    $(function () {
+        var url = window.location.href;
+        if (url.indexOf("type=mobileapp") >= 0) {
+            document.getElementById("header").style.display = "none";
+        }
+        var tabsSwiper = new Swiper('#tabs-container',{
+            speed:500,
+            onSlideChangeStart: function(){
+                $(".tabs .active").removeClass('active');
+                $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active')
+            }
+        });
+        $(".tabs a").on('touchstart mousedown',function(e){
+            e.preventDefault();
+            $(".tabs .active").removeClass('active');
+            $(this).addClass('active');
+            tabsSwiper.slideTo( $(this).index() )
+        });
+        $(".tabs a").click(function(e){
+            e.preventDefault();
+        });
+
+//        关于团队弹窗
+		$(".showAlert").css('top',($('#bannerImg').height()-15)/2-5).click(function(){
+            $("#alert").addClass('block').bind("touchmove", function(e) {
+                e.preventDefault();
+            });
+		});
+
+        $('#alert').click(function() {
+            $(this).toggleClass("block");
+        });
+
+        //公务员方案弹窗
+        $(".ico1").click(function(){
+            $("#gwyAlert").addClass('block').bind("touchmove", function(e) {
+                e.preventDefault();
+            });
+        });
+
+        $('#gwyAlert').click(function() {
+            $(this).toggleClass("block");
+        });
+
+        //精英方案弹窗
+        $(".ico2").click(function(){
+            $("#jyAlert").addClass('block').bind("touchmove", function(e) {
+                e.preventDefault();
+            });
+        });
+
+        $('#jyAlert').click(function() {
+            $(this).toggleClass("block");
+        });
+
+        //保单方案弹窗
+        $(".ico3").click(function(){
+            $("#bdAlert").addClass('block').bind("touchmove", function(e) {
+                e.preventDefault();
+            });
+        });
+
+        $('#bdAlert').click(function() {
+            $(this).toggleClass("block");
+        });
+
+        //公积金方案弹窗
+        $(".ico4").click(function(){
+            $("#gjjAlert").addClass('block').bind("touchmove", function(e) {
+                e.preventDefault();
+            });
+        });
+
+        $('#gjjAlert').click(function() {
+            $(this).toggleClass("block");
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

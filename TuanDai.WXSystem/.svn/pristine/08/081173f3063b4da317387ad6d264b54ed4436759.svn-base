@@ -1,0 +1,593 @@
+﻿var jsonData = {}; //投资项目信息及用户金额 
+var oMoney = null; 
+var PublicRate = 0;
+var TuandaiRate = 0;
+var LowerUnit = 0;//出借单位
+var maxUnit = 0;
+var nowUnit = 0;
+var perAmout = 0;
+var RewardAmount = 0;
+var tranpwd = "";//交易密码
+var isLogin = 0;//是否有登录
+var deadLine = 12;//投资期限
+var deadType = 1;//期限类型
+var NewHandRate = 0;//新手投资奖励利率
+//是否私募宝浮动收益
+var isSmbFloat = false;
+var isNewHandProject = false;//是否新手标
+var isRisk = false; //是否完成风险评测
+var RedPacketObj = null;//红包初始查询列表
+var PrizeAddRate = 0; //选择加息券利率
+var isZqzr = false;
+
+document.write("<script src='/scripts/jquery.extensions.js?v=123' type='text/javascript'></script>");
+document.write("<script src='/scripts/select_redbox.js?v=20170629001' type='text/javascript'></script>");
+
+var browser = {
+    versions: function() {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            //移动终端浏览器版本信息
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1 //是否iPad
+        };
+    }()
+};
+
+$(function () {
+    limitInt($("#InvestShares"));
+    $.ajax({
+        type: "post",
+        async: false,
+        url: "/ajaxCross/InvestAjax.ashx",
+        data: { cmd: "GetUserInvestMoney", projectId: projectId },
+        dataType: "json",
+        success: function (json) {
+            var result = json.result;
+            if (result == "1") {
+                eval("jsonData =" + json.msg);
+            }
+            else {
+                alert(json.msg);
+            }
+        },
+        error: function () {
+        }
+    });
+    nowUnit = 1; 
+    PublicRate = jsonData.PublisherRate;
+    TuandaiRate = jsonData.TuandaiRate;
+    perAmout = jsonData.perAmout;
+    RewardAmount = jsonData.RewardAmount;
+    maxUnit = jsonData.MaxUnit;
+    LowerUnit = jsonData.LowerUnit;
+    NewHandRate = jsonData.NewHandRate;
+    isLogin = jsonData.IsLogin;
+    isNewHandProject = jsonData.IsNewHandProject;
+    deadType = parseInt(jsonData.DeadType);
+    isRisk = jsonData.IsRisk;
+  //  isZqzr = jsonData.IsZQZR == 1;
+    if (jsonData.RedPacketListStr != "" && jsonData.RedPacketListStr != null) {
+        RedPacketObj = JSON.parse(jsonData.RedPacketListStr);
+    }
+    if (jsonData.DeadType == 2) {
+        deadLine = 365;
+    }
+    var html = '<div class="coverBox invest-alert bg-fff hide" style="z-index:501;" id="invest_alert">' +
+        '<div class="pt10 pl15 bg-fff">' +
+        '<div class="ico-round-close" id="detail-close"></div>' +
+        '<div class="f20px c-212121 text-center"></div>' +
+        '</div>' +
+        '<div class="pl15 pr15">' +
+        '<div class="f13px pl15" id="SharesDesc" style="font-size:13px!important;">1000元/份  剩余30,000份</div>' +
+        '<div class="invest-alert-inp mt10 clearfix">' +
+        '<input type="tel" placeholder="请输入投资份数" id="InvestShares"/>' +
+        '<span class="minus " id="InvestMinus"></span>' +
+        '<span class="add " id="InvestAdd"></span>' +
+        '</div>';
+    //if (isZqzr) {
+    //    html += "<div style='color:red;'>温馨提示：目前单个债转仅支持由一人全部承接</div>";
+    //}
+    if (RedPacketObj != null) {
+        html += '<div class="bb-dashed">' +
+		        '		<div class="pt20 pb20 clearfix" id="ues_rp">' +
+		        '			<div class="lf c-999999 f15px">使用优惠券：</div>' +
+		        '			<div class="rf">' +
+		        '				<span class="f15px c-fab600" id="redValue" prizeid="" >' + RedPacketObj.ShowTips + '</span>' +
+		        '				<i class="ico-a-r-999"></i>' +
+		        '			</div>' +
+                '		</div>' +
+		        '	</div>';
+    }
+    html += ' <div class="f14px c-212121 pt15">' +
+            '  	   <div class="clearfix pl15 pr15">' +
+            '         <div class="lf c-ababab f15px">投资总额：</div>' +
+            '	      <div class="rf f15px" id="TotalMoney2">￥0.00</div>' +
+            '	   </div>';
+    if (jsonData.ProfitType == 1) {
+        isSmbFloat = true;
+        html += ' <div class="clearfix pl15 pr15 pt10 pb10">' +
+                '	 <div class="lf c-ababab f15px">预期收益率：</div>' +
+                '	 <div class="rf f15px" id="ProfitMoney">' + jsonData.PreProfitRate_S + '%~' + jsonData.PreProfitRate_E + '%</div> ' +
+                ' </div>';  
+    } else if (jsonData.ProjectType == 23) {
+        isSmbFloat = true;
+        html += ' <div class="clearfix pl15 pr15 pt10 pb10">' +
+                '	 <div class="lf c-ababab f15px">预期收益率：</div>' +
+                '	 <div class="rf f15px" id="ProfitMoney">' + jsonData.XmbMinInterestRate + '%~' + jsonData.XmbMaxInterestRate + '%</div> ' +
+                ' </div>'; 
+    } else {
+        html += '  <div class="clearfix pl15 pr15 pt10 pb10">' +
+                '	  <div class="lf c-ababab f15px">预期总收益：</div>' +
+                '	  <div class="rf f15px" id="ProfitMoney">￥0.00</div> ' +
+                '	  <div class="rf mr10"><i class="inline-block rect_r c-ffffff f11px ml10 text-center" id="RTDesc">到期本息</i></div>' +
+                ' </div>';
+    }
+     
+    html += ' </div>' +
+	        '<div class="btn btnYellow mt15" id="btnSubmit">马上投资</div>' +
+            '<div class="c-ababab f13px text-center pt20"><span class="c-ababab" id="sp_repayDate">今天投资，2016/12/12到期</span><i class="ico-doubt" id="i_repay"></i></div>' +
+            '<div class="mt6 f13px text-center c-ababab">投资即表示同意';
+    if (jsonData.IsZQZR == 1)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractZqzr.html">《债权转让协议》</a>';
+    else if (jsonData.ProjectType == 1 || jsonData.ProjectType == 3)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType1.html">《商友贷合同》</a>';
+    else if (jsonData.ProjectType == 6)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType6.html">《周转合同》</a>';
+    else if (jsonData.ProjectType == 9 || jsonData.ProjectType == 10 || jsonData.ProjectType == 11)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType11.html">《微团贷合同》</a>';
+    else if (jsonData.ProjectType == 18)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType18_1.html">《私募宝借贷合同》</a>';
+    else if (jsonData.ProjectType == 15) {
+        if (jsonData.orgInfo != null && jsonData.orgInfo.OrgTypeId == 5) {
+            if(jsonData.orgInfo.SubTypeId != 3)
+                html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType15_1.html">《借款合同》</a>';
+            else
+                html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType15_2.html">《借款合同》</a>';
+        } else {
+            html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType15_3.html">《借款合同》</a>';
+        }
+        
+    } else if (jsonData.ProjectType == 19) {
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType19.html?deadtype=' + deadType + '">《供应链专区服务协议》</a>';
+    }
+    else if (jsonData.ProjectType == 20)
+        html += '<a class="f12px c-fab600" href=""' + ContractViewUrl + '/p2p/weixin/contractType20.html?deadtype=' + deadType + '">《供应链金融协议》</a>';
+    else if (jsonData.ProjectType == 22)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType22.html">《项目宝B类合同》</a>';
+    else if (jsonData.ProjectType == 23)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType23.html">《项目宝A类合同》</a>';
+    else if (jsonData.ProjectType == 24 || jsonData.ProjectType == 25)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType25.html">《正合普惠合同》</a>';
+    else if (jsonData.ProjectType == 30)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType30.html">《极速借合同》</a>';
+    else if (jsonData.ProjectType == 40)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType40.html">《一点车贷合同》</a>';
+    else if (jsonData.ProjectType == 48)
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType48.html">《扶贫贷合同》</a>';
+    else
+        html += '<a class="f12px c-fab600" href="' + ContractViewUrl + '/p2p/weixin/contractType6.html">《借款合同》</a>';
+    html += '</div>' +
+        '<div class="mt30 tips-box scaleX scaleX0" id="pay-tips">' +
+		    '<p style="display: none;">登录密码不正确</p>' +
+		'</div>' +
+        '</div>' +
+        '</div>';
+
+    html += '<!--弹框-->'+
+	'<div class="alert webkit-box box-center hide" id="repay-alert">'+
+		'<div class="bg-fff alert-con moveTop">'+
+			'<p class="text-center c-212121 f17px fb ">回款日期说明</p>'+
+			'<p class="pt12 f15px c-808080 text-justify pl20 pr20">回款日期仅供参考，请以实际回款时间为准。</p>' +
+			'<div class="bt-e6e6e6 pt10 pb10 c-fcb700 text-center f17px mt25" id="iKnowRepay">我知道了</div>'+
+		'</div>'+
+	'</div>';
+    html += '<div class="z-index100 invest-alert rp-ways hide pb30" id="rp_ways"> ' +
+            '<div class="rp-ways-top clearfix">' +
+			'   <div class="ico-rp-close lf" id="rpways_close"></div>' +
+			'   <a href="/pages/invest/redpacketrule.aspx" class="rf">使用规则<i></i></a>' +
+			'</div>'+
+    		'<div class="rp-list" id="rpList">' +
+            '</div>' +
+            '</div>';
+    $('footer').before(html);
+
+    //回款日期问号事件
+    $("#i_repay").bind("click", function() {
+        $("#repay-alert").removeClass("hide");
+    });
+    //关闭回款日期问号事件
+    $("#iKnowRepay").bind("click", function() {
+        $("#repay-alert").addClass("hide");
+    });
+    
+    //投资详情马上投资按钮点击事件
+    $(".loan-button").bind("click", function () {
+        if (LowerUnit == undefined) {
+            $("body").showMessage({
+                message: "~0~网络超时<br />请刷新一下试试哟", showCancel: false, okString: "我要刷新", okbtnEvent: function () {
+                    window.location.href = window.location.href;
+                }
+            });
+            return false;
+        }
+        $("#bigDiv").hide();
+        aviShares = parseInt(jsonData.TotalShares) - parseInt(jsonData.ComplateShares);
+        $("#SharesDesc").html(LowerUnit + "元/份  　剩余" + aviShares + "份");
+        $("#RTDesc").html(jsonData.RepaymentTypeDesc);
+        if (jsonData.RepaymentType == 1) {//到期本息
+            $("#RTDesc").removeClass("rect_b").addClass("rect_r");
+        }
+        if (jsonData.RepaymentType == 2 || jsonData.RepaymentType == 5) { //每月付息|等额本息
+            $("#RTDesc").removeClass("rect_r").addClass("rect_b");
+            var theNow = new Date();
+            $("#sp_repayDate").html("今天投资，" + jsonData.EndDate + "到期，到期前每月" + (theNow.getDate()+1) + "日回款");
+        } else {
+            $("#sp_repayDate").html("今天投资，" + jsonData.EndDate + "到期");
+        }       
+
+        $("#InvestShares").val("投资 1 份");
+        if (isZqzr) {
+            $("#InvestShares").val("投资 " + aviShares + " 份");
+            $("#InvestShares").attr("disabled", "disabled");
+        }
+        if (!isSmbFloat)
+            $("#ProfitMoney").html("￥0");
+        $("#TotalMoney").html("0");
+        $("#TotalMoney2").html("￥0");
+        $("#invest_alert").removeClass("hide");
+        $("#invest_alert").addClass("moveToTop");
+        $("#invest_alert").removeClass("moveToBottom");
+        if (RedPacketObj != null) {
+            $("#rpList").html(getShowRedPacketList());
+            initRedFormEvent();
+        }
+        calcMoney();
+    });
+    //投资窗口左上角关闭按钮点击事件
+    $("#detail-close").bind("click", function () {
+        $("#bigDiv").show();
+        $("#invest_alert").removeClass("moveToTop");
+        $("#invest_alert").addClass("moveToBottom");
+    });
+    //出借份数框离开事件
+    $("#InvestShares").bind("blur", function() {
+        var shares = $(this).val();
+        if (isNaN(shares)) {
+            showError("投资份数必须是数字");
+            $(this).val("投资 1 份");
+            calcMoney();
+            return false;
+        }
+        if (shares == "") 
+            return false;
+        if (shares.indexOf(".") > -1)
+            shares = parseInt(shares).toFixed(0);
+        if (parseInt(shares) > parseInt(aviShares))
+            shares = parseInt(aviShares).toFixed(0);
+        if (shares.indexOf("投资") == -1 && parseInt(shares) > 0) {
+            $(this).val("投资 " + shares + " 份");
+        }
+        if (parseInt(shares) <= 0) {
+            shares = 1;
+            showError("投资份数必须大于0");
+            $(this).val("投资 " + 1 + " 份");
+        }
+        calcMoney();
+    });
+    //出借份数框事件
+    $("#InvestShares")[0].oninput = function() {
+        var shares = $(this).val();
+        if(shares.indexOf("投资") > -1)
+            $(this).val(shares.replace("投资 ", "").replace(" 份", ""));
+        if (isNaN(shares)) {
+            showError("投资份数必须是数字");
+            $(this).val("1");
+            calcMoney();
+            return false;
+        }
+        if(shares == ""){
+        	$("#InvestMinus").removeClass('minus-onInp');
+            return false;
+        }else{
+        	$("#InvestMinus").addClass('minus-onInp');
+        }
+    if(shares.indexOf(".") > -1)
+        shares = parseInt(shares).toFixed(0);
+    if (parseInt(shares) > parseInt(aviShares)) {
+        shares = parseInt(aviShares).toFixed(0);
+        $(this).val(parseInt(aviShares).toFixed(0));
+    }
+        
+    if (parseInt(shares) <= 0) {
+        showError("投资份数必须大于0");
+        shares = 1;
+        $(this).val("1");
+      }
+     calcMoney();
+ };
+    //出借份数框获取焦点事件
+    $("#InvestShares").bind("focus", function () {
+        var shares = $(this).val();
+        if (shares.indexOf("投资") > -1)
+            $(this).val(shares.replace("投资 ","").replace(" 份",""));
+    });
+    //减号点击事件
+    $("#InvestMinus").bind("click", function() {
+        sharesMinus();
+    });
+    //加号点击事件
+    $("#InvestAdd").bind("click", function () {
+        sharesAdd();
+    });
+    //马上投资点击事件
+    $("#btnSubmit").bind("click", function() {
+        if ("" == $("#InvestShares").val()) {
+            $("#InvestShares").focus();
+            showError("请输入投资份数");
+            return false;
+        }
+        var shares = $("#InvestShares").val();
+        if (shares.indexOf("投资") > -1)
+            shares = shares.replace("投资 ", "").replace(" 份", "");
+        var nowUnit = shares;
+        if (parseInt(nowUnit) < 1) {
+            nowUnit = 1;
+        }
+        if ('' == nowUnit) {
+            nowUnit = jsonData.MaxUnit;
+        } else {
+            nowUnit = parseInt(nowUnit);
+        }
+        //判断是否可投新手标
+        //if (isNewHandProject == 1 && isLogin==1 && parseFloat(NewHandRate) == 0) {
+        //    showError("新手标仅限未成功投资过的用户！");
+        //    return false;
+        //} 
+        try {
+            //-------存管通验证---2016-11-17----
+            if (isOpenCgtSub == "1" && !checkIsOpen())
+                return false;
+            //-------存管通验证结束----------
+        } catch (e) {
+
+        }
+
+        if (isLogin == 0) {
+            //$("#invest_login").removeClass("hide");
+            //$("#invest_login").addClass("moveToTop");
+            //$("#invest_login").removeClass("moveToBottom");
+            //$("#txtInvestType").val("project");
+            window.location.href = "/user/login.aspx?ReturnUrl=" + window.location.href;
+        } else if (isRisk) {
+            var prizeId = $("#redValue").attr("prizeid"); 
+            var goUrl = "/Member/Bank/invest_confirm.aspx?payMoney=" + parseInt(nowUnit) * parseFloat(LowerUnit) + "&projectid=" + projectId
+                        + "&unit=" + nowUnit + "&backurl=" + backurl + "&investType=project&profitMoney=" + $("#ProfitMoney").html().replace("￥", "")
+                        + "&PrizeId=" + prizeId + "&PrizeName=" + $("#redValue").text();
+            window.location.href = goUrl;
+        } else {
+            if ($.isFunction($("body").showMessage)) {
+                $("body").showMessage({
+                    message: "请先完善存管账户信息！", showCancel: true, okString: "马上完善", cancelString: "取消",
+                    okbtnEvent: function () {
+                        window.location.href = "/Member/safety/pre_invest.aspx";
+                    }
+                });
+            } else {
+                alert("请先完善存管账户信息！");
+                window.location.href = "/Member/safety/pre_invest.aspx";
+            }
+        }
+    });     
+});
+
+
+//减号操作
+function sharesMinus() {
+    if (isZqzr) {
+        return false;
+    }
+    var shares = $("#InvestShares").val();
+    if (shares == "") {
+        $("#InvestShares").val("投资 1 份");
+    } else {
+        if (shares.indexOf("投资") > -1) {
+            shares = shares.replace("投资 ", "").replace(" 份", "");
+            if (shares == "1")
+                return false;
+            $("#InvestShares").val("投资 " + (parseInt(shares) - 1) + " 份");
+        }
+    }
+    calcMoney();
+};
+//加号操作
+function sharesAdd() {
+    if (isZqzr) {
+        return false;
+    }
+    var shares = $("#InvestShares").val();
+    if (shares == "") {
+        $("#InvestShares").val("投资 1 份");
+    } else {
+        if (shares.indexOf("投资") > -1) {
+            shares = shares.replace("投资 ", "").replace(" 份", "");
+            if (parseInt(shares) >= parseInt(aviShares)) {
+                shares = parseInt(aviShares).toFixed(0);
+                return false;
+            } else
+                $("#InvestShares").val("投资 " + (parseInt(shares) + 1) + " 份");
+        }
+    }
+    calcMoney();
+};
+
+//计算收益和投资总额
+function calcMoney_old() {
+    var shares = $("#InvestShares").val();
+    if (shares.indexOf("投资") > -1) {
+        shares = shares.replace("投资 ", "").replace(" 份", "");
+    }
+    if (shares == "" || parseInt(shares) <= 0)
+        return;
+    var totalInvest = fmoney(parseInt(shares) * parseFloat(LowerUnit), 2);
+    $("#TotalMoney").html(totalInvest);
+    $("#TotalMoney2").html("￥" + totalInvest);
+
+    nowUnit = shares;
+    var profit = 0;
+    var type = parseInt(jsonData.ProjectType);
+    profit = parseFloat(parseFloat(LowerUnit) * parseInt(nowUnit) * parseInt(jsonData.Deadline) * parseFloat(jsonData.InterestRate) / 100 / deadLine);
+
+    if (type == 15 || isNewHandProject == "1") { //分期宝,新手标的奖励
+        profit = GetInterestAmount((parseInt(nowUnit) * parseFloat(LowerUnit)), parseInt(jsonData.RepaymentType), parseInt(jsonData.Deadline), parseFloat(jsonData.InterestRate));
+        var RewardRate = parseFloat(jsonData.PublisherRate) + parseFloat(jsonData.TuandaiRate) + parseFloat(NewHandRate);
+        RewardAmount = GetInterestAmount((parseInt(nowUnit) * parseFloat(LowerUnit)), parseInt(jsonData.RepaymentType), parseInt(jsonData.Deadline), RewardRate);
+    }
+    profit = parseFloat(profit) + (nowUnit >= 1 ? parseFloat(RewardAmount) : 0);
+    var expectedM = Math.floor(Number(profit) * 100) / 100;
+    if (!isSmbFloat)
+        $("#ProfitMoney").html("￥" + fmoney(expectedM, 2));
+};
+function calcMoney() {
+    var shares = $("#InvestShares").val();
+    if (shares.indexOf("投资") > -1) {
+        shares = shares.replace("投资 ", "").replace(" 份", "");
+    }
+    if (shares == "" || parseInt(shares) <= 0)
+        return;
+    var totalInvest = fmoney(parseInt(shares) * parseFloat(LowerUnit), 2);
+    $("#TotalMoney").html(totalInvest);
+    $("#TotalMoney2").html("￥" + totalInvest);
+
+    nowUnit = shares;
+    var deadline = 0;
+    var Profit = 0;
+    var type = parseInt(jsonData.ProjectType);
+    if (type == 99) {
+        deadline = parseInt(jsonData.Deadline);
+        var interestAmountDeadLime = (parseInt(nowUnit) * parseFloat(LowerUnit)) * parseFloat(jsonData.InterestRate) * 0.01 / 365 * deadline;
+        Profit = Math.floor(Number(interestAmountDeadLime) * 100) / 100;
+    } else {
+        deadline = parseInt(jsonData.Deadline);
+        Profit = GetInterestAmount((parseInt(nowUnit) * parseFloat(LowerUnit)), parseInt(jsonData.RepaymentType), deadline, parseFloat(jsonData.InterestRate));
+    }
+
+    var RewardAmount = parseFloat(RewardAmount * nowUnit); //团贷或借款人奖励金额
+    if (isNaN(RewardAmount)) {
+        RewardAmount = 0;
+    }
+
+    if (type == 15 || type == 20 || NewHandRate > 0) { //分期宝及供应链的奖励
+        var RewardRate = parseFloat(jsonData.PublisherRate) + parseFloat(jsonData.TuandaiRate);
+        if (NewHandRate > 0)
+            RewardRate += NewHandRate;
+        RewardAmount = GetInterestAmount((parseInt(nowUnit) * parseFloat(LowerUnit)), parseInt(jsonData.RepaymentType), deadline, RewardRate);
+    }
+
+    Profit = parseFloat(Profit) + parseFloat(RewardAmount);
+    if (!isSmbFloat)
+        $("#ProfitMoney").html("￥" + fmoney((Math.floor(Number(Profit) * 100) / 100).toString()));
+}
+
+
+//错误提示
+function showError(msg) {
+    $("#pay-tips p").html(msg);
+    $("#pay-tips").removeClass('opacity0').removeClass('scaleX0').addClass('scaleX1');
+    setTimeout(function () {
+        $("#pay-tips").find('p').fadeIn(240);
+    }, 240);
+    setTimeout(function () {
+        $("#pay-tips").find('p').fadeOut(240);
+    }, 2000);
+    setTimeout(function () {
+        $("#pay-tips").removeClass('scaleX1').addClass('scaleX0');
+    }, 2240);
+    setTimeout(function () {
+        $("#pay-tips").addClass('opacity0');
+    }, 2480);
+}
+/*
+aaron
+2015/03/16
+计算预计收益
+还款方式：0:不确定还款方式1:到期还本息2.每月付息到期还本3.每月等本等息4:先息后本5.每月等额本息6.满标付息7.等额本金
+amount          申购金额
+repaymentType   还款方式
+deadline        还款期限
+interestRate    申购利率
+*/
+function GetInterestAmount(amount, repaymentType, deadline, interestRate) {
+    var interestAmount = 0.00;
+    if (amount == "" || amount == "0" || repaymentType == "" || repaymentType == "0" || deadline == "" || deadline == "0" || interestRate == "" || interestRate == "0")
+        return interestAmount;
+    switch (repaymentType) {
+        case 1:
+        case 2:
+        case 3:
+            {
+                var _deadLine = 12.00; 
+                if (deadType == 2) {
+                    _deadLine = 365;
+                }
+                interestAmount = amount * interestRate * 0.01 / _deadLine * deadline;
+                interestAmount = Math.floor(Number(interestAmount) * 100) / 100;
+                break;
+            }
+        case 5:
+            {
+                if (deadType == "2" && deadline >= 60) {
+                    deadline = deadline / 30
+                }
+                var _deadLine = 12.00;
+                var monthRate = interestRate * 0.010000000000 / _deadLine;
+                var tempAmount = 0.00, tempInterestAmount = 0.00, tempAmountAndInterest = 0.00, totalInterest = 0.00, totalAmount = 0.00;
+                var index = 1;
+                while (index <= deadline) {
+                    tempAmount = Number(amount * monthRate * Math.pow(1 + monthRate, index - 1) / (Math.pow(1 + monthRate, deadline) - 1)).toFixed(4);
+                    tempAmountAndInterest = Number(amount * monthRate * Math.pow(1 + monthRate, deadline) / (Math.pow(1 + monthRate, deadline) - 1)).toFixed(4);
+                    tempInterestAmount = Number(tempAmountAndInterest - tempAmount).toFixed(4);
+                    if (index == deadline) {
+                        tempAmount = Number(amount) - Number(totalAmount);
+                        tempInterestAmount = Number(tempAmountAndInterest - tempAmount);
+                    }
+                    totalInterest += Number(tempInterestAmount);
+                    totalAmount += Number(tempAmount);
+                    index++;
+                }
+
+                interestAmount = Math.floor(Number(totalInterest) * 100) / 100;
+                break;
+            }
+        case 6:
+            {
+                interestAmount = amount * interestRate * 0.01 / 360 * deadline;
+                interestAmount = Math.floor(Number(interestAmount) * 100) / 100;
+                break;
+            }
+        default:
+            {
+                interestAmount = amount * interestRate * 0.01 / 12 * deadline;
+                interestAmount = Math.floor(Number(interestAmount) * 100) / 100;
+                break;
+            }
+    }
+    return interestAmount;
+}
+
+//限制只能输入数字(不可以含有小数)
+function limitInt(fn) {
+    jQuery(fn).keydown(function (e) {
+        // 注意此处不要用keypress方法，否则不能禁用　Ctrl+V 与　Ctrl+V,具体原因请自行查找keyPress与keyDown区分，十分重要，请细查
+        if (((e.keyCode > 47) && (e.keyCode < 58)) || (e.keyCode == 9) || (e.keyCode == 8) || ((e.keyCode >= 96) && (e.keyCode <= 105))) {// 判断键值
+            return true;
+        } else {
+            return false;
+        }
+    }).focus(function () {
+        this.style.imeMode = 'disabled';   // 禁用输入法,禁止输入中文字符
+    });
+};
+ 

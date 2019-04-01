@@ -1,0 +1,231 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using TuanDai.PortalSystem.BLL;
+using TuanDai.PortalSystem.Model;
+using Tool;
+using System.Text; 
+using System.IO;
+using Dapper;
+
+namespace TuanDai.WXApiWeb.Member.UserPrize
+{
+    public partial class jiaxiquan : UserPage
+    {
+        private int pagesize = 10;
+        private int totalItemCount = 0;
+        Guid UserId = WebUserAuth.UserId.Value;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string action = WEBRequest.GetQueryString("action");
+            if (action == "GetRateCoupon")
+            {
+                GetRateCoupon();
+            }
+        }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public static List<RateCoupon> RateCouponList(Guid UserId, int pageIndex, int pageSize, string orderField, string orderType,
+            int isUsed, out int totalItemCount)
+        {
+            List<RateCoupon> list = new List<RateCoupon>();
+            totalItemCount = 0;
+
+            string historyDate = ConfigHelper.getConfigString("UserPrizeHistory");
+
+            DynamicParameters paras = new DynamicParameters();
+            paras.Add("@userId", UserId);
+            paras.Add("@historyDate", historyDate.IsEmpty() ? DateTime.Today.AddMonths(-2).ToString("yyyy-MM-dd") : historyDate);
+
+            string sqlCount = "SELECT COUNT(0) FROM UserPrize WITH(NOLOCK) WHERE UserId=@userId AND TypeId=18 ";
+            string sqlText =
+                @"SELECT a.Id ,a.UserId ,a.PrizeName ,a.IsReceive ,a.Description ,a.IsUsed ,a.SourceFrom,a.ExpirationDate, a.ReceiveEndDate,a.PrizeValue,a.ReceiveDate,a.CreateDate FROM(" +
+                "SELECT ROW_NUMBER() OVER(ORDER BY {0}) RowNum,r.* FROM UserPrize r WITH(NOLOCK) " +
+                "WHERE r.UserId=@userId AND r.TypeId=18 ";
+
+
+            if (isUsed == 1)//可使用
+            {
+                sqlText += " AND (r.IsUsed =0 AND Isnull(r.ExpirationDate,getDate()+1) > GETDATE()) ";
+                sqlCount += " AND (IsUsed =0 AND Isnull(ExpirationDate,getDate()+1) > GETDATE())";
+            }
+            else if (isUsed == 2)//已失效
+            {
+                sqlText += " AND ((r.IsUsed =0 AND Isnull(r.ExpirationDate,getDate()+1) < GETDATE()) OR (r.IsUsed != 0)) ";
+                sqlCount += " AND ((IsUsed =0 AND Isnull(ExpirationDate,getDate()+1) < GETDATE()) OR (IsUsed != 0)) ";
+            }
+            sqlText += ")a  WHERE a.RowNum >" + (pageIndex - 1) * pageSize + " AND a.RowNum<=" + (pageIndex * pageSize);
+
+
+            sqlText = string.Format(sqlText, " r." + orderField + " " + orderType + " ");
+            totalItemCount = PublicConn.QuerySingle<int>(sqlCount, ref paras);
+            list = PublicConn.QueryBySql<RateCoupon>(sqlText, ref paras);
+
+            return list;
+        }
+
+        public void GetRateCoupon()
+        {
+            int pageindex = Tool.SafeConvert.ToInt32(WEBRequest.GetQueryString("Pageindex"), 1);
+            string orderField = Tool.SafeConvert.ToString(WEBRequest.GetQueryString("orderField"), "CreateDate");
+            string orderType = Tool.SafeConvert.ToString(WEBRequest.GetQueryString("orderType"), "desc");
+            int isUsed = Tool.SafeConvert.ToInt32(WEBRequest.GetQueryString("isUsed"), 1);
+            if (pageindex < 1)
+            {
+                pageindex = 1;
+            }
+            List<RateCoupon> list = RateCouponList(UserId, pageindex, pagesize,orderField,orderType,isUsed, out totalItemCount).ToList();
+
+
+            int pageCount = 1;
+            StringBuilder sb = new StringBuilder();
+            if (list != null && list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    if (item.IsUsed == 1)
+                    {
+                        item.IsUsed = 1;//已使用
+                    }
+                    else
+                    {
+                        if (item.IsReceive == 0 && item.ReceiveEndDate.HasValue && item.ReceiveEndDate < DateTime.Now)
+                        {
+                            item.IsUsed = 2; //领取已过期
+                        }
+                        if (item.IsReceive == 1 && item.ExpirationDate.HasValue && item.ExpirationDate < DateTime.Now)
+                            item.IsUsed = 2;//使用已过期
+                        if (item.IsUsed != 2 && item.ReceiveDate == null)
+                            item.IsUsed = 0; //未使用
+                    }
+                }
+                
+                pageCount = GetPageCount();
+
+                if (list.Count > 0)
+                {
+                    int index = 1;
+                    sb.Append("{\"result\":\"1\",\"pageCount\":\"" + pageCount + "\",\"list\":[");
+                    foreach (var item in list)
+                    {
+                        string ExpirationStr = "";
+                        string ReceiveDateStr = "";//领取过期时间
+                        string CreateDateStr = "";
+                        string DeadlineStr = "";
+                        CreateDateStr = string.Format("{0}获得", item.CreateDate.ToString("yyyy-MM-dd"));
+                        if (item.ExpirationDate.HasValue && DateTime.Now < item.ExpirationDate.Value)
+                        {
+                            ExpirationStr = "（"+MyDateTime.DateDiff(MyDateTime.DateDiffOption.Day, DateTime.Now, item.ExpirationDate.Value) + "天后到期）";
+                        }
+                        if (item.ExpirationDate.HasValue && DateTime.Now > item.ExpirationDate.Value)
+                        {
+                            ExpirationStr = string.Format("（{0}过期）", item.ExpirationDate.Value.ToString("yyyy-MM-dd"));
+                        }
+                        if (item.ReceiveEndDate.HasValue && DateTime.Now < item.ReceiveEndDate.Value)
+                        {
+                            ReceiveDateStr = string.Format("（领取时间剩{0}天）", MyDateTime.DateDiff(MyDateTime.DateDiffOption.Day, DateTime.Now, item.ReceiveEndDate.Value));
+                        }
+                        if (item.ReceiveDate.HasValue && item.ExpirationDate.HasValue)
+                        {
+                            ReceiveDateStr = string.Format("（{0}使用）", item.ReceiveDate.Value.ToString("yyyy-MM-dd"));
+                            DeadlineStr = string.Format("{0}~{1}", item.ReceiveDate.Value.ToString("yyyy-MM-dd"),
+                                item.ExpirationDate.Value.ToString("yyyy-MM-dd"));
+                        }
+                        sb.Append("{\"PrizeName\":\"" + item.PrizeName + "\",\"ExpirationStr\":\"" + ExpirationStr + "\",\"Description\":\"" + Tool.StringUtilily.Left(item.Description, 80)
+                                   + "\",\"IsUsed\":\"" + item.IsUsed + "\",\"PrizeValue\":\"" + item.PrizeValue + "\",\"Receive\":\"" + item.IsReceive
+                                   + "\",\"Id\":\"" + item.Id + "\",\"SourceFrom\":\"" + Tool.StringUtilily.Left(item.SourceFrom, 18)
+                                   + "\",\"ReceiveDateStr\":\"" + ReceiveDateStr + "\",\"CreateDateStr\":\"" + CreateDateStr + "\",\"DeadlineStr\":\"" + DeadlineStr
+                                   );
+                        if (index == list.Count())
+                        {
+                            sb.Append("\"}]}");
+                        }
+                        else
+                        {
+                            sb.Append("\"},");
+                        }
+                        index++;
+                    }
+                }
+                else
+                {
+                    sb.Append("{\"result\":\"0\",\"pageCount\":\"" + pageCount + "\"}");
+                }
+            }
+            else
+            {
+                sb.Append("{\"result\":\"0\",\"pageCount\":\"" + pageCount + "\"}");
+            }
+            this.Context.Response.Write(sb.ToString());
+            this.Context.Response.End();
+        }
+
+
+        /// <summary>
+        /// 得到页数
+        /// </summary>
+        /// <returns></returns>
+        public int GetPageCount()
+        {
+            double divide = totalItemCount / pagesize;
+            double floor = System.Math.Floor(divide);
+            if (totalItemCount % pagesize != 0)
+                floor++;
+            int pageCount = Convert.ToInt32(floor);//总页数
+            return pageCount;
+        }
+    }
+    /// <summary>
+    /// 加息券实体
+    /// </summary>
+    public class RateCoupon
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public Guid UserId { get; set; }
+        /// <summary>
+        /// 团宝箱名称
+        /// </summary>
+        public string PrizeName;
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Description;
+        /// <summary>
+        /// 来源
+        /// </summary>
+        public string SourceFrom;
+        /// <summary>
+        /// 是否使用
+        /// </summary>
+        public int IsUsed; 
+        /// <summary>
+        /// 是否接收
+        /// </summary>
+        public int IsReceive;
+        /// <summary>
+        /// 价值
+        /// </summary>
+        public decimal PrizeValue;
+        public DateTime? ReceiveEndDate { get; set; }
+        /// <summary>
+        /// 过期时间
+        /// </summary>
+        public DateTime? ExpirationDate { get; set; }
+        public DateTime? ReceiveDate { get; set; }
+
+        public DateTime CreateDate { get; set; }
+    }
+}

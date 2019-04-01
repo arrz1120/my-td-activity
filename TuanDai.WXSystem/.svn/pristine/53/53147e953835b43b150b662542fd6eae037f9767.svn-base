@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>加息券</title>
+<link rel="stylesheet" type="text/css" href="/css/global.css" />
+<link rel="stylesheet" type="text/css" href="/css/giftBox.css" /><!--团宝箱-->
+</head>
+<body class="bg-f1f3f5">
+<header class="headerMain">
+    <div class="header">
+        <div class="back" onclick="javascript:history.go(-1);">返回</div>
+        <h1 class="title">加息券</h1>
+        <div class="text"><a href="/html/account/box/prizeLog.html">获奖记录</a></div>
+    </div>
+    <div class="none"></div>
+</header>
+
+<!--排序筛选-->
+<div class="sort clearfix bg-fff pl20 pr20 pt10 pb10 pos-r">
+    <div class="lf w33p text-center f16px c-ffcf1f">获得时间
+        <div class="inline-block left-triangle">
+            <p><i class="triangle triangle-up-gray"></i></p>
+            <p><i class="triangle triangle-down-orange"></i></p>
+        </div>
+    </div>
+    <div class="lf w33p text-center f16px c-808080">失效时间<i class="triangle triangle-down-gray"></i></div>
+    <div class="lf w33p text-center f16px c-808080" id="sort">可使用<i class="triangle triangle-down-gray"></i></div>
+</div>
+
+
+<section class="ticket-con blue pos-r bg-fff">
+    <div class="get-wrap bg-fff pos-a animated">
+        <div class="get-con">
+            <div class="git-ticket">
+                <p class="c-ffffff pos-a"><span class="c-ffffff">+</span>1.5%<span>2016-05-05获得（23天后到期）</span></p>
+            </div>
+            <span class="bg-ffcf1f button but-g pos-a">领取</span>
+        </div>
+    </div>
+    <div class="ticket-d-wrap">
+        <div class="ticket-details pos-r">
+            <p class="c-212121">+1.5加息券<span>（查看详情）</span></p>
+            <p class="c-41bef0"><em class="c-41bef0">+</em>1.5<em class="c-41bef0">%</em><span class="c-41bef0">投资指定项目使用</span></p>
+            <p>2016-05-05获得（23天后到期）</p>
+        </div>
+    </div>
+    <span class="bg-ffcf1f button but-y pos-a">使用</span>
+</section>
+
+<section class="ticket-con blue pos-r bg-fff">
+    <div class="ticket-d-wrap">
+        <div class="ticket-details pos-r">
+            <p class="c-212121">+1.5加息券<span>（查看详情）</span></p>
+            <p class="c-41bef0"><em class="c-41bef0">+</em>1.5<em class="c-41bef0">%</em><span class="c-41bef0">投资指定项目使用</span></p>
+            <p>2016-05-05获得（23天后到期）</p>
+        </div>
+    </div>
+    <span class="bg-ffcf1f button but-y pos-a">使用</span>
+</section>
+
+<section class="ticket-con gray pos-r bg-fff">
+    <div class="ticket-d-wrap">
+        <div class="ticket-details pos-r">
+            <p class="c-212121">+1.5加息券<span>（查看详情）</span></p>
+            <p class="c-ababab"><em class="c-ababab">+</em>1.5<em class="c-ababab">%</em><span class="c-ababab">投资指定项目使用</span></p>
+            <p>2016-05-05获得（23天后到期）</p>
+        </div>
+    </div>
+    <span class="bg-d1d1d1 button but-n pos-a">已使用</span>
+</section>
+
+<section class="ticket-con gray pos-r bg-fff">
+    <div class="ticket-d-wrap">
+        <div class="ticket-details pos-r">
+            <p class="c-212121">+1.5加息券<span>（查看详情）</span></p>
+            <p class="c-ababab"><em class="c-ababab">+</em>1.5<em class="c-ababab">%</em><span class="c-ababab">投资指定项目使用</span></p>
+            <p>2016-05-05获得（23天后到期）</p>
+        </div>
+    </div>
+    <span class="bg-d1d1d1 button but-n pos-a">已过期</span>
+</section>
+
+
+<!--加息券说明-->
+<section class="alert webkit-box box-center hide">
+    <div class="bg-fff popup-con text-center pos-r">
+        <h3 class="c-212121 f17px text-center">红包说明</h3>
+        <p>来源：会员商城兑换商品。</p>
+        <p>期限：2016.05.10 - 2016.06.10</p>
+        <div class="pos-r text-des">
+            <p class="pos-a">说明：</p>
+            <p>12月18日当天投资“私募宝B类”“小微企业”“微团贷”“项目宝”可使用加息券。</p>
+        </div>
+        <a href="javascript:;" class="c-fcb700 f17px block bt-e6e6e6">我知道了</a>
+    </div>
+</section>
+
+
+<!--弹出的筛选遮罩层-->
+<div class="masker z-index10 pos-a hide" id="alert">
+    <div class="alert-record pl15 bt-e6e6e6">
+        <ul>
+            <li class="active bt-e6e6e6">可使用</li>
+            <li class="bt-e6e6e6">已失效</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/fastclick.js"></script>
+<script type="text/javascript">
+    $(".but-g").click(function(){
+        $(this).closest('.get-wrap').addClass('moveLeft');
+        $(this).hide();
+    });
+
+    function sort(){
+        var alert = $("#alert");
+        var box = alert.find('.alert-record');
+
+        $("#sort").click(function(){
+            alert.fadeIn(200);
+            box.slideDown(200);
+        });
+
+        box.find('li').click(function(){
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            alert.fadeOut(200);
+            box.slideUp(200);
+        })
+    }
+    sort();
+
+
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+.bkTop{height: 44px;padding-top: 10px;position: relative;background: #fff;z-index: 20002;}
+.bkTop .logo{display: block;width: 74px;height: 24px;margin-left: 15px;}
+.bkTop .top_right{width: 80px;height: 44px;position: absolute;right: 5px;top: 0;}
+.bkTop .top_right a{height: 44px;width: 40px;}
+.bkTop .top_right a.top_a2 span{display: block;width: 20px;height: 2px;background: #fab600;margin-bottom: 5px;}
+.bkTop .top_right a.top_a2 span:last-child{margin-bottom: 0;}
+.bkTop .top_right2 a.top_a2 span{background: #999;}
+
+footer{background: #fff;margin-top: 10px;}
+.ico_bot{background:url(/javaProject/imgs/baikedaohang/ico_bot.png?v=20161221) no-repeat;background-size:50px 371px;height:44px;width:44px;}
+.ico_bot1{background-position:0 -88px;}
+.ico_bot2{background-position:0 -132px;}
+.ico_bot3{background-position:0 0;}
+.ico_bot4{background-position:0 -44px;}
+.ico_close2{height:45px;width:45px;background-position:0 -176px;position: absolute;bottom: 30px;left: 50%;margin-left: -22px;}
+.gl_bot1{height:50px;width:50px;background-position:0 -221px;}
+.gl_bot2{height:50px;width:50px;background-position:0 -271px;}
+.gl_bot3{height:50px;width:50px;background-position:0 -321px;}
+.bottom{padding: 20px 0 14px 0;background: #f1f3f5;}
+.bot_link a{height: 13px;line-height: 13px;}
+.bot_link a:nth-child(2){border-left: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6;}
+
+.tagBox a{color: #999;height: 37px;line-height: 37px;margin-right: 30px;}
+.tagBox a.active{color: #fab600;border-bottom: 1px solid #fab600;}
+.normalAlert{position: absolute;top: 0;left: 0;width: 100%;min-height:100%;padding-bottom: 20px;background: #fff;z-index: 999999;}
+.alertClose1{display: block;width: 40px;height: 48px;background: url(/javaProject/imgs/images/icon/ico_close.png) center no-repeat;background-size: 14px 14px;}
+.gl_tit{height: 54px;}
+.gl_tit p{line-height: 54px;}
+.gl_tit i{-webkit-transform: rotateZ(90deg);-webkit-transition: all linear 0.3s;}
+.gl_bot p{margin-top: 9px;}
+.callUsCon{padding-top: 24%;}
+.normalAlert .logo{width: 74px;height: 24px;margin-left: 15px;display: block;}
+.lableBox2{padding: 5px 15px 20px 0;display: -webkit-box;-webkit-box-pack: justify;}
+.lableBox2 a{display: block;height: 30px;line-height: 30px;text-align: center;font-size: 13px;border: 1px solid #d9d9d9;border-radius: 20px;width: 27.7%;}
+.ico-r{display: block;position: absolute;right: 15px;top: 50%;margin-top: -7px;width: 8px;height: 14px;background: url(/javaProject/imgs/images/icon/ico2.png) no-repeat;background-size: 8px 14px;}
+
+.seo_ico{height:44px;width:44px;background:url(/javaProject/imgs/baikedaohang/seo_ico.png?v=20170329) no-repeat;background-size:44px 396px;margin: 0 auto;}
+.seo_ico7{background-position:0 0;}
+.seo_ico6{background-position:0 -44px;}
+.seo_ico9{background-position:0 -88px;}
+.seo_ico8{background-position:0 -132px;}
+.seo_ico5{background-position:0 -176px;}
+.seo_ico1{background-position:0 -220px;}
+.seo_ico2{background-position:0 -264px;}
+.seo_ico4{background-position:0 -308px;}
+.seo_ico3{background-position:0 -352px;}

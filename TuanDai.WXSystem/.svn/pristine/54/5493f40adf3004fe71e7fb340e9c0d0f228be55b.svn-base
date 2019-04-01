@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>资产总额</title>
+		<link rel="stylesheet" href="/wap/css/zichanzonge.css">
+		<script>
+			//动态算rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						// if (docEl.style.fontSize) return;
+						clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + "px";
+						if(document.body) {
+							document.body.style.fontSize = docEl.style.fontSize;
+						}
+					};
+				recalc();
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="top-box">
+				<p class="txt">我的派生总资产</p>
+				<p class="money">654,123<span>.89</span></p>
+			</div>
+			<div class="main">
+				<div class="tb-border">
+					<i></i>
+					<div class="lr-border">
+						<p>广东派生财富投资管理有限公司（简称“派生财富”-PAISHENG WEALTH），成立于2013年，注册资本1亿元。作为派生集团金融板块的重要布局，派生财富一直致力于为高净值客户提供优质、专业的综合财富管理服务。</p>
+					</div>
+				</div>
+				<div class="main-con">
+					<p class="title title1">个性化财富管理</p>
+					<p>派生财富将根据您的财务状况、家庭结构、风险偏好等因素，为您量身打造个性化的财富管理方案，并通过私募基金、信托、保险、全球配置等金融产品将管理方案深度专业实现。</p>
+					<img src="/wap/images/zichan/pic1.png" alt="">
+					<p class="title title2">信赖之选</p>
+					<p>自创立以来，派生财富始终坚持规范运作、稳健经营，依托专属基金管理和服务平台赢得了客户的持久信赖，并在客户的家庭保障、固收配置、财富传承、海外配置等方面逐渐形成了自己独特的核心竞争力。</p>
+				</div>
+
+				<div class="webkit-box icon-con">
+					<div class="box-flex1">
+						<i class="icon1"></i>
+						证监会核准<br />
+						基金销售机构
+					</div>
+					<div class="box-flex1">
+						<i class="icon2"></i>
+						合规基金发行<br/>
+						服务平台
+					</div>
+				</div>
+
+				<div class="b-txt">
+					派生财富，值得托付
+				</div>
+
+			</div>
+			<div class="btn-box">
+				<div class="webkit-box btn-con">
+					<div class="box-flex1">
+						<a href="" class="open">打开派生财富APP</a>
+					</div>
+					<div class="box-flex1">
+						<a href="" class="dl">下载派生财富APP</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--无法打开弹窗-->
+		<div class="alert webkit-box box-center" style="display: none">
+			<div class="alert-con">
+				<div class="alert-txt">
+					<span>无法打开？</span>
+					当前应用无法打开派生财富APP，</br>
+					建议您返回桌面手动打开派生财富APP。
+				</div>
+				<div class="btn-t-border">
+					<a href="" class="btn">知道了</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="/wap/js/lib/fastclick-jquery.js"></script>
+</html>

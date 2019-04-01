@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TuanDai.DB.MySql</name>
+    </assembly>
+    <members>
+        <member name="P:TuanDai.DB.MySql.CloseConnRequest.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:TuanDai.DB.MySql.CloseConnRequest.appname">
+            <summary>
+            应用程序名称
+            </summary>
+        </member>
+        <member name="M:TuanDai.DB.MySql.DBConfig.GetCon(System.String,System.String@)">
+            <summary>
+            获取DB连接字符串
+            </summary>
+            <param name="path"></param>
+            <param name="ErrorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TuanDai.DB.MySql.TuanDaiDB_MySql">
+            <summary>
+            团贷网连接数据库
+            </summary>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.Execute(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType},System.Boolean)">
+             <summary>
+             执行写操作-path(过期)
+             </summary>
+             <param name="path">路径</param>
+             <param name="sql">sql语句</param>
+             <param name="param">参数输入DynamicParameters,如果执行存储过程也可以传出参数</param>
+             <param name="commandtype">执行语句的类型(sql语句，存储过程)</param>
+            <param name="IsUseTran">是否使用事务</param>
+             <returns>返回影响的行数如果为０,可能有异常</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.Execute(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType},System.Boolean)">
+             <summary>
+             执行写操作-path
+             </summary>
+             <param name="appname">应用程序的名称</param>
+             <param name="path">路径</param>
+             <param name="sql">sql语句</param>
+             <param name="param">参数输入DynamicParameters,如果执行存储过程也可以传出参数</param>
+             <param name="commandtype">执行语句的类型(sql语句，存储过程)</param>
+            <param name="IsUseTran">是否使用事务</param>
+             <returns>返回影响的行数如果为０,可能有异常</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.ExecuteThrowException(System.String,System.String,Dapper.DynamicParameters@,System.String@,System.Nullable{System.Data.CommandType},System.Boolean)">
+             <summary>
+             执行写操作(抛出异常)-path
+             </summary>
+             <param name="path">地址</param>
+             <param name="sql">sql语句</param>
+             <param name="param">参数输入DynamicParameters,如果执行存储过程也可以传出参数</param>
+             <param name="ErrorMessage">异常</param>
+             <param name="commandtype">执行语句的类型(sql语句，存储过程)</param>
+            <param name="IsUseTran">是否使用事务</param>
+             <returns>返回影响的行数如果为０,可能有异常</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QueryFirst``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            执行单条查询-path(过期)
+            </summary>
+            <param name="path">地址</param>
+            <typeparam name="T">返回的实体</typeparam>
+            <param name="sql"></param>
+            <param name="parameter"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QueryFirst``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            执行单条查询-path
+            </summary>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <typeparam name="T">返回的实体</typeparam>
+            <param name="sql"></param>
+            <param name="parameter"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QueryFirstOrDefault``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            执行单条查询-path(过期)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QueryFirstOrDefault``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            执行单条查询-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.ExecuteScalar``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询第一行第一列-path(过期)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.ExecuteScalar``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询第一行第一列-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QuerySingle``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询单条-path(过期)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QuerySingle``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询单条-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QuerySingleOrDefault``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询单条-path(过期)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.QuerySingleOrDefault``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询单条-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回default(T)</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.Query``1(System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询列表(有缓存的List)-path(过期)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回null</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.Query``1(System.String,System.String,System.String,Dapper.DynamicParameters@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询列表(有缓存的List)-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="appname">应用程序的名称</param>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回null</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.Query``1(System.String,System.String,Dapper.DynamicParameters@,System.String@,System.Nullable{System.Data.CommandType})">
+            <summary>
+            查询列表(有缓存的List)-path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">地址</param>
+            <param name="sql"></param>
+            <param name="param"></param>
+            <param name="ErrorMessage">抛出异常</param>
+            <param name="commandType">执行语句的类型(sql语句，存储过程)</param>
+            <returns>如果有异常则返回null</returns>
+        </member>
+        <member name="M:TuanDai.DB.MySql.TuanDaiDB_MySql.CloseConnection(TuanDai.DB.MySql.CloseConnRequest)">
+            <summary>
+            关闭连接
+            </summary>
+            <param name="connRequest"></param>
+        </member>
+    </members>
+</doc>

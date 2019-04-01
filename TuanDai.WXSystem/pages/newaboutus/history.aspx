@@ -1,0 +1,217 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="history.aspx.cs" Inherits="TuanDai.WXApiWeb.pages.newaboutus.history" %>
+
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>关于我们</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v=<%=TuanDai.WXApiWeb.GlobalUtils.Version %>" /><!--base-->
+	<link rel="stylesheet" type="text/css" href="/css/swiper.3.1.7.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/aboutUs_v1.7.css?v=20160216"/>
+</head>
+<body class="bg-fbfbf9">
+<% if (strType != "mobileapp")
+   { %>
+ <%= this.GetNavStr()%>
+<header class="headerMain">
+  <div class="header">
+    <div class="back" onclick="javascript:window.location.href='/Index.aspx'">返回</div>
+    <h1 class="title">关于我们</h1>
+  </div>
+  <%= this.GetNavIcon()%>
+  <div class="none"></div>
+</header>
+ <%} %>
+	
+	<div class="swiper-container1 border-bottom" id="swiperNav">
+        <div class="swiper-wrapper">
+            <a href="aboutUs.aspx" class="swiper-slide f13px c-626262">
+            	团贷简介
+			</a>
+            <a href="shareholder.aspx" class="swiper-slide f13px c-626262">
+            	股东机构
+			</a>
+            <a href="partner.aspx" class="swiper-slide f13px c-626262">
+            	合作伙伴
+			</a>
+            <a href="safety.aspx" class="swiper-slide f13px c-626262">
+            	安全保障
+			</a>
+            <a href="javascript:void(0);" class="swiper-slide f13px c-626262 active">
+            	发展历程
+			</a>
+             <a href="certificate.aspx" class="swiper-slide f13px c-626262">
+              资质证书
+		    </a>
+            <a href="honor.aspx" class="swiper-slide f13px c-626262">
+                公司荣誉
+		    </a>
+		</div>	
+	</div>
+	
+	<!--发展历程-->
+	<div class="mt15 historyWrap bt-d1d1d1 bb-d1d1d1 bg-fff">
+		<ul>
+			<li>
+				<div class="history-year bb-e6e6e6 bb-e6e6e6">
+					<i class="icon-triagle-r" style="-webkit-transform:rotateZ(90deg)"></i>
+					<p>2015年</p>
+				</div>
+				<div class="history">
+					<div class="monthEvent">
+						<b><span>12</span>月</b>
+						<p class="f12px c-212121">12.18网贷爱心日活动圆满成功，单日交易金额达4.37亿元</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>11</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网获得由第六届互联网金融与支付创新大会颁发的“年度卓越P2P平台奖”</p>
+						<p class="f12px c-212121 pt5">团贷网全程赞助，并联手东方宾利和乐视直播打造大型青春励志真人秀《美少女大作战》</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>10</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网协办“赢在中国•寻找中国合伙人”广州站和成都站</p>
+						<p class="f12px c-212121 pt5">团贷网荣获“信用中国•2014-2015中国互联网金融最具竞争力十大诚信品牌”</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>09</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网携手阳光保险，打造更安全的生态系统</p>
+						<p class="f12px c-212121 pt5">团贷网联合股东九鼎投资、久奕投资等战略控股融金所</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>08</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">东莞政府高层频繁调研团贷网，市长勉励：团贷网要做好行业领头羊</p>
+						<p class="f12px c-212121 pt5">旗下子公司你我金融携手法大大，为投资者的权益保驾护航</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>07</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网在广东扶贫济困日暨东莞慈善日捐赠20万元</p>
+						<p class="f12px c-212121 pt5">团贷网5家分公司同时开业，全国战略布局进展顺利</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>06</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">B轮融资新闻发布会在上海举行，本次融资共计引入2亿元</p>
+						<p class="f12px c-212121 pt5">CEO唐军荣获“2015互联网金融年度最具影响力人物奖”</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>05</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">东莞市领导一行前来调研，表示将全力支持团贷网上市</p>
+						<p class="f12px c-212121 pt5">东莞市委书记、市人大主任徐建华等到团贷网考察，鼓励团贷网稳中求进，做大做强</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>04</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">第三届中国电子信息博览会暨CITE高峰论坛在深圳举行，你我金融荣获“2015创新产品与应用奖”</p>
+						<p class="f12px c-212121 pt5">全球全球移动互联网大会举行，移动社交APP“你我金融”备受追捧</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>03</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">签署全国首份《互联网金融企业保护消费者权益公约》</p>
+						<p class="f12px c-212121 pt5">团贷网协办“2015中国民间金融论坛”</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>02</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网首夺金蝉奖，获评“最具创新力互联网金融品牌”殊荣</p>
+						<p class="f12px c-212121 pt5">团贷网在东莞总部召开第二次客户见面会</p>
+					</div>
+					<div class="monthEvent pb30">
+						<b><span>01</span>月</b>
+						<p class="f12px c-212121 pb5 bb-dashed">团贷网荣膺“年度最受欢迎互联网金融平台”</p>
+						<p class="f12px c-212121 pt5">东莞市领导频繁调研团贷网，运营模式受肯定</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="history-year bb-e6e6e6 bb-e6e6e6">
+					<i class="icon-triagle-r"></i>
+					<p>2014年</p>
+				</div>
+				<div class="history hide">
+					<div class="monthEvent">
+						<b><span>06</span>月</b>
+						<p class="f12px c-212121">团贷网1000万独家冠名“赢在中国”</p>
+					</div>
+					<div class="monthEvent">
+						<b><span>05</span>月</b>
+						<p class="f12px c-212121">团贷网成功主办首届中国（东莞）互联网金融高峰论坛</p>
+					</div>
+					<div class="monthEvent pb30">
+						<b><span>01</span>月</b>
+						<p class="f12px c-212121">团贷网创始人唐军、张林取经阿里巴巴</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="history-year bb-e6e6e6 bb-e6e6e6">
+					<i class="icon-triagle-r"></i>
+					<p>2013年</p>
+				</div>
+				<div class="history hide">
+					<div class="monthEvent pb30">
+						<b><span>11</span>月</b>
+						<p class="f12px c-212121">团贷网完成股份制改革A轮融资1亿元人民币</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="history-year bb-e6e6e6 bb-e6e6e6">
+						<i class="icon-triagle-r"></i>
+						<p>2012年</p>
+				</div>
+				<div class="history hide">
+					<div class="monthEvent pb30">
+						<b><span>12</span>月</b>
+						<p class="f12px c-212121">团贷CEO唐军以213万成功拍得优米网“名人三小时”</p>
+				
+					</div>
+				</div>	
+			</li>
+			<li>
+				<div class="history-year">
+					<i class="icon-triagle-r"></i>
+					<p>2010年</p>
+				</div>
+				<div class="history bt-e6e6e6 hide">
+					<div class="monthEvent pb30">
+						<b><span>03</span>月</b>
+						<p class="f12px c-212121">唐军和张林创立俊特信贷咨询有限公司</p>
+					</div>	
+				</div>
+			</li>
+		</ul>
+	</div>
+
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/swiper.3.1.7.jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/base.js?v=20150623"></script>
+<script type="text/javascript">
+  	$(function () {
+		var swiperNav = new Swiper('#swiperNav', {
+				slidesPerView: 'auto',
+		        initialSlide:2,
+		        onSlideChangeStart:function(swiperNav){
+		        	if(swiperNav.activeIndex>0){
+		        		$(".opacityL").removeClass('hide');
+		        	}
+		        	else{
+		        		$(".opacityL").addClass('hide');
+		        	}
+		        }
+	   	});
+	   	
+	   	$(".historyWrap").find('li').click(function(){
+			var box = $(this).find('.history');
+			var ico =  $(this).find('.icon-triagle-r');
+			if(box.hasClass('hide')){
+				ico.css('-webkit-transform','rotateZ(90deg)');
+				box.removeClass('hide');
+			}else{
+				ico.css('-webkit-transform','rotateZ(0)');
+				box.addClass('hide');
+			}
+		})
+    });
+</script>
+</body>
+</html>
